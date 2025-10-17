@@ -5,26 +5,26 @@
 #
 all:	buchcover.jpg backcover.jpg front.jpg back.pdf
 
-buchcover.pdf:	buchcover.tex
+buchcover.pdf:	buchcover.tex teilnehmer.tex
 	pdflatex buchcover.tex
 
 buchcover.png:	buchcover.pdf  Makefile
-	convert -density 300 -extract 2054x2900+2630+190 buchcover.pdf \
+	magick -density 300 -extract 2054x2900+2630+190 buchcover.pdf \
 		buchcover.png
 buchcover.jpg:	buchcover.png
-	convert buchcover.png buchcover.jpg
+	magick buchcover.png buchcover.jpg
 buchcover-small.jpg:	buchcover.jpg
-	convert buchcover.jpg -scale 50% buchcover-small.jpg
+	magick buchcover.jpg -scale 50% buchcover-small.jpg
 backcover.png:	buchcover.pdf Makefile
-	convert -density 300 -extract 2054x2900+192+190 buchcover.pdf \
+	magick -density 300 -extract 2054x2900+192+190 buchcover.pdf \
 		backcover.png
 backcover.jpg:	backcover.png
-	convert backcover.png backcover.jpg
+	magick backcover.png backcover.jpg
 
 front.pdf:	front.tex buchcover.pdf
 	pdflatex front.tex
 front.jpg:	front.pdf
-	convert -density 150 front.pdf front.jpg
+	magick -density 150 front.pdf front.jpg
 
 back.pdf:	back.tex buchcover.pdf
 	pdflatex back.tex

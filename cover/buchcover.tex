@@ -81,66 +81,17 @@
 	{\hbox to\hsize{\hfill%
 	\sf \fontsize{13}{5}\selectfont Andreas Müller}};
 
+\def\teilnehmer#1#2{
+\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},{18.4-(#1)*0.65})
+        [color=white,scale=1]
+        {\hbox to\hsize{\hfill%
+        \sf \fontsize{13}{5}\selectfont
+        {#2}%
+        }};
+}
+
 \ifthenelse{\boolean{teilnehmer}}{
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},18.4)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	Orlando Ingram,
-	Cassandra Sutton,
-	Shelley Kim,
-	Israel Romero
-	}};
-
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},17.75)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	Charlie Mccoy,
-	Tabitha Moore,
-	Wendell Reynolds,
-	Marion Higgins
-	}};
-
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},17.1)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	Alexander Blake,
-	Kirk Rodriguez,
-	Caleb Mcdaniel,
-	Mack Rice
-	}};
- 
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},16.45)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	Nathan Stewart,
-	Kristi Cummings,
-	Dave Munoz,
-	Isaac Spencer
-	}};
-
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},15.8)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	Dwayne Ray
-	}};
-
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},15.15)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	}};
-
-\node at ({\einschlag+2*\gelenk+\ruecken+1.5*\breite},14.5)
-	[color=white,scale=1]
-	{\hbox to\hsize{\hfill%
-	\sf \fontsize{13}{5}\selectfont
-	}};
-
+\input{teilnehmer.tex}
 }{}
  
 %\node at (0,3) [color=white] {\sf \LARGE Mathematisches Seminar 2017};
