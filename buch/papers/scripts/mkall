@@ -1,0 +1,10 @@
+#
+# mkall -- run all the necessary scripts
+#
+# (c) 2024 Prof Dr Andreas Müller
+#
+
+bash scripts/mkbibresources
+bash scripts/mkmakefile
+bash scripts/mkpackages
+bash scripts/mkpapers

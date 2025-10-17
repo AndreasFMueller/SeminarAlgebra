@@ -1,0 +1,27 @@
+%
+% part1.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\begin{refsection}
+\input{chapters/vorwort.tex}
+\part{Grundlagen}
+
+\input{chapters/000-einleitung/chapter.tex}
+
+% more chapters
+
+%\begin{appendices}
+%\end{appendices}
+\vfill
+\pagebreak
+
+\ifodd\value{page}\else\null\clearpage\fi
+\kopflinks{Literatur}
+\kopfrechts{}
+\printbibliography[heading=subbibliography]
+\label{buch:literatur}
+
+\end{refsection}
+
+
