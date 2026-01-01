@@ -9,3 +9,8 @@ CHAPTERFILES = 								\
 	chapters/vorwort.tex
 
 include chapters/000-einleitung/Makefile.inc
+include chapters/010-komplex/Makefile.inc
+include chapters/020-holomorph/Makefile.inc
+include chapters/030-integration/Makefile.inc
+include chapters/040-analytisch/Makefile.inc
+include chapters/050-differentialgleichungen/Makefile.inc
