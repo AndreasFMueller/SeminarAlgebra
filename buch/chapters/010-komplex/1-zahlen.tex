@@ -6,11 +6,1626 @@
 \section{Komplexe Zahlen
 \label{buch:kmoplex:section:zahlen}}
 \kopfrechts{Komplexe Zahlen}
+Die Lösungsformel für die quadratische Gleichung
+\begin{equation}
+x^2 + q = px
+\qquad\text{oder}\qquad
+x^2 - px + q = 0
+\label{buch:komplex:zahlen:eqn:qeq}
+\end{equation}
+war bereits in babylonischer Zeit etwa 2000 BC bekannt.
+Auf Keilschrifttafeln aus der dritten Dynastie von Ur findet man den
+folgenden Algorithus:
+\begin{enumerate}
+\item Berechne die Hälfte von $p$: $\displaystyle\frac{p}{2}$.
+\item Quadriere das Resultat: $\displaystyle\biggl(\frac{p}{2}\biggr)^2$.
+\item Subtrahiere $q$: $\displaystyle\biggl(\frac{p}2\biggr)^2-q$.
+\item Finde die (positive) Quadratwurzel mithilfe einer Tabelle von
+Quadratzahlen:
+\[
+\!\sqrt{\rlap{\phantom{\bigg|}}\smash{\biggl(\frac{p}2\biggr)^2-q}}.
+\]
+\item Addiere die Resultate der Schritte 1 und 4:
+$\displaystyle\frac{p}2+\!\sqrt{\rlap{\phantom{\bigg|}}\smash{\biggl(\frac{p}2\biggr)^2-q}}$.
+\end{enumerate}
+Der Algorithmus trägt sowohl in der
+Formulierung~\eqref{buch:komplex:zahlen:eqn:qeq}
+wie auch in der Durchführung der Tatsache Rechnung, dass die
+Babylonier die negativen Zahlen noch nicht kannten.
+Vor allem im Schritt 4 wird deutlich, dass nur positive Quadratwurzeln
+in Betracht gezogen wurden.
+Dies hat zur Folge, dass der Algorithmus nur eine Lösung finden kann,
+selbst wenn wie im Falle der Gleichung
+\begin{equation}
+x^2 + 3 = 4x
+\qquad
+\Rightarrow
+\qquad
+p=4,\;q=3
+\label{buch:komplex:zahlen:eqn:qepos}
+\end{equation}
+zwei positive, ganzzahlige Lösungen existieren.
+Im Falle der Gleichung~\eqref{buch:komplex:zahlen:eqn:qepos}
+ergibt der Algorithmus
+\begin{align*}
+x
+&=
+\frac{p}2
++
+\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}{2}\biggr)^2-q}}
+=
+\frac{4}{2}
++
+\!\sqrt{\rlap{$\phantom{\biggl|}$}\smash{\biggl(\frac{4}{2}\biggr)^2-3}}
+=
+2
++
+\!\sqrt{2^2-3}
+=
+2
++
+\!\sqrt{1}
+=
+3.
+\end{align*}
+Die moderne Lösungsformel liefert dagegen die zwei Lösungen
+\begin{align*}
+x_\pm
+&=
+\frac{p}2
+\pm
+\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}{2}\biggr)^2-q}}
+=
+\frac{4}{2}
+\pm
+\!\sqrt{\rlap{$\phantom{\biggl|}$}\smash{\biggl(\frac{4}{2}\biggr)^2-3}}
+=
+2\pm1
+=
+\begin{cases}
+3\\
+1.
+\end{cases}
+\end{align*}
+Beide Lösung erfüllen ganz offensichtlich die ursprüngliche
+Gleichung
+\begin{align*}
+x_+^2 + 3 &= 4x_+
+&&\Leftrightarrow&
+3^2 + 3 &= 4\cdot 3
+&&\Leftrightarrow&
+12&=12,
+\\
+x_-^2 + 3 &= 4x_-
+&&\Leftrightarrow&
+1^2 + 3 &= 4\cdot 1
+&&\Leftrightarrow&
+4&=4,
+\end{align*}
+auch wenn die zweite Lösung nicht vom Algorithmus gefunden werden kann.
 
+In Schritt~4 wird verlangt, dass die Quadratwurzel mithilfe einer
+Tabelle von Quadratzahlen gefunden werden muss.
+Es können also nur Lösungen gefunden werden, für die die Quadratwurzel
+im Schritt~4 eine in babylonischer Zeit bekannte Zahl ergab, also
+im kompliziertesten Fall ein Bruch oder, wie wir heute sagen würden,
+eine rationale Zahl.
+Die Gleichung
+\begin{align}
+x^2 + 4x &= 2
+&&\Rightarrow&
+p&=4,\; q=2
+&&\Rightarrow&
+x
+&=
+\frac{p}{2}
++
+\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}2\biggr)^2-q}}
+\label{buch:komplex:zahlen:eqn:qeunloesbar}
+\\
+&&&&&&&&
+&=
+\frac{4}{2}
++
+\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{4}2\biggr)^2-2}}
+\notag
+\\
+&&&&&&&&
+&=
+2
++
+\!\sqrt{2^2-2}
+=
+2
++
+\!\sqrt{2}
+\notag
+\end{align}
+Die Zahl $2$ kommt in keiner Tabelle von Quadratzahlen vor.
+Die Gleichung~\eqref{buch:komplex:zahlen:eqn:qeunloesbar} ist daher für die
+babylonische Mathematik unlösbar.
+
+Die moderne Mathematik muss also das Problem lösen, den zur Verfügung
+stehenden Zahlenbereich so zu erweitern, dass Gleichungen
+wie \eqref{buch:komplex:zahlen:eqn:qeunloesbar} lösbar sind.
+Die genauere Inspektion der ursprünglichen
+Gleichung~\eqref{buch:komplex:zahlen:eqn:qeq} fördert noch
+weitere Schwierigkeiten des Lösungsalgorithmus zu Tage, zum Beispiel
+den Fall $p=0$, $q=1$, der auf die Lösung $x=\sqrt{-1}$ führt.
+in diesem Abschnitt sollen daher Techniken entwickelt werden, wie die
+rationalen Zahlen so erweitert werden können, dass beliebige polynomiale
+Gleichungen gelöst werden können.
+
+%
+% Erweiterungen von Q
+%
+\subsection{Erweiterungen von $\mathbb{Q}$}
+Schon im Altertum war bekannt, dass die Quadratwurzel $\!\sqrt{2}$ von 
+$2$ nicht rational ist.
+Diese Entdeckung, die normalerweise den Pythatgoreern zugeschrieben wird,
+widersprach der verbreiteten Ansicht, dass sich alle Zahlen durch
+Brüche ausdrücken lassen.
+In diesem Abschnitt werden zwei Konstruktionen betrachtet, mit denen
+sich eine Erweiterung von $\mathbb{Q}$ finden lässt, die $\!\sqrt{2}$
+enthält.
+
+%
+% Die reellen Zahlen
+%
+\subsubsection{Die reellen Zahlen}
+Die Quadratwurzel $\!\sqrt{2}$ ist bei weitem nicht die einzige irrationale
+Zahl.
+Jede ganze Zahl, deren Primfaktorzerlegung einen Primfaktor in ungerader
+Anzahl enthält, hat eine irrationale Quadratwurzel.
+Auch für viele kubische Wurzeln, die eulersche Zahl $e$ oder die
+Kreiszahl $\pi$ lassen sich gute Approximationen durch Brüche geben.
+Leonhard Euler hat beretis 1737 bewiesen, dass $e$ irrational ist.
+Für $\pi$ ist dies erst Johann Heinrich Lambert 1761 gelungen.
+Diese Beispiele deuten darauf hin, dass es eine grosse Menge von
+Zahlen gibt, die beliebig genau durch Brüche approximiert werden
+können, aber trotzdem keine Brüche sind.
+
+Das Problem kann gelöst werden, indem man eine Menge $\mathbb{R}$ von
+Zahlen definiert, die beliebig genau durch Brüche approximiert werden
+können.
+Dabei muss aber auch berücksichtigt werden, dass eine solche Zahl
+verschiedene Approximationen haben kann.
+Zum Beispiel kann $\pi$ sowohl durch Dezimalbrüche
+\[
+3
+, 3.1
+, 3.14
+, 3.141
+, 3.1415
+, 3.14159
+, 3.141592
+, 3.1415926
+, 3.14159265
+%, 3.141592659
+%, 3.1415926592
+%, 3.14159265926
+\to
+\pi
+\]
+als auch durch die Kettenbruchentwicklung
+\[
+\frac{3}{1}
+\approx
+3.{\color{gray}00},
+\frac{22}{7} \approx 3.14{\color{gray}28},
+\frac{333}{106}\approx 3.1415{\color{gray}09},
+\frac{355}{113}\approx 3.141592{\color{gray}92}
+\to
+\pi
+\]
+approximiert werden.
+Es reicht daher nicht, eine Approximation zu haben.
+Es wird ausserdem ein Kriterium benötigt, mit welchem man entscheiden
+kann, ob zwei Approximationen die gleiche Zahl approximieren.
+
+\begin{definition}[Cauchy-Folge]
+Eine Folge $(a_n)_{n\in\mathbb{N}}$ von Zahlen $a_n\in\mathbb{Q}$ heisst
+\emph{Cauchy-Folge}, wenn für jedes $\varepsilon>0$ ein $N\in\mathbb{N}$
+\index{Cauchy-Folge}%
+gibt derart, dass
+\[
+|a_n-a_m| < \varepsilon
+\]
+für alle $m,n> N$ gilt.
+\end{definition}
+
+Die Dezimalbruchapproximation von $\pi$ ist eine Cauchyfolge.
+Sei $a_n$ der endliche Dezimalbruch mit $n$ Nachkommastellen, die
+mit der Dezimalbruchentwicklung übereinstimmen.
+Dann ist
+$a_n-a_m$ ein Dezimalbruch, dessen erste $\min(n,m)$ Nachkommastellen
+$0$ sind.
+Insbesondere ist
+\[
+|a_n-a_m| < 10^{-\min(n,m)}.
+\]
+Sei also $\varepsilon>0$ gegeben und $N\in\mathbb{N}$ derart,
+dass $10^{-N}<\varepsilon$.
+Falls $n,m>N$ sind, folgt
+\[
+|a_n-a_m|
+<
+10^{-\min(n,m)}
+<
+10^{-N}
+<
+\varepsilon.
+\]
+Damit ist gezeigt, dass $(a_n)_{n\in\mathbb{N}}$ eine Cauchy-Folge ist.
+
+Periodische Dezimalbrüche konvergieren gegen rationale Zahlen im Sinne
+der folgenden Definition.
+
+\begin{definition}[konvergente Folge]
+Eine Cauchy-Folge $(a_n)_{n\in\mathbb{N}}$ konvergiert gegen $a\in\mathbb{Q}$,
+auch geschrieben als
+\[
+\lim_{n\to\infty} a_n = a
+\qquad\text{oder}\qquad
+a_n\to a,
+\]
+wenn für jedes $\varepsilon>0$ ein $N\in\mathbb{N}$ existiert derart, dass
+\[
+|a_n-a|<\varepsilon
+\]
+für $n>N$.
+\end{definition}
+
+Nicht jede Cauchy-Folge konvergiert gegen eine rationale Zahl.
+Die Approximationsfolge von $\!\sqrt{2}$ ist eine Cauchy-Folge, die nicht
+konvergiert.
+
+Mit Cauchy-Folgen kann man auch Rechnen.
+In der Analysis wird der folgende Satz bewiesen.
+
+\begin{satz}
+Seien $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ Cauchy-Folgen.
+Dann sind $(a_n+b_n)_{n\in\mathbb{N}}$, $(a_n-b_n)_{n\in\mathbb{N}}$ 
+und $(a_nb_n)_{n\in\mathbb{N}}$ Cauchy-Folgen.
+Falls $a_n\to a$ und $b_n\to b$, dann gilt auch
+$a_n\pm b_n\to a\pm b$ und $a_nb_n\to ab$.
+Falls $b\ne 0$ ist, ist auch $(a_n/b_n)_{n\in\mathbb{N}}$ ein Cauchy-Folge
+und $a_n/b_n \to a/b$.
+\end{satz}
+
+\begin{definition}[Nullfolge]
+Eine Cauchy-Folge $(a_n)_{n\in\mathbb{N}}$ heisst \emph{Nullfolge}, wenn
+sie gegen $0$ konvergiert.
+\index{Nullfolge}%
+\end{definition}
+
+Die Rechenoperationen und der Begriff einer Nullfolge ermöglichen jetzt,
+Cauchy-Folgen miteinander zu identifizieren, die den gleichen Grenzwert
+haben, selbst wenn dieser nicht eine rationale Zahl ist.
+
+\begin{definition}
+Zwei Cauchy-Folgen
+$(a_n)_{n\in\mathbb{N}}$
+und
+$(b_n)_{n\in\mathbb{N}}$
+heissen \emph{äquivalent}, in Zeichen $(a_n)\sim (b_n)$ wenn
+$(a_n-b_n)_{n\in\mathbb{N}}$ eine Nullfolge ist.
+\index{aquivalente@äquivalente Cauchy-Folgen}%
+\end{definition}
+
+Wenn zwei Cauchy-Folgen äquivalent sind, dann approximieren sie 
+die gleiche Zahl.
+Die gesuchte Erweiterung der Menge der rationalen Zahlen $\mathbb{Q}$
+besteht also aus Cauchy-Folgen von rationalen Zahlen, wobei jedoch
+äquivalente Folgen die gleiche Zahl repräsentieren.
+
+\begin{definition}[Äquivalenzklassen]
+Eine \emph{Äquivalenzklasse} $X$ der Äquivalenzrelation $\sim$ von
+Cauchy-Folgen ist eine Menge von äquivalenten Cauchy-Folgen.
+\end{definition}
+
+Zwei Cauchy-Folgen
+$(a_n)_{n\in\mathbb{N}}\in X$ 
+und
+$(b_n)_{n\in\mathbb{N}}\in X$ 
+in einer Äquivalenzklasse $X$ von rationalen Cauchy-Folgen unterscheiden
+sich nur durch eine Nullfolge, es gilt also
+\[
+\lim_{n\to\infty} (a_n-b_n) = 0.
+\]
+Die reellen Zahlen können jetzt als Äquivalenzklassen von Cauchy-Folgen
+definiert werden.
+
+\begin{definition}[Reelle Zahlen]
+Die Menge der reellen Zahlen $\mathbb{R}$ ist die Menge der Äquivalenzklassen
+von rationalen Cauchy-Folgen bezüglich der Äquivalenzrelation $\sim$.
+\end{definition}
+
+Diese Konstruktion zeigt, dass man mit reellen Zahlen rechnen kann, indem
+man geeignete Approximationen dafür verwendet.
+Welche Approximation verwendet wird, ist egal.
+Wenn die Approximationsfolgen äquivalent sind, unterscheiden sich auch
+Resultate von Rechnungen mit den Folgen durch Nullfolgen.
+Die reellen Zahlen enthalten nach Konstruktionen alle Quadratwurzeln
+und die Zahlen $e$ und $\pi$.
+Jede Gleichung, für deren Lösung eine Approximationsfolge existiert,
+kann daher in $\mathbb{R}$ auch gelöst werden.
+So kann man zum Beispiel die Lösung der Gleichung
+\[
+y = 1 + \frac1y
+\]
+dadurch approximieren, dass man die Folge $(y_n)_{n\in\mathbb{N}}$
+durch
+\[
+y_0 = 1,
+\quad
+y_{n+1} = 1 + \frac1{y_n}
+\]
+bildet.
+$(y_n)_{n\in\mathbb{N}}$ ist eine Cauchy-Folge, die gegen das Verhältnis
+$\varphi=(\!\sqrt{5}+1)/2$ des goldenen Schnittes konvergiert (siehe
+Abbildung~\ref{buch:komplex:zahlen:table:gold}, zweite Spalte).
+\input{chapters/010-komplex/fig/table-gold.tex}
+
+Approximationsfolgen für die Nullstellen einer Funktion $f(x)$ können
+zum Beispiel durch das Newton-Verfahren gefunden werden.
+Dazu wählt man eine Anfangsschätzung $x_0$ und bildet dann die 
+Folge
+\[
+x_{n+1}
+=
+x_n - \frac{f(x_n)}{f'(x_n)}.
+\]
+Falls $x_0$ genügend nahe bei einer Nullstelle $\hat{x}$ liegt, wird die
+Folge $(x_n)_{n\in\mathbb{N}}$ gegen die Nullstelle konvergieren:
+\[
+\lim_{n\to\infty} x_n
+=
+\hat{x}.
+\]
+Wendet man dies auf die Funktion $f(x)=x^2+1$ an, welche $f(x) \ge 1$
+für alle $x\in\mathbb{R}$ keine reelle Nullstelle hat, erhält man eine
+Folge, die keine Cauchy-Folge ist
+(Abbildung~\ref{buch:komplex:zahlen:table:gold}, dritte Spalte).
+Die Gleichung
+\begin{equation}
+x^2 + 1 = 0
+\qquad\Leftrightarrow\qquad
+x^2 = -1
+\end{equation}
+hat also keine Lösung, die mit einer Approximationsfolge gefunden werden
+kann.
+
+%
+% Algebraische Erweiterungen von Q
+%
+\subsubsection{Algebraische Erweiterungen von $\mathbb{Q}$}
+Die Vervollständigung der der rationalen Zahlen zu den reellen
+Zahlen stellt sicher, dass jede Cauchy-Folge einen Grenzwert hat.
+Sie führt aber zu einem neuen Problem, welches ein Hindernis für
+Computeralgebrasysteme wird.
+Da reelle Zahlen nur durch ihre Approximationen definiert sind,
+lässt sich damit grundsätzlich nur dann exakt rechnen, wenn auch
+noch eine alternative Charakterisierung zur Verfügung steht.
+Mit der Kreiszahl $\pi$ kann man nur desshalb exakt rechnen, weil
+sie die kleinste positive Nullstelle der Sinusfunktion ist.
+
+Für die Quadratwurzel $\!\sqrt{2}$, die früher als erstes Beispiel
+einer irrationalen Zahl in den Vordergrund gestellt wurde, gibt
+es eine solche alternative Charakterisierung.
+Beim algebraischen Rechnen mit $\!\sqrt{2}$ verwendet man fast
+instinktiv die Beziehung $(\!\sqrt{2})^2=2$, zum Beispiel
+beim Ausmultiplizieren von
+\[
+(\!\sqrt{2}+1)^2
+=
+(\!\sqrt{2})^2
++2\!\sqrt{2}\cdot 1 
++ 1^2
+=
+2 + 2\!\sqrt{2} + 1
+=
+3+2\!\sqrt{2}.
+\]
+
+Wir wollen diese Beobachtung noch etwas expliziter machen und
+bezeichnen mit $\alpha$ ein Objekt, für welches sowohl die Regeln
+der Algebra ebenso gelten wie die Identität $\alpha^2-2=0$.
+Durch die Ersetzung $\alpha^2 = 2$ kann jede Potenz von $\alpha$
+auf entweder ein Vielfaches von $\alpha$ oder auf eine ganze Zahl
+reduziert werden, es gilt nämlich
+\[
+\alpha^n
+=
+\begin{cases}
+2^{\frac{n}2}         &\qquad\text{$n$ gerade}\\
+2^{\frac{n-1}2}\alpha &\qquad\text{$n$ ungerade.}
+\end{cases}
+\]
+Für Linearkombinationen $a+b\alpha$ und $c+d\alpha$ lassen sich
+jetzt einfache Rechenregeln aufstellen:
+\begin{align*}
+(a+b\alpha)\pm(c+d\alpha) &= (a\pm b) + (c\pm d)\alpha
+\\
+(a+b\alpha)(c+d\alpha) &= (ac + 2bd) + (ad+bc)\alpha.
+\end{align*}
+Als Spezialfall der Produktregel findet man
+\[
+(a+b\alpha)(a-b\alpha)
+=
+a^2 - 2 b^2,
+\]
+daher heisst $a-b\alpha$ auch das zu $a+b\alpha$ \emph{konjugierte}
+Element.
+Durch Erweitern mit $(c-d\alpha)$ kann man sogar den Kehrwert
+\begin{align*}
+\frac{1}{c+d\alpha}
+&=
+\frac{1}{c+d\alpha}
+\cdot
+\frac{c-d\alpha}{c-d\alpha}
+=
+\frac{c-d\alpha}{c^2-2d^2}
+=
+\frac{c}{c^2-2d^2} - \frac{d}{c^2-2d^2}\alpha
+\intertext{und damit auch den Quotienten}
+\frac{a+b\alpha}{c+d\alpha}
+&=
+\frac{ac-2bd}{c^2-2d^2} - \frac{ad-bc}{c^2-2d^2}\alpha
+\end{align*}
+definieren.
+
+Alle vier Grundoperationen lassen sich also für alle Zahlen der Form 
+$a+b\alpha$ ausschliesslich durch Verwendung der arithmetischen Gesetze
+und der Identität $\alpha^2-2$ definieren und sie ergeben immer wieder
+Zahlen dieser Form.
+Es entsteht somit eine neue Menge
+\[
+\mathbb{Q}(\alpha)
+=
+\{a+b\alpha\mid a,b\in\mathbb{Q}\},
+\]
+in der die gleichen Rechengesetze gelten wie in $\mathbb{Q}$.
+Die Menge $\mathbb{Q}$ ist eine echte Teilmenge, $\mathbb{Q}(\alpha)$
+ist also eine echte Erweiterung von $\mathbb{Q}$.
+In $\mathbb{Q}(\alpha)$ lässt sich jetzt die Gleichung $x^2-2=0$ lösen.
+Es ist nämlich
+\[
+(x+\alpha)(x-\alpha)
+=
+x^2-\alpha^2
+=
+x^2 - 2
+=
+0,
+\]
+die beiden Lösungen der Gleichung $x^2-2=0$ sind also $\pm\alpha$.
+
+Die Konstruktion lässt sich noch etwas verallgemeinern, indem das
+Polynom $x^2-2$ durch ein beliebiges normiertes Polynom $m(x)$ aus der
+Menge
+\[
+\mathbb{Q}[x]
+=
+\{
+x^n+m_{n-1}x^{n-1}+\dots+m_1x+m_0 
+\mid
+m_0,\dots,m_{n-1}\in\mathbb{Q}
+\}
+\]
+der Polynome mit rationalen Koeffizienten ersetzt wird.
+Wieder versucht man ein neues Objekt $\alpha$ durch die Eigenschaft
+$m(\alpha)=0$ zu charakterisieren.
+Dies führt jedoch auf Schwierigkeiten, wenn sich $m$ als Produkt
+$m=ab$ von Polynomen $a,b\in\mathbb{Q}[x]$ schreiben lässt, denn die beiden
+Faktoren $a(x)$ und $b(x)$ könnten Nullstellen mit widersprüchlichen
+Eigenschaften definieren.
+
+\begin{definition}[irreduzibles Polynom]
+Das Polynom $m\in\mathbb{Q}[x]$ heisst \emph{irreduzibel}, wenn es keine
+\index{irreduzibel}%
+Polynome vom Grad $>0$ gibt, die $m$ als Produkt haben.
+\end{definition}
+
+Das Polynom $x^2-2$ ist irreduzibel in $\mathbb{Q}[x]$, es lässt sich
+nicht in zwei Faktoren zerlegen.
+Die einzig mögliche Faktorisierung wäre $x^2-2=(x+\!\sqrt{2})(x-\!\sqrt{2})$,
+aber die Faktoren $x+\!\sqrt{2}$ und $x-\!\sqrt{2}$ haben nicht
+alle Koeffizienten in $\mathbb{Q}$.
+
+In einem irreduziblen Polynom $m$ kann der Koeffizient $m_0$ nicht
+verschwinden, denn dann liesse sich
+\[
+m
+=
+(x^{n-1} + m_{n-1}x^{n-2}+\dots + m_1)x
+\]
+als Produkt zweier Polynome vom Grad $n-1$ bzw.~1 schreiben.
+
+Mit einem irreduziblen Polynom $m$ definieren wir jetzt wieder das Objekt
+$\alpha$ mit der Eigenschaft $m(\alpha)=0$.
+$m$ heisst auch das \emph{Minimalpolynom} von $\alpha$.
+\index{Minimalpolynom}%
+Ausgeschrieben bedeutet 
+\[
+m(\alpha)
+=
+\alpha^n
++
+m_{n-1}\alpha^{n-1}
++
+\dots
++
+m_1\alpha
++
+m_0
+=
+0
+\quad\Rightarrow\quad
+\alpha^n
+=
+-m_{n-1}\alpha^{n-1}
+-
+\dots
+-
+m_1\alpha
+-
+m_0.
+\]
+Man kann also jede Potenz grösser oder gleich $n$ von $\alpha$ durch
+eine Linearkombination von Potenzen $\alpha^k$ mit $0\le k< n$ 
+ausdrücken.
+
+\begin{definition}
+Sei $m\in\mathbb{Q}[x]$ ein irreduzibles Polynom vom Grad $n$ der Form
+\[
+m(x)
+=
+x^n + m_{n-1}x^{n-1} + \dots + m_1x + m_0.
+\]
+Die Menge
+\[
+\mathbb{Q}(\alpha)
+=
+\{
+a_0 + a_1\alpha + \dots + a_{n-1}\alpha^{n-1}
+\mid
+a_k\in\mathbb{Q}\text{ mit } 0\le k<n
+\}
+\]
+heisst die \emph{Erweiterung} von $\mathbb{Q}$ um $\alpha$.
+\end{definition}
+
+Wieder sollen die Rechengesetze durch Übertragung der gewohnten
+Regeln entstehen, jedoch müssen alle höheren Potenzen von $\alpha$
+jeweils wieder auf Potenzen $\alpha^k$, $0\le k<n$, reduziert werden.
+Da der Koeffizient $m_0$ des irreduziblen Polynoms $m$ nicht verschwindet,
+kann man die Gleichung $m(\alpha) = 0$ mit $\alpha^{-1}$ multiplizieren
+und nach $\alpha^{-1}$ auflösen:
+\begin{align*}
+m(\alpha)\cdot \alpha^{-1}
+=
+0
+&=
+\alpha^{n-1}
++
+m_{n-1}\alpha^{n-2}
++
+\dots
++
+m_1
++
+m_0\alpha^{-1}
+\\
+\alpha^{-1}
+&=
+-\frac{1}{m_0}
+(
+\alpha^{n-1}
++
+m_{n-1}\alpha^{n-2}
++
+\dots
++
+m_1
+)
+\\
+&=
+-\frac{m_1}{m_0}
+-\dots
+-\frac{m_{n-1}}{m_0}\alpha^{n-2}
+-\frac{1}{m_0}\alpha^{n-1}
+\in
+\mathbb{Q}(\alpha).
+\end{align*}
+Das reziproke Element ist also immer auch in $\mathbb{Q}(\alpha)$.
+
+\begin{beispiel}
+\label{buch:komplex:zahlen:bsp:kubikwurzel}
+Die Gleichung $x^3-2=0$ lässt sich in $\mathbb{Q}$ nicht lösen.
+Das Polynom $m(x)=x^3-2$ ist irreduzibel als Polynom in $\mathbb{Q}[x]$.
+Die Erweiterung $\mathbb{Q}(\alpha)$ um das Objekt $\alpha$ mit
+der Eigenschaft $\alpha^3-2=0$ ist also die Menge
+\[
+\mathbb{Q}(\alpha)
+=
+\{
+a_0+a_1\alpha + a_2\alpha^2
+\mid
+a_0,a_1,a_2\in\mathbb{Q}
+\}.
+\]
+Die Additionsregeln sind nicht weiter anspruchsvoll, wir berechnen
+daher nur das Produkt von zwei Elementen $a,b\in\mathbb{Q}(\alpha)$:
+\begin{align*}
+ab
+&=
+(a_0+a_1\alpha+a_2\alpha^2)
+(b_0+b_1\alpha+b_2\alpha^2)
+\\
+&=
+a_0b_0
++
+(a_0b_1+a_1b_0)\alpha
++
+(a_0b_2+a_1b_1+a_2b_0)\alpha^2
++
+(a_1b_2+a_2b_1){\color{darkred}\alpha^3}
++
+a_2b_2{\color{darkred}\alpha^4}.
+\intertext{Die Potenzen $\alpha^3$ und $\alpha^4$ müssen durch Anwendung der
+Reduktionsregel $\alpha^3=2$ auf}
+&=
+a_0b_0
++
+(a_0b_1+a_1b_0)\alpha
++
+(a_0b_2+a_1b_1+a_2b_0)\alpha^2
++
+(a_1b_2+a_2b_1){\color{darkred}\cdot 2}
++
+a_2b_2{\color{darkred} \cdot 2\alpha}
+\intertext{reduziert werden.
+Das Produkt ist daher}
+ab
+&=
+(a_0b_0 + 2a_1b_2+2a_2b_1)
++
+(a_0b_1+a_1b_0 + 2a_2b_2)\alpha
++
+(a_0b_2+a_1b_1+a_2b_0)\alpha^2
+\in\mathbb{Q}(\alpha).
+\end{align*}
+Das zu $\alpha$ reziproke Element ist
+\[
+\alpha^{-1}
+=
+\frac{1}{2}\alpha^2,
+\]
+tatsächlich ist
+\[
+\alpha\cdot \alpha^{-1}
+=
+\alpha
+\cdot
+\frac{1}{2}\alpha^2
+=
+\frac{\alpha^3}{2}
+=
+\frac{2}{2}
+=
+1.
+\]
+In $\mathbb{Q}(\alpha)$ kann man jetzt auch das Polynom $x^3-2$ 
+faktorisieren, indem man durch den Faktor $(x-\alpha)$ dividiert.
+Die Polynomdivision ergibt
+\[
+\renewcommand{\arraycolsep}{2.5pt}
+\begin{array}{rcrcrcrcrcrcrcrcr}
+\llap{$($}
+x^3 & &           & &            &-&        2\rlap{$)$}&\phantom{(}:\phantom{)}&\llap{$($} x &-& \alpha\rlap{$)$} &\phantom{(}=\phantom{)}& x^2 &+& \alpha x &+& \alpha^2 \\
+x^3 &-&\alpha x^2 & &            & &         & &   & &        & &     & &          & &          \\
+\cline{1-7}
+    & &\alpha x^2 & &            &-&        2& &   & &        & &     & &          & &          \\
+    & &\alpha x^2 &-& \alpha^2 x & &         & &   & &        & &     & &          & &          \\
+\cline{3-7}
+    & &           & & \alpha^2 x &-&        2& &   & &        & &     & &          & &          \\
+    & &           & & \alpha^2 x &-& \alpha^3& &   & &        & &     & &          & &          \\
+\cline{5-7}
+    & &           & &            & & \alpha^3\rlap{$\mathstrut-2 = 0$.}& &   & &        & &     & &          & &
+\end{array}
+\]
+Tatsächlich ergibt Ausmultiplizieren zur Kontrolle
+\begin{align}
+(x-\alpha)
+(x^2 + \alpha x + \alpha^2)
+&=
+x^3 +\alpha x^2 +\alpha^2 x
+-
+\alpha
+x^2
+-
+\alpha^2 x
+-
+\alpha^3
+\label{buch:komplex:zahlen:eqn:faktorisierung}
+\\
+&=
+x^3-\alpha^3
+\notag
+\\
+&=
+x^3-2.
+\notag
+\end{align}
+In der üblichen algebraischen Notation würde man $\alpha=\sqrt[3]{2}$
+für die Kubikwurzel schreiben.
+
+Wir erwarten aber, dass die Gleichung $x^3-2=0$ zwei weitere Lösungen
+hat, die sich aus der Faktorisierung
+\eqref{buch:komplex:zahlen:eqn:faktorisierung}
+berechnen lassen sollten.
+Das Polynom $x^2 +\alpha x + \alpha^2$ ist allerdings irreduzibel
+als Polynom in $\mathbb{Q}(\alpha)[x]$, es definiert also eine neue
+Erweiterung um eine Zahl $\beta$, die das Minimalpolynom
+$b(x)=x^2+\alpha x + \alpha^2$ hat.
+Die Faktorisierung ist also erst in $\mathbb{Q}(\alpha)(\beta)
+=\mathbb{Q}(\alpha,\beta)$ möglich.
+
+Die konventionelle Schreibweise für die Nullstelle des Polynoms
+$b$ ergibt sich aus der Lösungsformel für quadratische Gleichungen.
+Man muss
+\begin{equation}
+\beta
+=
+-\frac{\alpha}{2}
++
+\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{\alpha}{2}\biggr)^2-\alpha^2}}
+=
+-\frac{\alpha}{2}
++
+\!\sqrt{-\frac34\alpha^2}
+\label{buch:komplex:zahlen:eqn:cbrtnegativ}
+\end{equation}
+setzen.
+\end{beispiel}
+
+Das Beispiel zeigt, wie die Lösung einer Gleichung möglicherweise
+das wiederholte Hinzufügen neuer Zahlen nötig macht.
+Die Notation $\sqrt[3]{2}$ für das Element $\alpha$ ist gefährlich,
+da sie bereits suggeriert, dass $\alpha$ eine reelle Zahl sein
+soll.
+Wir haben aber nur gefordert, dass $\alpha$ eine beliebige
+Nullstelle des Polynoms sein soll.
+Die Darstellung \eqref{buch:komplex:zahlen:eqn:cbrtnegativ} der
+anderen Nullstellen zeigt für $\alpha=\sqrt[3]{2}$, dass diese
+wegen
+\[
+%-\frac{\sqrt[3]{2}}2
+%\pm
+%\!\sqrt{
+%-\frac34(
+%\sqrt[3]{2}
+%)^2
+%}
+%\Rightarrow
+-\frac34 \sqrt[3]{2} < 0
+\]
+keine reellen Zahlen sein können.
+Dieses Argument verwendet aber die Ordnungsrelation in den reellen
+Zahlen und insbesondere die Eigenschaft, dass negative Zahlen
+keine reellen Quadratwurzeln haben.
+Auf die Ordnungsreqlation wurde in der Konstruktion von
+$\mathbb{Q}(\alpha)$ nirgends Bezug genommen.
+Sogar die Konstruktion von $\mathbb{Q}(\!\sqrt{2})$ hätte genauso 
+gut im $-\!\sqrt{2}$ an Stelle von $\alpha$ funktionieren können.
+Mit rein arithmetischen Mitteln sind die beiden Nullstellen von
+$x^2-2$ nicht unterscheidbar.
+
+\begin{definition}[algebraisches Element]
+Ein Element $\alpha$ heisst \emph{algebraisch über $\mathbb{Q}$},
+wenn es ein Polynom $m\in\mathbb{Q}[x]$ gibt, welches $m(\alpha=0$
+erfüllt.
+\index{algebraisch}%
+\end{definition}
+
+Die Definition von $\sqrt{2}$ oder $\sqrt[3]{2}$ als
+algebraische Elemente über $\mathbb{Q}$ ermöglicht also,
+exakt mit diesen Elementen zu rechnen, ohne dass auf
+Approximationen zurückgegriffen werden muss.
+Die algebraische Definition ist daher die Methode der
+Wahl für ein Computeralgebrasystem.
+
+Da die Menge aller rationalen Polynome abzählbar unendlich ist,
+kann es nur abzählbar viele über $\mathbb{Q}$ algebraische 
+Zahlen geben.
+Die Menge $\mathbb{R}$ der reellen Zahlen ist aber überabzählbar
+unendlich, so dass die meisten reellen Zahlen nicht algebraisch
+sind.
+Sie heissen transzendent.
+
+\begin{definition}[transzendent]
+Ein Element $\alpha$ heisst \emph{transzendent} über $\mathbb{Q}$,
+wenn es nicht algebraisch ist.
+\end{definition}
+
+Die Zahlen $\pi$ und $e$ sind beide transzendent.
+Der Nachweis, dass eine Zahl transzendent ist, ist oft schwierig.
+Schon 1844 hat Jospeh Liouville vermutet, dass $e$ transzendent 
+ist, der Nachweis ist aber Charles Hermite erst 1873 gelungen
+\cite{buch:hermitebeweis}.
+Für $\pi$ ist der Beweis deutlich anspruchsvoller.
+Nach einem Satz von Lindemann und Weierstrass
+\cite{buch:lindemann-weierstrass} sind für verschiedene
+algebraische Zahlen $\alpha_1,\dots,\alpha_n$
+die Zahlen $e^{\alpha_1},\dots,e^{\alpha_n}$ linear unabhängig
+über $\mathbb{Q}$.
+Die Zahl $0$ ist sicher algebraisch.
+Wäre auch $\pi$ eine algebraische Zahl, dann wäre auch $i\pi$ algebraisch.
+Nach dem Satz von Lindemann-Weierstrass müssten dann $e^0=1$ und
+$e^{i\pi}=-1$ über den algebraischen Zahlen linear unabhängig sein,
+was sie wegen der eulerschen Identität
+\[
+e^{i\pi}+1=0
+\]
+offensichtlich nicht sind.
+Der Widerspruch zeigt, dass $\pi$ transzendent sein muss.
+
+%
+% Algebraische Erweiterungen von F_p
+%
+\subsubsection{Algebraische Erweiterungen von $\mathbb{F}_p$}
+Die Konstruktion der reellen Zahlen ist nur möglich, weil es auf
+der Menge $\mathbb{Q}$ der rationalen Zahlen eine Ordnungsrelation
+gibt, die der Idee des Abstands $|a_n-a_m|$ von Folgengliedern
+einen Sinn gibt.
+Die Definition eines algebraischen Elementes hingegen ist auch dann 
+möglich, wenn es keine solche Ordnungsrelation gibt.
+Die endlichen Körper $\mathbb{F}_p$ für Primzahlen $p$ sind von
+dieser Art.
+
+\begin{definition}[endliche Körper $\mathbb{F}_p$]
+\index{endliche Körper}%
+\index{Korper@Körper!endlich}%
+Sei $p$ eine Primzahl.
+Die Menge
+\[
+\mathbb{F}_p
+=
+\{ 0, \dots , p-1 \}
+\]
+der ganzzahligen Reste bei Division durch $p$
+heisst der \emph{endlich Körper} der Ordnung $p$.
+\index{Fp@$\mathbb{F}_p$}%
+\end{definition}
+
+In $\mathbb{F}_p$ sind wie in $\mathbb{Q}$ alle vier Grundoperationen
+wohldefiniert, insbesondere auch das reziproke Element.
+Diese letzte Aussage ist gleichbedeutend damit, dass die Multiplikation
+\[
+x\mapsto a\cdot x
+\]
+mit einem Element $a\in\mathbb{F}_p\setminus\{0\}$ eine Bijektion ist.
+Da dies eine lineare Abbildung ist, muss man nur prüfen, ob es ein
+Element $x\ne 0$ gibt derart, dass $ax=0$ in $\mathbb{F}_p$ ist.
+Dies ist gleichbedeutend damit, dass 
+\[
+a\cdot n \equiv 0 \mod p
+\qquad\Leftrightarrow\qquad
+p | an
+\]
+gilt.
+Da weder $a$ noch $n$ von $p$ geteilt werden können und $p$ eine
+Primzahl ist, kann es eine solche Zahl $n$ nicht geben.
+
+Da alle ganzen Zahlen, die sich nur um ein Vielfaches von $p$
+unterscheiden, das gleiche Element in $\mathbb{F}_p$ darstellen,
+kann es keine mit den arithmetischen Operationen verträgelich
+Ordnungsrelation geben.
+Schon die Unterschiedung zwischen positiven und negativen
+Zahlen ist sinnlos, da jedes Element $a$ mit $0\le a<p$ auch
+eine Darstellung $a-p$ hat, welche negativ ist.
+Es folgt, dass es auch nicht sinnvoll sein kann, in $\mathbb{F}_p$
+von Folgen und Grenzwerten zu sprechen.
+So etwas wie eine Vervollständigung von $\mathbb{F}_p$ wie
+die Vervollständigung von $\mathbb{Q}$ zu $\mathbb{R}$ kann es
+also nicht geben.
+
+Trotzdem ist es sinnvoll, von algebraischen Erweiturungen zu  sprechen.
+Wir betrachten dazu statt Polynome über $\mathbb{Q}$ solche über
+$\mathbb{F}_p$.
+Wieder setzen wir
+\[
+\mathbb{F}_p[x]
+=
+\{
+x^n + a_{n-1}x^{n-1} + \dots + a_1x + a_0
+\mid
+a_0,\dots,a_{n-1}\in \mathbb{F}_p
+\}.
+\]
+Wie im Falle von rationalen Koeffizienten ist ein irreduzibles
+Polynom eines, welches sich nicht als Produkt zweier Polynome von
+positivem Grad schreiben lässt.
+Dabei kann es aber durchaus passieren, dass ein Polynom, welches
+über $\mathbb{Q}$ irreduzibel war, als Polynom über $\mathbb{F}_p$
+betrachtet nicht mehr irreduzibel sein muss.
+
+\begin{beispiel}
+Für $p=5$ ist
+\[
+(x+3)(x+2)
+=
+x^2 + (3+2)x + 6
+=
+x^2 + 1
+\in
+\mathbb{F}_5[x].
+\]
+Das Polynom $x^2+1\in\mathbb{F}_5[x]$ ist also nicht irreduzibel,
+im Gegensatz zum Polynom $x^2+1\in\mathbb{Q}[x]$, welches tatsächlich
+irreduzibel ist.
+Dies zeigt auch, dass im Gegensatz zu $\mathbb{Q}$ oder $\mathbb{R}$,
+die Gleichung $x^2+1=0$ in $\mathbb{F}_p$ eine Lösung hat.
+\end{beispiel}
+
+Wie für rationale Koeffizienten lassen sich auch für ein algebraisches
+Element über $\mathbb{F}_p$ die arithmetischen Grundoperationen
+definieren.
+
+\begin{beispiel}
+\label{buch:komplex:zahlen:bsp:F5}
+Für $p=5$ ist $x^2-2=x^2+3\in\mathbb{F}_5[x]$ ein irreduzibles Polynom,
+wie man durch Durchprobieren der möglichen Faktoren $(x-a)(x-b)$ mit
+$a,b\in\mathbb{F}_5$ nachprüfen kann.
+Sei jetzt $\alpha$ ein Objekt, welches $\alpha^2=2$ erfüllt.
+Die Rechenoperationen sind ganz analog wie im Falle rationaler
+Koeffizienten definiert.
+\end{beispiel}
+
+Die Nullstelle $\alpha$ des Polynoms $x^2-2\in\mathbb{F}_4[x]$,
+die in Beispiel~\ref{buch:komplex:zahlen:bsp:F5} zu $\mathbb{F}_5$
+hinzugefügt worden ist, ist eine Quadratwurzel von $2$ in $\mathbb{F}_5$,
+hat aber nichts mit der vertrauten Quadratwurzeln
+$\!\sqrt{5}\approx 1.414213562373$ in $\mathbb{R}$ zu tun.
+Während es für reelle Nullstellen von Polynomen in $\mathbb{Q}[x]$ 
+immer eine Dezimaldarstellung gibt, gibt es keine alternative Darstellung
+für $\alpha$.
+
+\begin{beispiel}
+Das Polynom $m(x)=x^3-2=x^3+5\in\mathbb{F}_7[x]$ ist irreduzibel, denn
+wenn es faktorisiert werden könnte, müsste notwendigerweise einer der
+Faktoren den Grad 1 haben.
+Ein solcher Faktor wäre also von der Form $x-a$, wobei $a\in\mathbb{F}_7$
+sein müsste.
+Das Polynom müsste also eine Nullstelle in $\mathbb{F}_7[x]$ haben.
+Die dritten Potenzen aller Elemente von $\mathbb{F}_7$ sind allerdings
+\[
+\begin{tabular}{|>{$}l<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+a   & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+a^3 & 0 & 1 & 1 & 6 & 1 & 1 & 6 \\
+\hline
+\end{tabular}
+\]
+Keine dritte Potenz ergibt 2.
+
+Fügt man $\mathbb{F}_7$ das Element $\alpha$, welches eine Nullstelle
+von $m$ ist, zu $\mathbb{F}_7$ hinzu, erhält man neu die Menge
+$\mathbb{F}_7(\alpha)$.
+Lässt man Koeffizienten aus $\mathbb{F}_7(\alpha)$ zu, lässt sich das
+Polynom $m$ wie in Beispiel~\ref{buch:komplex:zahlen:bsp:kubikwurzel}
+als
+\[
+x^3-2
+=
+(x-\alpha)(\underbrace{x^2+\alpha x + \alpha^2}_{\displaystyle = b})
+\]
+faktorisieren.
+Auch in diesem Beispiel ist eine weitere Erweiterung
+$\mathbb{F}_7(\alpha,\beta)$ von $\mathbb{F}_p(\alpha)$ durch eine
+Nullstelle $\beta$ des Polynoms $b\in\mathbb{F}_7(\alpha)$ nötig,
+damit die anderen zwei Nullstellen von $m$ ebenfalls gefunden werden
+können.
+\end{beispiel}
+
+Die Adjunktion einer Nullstelle eines irreduziblen Polynoms 
+aus $\mathbb{F}_p[x]$ zu $\mathbb{F}_p$ erzeugt also wieder
+die Menge 
+\[
+\mathbb{F}_p(\alpha)
+=
+\{
+a_0+a_1\alpha + \dots a_{n-1}\alpha^{n-1}
+\mid
+a_0,\dots,a_{n-1}\in\mathbb{F}_p
+\},
+\]
+die ein Vektorraum über $\mathbb{F}_p$ ist, mit den $n$ Monomen
+\[
+1, \alpha, \dots, \alpha^{n-1}
+\]
+als Basis.
+$\mathbb{F}_p(\alpha)$ enthält somit $p^n$ Elemente.
+
+\begin{definition}[endliche Körper]
+Die Menge $\mathbb{F}_p(\alpha)$ mit $p^n$ Elementen heisst der
+\emph{endliche Körper mit $p^n$} Elementen.
+\index{endliche Körper}%
+\index{Korper@Körper!endlich}%
+\end{definition}
+
+Fügt man einem Körper mit $p^n$ Elementen ein weiteres Element mit
+einem Minimalpolynom vom Grad $l$ hinzu, entsteht eine Menge mit
+mit $(p^n)^l=p^{nl}$ Elementen.
+Man kann zeigen, dass alle Körper mit $p^n$ wie man sagt isomorph sind,
+ganz unabhängig davon, was für ein Minimalpolynom verwendet wird
+und schreibt daher unabhängig vom Minimalpolynom
+$\mathbb{F}_p(\alpha)=\mathbb{F}_{p^n}$.
+Die endlichen Körper spielen eine bedeutende Rolle in der Kryptographie.
+Zum Beispiel verwendet die Spezifikation des AES-Algorithmus die 
+Arithmetik in einem Körper $\mathbb{F}_{2^8}$ mit $2^8$ Elementen,
+die im Code als Bytes dargestellt werden.
+
+%
+% Die ganzen gaussschen Zahlen Z[i]
+%
+\subsubsection{Die ganzen gaussschen Zahlen $\mathbb{Z}[i]$}
+Die Erweiterung einer Zahlenmenge um ein neues Element, welches
+als Nullstelle eines irreduziblen Polynoms, lässt sich auch auf
+die Menge $\mathbb{Z}$ anwenden.
+Für das Polynom $m = x^2+1\in\mathbb{Z}[x]$ wird die Nullstelle
+mit $i$ bezeichnet.
+Die Rechenregeln folgen unmittelbar aus den Rechenregeln für
+Polynome mit ganzzahligen Koeffizienten durch Anwendung der
+Identität $i^2+1=0$ oder $i^2=-1$.
+Es entsteht die Menge der ganzen gaussschen Zahlen gemäss der
+folgenden Definition.
+
+\begin{definition}[ganze gausssche Zahlen]
+Die Elemente
+\[
+\mathbb{Z}[i]
+=
+\{
+a+bi
+\mid
+a,b\in\mathbb{Z}
+\}
+\]
+heisst die Menge der ganzen gaussschen Zahlen.
+Sie bildet einen kommutativen Ring mit Eins, der den Ring $\mathbb{Z}$
+als echten Unterring enthält.
+\end{definition}
+
+Die Ringoperationen sind
+\begin{align*}
+\text{Addition:}&&
+(a+bi)\pm(c+di)
+&=
+(a\pm c) + (b\pm d)i
+\\
+\text{Multiplikation:}&&
+(a+bi)(c+di)
+&=
+ac-bd
++
+(ad+bc)i.
+\end{align*}
+Nicht jede ganze gausssche Zahl lässt sich invertieren.
+Die Inverse wird durch Erweiterung mit $a-bi$ als
+\[
+\frac{1}{a+bi}\cdot\frac{a-bi}{a-bi}
+=
+\frac{a-bi}{a^2+b^2}
+=
+\frac{a}{a^2+b^2}
+-
+\frac{b}{a^2+b^2}i
+\]
+gefunden.
+Die Inverse existert also genau dann, wenn $a^2+b^2=1$ ist.
+Dies ist nur für die Zahlen $\pm 1$ und $\pm i$ der Falle.
+
+\begin{definition}[Betrag]
+Für eine ganze gausssche Zahl $z=a+bi\in\mathbb{Z}[i]$ heisst die
+Zahl $|z|$ definiert durch $|z|^2 = a^2+b^2$ der \emph{Betrag} von $z$.
+\index{Betrag}%
+\end{definition}
+
+Für zwei das Produkt $z=(a+bi)(c+di)$ zweier ganzer gaussscher Zahlen gilt
+\begin{align*}
+|z|^2
+&=
+(ac-bd)^2 + (ad+bc)^2
+\\
+&=
+a^2c^2-2abcd+b^2d^2
++
+a^2d^2
++
+2abcd
++
+b^2c^2
+\\
+&=
+a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2
+\\
+&=
+(a^2+b^2)(c^2+d^2)
+\\
+&=
+|a+bi|^2 |c+di|^2.
+\end{align*}
+Mit anderen Worten: Wenn sich eine ganze gausssche Zahl faktorisieren
+lässt, dann lassen sich auch die Beträge faktorisieren.
+
+Tatsächlich kann man im Ring $\mathbb{Z}[i]$ der ganzen gausschen Zahlen
+eine Theorie der Faktorisierung aufstellen, die ganz analog ist zur
+Theorie der Primfaktoren in $\mathbb{Z}$.
+
+%
+% Der Körper der komplexenzahlen
+%
 \subsection{Der Körper der komplexen Zahlen}
+In der bisherigen Entwicklung haben wir uns vor allem um einzelne
+Zahlen gekümmert.
+Für die Menge der Zahlen als ganzes und die darauf definierten 
+Rechenoperationen haben wir uns nur indirekt gekümmert.
 
+%
+% Was ist ein Körper
+%
+\subsubsection{Was ist ein Körper?}
+Die moderne Mathematik hat die möglichen Strukturen von Zahlenmengen und
+ihren Operationen im Detail studiert und entsprechend ihren Eigenschaften
+klassifiziert.
+Die einfachste Art einer Struktur geht von nur einer Operation aus.
+Die zugehörige Struktur ist die einer Gruppe.
+
+\begin{definition}[Gruppe]
+Eine \emph{Gruppe} ist eine Menge $G$ mit einer zweistelligen Operation
+\[
+\cdot
+:
+G\times G \to G
+:
+(g,h) \mapsto gh
+\]
+mit den folgenden Eigenschaften.
+\begin{enumerate}
+\item
+Die Operation ist \emph{assoziativ}: $(gh)l = g(hl)$ für alle $g,h,l\in G$.
+\index{assoziativ}%
+\item
+Es gibt ein \emph{neutrales Element} $e\in G$, es gilt $ea=a$ für alle $a\in G$.
+\index{neutrales Element}%
+\index{Element!neutral}%
+\item
+Zu jedem Element $g\in G$ gibt es ein inverses Element $g^{-1}\in G$
+mit $g^{-1}g=e$.
+\end{enumerate}
+Die Gruppe heisst \emph{kommutativ}
+\index{kommutativ!Gruppe}%
+\index{Gruppe!kommutativ}%
+oder \emph{abelsch},
+\index{abelsch}%
+wenn die Gruppenoperation kommutativ ist.
+In einer abelschen Gruppe wird die Gruppenoperation oft additiv geschrieben
+und das neutrale Element mit $0$ bezeichnet.
+\end{definition}
+
+\begin{beispiel}
+Auf der Menge $\mathbb{N}$ ist die Addition definiert und $0\in\mathbb{N}$ 
+ist das neutrale Element bezüglich der Addition.
+Trotzdem ist $\mathbb{N}$ keine Gruppe, da kein von 0 verschiedenes Element
+ein Inverses hat.
+In der Menge $\mathbb{Z}$ gibt es zu jeder Zahl $n\in\mathbb{N}$ das
+inverse Element $-n\in\mathbb{Z}$, daher ist $\mathbb{Z}$ eine
+abelsche Gruppe bezüglich der Addition.
+\end{beispiel}
+
+\begin{beispiel}
+Die reellen Zahlen $\mathbb{R}$ bilden bezüglich der Addition eine
+abelsche Gruppe mit dem neutralen Element $0\in\mathbb{R}$.
+Die positiven reellen Zahlen $\mathbb{R}^+$ bilden bezüglich der
+Multiplikation eine abelsche Gruppe mit neutralem Element
+$1\in\mathbb{R}^+$.
+Die Exponentialfunktion
+\[
+\exp
+\colon
+\mathbb{R}\to\mathbb{R}^+
+:
+x\mapsto e^x
+\]
+bildet die Addition in $\mathbb{R}$ in die Multiplikation in $\mathbb{R}^+$
+ab, es gilt
+\begin{align*}
+\exp(a+b) &= \exp(a)\exp(b),
+&
+\exp(0)&=1
+&&\text{und}
+&
+\exp(a)^{-1} &= \exp(-a).
+\end{align*}
+Eine solche Abbildung heisst ein \emph{Gruppenhomomorphismus}.
+\index{Homomorphismus!Gruppen-}%
+\index{Gruppenhomomorphismus}%
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge 
+\[
+\operatorname{GL}_n(\mathbb{R})
+=
+\{
+A\in M_{n\times n}(\mathbb{R})
+\mid
+\text{$A$ ist invertierbar}
+\}
+\]
+ist eine Gruppe bezüglich der Matrizenmultiplikation mit der
+Einheitsmatrix $I$ als neutralem Element.
+Da die Matrizenmultiplikation für $n>1$ nicht kommutativ ist,
+ist $\operatorname{GL}_n(\mathbb{R})$ eine Gruppe.
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge der Matrizen
+\[
+\operatorname{SL}_n(\mathbb{R})
+=
+\{
+A\in M_{n\times n}(\mathbb{R})
+\mid
+\det A=1
+\}
+\]
+mit Determinante $1$ ist eine Gruppe, da alle Matrizen mit Determinante
+$\ne 0$ invertierbar sind.
+Es ist also 
+$
+\operatorname{SL}_n(\mathbb{R})
+\subset
+\operatorname{GL}_n(\mathbb{R})
+$.
+
+Sogar die Menge
+\[
+\operatorname{SL}_n(\mathbb{Z})
+=
+\{
+A\in M_{n\times n}(\mathbb{Z})
+\mid
+\det A = 1
+\}
+\]
+ist eine Gruppe, denn die Einträge der inversen Matrix haben den gemeinsamen
+Nenner $\det A$, während der Zähler die Determinante einer Minormatrix ist.
+Wegen $\det A=1$ folgt, dass die Einträge von $A^{-1}$ ebenfalls ganzahlig
+sind.
+\end{beispiel}
+
+Die vertrauten Zahlenmengen zeichnen sich dadurch aus, dass sie nicht
+nur eine Operation tragen, sondern zusätzlich zur Addition oft auch
+eine Multiplikation.
+
+\begin{definition}[Ring]
+Ein \emph{Ring} ist eine Menge $R$ mit zwei Operationen,
+der Addition $+$ und der Multiplikation $\cdot$, mit den folgenden
+Eigeschaften:
+\begin{enumerate}
+\item
+Es gibt ein neutrales Element $0\in R$ der Addition so, dass $R$
+bezüglich der Addition eine abelsche Gruppe ist.
+\item
+Die Multiplikation ist assoziativ und \emph{distributiv}:
+\index{distributiv}%
+\begin{align*}
+a(bc) &= (ab)c
+\\
+a(b+c)&= ab + ac & (a+b)c &= ac + bc.
+\end{align*}
+\item
+$R$ heisst \emph{Ring mit Eins}, wenn es in $R^*=R\setminus\{0\}$ ein
+ein neutrales Element $1\in R^*$ der Multiplikation gibt.
+\item
+Der Ring $R$ heisst \emph{kommutativ}, wenn die Multiplikation kommutativ ist.
+\index{kommutativ}%
+\item
+Eine \emph{Einheit} in $R$ ist eine Element $u\in R^*$, welches bezüglich
+\index{Einheit}%
+der Multiplikation ist.
+\item
+Ein Element $a\in R^*$ heisst ein \emph{Nullteiler}, wenn es ein Element
+\index{Nullteiler}%
+$b\in R^*$ gibt, sodass $ab=0$ ist.
+\end{enumerate}
+\end{definition}
+
+Nullteiler sind Elemente in $R^*$, die bezüglich der Multiplikation
+nicht invertierbar sind.
+Ist nämlich $ab=0$ und wäre $a^{-1}$ ein zu $a$ inverses Element, dann
+wäre
+\[
+a^{-1}0
+=
+a^{-1}ab
+=
+b,
+\]
+ein Widerspruch zu $b\in R^*$.
+
+\begin{beispiel}
+Die Menge $\mathbb{Z}$ der ganzen Zahlen ist ein Ring mit Eins.
+Die einzigen Elemente, die bezüglich der Multiplikation invertierbar
+sind, sind $\pm 1$.
+In $\mathbb{Z}$ gibt es keine Nullteiler.
+\end{beispiel}
+
+\begin{beispiel}
+Sei $n\in\mathbb{N}$ eine natürliche Zahl und
+\[
+\mathbb{Z}_n
+=
+\{
+0,\dots, n-1
+\}
+\]
+die Menge der Reste bei Teilung durch $n$.
+Die Addition und die Multiplikation von ganzen Zahlen überträgt sich
+entsprechende Operationen auf $\mathbb{Z}_n$, sodass $\mathbb{Z}_n$
+ebenfalls ein kommutativer Ring mit $1$ ist.
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge $M_{n\times n}(\mathbb{R})$ der $n\times n$-Matrizen mit
+reellen Einträgen ist ein Ring mit Eins bezüglich der Addition und
+Multiplikation von Matrizen.
+Für $n>1$ ist die Matrizenmultiplikation nicht kommutativ, daher
+ist $M_{n\times n}(\mathbb{R})$ ein nicht-kommutativer Ring.
+
+Für $n>1$ hat $M_{n\times n}(\mathbb{R})$ viele Nullteiler,
+Zum Beispiel gilt
+\[
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0\\
+0&0
+\end{pmatrix}
+\]
+die beiden Matrizen links sind also Nullteiler und können nicht
+invertiert werden.
+\end{beispiel}
+
+Die Mengen $\mathbb{R}$ und $\mathbb{F}_p$ zeichen sich dadurch
+aus, dass nicht nur jedes Element ein additives Inverses hat, sondern
+auch jedes von $0$ verschiedene Element ein multiplikatives Inverses hat.
+Eine solche Menge heisst ein Körper.
+
+\begin{definition}[Körper]
+Ein Körper $K$ ist ein Ring mit Eins derart, dass $K^*$ eine abelsche
+Gruppe bezüglich der Multiplikation ist.
+\end{definition}
+
+\begin{beispiel}
+Die Menge $\mathbb{Q}$ der rationalen Zahlen ist ein Körper.
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge $\mathbb{F}_p$ ist für jede Primzahl ein Körper.
+\end{beispiel}
+
+%
+% Körperaxiome für R
+%
+\subsubsection{Körperaxiome für $\mathbb{R}$}
+Die reellen Zahlen werden als Grenzwerte von Cauchy-Folgen von
+rationalen Zahlen konstruiert.
+Sind $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ zwei
+Cauchy-Folgen von rationalen Zahlen mit Grenzwerten $a$ bzw.~$b\in\mathbb{R}$.
+In der Analysis lernt man, dass
+\begin{align*}
+\lim_{n\to\infty} (a_n+b_n)
+&=
+\lim_{n\to\infty} a_n + \lim_{n\to\infty} b_n
+=
+a+b
+\\
+\lim_{n\to\infty} (a_nb_n)
+&=
+\Bigl(\lim_{n\to\infty} a_n\Bigr) \cdot \Bigl(\lim_{n\to\infty} b_n\Bigr)
+=
+ab
+\intertext{und falls $b_n\ne 0$ und $b\ne 0$ gilt auch}
+\lim_{n\to\infty} \frac{1}{b_n}
+&=
+\frac{1}{\displaystyle\lim_{n\to\infty}b_n}
+=
+\frac{1}{b}
+\\
+\lim_{n\to\infty}\frac{a_n}{b_n}
+&=
+\frac{\displaystyle\lim_{n\to\infty} a_n}{\displaystyle\lim_{n\to\infty}b_n}
+=
+\frac{a}{b}.
+\end{align*}
+Diese Gleichungen zeigen, dass die Grenzwertbildung, durch die $\mathbb{R}$
+definiert wird, mit den arithmetischen Operationen kompatibel sind.
+In der Analysis spricht man davon, dass die arithmetischen Operationen
+stetig sind.
+Insbesondere folgt, dass $\mathbb{R}$ bezüglich der Addition eine
+abelsche Gruppe ist und $\mathbb{R}^*$ bezüglich der Multiplikation
+eine multiplikative Gruppe.
+$\mathbb{R}$ ist also ein Körper, der die rationalen Zahlen als
+echten Teilkörper enthält.
+
+%
+% Körperaxiome für eine algebraische Erweiterung
+%
+\subsubsection{Körperaxiome für eine algebraische Erweiterung}
+Sei $K$ ein Körper und $m\in K[x]$ ein irreduzibles 
+Polynom, welches 
+\[
+m(x)
+=
+x^n + m_{n-1}x^{n-1} + \dots + m_1x + m_0
+\]
+geschrieben werden soll.
+Der Körper $K$ kann durch ein Element $\alpha$, welches die
+Identität
+\begin{equation}
+m(\alpha)
+=
+\alpha^n
++
+m_{n-1}\alpha^{n_1}
++
+\dots
++
+m_1\alpha
++
+m_0
+\label{buch:komplex:zahlen:eqn:alphaidentitaet}
+\end{equation}
+erfüllt, erweitert werden.
+Dazu werden die Rechenregeln von Polynomen in $\alpha$ mit Koeffizienten
+aus $K$ mit der Identität~\eqref{buch:komplex:zahlen:eqn:alphaidentitaet}
+reduziert.
+Wie früher gezeigt wurde, entsteht so die Menge
+\[
+K(\alpha)
+=
+\{
+a_0+a_1\alpha + \dots a_{n-1}\alpha^{n-1}
+\mid
+a_0,\dots,a_{n-1}\in K
+\},
+\]
+die ein $n$-dimensionalers Vektorraum über dem Körper $K$.
+Die bereits früher konstruierte Definition der Multiplikation
+macht aus $K(\alpha)$ eine Körper, in dem $\alpha$ eine Nullstelle
+des Polynoms $m$ ist.
+
+%
+% Der Körper C = R(i)
+%
+\subsubsection{Die Körper $\mathbb{C}=\mathbb{R}(i)$ und $\mathbb{Q}(i)$}
+Sei $m = x^2 + 1 \in\mathbb{R}[x]$.
+Dieses Polynom ist irreduzibel und definiert daher eine algebraische
+Erweiterung von $\mathbb{R}$, die mit $\mathbb{R}(i)$ bezeichnet wird.
+Das Element $i$ ist eine Nullstelle von $m$, es gilt also $i^2+1=0$.
+Als algebraische Erweiterung von $\mathbb{R}$ ist $\mathbb{R}(i)$ ein
+Körper, er heisst der \emph{Körper der komplexen Zahlen}.
+\index{komplexe Zahlen}%
+Das Element $i$ heisst die \emph{imaginäre Einheit}.
+\index{imaginäre Einheit}%
+\index{i@$i$}%
+
+Die Menge $\mathbb{R}(i)$ besteht aus den Zahlen
+\[
+\mathbb{R}(i)
+=
+\{
+a+bi
+\mid
+a,b\in\mathbb{R}
+\}
+\]
+mit den Ringoperationen
+\begin{align*}
+\text{Addition:}&&
+(a+bi) \pm (c+di)
+&=
+(a\pm c) + (b\pm d)i
+\\
+\text{Multiplikation:}&&
+(a+bi)(c+di)
+&=
+ac-bd + (ad+bd)i.
+\end{align*}
+Für das zu $c+di$ inverse Element muss man wie früher gezeigt
+mit $c-di$ erweitern und erhält
+\begin{align*}
+\frac{1}{c+di}
+&=
+\frac{1}{c+di}\cdot\frac{c-di}{c-di}
+=
+\frac{c-di}{c^2+d^2}
+=
+\frac{c}{c^2+d^2}
++
+\frac{-d}{c^2+d^2}i
+\\
+\text{und}
+\qquad
+\frac{a+bi}{c+di}
+&=
+\frac{ac+bd + (-ad+bc)i}{c^2+d^2}
++
+\frac{ac+bd}{c^2+d^2}
++
+\frac{-ad+bc}{c^2+d^2}i
+.
+\end{align*}
+Die Operationen zur Berechnung des inversen Elementes sind 
+für sich genommen nützlich, wir geben ihnen in der folgenden
+Definition einen Namen.
+
+\begin{definition}
+Für $z=a+bi\in\mathbb{C}$ heisst
+$\bar z = a-bi$ die zu $z$ \emph{konjugiert komplexe} Zahl.
+\index{konjugiert komplex}%
+\end{definition}
+
+Das Polynom $m=x^2+1\in\mathbb{Q}[x]$ ist natürlich auch als
+Polynom mit rationalen Koeffizienten irreduzibel.
+Daher lässt sich auch $\mathbb{Q}$ durch die imaginäre Einheit
+$i$ algebraisch zum Körper $\mathbb{Q}(i)$ erweitern.
+Im Gegensatz zu $\mathbb{C}$ lässt sich in $\mathbb{Q}(i)$
+exakt rechnen, es ist daher für Computeralgebrasysteme 
+unerlässlich.
+
+Die Gleichung $x^2+2=0$ hat in $\mathbb{C}$ die Lösungen
+\[
+x=
+\pm
+i
+\!\sqrt{2}
+\in\mathbb{C},
+\]
+die allerdings nicht in $\mathbb{Q}(i)$ ist.
+Daher muss der Körper $\mathbb{Q}(i)$ erst um $\!\sqrt{2}$ 
+algebraisch zu $\mathbb{Q}(i,\!\sqrt{2})$ erweitert werden.
+In diesem Körper findet man die beiden Lösungen der Gleichung $x^2-2=0$.
+
+Man beachte, dass sich die Zahlen $i$ und $-i$ mit algebraischen
+Mitteln nicht unterscheiden lassen.
+Für Zahlen mit reeller Quadratwurzel kann man dank der Ordnungsrelation
+in $\mathbb{R}$ die postive von der negativen Quadratwurzel unterschieden.
+Für komplexe Zahlen gibt es keine Vergleichsrelation
+
+%
+% Matrixschreibweise für komplexe Zahlen
+%
 \subsection{Matrixschreibweise für komplexe Zahlen}
 
-\subsection{Geometrische Beschreibung der Rechenoperationen}
+\subsubsection{Algebraische Erweiterungen als Matrizen}
 
-\subsection{Die riemannsche Zahlenkugel}
+\subsubsection{Die imaginäre Einheit als Matrix}
+
+\subsubsection{Quaternionen}
+
+%
+% Geometrische Beschreibung der Rechenoperationen in C
+%
+\subsection{Geometrische Beschreibung der Rechenoperationen in $\mathbb{C}$}
+
