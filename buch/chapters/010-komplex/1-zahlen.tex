@@ -1617,15 +1617,1054 @@ Für komplexe Zahlen gibt es keine Vergleichsrelation
 % Matrixschreibweise für komplexe Zahlen
 %
 \subsection{Matrixschreibweise für komplexe Zahlen}
+In der Konstruktion der Körpererweiterung $\mathbb{Q}(\alpha)$
+mit einer Nullstelle $\alpha$ des Minimalpolynoms $m\in\mathbb{Q}[x]$ 
+wurde nie die Frage gestellt, woher $\alpha$ eigentlich kommt.
+Für $m=x^2-2$ kann sich $\alpha$ als die Quadratwurzel
+$\!\sqrt{2}\in\mathbb{R}$ vorstellen, aber für die Körpererweiterung
+von $\mathbb{F}_5$ um eine Nullstelle von $x^2-2\in\mathbb{F}_5[x]$
+gibt es keinen solchen Überkörper, der alle denkbaren Wurzeln
+enthält.
+Und bei der Erweiterung $\mathbb{R}\subset \mathbb{R}(i)=\mathbb{C}$
+wird $\mathbb{R}$ die imaginäre Einheit $i$ hinzugefügt, für die es
+ebenfalls keine Realisierung gibt.
+Schlimmer noch: die imaginäre Einheit hat Eigenschaften, die den 
+Eigenschaften aller bisher bekannten Zahlen widerspricht, nämlich
+die Eigenschaft, dass das Quadrat einer Zahl immer $\ge 0$ ist.
+
+So schreibt auch Leonhard Euler in seiner \emph{Vollständigen
+Anleitung zur Algebra}
+\cite[S.~61,  Abschnitt~144--145]{buch:euler-algebra}:
+\begin{quote}
+Daher bedeuten alle diese Ausdrücke $\!\sqrt{-1}$, $\!\sqrt{-2}$,
+$\!\sqrt{-3}$, $\!\sqrt{-4}$, etc. solche unmögliche oder
+Imaginärezahlen, weil dadurch Quadratwurzeln von Negativzahlen
+angezeigt werden.
+
+Von diesen behauptet man also mit allem Rechte, dass sie weder
+grösser oder kleiner sind als nichts; und auch nicht einmal nichts
+selbst, als aus welchem Grund sie folglich für unmöglich gehalten
+werden müssen.
+
+Gleichwohl aber werden sie unserm Verstande dargestellet, und finden
+in unserer Einbildung statt; daher sie auch bloss eingebildete
+Zahlen genennet werden.
+Ungeachtet aber diese Zahle, als z.~B. $\!\sqrt{-4}$, ihrer Natur
+nach ganz und gar unmöglich sind, so haben wir davon doch einen
+hinlänglichen Begriff, indem wir wissen, dass dadurch eine solche
+Zahl angedeutet werde, welche mit sich selbst multiplicirt zum
+Producte -4 hervorbringe; und dieser Begriff ist zureichend um diese
+Zahlen in der Rechnung gehörig zu behandeln.
+\end{quote}
+Euler war sich also des Widerspruchs durchaus bewusst und versucht
+auch gar nicht, eine ``physikalische'' Rechtfertigung für die
+imaginären Zahlen zu konstruieren.
+Vielmehr weisst er darauf hin, dass es genügt, dass wir mit diesen
+Zahlen ohne Widerspruch algebraisch arbeiten können, so wie wir
+das bei der Konstruktion der algebraischen Körpererweiterung getan
+haben.
+
+Trotzdem muss man die Frage stellen, wie Euler sicher sein konnte,
+dass die Algebra der komplexen Zahlen wirklich widerspruchsfrei ist.
+Seine umfassende Erfahrung und Intuition in der Algebra dieser Zahlen
+wird ihn wohl zu dieser Annahme verleitet haben, ohne dass er einen
+weiteren Gedanken darauf verwendet, wie man diese Widerspruchsfreiheit
+beweisen könnte.
+Zugegebenermassen ist dies für die komplexen Zahlen auch nicht eine
+grosse Schwierigkeit, da sich mit der Darstellung von $\mathbb{C}$
+als komplexe Zahlenebene eine Konstruktion als Paare von reellen
+Zahlen mit Rechenoperationen, für die man die Axiome eines Körpers
+verifizieren kann, aufdrängt.
+
+Etwas weniger klar ist die Situation jedoch bei algebraischen
+Erweiterungen von $\mathbb{Q}$ und endlichen Körpern.
+Zwar ist für Nullstellen von quadratischen Polynomen
+immer noch die Vorstellung einer Ebene angemessen, für Körpererweiterungen
+um Nullstellen von Polynomen beliebigen Grades funktioniert diese
+Intuition jedoch nicht mehr.
+Gesucht ist daher eine allgemeine Konstruktion eines Modells für 
+algebraische Körpererweiterungen $K(\alpha)$ für Nullstellen beliebiger
+Minimalpolynome $m\in K[x]$.
+Im Folgenden soll gezeigt werden, wie ein solches Modell innerhalb
+der Matrizenalgebra konstruiert werden kann.
 
 \subsubsection{Algebraische Erweiterungen als Matrizen}
+Wir beginnen mit einem Beispiel.
+Sei $A$ die Matrix
+\begin{equation}
+A 
+=
+\begin{pmatrix}
+0&2\\
+1&0
+\end{pmatrix}
+\in
+M_{2\times 2}(\mathbb{Q}).
+\label{buch:komplex:zahlen:eqn:Awurzel2}
+\end{equation}
+Das Quadrat dieser Matrix ist
+\[
+A^2
+=
+\begin{pmatrix}
+0&2\\
+1&0
+\end{pmatrix}
+\begin{pmatrix}
+0&2\\
+1&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&0\\
+0&1
+\end{pmatrix}
+=
+2I
+\qquad\text{oder}\qquad
+A^2-2I = 0,
+\]
+wobei $I$ die Einheitsmatrix ist.
+Mit $A$ ist also ein algebraisches Objekt gefunden, welches die
+Polynomgleichung $x^2-2=0$ erfüllt, sofern man den konstanten
+Term des Polynoms auf der linken Seite als $2A^0=2I$ liest und 
+die 0 auf der rechten Seite als die Nullmatrix.
 
+Die inverse Matrix von $A$ ist
+\[
+A^{-1}
+=
+\begin{pmatrix}
+0       & 1 \\
+\frac12 & 0
+\end{pmatrix}
+=
+\frac12 A,
+\]
+was sich mit der früher gefundenen Formel für die Inverse eines
+algebraischen Elementes deckt.
+Die negative Matrix $-A$ ist eine weitere Nullstelle der Gleichung
+$x^2-2=0$.
+
+Die Konstruktion ist natürlich auf den Körper $\mathbb{Q}$ oder
+die Konstante $2$ beschränkt.
+Die Matrix 
+\[
+A
+=
+\begin{pmatrix}
+0 & a \\
+1 & 0
+\end{pmatrix}
+\qquad\text{mit Inverser}\qquad
+A^{-1}
+=
+\begin{pmatrix}
+0      & 1 \\
+a^{-1} & 0
+\end{pmatrix}
+=
+a^{-1}A
+\]
+ist eine Nullstelle der Gleichung $x^2-a=0$ für ein beliebiges 
+invertierbares Element $a\in K^*$ des Koeffizientenkörpers.
+$-A$ ist eine weitere solche Lösung.
+
+Die Beispiele zeigen, dass die Matrizenalgebra offenbar flexibel
+genug ist, um für beliebige Quadratwurzeln eine Matrixdarstellung
+zu finden.
+Die Darstellung ist allerdings nicht eindeutig, wie der Versuch
+der Lösung der quadratische Gleichung
+\[
+x^2 + px + q = 0
+\]
+zeigt.
+Nach der bekannten Lösungsformel erwarten wir die Lösung in der
+Form
+\[
+x_{\pm}
+=
+-\frac{p}2 \pm \!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}{2}\biggr)^2 - q}}.
+\]
+Übersetzt in die Matrixform müsste 
+\[
+X_{\pm}
+=
+-\frac{p}2I
+\pm
+\begin{pmatrix}
+0 & \sqrt{(p/2)^2-q} \\
+1 & 0
+\end{pmatrix}
+\]
+eine Lösung der Matrixgleichung 
+\begin{equation}
+X^2 + pX + q = 0
+\label{buch:komplex:zahlen:eqn:pqgleichung}
+\end{equation}
+sein.
+Wir berechnen dazu das Produkt
+\begin{align*}
+X_{\pm}^2
+&=
+\begin{pmatrix}
+(p/2)^2 - q & 0 \\
+      0     & (p/2)^2 - q
+\end{pmatrix}
+=
+((p/2)^2-q) I
+\end{align*}
+und setzen in die Gleichung
+\[
+X_\pm^2 + pX + q
+=
+((p/2)^2-q)I
++
+pX_\pm
++
+qI
+=
+\begin{pmatrix}
+p^2/4 & q + p^3/4 -pq \\
+p + q  & p^2/4
+\end{pmatrix}
+\]
+ein.
+Die Gleichung ist also nicht erfüllt.
+Der Grund ist, dass es in der Menge $M_{2\times 2}(K)$ unendlich
+viele Quadratwurzeln gibt.
+Ist $T\in \operatorname{GL}_2(K)$ eine beliebige invertierbare 
+$2\times 2$-Matrix, dann gilt für $A'=TAT^{-1}$
+\[
+A^{\prime 2}
+=
+(TAT^{-1})(TAT^{-1})
+=
+TA(\underbrace{T^{-1}T}_{\displaystyle=I})AT^{-1}
+=
+TA^2T^{-1}.
+\]
+Ist $A$ eine Quadratwurzel von $a$, dann ist
+\[
+A^{\prime 2}
+=
+TA^2T^{-1}
+=
+T(aI)T^{-1}
+=
+aI,
+\]
+$A'$ ist also auch eine Quadratwurzel von $a$.
+Die Matrizenalgebra ist also viel grösser als zur Darstellung von
+Quadratwurzeln nötig ist, zu gross um eine Quadratwurzel eindeutig 
+festzulegen.
+
+Es lässt sich aber trotzdem eine Matrix angeben, die als Lösung
+der Gleichung \eqref{buch:komplex:zahlen:eqn:pqgleichung} angesehen
+werden kann, nämlich
+\[
+X
+=
+\begin{pmatrix}
+-p & -q \\
+ 1 &  0
+\end{pmatrix}.
+\]
+Tatsächlich ist
+\begin{align*}
+X^2 + px + q
+&=
+\begin{pmatrix}
+-p & -q \\
+ 1 &  0
+\end{pmatrix}^2
++
+p
+\begin{pmatrix}
+-p & -q \\
+ 1 &  0
+\end{pmatrix}^2
++qI
+\\
+&=
+\begin{pmatrix}
+p^2 - q & pq \\
+   -p   & -q
+\end{pmatrix}
++
+\begin{pmatrix}
+-p^2 & -pq \\
+ p   &  0 
+\end{pmatrix}
++
+\begin{pmatrix}
+q & 0 \\
+0 & q
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0 \\
+0 & 0
+\end{pmatrix}.
+\end{align*}
+Die Matrix $X$ ist also eine Lösung der quadratischen Gleichung
+\eqref{buch:komplex:zahlen:eqn:pqgleichung}.
+
+Die Konstruktion des letzten Beispiels lässt sich verallgemeinern
+zum folgenden Satz, der besagt, dass jedes über $K$ algebraische
+Element vom Grad $n$ eine Matrixdarstellung in $M_{n\times n}(K)$
+hat, die Nullstelle der Polynomgleichung ist, die das algebraische
+Element definiert.
+
+\begin{satz}
+\label{buch:komplex:zahlen:satz:matrixalgebraisch}
+Ist $a = x^n + a_{n-1}x^{n-1}+\dots + a_1x+a_0 \in K[x]$ ein
+normiertes Polynom vom Grad $n$ mit Koeffizienten im Körper $K$,
+dann ist die Matrix
+\[
+X
+=
+\begin{pmatrix}
+-a_{n-1} & -a_{n-2} & \dots  &  -a_1   &  -a_0   \\
+    1    &     0    & \dots  &    0    &    0    \\
+    0    &     1    & \dots  &    0    &    0    \\
+ \vdots  &  \vdots  & \ddots &  \vdots &  \vdots \\
+    0    &     0    & \dots  &    1    &    0 
+\end{pmatrix}
+\]
+eine Nullstelle des Polynoms, also $a(X)=0$.
+\end{satz}
+
+\begin{proof}
+Wir berechnen als erstes das charakteristische Polynom von $X$ mithilfe
+des laplaceschen Entwicklungssatzes, indem wir nach der ersten Spalte
+entwickeln.
+Zur Vereinfachung schreiben wir
+\[
+X_{k}
+=
+\begin{pmatrix}
+    -a_{k-1}     & -a_{k-2} & \dots  &  -a_1   &  -a_0   \mathstrut\\
+        1        & -\lambda & \dots  &    0    &    0    \mathstrut\\
+        0        &     1    & \dots  &    0    &    0    \mathstrut\\
+     \vdots      &  \vdots  & \ddots &  \vdots &  \vdots \\
+        0        &     0    & \dots  &    1    & -\lambda\mathstrut
+\end{pmatrix}
+\in
+M_{k\times k}(K).
+\]
+Für die Determinante von $X_k$ folgt durch Entwicklung nach der ersten
+Spalte die Rekursionsformel
+\begin{align}
+\det X_k
+&=
+-a_{k-1}
+\left|
+\begin{matrix}
+ -\lambda &     0    & \dots  &    0     &    0    \mathstrut\\
+     1    & -\lambda & \dots  &    0     &    0    \mathstrut\\
+  \vdots  &  \vdots  & \ddots &  \vdots  &  \vdots \\
+     0    &     0    & \dots  & -\lambda &    0    \mathstrut\\
+     0    &     0    & \dots  &    1     & -\lambda\mathstrut
+\end{matrix}
+\right|
+-
+\left|
+\begin{matrix}
+ -a_{k-2} & -a_{k-3} & \dots  &  -a_1    &  -a_0   \mathstrut\\
+     1    & -\lambda & \dots  &    0     &    0    \mathstrut\\
+  \vdots  & \vdots   & \ddots &  \vdots  &  \vdots \\
+     0    &    0     & \dots  & -\lambda &    0    \mathstrut\\
+     0    &    0     & \dots  &    1     & -\lambda\mathstrut
+\end{matrix}
+\right|
+\notag
+\\
+&=
+-a_{k-1}(-\lambda)^{k-1}
+-\det X_{k-2}
+\label{buch:komplex:zahlen:eqn:xkrekursion}
+\intertext{und die Anfangsbedingung}
+\det X_2
+&=
+\biggl|
+\begin{matrix}
+-a_1 & -a_0     \mathstrut\\
+  1  & -\lambda \mathstrut
+\end{matrix}
+\biggr|
+=
+a_1\lambda + a_0.
+\label{buch:komplex:zahlen:eqn:xkstart}
+\end{align}
+Durch wiederholte Anwendung der Rekursionsformel
+\eqref{buch:komplex:zahlen:eqn:xkrekursion}
+ausgehend vom Anfangswert
+\eqref{buch:komplex:zahlen:eqn:xkstart}
+\begin{align*}
+\det X_3
+&=
+-a_2(-\lambda)^2 - \det X_2
+&&=
+-a_2\lambda^2 -a_1\lambda - a_0
+\\
+\det X_4
+&=
+-a_3(-\lambda)^3 - \det X_3
+&&=
+a_3 \lambda^3 + a_2\lambda^2 + a_1\lambda + a_0
+\\
+\det X_5
+&=
+-a_4(-\lambda)^4 - \det X_4
+&&=
+-a_4\lambda^4
+-a_3\lambda^3 - a_2\lambda^2 -a_1\lambda - a_0
+\\
+&\phantom{n}\vdots
+\\
+\det X_k
+&=
+-a_{k-1}(-\lambda)^{k-1}
+-\det X_{k-1}
+&&=
+(-1)^k\bigl(
+a_{k-1}\lambda^{k-1} + \dots + a_1\lambda + a_0
+\bigr)
+\end{align*}
+findet man Ausdrücke für die Determinante $\det X_k$.
+
+Damit kann man jetzt auch das charakteristische Polynom bestimmen.
+Dieses ist
+\begin{align}
+\chi_X(\lambda)
+&=
+\det (X-\lambda I)
+\notag
+\\
+&=
+(-a_{n-1}-\lambda)
+\left|
+\begin{matrix}
+ -\lambda & \dots  &    0    &    0    \mathstrut\\
+     1    & \dots  &    0    &    0    \mathstrut\\
+  \vdots  & \ddots &  \vdots &  \vdots \mathstrut\\
+     0    & \dots  &    1    & -\lambda\mathstrut
+\end{matrix}
+\right|
+-
+\left|
+\begin{matrix}
+-a_{n-2} & -a_{n-3} & \dots  &  -a_1   &  -a_0   \mathstrut\\
+    1    & -\lambda & \dots  &    0    &    0    \mathstrut\\
+ \vdots  &  \vdots  & \ddots &  \vdots &  \vdots \mathstrut\\
+    0    &     0    & \dots  &    1    & -\lambda\mathstrut
+\end{matrix}
+\right|
+\notag
+\\
+&=
+(-a_{n-1}-\lambda)(-\lambda)^{n-1}
+-
+\det X_{n-2}
+\\
+&=
+(-1)^{n-2}
+\bigl(
+\lambda^n
++
+a_{n-1}\lambda^{n-1}
+\bigr)
+-
+(-1)^{n-1}
+\bigl(
+a_{n-2}\lambda^{n-2} + \dots + a_1\lambda + a_0
+\bigr)
+\notag
+\\
+&=
+(-1)^n
+\bigl(
+\lambda^n
++
+a_{n-1}\lambda^{n-1}
++
+a_{n-2}\lambda^{n-2}
++
+\dots
++
+a_1\lambda
++
+a_0
+\bigr)
+\notag
+\\
+&=
+(-1)^n a(\lambda).
+\label{buch:komplex:zahlen:eqn:charmin}
+\end{align}
+Das charakteristische Polynom ist also bis auf ein Vorzeichen das
+ursprüngliche Polynom $a\in K[x]$.
+
+Der Satz von Cayley-Hamilton \cite[Satz 13.23]{buch:linalg} besagt, dass 
+jede Matrix Nullstelle ihres charakteristischen Polynoms ist, dass also
+$\chi_X(X)=0$ ist.
+Es flogt daher aus \eqref{buch:komplex:zahlen:eqn:charmin},
+dass auch $m(X)=0$ ist.
+Damit ist der Satz vollständig bewiesen.
+\end{proof}
+
+\begin{beispiel}
+Für das irreduzible Polynom $a(x) = x^2-2$ ist
+$a_1=0$ und $a_0=-2$.
+Die Formel des Satzes liefert daher für 
+\[
+X
+=
+\begin{pmatrix}
+-a_1&-a_0\\
+  1 &  0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 2 \\
+1 & 0
+\end{pmatrix},
+\]
+also genau die Matrix, die in
+\eqref{buch:komplex:zahlen:eqn:Awurzel2}
+als Quadratwurzel von $2$ vorgeschlagen wurde.
+\end{beispiel}
+
+%
+% Die imaginäre Einheit als Matrix
+%
 \subsubsection{Die imaginäre Einheit als Matrix}
+Die imaginäre Einheit ist Nullstelle des irreduziblen Polynoms
+$x^2+1$.
+Nach Satz~\ref{buch:komplex:zahlen:satz:matrixalgebraisch} kann
+die imaginäre Einheit durch die $2\times 2$-Matrix
+\[
+J
+=
+\begin{pmatrix*}[r]
+0 & -1 \\
+1 &  0
+\end{pmatrix*}
+\]
+dargestellt werden.
+Tatsächlich sind die Potenzen von $J$
+\begin{align*}
+J^2
+&=
+\begin{pmatrix*}[r]
+-1& 0\\
+ 0&-1
+\end{pmatrix*}
+=
+-I
+\\
+J^3
+&=
+J^2J
+=
+-IJ
+=
+-J
+\\
+J^4
+&=
+J^2J^2
+(-I)(-I)
+=
+I.
+\\
+J^k
+&=
+\begin{cases}
+(-1)^{k/2}I&\qquad \text{$k$ gerade} \\
+(-1)^{(k-1)/2}J&\qquad \text{$k$ ungerade,} \\
+\end{cases}
+\end{align*}
+wie man dies von $i$ erwartet.
 
+Die komplexe $z=a+bi$ wird also durch die Matrix
+\[
+Z = aI+bJ
+=
+\begin{pmatrix*}[r]
+a&-b\\
+b& a
+\end{pmatrix*}
+\]
+dargestellt.
+Wir rechnen nach, dass die inverse Matrix von $Z$ auch die
+Matrix ist, die zur komplexen Zahl $z^{-1}$ gehört.
+Die inverse Matrix ist
+\begin{align*}
+Z^{-1}
+&=
+\frac{a}{\det Z}
+\begin{pmatrix*}[r]
+ a & b \\
+-b & a
+\end{pmatrix*}
+=
+\frac{1}{a^2+b^2}
+\begin{pmatrix*}[r]
+ a & b \\
+-b & a
+\end{pmatrix*}
+=
+\frac{a}{a^2+b^2}I
++
+\frac{-b}{a^2+b^2}J.
+\end{align*}
+Dies ist genau die Matrix, die zur reziproken komplexen Zahl
+\[
+\frac{1}{z}
+=
+\frac{a}{a^2+b^2}
++
+\frac{-b}{a^2+b^2}i
+\] 
+gehört.
+
+Man beachte, dass in dieser Matrixdarstellung der komplexen Zahlen
+die erste Spalte ein Vektor ist, der die komplexe Zahl als Vektor
+in der gaussschen Zahlenebene darstellt.
+
+%
+% Quaternionen
+%
 \subsubsection{Quaternionen}
+Die Matrix $J$ ist nicht die einzige Matrix mit der Eigenschaft
+$J^2=-I$.
+Lässt man komplexe Einträge in den Matrizen zu, haben auch die
+Matrizen
+\begin{align*}
+-i\sigma_x
+&=
+-i
+\begin{pmatrix*}[r]
+0&1\\
+1&0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+&&\Rightarrow&
+(-i\sigma_x)^2
+&=
+\begin{pmatrix*}[r]
+-1& 0\\
+ 0&-1
+\end{pmatrix*}
+=
+-I
+\\
+-i\sigma_y
+&=
+-i
+\begin{pmatrix*}[r]
+0&-i\\
+i& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0&-1\\
+1&0
+\end{pmatrix*}
+=
+J
+&&\Rightarrow&
+(-i\sigma_y)^2
+&=
+J^2
+=
+-I
+\\
+-i\sigma_z
+&=
+-i
+\begin{pmatrix*}[r]
+1&0\\
+0&-1
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-i&0\\
+ 0&i
+\end{pmatrix*}
+&&\Rightarrow&
+(-i\sigma_z)^2
+&=
+\begin{pmatrix*}[r]
+-1& 0\\
+ 0&-1
+\end{pmatrix*}
+=
+-I.
+\end{align*}
+diese Eigenschaft.
+
+\begin{definition}[Pauli-Matrizen]
+Die Matrizen
+\begin{align*}
+\sigma_x
+&=
+\begin{pmatrix*}[r]
+0&1\\
+1&0
+\end{pmatrix*},
+&
+\sigma_y
+&=
+\begin{pmatrix*}[r]
+0&-i\\
+i& 0
+\end{pmatrix*}
+&&\text{und}
+&
+\sigma_z
+&=
+\begin{pmatrix*}[r]
+1&0\\
+0&-1
+\end{pmatrix*}
+\end{align*}
+heissen die \emph{Pauli-Matrizen}.
+\end{definition}
+
+Die Pauli-Matrizen spielen eine wichtige Rolle in der Beschreibung des
+Spins in der Quantenmechanik.
+Sie können auch verwendet werden, um die Gruppe $\operatorname{SU}(2)$ 
+der spezielle unitären Matrizen zu beschreiben.
+
+Schreiben wir
+\begin{align*}
+\boldsymbol{i}
+&=
+-i\sigma_x,
+&
+\boldsymbol{j}
+&=
+-i\sigma_y
+&&\text{und}
+&
+\boldsymbol{k}
+&=
+-i\sigma_z,
+\end{align*}
+erhalten wir zusätzlich zu
+$\boldsymbol{i}^2
+=
+\boldsymbol{j}^2
+=
+\boldsymbol{k}^2
+=-1$
+durch Nachrechnen die folgenden Beziehungen:
+\begin{align}
+\boldsymbol{i}\boldsymbol{j}
+&=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+=
+\boldsymbol{k},
+&
+\boldsymbol{j}\boldsymbol{i}
+&=
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+i & 0 \\
+0 & -i
+\end{pmatrix*}
+=
+-\boldsymbol{k},
+\label{buch:komplex:zahlen:eqn:quatrel}
+\\
+\boldsymbol{j}\boldsymbol{k}
+&=
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+=
+\boldsymbol{i},
+&
+\boldsymbol{k}\boldsymbol{j}
+&=
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0&i\\
+i&0
+\end{pmatrix*}
+=
+-\boldsymbol{i},
+\notag
+\\
+\boldsymbol{k}\boldsymbol{i}
+&=
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0 & -1 \\
+1 & 0
+\end{pmatrix*}
+=
+\boldsymbol{j},
+&
+\boldsymbol{i}\boldsymbol{k}
+&=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 0 & 1 \\
+-1 & 0
+\end{pmatrix*}
+=
+-\boldsymbol{j}.
+\notag
+\end{align}
+Wir zu erwarten ist, sind die Produkte der Matrizen
+$\boldsymbol{i}$,
+$\boldsymbol{j}$
+und
+$\boldsymbol{k}$
+nicht kommutativ.
+Diese Relationen auch zusammengefasst werden in die Gleichungen
+\begin{equation}
+\boldsymbol{i}^2
+=
+\boldsymbol{j}^2
+=
+\boldsymbol{k}^2
+=
+\boldsymbol{i}
+\boldsymbol{j}
+\boldsymbol{k}
+=
+-1.
+\end{equation}
+Multipliziert man die letzte Identität von rechts mit $\boldsymbol{k}$
+erhält man
+\begin{equation}
+-\boldsymbol{k}
+=
+(
+\boldsymbol{i}
+\boldsymbol{j}
+\boldsymbol{k}
+)
+\boldsymbol{k}
+=
+\boldsymbol{i}
+\boldsymbol{j}
+\boldsymbol{k}^2
+=
+-
+\boldsymbol{i}
+\boldsymbol{j}
+\quad\Rightarrow\quad
+\boldsymbol{i}
+\boldsymbol{j}
+=
+\boldsymbol{k},
+\label{buch:komplex:zahlen:eqn:hamiltonrelationen}
+\end{equation}
+\input{chapters/010-komplex/fig/fig-hamilton.tex}
+also die erste Identität in \eqref{buch:komplex:zahlen:eqn:quatrel}.
+Die anderen Identitäten können auf ähnliche Weise aus
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
+gewonnen werden.
+
+Die Menge
+\[
+\mathbb{H}
+=
+\langle 1,
+\boldsymbol{i},
+\boldsymbol{j},
+\boldsymbol{k}
+\rangle
+=
+\{
+x_0
++
+x_1\boldsymbol{i}
++
+x_2\boldsymbol{j}
++
+x_3\boldsymbol{k}
+\mid
+x_0,\dots,x_3\in\mathbb{R}
+\}
+\subset
+M_{2\times 2}(\mathbb{C})
+\]
+ist einerseits ein reeller Vektorraum und andererseits eine
+Algebra mit den Rechenregeln
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen},
+die William Rowan Hamilton im Jahr 1843 entdeckt hat.
+Sie heisst die Algebra der \emph{Quaternionen}.
+Hamilton sollen die algebraischen Regeln
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
+während eines Spaziergangs über die Broom-Bridge in Dublin
+eingefallen sein und er soll sie spontan in einen Stein
+geritzt haben, woran die in Abbildung~\ref{buch:komplex:fig:hamilton}
+abgebildete, an der Broom-Bridge angebrachte Plakette erinnert.
 
 %
 % Geometrische Beschreibung der Rechenoperationen in C
 %
 \subsection{Geometrische Beschreibung der Rechenoperationen in $\mathbb{C}$}
+Eine komplexe Zahl $z=a+bi$ kann sowohl als Vektor
+\[
+z = \begin{pmatrix}a\\b\end{pmatrix}
+\]
+in der gaussschen Zahlenebene als auch als $2\times 2$-Matrix
+beschrieben werden.
+Schreiben wir das Produkt $(a+bi)(c+di)$ in Matrix-Form als
+\begin{align*}
+(aI+bJ)(cI+dJ)
+&=
+\begin{pmatrix*}[r]
+a&-b\\
+b& a
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+c&-d\\
+d& c
+\end{pmatrix*}
+\intertext{und betrachten wir nur die erste Spalte des Resultats,
+finden wir das Produkt als Spaltenvektor}
+\begin{pmatrix*}
+ac-bd\\
+bc+ad
+\end{pmatrix*}
+&=
+\begin{pmatrix*}[r]
+a&-b\\
+b& a
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+c\\
+d
+\end{pmatrix*}
+\end{align*}
+Wie kann man dieses Produkt geometrisch in der gaussschen Zahlenebene
+beschreiben?
+
+Wir schreiben $r=\!\sqrt{a^2+b^2}$ und schreiben die Matrix von $a+bi$
+als
+\[
+aI+bJ
+=
+r
+\begin{pmatrix*}[r]
+a/r & -b/r \\
+b/r &  a/r
+\end{pmatrix*}.
+\]
+Für die Matrixelemente gilt
+\[
+\biggl(\frac{a}{r}\biggr)^2
++
+\biggl(\frac{b}{r}\biggr)^2
+=
+\frac{a^2}{r^2}
++
+\frac{b^2}{r^2}
+=
+\frac{a^2+b^2}{r^2}
+=
+1.
+\]
+Es gibt daher einen Winkel $\varphi$ derart, dass
+\[
+\cos\varphi = \frac{a}{r}
+\qquad\text{und}\qquad
+\sin\varphi = \frac{b}{r}.
+\]
+Damit wird die Matrix zu
+\[
+aI+bJ
+=
+r
+\begin{pmatrix*}[r]
+\cos\varphi & -\sin\varphi \\
+\sin\varphi &  \cos\varphi
+\end{pmatrix*}
+=
+r\,D_\varphi,
+\]
+wobei $D_\varphi$ die Drehung der Ebene um den Winkel $\varphi$ im
+Gegenuhrzeigersinn ist.
+Die Multiplikation mit der komplexen Zahl $a+bi$ dreht also einen
+Vektor in der gaussschen Zahlenebene um den Winkel $\varphi$ und
+strekt ihn anschliessend um $r=|a+bi|$.
+
+\begin{definition}[Polardarstellung komplexer Zahlen]
+Ist $a+bi$ eine komplexe Zahl, dann gibt es einen Winkel $\varphi$ derart,
+dass 
+\[
+a + bi
+=
+r(\cos\varphi + i\sin\varphi).
+\]
+Der Winkel $\varphi$ heisst das \emph{Argument} der komplexen Zahl.
+\index{Argument einer komplexen Zahl}%
+\end{definition}
 
