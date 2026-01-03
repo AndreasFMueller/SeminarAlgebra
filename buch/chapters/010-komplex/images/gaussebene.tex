@@ -1,0 +1,72 @@
+%
+% gaussebene.tex -- Gausssche Zahlenebene
+%
+% (c) 2026 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{2}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\draw[->] (-2.7,0) -- (2.7,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-0.5) -- (0,2.1) coordinate[label={right:$\operatorname{Im}$}];
+
+\def\a{45}
+\def\z{115}
+\def\r{1.2}
+\def\l{2}
+
+\coordinate (A) at (\a:\r);
+\coordinate (Z) at (\z:\l);
+
+\fill[color=darkred!20] (0,0) -- (0:{1/\skala}) arc (0:\a:{1/\skala}) -- cycle;
+\node[color=darkred] at ({0.5*\a}:{0.7/\skala}) {$\varphi$};
+\draw[->,color=darkred,line width=1.4pt] (0,0) -- (\a:\r);
+\node[color=darkred] at (\a:\r) [above right]
+	{$a+bi=r(\cos\varphi+i\sin\varphi)$};
+\node[color=darkred] at (\a:{0.5*\r}) [above,rotate=\a] {$r$};
+
+\fill[color=darkred!20] (0,0) -- (\z:{1/\skala}) arc (\z:{\a+\z}:{1/\skala})
+	-- cycle;
+\node[color=darkred] at ({\z+0.5*\a}:{0.7/\skala}) {$\varphi$};
+
+\draw[->,color=darkgreen,line width=1.4pt] (0,0) -- (Z);
+\node[color=darkgreen] at (Z) [above] {$c+di$};
+
+\draw[->,color=darkred,line width=1.4pt] (0,0) -- ({\a+\z}:{\r*\l});
+\node[color=darkred] at ({\a+\z}:{\r*\l}) [above] {$(a+bi)(c+di)$};
+
+\fill[color=white] (Z) circle[radius={0.05/\skala}];
+\draw[color=darkgreen] (Z) circle[radius={0.05/\skala}];
+
+\fill[color=white] ({\a+\z}:{\r*\l}) circle[radius={0.05/\skala}];
+\draw[color=darkred] ({\a+\z}:{\r*\l}) circle[radius={0.05/\skala}];
+
+\fill[color=white] (\a:\r) circle[radius={0.05/\skala}];
+\draw[color=darkred] (\a:\r) circle[radius={0.05/\skala}];
+
+\draw[->,color=blue,line width=1.4pt] (0,0) -- (0,1);
+\node[color=blue] at (-0.0,1) [left] {$i$};
+
+\draw[->,color=blue,line width=1.4pt] (0,0) -- (1,0);
+\node[color=blue] at (1,0) [below] {$1$};
+
+\fill[color=white] (0,0) circle[radius={0.05/\skala}];
+\draw (0,0) circle[radius={0.05/\skala}];
+
+\node[color=darkred] at ({\a+\z}:{0.5*\r*\l}) [below,rotate={\a+\z-180}]
+	{$r\cdot |c+di|$};
+
+\node at (2.7,2.1) [below left] {$\mathbb{C}$};
+
+\end{tikzpicture}
+\end{document}
+

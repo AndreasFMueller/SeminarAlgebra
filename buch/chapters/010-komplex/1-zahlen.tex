@@ -1072,6 +1072,7 @@ die im Code als Bytes dargestellt werden.
 % Die ganzen gaussschen Zahlen Z[i]
 %
 \subsubsection{Die ganzen gaussschen Zahlen $\mathbb{Z}[i]$}
+\input{chapters/010-komplex/fig/fig-gausszahlen.tex}%
 Die Erweiterung einer Zahlenmenge um ein neues Element, welches
 als Nullstelle eines irreduziblen Polynoms, lässt sich auch auf
 die Menge $\mathbb{Z}$ anwenden.
@@ -1097,7 +1098,14 @@ a,b\in\mathbb{Z}
 heisst die Menge der ganzen gaussschen Zahlen.
 Sie bildet einen kommutativen Ring mit Eins, der den Ring $\mathbb{Z}$
 als echten Unterring enthält.
+Die Komponente $a$ heisst der \emph{Realteil} von $z=a+bi$, geschrieben
+$a=\operatorname{Re}z$, $b=\operatorname{Im}z$ heisst Imaginärteil.
 \end{definition}
+
+Die ganzen gaussschen Zahlen können dargestellt werden als die
+Gitterpunkt in einer Ebene, deren horizontale Achse der reelle
+Zahlenstrahl ist, während die vertikale Achse die imaginären
+Zahlen darstellt (Abbildung~\ref{buch:komplex:zahlen:fig:gausszaheln}).
 
 Die Ringoperationen sind
 \begin{align*}
@@ -2344,20 +2352,40 @@ Sie können auch verwendet werden, um die Gruppe $\operatorname{SU}(2)$
 der spezielle unitären Matrizen zu beschreiben.
 
 Schreiben wir
-\begin{align*}
+\begin{align}
 \boldsymbol{i}
 &=
--i\sigma_x,
+-i\sigma_x
+=
+\begin{pmatrix}
+0&-i\\
+-i&0
+\end{pmatrix}
+,
 &
 \boldsymbol{j}
 &=
 -i\sigma_y
+=
+\begin{pmatrix}
+0&-1\\
+1&0
+\end{pmatrix}
+=
+J
 &&\text{und}
 &
 \boldsymbol{k}
 &=
--i\sigma_z,
-\end{align*}
+-i\sigma_z
+=
+\begin{pmatrix}
+-i & 0 \\
+ 0 & i
+\end{pmatrix}
+,
+\label{buch:komplex:zahlen:eqn:quaternionen}
+\end{align}
 erhalten wir zusätzlich zu
 $\boldsymbol{i}^2
 =
@@ -2497,10 +2525,11 @@ Diese Relationen auch zusammengefasst werden in die Gleichungen
 \boldsymbol{k}
 =
 -1.
+\label{buch:komplex:zahlen:eqn:hamiltonrelationen}
 \end{equation}
 Multipliziert man die letzte Identität von rechts mit $\boldsymbol{k}$
 erhält man
-\begin{equation}
+\begin{equation*}
 -\boldsymbol{k}
 =
 (
@@ -2522,8 +2551,7 @@ erhält man
 \boldsymbol{j}
 =
 \boldsymbol{k},
-\label{buch:komplex:zahlen:eqn:hamiltonrelationen}
-\end{equation}
+\end{equation*}
 \input{chapters/010-komplex/fig/fig-hamilton.tex}
 also die erste Identität in \eqref{buch:komplex:zahlen:eqn:quatrel}.
 Die anderen Identitäten können auf ähnliche Weise aus
@@ -2566,16 +2594,68 @@ eingefallen sein und er soll sie spontan in einen Stein
 geritzt haben, woran die in Abbildung~\ref{buch:komplex:fig:hamilton}
 abgebildete, an der Broom-Bridge angebrachte Plakette erinnert.
 
+Die Matrizen $\boldsymbol{i}$ und $\boldsymbol{k}$ enthalten
+Einträge, die selbst kompmlexe Zahlen sind.
+Um eine Darstellung ganz ohne komplexe Zahlen zu bekommen, muss
+jeder Eintrag der Matrizen in \eqref{buch:komplex:zahlen:eqn:quaternionen}
+durch eine $2\times 2$-Matrix ersetzt werden.
+Dadurch entstehen drei $4\times 4$-Matrizen, die wir mit grossen
+fetten Buchstaben schreiben:
+\begin{align*}
+\boldsymbol{I}
+&=
+\begin{pmatrix*}[r]
+ 0& 0& 0& 1\\
+ 0& 0&-1& 0\\
+ 0& 1& 0& 0\\
+-1& 0& 0& 0
+\end{pmatrix*},
+&
+\boldsymbol{J}
+&=
+\begin{pmatrix*}[r]
+ 0& 0&-1& 0\\
+ 0& 0& 0&-1\\
+ 1& 0& 0& 0\\
+ 0& 1& 0& 0
+\end{pmatrix*}
+&&\text{und}
+&
+\boldsymbol{K}
+&=
+\begin{pmatrix*}[r]
+ 0& 1& 0& 0\\
+-1& 0& 0& 0\\
+ 0& 0& 0&-1\\
+ 0& 0& 1& 0
+\end{pmatrix*}.
+\end{align*}
+Man kann nachrechnen, dass die für
+$\boldsymbol{i}$,
+$\boldsymbol{j}$
+und
+$\boldsymbol{k}$
+gefundenen Rechenregeln
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
+auch für
+$\boldsymbol{I}$,
+$\boldsymbol{J}$
+und
+$\boldsymbol{K}$
+gelten.
+
 %
 % Geometrische Beschreibung der Rechenoperationen in C
 %
 \subsection{Geometrische Beschreibung der Rechenoperationen in $\mathbb{C}$}
+\input{chapters/010-komplex/fig/fig-gaussebene.tex}%
 Eine komplexe Zahl $z=a+bi$ kann sowohl als Vektor
 \[
 z = \begin{pmatrix}a\\b\end{pmatrix}
 \]
-in der gaussschen Zahlenebene als auch als $2\times 2$-Matrix
-beschrieben werden.
+in der gaussschen Zahlenebene der
+Abbildung~\ref{buch:komplex:zahlen:fig:gaussebene}
+als auch als $2\times 2$-Matrix beschrieben werden.
 Schreiben wir das Produkt $(a+bi)(c+di)$ in Matrix-Form als
 \begin{align*}
 (aI+bJ)(cI+dJ)
@@ -2657,14 +2737,19 @@ Vektor in der gaussschen Zahlenebene um den Winkel $\varphi$ und
 strekt ihn anschliessend um $r=|a+bi|$.
 
 \begin{definition}[Polardarstellung komplexer Zahlen]
-Ist $a+bi$ eine komplexe Zahl, dann gibt es einen Winkel $\varphi$ derart,
+Ist $z=a+bi$ eine komplexe Zahl, dann gibt es einen Winkel $\varphi$ derart,
 dass 
 \[
+z
+=
 a + bi
 =
-r(\cos\varphi + i\sin\varphi).
+r(\cos\varphi + i\sin\varphi)
+\qquad\text{mit}\qquad
+r=|z|.
 \]
-Der Winkel $\varphi$ heisst das \emph{Argument} der komplexen Zahl.
+Der Winkel $\varphi$ heisst das \emph{Argument} $\varphi=\operatorname{arg}z$
+der komplexen Zahl $z$.
 \index{Argument einer komplexen Zahl}%
 \end{definition}
 
