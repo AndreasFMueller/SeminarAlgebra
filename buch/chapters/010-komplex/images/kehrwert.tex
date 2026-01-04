@@ -1,0 +1,91 @@
+%
+% kehrwert.tex -- template for standalon tikz images
+%
+% (c) 2026 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\skala{0.82}
+\def\xnull{-2.45}
+\def\ynull{0.45}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+R(\X,\Y) = (\X-\xnull)*(\X-\xnull)+(\Y-\ynull)*(\Y-\ynull);
+Real(\X,\Y) = (\X-\xnull)/R(\X,\Y);
+Imag(\X,\Y) = -(\Y-\ynull)/R(\X,\Y);
+}]
+
+\begin{scope}[xshift=-4.5cm]
+	\foreach \x in {-3,-2.8,...,3}{
+		\draw[color=blue,line width=0.5pt] (\x,-3) -- (\x,3);
+	}
+	\foreach \x in {-3,-2,...,3}{
+		\draw[color=blue] (\x,-3) -- (\x,3);
+	}
+	\foreach \y in {-3,-2.8,...,3}{
+		\draw[color=darkred,line width=0.5pt] (-3,\y) -- (3,\y);
+	}
+	\foreach \y in {-3,-2,...,3}{
+		\draw[color=darkred] (-3,\y) -- (3,\y);
+	}
+
+	\draw[->] (-3,0) -- (3.3,0) coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-3) -- (0,3.3)
+		coordinate[label={right:$\operatorname{Im}$}];
+
+	\fill[color=white,opacity=0.7] (\xnull,\ynull) rectangle ++(0.6,0.6);
+	\node at (\xnull,\ynull) [above right] {$z_0$};
+	\fill[color=white] (\xnull,\ynull) circle[radius=0.08];
+	\draw (\xnull,\ynull) circle[radius=0.08];
+\end{scope}
+
+\draw[->] (-0.7,0) -- (0.7,0);
+\node at (0,0) [above] {$f(z)$};
+\node at (0,0) [below] {$\displaystyle\frac{1}{z-z_0}$};
+
+\begin{scope}[xshift=4cm]
+	\foreach \x in {-3,-2.8,...,3}{
+		\draw[color=blue!10,line width=0.5pt] (\x,-3) -- (\x,3);
+	}
+	\foreach \x in {-3,-2,...,3}{
+		\draw[color=blue!10] (\x,-3) -- (\x,3);
+	}
+	\foreach \y in {-3,-2.8,...,3}{
+		\draw[color=darkred!10,line width=0.5pt] (-3,\y) -- (3,\y);
+	}
+	\foreach \y in {-3,-2,...,3}{
+		\draw[color=darkred!10] (-3,\y) -- (3,\y);
+	}
+	\begin{scope}
+		\clip (-3,-3) rectangle (3,3);
+		\foreach \y in {-3,-2.8,...,3}{
+			\draw[color=blue,line width=0.4pt]
+				plot[domain=-3:3,samples=200]
+				({Real(\x,\y)},{Imag(\x,\y)});
+			\draw[color=darkred,line width=0.4pt]
+				plot[domain=-3:3,samples=200]
+				({Real(\y,\x)},{Imag(\y,\x)});
+		}
+		\foreach \y in {-3,-2,...,3}{
+			\draw[color=blue] plot[domain=-3:3,samples=200]
+				({Real(\x,\y)},{Imag(\x,\y)});
+			\draw[color=darkred] plot[domain=-3:3,samples=200]
+				({Real(\y,\x)},{Imag(\y,\x)});
+		}
+	\end{scope}
+
+	\draw[->] (-3,0) -- (3.3,0) coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-3) -- (0,3.3)
+		coordinate[label={right:$\operatorname{Im}$}];
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
+

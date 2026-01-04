@@ -1,0 +1,139 @@
+%
+% hyperbeln.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{0.82}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+	X(\u,\t) = \u*cosh(\t);
+	Y(\u,\t) = \u*sinh(\t);
+	XX(\u,\t) = \u*sinh(\t);
+	YY(\u,\t) = \u*cosh(\t);
+	RX(\u,\t) = (sqrt(2)/2)*(X(\u,\t)-Y(\u,\t));
+	RY(\u,\t) = (sqrt(2)/2)*(X(\u,\t)+Y(\u,\t));
+}]
+
+\begin{scope}[xshift=-4.5cm]
+	\foreach \x in {-3,-2.5,...,3}{
+		\draw[color=blue!10,line width=0.5pt] (\x,-3) -- (\x,3);
+	}
+	\foreach \x in {-3,-2,...,3}{
+		\draw[color=blue!10] (\x,-3) -- (\x,3);
+	}
+	\foreach \y in {-3,-2.5,...,3}{
+		\draw[color=darkred!10,line width=0.5pt] (-3,\y) -- (3,\y);
+	}
+	\foreach \y in {-3,-2,...,3}{
+		\draw[color=darkred!10] (-3,\y) -- (3,\y);
+	}
+	\begin{scope}
+		\clip (-3,-3) rectangle (3,3);
+		\foreach \u in {0.5,1.5,...,9}{
+			\pgfmathparse{sqrt(\u)}
+			\xdef\U{\pgfmathresult}
+			\draw[color=blue,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({X(\U,\x)},{Y(\U,\x)});
+			\draw[color=blue,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({-X(\U,\x)},{Y(\U,\x)});
+			\draw[color=blue,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({XX(\U,\x)},{YY(\U,\x)});
+			\draw[color=blue,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({XX(\U,\x)},{-YY(\U,\x)});
+		}
+		\foreach \u in {0.5,1.5,...,18}{
+			\pgfmathparse{sqrt(\u)}
+			\xdef\U{\pgfmathresult}
+			\draw[color=darkred,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({RX(\U,\x)},{RY(\U,\x)});
+			\draw[color=darkred,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({-RX(\U,\x)},{RY(\U,\x)});
+			\draw[color=darkred,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({RX(\U,\x)},{-RY(\U,\x)});
+			\draw[color=darkred,line width=0.4pt]
+				plot[domain=-2:2,samples=50]
+					({-RX(\U,\x)},{-RY(\U,\x)});
+
+		}
+		\foreach \u in {1,...,9}{
+			\pgfmathparse{sqrt(\u)}
+			\xdef\U{\pgfmathresult}
+			\draw[color=blue]
+				plot[domain=-2:2,samples=50]
+					({X(\U,\x)},{Y(\U,\x)});
+			\draw[color=blue]
+				plot[domain=-2:2,samples=50]
+					({-X(\U,\x)},{Y(\U,\x)});
+			\draw[color=blue]
+				plot[domain=-2:2,samples=50]
+					({XX(\U,\x)},{YY(\U,\x)});
+			\draw[color=blue]
+				plot[domain=-2:2,samples=50]
+					({XX(\U,\x)},{-YY(\U,\x)});
+		}
+		\foreach \u in {0,1,...,18}{
+			\pgfmathparse{sqrt(\u)}
+			\xdef\U{\pgfmathresult}
+			\draw[color=darkred]
+				plot[domain=-2:2,samples=50]
+					({RX(\U,\x)},{RY(\U,\x)});
+			\draw[color=darkred]
+				plot[domain=-2:2,samples=50]
+					({-RX(\U,\x)},{RY(\U,\x)});
+			\draw[color=darkred]
+				plot[domain=-2:2,samples=50]
+					({RX(\U,\x)},{-RY(\U,\x)});
+			\draw[color=darkred]
+				plot[domain=-2:2,samples=50]
+					({-RX(\U,\x)},{-RY(\U,\x)});
+
+		}
+	\end{scope}
+	\draw[->] (-3,0) -- (3.3,0) coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-3) -- (0,3.3)
+		coordinate[label={right:$\operatorname{Im}$}];
+\end{scope}
+
+\draw[->] (-0.7,0) -- (0.7,0);
+\node at (0,0) [above] {$f(z)$};
+\node at (0,0) [below] {$z^2$};
+
+\begin{scope}[xshift=4cm]
+	\foreach \x in {-3,-2.5,...,3}{
+		\draw[color=blue,line width=0.5pt] (\x,-3) -- (\x,3);
+	}
+	\foreach \x in {-3,-2,...,3}{
+		\draw[color=blue] (\x,-3) -- (\x,3);
+	}
+	\foreach \y in {-3,-2.5,...,3}{
+		\draw[color=darkred,line width=0.5pt] (-3,\y) -- (3,\y);
+	}
+	\foreach \y in {-3,-2,...,3}{
+		\draw[color=darkred] (-3,\y) -- (3,\y);
+	}
+
+	\draw[->] (-3,0) -- (3.3,0) coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-3) -- (0,3.3)
+		coordinate[label={right:$\operatorname{Im}$}];
+\end{scope}
+
+
+\end{tikzpicture}
+\end{document}
+

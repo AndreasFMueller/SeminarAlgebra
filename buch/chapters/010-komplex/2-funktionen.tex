@@ -6,11 +6,499 @@
 \section{Komplexe Funktionen
 \label{buch:komplex:section:funktionen}}
 \kopfrechts{Komplexe Funktionen}
+Die Algebra der komplexen Zahlen ermöglicht Potenzen und Polynome
+zu konstruieren.
+Wir können dieses als Funktionen mit komplexwertigen Argumenten
+und komplexen Werten betrachten.
+In diesem Abschnitt konstruieren wir weitere Funktionen und entwickeln
+Techniken, um komplexe Funktionen zu visualisieren.
 
-\subsection{Real- und Imaginärteil}
+%
+% Komplexe Funktionen als Abbildungen
+%
+\subsection{Komplexe Funktionen als Abbildungen}
+Von einer reelle Funktion
+$f\colon \mathbb{R}\to\mathbb{R}$
+oder
+$f\colon I\to\mathbb{R}$ mit Definitionsbereich $I\subset\mathbb{R}$
+kann man sich leicht mit Hilfe eines Graphen ein Bild machen.
+Er stellt die Abhängigkeit zwischen Argument $x$ aus dem
+Definitionsbereich und dem Wert $f(x)$ als Kurve bestehend aus
+den Punkten $(x,f(x))$ dar.
+Für komplexe Funktionen ist sowohl das Argument $z$ wie auch der
+Wert $f(z)$ eine komplexe Zahl, die beide einen zweidimensionalen
+Raum zur Visualisierung benötigen.
+Im dreidimensionalen Raum ist also schlicht nicht genug Platz vorhanden,
+um komplexe Funktionen als Grahen zu visualisieren.
 
-\subsection{Polynome}
+%
+% Definitions- und Wertebereich
+%
+\subsubsection{Definitions- und Wertebereich}
+Nur in Ausnahmefällen wird eine komplexe Funktion für beliebige Argument
+$z\in\mathbb{C}$ definiert sein.
+Meistens wird die Funktion nur auf einer Teilmenge
+$U\subset \mathbb{C}$ definiert sein.
+Um später die Ableitung einer komplexen Funktion definieren zu können,
+müssen zusätzliche Annahmen über den Definitionsbereich gemacht werden.
+Die Ableitung approximiert die Änderung des Funktionswertes $f(z)$
+in Abhängigkeit von kleinen Abweichungen $\Delta z$ vom Ausgangspunkt $z$
+als lineare Funktion von $\Delta z$.
+Diese kann nur ermittelt werden, wenn es möglich ist, Änderungen
+$\Delta z$ in jede beliebige Richtung innerhalb der komplexen Ebene
+zu untersuchen.
+Dazu muss der Definitionsbereich eine kleine Umgebung des Punktes $z$
+enthalten.
 
+\begin{definition}[offene Menge, Gebiet]
+Eine Teilmenge $U\subset \mathbb{C}$ heisst \emph{offen}, wenn es zu
+\index{offen}%
+jedem Punkt $z\in U$ ein $\varepsilon > 0$ gibt derart, dass die
+$\varepsilon$-Umgebung
+\[
+U_{\varepsilon}(z)
+=
+\{
+z'\in\mathbb{C}
+\mid
+|z-z'|<\varepsilon
+\}
+\]
+von $z$ ebenfalls in $U$ enthalten ist, also $U_\varepsilon(z)\subset U$.
+Eine offene Teilmenge von $\mathbb{C}$ heisst auch ein \emph{Gebiet}.
+\index{Gebiet}%
+\end{definition}
+
+\begin{beispiel}
+Die Funktion der \emph{komplexen Konjugation}
+\index{Konjugation}%
+\[
+\bar{\phantom{o}}
+\colon
+\mathbb{C} \to \mathbb{C}
+:
+z\mapsto \bar{z}
+\]
+ist eine Abbildung, die auf allen komplexen Zahlen definiert ist.
+Schreibt man $z=x+iy$, dann ist $\overline{x+iy}=x-iy$.
+Geometrisch ist die komplexe Konjugation die Spiegelung an der
+reellen Achse.
+\end{beispiel}
+
+\begin{beispiel}
+Die Abbildung $z\mapsto z$ ist auf ganz $\mathbb{C}$ definiert,
+sie wird auch die \emph{identische Abbildung} von $\mathbb{C}$
+genannt und $\operatorname{id}_{\mathbb{C}}$ geschrieben:
+$\operatorname{id}_{\mathbb{C}}(z)=z$.
+\end{beispiel}
+
+\begin{beispiel}
+Die Funktion
+\[
+f
+\colon
+\mathbb{C}\setminus\{1\}
+\to
+\mathbb{C}
+:
+z\mapsto + \frac{1}{z-1}
+\]
+ist überall ausser im Punkt $1\in\mathbb{C}$ definiert.
+Die Menge $U=\mathbb{C}\setminus\{1\}$ ist eine offene Menge, denn
+für jeden Punkt $z\ne 1$ können wir $\varepsilon = |z-1|$ setzen
+und uns davon überzeugen, dass $U_{\varepsilon}(z)\subset U$ ist.
+Für einen Punkt $z'\in U_{\varepsilon}(z)$ gilt
+\[
+|z-z'|<\varepsilon = |z-1|
+\qquad\Rightarrow\qquad
+z'\ne 1,
+\]
+also kann $U_\varepsilon(z)$ den Punkt $1$ nicht enthalten.
+Da $1$ der einzige Punkt ist, der nicht in $U$ ist, folgt
+$U_\varepsilon(z)\subset U$.
+\end{beispiel}
+
+%
+% Real- und Imaginaerteil
+%
+\subsubsection{Real- und Imaginärteil}
+In diesem Abschnitt sei $f\colon U\to\mathbb{C}$ eine komplexe Funktion
+auf einer offenen Teilmenge $U\subset\mathbb{C}$.
+Das Argument $z\in U$ können wir auch als Real- und Imaginärteil
+schreiben.
+Wir verwenden die Notation $x+iy$, sodass der Realteil die
+$x$-Koordinate in der gaussschen Zahlenebene ist und der Imaginärteil
+die $y$-Koordinate.
+Die komplexe Funktion $f(z)=f(x+iy)$ wird somit zu einer Funktion
+von zwei reellen Variablen, die auf der Menge
+\[
+V
+=
+\{
+(x,y)
+\mid
+x+iy\in U
+\}
+\]
+definiert ist.
+Hält man die $y$-Koordinaten fest, definiert $x\mapsto f(x+iy)$ 
+eine durch $x$ parametriesierte Kurve in $\mathbb{C}$,
+ebenso ist $y\mapsto f(x+iy)$ für festes $x$ eine Kurve in $\mathbb{C}$.
+Die Abbildung $f$ bildet also Gitterlinien im Definitionsbereich auf
+Kurven in $\mathbb{C}$ ab.
+\input{chapters/010-komplex/fig/fig-kehrwert.tex}%
+Die Funktion $f$ kann also visualisiert werden durch das Bild der
+Gitterlinien in $\mathbb{C}$, wie dies in
+Abbildung~\ref{buch:komplex:funktionen:fig:kehrwert}
+für die Funktion $f(z) = 1/(z-z_0)$ gezeigt wird.
+Es fällt auf, dass die Bildkurven der Koordinatenlinien alle Kreise
+zu sein scheinen.
+Dieser Beobachtung wird Abschnitt~\ref{buch:komplex:section:moebius}
+auf den Grund gehen.
+
+Die Werte der Funktionen $f(z)$ sind komplexe Zahlen, die wir 
+in Real- und Imaginärteil aufteilen können.
+Wir schreiben
+\[
+f(z)
+=
+f(x+iy)
+=
+u(x+iy) + iv(x+iy)
+=
+u(x,y) + iv(x,y).
+\]
+Im Falle der in 
+Abbildung~\ref{buch:komplex:funktionen:fig:kehrwert}
+dargestellten Funktion $f(z)=1/(z-z_0)$ sind die
+beiden Funktionen $u(x,y)$ und $v(x,y)$  gegeben durch
+\begin{align*}
+u(x,y)
+&=
+\frac{x-x_0}{(x-x_0)^2 + (y-y_0)^2}
+&&\text{und}&
+v(x,y)
+&=
+-
+\frac{y-y_0}{(x-x_0)^2 + (y-y_0)^2},
+\end{align*}
+wobei $x_0=\operatorname{Re}z_0$ und $y_0=\operatorname{Im}z_0$.
+
+Die Funktionen $u(x,y)$ und $v(x,y)$ definieren zwei Scharen von
+Kurven in der $z=x+iy$-Ebene.
+Die Mengen
+\[
+U(u_0)
+=
+\{
+z=x+iy
+\mid
+u(x,y) = u_0
+\}
+\qquad\text{und}\qquad
+V(v_0)
+=
+\{
+z=x+iy
+\mid
+v(x,y)
+=
+v_0
+\}
+\]
+sind die Kurven im Definitionsbereich, die auf die Koordinatenlinien
+$\{u_0+iy\mid y\in\mathbb{R}\}$ 
+bzw.~$\{x+iv_0\mid x\in\mathbb{R}\}$
+abgebildet werden.
+Die Schnittpunkte in $U(u_0)\cap V(v_0)$ sind Lösungen der Gleichung
+$f(z) = u_0+iv_0$.
+
+\begin{beispiel}
+\input{chapters/010-komplex/fig/fig-hyperbeln.tex}%
+Wir betrachten die Funktion $z\mapsto z^2$, die durch die Funktionen
+\[
+u(x,y) = x^2-y^2
+\qquad\text{und}\qquad
+v(x,y) = 2xy
+\]
+beschrieben wird.
+Die Kurven $u(x,y)=u_0$ sind Hyperbeln mit den Geraden $y=\pm x$, sie
+können mit den Funktionen
+\[
+(x,y)
+=
+\begin{cases}
+\phantom{-}\!\sqrt{u_0}
+(\pm\cosh t, \sinh t)
+&\qquad\text{für $u_0>0$}
+\\
+\!\sqrt{-u_0}
+(\sinh t, \pm\cosh t)
+&\qquad\text{für $u_0<0$}
+\end{cases}
+\]
+beschrieben werden, die in
+Abbildung~\ref{buch:komplex:funktionen:fig:hyperbeln}
+dargestellt sind.
+Die in 
+Abbildung~\ref{buch:komplex:funktionen:fig:hyperbeln}
+roten Hyperbeln $v(x,y)=v_0$ entstehen aus den blauen
+Hyperbeln durch Drehung um $45^\circ$.
+\end{beispiel}
+
+%
+% Betrag und Argument
+%
+\subsubsection{Betrag und Argument}
+Die komplexen Zahlen können auch in der Polardarstellung
+$z=r(\cos \varphi + i\sin\varphi)$ mit Betrag $r=|z|$ und
+Argument $\varphi=\operatorname{arg}z$ parametrisiert werden.
+Die zugehörigen Koordinatenlinien sind Kreise um den Nullpunkt
+für Kurven konstanten Betrags und Geraden durch den Nullpunkt
+für Kurven konstanten Argumentes.
+Der Wert einer komplexen Funktion kann dann ebenfalls in Polardarstellung
+als
+\begin{align*}
+f(z)
+=
+R(z) \bigl(\cos\Phi(z) + i\sin\Phi(z)\bigr)
+&=
+R(r,\varphi) \bigl(\cos\Phi(r,\varphi) + i\sin\Phi(r,\varphi)\bigr)
+\\
+&=
+R(x,y)\bigl(\cos\Phi(x,y) + i\sin\Phi(x,y)\bigr)
+\end{align*}
+geschrieben werden.
+Auch für die Polardarstellung gilt, dass Grenzwerte komponentenweise
+oder durch Grenzübergang nur einer der beiden Koordinaten
+berechnet werden können.
+
+Die Polardarstellung eröffnet eine weiter Möglichkeit der
+Visualisierung einer komplexen Funktion.
+\input{chapters/010-komplex/fig/fig-farben.tex}%
+Die Funktion $R(x,y)$ kann natürlich als Graph dargestellt
+werden, eine Fläche, die aus den Punkten $(x,y,R(x,y))$
+besteht.
+Um auch die im Argument $\Phi(x,y)$ enthaltene Information
+sichtbar zu machen, kann man den Winkel $\Phi(x,y)$ als Koordinate
+auf einem Farbkreis betrachten und den Punkt $(x,y,R(x,y))$
+der Fläche mit der gefundenen Farbe einfärben.
+Es ist zwar nicht einfach, den exakten Wert des Arguments aus
+der Farbe zu rekonstruieren, aber die Darstellung ist ausreichend,
+um schnelle Änderungen des Arguments an schnellen Farbwechseln
+zu erkennen.
+Abbildung~\ref{buch:komplex:funktionen:fig:farben}
+visualisiert die Funktion 
+\[
+f(z)
+=
+\frac{1}{z-1}
++
+\frac{1}{z+1}
+\]
+auf diese Weise.
+
+%
+% Grenzwerte und Stetigkeit
+%
+\subsubsection{Grenzwerte und Stetigkeit}
+Da die Betragsfunktion sowohl im Definitions- wie im Wertebereich
+einer stetigen Funktion einen Begriff des Abstandes von Punkten
+definiert, können jetzt wie für komplexe Funktionen den Begriff des
+Grenzwertes definieren.
+Wir beginnen damit, Grenzwerte für komplexe Zahlenfolgen zu definieren.
+
+\begin{definition}[Grenzwert]
+Sei $(z_n)_{n\in\mathbb{N}}$ eine Folge komplexer Zahlen.
+Sie heisst eine \emph{Cauchy-Folge}, wenn für jedes $\varepsilon>0$ ein
+$N\in\mathbb{N}$ existiert derart, dass $|z_n-z_m|< \varepsilon$ 
+für $n,m>N$.
+Die komplexe Zahl $z$ heisst \emph{Grenzwert} der Folge, wenn es für
+jedes $\varepsilon>0$ ein $N\in\mathbb{N}$ derart, dass $|z-z_n|<\varepsilon$
+ist $n>N$.
+\end{definition}
+
+Der Grenzwert einer komplexen Zahlenfolge kann für Real- und Imaginärteil
+separat durchgeführt werden.
+Wegen
+\[
+|\operatorname{Re}z_n - \operatorname{Re}z| \le |z_n-z_m|
+\qquad\text{und}\qquad
+|\operatorname{Im}z_n - \operatorname{Im}z| \le |z_n-z_m|
+\]
+sind auch die Folgen $(\operatorname{Re}z_n)_{n\in\mathbb{N}}$
+und $(\operatorname{Im}z_n)_{n\in\mathbb{N}}$ Cauchy-Folgen
+von reellen Zahlen.
+Da $\mathbb{R}$ als Verfollständigung definiert worden war, haben
+die beiden Folgen Grenzwerte in $\mathbb{R}$, die wir mit
+\begin{equation}
+\lim_{n\to\infty}\operatorname{Re}z_n = x
+\qquad\text{und}\qquad
+\lim_{n\to\infty}\operatorname{Im}z_n = y.
+\label{buch:komplex:funktionen:eqn:reellgrenzwert}
+\end{equation}
+Wir vermuten, dass $z=x+iy$ der Grenzwert der Folge $z_n$ ist.
+Sei $\varepsilon>0$ gegeben.
+Dann gibt es wegen
+\eqref{buch:komplex:funktionen:eqn:reellgrenzwert}
+eine Zahl $N\in\mathbb{N}$ derart, dass
+\[
+|\operatorname{Re}z_n-x|<\frac{\varepsilon}{2}
+\qquad\text{und}\qquad
+|\operatorname{Im}z_n-y|<\frac{\varepsilon}{2}
+\]
+für $n>N$ gilt.
+Dann ist
+\begin{align*}
+|z-z_n|
+&=
+|x+iy-\operatorname{Re}z_n -i\operatorname{Im}z_n|
+\\
+&=
+|
+(x -\operatorname{Re}z_n)
++
+(iy -i\operatorname{Im}z_n)
+|
+\\
+&<
+|x -\operatorname{Re}z_n|
++
+|iy -i\operatorname{Im}z_n|
+<
+\frac{\varepsilon}2
++
+\frac{\varepsilon}2
+<
+\varepsilon,
+\end{align*}
+die Folge $(z_n)_{n\in\mathbb{N}}$ konvergiert also gegen $z$.
+Wir fassen dies im folgenden Satz zusammen.
+
+\begin{satz}[Grenzwert einer Cauchy-Folge in $\mathbb{C}$]
+Ist $(z_n)_{n\mathbb{N}}$ eine Cauchy-Folge in $\mathbb{C}$, dann konvergiert
+sie gegen
+\[
+z
+=
+\lim_{n\to \infty} \operatorname{Re}z_n
++
+i
+\lim_{n\to \infty} \operatorname{Im}z_n
+=
+\lim_{n\to\infty}z_n.
+\]
+\end{satz}
+
+Mit dem Abstand in $U\subset\mathbb{C}$  lässt sich jetzt auch der
+Grenzwert einer Funktion in einem Punkt $z_0\in\mathbb{C}$ definieren,
+der nicht notwendigerweise in $U$ liegen muss.
+
+\begin{definition}[Grenzwert einer Funktion]
+Sei $f\colon U\to\mathbb{C}$ eine komplexe Funktion definiert auf der
+Menge $U\subset\mathbb{C}$ und sei $z_0\in \overline{U}$.
+Die Zahl $a\in\mathbb{C}$ heisst Grenzwert von $f$ für $z\to z_0$,
+wenn für jedes $\varepsilon>0$ ein $\delta>0$ existert derart,
+dass für alle $z\in U$ mit $|z-z_0|<\delta$
+folgt, dass $|f(z)-a|<\varepsilon$.
+\end{definition}
+
+Man beiachte, dass es keine Rolle spielt, aus welcher Richtung das
+Argment $z$ der komplexen Funktion $f$ sich dem Punkt $z_0$ nähert.
+Insbesondere lässt sich der Grenzwert einer komplexen Funktion,
+falls er existiert, dadurch berechnen, dass sich dem Punkt $z_0$
+nur in reeller oder nur in imaginärer Richtung nähert.
+Wenn der Grenzwert existiert, dann gilt
+\[
+\lim_{z\to z_0} f(z) = a
+\quad\Rightarrow\quad
+\lim_{z\to z_0} f(z)
+=
+\begin{cases}
+\;\displaystyle
+\lim_{x\to 0} f(z_0+x) = a \\
+\;\displaystyle
+\lim_{y\to 0} f(z_0+iy) = a.
+\end{cases}
+\]
+
+\begin{definition}[Stetigkeit]
+Eine komplexe Funktion $f\colon U\to\mathbb{C}$ heisst
+\emph{stetig im Punkt} $z_0\in U$, wenn für jedes $\varepsilon >0$
+ein $\delta>0$ existiert derart, dass $|f(z)-f(z_0)|<\varepsilon$
+ist, sofern $|z-z_0|<\delta$.
+Die Funktion $f$ heisst \emph{stetig}, wenn sie in jedem Punkt von $U$
+stetig ist.
+\end{definition}
+
+Offenbar ist Stetigkeit einer Funktion in einem Punkt $z_0$ gleichbedeutend
+damit, dass der Grenzwert der Funktion in diesem Punkt mit dem Funktionswert
+übereinstimmt, also
+\[
+\lim_{z\to z_0} f(z) = f(z_0).
+\]
+
+Für reelle Funktionen wird oft auch der Begriff der divergenten Funktionen
+und Folgen definiert.
+Zum Beispiel schreibt man für die Funktion $f(x) = 1/x^2$, dass
+\[
+\lim_{x\to 0}
+\frac{1}{x^2}
+=
++\infty.
+\]
+Man meint damit, dass für jedes $M>0$ eine $\delta>0$ existiert derart,
+dass
+\[
+f(x) > M
+\qquad\text{wenn}\qquad
+|x|<\delta.
+\]
+Die Definition benötigt als Grundlage die Ordnungsrelation von $\mathbb{R}$.
+Sie ermöglicht auch die Unterscheidung von $+\infty$ und $-\infty$.
+Da $\mathbb{C}$ keine vergleichbare Ordnungsrelation hat, wird der Begriff
+der Konvergenz gegen einen Punkt im Unendlichen sinnlos.
+
+Für die komplexwertige Funktion $z\mapsto 1/z^2$ zeigt sich die Unsinnigkeit
+besonders klar, denn die Grenzwerte
+\begin{align*}
+\lim_{y\to 0} \frac{1}{(iy)^2}
+&=
+\lim_{y\to 0} \frac{1}{-y^2}
+=
+-\infty
+\\
+\lim_{x\to 0}\frac{1}{x^2}
+&=
++\infty
+\end{align*}
+unterscheiden sich.
+Die uneigentlichen Grenzwerte hängen also offenbar von der Richtung ab,
+in der man sich der Polstelle bei $z=0$ nähert.
+
+%
+% Polynome und algebraische Funktionen
+%
+\subsection{Polynome und algebraische Funktionen}
+
+%
+% Potenzen
+%
+\subsubsection{Potenzen}
+
+%
+% Polynome
+%
+\subsubsection{Polynome}
+
+%
+% Algebraische Funktionen
+%
+\subsubsection{Algebraische Funktionen}
+
+%
+% Potenzreihen
+%
 \subsection{Potenzreihen}
 
 

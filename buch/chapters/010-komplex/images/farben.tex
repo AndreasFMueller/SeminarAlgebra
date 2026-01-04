@@ -1,0 +1,42 @@
+%
+% farben.tex
+%
+% (c) 2026 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usetikzlibrary{arrows,intersections,math}
+\usepackage{ifthen}
+\begin{document}
+
+\newboolean{showgrid}
+\setboolean{showgrid}{false}
+\def\breite{7}
+\def\hoehe{4}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\clip (-6.3,-3.544) rectangle (6.3,3.544);
+
+% Povray Bild
+\node at (0,0) {\includegraphics[width=12.6cm]{farben.jpg}};
+
+% Gitter
+\ifthenelse{\boolean{showgrid}}{
+\draw[step=0.1,line width=0.1pt] (-\breite,-\hoehe) grid (\breite, \hoehe);
+\draw[step=0.5,line width=0.4pt] (-\breite,-\hoehe) grid (\breite, \hoehe);
+\draw                            (-\breite,-\hoehe) grid (\breite, \hoehe);
+\fill (0,0) circle[radius=0.05];
+}{}
+
+\node at (-5.1,-2.85) [left] {$\operatorname{Re}z$};
+\node at (1.8,-2.68) [right]{$\operatorname{Im}z$};
+
+\end{tikzpicture}
+
+\end{document}
+
