@@ -20,8 +20,8 @@ hyperbeln.pdf:	hyperbeln.tex
 farbdreiecke.inc:	farben.m
 	octave farben.m
 
-farben.png:	farben.pov farbdreiecke.inc
-	povray +A0.1 -W1920 -H1080 -Ofarben.png farben.pov
+#farben.png:	farben.pov farbdreiecke.inc
+#	povray +A0.1 -W1920 -H1080 -Ofarben.png farben.pov
 
 farben.jpg:	farben.png Makefile
 	magick farben.png farben.jpg
