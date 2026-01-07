@@ -479,22 +479,295 @@ in der man sich der Polstelle bei $z=0$ nähert.
 %
 % Polynome und algebraische Funktionen
 %
-\subsection{Polynome und algebraische Funktionen}
+\subsection{Polynome, rationale und algebraische Funktionen}
+Die einfachsten komplexen Funktionen ergeben sich aus den Grundoperationen
+ergeben.
 
 %
 % Potenzen
 %
 \subsubsection{Potenzen}
+Die ganzzahlige Potenzfunktion
+\[
+f_n
+\colon
+\mathbb{C}\to\mathbb{C}
+:
+z\mapsto z^n
+\]
+mit $n\in\mathbb{N}$ kann man mit Hilfe das binomische Satzes
+als
+\begin{align*}
+z^n &= u(x,y) + iv(x,y)
+\\
+&=
+\sum_{k=0}^n \binom{n}{k} x^k i^{n-k} y^{n-k}
+\end{align*}
+schreiben mit 
+\begin{align*}
+\operatorname{Re}z^n
+&=
+\sum_{l=0}^{\left\lfloor\frac{n}2\right\rfloor}
+(-1)^l
+\binom{n}{2l}
+x^{2l} y^{n-2l}
+\\
+\operatorname{Im}z^n
+&=
+\sum_{l=0}^{\left\lfloor\frac{n-1}2\right\rfloor}
+(-1)^l
+\binom{n}{2l+1}
+x^{2l+1} y^{n-2l-1}.
+\end{align*}
+Noch einfacher ist jedoch die Beschreibung in Polarform.
+Die $n$-te Potenz ist
+\[
+z^n
+=
+\bigl(r(\cos\varphi+i\sin\varphi)\bigr)^n
+=
+r^n(\cos n\varphi+ i\sin n\varphi),
+\]
+der Betrag wird mit $n$ potenziert, das Argument wird mit $n$
+multipliziert.
+
+Die Polardarstellung suggeriert auch, wie die Potenzfunktion $z^q$ 
+für beliebige rationale oder reelle Exponenten $q$ definiert werden
+soll.
+Wir setzen
+\begin{equation}
+z^q
+=
+r^q (\cos q\varphi + i \sin q\varphi).
+\label{buch:komplex:funktionen:eqn:qpotenz}
+\end{equation}
+
+Es ist verführerisch zu denken, dass für $q=\frac12$
+die Formel \eqref{buch:komplex:funktionen:eqn:qpotenz}
+die Quadratwurzel
+oder $q=\frac1n$ die $n$-te Wurzel einer komplexen Zahl ergibt.
+Wenn aber eine Zahl $w\in\mathbb{C}$ die Eigenschaft $w^n=z$ hat,
+dann hat auch $w\epsilon_k$ mit
+\[
+\varepsilon_k
+=
+\cos\frac{2\pi k}{n}
++
+i
+\sin\frac{2\pi k}{n}
+\]
+diese Eigenschaft.
+Es ist nämlich
+\[
+\varepsilon_k^n
+=
+\cos \biggl(n\cdot \frac{2\pi k}{n}\biggr)
++
+i
+\sin \biggl(n\cdot \frac{2\pi k}{n}\biggr)
+=
+\cos 2\pi k
++
+i
+\sin 2\pi k
+=
+1,
+\]
+und daher auch
+\[
+(w\varepsilon_k)^n
+=
+w^n\varepsilon_k^n
+=
+w^n
+=
+z.
+\]
+Durch Multiplikation mit den sogenannten $n$-ten \emph{Einheitswurzeln}
+\index{Einheitswurzeln}%
+$\varepsilon_k$ erhält man also $n-1$ weitere Wurzeln.
+Für allgemeine rationale Exponenten $q\in\mathbb{Q}$ können auf
+analoge Weise mit dem Nenner des Exponenten endlich viele weitere
+Lösungen gefunden werden.
+
+Für irrationalen Exponenten suchen wir nach weiteren Lösungen in der
+Form
+\(
+w_1 = w(\cos\varphi + i\sin\varphi)
+\).
+Die $q$-Potenz ist
+\begin{align*}
+w_1^q
+&=
+w^q(\cos q\varphi + i \sin q\varphi)
+=
+z(\cos q\varphi + i \sin q\varphi).
+\end{align*}
+Lösungen werden also gefunden für Winkel, die $q\varphi=2\pi k$ mit
+$k\in\mathbb{Z}$ erfüllen, oder
+\[
+\varphi_k = \frac{2\pi k}{q},\qquad k\in\mathbb{Z}.
+\]
+Falls $q$ irrational ist, sind alle Winkel $\varphi_k$ verschieden,
+es gibt in diesem Falle also unendlich viele verschiedene Lösungen.
 
 %
 % Polynome
 %
 \subsubsection{Polynome}
+Polynome sind Linearkombinationen von Potenzfunktionen mit ausschliesslich
+natürlichen Exponenten.
+Ein Polynom
+\[
+f(z)
+=
+f_nz^n + f_{n-1}z^{n-1} + \dots + f_1z + f_0
+\in
+K[z]
+\]
+definiert also eine in ganz $\mathbb{C}$ definierte komplexe
+Funktion.
+
+%
+% Rationale Funktionen
+%
+\subsubsection{Rationale Funktionen}
+Der Quotient zweier Polynome $p,q\in K[z]$  definiert eine Komplexe
+Funktion
+\[
+f(z) = \frac{p(z)}{q(z)}.
+\]
+Sie ist definiert für alle komplexen Zahlen $z$, für die $q(z)\ne 0$ ist.
+Der Definitionsbereich ist also
+\[
+U = \mathbb{C} \setminus \{ z\in\mathbb{C} \mid q(z)=0\}.
+\]
+
+\begin{definition}[rationale Funktion]
+Sei $K$ ein Körper, dann heisst der Quotient
+\[
+f = \frac{p}{q}
+\]
+zweier Polynome $p,q\in K[z]$ \emph{rationale Funktion}.
+Die Menge der rationalen Funktionen wird mit
+\[
+K(z)
+=
+\biggl\{
+\frac{p}{q}
+\;\bigg|\;
+p,q\in K[z]
+\biggr\}
+\]
+bezeichnet.
+\end{definition}
+
+Durch Ausführen der Polynomdivision mit Rest und durch Kürzen kann 
+eine rationale Funktion $f$ immer eindeutig in die Form
+\[
+f
+=
+p
++
+\frac{r}{q}
+\]
+gebracht werden, wobei $\deg r<\deg q$ ist und $q$ ein normiertes
+Polynom ist.
+
+Rationale Funktionen sind nur Brüche von Polynomen.
+Als solche können Sie addiert, subtrahiert, multipliziert und
+auch dividiert werden.
+Die Menge $K(z)$ ist also sogar ein Körper.
+Die Notation ist gerechtfertigt dadurch, dass man rationale
+Funktionen auch als algebraische Ausdrücke betrachten kann,
+die dadurch entstehen, dass man den Körper $K$ um die Variable
+$z$ erweitert, für die keine weiteren algebraischen Identitäten
+gelten.
 
 %
 % Algebraische Funktionen
 %
 \subsubsection{Algebraische Funktionen}
+Die Formel~\eqref{buch:komplex:funktionen:eqn:qpotenz}
+definiert beliebige Wurzeln.
+Die Wurzel $w=f(z)=z^{1/n}$ erfüllt die Polynomgleichung
+\[
+f(z)^n - z = 0.
+\]
+Die Definition macht auch klar, dass es jeweils mehrere Wurzeln
+gibt.
+Immerhin können wir eine Formel dafür angeben, die Lösung der
+Polynomgleichung
+\[
+f(p,q)^2 + pf(p,q) + q = 0
+\quad\Rightarrow\quad
+f_\pm(p,q)
+=
+-\frac{p}{2}
+\pm
+\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}2\biggr)^2 - q}}
+\]
+schreiben.
+Die Lösung ist eine komplexe Funktion der möglicherweise
+komplexen Paramter $p$ und $q$.
+Falls $p$ und $q$ komplexe Funktionen einer einzelnen
+komplexen Variable $z$ sind, dann ist
+$f(z) = f_\pm(p(z),q(z))$ eine komplexe Funktion, die die Gleichung
+\[
+f(z)^2 + p(z) f(z) + q(z) = 0
+\]
+erfüllt.
+Die Lösungsformel verwendet nur die arithmetischen Grundoperationen
+und Wurzeln.
+So eine Lösung wird eine Lösung durch Radikale genannt.
+Eine ähnliche Formel, eine Lösung durch Radikale ist auch für
+die kubische Gleichung und für die Gleichung vierten Grades bekannt.
+Niels Henrik Abel hat aber 1824 bewiesen, dass es im Allgemeinen
+nicht möglich ist, eine Lösung einer Polynomgleichung durch
+Radikale anzugeben, wenn der Grad grösser als $4$ ist.
+
+Eine Polynomgleichung höheren Grades der Form
+\[
+a_n(z) f(z)^n + a_{n-1}(z) f(z)^{n-1} + \dots + a_1(z) f(z) + a_0(z)
+=
+0,
+\]
+deren Koeffizienten $a_k(z)$ komplexe Funktionen sind,
+definiert eine Lösungsfunktion $f(z)$, die jedoch nicht unbedingt
+mit einer einfachen Formel ausgedrückt werden kann.
+
+\begin{definition}[algebraische Funktion]
+Eine Funktion $f(z)$ heisst \emph{algebraisch} über einem Körper
+$F$ von komplexen Funktionen, wenn es ein Polynom $p\in F[X]$
+der Form
+\[
+p(X)
+=
+X^n + p_{n-1}(z) X^{n-1} + \dots + p_1(z) X + p_0(z)
+\]
+gibt, so dass 
+\[
+p(f(z)) = 0
+\]
+identisch erfüllt ist.
+\end{definition}
+
+Da die $n$-te Wurzel $f(z)$ die Polynomgleichung
+\[
+p(X)
+=
+X^n - z
+\quad\Rightarrow\quad
+p_n(z)=1, p_0(z)=z
+\quad\Rightarrow\quad
+p(f(z))
+=
+f(z)^n - z
+=
+0.
+\]
+Insbesondere sind die Wurzelfunktionen also algebraisch über dem 
+Körper $K(z)$.
 
 %
 % Potenzreihen
