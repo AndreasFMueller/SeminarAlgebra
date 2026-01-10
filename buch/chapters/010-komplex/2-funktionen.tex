@@ -772,6 +772,236 @@ Körper $K(z)$.
 %
 % Potenzreihen
 %
-\subsection{Potenzreihen}
+\subsection{Potenzreihen
+\label{buch:komplex:funktionen:subsection:potenzreihen}}
+Da in $\mathbb{C}$ der Begriff der Konvergenz wohldefiniert
+ist, kann man eine komplexe Funktion auch durch eine konvergente
+Potenzreihe definieren, wie man sie auch in der reellen Analysis
+verwendet.
 
+\begin{definition}[Potenzreihe]
+Eine \emph{Potenzreihe im Punkt $z_0\in\mathbb{C}$} ist eine Reihe der
+Form
+\begin{equation}
+f(z)
+=
+\sum_{k=0}^\infty a_k(z-z_0)^k
+\label{buch:komplex:funktionen:eqn:potenzreihe}
+\end{equation}
+mit $a_k\in\mathbb{C}$ für alle $k\in\mathbb{N}$.
+\end{definition}
+
+Der Begriff der Konvergenz einer Potenzreihe wird wie in der
+reellen Analysis über die Konvergenz der Partialsummenfolge
+definiert.
+
+\begin{definition}[Partialsumme, Konvergenz]
+Die \emph{Partialsummenfolge} einer Potenzreihe ist die Folge
+\[
+s_n(z)
+=
+\sum_{k=0}^n a_k(z-z_0)^k
+\]
+für alle $n\in\mathbb{N}$.
+Eine Potenzreihe heisst im Punkt $x\in\mathbb{C}$ \emph{konvergent}, wenn
+die Partialsummenfolge $s_n(z)$ konvergent ist.
+\end{definition}
+
+\begin{beispiel}
+\label{buch:komplex:funktionen:bsp:geometrisch}
+Für $|z|<1$ ist 
+\[
+f(z)
+=
+1+z+z^2+z^3+z^4+\dots
+\]
+ist eine konvergente Potenzreihe im Punkt $0$.
+Für reelle Werte ist bereits die Formel
+\[
+f(z)
+=
+\frac{1}{1-z}
+\]
+der Funktion $f(z)$ bekannt.
+Um zu zeigen, dass dies auch für komplexe Argumente stimmt.
+Dazu bestimmen wir die Partialsummen
+\[
+s_n(z)
+=
+1 + z + z^2 + z^3 + \dots + z^n.
+\]
+Sie erfüllen
+\[
+zs_n(z) - s_n(z)
+=
+z^{n+1}-1
+\qquad\Rightarrow\qquad
+s_n(z)
+=
+\frac{z^{n+1}-1}{z-1}.
+\]
+Die Differenz zweier solcher Folgenglieder ist
+\[
+s_n(z) - s_m(z)
+=
+\frac{z^{n+1}-1}{z-1}
+-
+\frac{z^{m+1}-1}{z-1}
+=
+\frac{z^{n+1}-z^{m+1}}{z-1}.
+\]
+Wir dürfen ohne Beschränkung der allgemeinheit annehmen, dass $n<m$ ist.
+Damit können wir die Differenz abschätzen
+\[
+|s_n(z)-s_m(z)|
+=
+\frac{1}{|z-1|}
+|z|^{n+1} |1+z^{m-n}|
+<
+\frac{2}{|z-1|}
+|z|^{n+1}.
+\]
+Die rechte Seite kann beliebig klein gemacht werden, denn ist
+$\varepsilon>0$, dann wählen wir $n$ so, dass
+\[
+\frac{2}{|z-1|} |z|^{n-1}
+<
+\varepsilon
+\quad\Rightarrow\quad
+(n-1)\log |z|
+<
+\log\biggl(
+\frac{\varepsilon}2 |z-1|
+\biggr)
+\quad\Rightarrow\quad
+n
+>
+1
++
+\frac{
+\log \biggl(\frac{\varepsilon}{2}|z-1|\biggr)
+}{\log|z|}
+=
+N(\varepsilon).
+\]
+Somit ist $s_n(z)$ ist eine Cauchy-Folge und damit ist die Reihe konvergent.
+\end{beispiel}
+
+In der reellen Analysis werden Kriterien für die Konvergenz von
+Potenzreihen entwickelt.
+Die dabei verwendeten Methoden bleiben für komplexe Argumente gültig.
+Die Konvergenz wird im Allgemeinen auch von $z$ abhängen.
+Im Beispiel~\ref{buch:komplex:funktionen:bsp:geometrisch} der
+geometrischen Reihe ist die Konvergenz nur für $|z|<1$ gegeben.
+Der maximale Betrag des Argumentes $z-z_0$, für den eine Potenzreihe
+konvergiert, ist als Konvergenzradius bekannt.
+
+\begin{definition}[Konvergenzradius]
+Der \emph{Konvergenzradius} der Potenzreihe
+\eqref{buch:komplex:funktionen:eqn:potenzreihe}
+\[
+\varrho
+=
+\sup
+\biggl\{
+|z-z_0|
+\;
+\bigg|
+\;
+\text{Es gibt ein $z\in\mathbb{C}$ derart, dass $\displaystyle
+\sum_{n=0}^\infty a_n(z-z_0)^n$
+konvergiert}
+\biggr\}.
+\]
+Falls sich für jede reelle Zahl ein $z$ finden lässt, so dass die
+Potenzreihe konvergiert, dann sagt man, dass der Konvergenzradius
+unendlich ist.
+\end{definition}
+
+Die bekannten Kriterien der reellen Analysis für die Konvergenz
+einer Reihe können dazu verwendet werden, den Konvergenzradius
+zu berechnen.
+Das Wurzelkriterium besagt zum Beispiel, dass eine Reihe mit
+Summanden $a_n$ absolut konvergiert, wenn 
+\[
+\limsup_{n\to\infty} \sqrt[n]{|a_n|} < 1.
+\]
+Daraus ergibt sich die Cauchy-Hadamard-Formel
+\begin{equation}
+\varrho
+=
+\frac{1}{\displaystyle\limsup_{n\to\infty}\!\sqrt[n]{|a_n|}}.
+\label{buch:komplex:funktionen:eqn:cauchy-hadamard}
+\end{equation}
+für den Konvergenzradius.
+Im Beispiel~\ref{buch:komplex:funktionen:bsp:geometrisch}
+ist $a_n=1$ für alle $n$, es folgt daher, dass der
+Konvergenzradius $\varrho=1$ ist.
+
+Falls alle bis auf endlich viele Koeffizienten einer Potenzreihen $\ne 0$
+sind, kann auch das Quotientenkriterium angewndet werden.
+Falls der Grenzwert
+\[
+r
+=
+\lim_{n\to\infty}
+\biggl|
+\frac{a_n}{a_{n+1}}
+\biggr|
+\]
+existiert, dann ist $\varrho=r$ der Konvergenzradius.
+Auch diese Kriterium liefert im 
+Beispiel~\ref{buch:komplex:funktionen:bsp:geometrisch}
+wieder den Konvergenzradius 1.
+
+\begin{beispiel}
+Die Exponentialreihe~\eqref{buch:holomorph:holomorph:eqn:exponentialfunktion},
+die in Kapitel~\ref{chapter:holomorph} genauer untersucht wird,
+hat die Form
+\[
+\sum_{k=0}^\infty
+\frac{1}{k!} z^k
+\qquad\Rightarrow\qquad
+a_k = \frac{1}{k!}.
+\]
+Mit dem Quotientenkriterium muss der Grenzwert
+\[
+\lim_{n\to\infty}
+\biggl|
+\frac{a_n}{a_{n+1}}
+\biggr|
+=
+\lim_{n\to\infty}
+\biggl|
+\frac{(n+1)!}{n!}
+\biggr|
+=
+\lim_{n\to\infty} n
+=
+\infty,
+\]
+der Konvergenzradius ist also unendlich.
+
+Dies zeigt sich auch in der Cauchy-Hadamard-Formel:
+\[
+\limsup_{n\to\infty}
+\sqrt[n]{|a_n|}
+=
+\limsup_{n\to\infty}
+\sqrt[n]{\frac1{n!}}
+\approx
+\limsup_{n\to\infty}
+\sqrt[n]{\frac{1}{\sqrt{2\pi n}}\biggl(\frac{e}{n}\biggr)^n}
+=
+\limsup_{n\to\infty}
+\frac{1}{\sqrt[2n]{2\pi n}}
+\frac{e}{n}
+=
+0,
+\]
+wobei wir die Stirling-Approximation $n!\approx\sqrt{2\pi n}(n/e)^n$
+verwendet haben.
+Auch mit diesem Kriterium ergibt sich also, dass die Reihe überall
+in $\mathbb{C}$ konvergiert.
+\end{beispiel}
 

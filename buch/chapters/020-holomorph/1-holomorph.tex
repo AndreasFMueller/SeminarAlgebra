@@ -6,12 +6,1359 @@
 \section{Holomorphe Funktionen
 \label{buch:holomorph:section:holomorph}}
 \kopfrechts{Holomorphe Funktionen}
+In diesem Abschnitt betrachten wir eine komplexe Funktion $f$, die auf
+einem Gebiet $U\subset\mathbb{C}$ definiert ist.
+Wir verwenden, sofern nichts anderes vermerkt ist, die Notation
+\[
+f(z) = f(x+iy) = u(x,y) + iv(x,y)
+\qquad
+\text{mit $z=x+iy\in U$.}
+\]
+Die Funktionen $u$ und $v$ sind also Funktionen von zwei reellen Variablen.
+Wir nehmen ausserdem an, dass $f$ und damit auch die Funktionen $u$ und $v$
+stetig sind.
 
-\subsection{Komplexe Differenzierbarkeit}
+%
+% Komplexe Differenzierbarkeit
+%
+\subsection{Komplexe Differenzierbarkeit
+\label{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit}}
+Im Anfängerunterricht wird meistens der Begriff der Steigung einer
+Tangente an den Graphen einer Funktion als Motivation für die Definition
+der Ableitung der Funktion verwendet.
+Diese geometrische Intuition funktioniert für komplexe Funktionen
+nicht mehr, da der Graph einer komplexen Funktion eine Fläche in einem
+vierdimensionalen reellen Vektorraum ist, der unserer Anschauung unzugägnlich
+ist.
+Es muss daher eine rein analytische Definition gefunden werden.
 
+%
+% Ableitungen als Differenzenquotienten
+%
+\subsubsection{Ableitungen als Differenzenquotienten}
+Die Ableitung einer reellen Funktion $f\colon I \to\mathbb{R}$ wird oft
+als der Grenzwert 
+\[
+f'(x) = \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}
+\]
+eingeführt.
+Eine komplexe Funktion können wir als zwei reellwerte Funktionen
+von \emph{zwei} reellen Variablen $x$ und $y$ betrachten, es gibt
+daher die vier verschiedene reelle Ableitungen
+\begin{align*}
+\frac{\partial u}{\partial x}(x,y)
+&=
+\lim_{h\to0} \frac{u(x+h,y)-u(x,y)}{h},
+&
+\frac{\partial v}{\partial x}(x,y)
+&=
+\lim_{h\to0} \frac{v(x+h,y)-v(x,y)}{h},
+\\
+\frac{\partial u}{\partial y}(x,y)
+&=
+\lim_{h\to0} \frac{u(x,y+h)-u(x,y)}{h},
+&
+\frac{\partial v}{\partial y}(x,y)
+&=
+\lim_{h\to0} \frac{v(x,y+h)-v(x,y)}{h}.
+\end{align*}
+Zusammen bilden diese Ableitungen die Jacobi-Matrix
+\[
+Jf(x,y)
+=
+\frac{\partial (u,v)}{\partial(x,y)}
+=
+\renewcommand{\arraystretch}{1.8}
+\begin{pmatrix}
+\displaystyle \frac{\partial u}{\partial x}(x,y)
+&
+\displaystyle \frac{\partial u}{\partial y}(x,y)
+\\
+\displaystyle \frac{\partial v}{\partial x}(x,y)
+&
+\displaystyle \frac{\partial v}{\partial y}(x,y)
+\end{pmatrix}.
+\]
+Welche dieser partiellen Ableitungen kann die Rolle einer komplexen
+Ableitung übernehmen?
+Offenbar reicht die Idee des Differenzenquotienten allein nicht aus,
+um eine komplexe Ableitung zu definieren.
+
+%
+% Die lineare Ersatzfunktion
+%
+\subsubsection{Die lineare Ersatzfunktion}
+Die Ableitung kann aber auch als eine lineare Approximation
+der Funktion betrachtet werden.
+Für eine Funktion einer Variablen ist die Taylor-Reihe
+\[
+f(x+h)
+=
+f(x)
++
+f'(x) h
++
+\frac{f''(x)}{2!}h^2
++
+\dots
+\]
+Die Terme mindestens quadratischer Ordnung in $h$ können zusammengefasst
+werden in einen Ausdruck $o(h)$ mit der Eigenschaft, dass
+\[
+\lim_{h\to 0}
+\frac{o(h)}{h}
+\]
+ist.
+Damit lässt sich die Taylor-Reihe schreiben als
+\[
+f(x+h)
+=
+f(x) + f'(x) h + o(h).
+\]
+Die ersten zwei Terme bilden eine lineare Funktion, die bis auf
+die Korrektur $o(h)$ kleinerer Ordnung die Funktion $f(x+h)$
+korrekt wiedergibt.
+Solange man also nur eine lineare Approximation benötigt ist
+\begin{equation}
+f(x+h)
+\approx
+f(x) + f'(x) \cdot h
+\label{buch:holomorph:holomorph:1dersatz}
+\end{equation}
+die geeignete \emph{lineare Ersatzfunktion}.
+
+Die Taylor-Reihe der als Abbildung $\mathbb{R}^2\to\mathbb{R}^2$
+betrachteten komplexen Funktion $f$ ist bis zu Termen erster Ordnung
+\[
+f(x+\Delta x,y + \Delta y)
+=
+f(x,y)
++
+Jf(x,y)\begin{pmatrix}
+\Delta x\\
+\Delta y
+\end{pmatrix}
++
+o(\Delta x,\Delta y).
+\]
+Die lineare Ersatzfunktion
+\begin{equation}
+f(z+\Delta z)
+\approx
+f(z)
++
+Jf
+\begin{pmatrix}
+\Delta x \\
+\Delta y
+\end{pmatrix}
+\label{buch:holomorph:holomorph:2dersatz}
+\end{equation}
+ist jetzt also durch die Jacobi-Matrix gegeben, wobei
+$\Delta z = \Delta x + i \Delta y$.
+Die Jacobi-Matrix muss verwendet werden, weil hier $\Delta z$ zweidimensionaler
+reeller Vektor betrachtet wird.
+
+Für eine komplexe Funktion möchte man $\Delta z$ als einen eindimensionalen
+komplexen Vektor betrachten.
+Statt der Darstellung  \eqref{buch:holomorph:holomorph:2dersatz} der
+linearen Ersatzfunktion, möchte man eine Formel haben, welche wie
+\eqref{buch:holomorph:holomorph:1dersatz} aussieht.
+Wir erwarten also, dass es eine lineare Ersatzfunktion der Form
+\[
+f(z+\Delta z)
+=
+f(z) + f'(z)\Delta z
++
+o(\Delta z)
+\]
+mit einer komplexen Zahl $f'(z)\in\mathbb{C}$ gibt.
+Falls dies möglich ist, betrachten wir $f'(z)$ als die
+komplexe Ableitung von $f'(z)$.
+
+\begin{definition}[komplexe Ableitung]
+Sei $f(z)$ eine komplexe Funktion.
+Die \emph{komplexe Ableitung} $f'(z)$ von $f$ im Punkt
+$z\in\mathbb{C}$ ist die komplexe Zahl, für die $f(z) + f'(z) \Delta z$
+die lineare Ersatzfunktion $f(z+\Delta z)$ ist.
+\end{definition}
+
+\begin{definition}[holomorphe Funktion]
+Eine komplexe Funktion $f\colon U\to\mathbb{C}$ heisst \emph{holomorph},
+wenn sie in $U$ eine komplexe Ableitung besitzt.
+\end{definition}
+
+Die lineare Funktion $f(z) = az+b$ ist ihre eigene lineare Ersatzfunktion,
+es gibt also mindestens diese eine holomorphe Funktion mit der komplexen
+Ableitung $f'(z)=a$.
+Es ist aber nicht klar, ob Forderung nach einer linearen Ersatzfunktion
+vielleicht zu streng ist und nicht viele holomorphe Funktionen übrig
+bleiben.
+Als nächstes müssen wir uns also mit der Frage nach der Berechnung der
+komplexen Ableitung befassen.
+
+%
+% Berechnung der komplexen Ableitung
+%
+\subsubsection{Berechnung der komplexen Ableitung}
+Da die komplexe Ableitung $f'(z)$ einer holomorphen Funktion im Punkt $z$
+die komplexe lineare Ersatzfunktion 
+\[
+f(z+h) = f(x) + f'(z)\cdot h + o(h)
+\]
+definiert, wobei $h\in\mathbb{C}$ beliebig ist, kann man sie auch als
+Grenzwert
+\[
+\lim_{h\to 0}
+\frac{f(z+h)-f(z)}{h}
+=
+f'(z)
+\]
+berechnen.
+Im Grenzübergang dürfen auch spezielle Werte für $h$ verwendet werden,
+zum Beispiel könnte die Ableitung mit
+\begin{align}
+f'(z)
+&=
+\lim_{x\to 0}
+\frac{f(z+x)-f(z)}{x}
+&&\text{oder}&
+f'(z)
+&=
+\lim_{y\to 0}
+\frac{f(z+iy)-f(z)}{iy}
+\label{buch:holomorph:holomorph:eqn:ablxy}
+\end{align}
+gefunden werden, wobei der Grenzübergang für $x$ oder $y$ in $\mathbb{R}$
+erfolgt.
+
+\begin{lemma}
+\label{buch:holomorph:holomorph:lemma:reellnichtholomorph}
+Ist $f(z)$ eine komplexe Funktion mit ausschliesslich reellen Werten,
+dann ist sie nicht holomorph.
+Eine komplexe Funktion mit ausschliesslich imaginären Werten ist
+nicht holomorph.
+\end{lemma}
+
+\begin{proof}
+Wenn $f(z)$ nur reelle Werte hat, dann ist der linke Grenzwert in
+\label{buch:holomorph:holomorph:eqn:ablxy} 
+ein Grenzwert in $\mathbb{R}$.
+Der rechte Grenzwert dagegen ist wegen $1/i=-i$ ein Grenzwert in
+den imaginären Zahlen $i\mathbb{R}\subset\mathbb{C}$.
+Somit muss 
+\[
+f'(z) \in \mathbb{R} \cap i\mathbb{R} = \{0\}
+\qquad\Rightarrow\qquad
+f'(z) = 0
+\]
+gelten.
+\end{proof}
+
+Die Differenzenquotienten in \eqref{buch:holomorph:holomorph:eqn:ablxy}
+können auch als partielle Ableitungen nach $x$ bzw.~$y$ betrachtet werden,
+es folgt daher auch
+\begin{equation}
+\begin{aligned}
+f'(z)
+&=
+\frac{\partial u}{\partial x}(x,y)
++
+i\frac{\partial v}{\partial x}(x,y)
+\quad\text{und}
+\\
+f'(z)
+&=
+\frac{1}{i}
+\biggl(
+\frac{\partial u}{\partial y}(x,y)
++
+i
+\frac{\partial v}{\partial y}(x,y)
+\biggr)
+=
+\frac{\partial v}{\partial y}(x,y)
+-
+i\frac{\partial u}{\partial y}(x,y).
+\end{aligned}
+\label{buch:holomorph:holomorph:eqn:kablpart}
+\end{equation}
+Dies deutet bereits an, dass die komplexe Ableitung mit nur einem
+Paar von reellen Ableitungen berechnet werden kann.
+Es muss also einen Zusammenhang zwischen den vier partiellen
+Ableitungen der beiden Funktionen $u$ und $v$ geben, der weiter
+unten in Satz~\ref{buch:holomorph:holomorph:satz:cr} formalisiert
+wird.
+
+Der Real- und Imaginärteil der Ableitung lässt sich allein aus dem
+Real- und Imaginärteil der Funktion bestimmen.
+Es ist nämlich
+\begin{align*}
+f'(z)
+&=
+\frac{\partial u}{\partial x}(x,y) + i\frac{\partial v}{\partial x}(x,y).
+\intertext{Also folgt}
+\operatorname{Re}f'(z)
+&=
+\frac{\partial u}{\partial x}(x,y)
+=
+\frac{\partial}{\partial x} \operatorname{Re} f(z)
+&&\text{und}&
+\operatorname{Im}f'(z)
+&=
+\frac{\partial v}{\partial x}(x,y)
+=
+\frac{\partial}{\partial y} \operatorname{Im} f(z).
+\end{align*}
+Man beachte aber, dass die reellwertigen Funktionen $\operatorname{Re}f(z)$
+und $\operatorname{Im}f(z)$ nach
+Lemma~\ref{buch:holomorph:holomorph:lemma:reellnichtholomorph}
+keine komplexe Ableitung haben, es ist also
+nicht zulässig, $\operatorname{Re} f(z) = \frac{d}{dz}\operatorname{Re}f(z)$
+zu schreiben, da die Schreibweise $\operatorname{Re}f(z)$ den Realteil
+als eine komplexe Funktion ausweist.
+
+%
+% Ableitungsregeln
+%
+\subsubsection{Ableitungsregeln}
+In der Praxis berechnet man die Ableitung einer Funktion mestens nicht
+mit einem Grenzübergang sondern viel erfolgreicher und vor allem schneller
+durch Anwendung algebraischer Regeln.
+Diese Regeln bleiben auch für holomorphe Funktionen gültig.
+
+\begin{satz}[Rechenregeln]
+\label{buch:holomorph:holomorph:satz:rechenregeln}
+Seien $f$ und $g$ holomorphe Funktionen.
+\begin{enumerate}
+\item Die komplexe Ableitung ist ein linearer Operator
+\[
+\frac{d}{dz} \bigl(\lambda f(z) + \mu g(z)\bigr)
+=
+\lambda \frac{df}{dz}(z) + \mu\frac{dg}{dz}(z)
+=
+\lambda f'(z) + \mu g'(z).
+\]
+\item Es gilt die Produktregel
+\[
+\frac{d}{dz}\bigl(f(z)g(z))
+=
+f'(z)g(z) + f(z)g'(z).
+\]
+\item
+Falls $g(z)\ne 0$ gilt die Quotientenregel
+\[
+\frac{d}{dz}\biggl(\frac{f(z)}{g(z)}\biggr)
+=
+\frac{f'(z)g(z)-f(z)g'(z)}{g(z)^2}.
+\]
+\item Es gilt die Kettenregel
+\[
+\frac{d}{dz}
+(f\circ g)(z)
+=
+\frac{d}{dz}
+f(g(z))
+=
+f'(g(z)) g'(z)
+\]
+\item Die Ableitung der zu $f$ inversen Funktion $f^{-1}(z)$ ist
+\begin{equation}
+\frac{d}{dz} f^{-1}(z)
+=
+\frac{1}{f'(f^{-1}(z))}.
+\label{buch:holomoroph:holomorph:eqn:inverseholomorph}
+\end{equation}
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Die Linearität folgt sofort aus
+\eqref{buch:holomorph:holomorph:eqn:kablpart}
+der Linearität der partiellen Ableitungen.
+\item
+Wir verwenden die Ableitung von Real
+\item
+Wir schreiben $h(z) = f(z)/g(z)$.
+Wir müssen also $h'(z)$ berechnen.
+Dazu leiten wir die Identität $f(z) = h(z) g(z)$ nach $z$ ab und
+erhalten nach der Produktregel
+\begin{align*}
+f'(z) &= h'(z) g(z) + h(z) g'(z) = h'(z) g(z) + \frac{f(z)}{g(z)}g'(z).
+\intertext{Auflösen nach $h'(z)$ ergibt}
+h'(z)g(z)
+&=
+f'(z)-\frac{f(z)g'(z)}{g(z)}
+\\
+h'(z)
+&=
+\frac{f'(z)}{g(z)}-\frac{f(z)g'(z)}{g(z)^2}
+\intertext{oder durch gleichnamig Machen}
+h'(z)
+&=
+\frac{f'(z)g(z) - f(z)g'(z)}{g(z)^2},
+\end{align*}
+die Quotientenregel.
+\item
+Die Zusammensetzung $f^{-1}\circ f$ ist die Identität
+\(
+z = f^{-1}(f(z))
+\)
+und hat wegen der Kettenregel die Ableitung
+\[
+1
+=
+\frac{d}{dz}
+f^{-1}(f(z))
+=
+f^{-1\prime}(f(z)) f'(z).
+\]
+Aufgelöst nach der Ableitung von $f^{-1}$ folgt
+\[
+f^{-1\prime}(f(z))
+=
+\frac{1}{f'(z))}.
+\]
+Um die Ableitung an der Stelle $z$ statt $f(z)$ zu bekommen, muss man 
+$z$ durch $f^{-1}(z)$ ersetzen, was
+\[
+f^{-1\prime}(z)
+=
+f^{-1\prime}(f(f^{-1}(z)))
+=
+\frac{1}{f'(f^{-1}(z))}
+\]
+und damit die Behauptung ergibt.
+\qedhere
+\end{enumerate}
+\end{proof}
+
+Der Satz zeigt, dass all die bekannten Ableitungsregeln aus der
+reellen Analysis weiterhin gelten, wenn man sie als komplexe
+Ableitungen interpretiert.
+Mit den Ableitungsregeln lassen sich jetzt weitere bekannten Ableitungsformeln
+für komplexe Ableitungen reproduzieren.
+
+\begin{beispiel}
+Sie $f(z)=z^n$, dann ist
+\begin{equation}
+f'(z) = nz^{n-1}.
+\label{buch:holomorph:holomorph:bsp:eqn:zn}
+\end{equation}
+Der Fall $n=1$ ist der bereits bekannte lineare Fall, in diesem Fall
+stimmt die Formel.
+Wir verwenden daher vollständige Induktion und nehmen an, das die Formel
+\eqref{buch:holomorph:holomorph:bsp:eqn:zn}
+für $n-1$ bereits bewiesen ist.
+Nach der Produktregel ist
+\begin{align*}
+\frac{d}{dz}
+z^n
+&=
+\frac{d}{dz}\bigl(z\cdot z^{n-1}\bigr)
+=
+\biggl(\frac{d}{dz} z\biggr)\cdot z^{n-1}
++
+z\cdot\biggl( \frac{d}{dz} z^{n-1}\biggr)
+\intertext{Die Ableitungen können mit der Induktionsannahme berechnet 
+werden und es ergibt sich}
+&=
+1\cdot z^{n-1}
++
+z\cdot(n-1)z^{n-2}
+\\
+&=
+z^{n-1} + (n-1)z^{n-1}
+=
+nz^{n-1}.
+\end{align*}
+Damit ist die Ableitungsformel bewiesen.
+\end{beispiel}
+
+%
+% Der Mittelwertsatz
+%
+\subsubsection{Der Mittelwertsatz}
+In der reellen Analysis gilt der folgende aus der Anschauung plausible
+Mittelwertsatz
+
+\begin{satz}[Mittelwertsatz]
+Ist $f\colon I \to \mathbb{R}$ eine stetig differenzierbare Funktion auf
+dem Intervall $I=[a,b]$, dann gibt es ein $\xi \in I$ derart, dass
+\[
+f'(\xi)
+=
+\frac{f(b)-f(a)}{b-a}.
+\]
+\end{satz}
+
+In dieser Form hängt er mit dem Zwischenwertsatz zusammen, der
+Aussage, dass es für eine stetige Funktion $f$ für ein $\eta\in [f(a),f(b)]$
+eine Stelle $\xi\in[a,b]$ geben muss, für die $f(\xi)=\eta$ ist.
+So eine Aussage kann für komplexe Funktionen nur schon deshalb nicht
+gelten, weil es im Komplexen keine Ordnungsrelation gibt.
+
+Man kann den Mittelwertsatz aber auch als die Aussage sehen, dass 
+die Funktionswerte an den Endpunkten des Intervalls nicht zu weit
+auseinander liegen können, wenn die Ableitung klein ist.
+In dieser Form gilt der Mittelwertsatz auch für Funktionen
+mehrerer Variablen, braucht dazu aber das Konzept der Norm einer
+linearen Abbildung.
+
+\begin{definition}[Norm]
+Sei $A\colon \mathbb{R}^n\to\mathbb{R}^m$ eine lineare Abbildung.
+Die \emph{Norm} von $A$ ist
+\[
+\| A\|
+=
+\sup_{x\in\mathbb{R}^n\setminus\{0\}} \frac{|Ax|}{|x|}.
+\]
+\end{definition}
+
+Die Norm von $\|A\|$ ist auch der maximale Wert, den $|A|$ für 
+Vektoren $x$ auf der Einheitskugel in $\mathbb{R}^n$ annimmt.
+Der Mittelwertsatz lautet damit jetzt wie folgt.
+
+\begin{satz}[Mittelwertsatz]
+Sei $U\subset \mathbb{R}^n$ ein Gebiet in $\mathbb{R}^n$ und seien
+$x_0\in U$ und $x_0+t\in U$ zwei Punkte in $U$ derart, dass auch
+die Verbindungsstrecke in $U$ enthalten ist.
+Dann gilt
+\[
+|f(x_0+t) - f(x_0)|
+\le
+|t|\cdot \sup_{0\le \xi \le 1} \| Jf(x_0+\xi t) \|,
+\]
+wobei $Jf$ die $m\times n$-Jacobi-Matrix
+\[
+Jf(x) = \frac{\partial (f_1,\dots,f_m)}{\partial(x_1,\dots,x_n)}
+\]
+ist.
+\end{satz}
+
+Für eine komplexe Funktion nimmt dieser Satz eine besonders einfach
+Form an, weil die Ableitung von $f$ durch eine einzige komplexe
+Zahl beschrieben wird.
+Die Norm der Ableitung ist
+\[
+\| Jf(z) \|
+=
+\sup_{|w|=1} | f'(z)\cdot w |
+=
+\sup_{|w|=1} |f'(z)| \cdot |w|
+=
+|f'(z)|.
+\]
+Die Norm ist also nichts anderes als der Betrag der komplexen 
+Ableitung.
+Der Mittelwertsatz für komplexe Funktionen lautet daher wie folgt.
+
+\begin{satz}[Mittelwertsatz für holomorphe Funktionen]
+Sei $f$ eine in $U$ holomorphe Funktion und $z_0$ und $z_0+t$ Punkte
+in $U$ derart, dass auch ihre Verbindungsstrecke in $U$ enthalten ist.
+Dann gilt
+\[
+|f(z_0+t) - f(x_0)|
+\le 
+|t| \sup_{0\le \xi \le1}  |f'(z_0+\xi t)|.
+\]
+\end{satz}
+
+Der Satz besagt also, dass der Abstand des Funktionswert $f(z_0+t)$
+von $f(z_0)$ durch die Ableitung $f'(z)$ auf der Strecke zwischen
+$z_0+t$ und $z_0$ und durch die Länge der Strecke beschränkt ist.
+Er ist das zentrale Werkzeug um zu beweisen, dass die Ableitung einer
+gleichmässig konvergierenden Funktionenreihe gliedweise gebildet
+werden kann, wenn die abgeleitete Reihe konvergiert.
+Dies wird im Abschnitt~\ref{buch:holomorph:holomorph:subsection:potenzreihe}
+benötigt um zu zeigen, dass sich konvergente Potenzreihen gliedweise
+ableiten lassen.
+
+%
+% Ableitung algebraischer Funktionen
+%
+\subsubsection{Ableitung algebraischer Funktionen}
+Sei $f(z)$ eine über dem Funktionenkörper $K$ algebraische Funktion
+mit dem Minimalpolynom
+\[
+a(X)
+=
+a_n(z)X^n + a_{n-1}(z)X^{n-1}+\dots a_1(z)X + a_0(z).
+\]
+Dann gilt die Gleichung
+\begin{equation}
+a_n(z)f(z)^n
++
+a_{n-1}(z)f(z)^{n-1}
++
+\dots
++
+a_1(z) f(z)
++
+a_0(z).
+\label{buch:holomorph:holomorph:eqn:algebraisch}
+\end{equation}
+Nehmen wir zusätzlich an, dass alle Funktionen in $K$ holomorph sind,
+dann können wir 
+\eqref{buch:holomorph:holomorph:eqn:algebraisch}
+differenzieren.
+Nach der Produkt- und der Kettenregel wird aus dem Term $a_k(z)f(z)^k$
+\[
+\frac{d}{dz}
+a_k(z)f(z)^k
+=
+a_k'(z) f(z)^k
++
+a_k(z)kf'(z)f(z)^{k-1}.
+\]
+Fassen wir in der Ableitung von
+\eqref{buch:holomorph:holomorph:eqn:algebraisch}
+die Terme mit und ohne $f'(z)$ zusammen, erhalten wir
+\begin{align}
+0
+&=
+a_n'(z)f(z)^n+\dots a_1'f(z)+a_0'(z)
++
+\bigl(
+a_n(z)nf(z)^{n-1}
++
+\dots
++
+a_1(z)
+\bigr)
+f'(z),
+\notag
+\intertext{die wir nach $f'(z)$ auflösen können:}
+f'(z)
+&=
+\frac{
+a_n'(z)f(z)^n+\dots a_1'f(z)+a_0'(z)
+}{
+a_n(z)nf(z)^{n-1}
++
+\dots
++
+a_1(z)
+}.
+\label{buch:holomorph:holomorph:eqn:ablalg}
+\end{align}
+Der Nenner auf der rechten Seite von
+\eqref{buch:holomorph:holomorph:eqn:ablalg}
+kann nicht identisch verschwinden, denn dann wäre der Nenner
+ein Polynom kleineren Grades, welches die algebraische Funktion
+$f(z)$ bereits definiert, im Widerspruch zur Annahme, dass $a(X)$
+das Minimalpolynom war.
+
+\begin{satz}[Ableitung algebraischer Funktionen]
+\label{buch:holomorph:holomorph:satz:holoalg}
+Ist $f(z)$ eine über einem Körper $K$ von holomorphen Funktionen
+algebraische Funktion, dann ist $f(z)$ holomorph und die Ableitung ist
+durch
+\eqref{buch:holomorph:holomorph:eqn:ablalg}
+gegeben.
+\end{satz}
+
+\begin{beispiel}
+Die Kubikwurzel einer komplexen Zahl ist algebraisch mit dem Minimalpolynom
+$a(X)=X^3-z$.
+Nach dem Satz~\ref{buch:holomorph:holomorph:satz:holoalg} ist eine
+Kubikwurzel holomorph und und nach der Formel
+\eqref{buch:holomorph:holomorph:eqn:ablalg}
+gilt
+\[
+\frac{d}{dz}
+\sqrt[3]{z}
+=
+\frac{-1}{3(\!\sqrt[3]{z})^2},
+\]
+was der aus der reellen Analysis bekannten Formel $-\frac13z^{-\frac23}$ 
+entspricht.
+\end{beispiel}
+
+%
+% DIe Cauchy-Riemann-Differentialgleichungen
+%
 \subsection{Cauchy-Riemann-Differentialgleichung}
+Die komplexe Ableitung $f'(z)$ einer komplexen Funktion $f(z)$
+ist eine komplexe Zahl, mit der $\Delta z$ multipliziert werden muss.
+Diese Multiplikation kann als Multiplikation der Matrix
+\[
+\begin{pmatrix}
+\operatorname{Re}f'(z)
+&
+-\operatorname{Im}f'(z)
+\\
+\operatorname{Im}f'(z)
+&
+\phantom{-}\operatorname{Re}f'(z)
+\end{pmatrix}
+\qquad\text{mit}\qquad
+\begin{pmatrix}
+\operatorname{Re}\Delta z\\
+\operatorname{Im}\Delta z
+\end{pmatrix}
+\]
+betrachtet werden.
 
-\subsection{Ableitung einer Potenzreihe}
+Andererseits zeigt \eqref{buch:holomorph:holomorph:2dersatz},
+dass diese Matrix auch mit der Jacobi-Matrix der Funktion $f$
+betrachtet als einer vektorwertigen Funktion von zwei reellen Variablen
+übereinstimmen muss.
+Es gilt also
+\[
+\begin{pmatrix}
+\operatorname{Re}f'(z)
+&
+-\operatorname{Im}f'(z)
+\\
+\operatorname{Im}f'(z)
+&
+\phantom{-}\operatorname{Re}f'(z)
+\end{pmatrix}
+=
+Jf
+=
+\renewcommand{\arraystretch}{1.8}
+\begin{pmatrix}
+\displaystyle \frac{\partial u}{\partial x}(x,y)
+&
+\displaystyle \frac{\partial u}{\partial y}(x,y)
+\\
+\displaystyle \frac{\partial v}{\partial x}(x,y)
+&
+\displaystyle \frac{\partial v}{\partial y}(x,y)
+\end{pmatrix}.
+\]
+Insbesondere gilt
+\begin{align*}
+\frac{\partial u}{\partial x}(x,y)
+&=
+\operatorname{Re}f'(z)
+=
+\frac{\partial v}{\partial y}(x,y)
+&&\text{und}&
+-\frac{\partial u}{\partial y}(x,y)
+&=
+\operatorname{Im}f'(z)
+=
+\frac{\partial v}{\partial x}(x,y)
+\end{align*}
+Dies sind zwei partielle Differentialgleichungen für Real- und Imaginärteil
+einer holomorphen Funktionen.
 
+\begin{satz}[Cauchy-Riemann-Differentialgleichungen]
+\label{buch:holomorph:holomorph:satz:cr}
+Realteil $u(x,y)=\operatorname{Re}f(x+iy)$ und
+Imaginärteil $v(x,y)=\operatorname{Im}f(x+iy)$
+einer in $U\subset \mathbb{R}$ holomorphen Funktion $f(z)$ erfüllen die
+partiellen Differentialgleichungen
+\begin{align}
+\frac{\partial u}{\partial x}
+&=
+\frac{\partial v}{\partial y}
+&&\text{und}&
+\frac{\partial u}{\partial y}
+&=
+-
+\frac{\partial v}{\partial x}.
+\label{buch:holomorph:holomorph:eqn:cr}
+\end{align}
+Sie heissen die \emph{Cauchy-Riemann-Differentialgleichungen}.
+\end{satz}
 
+%
+% Harmonische Funktionen
+%
+\subsubsection{Harmonische Funktionen}
+Der Laplace-Operator einer Funktion $u(x_1,\dots,x_n)$ von $n$
+reellen Variablen ist definiert als
+\[
+\Delta u
+=
+\frac{\partial^2u}{\partial x_1^2}
++
+\dots
++
+\frac{\partial^2u}{\partial x_n^2}.
+\]
+Der Laplace-Operator taucht in vielen Anwendungen in der Physik und
+der Technik auf.
+Dies hängt damit zusammen, dass er mehr oder weniger der einzige
+partielle Differentialoperator zweiter Ordnung ist, der gegenüber
+Drehungen des Raumes invariant ist.
+Zum Beispiel erfüllt das Potential $u$ einer Ladungsverteilung $\varrho$ im
+Vakuum die Laplace-Gleichung
+\[
+\Delta u = 4\pi \varrho.
+\]
+Entsprechend häufig ist man in den Anwendungen mit der Frage konfrontiert,
+ob eine Funktion $u$ eine Lösung der homogoenen Differentialgleichung
+$\Delta u=0$ ist.
 
+\begin{definition}[harmonische Funktion]
+Eine \emph{harmonische Funktion} ist eine Funktion
+$u\colon\mathbb{R}^n\to\mathbb{R}$, die $\Delta u = 0$ erfüllt.
+\index{harmonische Funktion}%
+\end{definition}
+
+Harmonische Funktionen erfüllen also eine sehr spezielle partielle
+Differentialgleichung und es ist auf den ersten Blick ganz und gar 
+unklar, ob es überhaupt solche Funktionen gibt.
+Es zeigt sich aber, dass die Theorie der holomorphen Funktionen
+dank des folgenden Satzes eine sehr grosse Zahl solcher Funktionen
+liefert.
+
+\begin{satz}
+\label{buch:holomorph:holomorph:satz:harmonisch}
+Real- und Imaginärteil einer holomorphen Funktion sind harmonische
+Funktionen.
+\end{satz}
+
+\begin{proof}
+Ableiten der ersten Cauchy-Riemann-Gleichung in
+\eqref{buch:holomorph:holomorph:eqn:cr}
+nach $x$ und der zweiten nach $y$ ergibt
+\[
+\frac{\partial^2 u}{\partial x^2}
+=
+\frac{\partial^2 u}{\partial y\,\partial x}
+\quad\text{und}\quad
+\frac{\partial^2 u}{\partial y^2}
+=
+-
+\frac{\partial^2 v}{\partial x\,\partial y}
+\quad\Rightarrow\quad
+\frac{\partial^2 u}{\partial x^2}=-\frac{\partial^2 u}{\partial y^2}
+\quad\Rightarrow\quad
+\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}
+=
+\Delta u
+=
+0.
+\]
+Ebenso ergibt Ableiten der ersten Cauchy-Riemann-Differentialgleichung nach
+$y$ und der zweiten nach $x$
+\[
+\frac{\partial^2 u}{\partial x\,\partial y}
+=
+\frac{\partial^2 v}{\partial y^2}
+\quad\text{und}\partial
+\frac{\partial^2 u}{\partial x\,\partial y}
+=
+-
+\frac{\partial v}{\partial x^2}
+\quad\Rightarrow\quad
+\frac{\partial^2 v}{\partial y^2}
+=
+-
+\frac{\partial^2 v}{\partial x^2}
+\quad\Rightarrow\quad
+\frac{\partial^2 v}{\partial x^2}
++
+\frac{\partial^2 v}{\partial y^2}
+=
+\Delta v
+=
+0.
+\]
+Somit sind sowohl der Real- wie der Imaginärteil von $f$ harmonisch.
+\end{proof}
+
+\begin{beispiel}
+Die Potenzfunktion $z\mapsto z^k$ ist holomorph, also müssen nach
+Satz~\ref{buch:holomorph:holomorph:satz:harmonisch} Real- und
+Imaginärteil harmonisch sein.
+Wir prüfen dies am Beispiel $k=3$ nach, in diesem Fall ist
+\begin{equation*}
+(x+iy)^3
+=
+x^3 +3ix2^y - 3xy^2 -iy^3
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+u(x,y)
+&=
+x^3-3xy^2
+\\
+v(x,y)
+&=
+3x^2y-y^3.
+\end{aligned}
+\right.
+\end{equation*}
+Wir berechnen die zweiten partiellen Ableitungen für beide
+Funktionen und erhalten
+\begin{align*}
+&\left.
+\begin{aligned}
+\frac{\partial u}{\partial x} &= 3x^2 -3y^2
+&
+\frac{\partial^2 u}{\partial x^2} &= 6x
+\\
+\frac{\partial u}{\partial y} &= -6xy
+&
+\frac{\partial^2 u}{\partial y^2} &= -6x
+\end{aligned}
+\right\}
+&&\Rightarrow&
+\Delta u
+&=
+\frac{\partial^2 u}{\partial x^2}
++
+\frac{\partial^2 u}{\partial y^2}
+=
+6x-6x = 0
+\\
+&
+\left.\begin{aligned}
+\frac{\partial v}{\partial x} &= 6xy
+&
+\frac{\partial^2 v}{\partial x^2} &= 6y
+\\
+\frac{\partial v}{\partial y} &= 3x^2-3y^2
+&
+\frac{\partial v}{\partial y^2} &= -6y
+\end{aligned}
+\right\}
+&&\Rightarrow&
+\Delta v
+&=
+\frac{\partial^2 v}{\partial x^2}
++
+\frac{\partial^2 v}{\partial y^2}
+=
+6y-6y
+=
+0.
+\end{align*}
+Beide sind also harmonisch.
+\end{beispiel}
+
+%
+% Ableitung einer Potenzreihe
+%
+\subsection{Potenzreihen
+\label{buch:holomorph:holomorph:subsection:potenzreihen}}
+In Abschnitt~\ref{buch:komplex:funktionen:subsection:potenzreihen}
+wurden einige aus der reellen Analysis wohlbekannte Funktionen
+durch ihre Potenzreihe definiert.
+In diesem Abschnitt soll gezeigt werden, dass alle diese Funktionen
+holomorph sind.
+
+%
+% Ableitung einer Potenzreihe
+%
+\subsubsection{Ableitung einer Potenzreihe}
+In der reellen Analysis wird gezeigt, dass
+
+%
+% Die Ableitung der Exponentialfunktion
+%
+\subsubsection{Die Ableitung der Exponentialfunktion}
+Die Exponentialfunktion ist als
+\begin{equation}
+e^z
+=
+\exp z
+=
+\sum_{k=0}^\infty \frac{z^k}{k!}
+\label{buch:holomorph:holomorph:eqn:exponentialfunktion}
+\end{equation}
+definiert worden.
+Aus den Ableitungsregeln folgt die formale Ableitung
+\[
+\frac{d}{dz}
+e^z
+=
+\sum_{k=0}^\infty \frac{d}{dz} \frac{z^k}{k!}
+=
+\sum_{k=0}^\infty \frac{kz^{k-1}}{k!}
+=
+\sum_{k=1}^\infty \frac{z^{k-1}}{(k-1)!}
+=
+\sum_{k=0}^\infty \frac{z^k}{k!}
+=
+e^z.
+\]
+Die Ableitung der Exponentialfunktion ist also wieder die
+Exponentialfunktion.
+Die Exponentialfunktion ist also eine holomorphe Funktion,
+die die Differentialgleichung $f'=f$ mit der Anfangsbedingung
+$f(0)=1$ erfüllt.
+
+%
+% Die trigonometrischen Funktionen
+%
+\subsubsection{Die trigonometrischen Funktionen}
+Für die trigonometrischen Funktionen Sinus und Kosinus hat die
+reelle Analysis die Reihenentwicklungen
+\begin{align*}
+\cos z
+&=
+\sum_{k=0}^\infty (-1)^k \frac{z^{2k}}{(2k)!}
+=
+1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \frac{z^6}{6!} + \frac{z^8}{8!} - \dots
+\\
+\sin z
+&=
+\sum_{k=0}^\infty (-1)^k \frac{z^{2k+1}}{(2k+1)!}
+=
+z - \frac{z^3}{3!} + \frac{z^5}{5!} - \frac{z^7}{7!} + \frac{z^9}{9!} - \dots
+\end{align*}
+gefunden.
+Sie haben die Ableitungen
+\begin{align*}
+\frac{d}{dz} \cos z
+&=
+\sum_{k=0}^{\infty} (-1)^k \frac{d}{dz} \frac{z^{2k}}{(2k)!}
+=
+\sum_{k=0}^{\infty} (-1)^k \frac{2kz^{2k-1}}{(2k)!}
+=
+\sum_{k=1}^{\infty} (-1)^k \frac{z^{2k-1}}{(2k-1)!}
+\\
+&=
+-
+\sum_{k=1}^{\infty} (-1)^{k-1} \frac{z^{2(k-1)+1}}{(2(k-1)+1)!}
+=
+-
+\sum_{l=1}^{\infty} (-1)^l \frac{z^{2l+1}}{(2l+1)!}
+=
+-\sin z
+\\
+\frac{d}{dz} \sin z
+&=
+\sum_{k=0}^\infty (-1)^k \frac{d}{dz} \frac{z^{2k+1}}{(2k+1)!}
+=
+\sum_{k=0}^\infty (-1)^k \frac{(2k+1)z^{2k}}{(2k+1)!}
+=
+\sum_{k=0}^\infty (-1)^k \frac{z^{2k}}{(2k)!}
+=
+\cos z
+\end{align*}
+Die aus dem Reellen bekannten Ableitungsregeln der trigonometrischen
+Funktionen sind als weiterhing gültig.
+
+Aus den Ableitungsregeln für Sinus und Kosinus folgt mit der Quotientenregel
+auch die Ableitungsregeln für den Tangens, seine Ableitung ist
+\[
+\frac{d}{dz}\tan z
+=
+\frac{d}{dz}
+\frac{\sin z}{\cos z}
+=
+\frac{\cos^2z +\sin^2 z}{\cos^2z}
+=
+\frac{1}{\cos^2z}.
+\]
+Man beachte, dass der Zähler
+\[
+Z(z)
+=
+\cos^2z + \sin^2z
+\]
+eine holomorphe Funktion ist, deren Ableitungen auf der reellen Achse
+verschwinden.
+Die Taylorreihe von $Z(z)$ ist also die konstante Funktion $Z(z)=1$.
+
+%
+% Die eulersche Formel
+%
+\subsubsection{Die eulersche Formel}
+Die Exponentialfunktion ist durch die Exponentialreihe definiert.
+
+\begin{satz}[Die eulersche Formel]
+\label{buch:holomorph:holomorph:satz:eulerformel}
+Für $t\in\mathbb{R}$ gilt
+\begin{equation}
+e^{it}
+=
+\cos t + i \sin t.
+\label{buch:holomorph:holomorph:eqn:eulerformel}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Wir setzen $it$ als Argument in die Exponentialreihe ein und erhalten
+\begin{align*}
+e^{it}
+&=
+\sum_{k=0}^\infty
+\frac{(it)^n}{n!}.
+\intertext{Aufgeteilt in gerade und ungerade Potenzen ist diese Summe}
+&=
+\sum_{k=0}^\infty \frac{(it)^{2k}}{(2k)!}
++
+\sum_{k=0}^\infty \frac{(it)^{2k+1}}{(2k+1)!}
+\\
+&=
+\sum_{k=0}^\infty (-1)^k \frac{t^{2k}}{(2k)!}
++
+i
+\sum_{k=0}^\infty (-1)^k \frac{t^{2k+1}}{(2k+1)!}
+=
+\cos t + i \sin t.
+\end{align*}
+Damit ist die eulersche Formel bewiesen.
+\end{proof}
+
+\begin{korollar}
+$e^{i\pi}+1=0.$
+\end{korollar}
+
+Für eine beliebige komplexe Zahl $z=x+iy$ ist also
+\begin{equation}
+e^z
+=
+e^{x+iy}
+=
+e^xe^{iy}
+=
+e^x(\cos y+i\sin y)
+\qquad
+\Rightarrow
+\qquad
+\left\{
+\begin{aligned}
+u(x,y) &= e^x \cos y \\
+v(x,y) &= e^x \sin y
+\end{aligned}
+\right.
+\label{buch:holomorph:holomorph:eqn:exprealimag}
+\end{equation}
+Da $e^z$ eine holomorphe Funktion ist, kann die Ableitung allein
+durch die Ableitung nach $x$ berechnet werden.
+Die Ableitung des Faktors $e^x$ ist aber selbst wieder $e^x$, es folgt
+daher
+\[
+\frac{d}{dz}e^z
+=e^x(\cos y+i\sin y)
+=
+e^z.
+\]
+
+Mit der Darstellung
+\eqref{buch:holomorph:holomorph:eqn:exprealimag}
+von Real- und Imaginärteil der Exponentialfunktion 
+können auch sofort die Cauchy-Riemann-Differentialgleichungen
+verifiziert werden, es gilt:
+\begin{equation}
+\left.
+\begin{aligned}
+\frac{\partial u}{\partial x}
+&=
+e^x\cos y,
+&
+\frac{\partial u}{\partial y}
+&=
+-e^x\sin y
+\\
+\frac{\partial v}{\partial x}
+&=
+e^x \sin y,
+&
+\frac{\partial v}{\partial y}
+&=
+e^x \cos y
+\end{aligned} 
+\right\}
+\quad
+\Rightarrow
+\quad
+\left\{
+\begin{aligned}
+\frac{\partial u}{\partial x} &= \phantom{-}\frac{\partial v}{\partial y}
+\\
+\frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}
+\end{aligned}
+\right.
+\end{equation}
+Dass die Cauchy-Riemann-Differentialgleichungen erfüllt sind, bestätigt
+erneut, dass die Exponentialfunktion holomorph ist.
+
+%
+% Der natürliche Logarithmus einer komplexen Zahl
+%
+\subsubsection{Der natürliche Logarithmus einer komplexen Zahl}
+Wir versuchen, ausgehend von
+\eqref{buch:holomorph:holomorph:eqn:exprealimag}
+den natürlichen Logarithmus einer komplexen Zahl als Umkehrfunktion
+der Exponentialfunktion zu definieren.
+Zunächst beachten wir, dass für $z=re^{it}$ folgt, dass
+\begin{equation}
+e^{z+2\pi i}
+=
+e^z
+e^{2\pi i}
+=
+e^z(\cos 2\pi + i \sin 2\pi)
+=
+e^z.
+\label{buch:holomorph:holomorph:eqn:expperiodisch}
+\end{equation}
+Die Exponentialfunktion ist also periodisch mit Periode $2\pi i$.
+Der natürliche Logarithmus einer komplexen Funktion kann daher auch nicht
+eindeutig bestimmt sein, sondern nur bis auf ein Vielfaches von 
+$2\pi i$.
+
+Sei jetzt $z = re^{i\varphi}$ gegeben, wobei $r=|z|$ und
+$\varphi=\operatorname{arg}z$.
+Gesucht ist jetzt eine komplexe Zahl $a+bi$ derart, dass
+\[
+e^{a+bi}
+=
+e^a(\cos b + i \sin b)
+=
+z
+=
+re^{i\varphi}
+\]
+gilt.
+Daraus kann man ablesen, dass $e^a = r$ oder $a = \log r = \log |z|$
+ist und $b = \varphi = \operatorname{arg}z$.
+
+\begin{definition}[natürlicher Logarithmus]
+Der natürlich Logarithmus einer komplexen Zahl ist
+\[
+\log z
+=
+\log |z| + i\operatorname{arg}z.
+\]
+Jeder weitere Logarithmus ist von der Form
+$\log |z| + i\operatorname{arg}z + 2\pi k$ mit $k\in\mathbb{Z}$.
+\end{definition}
+
+Aus Satz~\ref{buch:holomorph:holomorph:satz:rechenregeln}
+wissen wir bereits, dass der natürliche Logarithmus eine holomorphe
+Funktion ist.
+Die Ableitung kann mit \eqref{buch:holomoroph:holomorph:eqn:inverseholomorph}
+berechnet werden und es gilt
+\begin{equation}
+\frac{d}{dz}\log z
+=
+\frac{1}{f'(\log z)}
+=
+\frac1{z},
+\label{buch:holomorph:holomorph:eqn:logz}
+\end{equation}
+wobei $f(z)=e^z$ die Exponentialfunktion mit $f'(z)=e^z$ ist, was auf
+den letzten Ausdruck führt.
+Die Gleichung zeigt, dass sich die Logarithmusfunktion statt als
+Umkehrfunktion der Exponentialfunktion auch als eine Funktion
+mit der Ableitung $1/z$ charakterisieren lässt.
+
+\begin{beispiel}
+Die Logarithmusfunktion hat Real- und Imaginärteil
+\[
+u(x,y)
+=
+\frac12
+\log(x^2+y^2)
+\qquad\text{und}\qquad
+v(x,y)
+=
+\arctan\frac{y}{x}.
+\]
+Wir wollen die Cauchy-Riemann-Differentialgleichungen für diese beiden
+Funktion verifizieren.
+Dazu müssen die Ableitungen von $u$ und $v$ bestimmt werden, sie sind
+\begin{align*}
+\frac{\partial u}{\partial x}
+&=
+\frac12
+\frac{2x}{x^2+y^2}
+=
+\frac{x}{x^2+y^2},
+&
+\frac{\partial u}{\partial y}
+&=
+\frac12
+\frac{2y}{x^2+y^2}
+=
+\frac{y}{x^2+y^2},
+\\
+\frac{\partial v}{\partial x}
+&=
+\frac{1}{1+(y/x)^2}
+\frac{-y}{x^2}
+=
+\frac{-y}{x^2+y^2},
+&
+\frac{\partial v}{\partial y}
+&=
+\frac{1}{1+(y/x)^2}\frac{1}{x}
+=
+\frac{1}{1+(y/x)^2}\frac{x}{x^2}
+=
+\frac{x}{x^2+y^2}.
+\end{align*}
+Die Cauchy-Riemann-Differentialgleichungen sind jetzt offensichtlich.
+\end{beispiel}
+
+%
+% Algebraische Charakterisierung der Logarithmusfunktion
+%
+\subsubsection{Algebraische Charakterisierung der Logarithmusfunktion}
+Die Charakterisierung \eqref{buch:holomorph:holomorph:eqn:logz}
+der Logarithmusfunktion lässt sich noch etwas verallgemeinern, indem
+man die Kettenregel bemüht.
+
+\begin{definition}[Logarithmus einer Funktion]
+\label{buch:holomorph:holomorph:definition:alglogarithmus}
+Sei $K$ ein Funktionenkörper von Funktionen der Variablen $z$ und
+$u(z)\in K$ eine Funktion.
+Eine \emph{Logarithus} von $u$ ist eine Funktion $\vartheta(z)\in K$
+mit der Eigenschaft
+\[
+\frac{\partial}{dz}\vartheta(z)
+=
+\frac{u'(z)}{z}.
+\]
+\end{definition}
+
+Der Vorteil dieser Definition ist, dass sie weder den Begriff der
+Zusammensetzung von Funktionen noch die Umkehrfunktion benötigt.
+Die Funktion $\vartheta(z)$ wird nicht als Zusammensetzung der
+Logarithmusfunktion mit der Funktion $u(z)$ gewonnen, sondern als
+Lösung der Differentialgleichung $\vartheta'(z) = u'(z)/z$.
+
+Auch die Exponentialfunktion ist einer solchen rein algebraischen
+Charakterisierung zugänglich.
+Die Exponentialfunktion hat die Eigenschaft, dass sie mit Ihrer
+Ableitung übereinstimmt.
+Eine Zusammensetzung mit einer anderen Funktion $u(z)$ hat die
+Ableitung
+\[
+\frac{d}{dz} e^{u(z)}
+=
+e^{u(z)} u'(z).
+\]
+Daraus lässt sich die folgende Definition gewinnen, welche wie die
+Definition~\ref{buch:holomorph:holomorph:definition:alglogarithmus}
+rein algebraisch ist und keinen Bezug auf die Zusammensetzung oder
+auch nur auf die gewöhnliche Exponentialfunktion nimmt.
+
+\begin{definition}[Exponentialfunktion, algebraische Charakterisierung]
+\label{buch:holomorph:holomorph:definition:algexponential}
+Sei $K$ ein Funktionenkörper von Funktionen einer Variable $z$ und $u\in K$.
+Eine Funktion $\vartheta\in K$ heisst eine \emph{Exponentialfunktion} von $u$,
+wenn
+\[
+\vartheta'(z) = \vartheta(z)\cdot u'(z)
+\]
+gilt.
+\end{definition}
+
+\begin{beispiel}
+Da $K$ ein Funktionenkörper ist, ist die Funktion $u(z)=z^2\in K$.
+Die Funktion $e^{z^2}=e^{u(z)}$ erfüllt
+\[
+\frac{d}{dz} e^{z^2}
+=
+e^{z^2}\cdot 2z
+=
+e^{u(z)}\cdot u'(z),
+\]
+also ist $e^{z^2}$ eine Exponentialfunktion von $u(z)=z^2$.
+\end{beispiel}

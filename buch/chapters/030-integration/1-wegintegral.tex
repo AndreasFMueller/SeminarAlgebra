@@ -6,10 +6,207 @@
 \section{Wegintegrale in $\mathbb{C}$
 \label{buch:integration:section:wegintegral}}
 \kopfrechts{Wegintegrale in $\mathbb{C}$}
+Das Riemann-Integral einer Funktion ist definiert für Invervalle.
+Mit Hilfe eines Weges im Definitionsgebiet einer komplexen Funktion
+können wir die Funktion in eine komplexwertige Funktion auf einem
+Intervall, nämlich dem Definitionsbereich des Weges verwandeln.
+Da es zwischen zwei Punkten von $U$ beliebig viele verschiedene
+Wege gibt, müssen die Bedingungen identifiziert werden, unter denen
+das Integral nicht von der Wahl des Weges abhängt.
 
-\subsection{Wege in $\mathbb{C}$}
+%
+% Wege in $\mathbb{C}$
+%
+\subsection{Wege in $\mathbb{R}^n$ und $\mathbb{C}$}
+Ein \emph{Weg} in einer offenen Menge $U\subset \mathbb{R}^n$ ist eine
+stetige Abbildung
+\[
+\gamma : I \to U : t \mapsto \gamma(t)
+\]
+für ein Intervall $I=[a,b]$.
+Ein Weg heisst \emph{differenzierbarer Weg}, wenn die Funktion $\gamma$
+differenzierbar ist.
+Die Ableitung
+\[
+\dot{\gamma}
+\colon
+I
+\to
+\mathbb{R}^n
+:
+t
+\mapsto
+\dot{\gamma}(t)
+=
+\frac{d\gamma}{dt}(t)
+\]
+heisst auch der Tangentialvektor des Weges im PUnkt $\gamma(t)$.
 
+Da $\mathbb{C}$ als zweidimensionaler reeller Vektorraum betrachtet
+werden kann, ist ein Weg in $U\subset\mathbb{C}$ eine Abbildung
+von einem Intervall $I$ nach $U$:
+\[
+\gamma
+\colon
+I
+\to
+U
+:
+t
+\mapsto
+\gamma(t).
+\]
+Die Ableitung nach $t$ ist ebenfalls eine komplexe Zahl, die Funktion
+\[
+\dot{\gamma}
+\colon
+I
+\to
+\mathbb{C}
+:
+t
+\mapsto
+\dot{\gamma}(t)
+=
+\frac{d\gamma}{dt}(t)
+\]
+heisst wieder Tangentialvektor, er ist jetzt aber auch eine komplexe 
+Zahl.
+
+Ein Weg in $\mathbb{R}^2$ entsteht dadurch, dass man den Vektor aus
+Real- und Imaginärteil von $\gamma(t)$ bildet:
+\[
+\gamma_{\mathbb{R}}
+\colon
+I
+\to
+\mathbb{R}^2
+:
+t
+\mapsto
+\begin{pmatrix}
+\operatorname{Re}\gamma(t)\\
+\operatorname{Im}\gamma(t)
+\end{pmatrix}.
+\]
+Der Tangentialvektor besteht aus den Ableitungen von Real-
+und Imaginärteil
+\[
+\dot{\gamma}
+\colon
+I
+\to
+\mathbb{C}
+:
+t
+\mapsto
+\frac{d}{dt}\bigl(\operatorname{Re}\gamma(t)\bigr)
++
+i
+\frac{d}{dt}\bigl(\operatorname{Im}\gamma(t)\bigr)
+\]
+nach $t$.
+
+\input{chapters/030-integration/fig/fig-wege.tex}%
+
+\begin{beispiel}
+\label{buch:integration:wege:bsp:strecke}
+Sei $U=\mathbb{C}$ und seien zwei Punkte $z_0,z_1\in \mathbb{C}$ gegeben.
+Dann ist
+\[
+\gamma
+\colon
+[0,1]
+\to
+\mathbb{C}
+:
+(1-t)z_0 + tz_1
+\]
+ein differenzierbarer Weg, der $\gamma(0)=z_0$ mit $\gamma(1)=z_1$
+verbindet.
+Die Ableitung von $\gamma$ ist
+\[
+\dot{\gamma}(t)
+=
+z_1-z_0.
+\]
+Insbesondere ist die Ableitung konstant.
+
+Weitere Wege mit den gleichen Endpunkten können konstruiert werden,
+indem ein Weg addiert wird, der von $0$ nach $0$ führt.
+Zum Beispiel ist für jedes $n\in\mathbb{N}$ 
+\[
+\delta(t)
+=
+r_0
+(e^{2\pi int} - 1)
+\]
+ein kreisförmiger Weg mit Radius $r_0$, der $n$ Mal durchlaufen wird.
+Fügt man diesen Weg und zustzlich den Summanden $i\sin \pi t$ zum Weg
+$\gamma(t)$ hinzu, erhält man den Weg
+\[
+\gamma_1(t)
+=
+\gamma(t)
++
+r_0
+(e^{2\pi int} - 1)
++
+i\sin \pi t,
+\]
+der in Abbildung~\ref{buch:integration:wege:fig:wege}~a)
+{\color{darkgreen}grün} eingezeichnet ist.
+Der zugehörige Geschwindigkeitsvektor 
+\[
+\dot{\gamma}_1(t)
+=
+(z_1-z_0)
++
+2\pi i
+n
+r_0
+e^{2\pi int}
++
+i\pi\cos \pi t.
+\qedhere
+\]
+\end{beispiel}
+
+\begin{beispiel}
+\label{buch:integration:wege:bsp:kreis}
+Sei $U=\mathbb{C}$ und $r\in\mathbb{R}$.
+Der Weg
+\[
+\gamma
+\colon
+[0,2\pi]
+\to
+U
+:
+t
+\mapsto
+r(\cos t + i\sin t)
+\]
+ist ein differenzierbarer Weg mit $\gamma(0) = \gamma(2\pi) = 1$.
+Die Ableitung ist
+\[
+\dot{\gamma}(t)
+=
+r(-\sin t + i\cos t).
+\]
+In \eqref{XXX} 
+wurde gezeigt, dass $\gamma(t) = re^{it}$ ist mit der Ableitung
+$\dot{\gamma}(t)=rie^{it}$.
+\end{beispiel}
+
+
+%
+% Integral entlang eines Weges
+%
 \subsection{Integral entlang eines Weges}
 
+%
+% Homotopie
+%
 \subsection{Homotopie}
 

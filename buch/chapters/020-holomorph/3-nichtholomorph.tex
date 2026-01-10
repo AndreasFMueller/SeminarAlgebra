@@ -6,9 +6,901 @@
 \section{Nicht holomorphe Funktionen
 \label{buch:holomorph:section:nichtholomorph}}
 \kopfrechts{Nicht holomorphe Funktionen}
+Die Cauchy-Riemann-Differentialgleichungen zeigen, dass nicht jede
+Funktion, die als Funktion $\mathbb{R}^2\to\mathbb{R}^2$ betrachtet
+differenzierbar ist, auch holomorph ist.
+In diesem Abschnitt soll eine weitere Charakterisierung holomorpher
+Funktionen gezeigt werden.
 
-\subsection{Ableitung nach $\bar{z}$}
+%
+% Funktionen von $z$ und $\bar{z}$
+%
+\subsection{Funktionen von $z$ und $\bar{z}$}
+Bisher haben wir zur Berechnung der Ableitung einer komplexen Funktion
+$f(z)$ als Funktionen der reellen Variablen $x$ und $y$ mit $z=x+iy$
+betrachtet.
+Die Funktion $z\mapsto \operatorname{Re}z=x$ und
+$z\mapsto \operatorname{Im}z=y$ können aber als reellwertige Funktionen
+nicht holomorph sein.
+Die gleiche Information, die in $x$ und $y$ steckt, lässt sich aber auch
+aus $z$ und $\bar{z}$ herausholen.
+Da $z\mapsto z$ ganz offensichtlich eine holomorphe Funktion ist, scheint
+dies eine vorteilhaftere Parametrisierung zu sein.
 
-\subsection{Jacobi-Matrix einer komplexen Funktion}
+%
+% z und \bar{z} als unabhängige Variablen
+%
+\subsubsection{$z$ und $\bar{z}$ als unabhängige Variablen}
+Die Potenzfunktionen $z\mapsto z^k$ und alle Funktionen, die sich als 
+Potenzreihen in $z$ ausdrücken lassen, konnten dank der Rechenregeln für
+die komplexe Ableitung sehr leicht als holomorph erkannt werden.
+Für Funktionen, die nur durch Realteil $u(x,y)$ und Imaginärteil $v(x,y)$
+von Real- und Imaginärteil von $z$ ausgedrückt sind, mussten die
+Cauchy-Riemann-Differentialgleichungen beigezogen werden, um Holomorphie
+zu entscheiden.
+Wir versuchen diese Vorgehensweise dadurch zu vereinfachen, dass wir
+$z$ und $\bar{z}$ als unabhängige Variablen verwenden.
+
+Für die Umrechnung zwischen $x$-$y$-Parametern und $z$-$\bar{z}$-Parametern
+verwenden wir die Beziehungen
+\begin{equation}
+\left.
+\begin{aligned}
+     z  &= x + iy \\
+\bar{z} &= x - iy 
+\end{aligned}
+\right\}
+\qquad\Leftrightarrow\qquad
+\left\{
+\begin{aligned}
+x &= \frac12    (z + \bar{z}) \\
+y &= \frac1{2i} (z - \bar{z})
+\end{aligned}
+\right.
+\label{buch:holomorph:nichtholomorph:eqn:xyzzbar}
+\end{equation}
+
+\begin{beispiel}
+Wir betrachten die Funktion $f(z) = u(x,y)+iv(x,y)$ mit
+$u(x,y)=x^2-y^2$ und $v(x,y)=2xy$.
+Ersetzen wir mit Hilfe der Formeln
+\eqref{buch:holomorph:nichtholomorph:eqn:xyzzbar}
+die Variablen $x$ und $y$ durch $z$ und $\bar{z}$, dann ist
+\begin{align*}
+u(x,y)
+&=
+\frac14(z^2 + 2z\bar{z} + \bar{z}^2)
+-
+\frac1{-4}(z^2 - 2z\bar{z} + \bar{z}^2)
+=
+\frac14(2z^2 + 2\bar{z}^2)
+\\
+v(x,y)
+&=
+2
+\frac1{4i}(z + \bar{z})(z - \bar{z})
+=
+\frac{1}{2i}(z^2 - \bar{z}^2)
+\\
+f(z)
+&=
+\frac12(z^2+\bar{z}^2)
++
+\frac12(z^2-\bar{z}^2)
+=
+z^2.
+\end{align*}
+Die Rechnung hat also gezeigt, dass $f(z)$ sich auch allein als eine
+Funktion von $z$ ausdrücken lässt, die Variable $\bar{z}$ wird nicht
+gebraucht, um einen algebraischen Ausdruck für $f(z)$ zu konstruieren.
+\end{beispiel}
+
+\begin{beispiel}
+\label{buch:holomorph:nichtholomorph:bsp:bbetrag2}
+Wenden wir
+\eqref{buch:holomorph:nichtholomorph:eqn:xyzzbar}
+auf die Funktion $f(z) = x^2 + y^2$ 
+an, erhalten wir
+\begin{align*}
+f(z)
+&=
+\frac14(z+\bar{z})^2
++
+\frac1{-4}(z-\bar{z})^2
+=
+\frac14\bigl(
+z^2 + 2z\bar{z} + \bar{z}^2
+-
+(z^2 - 2z\bar{z} + \bar{z}^2)
+\bigr)
+=
+z\bar{z}.
+\end{align*}
+Die Funktion $f(z)=x^2+y^2=|z|^2$ lässt sich also nicht allein mit
+$z$ ausdrücken.
+\end{beispiel}
+
+Wenn der Imaginärteil der Funktion $f(z)$ verschwindet, müsste nach den
+Cauchy-Riemann-Differentialgleichungen 
+\[
+\frac{\partial u}{\partial x} = 0
+\qquad\text{und}\qquad
+\frac{\partial u}{\partial y} = 0
+\]
+sein, somit dürfte $u$ weder von $x$ noch von $y$ abhängen, $f(z)$ müsste
+eine reelle Konstante sein, wenn Sie holomorph sein sollte.
+Die Funktion von Beispiel~\ref{buch:holomorph:nichtholomorph:bsp:bbetrag2}
+kann also nicht holomorph sein.
+
+%
+% Ableitungen nach $z$ und $\bar{z}$
+%
+\subsubsection{Ableitungen nach $z$ und $\bar{z}$}
+Verschwindet eine partielle Ableitung einer Funktion von mehreren
+reellen Variablen, dann bedeutet dies, dass die Funktion nicht
+von der betreffenden Variable abhängt.
+Es muss also einen Ausdruck geben, in dem diese Variable gar nicht
+vorkommt.
+Die Beispiele des vorangegangenen Abschnittes haben angedeutet, dass 
+eine holomorphe Funktion nicht von $\bar{z}$ sondern nur von $z$ abhängt.
+Es stellt sich daher die Frage, ob man diese Eigenschaft auch durch das
+Verschwinden einer Art partieller Ableitung nach $\bar{z}$ ausdrücken
+kann.
+
+In
+Abschnitt~\ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit}
+wurde gezeigt, dass die komplexe Ableitung sowohl durch Ableiten
+nach dem Realteil wie auch nach dem Imaginärteil gefunden werden
+kann.
+Es wurde gefunden, dass
+\[
+\frac{df}{dz}
+=
+\frac{\partial f}{\partial x}
+=
+\frac{1}{i}
+\frac{\partial f}{\partial y}
+=
+-i\frac{\partial f}{\partial y}
+\]
+ist.
+Zwar lässt sich die komplexe Ableitung mit diesen Formeln oft sehr
+leicht berechnen.
+Aus mathematischer Sicht sind sie jedoch nicht sehr schön, da sie den
+Real- bzw.~den Imaginärteil bevorzugen.
+Dies kann durch Bildung des Mittelwertes vermieden werden, es ist nämlich
+\begin{equation}
+\frac{df}{dz}
+=
+\frac{1}{2}
+\biggl(
+\frac{\partial f}{\partial x}
+-i
+\frac{\partial f}{\partial y}
+\biggr).
+\label{buch:holomorph:nichtholomorph:eqn:partialddz}
+\end{equation}
+Setzt man die Zerlegung $f=u+iv$ in Real- und Imaginärteil ein, kann
+man mit den Cauchy-Riemann-Differentialgleichungen die ursprünglichen
+Formeln zurückgewinnen:
+\begin{align*}
+\frac12
+\biggl(
+\frac{\partial f}{\partial x}
+-i
+\frac{\partial f}{\partial y}
+\biggr)
+&=
+\frac12
+\biggl(
+\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}
+-
+i
+\biggl(
+\frac{\partial v}{\partial y} + i\frac{\partial v}{\partial y}
+\biggr)
+\biggr)
+=
+\frac12
+\biggl(
+\frac{\partial u}{\partial x}
++
+\frac{\partial v}{\partial y}
+\biggr)
++
+\frac{i}2
+\biggl(
+\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+\biggr)
+\\
+&=
+\begin{cases}
+\displaystyle
+\frac12
+\biggl(
+\frac{\partial u}{\partial x}
++
+{\color{darkred}\frac{\partial u}{\partial x}}
+\biggr)
++
+\frac{i}2
+\biggl(
+\frac{\partial v}{\partial x}
++
+{\color{darkred}\frac{\partial v}{\partial x}}
+\biggr)
+=
+\frac{\partial f}{\partial x}
+&\quad
+\text{aus
+$\displaystyle
+\frac{\partial v}{\partial y}
+=
+{\color{darkred}
+\frac{\partial u}{\partial x}}$
+und
+$\displaystyle
+\frac{\partial u}{\partial y}
+=
+{\color{darkred}-\frac{\partial v}{\partial x}}$,}
+\\[10pt]
+\displaystyle
+\frac12\biggl(
+{\color{darkred}\frac{\partial v}{\partial y}}
++
+\frac{\partial v}{\partial y}
+\biggr)
++
+\frac{i}2\biggl(
+{\color{darkred}-\frac{\partial u}{\partial y}}
+-
+\frac{\partial u}{\partial y}
+\biggr)
+=
+\frac{1}{i}
+\frac{\partial f}{\partial y}
+&\quad
+\text{aus
+$\displaystyle
+\frac{\partial u}{\partial x}
+=
+{\color{darkred}\frac{\partial v}{\partial y}}
+$
+und
+$\displaystyle
+\frac{\partial v}{\partial x}
+=
+{\color{darkred}-\frac{\partial u}{\partial y}}
+$.}
+\end{cases}
+\end{align*}
+Die Cauchy-Riemann-Differentialgleichungen zeigen also, dass der 
+``partielle'' Ableitungsoperator $\partial/\partial z$ mit dem
+komplexen Ableitungsoperator $d/dz$ übereinstimmt.
+
+Die Definition
+\eqref{buch:holomorph:nichtholomorph:eqn:partialddz}
+suggeriert, dass man auch den ``konjugiert konplexen'' Operator
+\begin{equation}
+\frac{\partial}{\partial\bar{z}}
+=
+\frac12\biggl(
+\frac{\partial}{\partial x}
++
+i
+\frac{\partial}{\partial y}
+\biggr)
+\end{equation}
+definieren kann.
+Angewendet auf eine komplexe Funktion $f=u+iv$ lautet er
+\[
+\frac{\partial f}{\partial \bar{z}}
+=
+\frac12
+\biggl(
+\frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x}
++
+i\frac{\partial u}{\partial y} - \frac{\partial v}{\partial y}
+\biggr)
+=
+\frac12\biggl(
+\frac{\partial u}{\partial x}
+-
+\frac{\partial v}{\partial y}
+\biggr)
++
+\frac{i}2\biggl(
+\frac{\partial v}{\partial x}
++
+\frac{\partial u}{\partial y}
+\biggr).
+\]
+Die Cauchy-Riemann-Differentialgleichungen ermöglichen, dem Real-
+und Imaginärteil
+\begin{align*}
+\frac{\partial u}{\partial x}
+&=
+\frac{\partial v}{\partial y}
+&&\Rightarrow&
+\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}
+&=
+\operatorname{Re}
+\frac{\partial f}{\partial\bar{z}}
+=
+0
+\\
+\frac{\partial u}{\partial y}
+&=
+-\frac{\partial v}{\partial x}
+&&\Rightarrow&
+\frac{\partial v}{\partial x}
++
+\frac{\partial u}{\partial y}
+&=
+\operatorname{Im}\frac{\partial f}{\partial\bar{z}}
+=
+0
+\end{align*}
+einen Sinn zu geben.
+Wenn sowohl Realteil wie auch Imaginärteil von $\partial f/\partial\bar{z}$
+verschwinden, ist die Funktion holomorph.
+Die Notation als partielle Ableitung suggeriert, dass eine holomorphe
+Funktion nicht von $\bar{z}$ abhängt, sondern nur von $z$.
+
+\begin{beispiel}
+Die Funktion $z\mapsto z$ hat Realteil $u(x,y)=x$ und $v(x,y)=y$
+mit den partiellen Ableitungen
+\[
+\frac{\partial z}{\partial x} = 1 
+\quad\text{und}\quad
+\frac{\partial z}{\partial y} = i
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+\frac{\partial z}{\partial z}
+&=
+\frac12
+\biggl(
+\frac{\partial z}{\partial x}
+-i
+\frac{\partial z}{\partial y}
+\biggr)
+=
+\frac{1}{2}
+(1+1)
+=
+1,
+\\
+\frac{\partial z}{\partial\bar{z}}
+&=
+\frac12
+\biggl(
+\frac{\partial z}{\partial x}
++i
+\frac{\partial z}{\partial y}
+\biggr)
+=
+\frac12(1-1)
+=
+0.
+\end{aligned}
+\right.
+\]
+Wie erwartet zeigt die verschwindende partielle Ableitung nach $\bar{z}$,
+dass die Funktion holomorph ist.
+\end{beispiel}
+
+\begin{beispiel}
+Die Funktion $z\mapsto\bar{z}$ hat Realteil $u(x,y)=x$ und
+Imaginärteil $v(x,y)=-y$ und damit die partiellen Ableitungen
+\[
+\frac{\partial \bar{z}}{\partial x} = 1 
+\quad\text{und}\quad
+\frac{\partial \bar{z}}{\partial y} = -i
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+\frac{\partial \bar{z}}{\partial z}
+&=
+\frac12
+\biggl(
+\frac{\partial z}{\partial x}
+-i
+\frac{\partial z}{\partial y}
+\biggr)
+=
+\frac12 (1-1)
+=
+0,
+\\
+\frac{\partial \bar{z}}{\partial \bar{z}}
+&=
+\frac12
+\biggl(
+\frac{\partial\bar{z}}{\partial x}
++i
+\frac{\partial\bar{z}}{\partial y}
+\biggr)
+=
+\frac12(1+1)
+=
+1.
+\end{aligned}
+\right.
+\]
+Die partielle Ableitung nach $\bar{z}$ verschwindet nicht, also
+sind die Cauchy-Riemann-Diffe\-rentialgleichung nicht erfüllt, sie
+kann also nicht holomorph sein.
+\end{beispiel}
+
+Wir fassen die Erkenntnisse dieses Abschnitts wie folgt zusammen.
+
+\begin{definition}
+Die partiellen Ableitungen einer komplexen Funktion $f\colon U\to\mathbb{C}$
+mit $U\subset\mathbb{C}$ sind definiert durch die partiellen Ableitungen
+nach Realteil $x$ und Imaginärteil $y$ der komplexen Variable $z=x+iy$
+durch
+\begin{align*}
+\frac{\partial}{\partial z}
+&=
+\frac12\biggl(
+\frac{\partial}{\partial x}
+-i
+\frac{\partial}{\partial y}
+\biggr)
+&&\text{und}&
+\frac{\partial}{\partial\bar{z}}
+&=
+\frac12\biggl(
+\frac{\partial}{\partial x}
++i
+\frac{\partial}{\partial y}
+\biggr).
+\end{align*}
+Umgekehrt ist
+\[
+\frac{\partial}{\partial x}
+=
+\frac{\partial}{\partial z}
++
+\frac{\partial}{\partial\bar{z}}
+\qquad\text{und}\qquad
+\frac{\partial}{\partial y}
+=
+i
+\biggl(
+\frac{\partial}{\partial z}
+-
+\frac{\partial}{\partial\bar{z}}
+\biggr)
+\]
+Eine Funktion heisst \emph{holomorph}, wenn sie als Funktion zweier
+reeller Variablen differenzierbar ist und ausserdem die partielle
+Ableitung nach $\bar{z}$
+\[
+\frac{\partial f}{\partial \bar{z}}
+=
+0
+\]
+verschwindet.
+\end{definition}
+
+Die konjugiert komplexe Funktion $\bar{f}$ hat die komplexen
+Ableitungen
+\begin{equation}
+\begin{aligned}
+\frac{\partial \bar{f}}{\partial z}
+&=
+\frac12
+\biggl(
+\frac{\partial u}{\partial x}
+-
+i
+\frac{\partial v}{\partial x}
+-
+i
+\biggl(
+\frac{\partial u}{\partial y}
+-i
+\frac{\partial v}{\partial y}
+\biggr)
+\biggr)
+=
+\frac12\biggl(
+\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}
+\biggr)
+-
+\frac{i}2
+\biggl(
+\frac{\partial u}{\partial y}
++
+\frac{\partial v}{\partial x}
+\biggr)
+=
+\overline{\biggl(
+\frac{\partial f}{\partial \bar{z}}
+\biggr)}
+\\
+\frac{\partial \bar{f}}{\partial \bar{z}}
+&=
+\frac12
+\biggl(
+\frac{\partial u}{\partial x} - i \frac{\partial v}{\partial x}
++
+i
+\biggl(
+\frac{\partial u}{\partial y} - i \frac{\partial v}{\partial y}
+\biggr)
+\biggr)
+=
+\frac12
+\biggl(
+\frac{\partial u}{\partial x}
++
+\frac{\partial v}{\partial y}
+\biggr)
++
+\frac{i}{2}
+\biggl(
+\frac{\partial u}{\partial y}
+-
+\frac{\partial v}{\partial x}
+\biggr)
+=
+\overline{\biggl(
+\frac{\partial f}{\partial z}
+\biggr)}.
+\end{aligned}
+\label{buch:holomorph:nichtholomorph:eqn:dkonj}
+\end{equation}
+Formal vertauscht der Konjugationsoperator also mit den Ableitungen,
+wenn man die Variable, nach der abgeleitet wird, ebenfalls konjugiert.
+
+%
+% Jacobi-Matrix einer komplexen Funktion
+%
+\subsection{Die komplexe Jacobi-Matrix einer komplexen Funktion}
+Die ursprünglichen Ableitungen nach $x$ und $y$ können durch Linearkombination
+der beiden partiellen Ableitungsoperatoren $\partial/\partial z$ und
+$\partial/\partial\bar{z}$ wiedergewonnen werden:
+\begin{align*}
+\frac{\partial f}{\partial x}
+=
+\frac{\partial u}{\partial x}
++
+i\frac{\partial v}{\partial x}
+&=
+\frac{\partial f}{\partial z}
++
+\frac{\partial f}{\partial \bar{z}}
+&&\text{und}
+&
+-i
+\frac{\partial f}{\partial y}
+=
+-i\frac{\partial u}{\partial y}
++
+\frac{\partial v}{\partial y}
+&=
+\frac{\partial f}{\partial z}
+-
+\frac{\partial f}{\partial \bar{z}}
+\end{align*}
+Die partiellen komplexen Ableitungsoperatoren enthalten also die
+gesamte Information, die die partiellen Ableitungen nach den reellen
+Variablen $x$ und $y$ wiedergeben.
+
+Auch der Real- und Imaginärteil einer komplexen Zahl
+$\Delta z=\Delta x + i\Delta y$
+lässt sich gemäss \eqref{buch:holomorph:nichtholomorph:eqn:xyzzbar}
+aus $\Delta z$ und $\overline{\Delta z}=\Delta x -i\Delta y$
+rekonstruieren lassen.
+Die Jacobi-Matrix der Funktion $f$ betrachtet als reelle Funktion
+$\mathbb{R}^2\to\mathbb{R}^2$ sollte sich also auch als eine Matrix
+Matrix ausdrücken lassen, die auf den 2-dimensionalen komplexen
+Vektor mit Komponenten $\Delta z$ und $\overline{\Delta z}$ wirken.
+
+Da wir nicht a priori davon ausgehen möchten, dass die Funktion $f$
+holomorph ist, schreiben wir sie als $f(z,\bar{z})$ und untersuchen
+später, was sich ergibt, wenn $f$ holomorph ist, also nicht von $\bar{z}$
+abhängt.
+
+Die reelle Jacobi-Matrix der Funktion $f(z) = u(x,y) + iv(x,y)$
+ermöglicht die Konstruktion der linearen Ersatzfunktion von $f$
+betrachtet als Funktion zweier reeller Variablen.
+Wir verwenden Vektornotation, um diese wie folgt auszudrücken:
+\begin{align*}
+\begin{pmatrix}
+u(x+\Delta x,y+\Delta y)\\
+v(x+\Delta x,y+\Delta y)
+\end{pmatrix}
+&=
+\begin{pmatrix}
+u(x,y)\\
+v(x,y)
+\end{pmatrix}
++
+\begin{pmatrix}
+\frac{\partial u}{\partial x}(x,y) &
+\frac{\partial u}{\partial y}(x,y) \\
+\frac{\partial v}{\partial x}(x,y) &
+\frac{\partial v}{\partial y}(x,y)
+\end{pmatrix}
+\begin{pmatrix}
+\Delta x \\
+\Delta y
+\end{pmatrix}
++
+o(\Delta x,\Delta y)
+\end{align*}
+In diesem Ausdruck möchten wir alles durch die Funktionen $f(z,\bar{z})$
+und ihre konjugiert komplexe Funktion $\bar{f}(z,\bar{z})$ sowie die Variablen
+$z$ und $\bar{z}$ und die partiellen Ableitungen nach $z$ und $\bar{z}$
+ausdrücken.
+\[
+\begin{pmatrix}
+\Delta x\\
+\Delta y
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac12   (\Delta z+\overline{\Delta z}) \\
+\frac1{2i}(\Delta z-\overline{\Delta z})
+\end{pmatrix}
+\]
+\begin{align*}
+\frac{\partial u}{\partial x}
+&=
+\frac12
+\biggl(
+\frac{\partial f}{\partial x}
++
+\frac{\partial \bar{f}}{\partial x}
+\biggr)
+=
+\frac12
+\biggl(
+\frac{\partial f}{\partial z}
++
+\frac{\partial f}{\partial \bar{z}}
++
+\frac{\partial \bar{f}}{\partial z}
++
+\frac{\partial \bar{f}}{\partial \bar{z}}
+\biggr)
+\\
+\frac{\partial u}{\partial y}
+&=
+\frac12
+\biggl(
+\frac{\partial f}{\partial y}
++
+\frac{\partial \bar{f}}{\partial y}
+\biggr)
+=
+\frac12
+\biggl(
+i
+\biggl(
+\frac{\partial f}{\partial z}
+-
+\frac{\partial f}{\partial\bar{z}}
+\biggr)
++
+i
+\biggl(
+\frac{\partial\bar{f}}{\partial z}
+-
+\frac{\partial\bar{f}}{\partial\bar{z}}
+\biggr)
+\biggr)
+\\
+\frac{\partial v}{\partial x}
+&=
+\frac1{2i}
+\biggl(
+\frac{\partial f}{\partial x}
+-
+\frac{\partial\bar{f}}{\partial x}
+\biggr)
+=
+\frac1{2i}
+\biggl(
+\frac{\partial f}{\partial z}
++
+\frac{\partial f}{\partial \bar{z}}
+-
+\frac{\partial \bar{f}}{\partial z}
+-
+\frac{\partial \bar{f}}{\partial \bar{z}}
+\biggr)
+\\
+\frac{\partial v}{\partial y}
+&=
+\frac1{2i}
+\biggl(
+\frac{\partial f}{\partial y}
+-
+\frac{\partial\bar{f}}{\partial y}
+\biggr)
+=
+\frac1{2i}
+\biggl(
+i\biggl(
+\frac{\partial f}{\partial z}
+-
+\frac{\partial f}{\partial\bar{z}}
+\biggr)
+-i
+\biggl(
+\frac{\partial\bar{f}}{\partial z}
+-
+\frac{\partial\bar{f}}{\partial\bar{z}}
+\biggr)
+\biggr)
+\end{align*}
+Im Interesse etwas kompakterer Formeln schreiben wir die partiellen
+Ableitungen nach $z$ und $\bar{z}$ in der in der Theorie der partiellen
+Differentialgleichungen üblichen Form durch einen Index in der Form
+\begin{align*}
+\frac{\partial f}{\partial z}
+&=
+f_z
+&\text{und}&
+&
+\frac{\partial f}{\partial \bar{z}}
+&=
+f_{\bar{z}}.
+\end{align*}
+Damit können wir jetzt die lineare Ersatzfunktion als
+\begin{align*}
+u(x+\Delta x,y+\Delta y)
+&\approx
+\frac{\partial u}{\partial x}\Delta x
++
+\frac{\partial u}{\partial y}\Delta y
+\\
+&=
+\frac12
+(
+f_z
++
+f_{\bar{z}}
++
+\bar{f}_z
++
+\bar{f}_{\bar{z}}
+)
+\frac12
+(\Delta z + \overline{\Delta z})
++
+\frac{i}2
+(
+f_z
+-
+f_{\bar{z}}
++
+\bar{f}_z
+-
+\bar{f}_{\bar{z}}
+)
+\frac1{2i}
+(\Delta z - \overline{\Delta z})
+\\
+&=
+\frac12
+(
+f_z + \bar{f}_z
+)
+\Delta z
++
+\frac12
+(
+f_{\bar{z}} + \bar{f}_{\bar{z}}
+)
+\overline{\Delta z}
+\\
+v(x+\Delta x,y+\Delta y)
+&\approx
+\frac{\partial v}{\partial x}\Delta x
++
+\frac{\partial v}{\partial y}\Delta y
+\\
+&=
+\frac1{2i}
+(
+f_z + f_{\bar{z}} - \bar{f}_z - \bar{f}_{\bar{z}}
+)
+\frac12
+(\Delta z + \overline{\Delta z})
++
+\frac12
+(
+f_z - f_{\bar{z}} - \bar{f}_z + \bar{f}_{\bar{z}}
+)
+\frac1{2i}
+(\Delta z - \overline{\Delta z})
+\\
+&=
+\frac1{2i}
+(
+f_z - \bar{f}_z
+)
+\Delta z
++
+\frac1{2i}
+(
+f_{\bar{z}}
+-
+\bar{f}_{\bar{z}}
+)
+\overline{\Delta z}.
+\intertext{schreiben, wobei dass Approximationszeichen $\approx$
+immer eine Approximation bis auf einen $o$-Term bedeutet.
+Die Funktionen $u$ und $v$ sind Real- und Imaginärteil der
+Funktion $f$, daher kann man auch}
+f(z+\Delta z, \bar{z}+\bar{\Delta z})
+&=
+u(x+\Delta x, y + \Delta y)
++
+iv(x+\Delta x, y + \Delta y)
+\\
+&=
+f_z\Delta z + f_{\bar{z}}\overline{\Delta z}
++
+o(\Delta z, \overline{\Delta z})
+\\
+\bar{f}(z+\Delta z, \bar{z}+\overline{\Delta z})
+&=
+u(x+\Delta x, y + \Delta y)
+-
+iv(x+\Delta x, y + \Delta y)
+\\
+&=
+\bar{f}_z \Delta z
++
+\bar{f}_{\bar{z}}\Delta z
++
+o(\Delta z, \overline{\Delta z})
+\end{align*}
+schreiben.
+In Matrixform ist dies
+\begin{align*}
+\begin{pmatrix}
+     f (z + \Delta z, \bar{z}+\overline{\Delta z})\\
+\bar{f}(z + \Delta z, \bar{z}+\overline{\Delta z})
+\end{pmatrix}
+&=
+\bgroup
+\renewcommand{\arraystretch}{2.2}
+\begin{pmatrix}
+\displaystyle\frac{\partial f}{\partial z}(z,\bar{z}) &
+\displaystyle\frac{\partial f}{\partial \bar{z}}(z,\bar{z}) \\
+\displaystyle\frac{\partial \bar{f}}{\partial z}(z,\bar{z}) &
+\displaystyle\frac{\partial \bar{f}}{\partial \bar{z}}(z,\bar{z})
+\end{pmatrix}
+\begin{pmatrix}
+\Delta z\\
+\overline{\Delta z}
+\end{pmatrix}.
+\egroup
+\intertext{Die Matrix auf der rechten Seite kann man als eine
+komplexe Form der Jacobimatrix sehen.
+Wir können die rechte Seite auch als}
+\frac{\partial(f,\bar{f})}{\partial(z,\bar{z})}
+\begin{pmatrix}
+\Delta z \\
+\overline{\Delta z}
+\end{pmatrix}
+\end{align*}
+schreiben.
+
+Für eine holomorphe Funktion wird die komplexe Jacobi-Matrix zu
+einer Diagonalmatrix.
+Man beachte auch, dass wegen die Elemente der unteren Zeile
+\eqref{buch:holomorph:nichtholomorph:eqn:dkonj}
+durch Konjugation und Vertauschen aus den Elementen der oberen
+Zeile hervorgehen.
+
 
 
