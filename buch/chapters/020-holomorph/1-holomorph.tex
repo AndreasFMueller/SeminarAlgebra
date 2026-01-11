@@ -478,6 +478,81 @@ Damit ist die Ableitungsformel bewiesen.
 \end{beispiel}
 
 %
+% Die Stammfunktion
+%
+\subsubsection{Die Stammfunktion}
+Der Hauptsatz der Infinitesimalrechnung besagt, dass Differenzieren und
+Integrieren zueinander inverse Operationen sind.
+Dies ermöglicht, Integrale mithilfe einer Stammfunktion zu berechnen.
+Für komplexe Funktionen steht uns vorerst noch kein Integralbegriff
+zur Verfügung, aber die Idee der Stammfunktion lässt sich leicht auf
+komplexe Funktionen übertragen.
+
+\begin{definition}[Stammfunktion]
+Eine \emph{Stammfunktion} einer stetigen komplexen Funktion $f(z)$
+ist eine holomorphe Funktion $F(z)$ derart, dass $F'(z) = f(z)$.
+\end{definition}
+
+Man beachte, dass die Stammfunktion ganz ohne Bezug auf das
+Integral definiert wurde.
+Nichtsdestotrotz wird eine Stammfunktion manchmal auch $\int f$
+geschrieben.
+Diese Betrachtungsweise ist insbesondere unabhängig von den analytischen
+Eigenschaften der komplexen Zahlen.
+
+\begin{definition}[Stammfunktion, algebraische Definition]
+Sei $K$ ein Körper von Funktionen der unabhängigen Variable $z$ und
+$f\in K$.
+Dann heisst $F\in K$ eine Stammfunktion von $f$, wenn $F'=f$ gilt.
+\end{definition}
+
+Aus den Ableitungsregeln für holomorphe Funktionen folgen unmittelbar
+die folgenden Rechenregeln für Stammfunktionen:
+\begin{enumerate}
+\item
+\(\displaystyle
+\int z^n = \frac{1}{n+1} z^{n+1}
+\)
+für $n\in\mathbb{Z}, n\ne -1$.
+\item Partielle Integration:
+\(\displaystyle
+\int f'g
+=
+fg
+-
+\int fg'.
+\)
+\end{enumerate}
+
+Die Stammfunktion ist im Allgemeinen nur bis auf eine Konstante
+definiert.
+Dabei stellen wir uns eine Konstante typischerweise als etwas
+vor, was nicht von der unabhängigen Variable abhängt.
+Der Ausdruck $f(z)=(1+z)^2-z^2-2z$ scheint von $z$ abzuhängen,
+doch wenn man die Klammer ausmultipliziert bleibt $f(z)=1$ übrig.
+In diesem einfachen Fall war es einfach zu erkennen, dass die Abhängigkeit
+von $z$ nur scheinbar ist.
+Im Allgemeinen ist es ein nicht entscheidbares Problem, herauszufinden,
+ob ein Ausdruck verschwindet.
+Wir benötigen daher eine Definition für Konstanten, die sich nicht
+auf die syntaktische Form eines Ausdrucks bezieht, sondern nur 
+algebraische Eigenschaften verwendet.
+Dies führt auf die folgende, leicht zirkuläre Definition.
+
+\begin{definition}[Konstante]
+Eine \emph{Konstante} in einem Funktionenkörper ist ein Element $c\in K$
+mit der Eigenschaft $c'=0$.
+\end{definition}
+
+Übrigens lässt sich auch die unabhängige Variable $z$ rein aus
+algebraischen Eigenschaften des Ableitunsgoperators rekonstruieren.
+Die unabhängige Variable $z$ ist eine Stammfunktion der Funktion $1$.
+In diesem Lichte ist die unabhängige Variable $z$ nur bis auf eine
+Konstante bestimmt.
+Funktionen sind damit nur bis auf eine ``Verschiebung'' festgelegt.
+
+
+%
 % Der Mittelwertsatz
 %
 \subsubsection{Der Mittelwertsatz}
@@ -951,7 +1026,137 @@ holomorph sind.
 % Ableitung einer Potenzreihe
 %
 \subsubsection{Ableitung einer Potenzreihe}
-In der reellen Analysis wird gezeigt, dass
+In der reellen Analysis wird gezeigt, dass eine Funktionenreihe gliedweise
+abgeleitet werden darf, wenn die abgeleitete Reihe weiterhin konvergiert.
+
+\begin{satz}[Ableitung einer Potenzreihe]
+\label{buch:holomorph:holomorph:satz:potenzreihe-ableitung}
+Sei eine Funktion durch die Potenzreihe
+\[
+f(z)
+=
+\sum_{k=0}^\infty a_k z^k
+\]
+gegeben.
+Dann ist
+\[
+f'(z)
+=
+\sum_{k=1}^\infty ka_k z^{k-1}
+\]
+eine konvergente Potenzreihe mit dem gleichen Konvergenzradius.
+\end{satz}
+
+\begin{proof}
+Es reicht, den Konvergenzradius mit der Cauchy-Hadamard-Formel zu
+bestimmen.
+Dabei kann verwendet werden, dass der Konvergenzradius $\varrho$
+der Potenzreihe für $f(z)$ bekannt ist und den Wert
+\[
+\frac{1}{\varrho}
+=
+\limsup_{n\to\infty} \sqrt[n]{|a_n|}
+\]
+hat.
+Für die Koeffizienten der abgeleiteten Reihe folgt
+\begin{align}
+\limsup_{n\to\infty} \sqrt[n]{|na_n|}
+&=
+\limsup_{n\to\infty}
+\sqrt[n]{n}
+\sqrt[n]{|a_n|}.
+\label{buch:holomorph:holomorph:satz:ableitungkonvergenzradius}
+\end{align}
+Wegen
+\[
+\frac{\log n}{n} \to 0\qquad\text{für $n\to\infty$}
+\]
+konvergiert die Folge $\sqrt[n]{n}$ gegen
+\[
+\lim_{n\to\infty}
+\sqrt[n]{n}
+=
+\lim_{n\to\infty}
+\exp \biggl(
+\frac{1}{n}\log n
+\biggr)
+=
+\exp \biggl(
+\lim_{n\to\infty}
+\frac{1}{n}\log n
+\biggr)
+=
+e^0
+=
+1.
+\]
+Der Grenzwert 
+\eqref{buch:holomorph:holomorph:satz:ableitungkonvergenzradius}
+wird damit zu
+\[
+\limsup_{n\to\infty}
+\sqrt[n]{n}
+\sqrt[n]{|a_n|}
+=
+\lim_{n\to\infty}
+\sqrt[n]{n}
+\cdot
+\limsup_{n\to\infty}
+\sqrt[n]{|a_n|}
+=
+\limsup_{n\to\infty}
+\sqrt[n]{|a_n|}
+=
+\frac{1}{\varrho}.
+\]
+Der Konvergenzradius der abgeleiteten Reihe ist der gleiche.
+\end{proof}
+
+\begin{satz}[Stammfunktion einer Potenzreihe]
+\label{buch:holomorph:holomorph:satz:potenzreihe-stammfunktion}
+Sei eine Funktion durch die Potenzreihe
+\[
+f(z)
+=
+\sum_{k=0}^\infty a_k z^k
+\]
+gegeben.
+Dann ist
+\begin{equation*}
+F(z)
+=
+\sum_{k=0}^\infty \frac{1}{k+1}a_k z^{k+1}
+\end{equation*}
+eine konvergente Potenzreihe mit dem gleichen Konvergenzradius.
+$F(z)$ ist zudem eine Stammfunktion von $f$: $F'(z)=f(z)$.
+\end{satz}
+
+\begin{proof}
+Wie schon im Beweis des
+Satzes~\ref{buch:holomorph:holomorph:satz:potenzreihe-ableitung}
+kann der Konvergenzradius der Reihe $F(z)$ mit der Cauchy-Hadamard-Formel
+bestimmt werden.
+Er ist
+\begin{align*}
+\limsup_{n\to\infty} \sqrt[n]{\frac1{n+1}|a_n|}
+&=
+\underbrace{
+\lim_{n\to\infty}
+\frac{1}{\sqrt[n]{n+1}}
+}_{\displaystyle =1}
+\cdot
+\limsup_{n\to\infty}
+\sqrt[n]{|a_n|}
+=
+\limsup_{n\to\infty}
+\sqrt[n]{|a_n|}
+=
+\frac{1}{\varrho}.
+\end{align*}
+Die Existenz des Grenzwertes von $1/\sqrt[n]{n+1}$ folgt auf die
+gleiche Art wie im Beweis von
+Satz~\ref{buch:holomorph:holomorph:satz:potenzreihe-ableitung}.
+\end{proof}
 
 %
 % Die Ableitung der Exponentialfunktion

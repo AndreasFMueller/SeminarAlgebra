@@ -204,6 +204,148 @@ $\dot{\gamma}(t)=rie^{it}$.
 % Integral entlang eines Weges
 %
 \subsection{Integral entlang eines Weges}
+Für eine stetige komplexe Funktion $f(z)$ und einen Weg $\gamma(t)$
+ist $f(\gamma(t))$ eine stetige Funktion der reellen Variablen $t$.
+Nach allgemeinen Sätzen über das Riemann-Integral können wir also 
+von Real- und Imaginärteil das Integral über das Definitionsgebiet
+berechnen.
+Die Definition eines Wegintegrals sollte aber möglichst nicht von
+der Parametrisierung des Weges abhängen.
+Das Integral der konstanten Funktion $1$ ist aber immer
+\[
+\int_a^b f(\gamma(t)) \,dt
+=
+\int_a^b 1\,dt
+=
+b-a,
+\]
+hängt also sehr wohl von der Parametrisierung ab.
+Daher werden wir zunächst eine von der Parametrisierung unabhängige
+Form des Wegintegrals definieren müssen.
+Anschliessend werden wir zeigen, wie dieses Wegintegral mit der
+Stammfunktion zusammenhängt.
+
+%
+% Definition des Wegintegrals
+%
+\subsubsection{Definition des Wegintegrals}
+Das einführende Beispiel hat gezeigt, dass das Integral
+von $f(\gamma(t))$ von der Parametrisierung abhängt.
+Bewegt sich der Punkt $\gamma(t)$ langsamer durch das Gebiet $U$,
+wird ein längeres Parameterintervall benötigt, um die Strecke
+zwischen zwei Punkten zu durchlaufen.
+Das gesuchte Wegintegral benötigt also auch noch einen
+von der Geschwindigkeit $\dot{\gamma}(t)$ abhängigen Faktor,
+um diesen Unterschied auszugleichen.
+
+\begin{definition}[Wegintegral in $\mathbb{C}$]
+Sei $f\colon U\to\mathbb{C}$ eine stetige komplexe Funktion und
+$\gamma:I\to U$ ein differenzierbarer Weg $U$ mit $I=[a,b]$.
+Dann ist das \emph{Integral von $f$ entlang des Weges $\gamma$}
+gegeben durch
+\begin{equation}
+\int_\gamma f(z)\,dz
+=
+\int_I f(\gamma(t)) \dot{\gamma}(t)\,dt.
+\end{equation}
+Die gleiche Definition kann verwendet werden, wenn der Weg
+$\gamma$ in endlich vielen Punkten nicht differenzierbar ist.
+Wenn $\gamma$ ein geschlossener Weg ist, wird das Integral auch
+\[
+\int_\gamma f(z)\,dz
+=
+\oint_\gamma f(z)\,dz
+\]
+geschrieben.
+\end{definition}
+
+Wir müssen überprüfen, dass diese Definition tatsächlich nicht
+von der Parametrisierung abhängt.
+Dazu sei $t(\tau)$ eine invertierbare Funktion, die auf einem Intervall
+$I_1=[c,d]$ definiert ist.
+Nach der Formel für den Koordinatenwechsel in einem Integral
+folgt dann
+\begin{align*}
+\int_c^d f(\gamma(t(\tau))) \frac{d\gamma(t(\tau))}{d\tau} \,d\tau
+&=
+\int_c^d f(\gamma(t(\tau))) \dot{\gamma}(t(\tau)) \frac{dt(\tau)}{dt}\,d\tau
+\\
+&=
+\int_{\tau(c)}^{\tau(d)} f(\gamma(t)) \dot{\gamma}(t) \,dt
+\\
+&=
+\int_a^b f(\gamma(t)) \dot{\gamma}(t) \,dt.
+\end{align*}
+Die Umparametrisierung $\tau(t)$ ändert also den Wert des Integrals
+nicht.
+
+\begin{beispiel}
+Wir berechnen das Wegintegral für den geschlossenen Weg von
+Beispiel~\ref{buch:integration:wege:bsp:kreis}
+für die Funktion $f(z) = z^n$.
+Einsetzen der Parametrisierung ergibt
+\begin{align*}
+\oint_\gamma f(z)\,dz
+&=
+\int_0^{2\pi}
+\bigl( e^{it} \bigr)^{n}\,d ie^{it}
+\,dt
+=
+i
+\int_0^{2\pi}
+e^{i(n+1)t}
+\,dt
+=
+i
+\int_0^{2\pi} \cos (n+1)t + i\sin(n+1)t\,dt.
+\end{align*}
+Falls $n+1\ne 0$ ist, stehen auf der rechten Seite Integrale der
+Sinus- und Kosinusfunktion über ein ganze Anzahl von Perioden, diese
+Integrale verschwinden.
+Für $n=-1$ jedoch verschwindet der Sinus-Term und es bleibt
+\[
+\oint_\gamma \frac{dz}z
+=
+i
+\int_0^{2\pi}
+1\,dt
+=
+2\pi i.
+\]
+Zusammengefasst erhalten wir für ganzzahliges $n$
+\[
+\oint_\gamma z^n\,dtz
+=
+\begin{cases}
+0&\qquad\text{falls $n\ne -1$}\\
+2\pi i&\qquad\text{falls $n=-1$}
+\end{cases}
+\qedhere
+\]
+\end{beispiel}
+
+Wir schreiben $\gamma(t) = x(t) + iy(t)$ und die Funktion $f=u+iv$ 
+als Summe von Real- und Imaginärteil.
+Dann wird das Wegintegral zu
+\begin{align*}
+\int_\gamma f(z)\,dz
+&=
+\int_a^b \bigl(u(x(t), y(t)) + i v(x(t), y(t))\bigr)\,
+(\dot{x}(t)+ i\dot{y}(t))\,dt
+\\
+&=
+\int_a^b u(x(t),y(t)) \dot{x}(t) -  v(x(t),y(t))\dot{y}(t)\,dt
+\\
+&\qquad
++
+i
+\int_a^b u(x(t),y(t))\dot{y}(t) + v(x(t),y(t))\dot{x}(t)\,dt
+\end{align*}
+
+%
+% Wegintegral und Stammfunktion
+%
+\subsubsection{Wegintegral und Stammfunktion}
 
 %
 % Homotopie
