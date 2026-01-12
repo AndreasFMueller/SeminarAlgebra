@@ -280,6 +280,7 @@ Die Umparametrisierung $\tau(t)$ ändert also den Wert des Integrals
 nicht.
 
 \begin{beispiel}
+\label{buch:integration:wege:bsp:kreisintegral}
 Wir berechnen das Wegintegral für den geschlossenen Weg von
 Beispiel~\ref{buch:integration:wege:bsp:kreis}
 für die Funktion $f(z) = z^n$.
@@ -339,16 +340,451 @@ Dann wird das Wegintegral zu
 &\qquad
 +
 i
-\int_a^b u(x(t),y(t))\dot{y}(t) + v(x(t),y(t))\dot{x}(t)\,dt
+\int_a^b u(x(t),y(t))\dot{y}(t) + v(x(t),y(t))\dot{x}(t)\,dt,
 \end{align*}
+und kann dank dieser Formeln allein mit reellen Integralen berechnet
+werden.
+
+%
+% Wegintegrale über achsenparallele Wege
+%
+\subsubsection{Wegintegrale über achsenparallele Wege}
+\input{chapters/030-integration/fig/fig-rechteck.tex}%
+Wir betrachten eine stetige komplex Funktion $f\colon U\to\mathbb{C}$
+und zwei Punkte $a,b\in U$.
+Der Einfachheit halber nehmen wir an, dass das Rechteck $R$ mit Ecken $a$
+und $b$ in $U$ enthalten ist.
+Als Weg zwischen $a$ und $b$ können Teile des Randes des Rechtecks $R$
+verwendet werden.
+
+Der Weg $\gamma_1$ in Abbildung~\ref{buch:integration:wegintegral:fig:rechteck}
+verläuft zunächst parallel zur reellen Achse, bevor er parallel zur
+imaginären Achse in den Punkt $b$ führt.
+Der horizontale Teil des Weges kann mit
+\begin{align*}
+\gamma_{1,h}
+&\colon
+[\operatorname{Re}a,\operatorname{Re}b]
+\to
+\mathbb{C}
+:
+t
+\mapsto
+t + i\operatorname{Im} a
+&&\Rightarrow&
+\dot{\gamma}_{1,h} &= 1
+\intertext{parametrisiert werden, während der vertikale Teil hat
+die Parametrisierung}
+\gamma_{1,v}
+&\colon
+[\operatorname{Im}a,\operatorname{Im}b]
+\to
+\mathbb{C}
+:
+s
+\mapsto
+\operatorname{Re}b + is
+&&\Rightarrow&
+\dot{\gamma}_{1,h} &= i.
+\end{align*}
+Das Wegintegral der Funktion über den Weg $\gamma_1$ kann daher als
+Summe zweier Integrale
+\begin{align*}
+F_1(b)
+&=
+\int_{\gamma_1} f(z)\,dz
+\\
+&=
+\int_{\gamma_{1,h}} f(z)\,dz
++
+\int_{\gamma_{1,v}} f(z)\,dz
+\\
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\operatorname{Im}a)
+\,dt
++
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+\cdot
+i
+\,ds
+\end{align*}
+Die Ableitung von $F_1(b+iy)$ nach $y$ kann damit ebenfalls berechnet
+werden:
+\begin{align*}
+\frac{1}{i}
+\frac{\partial}{\partial y} F_1(b+iy)
+&=
+\frac{1}{i}
+\frac{\partial}{\partial y}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b+y}
+f(\operatorname{Re}b+is)\cdot i
+\,ds
+=
+\frac{\partial}{\partial y}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b+y}
+f(\operatorname{Re}b+is)
+\,ds
+\\
+&=
+f(\operatorname{Re}+i(\operatorname{Im}b+y))
+=
+f(b)
+\end{align*}
+Da der Weg $\gamma_1$ im Punkt $b$ vertikal verläuft, kann man ihn
+zum Zweck der Ableitung noch etwas über $\operatorname{Im}b$ hinaus
+verlängern.
+Er definiert so eine Funktion $F_1(b)$, deren
+Ableitung nach $i\operatorname{Im}b$ mit $f(b)$ übereinstimmt.
+
+Andererseits erlaubt der Weg $\gamma_2$ eine Funktion
+\begin{align*}
+F_2(b)
+&=
+\int_{\gamma_2} f(z) \,dz
+\\
+&=
+\int_{\gamma_{2,v}}
+f(z)\,dz
++
+\int_{\gamma_{2,h}}
+f(z)\,dz
+\\
+&=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}a + is) \cdot i \,ds
++
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t + i\operatorname{Im}b)
+\,dt
+\end{align*}
+Durch horizontale Verlängerung des Weges $\gamma_2$ über den Punkt $b$
+hinaus kann man jetzt auch die Ableitung von $F_2(b+x)$ berechnen:
+\begin{align*}
+\frac{\partial}{\partial x}F_2(b+x)
+&=
+\frac{\partial}{\partial x}
+\int_{\operatorname{Re}a}^{\operatorname{Re}b+x}
+f(t + i\operatorname{Im}b)
+\,dt
+\\
+&=
+f(\operatorname{Re}b+x+i\operatorname{Im}b)
+=
+f(b+x).
+\end{align*}
+Der Weg $\gamma_2$ definiert also eine Funktion $F_2(b)$, deren
+Ableitung nach $\operatorname{Re}b$ mit $f(b)$ überinstimmt.
+
+Wenn wir zusätzlich zeigen können, dass die beiden Funktionen
+$F_1(b)$ und $F_2(b)$ übereinstimmen, dann ist dadurch eine
+Stammfunktion von $f$ definiert.
+
+%
+% Integral einer holomorphen Funktion über ein Rechteck
+%
+\subsubsection{Integral einer holomorphen Funktion über ein Rechteck}
+In diesem Abschnitt nehmen wir zusätzlich an, dass Real- und Imaginärteil
+als Funktionen von zwei reellen Variablen differenzierbar sind.
+Wir möchten die Voraussetzungen finden, unter denen es nicht darauf
+ankommt, welchen der zwei betrachteten Wege wir nehmen.
+Wir möchten also untersuchen, wann die Differenz $F_1(b) = F_2(b)$
+verschwindet.
+
+Wir berechnen also die Differenz
+\begin{align*}
+F_1(b) - F_2(b)
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\operatorname{Im}a)
+\,dt
++
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+\cdot
+i
+\,ds
+\\
+&\qquad
+-
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}a + is) \cdot i
+\,ds
+-
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t + i\operatorname{Im}b)
+\,dt
+\\
+&=
+-
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t + i\operatorname{Im}b)
+-
+f(t + i\operatorname{Im}a)
+\,dt
+\\
+&\qquad
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+-
+f(\operatorname{Re}a+is)
+\,ds
+\end{align*}
+Die Differenzen im Integranden können als Integral einer Ableitung
+geschrieben werden:
+\begin{align*}
+f(\operatorname{Re}b+is)
+-
+f(\operatorname{Re}a+is)
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\frac{\partial f}{\partial x}(x+is)
+\,dx
+\\
+f(t + i\operatorname{Im}b)
+-
+f(t + i\operatorname{Im}a)
+&=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\frac{\partial f}{\partial y}(t+iy)
+\,dy.
+\end{align*}
+Damit wird die Diffeernz
+\begin{align*}
+F_1(b) - F_2(b)
+&=
+-
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\frac{\partial f}{\partial y}(x+iy)
+\,dy
+\,dx
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\frac{\partial f}{\partial x}(x+iy)
+\,dx
+\,dy
+\intertext{Die beiden Integrationen des doppelten Integrals können 
+vertauscht werden, die Differenz ist also auch}
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+-\frac{\partial f}{\partial y}(x+iy)
++
+i
+\frac{\partial f}{\partial x}(x+iy)
+\,dy
+\,dx
+\\
+&=
+-2i
+\iint_{R}
+\frac12
+\biggl(
+\frac{\partial f}{\partial x}
++
+i
+\frac{\partial f}{\partial y}
+\biggr)
+\,dx\,dy
+=
+-2i \iint_R 
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy
+\end{align*}
+Die Differenz verschwindet also genau dann, wenn die Ableitung
+$\partial f/\partial\bar{z}$ verschwindet, also genau für holomorphe
+Funktionen.
+
+\begin{satz}
+\label{buch:integration:wegintegral:satz:rechteckintegrale}
+Sei $f\colon U\to\mathbb{C}$ 
+eine Funktion, deren Real- und Imaginärteile als Funktionen von zwei
+reellen Variablen differenzierbar sind. 
+Dann sind die Integrale über die Wege $\gamma_1$ und $\gamma_2$ für
+beliebige Rechtecke mit den Ecken $a,b\in\mathbb{C}$, die in $U$
+enthalten sind, genau dann gleich, wenn die Funktion $f$ holomorph
+ist.
+\end{satz}
+
+%
+% Der Satz von Green
+%
+\subsubsection{Der Satz von Green}
+Die Aussage von
+Satz~\ref{buch:integration:wegintegral:satz:rechteckintegrale}
+ist ein Spezialfall des sehr viel allgemeineren Satzes von Green.
+
+\begin{satz}
+\label{buch:integration:wegintegral:satz:green}
+Ist $f\colon U\to \mathbb{C}$ eine komplexe Funktion, deren Real-
+und Imaginärteile als Funktionen zweier reeller Variablen differenzierbar
+sind und $\gamma$ ein geschlossener Weg in $U$, der das Teilgebiet
+$\Omega\subset U$ berandet.
+Dann gilt
+\[
+\oint_\gamma f(z)\,dz
+=
+-2i
+\int_\Omega \frac{\partial f}{\partial\bar{z}}\,dx\,dy.
+\]
+\end{satz}
+
+\begin{proof}
+Der Beweis verwendet genau die gleichen Methoden, die auch schon
+im Beweis von
+Satz~\ref{buch:integration:wegintegral:satz:rechteckintegrale}
+erfolgreich waren.
+
+TODO
+
+\end{proof}
+
+\begin{korollar}
+\label{buch:integration:wegintegral:korollar:geschlossen}
+Ist $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und
+$\gamma$ ein geschlossener Weg, der ein Teilgebiet $\Omega\subset U$
+berandet, dann ist
+\[
+\oint_\gamma f(z)\,dz
+=
+0.
+\]
+\end{korollar}
+
+\begin{korollar}
+\label{buch:integration:wegintegral:korollar:geschlossen}
+Sei $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und $a,b\in U$
+zwei Punkte, sodass auch das Rechteck mit Ecken $a$ und $b$ in $U$
+enthalten ist.
+Ausserdem sei $\gamma$ ein Weg von $a$ nach $b$, der innerhalb des
+Rechtecks verläuft.
+Dann ist
+\[
+F(b)
+=
+\int_\gamma f(z)\,dz
+=
+\int_{\gamma_1} f(z)\,dz
+=
+\int_{\gamma_2} f(z)\,dz.
+\]
+\end{korollar}
+
+\begin{proof}
+Verbindet man den Weg $\gamma_1$ mit dem in umgekehrten Richtung
+durchlaufenen Weg $\gamma$, entsteht ein geschlossener Weg,
+den wir mit $\gamma_1-\gamma$ beizeichnen.
+Nach Korollar~\ref{buch:integration:wegintegral:korollar:geschlossen}
+muss das Integral über den geschlossenen Weg verschwinden, also ist
+\[
+0
+=
+\int_{\gamma_1-\gamma}
+f(z)\,dz
+=
+\int_{\gamma_1} f(z)\,dz
+-
+\int_\gamma f(z)\,dz
+\quad\Rightarrow\quad
+\int_\gamma f(z)\,dz
+=
+\int_{\gamma_1} f(z)\,dz.
+\qedhere
+\]
+\end{proof}
 
 %
 % Wegintegral und Stammfunktion
 %
 \subsubsection{Wegintegral und Stammfunktion}
+Der Satz~\ref{buch:integration:wegintegral:satz:green}
+und insbesondere das
+Korollar~\ref{buch:integration:wegintegral:korollar:geschlossen}
+zeigen, dass es nicht darauf ankommt, welchen Weg man zwischen
+zwei Punkten $a$ und $b$ wählt, solange zwei solche Wege ein
+Teilgebiet des Definitionsgebietes beranden.
+In diesem Fall lässt sich also durch Wegintegration immer eine
+Stammfunktion finden.
+Dazu muss es aber zwischen zwei beliebigen Punkten von $U$ einen
+Weg geben.
+
+\begin{definition}[wegzusammenhängend]
+Ein Gebiet $U\subset\Omega$ heisst \emph{wegzusammenhängend}, wenn
+es zu je zwei Punkten $a,b\in U$ einen Weg gibt, der $a$ und $b$
+verbindet.
+\end{definition}
+
+\begin{satz}[Stammfunktion]
+Sei $U\subset\mathbb{C}$ ein wegzusammenhängendes Gebiet und $a\in U$
+ein Punkt.
+Aussserdem habe $U$ die Eigenschaft, dass für jeden Punkt $b\in U$
+zwei verschiedene Wege, die $a$ und $b$ verbinden, ein offenes Teilgebiet
+von $U$ beranden.
+Dann hat eine holomorphe Funktion $f\colon U\to\mathbb{C}$ eine Stammfunktion
+\[
+F(b)
+=
+\int_\gamma f(z)\,dz,
+\]
+wobei $\gamma$ ein beliebiger Weg ist, der $a$ mit $b$ verbindet.
+\end{satz}
 
 %
 % Homotopie
 %
 \subsection{Homotopie}
+Im vorangegangenen Abschnitt wurde klar, dass das unter geeigneten
+Voraussetzungen an das Gebiet das Wegintegral für verschiedene Wege 
+zwischen $a$ und $b$ gleich ist.
+Die Bedingung war etwas schwerfällig zu formulieren, ergab sich aber
+unmittelbar aus dem Satz von Green.
+Es musste verlangt werden, zwei Wege zwischen $a$ und $b$ ein in
+$U$ enthaltenes Teilgebiet beranden.
+
+Eine etwas intuitivere Formulierung wäre, dass sich die beiden
+Wege ineinander deformieren lassen.
+Während der Deformation wird das Teilgebiet überstrichen.
+Wir versuchen jetzt, dieses Idee mit einer mathematisch präzisen
+Definition zu erfassen.
+
+\begin{definition}[Homotopie von Wegen]
+Eine \emph{Homotopie} von Wegen $\gamma_0\colon I\to U$
+und
+$\gamma_1\colon I\to U$, $I=[0,1]$,
+in einem Gebiet $U$ ist eine
+Abbildung
+\[
+H
+\colon
+I\times I \to U
+:
+(s,t) \mapsto H(s,t)
+\]
+mit $H(0,t)=\gamma_0(t)$ und $H(1,t)=\gamma_1(t)$.
+Zwei Wege $\gamma_i\colon I\to U$  heissen \emph{homotop}, in Zeichen
+$\gamma_0\sim \gamma_1$, wenn es eine
+Homotopie gibt, die die beiden Wege verbindet.
+\end{definition}
+
+\begin{satz}
+Sei $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und $H$ eine Homotopie
+der Wege $\gamma_i$, $i=0,1$, mit $H(s,0) = a$ und $H(s,1)=b$ für $s\in I$.
+Dann ist
+\[
+\int_{\gamma_0} f(z)\,dz
+=
+\int_{\gamma_1} f(z)\,dz.
+\]
+\end{satz}
+
+\begin{proof}
+TODO
+\end{proof}
+
 

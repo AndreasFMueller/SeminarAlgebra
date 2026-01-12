@@ -3,8 +3,10 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	wege.pdf
+all:	wege.pdf rechteck.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
 
+rechteck.pdf:	rechteck.tex
+	pdflatex rechteck.tex

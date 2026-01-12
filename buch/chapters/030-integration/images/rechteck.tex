@@ -1,0 +1,61 @@
+%
+% rechteck.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\skala{1}
+\def\punkt#1{
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw #1 circle[radius=0.05];
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\coordinate (a) at (0,0);
+\coordinate (b) at (6,4);
+
+\coordinate (c) at (6,0);
+\coordinate (d) at (0,4);
+
+\fill[color=gray!10] (a) rectangle (b);
+\node at ($0.5*(a)+0.5*(b)$) {$R$};
+
+\draw[->] (-0.5,1) -- ++(9,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (1.5,-0.5) -- ++(0,7) coordinate[label={right:$\operatorname{Im}$}];
+
+\node at (-0.5,6.5) [below right] {$\mathbb{C}$};
+
+\draw (b) -- ++(1,0);
+\draw (b) -- ++(0,1);
+\punkt{(7,4)}
+\node at (7,4) [right] {$b+x$};
+\punkt{(6,5)}
+\node at (6,5) [above] {$b+iy$};
+
+\draw[color=blue] (a) -- (c) -- (b);
+\draw[color=darkred] (a) -- (d) -- (b);
+
+\punkt{(a)}
+\node at (a) [below left] {$a$};
+\punkt{(b)}
+\node at (b) [above right] {$b$};
+
+\node[color=blue] at ($0.3333*(a)+0.6667*(c)$) [below] {$\gamma_1$};
+\node[color=darkred] at ($0.6667*(d)+0.3333*(b)$) [above] {$\gamma_2$};
+
+\node at (0,1) [above right] {$\operatorname{Re}a$};
+\node at (6,1) [above right] {$\operatorname{Re}b$};
+\node at (1.5,0) [below left] {$\operatorname{Im}a$};
+\node at (1.5,4) [below left] {$\operatorname{Im}b$};
+
+\end{tikzpicture}
+\end{document}
+
