@@ -1031,7 +1031,7 @@ Dann gibt es eine Funktion $v(x,y)$ in einer möglicherweise kleinern
 Umgebung des Punktes derart, dass $f=u+iy$ eine holomorphe Funktion ist.
 \end{satz}
 
-XXX TODO: Bild für die Integrationspfade
+\input{chapters/020-holomorph/fig/fig-imaginaerteil.tex}%
 
 \begin{proof}
 Damit $f$ holomorph ist, muss $v$ so konstruiert werden, dass die
@@ -1053,21 +1053,23 @@ von $v$ nach $x$ und $y$ fest:
 &=
  \frac{\partial u}{\partial x}(x,y)
 \end{align*}
-Durch Integration dieser beiden Gleichungen können die Werte 
+Durch Integration dieser beiden Gleichungen (siehe auch
+Abbildung~\ref{buch:holomorph:holomorph:fig:imaginaerteil}) können die Werte 
 \begin{align}
 v(x,y_0)
 &=
 v_0
 +
+{\color{darkred}
 \int_{x_0}^x
 \frac{\partial v}{\partial x}(\xi,y_0)
-\,d\xi
+\,d\xi}
 =
 v_0
--
+{\color{darkred}-
 \int_{x_0}^x
 \frac{\partial u}{\partial y}(\xi,y_0)
-\,d\xi
+\,d\xi}
 \notag
 \intertext{von $v$ berechnet werden.
 Durch Integration der zweiten Gleichung kann jetzt auch der Wert}
@@ -1075,21 +1077,31 @@ v(x,y)
 &=
 v(x,y_0)
 +
+{\color{blue}
 \int_{y_0}^y
 \frac{\partial v}{\partial y}(x,\eta)\
 \,d\eta
+}
 =
-v(x,y_0) + \int_{y_0}^y
+v(x,y_0) +
+{\color{blue}
+\int_{y_0}^y
 \frac{\partial u}{\partial x}(x,\eta)
 \,d\eta
+}
 \notag
 \\
 &=
 v_0
+{\color{darkred}
 -
 \int_{x_0}^x \frac{\partial u}{\partial y}(\xi,y_0)\,d\xi
+}
 +
-\int_{y_0}^y \frac{\partial u}{\partial x}(x,\eta)\,d\eta.
+{\color{blue}
+\int_{y_0}^y \frac{\partial u}{\partial x}(x,\eta)\,d\eta
+}
+.
 \label{buch:holomorph:holomorph:eqn:v}
 \end{align}
 bestimmt werden.

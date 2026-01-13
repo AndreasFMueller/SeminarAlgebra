@@ -1,0 +1,70 @@
+%
+% imaginaerteil.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\skala{1}
+\def\punkt#1#2{
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw[color=#2] #1 circle[radius=0.05];
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\clip (-0.45,-0.45) rectangle ++(12.6,6.6);
+
+\draw[->] (-0.1,0) -- (11.9,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-0.1) -- (0,6) coordinate[label={right:$\operatorname{Im}$}];
+
+\coordinate (A) at (1.5,1.5);
+\coordinate (B) at (7.0,1.5);
+\coordinate (C) at (7.0,4.5);
+
+\draw[line width=0.3pt] (A) -- (1.5,0);
+\draw (1.5,-0.05) -- ++(0,0.1);
+\node at (1.5,0) [below] {$x_0\mathstrut$};
+
+\draw[line width=0.3pt] (A) -- (0,1.5);
+\draw (-0.05,1.5) -- ++(0.1,0);
+\node at (0,1.5) [left] {$y_0\mathstrut$};
+
+\draw[line width=0.3pt] (B) -- (7,0);
+\draw (7,-0.05) -- ++(0,0.1);
+\node at (7,0) [below] {$x\mathstrut$};
+
+\draw[line width=0.3pt] (C) -- (0,4.5);
+\draw (-0.05,4.5) -- ++(0.1,0);
+\node at (0,4.5) [left] {$y\mathstrut$};
+
+\draw[color=darkred,line width=1.4pt] (A) -- (B);
+\draw[color=blue,line width=1.4pt] (B) -- (C);
+\punkt{(A)}{darkred}
+\punkt{(B)}{violet}
+\punkt{(C)}{blue}
+
+\node at (A) [above] {$v(x_0,y_0)=v_0$};
+\node at (B) [right] {$v(x,y_0)$};
+\node at (C) [above ] {$v(x,y)$};
+
+\node[color=darkred] at ($0.5*(A)+0.5*(B)$) [below] {$\displaystyle
+	\int_{x_0}^x \frac{\partial v}{\partial x}(\xi,y_0)\,d\xi
+	=
+	-\int_{x_0}^x \frac{\partial u}{\partial y}(\xi,y_0)\,d\xi
+$};
+\node[color=blue] at ($0.5*(B)+0.5*(C)$) [right] {$\displaystyle
+	\int_{y_0}^y \frac{\partial v}{\partial y}(x,\eta)\,d\eta
+	=
+	\int_{y_0}^y \frac{\partial u}{\partial x}(x,\eta)\,d\eta
+$};
+
+\end{tikzpicture}
+\end{document}
+
