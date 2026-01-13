@@ -753,7 +753,7 @@ entspricht.
 \end{beispiel}
 
 %
-% DIe Cauchy-Riemann-Differentialgleichungen
+% Die Cauchy-Riemann-Differentialgleichungen
 %
 \subsection{Cauchy-Riemann-Differentialgleichung}
 Die komplexe Ableitung $f'(z)$ einer komplexen Funktion $f(z)$
@@ -942,6 +942,7 @@ Somit sind sowohl der Real- wie der Imaginärteil von $f$ harmonisch.
 \end{proof}
 
 \begin{beispiel}
+\label{buch:holomorph:holomorph:bsp:zkholomorph}
 Die Potenzfunktion $z\mapsto z^k$ ist holomorph, also müssen nach
 Satz~\ref{buch:holomorph:holomorph:satz:harmonisch} Real- und
 Imaginärteil harmonisch sein.
@@ -1010,6 +1011,209 @@ Funktionen und erhalten
 \end{align*}
 Beide sind also harmonisch.
 \end{beispiel}
+
+%
+% Reelle Funktion zu einer holomorphen Funktion erweitern
+%
+\subsubsection{Reelle Funktion zu einer holomorphen Funktion erweitern}
+Der Realteil einer holomorphen Funktion muss nach
+Satz~\ref{buch:holomorph:holomorph:satz:harmonisch}
+eine harmonische Funktion sein.
+Es stellt sich damit auch die Frage, ob sich eine beliebige
+reelle harmonische Funktion zu einer holomorphen Funktion 
+erweitern lässt.
+
+\begin{satz}
+\label{buch:holomorph:holomorph:satz:utov}
+Sei $u(x,y)$ eine harmonische reelle Funktion in einer offenen Umgebung
+eines Punktes $z_0 = x_0+iy_0$.
+Dann gibt es eine Funktion $v(x,y)$ in einer möglicherweise kleinern
+Umgebung des Punktes derart, dass $f=u+iy$ eine holomorphe Funktion ist.
+\end{satz}
+
+\begin{proof}
+Damit $f$ holomorph ist, muss $v$ so konstruiert werden, dass die
+Cauchy-Riemann-Differentialgleichugen gelten.
+Diese legen nur die Ableitungen fest, bleiben also erhalten, wenn man
+zu $v$ eine beliebige Konstante hinzuaddiert.
+Die Funktion $v$ ist also ist also nur bis auf eine Konstante
+festgelegt.
+Wir können daher $v(x_0,y_0)=v_0\in\mathbb{R}$ beliebig wählen.
+
+Die Cauchy-Riemann-Differentialgleichungen legen die Ableitungen 
+von $v$ nach $x$ und $y$ fest:
+\begin{align*}
+\frac{\partial v}{\partial x}(x,y)
+&=
+-\frac{\partial u}{\partial y}(x,y)
+&&\text{und}&
+\frac{\partial v}{\partial y}(x,y)
+&=
+ \frac{\partial u}{\partial x}(x,y)
+\end{align*}
+Durch Integration dieser beiden Gleichungen können die Werte 
+\begin{align}
+v(x,y_0)
+&=
+v_0
++
+\int_{x_0}^x
+\frac{\partial v}{\partial x}(\xi,y_0)
+\,d\xi
+=
+v_0
+-
+\int_{x_0}^x
+\frac{\partial u}{\partial y}(\xi,y_0)
+\,d\xi
+\notag
+\intertext{von $v$ berechnet werden.
+Durch Integration der zweiten Gleichung kann jetzt auch der Wert}
+v(x,y)
+&=
+v(x,y_0)
++
+\int_{y_0}^y
+\frac{\partial v}{\partial y}(x,\eta)\
+\,d\eta
+=
+v(x,y_0) + \int_{y_0}^y
+\frac{\partial u}{\partial x}(x,\eta)
+\,d\eta
+\notag
+\\
+&=
+v_0
+-
+\int_{x_0}^x \frac{\partial u}{\partial y}(\xi,y_0)\,d\xi
++
+\int_{y_0}^y \frac{\partial u}{\partial x}(x,\eta)\,d\eta.
+\label{buch:holomorph:holomorph:eqn:v}
+\end{align}
+bestimmt werden.
+
+Die Formel~\eqref{buch:holomorph:holomorph:eqn:v} ist wohldefiniert,
+solange die beiden Strecken von $x_0+iy_0$ nach $x+iy_0$ und
+von $x+iy_0$ nach $x+iy$ vollständig in $U$ enthalten sind.
+Nur dann ist der Integrand für beide Integrale definiert.
+
+Die Formel~\eqref{buch:holomorph:holomorph:eqn:v} kann aber nur dann
+der Imaginärteil einer holomorphen Funktion sein, wenn für diese
+Funktion $v(x,y)$ tatsächlich die Cauchy-Riemann-Differentialgleichungen
+erfüllt.
+Dazu müssen die Ableitungen nach $x$ und $y$ bestimmt werden:
+\begin{align*}
+\frac{\partial v}{\partial y}(x,y)
+&=
+-\frac{\partial u}{\partial y}(x,y_0)
++
+\int_{y_0}^y
+\frac{\partial^2u}{\partial x^2}(x,\eta)
+\,d\eta
+=
+-\frac{\partial u}{\partial y}(x,y_0)
+-
+\int_{y_0}^y 
+\frac{\partial^2 u}{\partial y^2}(x,\eta)
+\,d\eta
+\\
+&=
+-\frac{\partial u}{\partial y}(x,y_0)
+-
+\biggl[
+\frac{\partial u}{\partial y}(x,\eta)
+\biggr]_{y_0}^y 
+\\
+&=
+-
+\frac{\partial u}{\partial y}(x,y_0)
+-
+\frac{\partial u}{\partial y}(x,y)
++
+\frac{\partial u}{\partial y}(x,y_0)
+=
+-\frac{\partial u}{\partial y}(x,y),
+\\
+\frac{\partial v}{\partial x}(x,y)
+&=
+\frac{\partial u}{\partial x}(x,y).
+\end{align*}
+Die Cauchy-Riemann-Differentialgleichungen sind also tatsächlich erfüllt
+und damit ist $f(x+iy) = u(x,y)+ iv(x,y)$ eine holomorphe Funktion.
+\end{proof}
+
+\begin{beispiel}
+Wir nehmen das Beispiel~\ref{buch:holomorph:holomorph:bsp:zkholomorph}
+wieder auf und bestimmen den Imaginärteil einer holomorphen Funktion
+mit dem Realteil $u(x,y)=x^3-3xy^2$.
+Die Formel~\eqref{buch:holomorph:holomorph:eqn:v}
+aus dem Beweis von Satz~\ref{buch:holomorph:holomorph:satz:utov}
+sagt, dass dazu die partiellen Ableitungen von $u$ berechnet werden
+müssen, sie sind
+\begin{align*}
+\frac{\partial u}{\partial x}
+&=
+3x^2-3y^2
+&&\text{und}&
+\frac{\partial u}{\partial y}
+&=
+-6xy.
+\end{align*}
+Anwendung der Formel~\eqref{buch:holomorph:holomorph:eqn:v}
+liefert jetzt
+\begin{align*}
+v(x,y)
+&=
+v_0
+-
+\int_{x_0}^x -6\xi y_0\,d\xi
++
+\int_{y_0}^y 3x^2-3\eta^2
+\,d\eta
+\\
+&=
+v_0
+-
+\biggl[
+-3\xi^2y_0
+\biggr]_{x_0}^x
++
+\biggl[
+3x^2\eta-\eta^3
+\biggr]_{y_0}^y
+\\
+&=
+v_0
++
+3x^2y_0-3x_0^2y_0
++
+3x^2y-y^3
+-
+3x^2y_0 + y_0^3
+\\
+&=
+(v_0
++ y_0^3
+-3x_0^2y_0
+)
++
+3x^2y
+-
+y^3.
+\end{align*}
+Bis den Klammerausdruck, der eine Konstante ist, wird also der
+Ausdruck $3x^2y-y^3$ gefunden, der auch schon in
+Beispiel~\ref{buch:holomorph:holomorph:bsp:zkholomorph}
+aufgetreten ist.
+\end{beispiel}
+
+Der Satz funktioniert natürlich auch für einen vorgegebenen
+Imaginärteil $v$.
+Sucht man eine Funktion $f(z)$ mit diesem Imaginärteil, dann
+hat $g(z)=-if(z)$ die Funktion $v$ als Realteil.
+Nach Satz~\ref{buch:holomorph:holomorph:satz:utov} lässt sich
+dann ein geeigneter Imaginärteil für $g(z)$ finden.
+$f(z)=ig(z)$ ist schliesslich die gesuchte holomorphe Funktion.
 
 %
 % Ableitung einer Potenzreihe
