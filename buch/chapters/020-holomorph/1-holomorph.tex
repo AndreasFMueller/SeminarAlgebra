@@ -1101,10 +1101,10 @@ Nur dann ist der Integrand für beide Integrale definiert.
 
 Die Formel~\eqref{buch:holomorph:holomorph:eqn:v} kann aber nur dann
 der Imaginärteil einer holomorphen Funktion sein, wenn für diese
-Funktion $v(x,y)$ tatsächlich die Cauchy-Riemann-Differentialgleichungen
+Funktion $v(x,y)$ tatsächlich die Cauchy-Riemann-Differentialgleichun\-gen
 erfüllt.
 Dazu müssen die Ableitungen nach $x$ und $y$ bestimmt werden:
-\begin{align*}
+\begin{align}
 \frac{\partial v}{\partial y}(x,y)
 &=
 -\frac{\partial u}{\partial y}(x,y_0)
@@ -1112,12 +1112,15 @@ Dazu müssen die Ableitungen nach $x$ und $y$ bestimmt werden:
 \int_{y_0}^y
 \frac{\partial^2u}{\partial x^2}(x,\eta)
 \,d\eta
-=
+\notag
+\\
+&=
 -\frac{\partial u}{\partial y}(x,y_0)
 -
 \int_{y_0}^y 
 \frac{\partial^2 u}{\partial y^2}(x,\eta)
 \,d\eta
+\label{buch:holomorph:holomorph:eqn:ulaplace}
 \\
 &=
 -\frac{\partial u}{\partial y}(x,y_0)
@@ -1125,6 +1128,7 @@ Dazu müssen die Ableitungen nach $x$ und $y$ bestimmt werden:
 \biggl[
 \frac{\partial u}{\partial y}(x,\eta)
 \biggr]_{y_0}^y 
+\notag
 \\
 &=
 -
@@ -1135,11 +1139,31 @@ Dazu müssen die Ableitungen nach $x$ und $y$ bestimmt werden:
 \frac{\partial u}{\partial y}(x,y_0)
 =
 -\frac{\partial u}{\partial y}(x,y),
+\notag
 \\
 \frac{\partial v}{\partial x}(x,y)
 &=
 \frac{\partial u}{\partial x}(x,y).
-\end{align*}
+\notag
+\end{align}
+Im Schritt~\eqref{buch:holomorph:holomorph:eqn:ulaplace} haben wir 
+$\Delta u=0$
+in der Form
+\[
+\Delta u = 0
+\quad\Rightarrow\quad
+\frac{\partial^2u}{\partial x^2}
++
+\frac{\partial^2u}{\partial y^2}
+=
+0
+\quad\Rightarrow\quad
+\frac{\partial^2u}{\partial x^2}
+=
+-
+\frac{\partial^2u}{\partial y^2}
+\]
+verwendet.
 Die Cauchy-Riemann-Differentialgleichungen sind also tatsächlich erfüllt
 und damit ist $f(x+iy) = u(x,y)+ iv(x,y)$ eine holomorphe Funktion.
 \end{proof}
