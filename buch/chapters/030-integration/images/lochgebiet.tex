@@ -1,0 +1,51 @@
+%
+% lochgebiet.tex -- Gebiet mit Loch
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\coordinate (A) at (1,2);
+\coordinate (B) at (7,2);
+\coordinate (C) at (3,6);
+\coordinate (D) at (5,3.5);
+
+\coordinate (z0) at (2,3);
+
+\fill[color=gray!40]
+	(A) to[out=-30,in=-150]
+	(B) to[out=30,in=10]
+	(C) to[out=-170,in=150]
+	cycle;
+
+\fill[color=white]
+	(D) circle[radius=0.5];
+
+\fill[color=white] (z0) circle[radius=0.05];
+\draw (z0) circle[radius=0.05];
+\node at (z0) [right] {$z_0$};
+
+\draw[->] (-0.1,0) -- (8,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-0.1) -- (0,6.5) coordinate[label={right:$\operatorname{Im}$}];
+\node at (8,6.5) [below left] {$\mathbb{C}$};
+
+\draw[color=darkred] (4,2.5) [rotate=10] ellipse(2.4cm and 1cm);
+\node[color=darkred] at (4,1.9) {$\gamma_1$};
+\draw[color=blue] (4,0) [rotate=57] ellipse(1.5cm and 1cm);
+\node[color=blue] at (2.7,5) {$\gamma_2$};
+
+\node at (3.4,5.6) {$U$};
+
+\end{tikzpicture}
+\end{document}
+

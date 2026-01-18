@@ -20,7 +20,6 @@ Der Homotopiebegriff erlaubt, die Wege beliebig zu deformieren,
 solange der Definitionsbereich der Funktion nicht verlassen wird.
 Es scheint, dass das Integral über geschlossene Wege vor allem davon
 abhängt, was in Polstellen des Integranden passiert.
-Daher
 Der Residuensatz, der in diesem Abschnitt hergeleitet werden soll,
 formalisiert diese Beobachtung.
 
@@ -28,6 +27,212 @@ formalisiert diese Beobachtung.
 % Wegintegrale über geschlossene Wege
 %
 \subsection{Wegintegrale über geschlossene Wege}
+\input{chapters/030-integration/fig/fig-residuum.tex}%
+Nach dem Homotpiesatz~\ref{buch:integration:satz:homotopie} von
+Abschnitt~\ref{buch:integration:wegintegral:subsection:homotopie}
+verschwindet das Integral einer holomorphen Funktion entlang eines
+zusammenziehbaren Weges.
+Wir betrachten jetzt eine holomorphe Funktion $f$ in einem Gebiet $U$
+und einen Punkt $z_0\in U$
+und einen zusammenziehbaren Weg $\gamma$, der den Punkt $z_0\in U$
+einmal im Gegenuhrzeigersinn umläuft
+(siehe Abbildung\ref{buch:integration:fig:residuum}).
+Die Funktion
+\[
+f_0
+\colon
+U\setminus\{z_0\}
+\to
+\mathbb{C}
+:
+z
+\mapsto
+\frac{f(z)}{z-z_0}
+\]
+ist immer noch holomorph.
+Der Weg $\gamma$ ist jetzt im Definitionsgebiet $U\setminus \{z_0\}$
+der Funktion $f_0$ nicht mehr zusammenziehbar, er müsste über den Punkt
+$z_0$ hinweggezogen werden, wo die Funktion $f_0$ nicht definiert ist.
+Man kann also nicht erwarten, dass das Integral von $f_0(z)$ über
+den Weg $\gamma$ verschwindet.
+Vielmehr gilt der folgende, viel überraschendere Satz.
+
+\begin{satz}
+\label{buch:integration:satz:residuensatz}
+Sei $f\colon U\to\mathbb{C}$ holomorphe Funktion und $\gamma\colon I\to U$
+ein geschlossener Weg, der den Punkt $z_0$ einmal im Gegenuhrzeigersinn
+umläuft.
+Dann gilt
+\begin{equation}
+f(z_0)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma} \frac{f(z)}{z-z_0}\,dz.
+\label{buch:integration:eqn:residuensatz}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Die Berechnung des Integrals
+\eqref{buch:integration:eqn:residuensatz1}
+wird dadurch erschwert, dass der Weg $\gamma$ den Punkt $z_0$
+umläuft, der nicht im Definitionsgebiet liegt.
+Wir ergänzen ihn daher zu einem geschlossenen Weg, der ein
+ganz in $U\setminus\{z_0\}$ liegendes Gebiet berandet.
+Dazu fügen wir beim Punkt $A$ die in 
+Abbildung\ref{buch:integration:fig:residuum}
+blau eingezeichneten Wegstücke $\gamma_-$, $\gamma_1$ und $\gamma_+$ 
+ein.
+In der Zeichnung haben die Wege $\gamma_-$ und $\gamma_+$ aus Gründen
+der Darstellung einen kleinen Abstand, in Wahrheit sollen diese beiden
+Wegstücke bis auf die Durchlaufrichtung identisch sein.
+Nach dem Homotpiesatz gilt jetzt
+\begin{equation}
+\int_{\gamma+\gamma_-
++\gamma_1
++\gamma_+
+}
+\frac{f(z)}{z-z_0}\,dz
+=
+0,
+\label{buch:integration:residuensatz:eqn:proof1}
+\end{equation}
+weil die Funktion im hellrot gefärbten Gebiet, welches vom zusammengesetzten
+Weg berandet wird, holomorph ist.
+
+Die Wegstücke $\gamma_-$ und $\gamma_+$ werden in entgegengesetzter 
+Richtung durchlaufen.
+Verkettet bilden sie einen zusammenziehbaren Weg im Definitionsgebiet
+der der Funktion $f_0$.
+Die Wegintegrale über diese beiden Teilstücke heben sich also weg.
+
+Vom Integral auf der linken Seite von
+\eqref{buch:integration:residuensatz:eqn:proof1}
+bleiben jetzt nur noch die Integrale über die beiden Wegstücke
+$\gamma$ und $\gamma_1$,
+die sich wegen \eqref{buch:integration:residuensatz:eqn:proof1}
+ebenfalls wegheben müssen.
+Es gilt also
+\begin{equation}
+0
+=
+\int_{\gamma+\gamma_1}
+\frac{f(z)}{z-z_0}
+\,dz
+=
+\oint_{\gamma}
+\frac{f(z)}{z-z_0}
+\,dz
++
+\oint_{\gamma_1}
+\frac{f(z)}{z-z_0}
+\,dz
+\quad\Rightarrow\quad
+\oint_\gamma
+\frac{f(z)}{z-z_0}
+\,dz
+=
+-
+\oint_{\gamma_1}
+\frac{f(z)}{z-z_0}
+\,dz.
+\label{buch:integration:residuensatz:eqn:proof2}
+\end{equation}
+
+Zur Berechnung des Integrals über $\gamma_1$ verwenden wir die
+Parametrisierung
+\[
+\gamma_1
+\colon
+I
+\to
+\mathbb{C}
+:
+t
+\mapsto
+\gamma_1(t)
+=
+z_0
++
+re^{-2\pi i t}.
+\]
+mit der Ableitung 
+\[
+\dot{\gamma}_1(t)
+=
+-2\pi i r e^{-2\pi it}.
+\]
+Damit können wir das Wegintegral über $\gamma_1$ berechnen und
+erhalten
+\begin{align}
+\int_{\gamma_1}
+\frac{f(z)}{z-z_0}\,dz
+&=
+\int_0^1
+f_0(\gamma_1(t))\cdot \dot{\gamma}_1(t)\,dt
+\\
+&=
+\int_0^1
+\frac{f(z_0+re^{-2\pi it})}{e^{-2\pi it}}
+\cdot(-2\pi i r e^{-2\pi it})
+\,dt
+\notag
+\\
+&=
+-2\pi i
+\int_0^1
+f(z_0+re^{-2\pi it})
+\,dt.
+\notag
+\intertext{Nach dem Homotpiesatz~\ref{buch:integration:satz:homotopie} 
+bleibt das letzte Integral gleich, wenn der Radius $r$ des kleinen
+Kreises $\gamma_1$ verkleinert wird.
+Insbesondere gilt im Grenzübergang $r\to 0$}
+\int_{\gamma_1}
+\frac{f(z)}{z-z_0}\,dz
+&=
+\lim_{r\to 0}
+\biggl(
+-2\pi i
+\int_0^1
+f(z_0+re^{-2\pi it})
+\,dt
+\biggr)
+\notag
+\\
+&=
+-2\pi i
+\int_0^1
+f(z_0)\,dt
+=
+-2\pi if(z_0).
+\label{buch:integration:residuensatz:eqn:proof3}
+\end{align}
+Indem man das Resultat
+\eqref{buch:integration:residuensatz:eqn:proof3}
+in
+\eqref{buch:integration:residuensatz:eqn:proof2}
+einsetzt, findet man jetzt
+\[
+\oint_\gamma
+\frac{f(z)}{z-z_0}
+\,dz
+=
+2\pi if(z_0)
+\qquad\Rightarrow\qquad
+f(z_0)
+=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{z-z_0}
+\,dz.
+\]
+Damit ist der Satz bewiesen.
+\end{proof}
+
+Der Satz sagt, dass die Werte der holomoprhen Funktion $f(z)$ im
+Inneren des Weges vollständig durch die Werte der Funktion auf
+dem Weg $\gamma$ bestimmt sind.
 
 %
 % Wegintegrale und Pole
@@ -69,7 +274,7 @@ Nach dem Residuensatz ist dann
 \[
 f(z_0)
 =
-\frac{2\pi i}
+\frac{1}{2\pi i}
 \oint_{S^1_r} 
 \frac{f(z)}{z-z_0}
 \,dz
@@ -150,13 +355,336 @@ Für eine ausführliche Diskussion siehe \cite[section 6.4]{buch:evans}.
 % Ableitungen
 %
 \subsection{Ableitungen}
+Der Satz~\ref{buch:integration:satz:residuensatz} zeigt, wie der
+Wert einer holomorphen Funktion in einem Punkt $z_0$ allein aus den
+Werten entlang eines Weges berechnet werden kann, der den Punkt $z_0$
+im Gegenuhrzeigersinn umläuft.
+Die durch die Formel
+\eqref{buch:integration:eqn:residuensatz}
+gegebene Funktion ist holomorph, man sollte daher auch die Ableitung
+mit Hilfe eines Integrals berechnen können.
+Wenn man 
+\eqref{buch:integration:eqn:residuensatz}
+unter dem Integral nach $z_0$ ableitet, erhält man
+\begin{align}
+f'(z_0)
+=
+\frac{d}{dz_0}f(z_0)
+&=
+\frac{1}{2\pi i}
+\oint
+\frac{d}{dz_0}
+\frac{f(z)}{z-z_0}
+\,dz
+\notag
+\\
+&=
+\frac{1}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^2}
+\,dz.
+\label{buch:integration:eqn:ableitung2}
+\end{align}
+Wie erwartet kann die Ableitung von $f$ ebenfalls durch ein einfaches
+Wegintegral berechnet werden.
+Durch wiederholtes Ableiten kann man auch höhere Ableitungen finden,
+wie sie der folgende Satz zeigt.
+
+\begin{satz}
+\label{buch:integration:satz:ableitungn}
+Ist $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und $\gamma$
+ein Weg, der den Punkt $z_0\in U$ im Gegenuhrzeigersinn umläuft.
+Dann gilt
+\begin{equation}
+\frac{d^n}{dz_0^n}f(z_0)
+=
+f^{(n)}(z_0)
+=
+\frac{n!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^{n+1}}
+\,dz.
+\label{buch:integration:eqn:ableitungn}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Der Fall $n=1$ ist bereits durch \eqref{buch:integration:eqn:ableitung2}
+bewiesen, wir müssen die Formel
+\eqref{buch:integration:eqn:ableitungn}
+für $n>1$ beweisen.
+Wir tun dies mit Hilfe vollständiger Induktion, wobei 
+\eqref{buch:integration:eqn:ableitung2} als Induktionsverankerung
+dient.
+
+Wir nehmen jetzt an \eqref{buch:integration:eqn:ableitungn} für $n$ gilt,
+und zeigen, dass sie dann auch für $n+1$ gilt.
+Dazu leiten wir \eqref{buch:integration:eqn:ableitungn} nach $z_0$
+ab und erhalten
+\begin{align*}
+f^{(n+1)}(z_0)
+&=
+\frac{d}{dz_0}
+f^{(n)}(z_0)
+=
+\frac{d}{dz_0}
+\frac{n!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^{n+1}}
+\,dz
+\\
+&=
+\frac{n!}{2\pi i}
+\oint
+\frac{d}{dz_0}
+\frac{f(z)}{(z-z_0)^{n+1}}
+\,dz
+\\
+&=
+\frac{n!}{2\pi i}
+\oint
+(-(n+1))
+\frac{f(z)}{(z-z_0)^{n+2}}
+(-1)
+\,dz
+\\
+&=
+\frac{(n+1)!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^{n+2}}
+\,dz.
+\end{align*}
+Damit ist \eqref{buch:integration:eqn:ableitungn} bewiesen.
+\end{proof}
 
 %
 % Die Umlaufzahl
 %
 \subsection{Die Umlaufzahl}
+Die Sätze der vorangegangenen Abschnitte mussten jeweils die etwas
+schwerfällige Voraussetzung über den Weg $\gamma$ machen, dass er
+den Punkt $z_0$ im Gegenuhrzeigersinn einmal umläuft.
+Der Grund dafür war, dass der Weg jeweils mittels Homotopie auf einen
+kreisformigen Weg um den Punkt $z_0$ deformiert wurde, der den Punkt $z_0$
+ebenfalls genau einmal gegen den Uhrzeigersinn umläuft.
 
+%
+% Die Umlaufzahl eine Weges um einen Punkt
+%
+\subsubsection{Die Umlaufzahl eines Weges um einen Punkt}
+Offenbar ist es notwendig, die Zahl der Umläufe eines Weges $\gamma$
+im Gegenuhrzeigersinn um den Punkt $z_0$ etwas genauer zu fassen.
+Damit diese Zahl wohldefiniert ist, darf der Weg den Punkt $z_0$
+nicht treffen.
+Wir zeichnen vom Punkt $z_0$ aus einen Strahl $s$ in eine beliebige
+Richtung.
+Schneidet die Kurve diesen Strahl nicht, dann lässt sich die Kurve
+in der Menge  $\mathbb{C}\setminus s$ zu einem Punkt zusammeziehen,
+insbesondere umläuft die Kurve den Punkt $z_0$ gar nicht.
+Ein im Gegenurzeigersinn durchlaufener Kreis um den Punkt $z_0$
+schneidet dagegen den Strahl genau einmal.
+Durchläuft man den Kreis mehrmals, wie in $t\mapsto t+re^{2\pi int}$,
+dann ist die Zahl der Schnittpunkte gerade $n$.
+Die Anzahl der Kreuzungspunkte des Strahls mit der Kurve scheint
+also an die Anzahl der Umläufe um den Punkt $z_0$ gekoppelt zu sein.
+Dies funktioniert sogar für negative $n$, wenn man die Umläufe im
+Uhrzeigersinn negativ zählt.
 
+Die Anzahl der Schnittpunkte kann aber sogar unendlich gross werden,
+wenn der Weg $\gamma$ ein Stück weit entlang eines Strahls verläuft.
+Es ist auch mögich, dass der Weg von einer Seite auf den Strahl trifft,
+ihn dann aber gleich wieder auf die selbe Seite verlässt.
+In diesem Fall berührt der Weg den Strahl.
+Der Strahl muss also so gewählt werden, dass der Weg ihn in jedem
+Kreuzungspunkt mit einem positiven Schnittwinkel oder \emph{transversal}
+\index{transversal}%
+kreuzt.
+Damit dies festgestellt werden kann, muss der Weg $\gamma$ differenzierbar
+sein.
+Durch Drehung des Strahls um den Punkt $z_0$ kann man immer erreichen,
+dass der Weg den Strahl transversal schneidet.
+
+Sei jetzt also $s$ ein von $z_0$ ausgehender Strahl, der den Weg 
+$\gamma\colon I\to\mathbb{C}$ für die Punkte $t_i\in I$ schneidet.
+\input{chapters/030-integration/fig/fig-argument.tex}%
+Abbildung~\ref{buch:integration:fig:argument}
+zeigt links den Wege $\gamma$ in rot, rechts das Argument von
+$\gamma(t)-z_0$.
+Wir zählen einen Kreuzungspunkt positiv, wenn das Argument 
+\(
+\varphi(t)
+=
+\operatorname{arg} (\gamma(t) - z_0)
+\)
+an der Stelle $t_i$ wächst, und negativ, wenn es abnimmt.
+Wir setzen also
+\begin{equation}
+n_i
+=
+\begin{cases}
+\phantom{-}1&\qquad \text{falls $\dot{\varphi}_i > 0$} \\
+         - 1&\qquad \text{falls $\dot{\varphi}_i < 0$,} 
+\end{cases}
+\label{buch:integration:umlaufzahl:eqn:ni}
+\end{equation}
+wobei 
+\[
+v_i
+=
+\frac{d}{dt} \operatorname{arg}(\gamma(t)-z_0)\bigg|_{t=t_i}
+\]
+die Änderungsgeschwindigkeit des Arguments ist.
+Die Umlaufzahl des Weges $\gamma$ um den Punkt $z_0$ ist dann die
+Summe der $n_i$.
+
+\begin{definition}[Umlaufzahl]
+\label{buch:integration:definition:umlaufzahl}
+\index{Umlaufzahl}%
+Die \emph{Umlaufzahl} eines Weges $\gamma$ in der komplexen Ebene
+$\mathbb{C}$ ist die Anzahl
+\[
+\operatorname{ind}_\gamma(z_0)
+=
+\sum_i n_i
+\]
+mit den Summanden $n_i$ aus
+\eqref{buch:integration:umlaufzahl:eqn:ni}.
+\end{definition}
+
+In Abbildung~\ref{buch:integration:fig:argument} sind die Schnittpunkte
+des Arguments mit der Richtung $\varphi_0$ des Strahls als orange
+Punkte eingezeichnet.
+Schnittpunkte, in denen das Argument ansteigt, werden positiv gezählt.
+Schnittpunkte, in denen das Argument abnimmt, werden negativ gezählt.
+
+%
+% Umlaufzahl und komplexe Integration
+%
+\subsubsection{Umlaufzahl und komplexe Integration}
+Die Umlaufzahl 
+nach Definition~\ref{buch:integration:definition:umlaufzahl}
+zu berechnen ist eher mühsam.
+Daher ist es besonders erfreulich, dass man sie auch mit komplexer
+Wegintegration berechnen kann, wie der folgende Satz zeigt.
+Der Beweis beruht auf der Idee, dass sich der in der
+Abbildung~\ref{buch:integration:fig:argument} rot gezeichnete Weg
+in den grünen Weg deformieren lässt, der die Richtung $s$ immer in der
+gleichen Richtung überschreitet und damit seinerseits homotop zu
+einem Weg der Form $t\mapsto e^{2\pi int}$, für den sich das Integral
+leicht berechnen lässt.
+
+\begin{satz}
+Sei $\gamma$ ein Weg in $\mathbb{C}$, der den Punkt $z_0$ nicht trifft,
+dann umläuft der Weg den Punkt $z_0$
+\[
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{1}{2\pi i}
+\oint_\gamma \frac{dz}{z-z_0}
+\]
+mal.
+\end{satz}
+
+\begin{proof}
+Abbildung~\ref{buch:integration:fig:argument} zeigt, wie die Umlaufzahl
+berechnet wird.
+Durch ``Strecken'' des Graphen von $\varphi(t)$ zu einer Geraden
+(in der Abbildung grün eingezeichnet), kann der Weg durch ein
+Homotopie in einen Weg deformiert werden, der durch  die
+Parametrisierung $\gamma_1(t) = z_0+re^{2\pi i n t}$ beschrieben werden kann.
+Nach Satz~\ref{buch:integration:satz:homotopie} ergeben die
+die beiden Wege denselben Wert des Integrals.
+Der Wert des Integrals über den Weg $\gamma_1$ ist
+\[
+\oint_{\gamma_1}
+\frac{dz}{z-z_0}
+=
+\int_0^1
+\frac{2\pi i nre^{2\pi int}}{z_0+re^{2\pi i nt}-z_0}
+\,dt
+=
+\int_0^1
+2\pi i n
+\,dt
+=
+2\pi i n.
+\]
+Aufgelöst nach $n$ folgt daraus
+\[
+n
+=
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}\frac{dz}{z-z_0}
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}\frac{dz}{z-z_0}
+\]
+Damit ist der Satz bewiesen.
+\end{proof}
+
+%
+% Residuensatz für allgemein Wege
+%
+\subsubsection{Residuensatz für allgemeine Wege}
+Der Residuensatz~\ref{buch:integration:satz:residuensatz} beruhte darauf,
+dass der Weg $\gamma$ um den Punkt sich in einen Weg deformieren liess,
+der sich entlang eines Kreises genau einmal im Gegenuhrzeigersinn um den
+Punkt $z_0$ windet.
+Die Umlaufzahl andererseits zeigt, dass sich Wege, die sich mehrmals
+um den Punkt winden, ebenfalls deformieren lassen in einen Weg, der sich
+entlang einer Kreislinie mit gleichmässig ansteigendem Argument gleichviele
+Male um $z_0$ windet.
+
+\begin{satz}
+\label{buch:integration:satz:residuensatzn}
+Sei $f\colon U \to \mathbb{C}$ eine holomorphe Funktion und $\gamma$
+ein Weg in $U$, der den Punkt $z_0$ nicht trifft, aber in den Punkt $z_0$
+zusammengezogen werden kann.
+Dann gilt
+\[
+f(z_0)
+\cdot
+\operatorname{ind}_{\gamma}(z_0)
+=
+\frac{1}{2\pi i}
+\oint_\gamma \frac{f(z)}{z-z_0}\,dz.
+\]
+\end{satz}
+
+Die im Satz zusätzlich geforderte Bedingung, dass der Weg in den Punkt 
+$z_0$ zusammengezogen werden kann, stellt sicher, dass sich der Weg nicht
+um andere ``Löcher'' im Definitionsgebiet $U$ windet, in denen sich weitere
+Polstellen der Funktion $f(z)$ verstecken könnten.
+\input{chapters/030-integration/fig/fig-lochgebiet.tex}%
+Sie ist in Abbildung~\ref{buch:integration:fig:lochgebiet} illustriert.
+Der Weg $\gamma_1$ windet sich um das Loch im Gebiet $U$ herum und kann
+daher nicht in einen Punkt zusammengezogen werden, dies ist nur für den
+Weg $\gamma_2$ möglich.
+
+%
+% Ableitungen
+%
+\subsubsection{Ableitungen}
+Auch für die Ableitungen lässt sich die Formel
+\eqref{buch:integration:eqn:ableitungn}
+verallgemeinern.
+Mit einem Weg wie in Satz~\ref{buch:integration:satz:residuensatzn}
+kann man die Ableitungen
+\[
+f^{(h)}(z_0)
+\cdot
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{n!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^n}
+\,dz
+\]
+berechnen.
+Alle Ableitungen lassen sich also allein aus den Werten der Funktion
+$\gamma$ entlang des Weges $\gamma$ bestimmen.
 
 
 
