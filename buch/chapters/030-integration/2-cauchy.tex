@@ -39,6 +39,114 @@ Sei weiter $\gamma$ ein geschlossener Weg, der den Punkt $a$
 einmal im Gegenuhrzeigersinn umkreist.
 
 %
+% Mittelwerteigenschaft
+%
+\subsubsection{Mittelwerteigenschaft}
+Aus der Formel~\eqref{XXX} folgt auch sofort die folgende Eigenschaft
+einer harmonischen Funktion.
+
+\begin{satz}[Mittelwerteigenschaft]
+\label{buch:integration:cauchy:satz:mittelwerteigenschaft}
+Sei $U\subset\mathbb{C}$ ein Gebiet und $z_0\in U$ ein Punkt in $U$.
+Weiter sei $u$ eine harmonische Funktion in $U$ und $r$ der Radius
+eines Kreises um den Punkt $z_0$, der immer noch ganz in $U$ enhalten ist.
+Dann ist
+\begin{equation}
+u(z_0)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi} u(z_0 + re^{it}) \,dt.
+\label{buch:integration:cauchy:eqn:mittelwerteigenschaft}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Zunächst kann nach Satz~\ref{buch:holomorph:holomorph:satz:utov}
+eine Funktion $v$ gefunden werden, so dass in einer Umgebung, die auch
+den Kreis mit Radius $r$ um $z_0$ enthält, $f(z) = u(z) + iv(z)$ eine
+holomorphe Funktion ist.
+Nach dem Residuensatz ist dann
+\[
+f(z_0)
+=
+\frac{2\pi i}
+\oint_{S^1_r} 
+\frac{f(z)}{z-z_0}
+\,dz
+\]
+für den Kreis $S^1_r$ mit Radius $r$ um den Punkt $z_0$.
+Das Integral kann man durch $t\mapsto z_0+e^{it}$ parametrisieren,
+dann wird es zu
+\begin{align*}
+f(z_0)
+&=
+\frac{1}{2\pi i}
+\int_0^{2\pi}
+\frac{ f(z_0+re^{it}) }{z_0+re^{it}-z_0} ir e^{it}\,dt
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\frac{ f(z_0+re^{it}) }{re^{it}} r e^{it}\,dt
+\\
+&=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+ f(z_0+re^{it})\,dt.
+\intertext{Den Integranden kann man in Real- und Imaginärteil aufspalten und
+erhält}
+u(z) + iv(z)
+&=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+u(z_0+re^{it})\,dt
++
+\frac{i}{2\pi}
+\int_0^{2\pi}
+v(z_0+re^{it})\,dt.
+\end{align*}
+Die Formel~\eqref{buch:integration:cauchy:eqn:mittelwerteigenschaft}
+gilt daher sowohl für $u$ wie auch für $v$ ganz unabhängig von der
+Wahl der Funktion $v$.
+\end{proof}
+
+%
+% Maximumprinzip
+%
+\subsubsection{Maximumprinzip}
+Aus der Mittelwerteigenschaft folgt eine weitere wichtige Eigenschaft
+harmonischer Funktionen, nämlich das Maximum- und Minimum-Prinzip.
+
+\begin{satz}[Maximumprinzip]
+Sei $U\subset\mathbb{C}$ ein Gebiet und $u(x,y)$ ein in $U$ harmonische
+Funktion.
+Dann nimmt die Funktio $u$ ihr Maximum und Minimum auf dem Rand von $U$ an.
+\end{satz}
+
+\begin{proof}
+Wir zeigen, dass das Maximum oder Minimum nicht im Inneren des Gebietes
+$U$ liegen kann.
+Dazu nehmen wir an, das Maximum liegt im Punkt $z_0\in U$.
+Sei $r>0$ der Radius eines Kreises um den Punkt $z_0$, der vollständig
+in $U$ enthalten ist.
+Dann ist $u(z_0+ re^{i\varphi}) < u(z_0)$ für alle Winkel $\varphi$,
+die Werte auf dem Kreis sind kleiner als der Wert im Punkt $z_0$.
+Da die Werte auf dem Kreis kleiner sind als der Wert $u(z_0)$,
+ist der Mittelwert $<u(z_0)$.
+Nach Satz~\ref{buch:integration:cauchy:satz:mittelwerteigenschaft} ist
+der Mittelwert der Werte auf dem Kreis mit Radius $r$ um $z_0$ gleich dem
+Wert $u(z_0)$, ein Widerspruch.
+Der Widerspruch zeigt, dass $z_0$ nicht ein Maximum sein kann.
+
+Auf die gleiche Weise kann man den Fall eines Minimums behandeln.
+\end{proof}
+
+Das Maximumprinzip gilt für die Lösungen einer homogenen partiellen
+Differentialgleichung mit einem beliebigen elliptischen Operator.
+Der Beweis folgt allerdings einem ganz anderen Weg, denn die
+Mittelwerteigenschaft gilt für solche Lösungen nicht.
+Für eine ausführliche Diskussion siehe \cite[section 6.4]{buch:evans}.
+
+%
 % Ableitungen
 %
 \subsection{Ableitungen}
