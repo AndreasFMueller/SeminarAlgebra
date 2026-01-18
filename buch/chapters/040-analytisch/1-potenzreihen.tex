@@ -6,4 +6,329 @@
 \section{Potenzreihen holomorpher Funktionen
 \label{buch:analytisch:section:potenzreihen}}
 \kopfrechts{Potenzreihen holomorpher Funktionen}
+Der Residuensatz stellt einen Zusammenhang zwischen $f(z)$ und den
+Werten von $f(x)/(x-a)$ auf einem geschlossenen Weg her.
+Der Nenner kan mit Hilfe der geometrischen Reihe in eine Potenzreihe
+verwandelt werden, die sich zu einer Potenzreihe von $f(z)$ umformen
+lässt.
+
+%
+% Die geometrische Reihe
+%
+\subsection{Die geometrische Reihe}
+Die geometrische Reihe ist die Reihe
+\[
+a+aq+aq^2 + \dots = \sum_{k=0}^\infty aq^k.
+\]
+Es ist wohlbekannt, dass diese Reihe für $q<1$ konvergent ist und
+die Summe
+\[
+\sum_{k=0}^n aq^k
+=
+a\frac{q^{n+1}-1}{q-1}
+\qquad\Rightarrow\qquad
+\sum_{k=0}^n aq^k
+=
+\lim_{n\to\infty}
+a\frac{q^{n+1}-1}{q-1}
+=
+a\frac{1}{1-q}.
+\]
+
+Für komplexe Zahlen $z\in\mathbb{C}$ mit $|z|<1$ definiert die
+geometrische Reihe die holomorphe Funktion
+\[
+\sum_{k=1} z^k
+=
+\frac{1}{1-z}
+=
+f(z).
+\]
+Der Konvergenzradius der Reihe ist $\varrho=1$.
+Die Polstelle bei $z=1$ führt zu einer divergenten Potenzreihe.
+
+Die Funktion 
+\[
+z
+\mapsto
+\frac{1}{x-z\mathstrut}
+\]
+ist ebenfalls holomorph, wir möchten sie jetzt in eine im Punkt $a$
+zentrierte Potenzreihe entwickeln.
+Dazu verwenden wir die Identität
+\begin{equation}
+\frac{1}{x-z\mathstrut}
+=
+\frac{1}{(x-a)-(z-a)\mathstrut}
+=
+\frac{1}{\displaystyle(x-a)\biggl(1-\frac{z-a\mathstrut}{x-a\mathstrut}\biggr)}
+=
+\frac{1}{x-a}
+\cdot
+\frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}.
+\label{buch:analytisch:eqn:geometrisch1}
+\end{equation}
+Der letzte Faktor auf der rechten Seite lässt sich mit der geometrischen
+Reihe als Potenzreihe der Form
+\begin{equation}
+\frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}.
+=
+\sum_{k=0}^\infty \biggl(\frac{z-a\mathstrut}{x-a\mathstrut}\biggr)^k
+=
+\sum_{k=0}^\infty
+c_k
+(z-a)^k
+\qquad\text{mit $c_k=1/(x-a)^k$.}
+\label{buch:analytisch:eqn:geometrischintegriert}
+\end{equation}
+entwickeln.
+
+%
+% Integration der geometrischen Reihe
+%
+\subsection{Integration der geometrischen Reihe}
+Der Residuensatz ermöglich, mit Hilfe der geometrischen Reihe eine
+Potenzreihenentwicklung für die die Funktion $f(z)$ zu finden.
+Dazu erinnern wir uns daran, dass 
+\[
+f(z)
+=
+\oint_{\gamma}
+\frac{f(x)}{x-z\mathstrut}
+\,dx,
+\]
+wenn $\gamma$ ein Weg ist, der den Punkt $z$ im Gegenuhrzeigersinn
+einmal umwindet.
+Jetzt verwenden wir
+\eqref{buch:analytisch:eqn:geometrisch1}
+und
+\eqref{buch:analytisch:eqn:geometrischintegriert}
+und erhalten
+\begin{align}
+f(z)
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{x-a}
+\cdot
+\frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}
+\,dx
+\notag
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{x-a}
+\sum_{k=0}^\infty
+f(x)
+\biggl(
+\frac{z-a\mathstrut}{x-a\mathstrut}
+\biggr)^k
+\,dx
+\notag
+\\
+&=
+\sum_{k=0}^\infty
+\biggl(
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(x)}{(x-a)^{k+1}}
+\,dx
+\biggr)
+(z-a)^k.
+\label{buch:analytisch:eqn:reihe}
+\end{align}
+Damit ist eine Potenzreihe im Punkt $a$ für die Funktion
+$f(z)$ gefunden.
+Sie ist konvergent, solange 
+\[
+\biggl|
+\frac{z-a}{x-a}
+\biggr|
+=
+\frac{|z-a|}{|x-a|}
+<
+1
+\qquad\Rightarrow\qquad
+|z-a| < |x-a|
+\]
+für alle $x$ entlang des Weges $\gamma$ gilt.
+Dies wird erreicht, wenn 
+\[
+|z-a| < \inf_{\gamma} |x-a|,
+\]
+auf der rechten Seite steht der kleinste Abstand des Punktes $a$ vom
+Weg $\gamma$.
+
+%
+% Potenzreihenentwicklung einer holomorphen Funktion
+%
+\subsection{Potenzreihenentwicklung einer holomorphen Funktion}
+Falls $\gamma$ ein geschlossener Weg ist, der sich genau einmal
+im Gegenuhrzeigersinn um den Punkt $a$ windet, lassen sich die
+Integrale auf der rechten Seite von \eqref{buch:analytisch:eqn:reihe}
+können mit Satz~\ref{buch:integration:satz:ableitungn}
+berechnet.
+Sie ergeben
+\begin{align*}
+f(z)
+&=
+\sum_{k=0}^\infty
+\frac{f^{(k)}(a)}{k!}
+(z-a)^k.
+\end{align*}
+Damit ist die gefundene Potenzreihe der Funktion $f$ die
+Taylor-Reihe der Funktion $f$ im Punkt $a$.
+
+\begin{satz}
+\label{buch:analytisch:satz:holomorph-analytisch}
+Eine holomorphe Funktion $f(z)$ ist analytisch, die Taylor-Reihe
+von $f$ im Punkt $a$ konvergiert.
+Der Konvergenzradius ist das Supremum der Radien von Kreisen um $a$,
+die vollständig im Definitionsbereich von $f$ enthalten sind.
+\end{satz}
+
+%
+% Reelle differenzierbare Funktionen sind nicht alle analytisch
+%
+\subsection{Reelle differenzerierbare Funktionen sind nicht alle analytisch}
+Die Aussage des Satzes~\ref{buch:analytisch:satz:holomorph-analytisch}
+hat keine Entsprechung für reelle beliebig oft differenzierbare
+Funktionen.
+Vielmehr gibt es beliebig oft differenzierbare Funktion reellwertige
+Funktionen auf $\mathbb{R}$, die keine konvergente Potenzreihe haben.
+
+%
+% Eine glatte Funktion mit verschwindender Potenzreihe
+%
+\subsubsection{Eine glatte Funktion mit verschwindender Potenzreihe}
+Wir betrachten die Funktion
+\[
+f(x)
+=
+\begin{cases}
+e^{-1/x}&\qquad \text{für $x>$}\\
+0&\qquad\text{sonst.}
+\end{cases}
+\]
+Sie ist beliebig oft differenzierbar.
+Die Ableitung ist ausserhalb des Punktes $x=0$ stetig, es muss also
+nur noch untersucht werden, dass die Ableitung auch im Punkt $x=0$
+stetig ist.
+
+Die Ableitung von $f(x)$ ist
+\begin{equation}
+f'(x)
+=
+\frac{1}{x^2}
+e^{-1/x}
+\label{buch:analytisch:eqn:f'}
+\end{equation}
+für $x>0$.
+Für höhere Ableitungen wird der Ausdruck komplizierter, wir wollen
+mit vollständiger Induktion zeigen, dass alle Ableitungen von der Form
+\begin{equation}
+f^{(n)}(x)
+=
+P_n\biggl(\frac1x\biggr) e^{-1/x}
+\label{buch:analytisch:eqn:fn=Pne}
+\end{equation}
+ist, wobei $P_n$ ein Polynom ist.
+Die Gleichung \eqref{buch:analytisch:eqn:f'} dient dazu als
+Induktionsverankerung.
+
+Für den Induktionsschritt nehmen wir jetzt an, dass 
+\eqref{buch:analytisch:eqn:fn=Pne}
+für die $n$-te Ableitung gilt und zeigen, dass auch die $n+1$-te
+Ableitung diese Form hat.
+Dazu berechnen wir
+\begin{align*}
+f^{(n+1)}(x)
+&=
+\frac{d}{dx}
+f^{(n)}(x)
+=
+\frac{d}{dx} P\biggl(\frac1x\biggr) e^{-1/x}
+\\
+&=
+-P'_n\biggl(\frac1x\biggr) \frac{1}{x^2} e^{-1/x}
++
+P_n\biggl(\frac1x\biggr) \frac{1}{x^2} e^{-1/x}
+\\
+&=
+\frac{1}{x^2}
+\biggl(
+P_n\biggl(\frac1x\biggr)
+-
+P_n'\biggl(\frac1x\biggr)
+\biggr)e^{-1/x}
+\end{align*}
+Setzt man 
+\begin{equation}
+P_{n+1}(X)
+=
+X^2(P_n(X) - P'_n(X)),
+\label{buch:analytisch:eqn:e1rekursion}
+\end{equation}
+kann man tatsächlich
+\[
+f^{(n+1)}(x)
+=
+P_{n+1}\biggl(\frac1x\biggr)e^{-1/x}
+\]
+schreiben.
+Die Rekursionsformel~\eqref{buch:analytisch:eqn:e1rekursion}
+liefert ein Polynom $P_{n+1}$, womit der Induktionsschritt vollzogen
+ist.
+
+Die Polynome $P_n$ aus dem vorangegangenen Beweis lassen sich
+mit der Rekursionsformel~\eqref{buch:analytisch:eqn:e1rekursion}
+sehr leicht berechnen, die ersten paar Polynome sind
+\begin{align*}
+P_0(X) &= 1 \\
+P_1(X) &= X^2 \\
+P_2(X) &= X^4 - 2X^3 \\
+P_3(X) &= X^2 (X^4 - 2X^3 - 4X^3 + 6X^2) = X^6 -6X^5+6X^4 \\
+P_4(X) &= X^8 -12X^7+36X^6-24X^5 \\
+P_5(X) &= X^{10} -20X^9 +120 X^8 - 240X^7 + 120 X^6.
+\end{align*}
+Da für $x\to 0$ der Exponentialfaktor $e^{-1/x}$ immer schneller
+gegen $0$ geht, als ein polynomialer Faktor $P_n(1/x)$ gegen $\infty$
+gehen kann, ist der Grenzwert 
+\[
+\lim_{x\to 0+}
+f^{(n)}(x)
+=
+\lim_{\xi\to \infty}
+P_n(\xi) e^{-\xi}
+=
+0.
+\]
+Damit ist gezeigt, dass an der Stelle $x=0$ alle Ableitungen von $f$
+stetig sind, $f$ ist eine glatte Funktion.
+
+Da die Ableitungen an der Stelle $x=0$ verschwinden, ist die
+Taylor-Reihe von $f$ die Nullfunktion.
+Da $f$ selbst nicht die Nullfunktion ist, kann die Taylor-Reihe
+nicht gegen $f$ konvergieren.
+
+Die Funktion $f(x)$ lässt sich nicht zu einer holomorphen Funktion
+ausdehnen.
+Der einzige dafür in Frage kommende Kandidat ist die Funktion
+$z\mapsto e^{-1/z}$.
+Nähert sich $z$ auf der imaginären Achse dem Punkt $0$, zum Beispiel
+mit $z=i/t$ für $t\to \infty$, dann ist
+\[
+\lim_{\varepsilon\to 0} e^{-1/i\varepsilon}
+=
+\lim_{t\to\infty} e^{it}
+=
+\lim_{t\to\infty}(\cos t + i\sin t).
+\]
+Der Grenzwert auf der rechten Seite konvergiert allerdings nicht, sodass
+die Funktion $z\mapsto e^{-1/z}$ im Punkt $z=0$ nicht einmal stetig
+sein kann.
+
+
+
 
