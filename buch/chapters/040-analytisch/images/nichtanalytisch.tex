@@ -1,0 +1,42 @@
+%
+% nichtanalytisch.tex -- Plot einer nicht analytischen Funktion
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\draw[->] (-3.05,0) -- (8.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.1) -- (0,4.4) coordinate[label={right:$f(x)$}];
+\draw[line width=0.2pt] (-3,4) -- (8,4);
+
+\begin{scope}
+\clip (-3,-0.1) rectangle (8,4);
+\draw[color=darkred,line width=1.4pt]
+	(-3,0) -- (0,0) --
+	plot[domain=0.001:0.67,samples=100] ({-4/ln(\x)},{4*\x});
+\end{scope}
+
+\node[color=darkred] at (4,2) {$f(x)=e^{-1/x}$};
+\node[color=darkred] at (-1.5,0) [above] {$f(x)=0$};
+
+\node at (0,-0.05) [below] {$0$};
+\node at (4,-0.05) [below] {$1$};
+\node at (8,-0.05) [below] {$2$};
+\draw (4,-0.05) -- ++(0,0.1);
+\draw (8,-0.05) -- ++(0,0.1);
+\draw (-0.05,4) -- ++(0.1,0);
+\node at (-0.05,4) [below left] {$1$};
+
+\end{tikzpicture}
+\end{document}
+
