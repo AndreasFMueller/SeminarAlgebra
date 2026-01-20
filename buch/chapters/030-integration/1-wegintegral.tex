@@ -19,12 +19,18 @@ das Integral nicht von der Wahl des Weges abhängt.
 %
 \subsection{Wege in $\mathbb{R}^n$ und $\mathbb{C}$}
 Ein \emph{Weg} in einer offenen Menge $U\subset \mathbb{R}^n$ ist eine
+\index{Weg}
 stetige Abbildung
 \[
 \gamma : I \to U : t \mapsto \gamma(t)
 \]
 für ein Intervall $I=[a,b]$.
+Der Weg heisst \emph{geschlossen}, wenn Anfangs- und Endpunkt übereinstimmen,
+\index{Weg!geschlossen}!
+\index{geschlossener Weg}!
+wenn also $\gamma(a)=\gamma(b)$ gilt.
 Ein Weg heisst \emph{differenzierbarer Weg}, wenn die Funktion $\gamma$
+\index{Weg!differenzierbar}
 differenzierbar ist.
 Die Ableitung
 \[
@@ -242,6 +248,7 @@ um diesen Unterschied auszugleichen.
 Sei $f\colon U\to\mathbb{C}$ eine stetige komplexe Funktion und
 $\gamma:I\to U$ ein differenzierbarer Weg $U$ mit $I=[a,b]$.
 Dann ist das \emph{Integral von $f$ entlang des Weges $\gamma$}
+\index{Integral entlang eines Weges}%
 gegeben durch
 \begin{equation}
 \int_\gamma f(z)\,dz
@@ -716,6 +723,7 @@ Weg geben.
 
 \begin{definition}[wegzusammenhängend]
 Ein Gebiet $U\subset\Omega$ heisst \emph{wegzusammenhängend}, wenn
+\index{wegzusammenhangend@wegzusammenhängend}%
 es zu je zwei Punkten $a,b\in U$ einen Weg gibt, der $a$ und $b$
 verbindet.
 \end{definition}
@@ -755,8 +763,9 @@ Wir versuchen jetzt, dieses Idee mit einer mathematisch präzisen
 Definition zu erfassen.
 
 \begin{definition}[Homotopie von Wegen]
-\index{buch:integration:definition:homotpie}
+\definition{buch:integration:definition:homotpie}
 Eine \emph{Homotopie} von Wegen $\gamma_0\colon I\to U$
+\index{Homotpie}%
 und
 $\gamma_1\colon I\to U$, $I=[0,1]$,
 in einem Gebiet $U$ ist eine
@@ -770,6 +779,7 @@ I\times I \to U
 \]
 mit $H(0,t)=\gamma_0(t)$ und $H(1,t)=\gamma_1(t)$.
 Zwei Wege $\gamma_i\colon I\to U$  heissen \emph{homotop}, in Zeichen
+\index{homotop}
 $\gamma_0\sim \gamma_1$, wenn es eine
 Homotopie gibt, die die beiden Wege verbindet.
 \end{definition}
