@@ -20,6 +20,10 @@ include papers/hauptwert/Makefile.inc
 include papers/konstruktion/Makefile.inc
 include papers/gamma/Makefile.inc
 include papers/pade/Makefile.inc
+include papers/elliptisch/Makefile.inc
+include papers/geradlinig/Makefile.inc
+include papers/hankel/Makefile.inc
+include papers/abb/Makefile.inc
 
 TEXFILES = \
 	$(dependencies-aircraft) \
@@ -44,4 +48,8 @@ TEXFILES = \
 	$(dependencies-konstruktion) \
 	$(dependencies-gamma) \
 	$(dependencies-pade) \
+	$(dependencies-elliptisch) \
+	$(dependencies-geradlinig) \
+	$(dependencies-hankel) \
+	$(dependencies-abb) \
 

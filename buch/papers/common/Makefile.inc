@@ -30,6 +30,10 @@ PAPERFILES = \
 	papers/konstruktion/main.tex \
 	papers/gamma/main.tex \
 	papers/pade/main.tex \
+	papers/elliptisch/main.tex \
+	papers/geradlinig/main.tex \
+	papers/hankel/main.tex \
+	papers/abb/main.tex \
 	
 $(workdir)/buch1-blx.bbl:	$(workdir)/buch1-blx.aux
 	cd $(workdir); bibtex buch1-blx
@@ -164,10 +168,34 @@ $(workdir)/$(seminar)22-blx.bbl:	$(workdir)/$(seminar)22-blx.aux
 	cd $(workdir); bibtex $(seminar)22-blx
 
 $(workdir)/buch23-blx.bbl:	$(workdir)/buch23-blx.aux
-	cd $(workdir) bibtex buch23-blx
+	cd $(workdir); bibtex buch23-blx
 
 $(workdir)/$(seminar)23-blx.bbl:	$(workdir)/$(seminar)23-blx.aux
-	cd $(workdir) bibtex $(seminar)23-blx
+	cd $(workdir); bibtex $(seminar)23-blx
+
+$(workdir)/buch24-blx.bbl:	$(workdir)/buch24-blx.aux
+	cd $(workdir); bibtex buch24-blx
+
+$(workdir)/$(seminar)24-blx.bbl:	$(workdir)/$(seminar)24-blx.aux
+	cd $(workdir); bibtex $(seminar)24-blx
+
+$(workdir)/buch25-blx.bbl:	$(workdir)/buch25-blx.aux
+	cd $(workdir); bibtex buch25-blx
+
+$(workdir)/$(seminar)25-blx.bbl:	$(workdir)/$(seminar)25-blx.aux
+	cd $(workdir); bibtex $(seminar)25-blx
+
+$(workdir)/buch26-blx.bbl:	$(workdir)/buch26-blx.aux
+	cd $(workdir); bibtex buch26-blx
+
+$(workdir)/$(seminar)26-blx.bbl:	$(workdir)/$(seminar)26-blx.aux
+	cd $(workdir); bibtex $(seminar)26-blx
+
+$(workdir)/buch27-blx.bbl:	$(workdir)/buch27-blx.aux
+	cd $(workdir) bibtex buch27-blx
+
+$(workdir)/$(seminar)27-blx.bbl:	$(workdir)/$(seminar)27-blx.aux
+	cd $(workdir) bibtex $(seminar)27-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
@@ -193,6 +221,10 @@ BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch21-blx.bbl \
 	$(workdir)/buch22-blx.bbl \
 	$(workdir)/buch23-blx.bbl \
+	$(workdir)/buch24-blx.bbl \
+	$(workdir)/buch25-blx.bbl \
+	$(workdir)/buch26-blx.bbl \
+	$(workdir)/buch27-blx.bbl \
 
 
 SBLXFILES = $(workdir)/$(seminar).bbl\
@@ -219,6 +251,10 @@ SBLXFILES = $(workdir)/$(seminar).bbl\
 	$(workdir)/$(seminar)21-blx.bbl \
 	$(workdir)/$(seminar)22-blx.bbl \
 	$(workdir)/$(seminar)23-blx.bbl \
+	$(workdir)/$(seminar)24-blx.bbl \
+	$(workdir)/$(seminar)25-blx.bbl \
+	$(workdir)/$(seminar)26-blx.bbl \
+	$(workdir)/$(seminar)27-blx.bbl \
 
 
 PAPER_DIRECTORIES = \
@@ -244,6 +280,10 @@ PAPER_DIRECTORIES = \
 	konstruktion \
 	gamma \
 	pade \
+	elliptisch \
+	geradlinig \
+	hankel \
+	abb \
 	
 PAPER_MAKEFILEINC = \
 	papers/aircraft/Makefile.inc \
@@ -268,4 +308,8 @@ PAPER_MAKEFILEINC = \
 	papers/konstruktion/Makefile.inc \
 	papers/gamma/Makefile.inc \
 	papers/pade/Makefile.inc \
+	papers/elliptisch/Makefile.inc \
+	papers/geradlinig/Makefile.inc \
+	papers/hankel/Makefile.inc \
+	papers/abb/Makefile.inc \
 	
