@@ -25,6 +25,11 @@ PAPERFILES = \
 	papers/zeta/main.tex \
 	papers/bessel/main.tex \
 	papers/buchberger/main.tex \
+	papers/moebius/main.tex \
+	papers/hauptwert/main.tex \
+	papers/konstruktion/main.tex \
+	papers/gamma/main.tex \
+	papers/pade/main.tex \
 	
 $(workdir)/buch1-blx.bbl:	$(workdir)/buch1-blx.aux
 	cd $(workdir); bibtex buch1-blx
@@ -129,10 +134,40 @@ $(workdir)/$(seminar)17-blx.bbl:	$(workdir)/$(seminar)17-blx.aux
 	cd $(workdir); bibtex $(seminar)17-blx
 
 $(workdir)/buch18-blx.bbl:	$(workdir)/buch18-blx.aux
-	cd $(workdir) bibtex buch18-blx
+	cd $(workdir); bibtex buch18-blx
 
 $(workdir)/$(seminar)18-blx.bbl:	$(workdir)/$(seminar)18-blx.aux
-	cd $(workdir) bibtex $(seminar)18-blx
+	cd $(workdir); bibtex $(seminar)18-blx
+
+$(workdir)/buch19-blx.bbl:	$(workdir)/buch19-blx.aux
+	cd $(workdir); bibtex buch19-blx
+
+$(workdir)/$(seminar)19-blx.bbl:	$(workdir)/$(seminar)19-blx.aux
+	cd $(workdir); bibtex $(seminar)19-blx
+
+$(workdir)/buch20-blx.bbl:	$(workdir)/buch20-blx.aux
+	cd $(workdir); bibtex buch20-blx
+
+$(workdir)/$(seminar)20-blx.bbl:	$(workdir)/$(seminar)20-blx.aux
+	cd $(workdir); bibtex $(seminar)20-blx
+
+$(workdir)/buch21-blx.bbl:	$(workdir)/buch21-blx.aux
+	cd $(workdir); bibtex buch21-blx
+
+$(workdir)/$(seminar)21-blx.bbl:	$(workdir)/$(seminar)21-blx.aux
+	cd $(workdir); bibtex $(seminar)21-blx
+
+$(workdir)/buch22-blx.bbl:	$(workdir)/buch22-blx.aux
+	cd $(workdir); bibtex buch22-blx
+
+$(workdir)/$(seminar)22-blx.bbl:	$(workdir)/$(seminar)22-blx.aux
+	cd $(workdir); bibtex $(seminar)22-blx
+
+$(workdir)/buch23-blx.bbl:	$(workdir)/buch23-blx.aux
+	cd $(workdir) bibtex buch23-blx
+
+$(workdir)/$(seminar)23-blx.bbl:	$(workdir)/$(seminar)23-blx.aux
+	cd $(workdir) bibtex $(seminar)23-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
@@ -153,6 +188,11 @@ BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch16-blx.bbl \
 	$(workdir)/buch17-blx.bbl \
 	$(workdir)/buch18-blx.bbl \
+	$(workdir)/buch19-blx.bbl \
+	$(workdir)/buch20-blx.bbl \
+	$(workdir)/buch21-blx.bbl \
+	$(workdir)/buch22-blx.bbl \
+	$(workdir)/buch23-blx.bbl \
 
 
 SBLXFILES = $(workdir)/$(seminar).bbl\
@@ -174,6 +214,11 @@ SBLXFILES = $(workdir)/$(seminar).bbl\
 	$(workdir)/$(seminar)16-blx.bbl \
 	$(workdir)/$(seminar)17-blx.bbl \
 	$(workdir)/$(seminar)18-blx.bbl \
+	$(workdir)/$(seminar)19-blx.bbl \
+	$(workdir)/$(seminar)20-blx.bbl \
+	$(workdir)/$(seminar)21-blx.bbl \
+	$(workdir)/$(seminar)22-blx.bbl \
+	$(workdir)/$(seminar)23-blx.bbl \
 
 
 PAPER_DIRECTORIES = \
@@ -194,6 +239,11 @@ PAPER_DIRECTORIES = \
 	zeta \
 	bessel \
 	buchberger \
+	moebius \
+	hauptwert \
+	konstruktion \
+	gamma \
+	pade \
 	
 PAPER_MAKEFILEINC = \
 	papers/aircraft/Makefile.inc \
@@ -213,4 +263,9 @@ PAPER_MAKEFILEINC = \
 	papers/zeta/Makefile.inc \
 	papers/bessel/Makefile.inc \
 	papers/buchberger/Makefile.inc \
+	papers/moebius/Makefile.inc \
+	papers/hauptwert/Makefile.inc \
+	papers/konstruktion/Makefile.inc \
+	papers/gamma/Makefile.inc \
+	papers/pade/Makefile.inc \
 	

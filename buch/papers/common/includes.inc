@@ -15,6 +15,11 @@ include papers/weyl/Makefile.inc
 include papers/zeta/Makefile.inc
 include papers/bessel/Makefile.inc
 include papers/buchberger/Makefile.inc
+include papers/moebius/Makefile.inc
+include papers/hauptwert/Makefile.inc
+include papers/konstruktion/Makefile.inc
+include papers/gamma/Makefile.inc
+include papers/pade/Makefile.inc
 
 TEXFILES = \
 	$(dependencies-aircraft) \
@@ -34,4 +39,9 @@ TEXFILES = \
 	$(dependencies-zeta) \
 	$(dependencies-bessel) \
 	$(dependencies-buchberger) \
+	$(dependencies-moebius) \
+	$(dependencies-hauptwert) \
+	$(dependencies-konstruktion) \
+	$(dependencies-gamma) \
+	$(dependencies-pade) \
 
