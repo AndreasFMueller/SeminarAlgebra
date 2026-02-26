@@ -3,7 +3,7 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	wege.pdf rechteck.pdf residuum.pdf argument.pdf lochgebiet.pdf
+all:	wege.pdf rechteck.pdf residuum.pdf argument.pdf lochgebiet.pdf homotopie.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -19,4 +19,7 @@ argument.pdf:	argument.tex
 
 lochgebiet.pdf:	lochgebiet.tex
 	pdflatex lochgebiet.tex
+
+homotopie.pdf:	homotopie.tex
+	pdflatex homotopie.tex
 

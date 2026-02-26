@@ -1,0 +1,105 @@
+%
+% homotopie.tex -- Homotopie eines Weges
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+X(\t,\s) = (1 - 3*\s - 1.2 * \s * \s) - sin(2*180*\t);
+Y(\t,\s) = 2*(2*\s + 1) + cos(180*\t) - 3;
+XX(\t,\s) = \t*(0)+(1-\t)*(6)+sin(180*\t)*X(\t,\s);
+YY(\t,\s) = \t*(0)+(1-\t)*(4)+sin(180*\t)*Y(\t,\s);
+}]
+
+\begin{scope}[xshift=5.5cm]
+	\coordinate (LL) at (-0.7,-0.7);
+	\coordinate (UR) at (6.7,6.0);
+
+	\fill[color=gray!10,rounded corners=0.5cm]  
+		(LL) rectangle (UR);
+	\node at ($(UR)+(-0.6,-0.6)$) {$U$};
+
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (6,4);
+
+	\foreach \s in {0.1,0.2,...,0.91}{
+		\draw[color=black,line width=0.4pt]
+			plot[domain=0:1,samples=100]
+				({XX(\x,\s)},{YY(\x,\s)});
+	}
+
+	\foreach \t in {0.1,0.2,...,0.91}{
+		\draw[color=black,line width=0.4pt]
+			plot[domain=0:1,samples=100]
+				({XX(\t,\x)},{YY(\t,\x)});
+	}
+
+	\draw[color=darkred]
+		plot[domain=0:1,samples=100]
+			({XX(\x,0)},{YY(\x,0)});
+	\draw[color=darkred]
+		plot[domain=0:1,samples=100]
+			({XX(\x,1)},{YY(\x,1)});
+
+	\fill[color=white] (A) circle[radius=0.05];
+	\draw[color=blue] (A) circle[radius=0.05];
+	\fill[color=white] (B) circle[radius=0.05];
+	\draw[color=blue] (B) circle[radius=0.05];
+
+	\node at (A) [left] {$A$};
+	\node at (B) [right] {$B$};
+
+	\node at (3,5.5) {$\gamma_1$};
+	\node at (4,0) {$\gamma_0$};
+
+\end{scope}
+
+\begin{scope}[yshift=1.2cm]
+	\xdef\einheit{3}
+	\foreach \t in {0.1,0.2,...,0.9}{
+		\draw[color=black,line width=0.4pt]
+			({\einheit*\t},0) -- ++(0,\einheit);
+		\draw[color=black,line width=0.4pt]
+			(0,{\einheit*\t}) -- ++(\einheit,0);
+	}
+	\draw[->] (-0.1,0) -- ({\einheit+0.5},0) coordinate[label={$t$}];
+	\draw[->] (0,-0.1) -- (0,{\einheit+0.5}) coordinate[label={right:$s$}];
+
+	\draw[color=darkred,line width=1.2pt] (0,0) -- (\einheit,0);
+	\draw[color=darkred,line width=1.2pt]
+		(0,\einheit) -- (\einheit,\einheit);
+
+	\draw[color=blue,line width=1.2pt] (0,0) -- (0,\einheit);
+	\draw[color=blue,line width=1.2pt] (\einheit,0) -- (\einheit,\einheit);
+	\fill[color=blue] (0,0) circle[radius=0.05];
+	\fill[color=blue] (\einheit,0) circle[radius=0.05];
+	\fill[color=blue] (0,\einheit) circle[radius=0.05];
+	\fill[color=blue] (\einheit,\einheit) circle[radius=0.05];
+
+	\node at (\einheit,0) [below] {$1$};
+	\node at (0,\einheit) [left] {$1$};
+	\node at (0,0) [below left] {$0$};
+
+	\def\w{0.8}
+	\def\h{0.4}
+	\fill[color=white,opacity=0.9]
+		({(\einheit-\w)/2},{(\einheit-\h)/2}) rectangle ++(\w,\h);
+	\node at ({\einheit/2},{\einheit/2}) {$I\times I$};
+
+	\draw[->] ({\einheit+0.3},{\einheit/2}) -- ++(2.0,0);
+	\node at ({\einheit+1.3},{\einheit/2}) [above] {$H$};
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
+

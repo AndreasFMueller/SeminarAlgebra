@@ -590,7 +590,8 @@ i
 \\
 &=
 -2i
-\iint_{R}
+%\iint_{R}
+\int\hspace*{-2mm}\int_{R}
 \frac12
 \biggl(
 \frac{\partial f}{\partial x}
@@ -600,7 +601,9 @@ i
 \biggr)
 \,dx\,dy
 =
--2i \iint_R 
+-2i
+\int\hspace*{-2mm}\int_R
+%\iint_R 
 \frac{\partial f}{\partial\bar{z}}
 \,dx\,dy
 \end{align*}
@@ -761,15 +764,20 @@ Wege ineinander deformieren lassen.
 Während der Deformation wird das Teilgebiet überstrichen.
 Wir versuchen jetzt, dieses Idee mit einer mathematisch präzisen
 Definition zu erfassen.
+\input{chapters/030-integration/fig/fig-homotopie.tex}
 
 \begin{definition}[Homotopie von Wegen]
-\definition{buch:integration:definition:homotpie}
+\label{buch:integration:definition:homotpie}
 Eine \emph{Homotopie} von Wegen $\gamma_0\colon I\to U$
 \index{Homotpie}%
 und
 $\gamma_1\colon I\to U$, $I=[0,1]$,
-in einem Gebiet $U$ ist eine
-Abbildung
+in einem Gebiet $U$
+mit gleichen Endpunkten
+$\gamma_0(0)=\gamma_1(0)$
+und
+$\gamma_0(1)=\gamma_1(1)$
+ist eine Abbildung
 \[
 H
 \colon
@@ -777,7 +785,11 @@ I\times I \to U
 :
 (s,t) \mapsto H(s,t)
 \]
-mit $H(0,t)=\gamma_0(t)$ und $H(1,t)=\gamma_1(t)$.
+mit $H(0,t)=\gamma_0(t)$ und $H(1,t)=\gamma_1(t)$
+und konstanten Endpunkten
+$H(s,0)=\gamma_i(0)$
+und
+$H(s,1)=\gamma_i(1)$.
 Zwei Wege $\gamma_i\colon I\to U$  heissen \emph{homotop}, in Zeichen
 \index{homotop}
 $\gamma_0\sim \gamma_1$, wenn es eine

@@ -34,6 +34,8 @@ PAPERFILES = \
 	papers/geradlinig/main.tex \
 	papers/hankel/main.tex \
 	papers/abb/main.tex \
+	papers/step/main.tex \
+	papers/resultante/main.tex \
 	
 $(workdir)/buch1-blx.bbl:	$(workdir)/buch1-blx.aux
 	cd $(workdir); bibtex buch1-blx
@@ -192,10 +194,22 @@ $(workdir)/$(seminar)26-blx.bbl:	$(workdir)/$(seminar)26-blx.aux
 	cd $(workdir); bibtex $(seminar)26-blx
 
 $(workdir)/buch27-blx.bbl:	$(workdir)/buch27-blx.aux
-	cd $(workdir) bibtex buch27-blx
+	cd $(workdir); bibtex buch27-blx
 
 $(workdir)/$(seminar)27-blx.bbl:	$(workdir)/$(seminar)27-blx.aux
-	cd $(workdir) bibtex $(seminar)27-blx
+	cd $(workdir); bibtex $(seminar)27-blx
+
+$(workdir)/buch28-blx.bbl:	$(workdir)/buch28-blx.aux
+	cd $(workdir); bibtex buch28-blx
+
+$(workdir)/$(seminar)28-blx.bbl:	$(workdir)/$(seminar)28-blx.aux
+	cd $(workdir); bibtex $(seminar)28-blx
+
+$(workdir)/buch29-blx.bbl:	$(workdir)/buch29-blx.aux
+	cd $(workdir) bibtex buch29-blx
+
+$(workdir)/$(seminar)29-blx.bbl:	$(workdir)/$(seminar)29-blx.aux
+	cd $(workdir) bibtex $(seminar)29-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
@@ -225,6 +239,8 @@ BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch25-blx.bbl \
 	$(workdir)/buch26-blx.bbl \
 	$(workdir)/buch27-blx.bbl \
+	$(workdir)/buch28-blx.bbl \
+	$(workdir)/buch29-blx.bbl \
 
 
 SBLXFILES = $(workdir)/$(seminar).bbl\
@@ -255,6 +271,8 @@ SBLXFILES = $(workdir)/$(seminar).bbl\
 	$(workdir)/$(seminar)25-blx.bbl \
 	$(workdir)/$(seminar)26-blx.bbl \
 	$(workdir)/$(seminar)27-blx.bbl \
+	$(workdir)/$(seminar)28-blx.bbl \
+	$(workdir)/$(seminar)29-blx.bbl \
 
 
 PAPER_DIRECTORIES = \
@@ -284,6 +302,8 @@ PAPER_DIRECTORIES = \
 	geradlinig \
 	hankel \
 	abb \
+	step \
+	resultante \
 	
 PAPER_MAKEFILEINC = \
 	papers/aircraft/Makefile.inc \
@@ -312,4 +332,6 @@ PAPER_MAKEFILEINC = \
 	papers/geradlinig/Makefile.inc \
 	papers/hankel/Makefile.inc \
 	papers/abb/Makefile.inc \
+	papers/step/Makefile.inc \
+	papers/resultante/Makefile.inc \
 	
