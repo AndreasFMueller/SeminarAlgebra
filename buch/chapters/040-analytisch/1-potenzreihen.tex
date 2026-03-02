@@ -259,19 +259,58 @@ entwickeln.
 % Integration der geometrischen Reihe
 %
 \subsection{Integration der geometrischen Reihe}
-Der Residuensatz ermöglich, mit Hilfe der geometrischen Reihe eine
-Potenzreihenentwicklung für die die Funktion $f(z)$ zu finden.
-Dazu erinnern wir uns daran, dass 
-\[
+Durch Integration der geometrischen Reihe entlang einer Kurve
+$\gamma$, kann eine auf dem Bild $\operatorname{im}\gamma = \gamma(I)$
+definierte Funktion $f\colon\gamma(I)\to\mathbb{C}$ zu einer
+Funktion erweitert werden, die automatisch holomorph und analytisch
+ist.
+
+\begin{satz}
+Sie $\gamma\colon I\to\mathbb{C}$ eine differenzierbare Kurve und $g$
+eine auf dem Bild $\operatorname{im}(\gamma)=\gamma(I)$ definierte 
+stetige komplexe Funktion.
+Dann ist die auf $\mathbb{C}\setminus\operatorname{im}\gamma$ definierte
+Funktion
+\begin{equation}
 f(z)
 =
-\oint_{\gamma}
-\frac{f(x)}{x-z\mathstrut}
-\,dx,
-\]
-wenn $\gamma$ ein Weg ist, der den Punkt $z$ im Gegenuhrzeigersinn
-einmal umwindet.
-Jetzt verwenden wir
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{x-z\mathstrut}\,dx
+\end{equation}
+holomorph.
+\end{satz}
+
+\begin{proof}
+Da das Integrationsgebiet kompakt ist und $f$ stetig ist, kann unter
+dem Integral differenziert werden.
+Es ergibt sich die Ableitung
+\begin{align*}
+f'(z)
+&=
+\frac{1}{2\pi i}
+\frac{d}{dz}
+\int_\gamma
+\frac{g(x)}{x-z\mathstrut}
+\,dx
+=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{d}{dz}
+\frac{g(x)}{x-z\mathstrut}
+\,dx
+=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{(x-z\mathstrut)^2}
+\,dx
+\end{align*}
+Insbesondere ist $f(z)$ komplex differenzierbar und damit $f$ holomorph.
+\end{proof}
+
+Andererseits kann man den Integranden mit der geometrischen Reihe
+entwickeln und termweise integrieren.
+Dazu verwenden wir
 \eqref{buch:analytisch:eqn:geometrisch1}
 und
 \eqref{buch:analytisch:eqn:geometrischintegriert}
@@ -280,8 +319,8 @@ und erhalten
 f(z)
 &=
 \frac{1}{2\pi i}
-\oint_\gamma
-\frac{1}{x-a}
+\int_\gamma
+\frac{g(x)}{x-a}
 \cdot
 \frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}
 \,dx
@@ -289,10 +328,9 @@ f(z)
 \\
 &=
 \frac{1}{2\pi i}
-\oint_\gamma
-\frac{1}{x-a}
+\int_\gamma
+\frac{g(x)}{x-a}
 \sum_{k=0}^\infty
-f(x)
 \biggl(
 \frac{z-a\mathstrut}{x-a\mathstrut}
 \biggr)^k
@@ -303,8 +341,8 @@ f(x)
 \sum_{k=0}^\infty
 \biggl(
 \frac{1}{2\pi i}
-\oint_\gamma
-\frac{f(x)}{(x-a)^{k+1}}
+\int_\gamma
+\frac{g(x)}{(x-a)^{k+1}}
 \,dx
 \biggr)
 (z-a)^k.
@@ -331,6 +369,37 @@ Dies wird erreicht, wenn
 \]
 auf der rechten Seite steht der kleinste Abstand des Punktes $a$ vom
 Weg $\gamma$.
+Wir fassen dieses Resultat im folgenden Satz zusammen.
+
+\begin{satz}
+Sei $\gamma\colon I\to\mathbb{C}$ eine Kurve in $\mathbb{C}$ und
+$f$ eine stetige Funktion auf dem Bild $\gamma(I)=\operatorname{im}\gamma$
+der Kurve.
+Dann ist die Funktion 
+\[
+f(z)
+=
+\int_{\gamma} \frac{g(x)}{x-z}\,dx
+\]
+analytisch und hat im Punkt $a\in\mathbb{C}\setminus \operatorname{im}\gamma$
+die Potenzreihenentwicklung
+\[
+f(z)
+=
+\sum_{k=0}^\infty
+\biggl(
+\frac1{2\pi i}
+\int_\gamma \frac{g(x)}{(x-a)^{k+1}}\,dx
+\biggr)
+(z-a)^k
+\]
+mit Konvergenzradius
+\[
+\varrho(a)
+=
+\inf\{ |\gamma(t)-a|\mid t\in I\}.
+\]
+\end{satz}
 
 %
 % Potenzreihenentwicklung einer holomorphen Funktion
@@ -339,12 +408,31 @@ Weg $\gamma$.
 Falls $\gamma$ ein geschlossener Weg ist, der sich genau einmal
 im Gegenuhrzeigersinn um den Punkt $a$ windet, lassen sich die
 Integrale auf der rechten Seite von \eqref{buch:analytisch:eqn:reihe}
-können mit Satz~\ref{buch:integration:satz:ableitungn}
+mit dem Satz~\ref{buch:integration:satz:ableitungn}
 berechnet.
-Sie ergeben
+Wegen
+\[
+f^{(k)}(z)
+=
+\frac{k!}{2\pi i}
+\oint_\gamma
+\frac{f(x)}{(x-z)^{k+1}}
+\,dx
+\]
+ergeben sie
 \begin{align*}
 f(z)
 &=
+\sum_{k=0}^{\infty}
+\biggl(
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(x)}
+{(x-a)^k}
+\,dx
+\biggr)
+(z-a)^k
+=
 \sum_{k=0}^\infty
 \frac{f^{(k)}(a)}{k!}
 (z-a)^k.
@@ -352,13 +440,21 @@ f(z)
 Damit ist die gefundene Potenzreihe der Funktion $f$ die
 Taylor-Reihe der Funktion $f$ im Punkt $a$.
 
-\begin{satz}
+\begin{satz}[holomorphe Funktionen sind analytisch]
 \label{buch:analytisch:satz:holomorph-analytisch}
 Eine holomorphe Funktion $f(z)$ ist analytisch, die Taylor-Reihe
 von $f$ im Punkt $a$ konvergiert.
 Der Konvergenzradius ist das Supremum der Radien von Kreisen um $a$,
 die vollständig im Definitionsbereich von $f$ enthalten sind.
 \end{satz}
+
+Wir wissen schon länger, dass analytische komplexe Funktionen auch
+holomorph sind, da eine Potenzreihe gliedweise differenziert werden
+kann.
+Der Satz zeigt jetzt, dass eine holomorphe Funktion immer auch
+analytisch ist.
+Dies ist eine Eigenschaft, die nicht für reelle analytische
+Funktionen gilt, wie im nachfolgenden Abschnitt gezeigt wird.
 
 %
 % Reelle differenzierbare Funktionen sind nicht alle analytisch

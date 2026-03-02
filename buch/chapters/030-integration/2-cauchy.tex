@@ -28,13 +28,13 @@ formalisiert diese Beobachtung.
 %
 \subsection{Wegintegrale über geschlossene Wege}
 \input{chapters/030-integration/fig/fig-residuum.tex}%
-Nach dem Homotpiesatz~\ref{buch:integration:satz:homotopie} von
-Abschnitt~\ref{buch:integration:wegintegral:subsection:homotopie}
+Nach dem Satz~\ref{buch:integration:wegintegral:satz:zusammenziehbar}
+von Abschnitt~\ref{buch:integration:wegintegral:subsection:homotopie}
 verschwindet das Integral einer holomorphen Funktion entlang eines
 zusammenziehbaren Weges.
 Wir betrachten jetzt eine holomorphe Funktion $f$ in einem Gebiet $U$
 und einen Punkt $z_0\in U$
-und einen zusammenziehbaren Weg $\gamma$, der den Punkt $z_0\in U$
+und einen Weg $\gamma$, der den Punkt $z_0\in U$
 einmal im Gegenuhrzeigersinn umläuft
 (siehe Abbildung\ref{buch:integration:fig:residuum}).
 Die Funktion
@@ -75,7 +75,7 @@ f(z_0)
 
 \begin{proof}
 Die Berechnung des Integrals
-\eqref{buch:integration:eqn:residuensatz1}
+\eqref{buch:integration:eqn:residuensatz}
 wird dadurch erschwert, dass der Weg $\gamma$ den Punkt $z_0$
 umläuft, der nicht im Definitionsgebiet liegt.
 Wir ergänzen ihn daher zu einem geschlossenen Weg, der ein
@@ -89,9 +89,13 @@ der Darstellung einen kleinen Abstand, in Wahrheit sollen diese beiden
 Wegstücke bis auf die Durchlaufrichtung identisch sein.
 Nach dem Homotpiesatz gilt jetzt
 \begin{equation}
-\int_{\gamma+\gamma_-
-+\gamma_1
-+\gamma_+
+\int_{\gamma
+\cdot
+\gamma_-
+\cdot
+\gamma_1
+\cdot
+\gamma_+
 }
 \frac{f(z)}{z-z_0}\,dz
 =

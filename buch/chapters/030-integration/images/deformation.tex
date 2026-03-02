@@ -1,0 +1,110 @@
+%
+% deformation.tex -- Deformation eines zusammenziehbaren Weges
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\def\a{5}
+\def\b{3}
+\def\c{-4}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+aX(\u) = \a * (cos(180 - 60 * \u) + 1);
+aY(\u) = \a * sin(180 - 60 * \u);
+tX(\u) =  sin(180 - 60 * \u);
+tY(\u) = -cos(180 - 60 * \u);
+nX(\u) =  cos(180 - 60 * \u);
+nY(\u) =  sin(180 - 60 * \u);
+Y(\u,\v) = aX(\v) + \b * (2 * \u - 1) * nX(\v) + \c * (0.5 - \u) * \u * \u * tX(\v);
+X(\u,\v) = aY(\v) + \b * (2 * \u - 1) * nY(\v) + \c * (0.5 - \u) * \u * \u * tY(\v);
+uu(\t,\s) = (\s * sin(360 * \t) + 1) / 2;
+vv(\t,\s) = \s * (1 - cos(360 * \t)) / 2;
+XX(\t,\s) = X(uu(\t,\s),vv(\t,\s));
+YY(\t,\s) = Y(uu(\t,\s),vv(\t,\s));
+}]
+
+%\foreach \s in {0,0.1,...,1.001}{
+%	\draw plot[domain=0:1] ({X(\x,\s)},{Y(\x,\s)});
+%}
+%
+%\foreach \t in {0,0.1,...,1.001}{
+%	\draw plot[domain=0:1] ({X(\t,\x)},{Y(\t,\x)});
+%}
+
+\foreach \s in {0.1,0.2,...,1}{
+	\draw[color=darkred!20,line width=0.7pt]
+		plot[domain=0:1,samples=100]
+			({XX(\x,\s)},{YY(\x,\s)});
+}
+
+\def\s{0.75}
+\def\tminus{0.498}
+\draw[color=blue,line width=1.2pt]
+	plot[domain=0:\tminus,samples=100] 
+		({XX(\x,\s)},{YY(\x,\s)})
+	--
+	plot[domain=\s:1]
+		({XX(\tminus,\x)},{YY(\tminus,\x)});
+
+\def\s{0.44}
+\def\tplus{0.502}
+\draw[color=blue,line width=1.2pt]
+	plot[domain=1:\s]
+		({XX(\tplus,\x)},{YY(\tplus,\x)})
+	--
+	plot[domain=\tplus:1,samples=100] 
+		({XX(\x,\s)},{YY(\x,\s)});
+
+\begin{scope}[xshift=-0.7cm,yshift=-2.5cm]
+	\draw[->] (-0.05,0) -- (7.3,0)
+		coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-0.05) -- (0,6.3)
+		coordinate[label={right:$\operatorname{Im}$}];
+\end{scope}
+
+\draw[color=darkgreen,line width=1.2pt]
+	plot[domain=0:1,samples=100]
+		({XX(0.5,\x)},{YY(0.5,\x)});
+
+% Kurve \gamma
+\draw[color=darkred,line width=1.2pt]
+	plot[domain=0:1,samples=200]
+		({XX(\x,1)},{YY(\x,1)});
+\node[color=darkred] at (3,3.4) {$\gamma(t) = H(t,1)$};
+
+% Punkt a
+\coordinate (A) at (0,0);
+\fill[color=darkred] (A) circle[radius=0.05];
+\node[color=darkred] at (A) [left] {$a$};
+
+% Punkt b
+\coordinate (B) at (4.33,2.5);
+\fill[color=darkred] (B) circle[radius=0.05];
+\node[color=darkred] at ($(B)+(0,-0.2)$) [above right] {$b=H(\frac12,1)$};
+
+\begin{scope}[xshift=2.0cm,yshift=0.1cm]
+	\node[color=darkgreen] (0,1) [rotate=20] {$s\mapsto H(\frac12,s)$};
+\end{scope}
+
+\begin{scope}[xshift=3.0cm,yshift=1.4cm]
+	\node[color=blue] (0,1) [rotate=40] {$s\mapsto H(t,s)$};
+\end{scope}
+
+\node[color=blue] at (1.2,1.6) {$t\mapsto H(t,s)$};
+
+\node[color=darkred] at (5,-1.8) {$\gamma_1$};
+\node[color=darkred] at (0.5,3) {$\gamma_2$};
+
+\end{tikzpicture}
+\end{document}
+

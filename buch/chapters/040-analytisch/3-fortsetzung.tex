@@ -153,6 +153,72 @@ a^1_k
 % Analytische Fortsetzung entlang einer Kurve
 %
 \subsection{Analytische Fortsetzung entlang einer Kurve}
+Sei $\gamma$ eine Kurve in der komplexen Ebene und $f$ eine
+Funktion, die in einer Umgebung des Punktes $\gamma(0)$ der
+Kurve holomorph ist.
+Die Funktion ist also in einem Kreis vom Radius $\varrho(\gamma(0))$
+um den Punkt $\gamma(0)$ analytisch.
+Nach \eqref{buch:analytisch:fortsetzung:eqn:taylor01}
+kann die Funktion $f(z)$ in jedem Punkt $\gamma(t)$ wieder in eine
+Potenzreihe mit Konvergenzradius $\varrho(\gamma(t))$ entwickelt
+werden, so dass die beiden Potenzreihen auf dem Schnittgebiet der
+beiden Konvergenzkreise übereinstimmen.
+Für einen Punkt $\gamma(t)$ nahe dem Rand des Konvergenzkreises 
+der Potenzreihe im Punkt $\gamma(0)$ kann der Konvergenzkreis
+der neuen Reihe über den Rand des alten Konvergenzkreises hinausragen.
+Die neue Potenzreihe erweitert also die Funktion über den ursprünglichen
+Konvergenzkreis hinaus.
+Indem dies entlang der Kurve immer wieder wiederholt wird, kann die
+Funktion auf ein Umgebung der Kurve ausgedehnt werden, wie dies zum
+für die Wurzelfunktion in
+Abbildung~\ref{buch:analytisch:fortsetzung:fig:wurzel2}
+illustriert wird.
+
+\begin{beispiel}
+Die Funktion $f(z)=\frac{1}{z}$ ist holomorph in $\mathbb{C}\setminus\{0\}$.
+Sie $\gamma(t)=e^{2\pi it}$ der Einheitskreis.
+Im Punkt $\gamma(0)=1$ kann die Funktion durch die geometrische Reihe
+\begin{equation}
+\frac{1}{z}
+=
+\frac{1}{1+(z-1)}
+=
+\sum_{k=0}^\infty (z-1)^k
+\label{buch:analytisch:fortsetzung:bsp:geom1}
+\end{equation}
+dargestellt werden, die in $B_1(1)$ konvergent ist.
+Der Punkt $\gamma(\frac{\pi}4)$ liegt innerhalb dieses Konvergenzkreises.
+Die Entwicklung
+\begin{equation}
+\frac{1}{z}
+=
+\frac{1}{a+(z-a)}
+=
+\frac1a \frac{1}{1+\displaystyle\frac{z-a}{a}}
+=
+\sum_{k=0}^\infty
+\frac{1}{a^k}(z-a)^k
+\label{buch:analytisch:fortsetzung:bsp:geoma}
+\end{equation}
+ist eine Potenzreihenentwicklung im Punkt $a$ mit Konvergenzradius $|a|$.
+Für $a=\gamma(\frac{\pi}4)$ ist die Reihe von
+\eqref{buch:analytisch:fortsetzung:bsp:geoma},
+die in einer Umgebung von $a$ mit der Reihe
+\eqref{buch:analytisch:fortsetzung:bsp:geom1}
+übereinstimmt.
+Der Punkt $i\in\mathbb{C}$ ist nicht im Konvergenzkreis der Reihe 
+\eqref{buch:analytisch:fortsetzung:bsp:geom1},
+der Wert $f(i)$ kann also damit nicht berechnet werden,
+wohl aber mit
+\eqref{buch:analytisch:fortsetzung:bsp:geoma}.
+\end{beispiel}
+
+Im Beispiel führt die analytische Fortsetzung entlang der Kurve 
+nach einem Umlauf wieder zur selben Entwicklung
+\eqref{buch:analytisch:fortsetzung:bsp:geom1}
+im Punkt $1$.
+Dies ist jedoch nicht selbstverständlich, wie die Beispiele
+im kommenden Abschnitt zeigen werden.
 
 %
 % Überlagerungen der komplexen Ebene
