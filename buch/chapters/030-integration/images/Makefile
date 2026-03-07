@@ -13,7 +13,8 @@ all:	wege.pdf							\
 	beliebig.pdf							\
 	green.pdf							\
 	deformation.pdf							\
-	cauchyverteilung.pdf
+	cauchyverteilung.pdf						\
+	ecos.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -47,4 +48,7 @@ deformation.pdf:	deformation.tex
 
 cauchyverteilung.pdf:	cauchyverteilung.tex
 	pdflatex cauchyverteilung.tex
+
+ecos.pdf:	ecos.tex
+	pdflatex ecos.tex
 
