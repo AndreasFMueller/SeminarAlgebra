@@ -3,13 +3,42 @@
 Julia-Mengen und Fatou-Mengen entstehen aus der Überlegung was geschieht, wenn man eine Funktion $f$ wiederholt auf ein $z \in \mathbb{C}$ anwendet.
 Hierraus ergibt sich für jedes $z$ eine Folge komplexer Zahlen
 \begin{equation*}
-    z \rightarrow f(z) \rightarrow f(f(z)) \rightarrow \ldots \:.
+    z \rightarrow f(z) \rightarrow f(f(z)) \rightarrow \ldots \:,
+\end{equation*}
+bzw.
+\begin{equation*}
+    z_{n + 1} = f(z_n) \quad \text{mit}\: n \in \mathbb{N}_0\: \text{und einem Startwert}\: z_0.
 \end{equation*}
 
-Je nach Wahl des Startwerts $z$ kann diese Folge zwei Verhalten zeigen:
+Je nach Wahl des Startwerts $z_0$ kann diese Folge zwei Verhalten zeigen:
 \begin{enumerate}
-    \item Eine kleine Änderung des Startwerts führt zur praktisch derselben Folge. Der Wert $z$ wird der Fatou-Menge von $f$ zugeordnet.
-    \item Eine kleine Änderung des Startwerts führt zu einer komplett anderen Folge. In diesem Fall wird $z$ der Julia-Menge von $f$ zugeordnet.
+    \item Eine kleine Änderung des Startwerts führt zur praktisch derselben Folge. Der Wert $z_0$ wird der Fatou-Menge von $f$ --- $F_f$ --- zugeordnet.
+    \item Eine kleine Änderung des Startwerts führt zu einer komplett anderen Folge. In diesem Fall wird $z_0$ der Julia-Menge von $f$ --- $J_f$ --- zugeordnet.
 \end{enumerate}
+
+\subsection{Definition Julia-Mengen}
+Um die obige Definition zu formalisieren, werden zyklische Folgen betrachtet.
+Diese entstehen, falls $z_n = z_0$ für ein $n$, in dem Fall wird $z_0$ als \emph{periodischer Punkt} bezeichnet.
+Ist $n$ die kleinste natürliche Zahl mit dieser Eigenschaft, so heisst $n$ die \emph{Periode} des Zyklus.
+Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist $z_0$ ein Fixpunkt von $f$.
+
+Aus diesen Definitionen geht hervor, dass ein periodischer Punkt von $f$ mit Periode $n$ gleichzeitig ein Fixpunkt der $n$-mal komposierten Funktion $f^n$ ist.
+
+Sei $z_0$ ein periodischer Punkt von $f$ mit Periode $n$, weiter sei
+\begin{equation*}
+    \lambda = \left(f^n\right)^\prime(z_0).
+\end{equation*}
+Der periodische Punkt $z_0$ heisst nun
+\begin{itemize}
+    \item \emph{stark anziehend}, wenn $\lambda = 0$,
+    \item \emph{anziehend}, wenn $0 < \left|\lambda\right| < 1$,
+    \item \emph{indifferent}, wenn $\left|\lambda\right| = 1$,
+    \item \emph{abstosstend}, wenn  $\left|\lambda\right| > 1$.
+\end{itemize}
+
+%% TODO: Namensgebung erläutern
+%% TODO: Definition Julia-Mengen
+
+\subsection{Definition Fatou-Mengen}
 
 
