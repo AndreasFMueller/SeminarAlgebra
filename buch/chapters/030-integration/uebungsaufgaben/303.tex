@@ -1,0 +1,33 @@
+Finden Sie das Integral
+\[
+\int_\gamma \sin z \,dz
+=
+\int_\gamma \frac{e^{iz}-e^{-iz}}{2i} \,dz
+\]
+entlang einem Weg, der der Parabel $y?x^2$ von $0$ bis zum Punkt $1+i$
+folgt.
+
+\begin{loesung}
+Der Weg kann durch
+\[
+\gamma(t)
+=
+t + it^2
+\]
+parametrisiert werden.
+Damit wird das Wegintegral
+\begin{align*}
+\int_\gamma \sin z\,dz
+&=
+\int_0^1 \frac{e^{i(t+it^2)}-e^{-i(t+it^2)}}{2i}\,(1+2it)\,dt
+\\
+&=
+\frac{1}{2i}
+\int_0^1 
+\bigl(
+e^{-t^2}(\cos t+i\sin t) - e^{t^2}(\cos t-i\sin t)
+\bigr)
+(1+2it)
+\,dt
+\end{align*}
+\end{loesung}
