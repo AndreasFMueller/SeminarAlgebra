@@ -1,0 +1,107 @@
+Betrachten Sie die Funktion $f(z)$ mit
+\[
+f(x+iy)
+=
+e^x (\cos y + i \sin y)
+=
+\underbrace{e^x\cos y}_{\clap{$\displaystyle =u(x,y)$}}
+\mathstrut + i
+\underbrace{e^x\sin y}_{\clap{$\displaystyle =v(x,y)$}},
+\]
+\begin{teilaufgaben}
+\item
+Prüfen Sie nach, dass $u(x,y)$ und $v(x,y)$ die
+Cauchy-Riemann-Differentialgleichungen erfüllen.
+\item
+Zeigen Sie, dass die Funktion für reelle Argumente mit der
+(reellen) Exponentialfunktion übereinstimmt und damit eine
+komplexe Verallgemeinerung der Exponentialfunktion ist.
+\item
+Berechnen Sie die komplexe Ableitung aus $u$ und $v$ einerseits als
+partielle Ableitung nach $x$ und andererseits als $1/i$ mal die
+partielle Ableitung nach $y$ und überzeugen Sie sich, dass Sie
+dasselbe erhalten.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Ableitungen sind
+\begin{equation}
+\left.
+\begin{aligned}
+\frac{\partial u}{\partial x}
+&=
+\phantom{-}
+e^x \cos y,
+&
+\frac{\partial u}{\partial y}
+&=
+-
+e^x \sin y
+\\
+\frac{\partial v}{\partial x}
+&=
+\phantom{-}
+e^x\sin y,
+&
+\frac{\partial v}{\partial y}
+&=
+\phantom{-}
+e^x \cos y
+\end{aligned}
+\right\}
+\Rightarrow
+\left\{
+\begin{aligned}
+\frac{\partial u}{\partial x}&=\phantom{-}\frac{\partial v}{\partial y}
+\\
+\frac{\partial u}{\partial y}&=-\frac{\partial v}{\partial x}
+\end{aligned}
+\right.
+\end{equation}
+\item
+Für $y=0$
+folgt
+\[
+f(x)
+=
+e^x(\cos 0 + i \sin 0)
+=
+e^x,
+\]
+wie behauptet.
+\item
+Die Ableitungen sind einerseits
+\begin{align*}
+\frac{df(z)}{dz}
+&=
+\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}
+\\
+&=
+e^x\cos y + ie^x \sin y
+=
+e^x(\cos y+i\sin y)
+=
+f(z),
+\intertext{und andererseits}
+&=
+\frac{1}{i}
+\frac{\partial u}{\partial y}
++\frac{\partial v}{\partial y}
+\\
+&=
+-i
+(-e^x\sin y) + e^x \cos y
+=
+e^x(\cos y+i\sin y)
+=
+f(z)
+\end{align*}
+Wie erwartet ist $f'(z)=f(z)$ und damit erfüllt $f(z)$ die
+Differentialgleichung der Exponentialfunktion.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+

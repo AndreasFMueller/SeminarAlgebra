@@ -1,0 +1,66 @@
+Betrachten Sie die Funktion $f(z)$ mit
+\[
+f(x+iy)
+=
+e^x(\cos x + i\sin y)
+\]
+und zeigen Sie, dass Real- und Imaginärteil jeweils harmonische Funktionen
+sind.
+
+\begin{loesung}
+Real- und Imaginärteil sind
+\begin{align*}
+u(x,y) &= e^x\cos y
+&&\text{bzw.} &
+v(x,y) &= e^x\sin y
+\end{align*}
+Wir müssen jetzt die zweiten Ableitungen von $u$ und $v$ bestimmen:
+\begin{align*}
+&
+\left.
+\begin{aligned}
+\frac{\partial u}{\partial x} &= \phantom{-}e^x\cos y
+&&\Rightarrow&
+\frac{\partial^2 u}{\partial x^2} &= \phantom{-}e^x\cos y
+\\
+\frac{\partial u}{\partial y} &= -e^x \sin y
+&&\Rightarrow&
+\frac{\partial^2 u}{\partial y^2} &= -e^x \cos y
+\end{aligned}
+\right\}
+&&\Rightarrow&
+\Delta u
+&=
+\frac{\partial^2u}{\partial x^2}
++
+\frac{\partial^2u}{\partial y^2}
+=
+e^x(\cos y - \cos y)
+=
+0
+\\
+&
+\left.
+\begin{aligned}
+\frac{\partial v}{\partial x} &= \phantom{-}e^x \sin y
+&&\Rightarrow&
+\frac{\partial^2 v}{\partial x^2} &= \phantom{-}e^x\, \rlap{$\sin y$}\phantom{\cos y}
+\\
+\frac{\partial v}{\partial y} &= \phantom{-}e^x \cos y
+&&\Rightarrow&
+\frac{\partial^2 v}{\partial y^2} &= -e^x\, \rlap{$\sin y$}\phantom{\cos y}
+\end{aligned}
+\right\}
+&&\Rightarrow&
+\Delta u
+&=
+\frac{\partial^2u}{\partial x^2}
++
+\frac{\partial^2u}{\partial y^2}
+=
+e^x(\sin y - \sin y)
+=
+0.
+\end{align*}
+Somit sind beide Funktionen harmonisch.
+\end{loesung}
