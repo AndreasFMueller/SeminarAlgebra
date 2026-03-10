@@ -1,0 +1,75 @@
+Finden Sie eine Lösung der Differentialgleichung
+\[
+zy''(z) + by'(z) - y(z) = 0
+\]
+mit der Anfangsbedingung $y(0) = 1$ als Potenzreihe.
+
+\begin{loesung}
+Wir verwenden einen Ansatz als Potenzreihe für die Funktion $y(z)$
+und berechnen die Ableitungen
+\[
+\renewcommand{\arraycolsep}{1pt}
+\begin{array}{rcrcrcrcrcrcrcrcl}
+   y(z) &=&  a_0 &+&        a_1z &+&         a_2z^2 &+&         a_3z^3 &+&         a_4z^4 &+&        a_5z^5 &+&       a_kz^k  &+& \dots\\
+ by'(z) &=& ba_1 &+&      2ba_2z &+&       3ba_3z^2 &+&       4ba_4z^3 &+&       5ba_5z^4 &+&      6ba_6z^5 &+& (k+1)ba_{k+1} &+& \dots\\
+zy''(z) &=&      & & 2\cdot1a_2z &+& 3\cdot 2a_3z^2 &+& 4\cdot 3a_2z^3 &+& 5\cdot 4a_5z^4 &+& 6\cdot5a_6z^5 &+& (k+1)ka_{k+1} &+& \dots
+\end{array}
+\]
+Die Differentialgleichung kann man auch in der Form
+\[
+zy''(z) + by'(z) = y(z)
+\]
+schreiben.
+Setzt man die Potenzreihen in diese Form der Gleichung ein, erhält man die
+Rekursionsgleichung
+\[
+ba_1=a_0
+\qquad\text{und}\qquad
+(k+1)(b+k)a_{k+1} = a_k
+\]
+für $k>0$.
+Durch Auflösen nach $a_{k+1}$ erhalten wir
+\[
+a_{k+1}
+=
+\frac{1}{(b+k)(k+1)} a_k,
+\]
+welche für $k=0$ auch mit der unabhängig gewonnenen Bedingung
+$a_1=a_0/b$ übereinstimmt.
+Daraus kann man ableiten
+\[
+a_k
+=
+\frac{1}{b(b+1)\cdots(b+k-1)\cdot k!} a_0.
+\]
+Der erste Teil des Nenners ist das sogenannte Pochhammer-Symbol
+\[
+(b)_k
+=
+b(b+1)(b+2)\cdots (b+k-1),
+\]
+damit kann man den Koeffizienten $a_k$ schreiben als
+\[
+a_k = \frac{1}{(b)_k\cdot k!}a_0.
+\]
+Die Lösungsfunktion ist daher
+\[
+y(z)
+=
+a_0
+\sum_{k=0}^\infty
+\frac{1}{(b)_k\cdot k!} z^k.
+\]
+Die Reihe auf der rechten Seite ist bekannt als die hypergeometrische
+Funktion
+\[
+\prescript{}{0}F_1\biggl(\begin{matrix}\text{---}\\b\end{matrix};z\biggr)
+=
+\prescript{}{0}F_1(\text{---};b;z\biggr)
+=
+\sum_{k=0}^\infty
+\frac{1}{(b)_k\cdot k!} z^k.
+\]
+Die Lösung der Differentialgleichung ist daher die Funktion
+$ y(z) = a_0 \prescript{}{0}F_1(\text{---};b;z)$.
+\end{loesung}
