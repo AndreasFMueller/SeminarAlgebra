@@ -1,0 +1,123 @@
+Die Logarithmusfunktion $y(z) = \log (1+z)$ erfüllt die Differentialgleichng
+\begin{equation}
+(1+z)y'(z) = 1.
+\label{buch:differentialgleichungen:501:eqn:dgl}
+\end{equation}
+Verwenden Sie einen Potenzreihenansatz, um eine Potenzreihe für $\log(1+z)$
+zu finden.
+
+\begin{loesung}
+Wir schreiben die Potenzreihe als
+\[
+y(z)
+=
+\sum_{k=0}^\infty
+a_k z^k
+\]
+und bilden die Ableitung
+\[
+y'(z)
+=
+\sum_{k=1}^\infty
+a_k k z^{k-1}
+=
+\sum_{l=0}^\infty
+a_{l+1}(l+1)z^l.
+\]
+Diese Reihe setzen wir jetzt in die Differentialgleichung
+\eqref{buch:differentialgleichungen:501:eqn:dgl}
+ein und erhalten
+\begin{align}
+1
+&=
+(1+z)
+\sum_{l=0}^\infty
+a_{l+1}(l+1)z^l
+\notag
+\\
+&=
+\sum_{l=0}^\infty
+a_{l+1}(l+1)z^l
++
+\sum_{l=0}^\infty
+a_{l+1}(l+1)z^{l+1}
+\notag
+\\
+&=
+a_1
++
+\sum_{l=1}^\infty
+a_{l+1}(l+1)z^l
++
+\sum_{l=1}^\infty
+a_{l}lz^l
+\notag
+\\
+&=
+a_1
++
+\sum_{l=1}^\infty
+(a_{l+1}(l+1)+a_{l}l)z^l.
+\label{buch:differentialgleichungen:501:eqn:reihe}
+\end{align}
+Durch Koeffizientenvergleich kann man aus
+\eqref{buch:differentialgleichungen:501:eqn:reihe}
+die Rekursionsbeziehung
+\[
+a_{l+1} = -\frac{l}{l+1} a_l
+\quad\text{mit der Anfangsbedingung}\quad a_1=1
+\]
+ablesen.
+Sie hat die Lösung
+\[
+a_l
+=
+(-1)^{l+1}\frac{1}{l} a_1,
+\]
+denn sie erfüllt einerseits die Anfangsbedingung und andererseits
+wegen
+\[
+a_{l+1}
+=
+-\frac{l}{l+1}
+\biggl(
+(-1)^{l+1}\frac{1}{l}
+\biggr)
+=
+(-1)^{l+1+1}
+\frac{1}{l}
+\frac{l}{l+1}
+=
+(-1)^{l+2}
+\frac{1}{l+1}
+\]
+die Rekursionsgleichung.
+Die gesuchte Differentialgleichung ist daher
+\[
+\log(1+z)
+=
+z
+-\frac{z^2}{2}
++\frac{z^3}{3}
+-\frac{z^4}{4}
++\frac{z^5}{5}
+-\frac{z^6}{6}
++\frac{z^7}{7}
+-\frac{z^8}{8}
++\frac{z^9}{9}
+-\dots
+\]
+Natürlich kann diese Reihe auch aus der umgeformten Differentialgleichung
+\[
+y'(z)
+=
+\frac{1}{1+z}
+=
+\sum_{k=0}^\infty (-1)^kz^k
+=
+1-z+z^2-z^3+z^4-z^5+z^6-z^7+z^8-\dots
+\]
+durch gliedweise Integration erhalten werden
+\end{loesung}
+
+
