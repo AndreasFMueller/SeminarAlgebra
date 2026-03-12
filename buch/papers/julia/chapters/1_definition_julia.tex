@@ -7,17 +7,17 @@ Hierraus ergibt sich für jedes $z$ eine Folge komplexer Zahlen
 \end{equation*}
 bzw.
 \begin{equation*}
-    z_{n + 1} = f(z_n) \quad \text{mit}\: n \in \mathbb{N}_0\: \text{und einem Startwert}\: z_0.
+    z_{n + 1} = f(z_n) \quad \text{mit}\: n \in \mathbb{N}_0\: \text{und einem Startwert}\: z_0 \in \overline{\mathbb{C}} = \mathbb{C} \cup \infty.
 \end{equation*}
 
 Je nach Wahl des Startwerts $z_0$ kann diese Folge zwei Verhalten zeigen:
 \begin{enumerate}
-    \item Eine kleine Änderung des Startwerts führt zur praktisch derselben Folge. Der Wert $z_0$ wird der Fatou-Menge von $f$ --- $F_f$ --- zugeordnet.
-    \item Eine kleine Änderung des Startwerts führt zu einer komplett anderen Folge. In diesem Fall wird $z_0$ der Julia-Menge von $f$ --- $J_f$ --- zugeordnet.
+    \item Eine kleine Änderung des Startwerts führt zur praktisch derselben Folge. Der Wert $z_0$ wird der Fatou-Menge $F_f$ von $f$ zugeordnet.
+    \item Eine kleine Änderung des Startwerts führt zu einer komplett anderen Folge. In diesem Fall wird $z_0$ der Julia-Menge $J_f$ von $f$ zugeordnet.
 \end{enumerate}
 
 \subsection{Definition Julia-Mengen}
-Um die obige Definition zu formalisieren, werden zyklische Folgen betrachtet.
+Um die obige Definition zu verdeutlichen, werden zyklische Folgen betrachtet.
 Diese entstehen, falls $z_n = z_0$ für ein $n$, in dem Fall wird $z_0$ als \emph{periodischer Punkt} bezeichnet.
 Ist $n$ die kleinste natürliche Zahl mit dieser Eigenschaft, so heisst $n$ die \emph{Periode} des Zyklus.
 Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist $z_0$ ein Fixpunkt von $f$.
@@ -36,9 +36,40 @@ Der periodische Punkt $z_0$ heisst nun
     \item \emph{abstosstend}, wenn  $\left|\lambda\right| > 1$.
 \end{itemize}
 
-%% TODO: Namensgebung erläutern
-%% TODO: Definition Julia-Mengen
+Diese Namensgebungen lassen sich an der Funktion $f(z) = z^2$ charakterisieren.
+Diese Funktion hat drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z) = z$.
+Mittels der Kettenregel können nun die Lambdas $\lambda_0 = 0$ und $\left|\lambda_1\right| \to \infty$ berechnet werden.
+Für $\lambda_\infty$ muss zunächst die Funktion $g(z) = \frac{1}{f(z)}$ herangezogen werden.
+Die Funktion $g$ hat einen Fixpunkt bei $z = 0$, der sich gleich verhält, wie der Fixpunkt $z \to \infty$ von $f$.
+Somit ist $\lambda_\infty = \left(g^n\right)^\prime(0) = 0$.
+
+Gemäss der Namensgebungen sind die Fixpunkte bei $0$ und $\infty$ \emph{stark anziehend}, während $1$ \emph{abstossend} ist.
+Alle Startwerte, deren Betrag kleiner als $1$ ist, konvergieren gegen $0$ und alle Startwerte, deren Betrag größer als $1$ ist, konvergieren gegen $\infty$.
+
+Aus diesem Ergebnis lassen sich nun Julia-Mengen definieren.
+Wählt man den Startwert $z_0 = 1$ und verändert diesen ganz leicht, erhält man, bei mehrmaligem Anwenden von $f$, sofort eine ganz andere Folge, die statt gegen $1$ entweder gegen $0$ oder $\infty$ konvergiert.
+Das gleiche Verhalten tritt auf für alle $|z| = 1$.
+Für alle Startwerte $|z| \neq 1$ erhält man durch leichtes Verändern mehr oder weniger die gleiche Folge.
+Damit und anhand der Beschreibung am Anfang des Abschnitts \ref{sec:julia}, ist die Julia-Menge von $f$ der Rand des Einheitskreises
+\begin{equation*}
+    J_f = \left\{z \in \overline{\mathbb{C}}\:\colon\:|z| = 1\right\},
+\end{equation*}
+bzw. allgemeiner
+\begin{equation*}
+    J_f \coloneqq \text{Abschluss}\left\{z \in \overline{\mathbb{C}}\:\colon\:z\text{ ist ein abstossender periodischer Punkt von f}\right\}.
+\end{equation*}
+Wobei \emph{Abschluss} sich auf den topologischen Abschluss bezieht \cite{julia:abschluss}.
 
 \subsection{Definition Fatou-Mengen}
-
+Die Definition der Fatou-Mengen lässt sich direkt aus dem obigen Beispiel der Funktion $f(z) = z^2$ herleiten.
+Wie bereits beschrieben, gehören alle Startwerte auf dem Rand des Einheitskreises zur Julia-Menge.
+Für alle anderen Startwerte, d.h. $|z| \neq 1$, erhält man, durch leichtes Verändern, mehr oder weniger die gleichen Folgen.
+Folglich lässt sich die Fatou-Menge als
+\begin{equation*}
+    F_f = \left\{z \in \overline{\mathbb{C}}\:\colon\:|z| \neq 1\right\}
+\end{equation*}
+definieren oder allgemein formuliert
+\begin{equation*}
+    F_f \coloneqq \overline{\mathbb{C}} \setminus J_f.
+\end{equation*}
 
