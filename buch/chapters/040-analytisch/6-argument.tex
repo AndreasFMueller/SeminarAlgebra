@@ -1,0 +1,250 @@
+%
+% 6-argument.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Argumentprinzip
+\label{buch:integration:section:argumentprinzip}}
+Das Argument einer komplexen Zahl $z$ ist der Winkel $\varphi$,
+mit dem $z=|z|\,e^{i\varphi}$ rekonstruiert werden kann.
+Dieser ist nur bis auf ein Vielfaches von $2\pi$ bestimmt.
+Diese Flexibilität wird benötigt, um die Entwicklung des
+Arguments entlang einer Kurve zu untersuchen.
+In Abschnitt~\ref{buch:integration:cauchy:subsetion:umlaufzahl}
+wurde die Umlaufzahl als Integral mithilfe des Cauchy-Integrals
+berechnet.
+In diesem Abschnitt soll jetzt gezeigt werden, dass das Bild
+einer geschlossenen Kurve die Information darüber enthält, wieviele
+Nullstellen und Polstellen eine meromorphe Funktion hat.
+
+%
+% Das Argumentintegral für f(z) = z^n
+%
+\subsection{Das Argumentintegral für $f(z)=z^n$
+\label{buch:analytisch:argument:subsection:zn}}
+Wir betrachten zunächst die Funktionen $f(z)=z^n$ und berechnen 
+das Integral
+\begin{equation}
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{nz^{n-1}}{z^n}
+\,dz
+=
+n\cdot
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{1}{z}
+\,dz
+\label{buch:analytisch:argument:eqn:argumentintegral}
+\end{equation}
+für eine Kurve $\gamma$, die den Nullpunkt nicht trifft und ihn
+genau einmal im Gegenuhrzeigersinn umläuft.
+Da $f'(z)/f(z)$ ausserhalb des Nullpunkts holomorph ist, können
+wir den Weg auch durch den Einheitskreis $t\mapsto e^{2\pi it}$
+ersetzen und werden den gleichen Wert für das Integral erhalten,
+nämlich
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz
+&=
+n\cdot
+\frac{1}{2\pi i}
+\int_0^1
+\frac{1}{e^{2\pi it}}
+2\pi ie^{2\pi it}
+\,dt
+=
+n
+\int_0^1\,dt
+=
+n.
+\end{align*}
+Das \emph{Argumentintegral}
+\eqref{buch:analytisch:argument:eqn:argumentintegral}
+liefert also die Ordnung eines Poles oder einer Nullstelle.
+
+Die letzte Beobachtung soll noch etwas vertieft werden.
+Wir betrachten eine holomorphe Funktion $f(z)$ mit einem
+singulären Punkt endlicher Ordnung in $0$.
+Für eine Nullstelle der Ordnung $n$ kann die Funktion $f$
+als
+\[
+f(z)
+=
+z^n\, g(z)
+\]
+geschrieben, werden, wobei $g(z)$ eine holomorphe Funktion
+ist, die im Nullpunkt nicht verschwindet.
+Da Nullstellen isoliert sind, verschwindet $g(z)$ auch in
+einer genügend kleinen Umgebung von $0$ nicht.
+
+Die Ableitung
+\[
+f'(z)
+=
+nz^{n-1}g(z) + z^ng'(z).
+\]
+eine holomorphe Funktion.
+Da Argumentintegral über einen kleine Kreis $\gamma$ um den
+Nullpunkt ist
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f'(z)}{f(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{nz^{n-1}g(z)+z^ng'(z)}{z^ng(z)}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{n}{z}
++
+\frac{g'(z)}{g(z)}
+\,dz.
+\intertext{Der zweite Term im Integral ist eine holomorphe Funktion
+auch im Punkt $0$, der Weg $\gamma$ ist also in im Definitionsgebiet
+von $g'(z)/g(z)$ zusammenziehbar und das Integral verschwindet.
+Es bleibt daher}
+&=
+n\cdot
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z}
+\,dz
+=
+n,
+\end{align*}
+wie früher bereits ausgerechnet wurde.
+
+Hat die Funktion $f(z)$ einen Pol der Ordnung $n$, dann kann sie als
+\[
+f(z) = \frac{1}{z^n}g(z)
+\]
+geschrieben werden, wobei $g$ eine in einer Umgebung von $0$ holomorphe
+Funktion ist, die keine Nullstellen oder Pole nahe bei $0$ hat.
+Die Ableitung von $f$ ist
+\[
+f'(z)
+=
+-
+\frac{n}{z^{n+1}}g(z)
++
+\frac{1}{z^n}g'(z).
+\]
+Für diese Funktion ist das Argumentintegral
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f'(z)}{f(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{
+-
+nz^{-(n+1)}g(z)
++
+z^{-n}g'(z)
+}{
+z^{-n}\,g(z)
+}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+-
+\frac{n}{z}
++
+\frac{g'(z)}{g(z)}
+\,dz.
+\intertext{Wie im Fall einer Nullstelle ist der Weg $\gamma$
+im Definitionsbereich des zweiten Terms Integranden zusammenziehbar,
+der zweite Term trägt daher nichts zum Integral bei.
+Für den ersten Term findet man}
+&=
+-n\cdot
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z}
+\,dz.
+\end{align*}
+Damit ist in beiden Fällen gezeigt, dass 
+\[
+\omega(0;f)
+=
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz
+\]
+gilt.
+Wir haben damit den folgenden Satz bewiesen.
+
+\begin{satz}
+\label{buch:analytisch:argument:satz:ordnung}
+Sei $f$ eine holomorphe Funktion mit einer isolierten Singularität
+an der Stelle $a\in\mathbb{C}$.
+Sei $\gamma$ ein kleiner Kreis, der den Punkt $a$ einmal im
+Gegenuhrzeigersinn umläuft.
+Er sei zudem so klein, dass er keine anderen Null- oder Polstellen
+von $f$ als $a$ enthält.
+Dann gilt
+\[
+\omega(a;f)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{f(z)}{f'(z)}
+\,dz.
+\]
+\end{satz}
+
+%
+% Das Argumentprinzip für beliebige meromorphe Funktionen
+%
+\subsection{Das Argumentprinzip für beliebige meromorphe Funktionen}
+Der Satz~\ref{buch:analytisch:argument:satz:ordnung}
+liefert Information für eine einzelne isolierte Singularität.
+Wir möchten jetzt zeigen, dass sich die Schlussfolgerung auch
+verallgemeinern lässt auf einen Weg, der mehr als eine Null-
+oder Polstelle der Funktion $f$ umschliesst.
+
+\begin{satz}
+Sei jetzt $f$ ein meromorphe Funktion und $\gamma$ ein einfach
+geschlossener Weg in $\mathbb{C}$, der keine Nullstellen oder Polstellen
+von $f$ trifft.
+Dann gilt
+\[
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{f'(z)}
+\,dz
+=
+\sum_{\text{$a$ Singularität von $f$}}
+\omega(a;f),
+\]
+wobei die Summe über alle Null- oder Polstellen $a$ von $f$ 
+zu erstrecken ist.
+\end{satz}
+
+\begin{proof}
+Nach Satz~\ref{XXX} ist das Wegintegral über $\gamma$ gleich
+gross wie die Summe der Integrale über kleine, im Gegenuhrzeigersinn
+durchlaufene Kreise um die einzelnen Singularitäten.
+Die Summanden haben nach
+Satz~\ref{buch:analytisch:argument:satz:ordnung}
+den Wert $\omega(a;f)$.
+Damit ist der Satz bewiesen.
+\end{proof}
+

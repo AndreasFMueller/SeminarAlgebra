@@ -67,6 +67,7 @@ einer Funktion schränkt ein, wie gross die Koeffizienten werden
 können.
 
 \begin{satz}[Cauchy-Ungleichung]
+\label{buch:analytisch:ganz:satz:cauchy-ungleichung}
 Sei $f$ ein holomorphe Funktion, die einem offenen Gebiet definiert
 ist, welches die abgeschlossene Kreisscheibe vom Radius $r$ um den
 Nullpunkt enthält.
@@ -129,6 +130,7 @@ Dies ist die behauptete Ungleichung.
 \end{proof}
 
 \begin{satz}[Liouville]
+\label{buch:analytisch:ganz:satz:liouville}
 Sei $f(z)$ eine ganze Funktion und seien $a\in\mathbb{R}$ und
 $N\in\mathbb{N}$ Zahlen mit der Eigenschaft, dass
 \[
@@ -239,11 +241,12 @@ Dazu schreiben wir
 Wenn $|z|$ gross genug ist, dann ist die $1$ auf der rechten Seite
 der dominierende Term.
 Wählt man $r$ so gross, dass für alle $k$, $0\le k\le n-1$
-\[
+\begin{equation}
 \frac{a_k}{a_n}
 \le
 \frac{r^{n-k}}{n+1}
-\]
+\label{buch:analytisch:ganz:fundamental:proof:2}
+\end{equation}
 gilt, dann ist jeder Terme auf der rechten Seite von
 \eqref{buch:analytisch:ganz:fundamental:eqn:1}
 \[
@@ -263,9 +266,28 @@ gilt, dann ist jeder Terme auf der rechten Seite von
 =
 \frac{1}{n+1}.
 \]
-Die Ungleichung
+Explizit bedeutet dies, dass 
+\begin{equation}
+r\ge
+\max
+\Bigl\{
+\!
+\sqrt[n-k]{(n+1)|a_k/a_n|}
+\;
+\Big|
+\;
+0\le k\le n-1
+\Bigr\}
+\label{buch:analytisch:ganz:fundamental:proof:r}
+\end{equation}
+gewählt werden muss.
+
+Mit der Wahl \eqref{buch:analytisch:ganz:fundamental:proof:r}
+von $r$ wird die Ungleichung
 \eqref{buch:analytisch:ganz:fundamental:eqn:1}
-wird daher für $|z|\ge r$
+für $|z|\ge r$
+wegen
+\label{buch:analytisch:ganz:fundamental:proof:2}
 \begin{equation}
 |f(z)|
 \ge
@@ -284,6 +306,9 @@ n
 \frac{1}{n+1}.
 \label{buch:analytisch:ganz:fundamental:eqn:2}
 \end{equation}
+Der Betrag von $f(z)$ wächst also mit $r^n$.
+Wir haben also gezeigt, dass der Term höchsten Grades im Polynom
+das Wachstum dominiert.
 
 Wir nehmen jetzt an, dass $f(z)$ keine Nullstelle hat.
 Dann ist $1/f(z)$ eine ganze Funktion.
@@ -296,7 +321,7 @@ folgt dann, dass
 \frac{n+1}{ |a_n| r^n }
 \label{buch:analytisch:ganz:fundamental:eqn:3}
 \end{equation}
-für alle $|z|\ge r$.
+für alle $|z|\ge r$ sein muss.
 $1/f(z)$ ist innerhalb des Kreises vom Radius $r$ sicher beschränkt
 und wegen
 \eqref{buch:analytisch:ganz:fundamental:eqn:3}
@@ -368,11 +393,74 @@ Also ist auch $f(z)$ ein Produkt von Linearfaktoren.
 
 Der Fundamentalsatz sagt nicht, dass es für die Nullstellen eines
 Polynoms eine einfach Formel gibt, wie dies zum Beispiel für die
-Nullstellen eines quadratischen Polynoms der Fall ist.
-Auch für kubische Polynome und Polynome vierten Grades gibt es
-solche Formeln.
-Abel hat jedoch gezeigt, dass es für $n>4$ im Allgemeinen keine
-solche Formel gibt.
+Nullstellen
+\[
+x_{1,2}
+=
+\frac{-a_1\pm\!\sqrt{a_1^2-4a_0a_2}}{2a_2}
+\]
+eines quadratischen Polynoms der Fall ist.
+Auch für kubische Polynome gibt es eine solche Formel.
+Das normierte kubische Polynom $x^3+a_2x^2+a_1x+a_0$ 
+kann durch die Verschiebung $u = x-a_2/3$ 
+in die Form
+\[
+u^3
++
+\biggl(
+\frac13 a_2^2
+-\frac23 a_1a_2
++a_1
+\biggr)
+u
++
+\biggl(
+\frac{1}{27} a_2
++
+\frac19 a_2^3
+-\frac13 a_1a_2
++
+a_0
+\biggr)
+=
+u^3 + pu + q
+\]
+gebracht werden.
+Eine Nullstelle dieses Polynoms ist dann durch die Cardanische Formel
+\[
+u
+=
+\!
+\sqrt[\scriptstyle3]{
+-\frac{q}3+\!\sqrt{
+\rlap{$\raisebox{0.5pt}{\phantom{\bigg|}}$}
+\smash{
+\biggl(\frac{q}2\biggr)^{\raisebox{-2pt}{$\scriptstyle 2$}}
++
+\biggl(\frac{p}3\biggr)^{\raisebox{-2pt}{$\scriptstyle 3$}}
+}}
+}
++
+\!
+\sqrt[\scriptstyle3]{
+-\frac{q}3-\!\sqrt{
+\rlap{$\raisebox{0.5pt}{\phantom{\bigg|}}$}
+\smash{
+\biggl(\frac{q}2\biggr)^{\raisebox{-2pt}{$\scriptstyle 2$}}
++
+\biggl(\frac{p}3\biggr)^{\raisebox{-2pt}{$\scriptstyle 3$}}
+}}
+}
+\]
+gegben.
+
+Auch für Polynome vierten Grades gibt es ähnliche Formeln 
+\index{Polynom vierten Grades}%
+von Ludovico Ferrari.
+\index{Ferrari, Ludovico}%
+Niels Henrik Abel hat jedoch gezeigt, dass es für $n>4$ im
+\index{Abel, Niels Henrik}%
+Allgemeinen keine solche Formel gibt.
 Es ist daher zwar wahr, dass es für jedes Polynom vom Grad $n$
 über $\mathbb{C}$ eine Produktdarstellung aus Linearfaktoren
 gibt, aber es gibt kein Methode, diese Nullstellen in Form eines
@@ -382,6 +470,7 @@ dass es keinen Algorithmus gibt, diese Nullstellen zu finden.
 
 Für die Integration rationaler Funktionen wird zum Beispiel gelehrt,
 dass die Partialbruchzerlegung gebildet werden muss, für deren einzelne
+\index{Partialbruchzerlegung}%
 Summanden Stammfunktionen relativ einfach gefunden werden können.
 Die Bildung der Partialbruchzerlegung verlangt aber, dass die
 Nullstellen des Nenners in algebraischer Form gefunden werden

@@ -10,5 +10,6 @@ CHAPTERFILES += 							\
 	chapters/040-analytisch/3-fortsetzung.tex			\
 	chapters/040-analytisch/4-laurentreihen.tex			\
 	chapters/040-analytisch/5-ganz.tex				\
+	chapters/040-analytisch/6-argument.tex				\
 	chapters/040-analytisch/chapter.tex
 
