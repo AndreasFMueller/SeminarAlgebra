@@ -16,14 +16,44 @@ Je nach Wahl des Startwerts $z_0$ kann diese Folge zwei Verhalten zeigen:
     \item Eine kleine Änderung des Startwerts führt zu einer komplett anderen Folge. In diesem Fall wird $z_0$ der Julia-Menge $J_f$ von $f$ zugeordnet.
 \end{enumerate}
 
-\subsection{Definition Julia-Mengen}
-Um die obige Definition zu verdeutlichen, werden zyklische Folgen betrachtet.
-Diese entstehen, falls $z_n = z_0$ für ein $n$, in dem Fall wird $z_0$ als \emph{periodischer Punkt} bezeichnet.
+\subsection{Verhalten von Folgen}
+Um das Verhalten von solchen Folgen genauer zu untersuchen, werden nun Folgen betrachtet, für die gilt $z_n = z_0$ für ein $n$.
+In dem Fall wird $z_0$ als \emph{periodischer Punkt} bezeichnet.
 Ist $n$ die kleinste natürliche Zahl mit dieser Eigenschaft, so heisst $n$ die \emph{Periode} des Zyklus.
-Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist $z_0$ ein Fixpunkt von $f$.
+Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist $z_0$, nicht nur ein periodischer Punkt, sondern auch ein \emph{Fixpunkt} von $f$.
 
-Aus diesen Definitionen geht hervor, dass ein periodischer Punkt von $f$ mit Periode $n$ gleichzeitig ein Fixpunkt der $n$-mal komposierten Funktion $f^n$ ist.
+Aus diesen Definitionen geht hervor, dass ein periodischer Punkt von $f$ mit Periode $n$ gleichzeitig ein Fixpunkt der $n$-fach zusammengesetzten Funktion $f^n$ ist.
 
+Am Beispiel der Funktion $f(z) = z^2$ lassen sich diese Eigenschaften charakterisieren.
+Durch $n$-maliges Anwenden erhält man $f^n(z) = z^{2^n}$.
+Nun hat die Funktion $f$ drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z_0) = z_0$.
+Nimmt man die Fixpunkte als Startwerte $z_0$, geschieht für $0$ und $\infty$ durch leichtes Verändern folgendes:
+\begin{itemize}
+    \item \textbf{Für $z_0 = 0$:} $f^n(0 + \varepsilon) = (0 + \varepsilon)^{2^n} \to 0$ mit $|\varepsilon| > 0$
+    \item \textbf{Für $z_0 \to \infty$:} $f^n(\infty + \varepsilon) = (\infty + \varepsilon)^{2^n} \to \infty$ mit $|\varepsilon| > 0$
+\end{itemize}
+Obwohl die Startwerte verändert wurden, erhält man schlussendlich das gleiche Resultat wie ohne Verändern der Startwerte.
+Diese Startwerte scheinen Folgen anzuziehen.
+Für den Startwert $1$ erhält man, durch leichtes Verändern, ein anderes Resultat:
+\begin{itemize}
+    \item $f^n(1 + \varepsilon) = (1 + \varepsilon)^{2^n} \to \infty$ mit $\varepsilon > 0$
+    \item $f^n(1 - \varepsilon) = (1 - \varepsilon)^{2^n} \to 0$ mit $\varepsilon > 0$
+\end{itemize}
+Es scheint, dass dieser Startwert Folgen von sich wegstösst, man erhält durch leichtes Verändern sofort eine ganz andere Folge.
+
+Als zweites Beispiel dient die Funktion $h(z) = z + z^7$.
+Diese Funktion hat Fixpunkte bei $-\infty, 0$ und $\infty$.
+Die Fixpunkte $-\infty$ und $\infty$ verhalten sich --- analog zum vorherigen Beispiel --- anziehend und werden daher nicht näher untersucht.
+Nimmt man jedoch $0$ als Startwert, ergibt sich ein neues Verhalten.
+Denn, $h(0 + \varepsilon)$ mit $|\varepsilon| > 0$ ergibt $(0 + \varepsilon) + (0 + \varepsilon)^7$.
+Der hintere Summand verschwindet, da es sich bei $\varepsilon$ um eine sehr kleine Zahl handelt, übrig bleibt der lineare Term.
+Somit ist $h(0 + \varepsilon) = 0 + \varepsilon$.
+Wendet man nun erneut $h$ auf dieses Resultat an, erhält man wieder $0 + \varepsilon$.
+Auch durch $n$-maliges Anwenden von $h$ ändert sich das Resultat nicht.
+Der Startwert $0$, scheint also Folgen weder abzustossen, noch anzuziehen.
+
+Fixpunkte bzw. periodische Punkte von Funktionen können sich also unterschiedlich verhalten.
+Die Art, wie sich ein periodischer Punkt verhält, lässt sich folgendermassen definieren und klassifizieren.
 Sei $z_0$ ein periodischer Punkt von $f$ mit Periode $n$, weiter sei
 \begin{equation*}
     \lambda = \left(f^n\right)^\prime(z_0).
@@ -35,38 +65,35 @@ Der periodische Punkt $z_0$ heisst nun
     \item \emph{indifferent}, wenn $\left|\lambda\right| = 1$,
     \item \emph{abstosstend}, wenn  $\left|\lambda\right| > 1$.
 \end{itemize}
+Die beiden Begriffe \emph{stark anziehend} und \emph{anziehend} unterscheiden sich nur insofern, als dass Folgen die von \emph{stark anziehenden} Startwerten ausgehen, schneller zurück beim Startwert landen.
 
-Diese Namensgebungen lassen sich an der Funktion $f(z) = z^2$ charakterisieren.
-Diese Funktion hat drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z) = z$.
-Mittels der Kettenregel können nun die Lambdas $\lambda_0 = 0$ und $\left|\lambda_1\right| \to \infty$ berechnet werden.
-Für $\lambda_\infty$ muss zunächst die Funktion $g(z) = \frac{1}{f(z)}$ herangezogen werden.
-Die Funktion $g$ hat einen Fixpunkt bei $z = 0$, der sich gleich verhält, wie der Fixpunkt $z \to \infty$ von $f$.
-Somit ist $\lambda_\infty = \left(g^n\right)^\prime(0) = 0$.
+%% TODO: Wieso Ableitung von f^n?
 
-Gemäss der Namensgebungen sind die Fixpunkte bei $0$ und $\infty$ \emph{stark anziehend}, während $1$ \emph{abstossend} ist.
-Alle Startwerte, deren Betrag kleiner als $1$ ist, konvergieren gegen $0$ und alle Startwerte, deren Betrag größer als $1$ ist, konvergieren gegen $\infty$.
-
-Aus diesem Ergebnis lassen sich nun Julia-Mengen definieren.
-Wählt man den Startwert $z_0 = 1$ und verändert diesen ganz leicht, erhält man, bei mehrmaligem Anwenden von $f$, sofort eine ganz andere Folge, die statt gegen $1$ entweder gegen $0$ oder $\infty$ konvergiert.
+\subsection{Definition Julia-Mengen}
+Betrachtet man erneut die Funktion $f(z) = z^2$, welche \emph{stark anziehende} Fixpunkte bei $0$ und $\infty$ hat, sowie einen \emph{abstossenden} Fixpunkt bei $1$, lassen sich daraus Julia-Mengen definieren.
+Wählt man den Startwert $z_0 = 1$ und verändert diesen ganz leicht, erhält man, bei mehrmaligem Anwenden von $f$, wie im vorherigen Abschnitt beschrieben, eine ganz andere Folge.
 Das gleiche Verhalten tritt auf für alle $|z| = 1$.
-Für alle Startwerte $|z| \neq 1$ erhält man durch leichtes Verändern mehr oder weniger die gleiche Folge.
+
+Für alle Startwerte $|z| < 1$ erhält man durch leichtes Verändern mehr oder weniger die gleiche Folge --- denn diese Folgen konvergieren stets zu $0$.
+Bei Startwerten mit $|z| > 1$, erhält man durch leichtes Verändern Folgen, die stets gegen $\infty$ konvergieren --- also auch wieder mehr oder weniger die gleichen Folgen.
+
 Damit und anhand der Beschreibung am Anfang des Abschnitts \ref{sec:julia}, ist die Julia-Menge von $f$ der Rand des Einheitskreises
 \begin{equation*}
-    J_f = \left\{z \in \overline{\mathbb{C}}\:\colon\:|z| = 1\right\},
+    J_f = \left\{z \in \overline{\mathbb{C}}\:\mid\:|z| = 1\right\},
 \end{equation*}
 bzw. allgemeiner
 \begin{equation*}
-    J_f \coloneqq \text{Abschluss}\left\{z \in \overline{\mathbb{C}}\:\colon\:z\text{ ist ein abstossender periodischer Punkt von f}\right\}.
+    J_f \coloneqq \text{Abschluss}\left\{z \in \overline{\mathbb{C}}\:\mid\:z\text{ ist ein abstossender periodischer Punkt von f}\right\}.
 \end{equation*}
-Wobei \emph{Abschluss} sich auf den topologischen Abschluss bezieht \cite{julia:abschluss}.
+Dabei bezieht sich \emph{Abschluss} auf den topologischen Abschluss \cite{julia:abschluss}.
 
 \subsection{Definition Fatou-Mengen}
-Die Definition der Fatou-Mengen lässt sich direkt aus dem obigen Beispiel der Funktion $f(z) = z^2$ herleiten.
+Die Definition der Fatou-Mengen lässt sich direkt aus dem obigen Beispiel $f(z) = z^2$ herleiten.
 Wie bereits beschrieben, gehören alle Startwerte auf dem Rand des Einheitskreises zur Julia-Menge.
 Für alle anderen Startwerte, d.h. $|z| \neq 1$, erhält man, durch leichtes Verändern, mehr oder weniger die gleichen Folgen.
 Folglich lässt sich die Fatou-Menge als
 \begin{equation*}
-    F_f = \left\{z \in \overline{\mathbb{C}}\:\colon\:|z| \neq 1\right\}
+    F_f = \left\{z \in \overline{\mathbb{C}}\:\mid\:|z| \neq 1\right\}
 \end{equation*}
 definieren oder allgemein formuliert
 \begin{equation*}
