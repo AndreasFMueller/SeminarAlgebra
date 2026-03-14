@@ -16,7 +16,7 @@ Je nach Wahl des Startwerts $z_0$ kann diese Folge zwei Verhalten zeigen:
     \item Eine kleine Änderung des Startwerts führt zu einer komplett anderen Folge. In diesem Fall wird $z_0$ der Julia-Menge $J_f$ von $f$ zugeordnet.
 \end{enumerate}
 
-\subsection{Verhalten von Folgen}
+\subsection{Periodische Folgen}
 Um das Verhalten von solchen Folgen genauer zu untersuchen, werden nun Folgen betrachtet, für die gilt $z_n = z_0$ für ein $n$.
 In dem Fall wird $z_0$ als \emph{periodischer Punkt} bezeichnet.
 Ist $n$ die kleinste natürliche Zahl mit dieser Eigenschaft, so heisst $n$ die \emph{Periode} des Zyklus.
@@ -24,16 +24,21 @@ Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist 
 
 Aus diesen Definitionen geht hervor, dass ein periodischer Punkt von $f$ mit Periode $n$ gleichzeitig ein Fixpunkt der $n$-fach zusammengesetzten Funktion $f^n$ ist.
 
-Am Beispiel der Funktion $f(z) = z^2$ lassen sich diese Eigenschaften charakterisieren.
+Am Beispiel der Funktion 
+\begin{equation*}
+    f(z) = z^2,
+\end{equation*}
+lassen sich diese Eigenschaften charakterisieren.
 Durch $n$-maliges Anwenden erhält man $f^n(z) = z^{2^n}$.
 Nun hat die Funktion $f$ drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z_0) = z_0$.
 Nimmt man die Fixpunkte als Startwerte $z_0$, geschieht für $0$ und $\infty$ durch leichtes Verändern folgendes:
 \begin{itemize}
-    \item \textbf{Für $z_0 = 0$:} $f^n(0 + \varepsilon) = (0 + \varepsilon)^{2^n} \to 0$ mit $|\varepsilon| > 0$
-    \item \textbf{Für $z_0 \to \infty$:} $f^n(\infty + \varepsilon) = (\infty + \varepsilon)^{2^n} \to \infty$ mit $|\varepsilon| > 0$
+    \item Für $z_0 = 0$: $f^n(0 + \varepsilon) = (0 + \varepsilon)^{2^n} \to 0$ mit $|\varepsilon| > 0$
+    \item Für $z_0 \to \infty$: $f^n(\infty + \varepsilon) = (\infty + \varepsilon)^{2^n} \to \infty$ mit $|\varepsilon| > 0$
 \end{itemize}
 Obwohl die Startwerte verändert wurden, erhält man schlussendlich das gleiche Resultat wie ohne Verändern der Startwerte.
-Diese Startwerte scheinen Folgen anzuziehen.
+Diese beiden Startwerte scheinen Folgen anzuziehen.
+
 Für den Startwert $1$ erhält man, durch leichtes Verändern, ein anderes Resultat:
 \begin{itemize}
     \item $f^n(1 + \varepsilon) = (1 + \varepsilon)^{2^n} \to \infty$ mit $\varepsilon > 0$
@@ -41,13 +46,22 @@ Für den Startwert $1$ erhält man, durch leichtes Verändern, ein anderes Resul
 \end{itemize}
 Es scheint, dass dieser Startwert Folgen von sich wegstösst, man erhält durch leichtes Verändern sofort eine ganz andere Folge.
 
-Als zweites Beispiel dient die Funktion $h(z) = z + z^7$.
+Als zweites Beispiel dient die Funktion
+\begin{equation*}
+    h(z) = z + z^7.
+\end{equation*}
 Diese Funktion hat Fixpunkte bei $-\infty, 0$ und $\infty$.
-Die Fixpunkte $-\infty$ und $\infty$ verhalten sich --- analog zum vorherigen Beispiel --- anziehend und werden daher nicht näher untersucht.
-Nimmt man jedoch $0$ als Startwert, ergibt sich ein neues Verhalten.
-Denn, $h(0 + \varepsilon)$ mit $|\varepsilon| > 0$ ergibt $(0 + \varepsilon) + (0 + \varepsilon)^7$.
+Die Fixpunkte $-\infty$ und $\infty$ verhalten sich, analog zum vorherigen Beispiel, anziehend und werden daher nicht näher untersucht.
+Nimmt man jedoch $0$ als Startwert, passiert etwas anderes.
+Durch leichtes Verändern erhält man,
+\begin{equation*}
+    h(0 + \varepsilon) = (0 + \varepsilon) + (0 + \varepsilon)^7 \text{ mit } |\varepsilon| > 0.
+\end{equation*}
 Der hintere Summand verschwindet, da es sich bei $\varepsilon$ um eine sehr kleine Zahl handelt, übrig bleibt der lineare Term.
-Somit ist $h(0 + \varepsilon) = 0 + \varepsilon$.
+Somit ist
+\begin{equation*}
+    h(0 + \varepsilon) = 0 + \varepsilon.
+\end{equation*}
 Wendet man nun erneut $h$ auf dieses Resultat an, erhält man wieder $0 + \varepsilon$.
 Auch durch $n$-maliges Anwenden von $h$ ändert sich das Resultat nicht.
 Der Startwert $0$, scheint also Folgen weder abzustossen, noch anzuziehen.
@@ -65,7 +79,7 @@ Der periodische Punkt $z_0$ heisst nun
     \item \emph{indifferent}, wenn $\left|\lambda\right| = 1$,
     \item \emph{abstosstend}, wenn  $\left|\lambda\right| > 1$.
 \end{itemize}
-Die beiden Begriffe \emph{stark anziehend} und \emph{anziehend} unterscheiden sich nur insofern, als dass Folgen die von \emph{stark anziehenden} Startwerten ausgehen, schneller zurück beim Startwert landen.
+Die beiden Begriffe \emph{stark anziehend} und \emph{anziehend} unterscheiden sich nur insofern, als dass Folgen die von \emph{stark anziehenden} Startwerten ausgehen, schneller wieder beim Startwert landen.
 
 %% TODO: Wieso Ableitung von f^n?
 
@@ -77,7 +91,7 @@ Das gleiche Verhalten tritt auf für alle $|z| = 1$.
 Für alle Startwerte $|z| < 1$ erhält man durch leichtes Verändern mehr oder weniger die gleiche Folge --- denn diese Folgen konvergieren stets zu $0$.
 Bei Startwerten mit $|z| > 1$, erhält man durch leichtes Verändern Folgen, die stets gegen $\infty$ konvergieren --- also auch wieder mehr oder weniger die gleichen Folgen.
 
-Damit und anhand der Beschreibung am Anfang des Abschnitts \ref{sec:julia}, ist die Julia-Menge von $f$ der Rand des Einheitskreises
+Damit und anhand der Beschreibung am Anfang des Abschnitts \ref{sec:julia}, besteht die Julia-Menge von $f$ aus allen Punkten mit $|z| = 1$, was dem Rand des Einheitskreises entspricht,
 \begin{equation*}
     J_f = \left\{z \in \overline{\mathbb{C}}\:\mid\:|z| = 1\right\},
 \end{equation*}
