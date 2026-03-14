@@ -726,13 +726,13 @@ Die Polynomdivision ergibt
 x^3 & &           & &            &-&        2\rlap{$)$}&\phantom{(}:\phantom{)}&\llap{$($} x &-& \alpha\rlap{$)$} &\phantom{(}=\phantom{)}& x^2 &+& \alpha x &+& \alpha^2 \\
 x^3 &-&\alpha x^2 & &            & &         & &   & &        & &     & &          & &          \\
 \cline{1-7}
-    & &\alpha x^2 & &            &-&        2& &   & &        & &     & &          & &          \\
+    & &\alpha x^2\raisebox{4pt}{\mathstrut} & &            &-&        2& &   & &        & &     & &          & &          \\
     & &\alpha x^2 &-& \alpha^2 x & &         & &   & &        & &     & &          & &          \\
 \cline{3-7}
-    & &           & & \alpha^2 x &-&        2& &   & &        & &     & &          & &          \\
+    & &           & & \alpha^2 x\raisebox{4pt}{\mathstrut} &-&        2& &   & &        & &     & &          & &          \\
     & &           & & \alpha^2 x &-& \alpha^3& &   & &        & &     & &          & &          \\
 \cline{5-7}
-    & &           & &            & & \alpha^3\rlap{$\mathstrut-2 = 0$.}& &   & &        & &     & &          & &
+    & &           & &            & & \alpha^3\raisebox{4pt}{\mathstrut}\rlap{$\mathstrut-2 = 0$.}& &   & &        & &     & &          & &
 \end{array}
 \]
 Tatsächlich ergibt Ausmultiplizieren zur Kontrolle
@@ -780,7 +780,10 @@ Man muss
 =
 -\frac{\alpha}{2}
 +
-\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{\alpha}{2}\biggr)^2-\alpha^2}}
+\!\sqrt{
+\rlap{$\phantom{\bigg|}$}
+\smash{\biggl(\frac{\alpha}{2}\biggr)^{\raisebox{-1pt}{$\scriptstyle2$}}-\alpha^2}
+}
 =
 -\frac{\alpha}{2}
 +
@@ -809,7 +812,7 @@ wegen
 %)^2
 %}
 %\Rightarrow
--\frac34 \sqrt[3]{2} < 0
+-\frac34 \!\sqrt[3]{2} < 0
 \]
 keine reellen Zahlen sein können.
 Dieses Argument verwendet aber die Ordnungsrelation in den reellen

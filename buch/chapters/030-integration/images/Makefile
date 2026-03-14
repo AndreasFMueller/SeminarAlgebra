@@ -14,7 +14,9 @@ all:	wege.pdf							\
 	green.pdf							\
 	deformation.pdf							\
 	cauchyverteilung.pdf						\
-	ecos.pdf
+	ecos.pdf							\
+	paar.pdf							\
+	merohomolog.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -52,3 +54,8 @@ cauchyverteilung.pdf:	cauchyverteilung.tex
 ecos.pdf:	ecos.tex
 	pdflatex ecos.tex
 
+paar.pdf:	paar.tex
+	pdflatex paar.tex
+
+merohomolog.pdf:	merohomolog.tex
+	pdflatex merohomolog.tex

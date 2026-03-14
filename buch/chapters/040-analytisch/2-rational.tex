@@ -26,7 +26,8 @@ eine Potenzreihenentwicklung finden lässt.
 %
 % Faktorisierung
 %
-\subsection{Faktorisierung}
+\subsection{Faktorisierung
+\label{buch:analytisch:rational:subsection:faktorisierung}}
 Die Tatsache, dass sich Polynome über $\mathbb{C}$ faktorisieren
 lassen, lässt sich dazu verwenden, eine Potenzreihe für eine
 rationale Funktion zu konstruieren, ohne dass die Ableitungen
@@ -53,7 +54,8 @@ p_nz^n
 ist bereits eine Potenzreihe um den Punkt $0$, die nach endlich
 vielen Termen abbricht, deren Konvergenzradius unendlich ist.
 
-Der Fundamentalsatz der Algebra besagt, dass sich das
+Der Fundamentalsatz~\ref{buch:analytisch:ganz:satz:fundamentalsatz}
+der Algebra besagt, dass sich das
 Nennerpolynom in Linearfaktoren 
 \begin{align*}
 q(z) &= b(z - q_1)(z - q_2)\dots(z - q_m)
@@ -121,4 +123,351 @@ Das Polynom $p(z)$ kann auch als Potenzreihe um den Punkt $z_0$
 geschrieben werden, wie dies in Abschnitt
 \ref{buch:analytisch:potenzreihen:subsection:polynome}
 gezeigt wurde.
+
+%
+% Partialbruchzerlegung
+%
+\subsection{Partialbruchzerlegung
+\label{buch:analytisch:rational:subsection:partialbruch}}
+Der Definitionsbereich einer rationalen Funktion $f(z)=p(z)/q(z)$
+wird durch die Nullstellen des Nenners bestimmt.
+Ein Integral entlang eines Weges, der eine Nullstelle des Nenners
+umläuft, dann ist das Integral durch Funktionswerte und 
+Ableitung in dieser Nullstelle bestimmt.
+Es ist daher naheliegend, die rationale Funktion $f(z)$ in
+einzelne Summanden zu zerlegen, welche jeweils nur eine einzige
+Nullstelle im Nenner haben.
+
+%
+% Divisionsrest abspalten
+%
+\subsubsection{Divisionsrest abspalten}
+In einem ersten Schritt kann man den Polynomdivisionsalgorithmus
+durchführen und den Zähler als $p(z) = a(z)q(z) + r(z)$ mit
+Polynomen $a(z)$ und $r(z)$ schreiben.
+Der Grad $\deg r(z)$ des Restes $r(z)$ muss kleiner sein als
+der Grad von $q(z)$: $\deg r(z) <\deg q(z)$.
+Damit kann die rationale Funktion in zwei Terme
+\[
+f(z)
+=
+\frac{a(z)q(z)+r(z)}{q(z)}
+=
+a(z)
++
+\frac{r(z)}{q(z)}
+\]
+aufgeteilt werden.
+Das Polynom $a(z)$ sind holomorph in ganz $\mathbb{C}$ und trägt
+daher nicht zu Wegintegralen über geschlossene Wege bei.
+Wir wollen daher im Folgenden annehmen, dass $\deg p(z)<\deg q(z)$.
+
+%
+% Nur eine Nullstelle des Nenners
+%
+\subsubsection{Nur eine Nullstelle des Nenners}
+Wir betrachten zunächst den Spezialfall einer einzigen Nullstelle
+$ a\in\mathbb{C}$ des Nenners.
+Der Nenner muss somit die Form $q(z) = (z- a)^n$ haben.
+Da der Bruch $p(z)/q(z)$ bereits gekürzt ist, muss $p( a)\ne 0$
+sein.
+Da $p(z)-p( a)=0$ ist, muss $p(z)-p( a)$ durch $z- a$
+teilbar sein, es gibt also ein Polynom $p^1(z)$ mit der Eigenschaft
+\[
+p^1(z)(z- a) + p( a) = p(z).
+\]
+Der Grad von $p^(z)$ ist $\deg p^1(z) = \deg p(z)-1 < \deg p(z)$.
+Durch wiederholte Anwendung dieses Prozesses entstehen Polynome
+$p^2(z),\dots,p^m(z)$, mit 
+\begin{equation}
+\begin{aligned}
+p^2(z)(z- a) + p^1( a)     &= p^1(z)           \\
+p^3(z)(z- a) + p^2( a)     &= p^2(z)           \\[-2pt]
+                                   &\phantom{a} \vdots \\
+p^m(z)(z- a) + p^{m-1}( a) &= p^{m-1}(z).
+\end{aligned}
+\label{buch:analytisch:rational:partial:eqn:pk}
+\end{equation}
+Zur Vereinheitlichung der Notation schreiben wir zudem $p^0(z)=p(z)$.
+Kürzen wir $A_1=p( a)$, $A_2=p^1( a)$ oder allgemein
+$A_k = p^{k-1}(z)$ ab, dann werden die
+Gleichungen~\eqref{buch:analytisch:rational:partial:eqn:pk}
+zu
+\[
+\begin{aligned}
+p^1(z)(z- a) + A_1 &= p^0(z)           \\
+p^2(z)(z- a) + A_2 &= p^1(z)           \\
+p^3(z)(z- a) + A_3 &= p^2(z)           \\[-2pt]
+                       &\phantom{a} \vdots \\
+p^m(z)(z- a) + A_m &= p^{m-1}(z).
+\end{aligned}
+\]
+Durch Einsetzen der rechten Seite der rechten Seiten einer Gleichung
+in die linke Seite der vorangehende Gleichung erhalten wir die
+Darstellung
+\begin{align*}
+p(z)
+&=
+p^0(z)
+\\
+&=
+p^1(z)(z- a) + A_1
+\\
+&=
+p^2(z)(z- a)^2 + A_2(z- a) + A_1
+\\
+&=
+p^3(z)(z- a)^3 + A_3 (z- a)^2 + A_2 (z- a) + A_1
+\\[-2pt]
+&\phantom{a}\vdots
+\\
+&=
+A_m(z-a)^{m-1} + A_{m-1}(z- a)^{m-2} + \ldots + A_3 (z- a)^2 + A_2(z- a) + A_1.
+\end{align*}
+Damit kann jetzt auch die rationale Funktion einfacher ausgedrückt
+werden:
+\begin{align*}
+f(z)
+&=
+\frac{p(z)}{(z- a)^n}
+\\
+&=
+\frac{A_m}{(z- a)^{n-m+1}}
++
+\frac{A_{m-1}}{(z- a)^{n-m+2}}
++
+\ldots
++
+\frac{A_3}{(z- a)^{n-2}}
++
+\frac{A_2}{(z- a)^{n-1}}
++
+\frac{A_1}{(z- a)^n}.
+\end{align*}
+Wir haben also gezeigt, dass eine rationale Funktion mit Nenner
+$(z- a)^n$ immer geschrieben werden kann als eine Summe
+von Termen der Form $A_k/(z- a)^{n-k}$.
+
+%
+% Potenz eines Polynoms im Nenner
+%
+\subsubsection{Potenz eines Polynoms im Nenner}
+Der für den Nenner $q(z) = (z-a)^n$ durchgeführte Prozess lässt sich
+auch für einen Nenner durchführen, der die Potenz $u(z)^n$ eines
+einzigen Polynoms $u(z)$ ist.
+Wir schreiben wieder $p^0(z)=p(z)$.
+Der Divisionsalgorithmus zerlegt das Polynom $p^k(z)$ in 
+\begin{equation}
+p^k(z)
+=
+p^{k+1}(z)\cdot u(z) + A_{k+1}(z),
+\label{buch:analytisch:rational:partial:eqn:u}
+\end{equation}
+wobei $\deg A_{k+1}(z)<\deg u(z)$ ist und
+$\deg p^{k+1}(z) = \deg p^{k}(z)-\deg u(z)$.
+Der Algorithmus bricht ab, sobald der Quotient $p^k(z)$ nicht
+mehr weiter durch $u(z)$ geteilt werden kann, sobald also
+sein Grad kleiner als der Grad von $u(z)$ ist.
+Der Algorithmus bricht somit nach $m$ Schritten ab, wenn
+$\deg p(z) - m\deg u(z) < \deg u(z)$ oder
+$\deg p(z) < (m+1) \deg u(z)$.
+Als Spezialfall beachten wir, dass $m=0$ ist, wenn der Nennergrad
+$\deg p(z)$ bereits kleiner ist als der Grad von
+$u(z)$: $\deg p(z) < \deg u(z)$.
+Durch rekursives Einsetzen der Gleichungen
+\eqref{buch:analytisch:rational:partial:eqn:u}
+folgt
+\begin{align*}
+p(z)
+&=
+p^0(z)
+\\
+&=
+p^1(z)\cdot u(z) + A_1(z)
+\\
+&=
+\bigl(
+p^2(z)\cdot u(z) + A_2(z)
+\bigr)\cdot u(z) + A_1(z)
+=
+p^2(z)\cdot u(z)^2 + A_2(z) \cdot u(z) + A_1(z)
+\\
+&=
+p^3(z)\cdot u(z)^2 + A_2(z)\cdot u(z) + A_1(z)
+\\[-2pt]
+&\phantom{a}\vdots
+\\
+&=
+A_m(z)\cdot u(z)^{m-1} + A_{m-1}(z)\cdot u(z)^{m-2}
++
+\ldots
++
+A_3(z)\cdot u(z)^2 + A_2(z)\cdot u(z) + A_1(z).
+\end{align*}
+Durch Division durch $u(z)^n$ kann jetzt wieder ein Darstellung
+\begin{align*}
+f(z)
+&=
+\frac{p(z)}{u(z)^n}
+\\
+&=
+\frac{A_m(z)}{u(z)^{n-m+1}}
++
+\frac{A_{m-1}(z)}{u(z)^{n-m+2}}
++
+\ldots
++
+\frac{A_3(z)}{u(z)^{n-2}}
++
+\frac{A_2(z)}{u(z)^{n-1}}
++
+\frac{A_1(z)}{u(z)^n}
+\end{align*}
+gefunden werden, deren Nenner alle einen Grad $\deg A_k(z)<\deg u(z)$ 
+kleiner als der Grad von $u(z)$ haben.
+
+%
+% Teilerfremde Faktoren im Nenner
+%
+\subsubsection{Teilerfremde Faktoren im Nenner}
+Wir betrachten jetzt den Fall, dass der Nenner ein Produkt
+$q(z) = q_1(z)q_2(z)$ von teilerfremden Faktoren $q_1(z)$ und $q_2(z)$
+ist.
+Der erweiterte euklidische Algorithmus zeigt, dass es Polynome
+$s(z)$ und $t(z)$ gibt derart, dass
+\begin{equation}
+p(z)
+=
+s(z)\cdot q_1(z) + t(z)\cdot q_2(z)
+\label{buch:analytisch:rational:partial:eukl}
+\end{equation}
+gilt.
+Da $p(z)$ und $q(z)$ teilerfremd sind, kann $p(z)$ weder durch
+$q_1(z)$ noch durch $q_2(z)$ teilbar sein.
+Es folgt, dass auch
+$s(z)$ nicht durch $q_2(z)$ teilbar sein kann, denn wäre $q_2(z)$
+ein Teiler von $s(z)$, dann wäre $q_2(z)$ ein Teiler der rechten
+Seite von
+\eqref{buch:analytisch:rational:partial:eukl}
+und damit auch von $p(z)$.
+
+Mit der Darstellung
+\eqref{buch:analytisch:rational:partial:eukl}
+des Zählers ist die rationale Funktion
+\[
+f(z)
+=
+\frac{p(z)}{q(z)}
+=
+\frac{
+s(z)\cdot q_1(z) + t(z)\cdot q_2(z)
+}{q_1(z)\cdot q_2(z)}
+=
+\frac{s(z)}{q_2(z)}
++
+\frac{t(z)}{q_1(z)}
+\]
+eine Summe von Brüchen, die nur die Faktoren $q_1(z)$ und $q_2(z)$
+als Nenner haben.
+
+Sei jetzt $q(z)=q_1(z)\cdot \ldots \cdot q_l(z)$ eine Faktorisierung
+von $q(z)$ in paarweise teilerfremde Fatkoren.
+Durch Wiederholung es oben dargestellten Prozesses kann die rationale
+Funktion in die Form
+\begin{equation}
+f(z)
+=
+\frac{p(z)}{q(z)}
+=
+\frac{p_1(z)}{q_1(z)}
++
+\ldots
++
+\frac{p_l(z)}{q_l(z)}
+\label{buch:analytisch:rational:partial:eqn:pksumqk}
+\end{equation}
+gebracht werden, wobei $p_k(z)$ nicht durch $q_k(z)$ teilbar ist.
+
+%
+% Allgemeine Partialbruchzerlegung
+%
+\subsubsection{Allgemeine Partialbruchzerlegung}
+Im vorangegangenen Abschnitt wurde nicht verlangt, dass die Nenner
+$q_k(z)$ irreduzibel sind.
+Insbesondere ist für das Argument zulässig, dass jeder Nenner $q_k(z)$
+ein Potenz $q_k(z) = u_k(z)^{n_k}$ ist.
+Dann kann der Algorithmus des vorangegangenen Abschnitts auf jeden
+Term auf der rechten Seite von
+\eqref{buch:analytisch:rational:partial:eqn:pksumqk}
+angewendet werden.
+Es ergibt sich dann der folgende Satz.
+
+\begin{satz}[Partialbruchzerlegung]
+Sei $f(z) = p(z)/q(z)$ eine rationale Funktion und 
+\[
+q(z)
+=
+q_1(z)^{n_1}
+\cdot\ldots\cdot
+q_l(z)^{n_l}
+\]
+eine Faktorisierung in teilerfremde Faktoren $q_k(z)$, $1\le k\le l$.
+Dann gibt es ein Darstellung
+\[
+f(z)
+=
+p_0(z)
++
+\sum_{k=1}^{m_1}
+\frac{A_k^1(z)}{q_1(z)^{n_1-k+1}}
++
+\ldots
++
+\sum_{k=1}^{m_l}
+\frac{A_k^l(z)}{q_l(z)^{n_1-k+1}}
+\]
+mit Polynomen $A_k^r(z)$
+wobei $\deg A_k^r(z) < \deg q_k(z)$ ist.
+\end{satz}
+
+Man beachte, dass nirgends verlangt wird, dass die Faktoren 
+$q_k(z)$ irreduzibel sein müssen.
+Es wird nur verlangt, dass die Polynome keine gemeinsamen
+Faktoren hat.
+Dies ist mithilfe des euklidischen Algorithmus für Polynome
+sehr leicht festzustellen.
+Irreduzibilität ist dagegen algorithmisch viel schwieriger
+zu etablieren.
+
+Im Integrationsproblem ermöglicht die Partialbruchzerlegung
+wegen der Linearität des Integrals, die Aufgabe in separate
+Integrationsprobleme für rationale Funktionen mit
+einfacheren Nennern zu zerlegen.
+Die klassische Methode, die man in der Analysis lernt,
+geht davon aus, dass sich dank des Fundamentalsatzes der Algebra
+das Nennerpolynom in Linearfaktoren zerlegen lässt, so dass alle
+$q_k(z)$ von der Form $z-a_k$ sind.
+Es müssen dann nur noch Integrale der Form
+\[
+\int
+\frac{A}{(z-a)^n}
+\,dz
+=
+\begin{cases}
+\displaystyle-\frac{1}{n-1} \frac{A}{(z-a)^{n-1}}&\qquad\text{für $n>1$} \\
+A\log (z-a)                                      &\qquad\text{für $n=1$}
+\end{cases}
+\]
+bestimmt werden.
+Die Partialbruchzerlegung löst also mindestens im Prinzip
+das Integrationsproblem für rationale Funktionen.
+Leider gibt es für Polynome vom Grad grösser als $5$ im
+Allgemeinen keine Formel zur Bestimmung der Nullstellen.
+Somit gibt es für ein Computeralgebrasystem im Allgmeinen
+keine Möglichkeit, ein Integral auf diesem Weg zu bestimmen.
+
+
+
+
+
 
