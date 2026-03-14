@@ -705,7 +705,7 @@ f_\pm(p,q)
 =
 -\frac{p}{2}
 \pm
-\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}2\biggr)^2 - q}}
+\!\sqrt{\rlap{$\phantom{\bigg|}$}\smash{\biggl(\frac{p}2\biggr)^2 - q}}
 \]
 schreiben.
 Die Lösung ist eine komplexe Funktion der möglicherweise
@@ -924,7 +924,7 @@ zu berechnen.
 Das Wurzelkriterium besagt zum Beispiel, dass eine Reihe mit
 Summanden $a_n$ absolut konvergiert, wenn 
 \[
-\limsup_{n\to\infty} \sqrt[n]{|a_n|} < 1.
+\limsup_{n\to\infty} \!\sqrt[n]{|a_n|} < 1.
 \]
 Daraus ergibt sich die Cauchy-Hadamard-Formel
 \begin{equation}
@@ -986,21 +986,21 @@ der Konvergenzradius ist also unendlich.
 Dies zeigt sich auch in der Cauchy-Hadamard-Formel:
 \[
 \limsup_{n\to\infty}
-\sqrt[n]{|a_n|}
+\!\sqrt[n]{|a_n|}
 =
 \limsup_{n\to\infty}
-\sqrt[n]{\frac1{n!}}
+\!\sqrt[n]{\frac1{n!}}
 \approx
 \limsup_{n\to\infty}
-\sqrt[n]{\frac{1}{\sqrt{2\pi n}}\biggl(\frac{e}{n}\biggr)^n}
+\!\sqrt[n]{\frac{1}{\!\sqrt{2\pi n}}\biggl(\frac{e}{n}\biggr)^n}
 =
 \limsup_{n\to\infty}
-\frac{1}{\sqrt[2n]{2\pi n}}
+\frac{1}{\!\sqrt[2n]{2\pi n}}
 \frac{e}{n}
 =
 0,
 \]
-wobei wir die Stirling-Approximation $n!\approx\sqrt{2\pi n}(n/e)^n$
+wobei wir die Stirling-Approximation $n!\approx\!\sqrt{2\pi n}(n/e)^n$
 verwendet haben.
 Auch mit diesem Kriterium ergibt sich also, dass die Reihe überall
 in $\mathbb{C}$ konvergiert.
