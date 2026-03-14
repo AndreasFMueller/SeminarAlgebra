@@ -475,14 +475,19 @@ Bestimmung der Partialbruchzerlegung verlangt die wiederholte
 Durchführung des euklidischen Algorithmus für Polynome.
 Da die Form der Partialbruchzerlegung bereits bekannt ist,
 kann sie mit unbekannten Koeffizienten als
-\[
-\frac{p(z)}{(z-a_1)^{n_1}\dots(z-a_l)^{n_l}}
+\begin{equation}
+\frac{p(z)}{(z-a_1)^{n_1}\cdots(z-a_l)^{n_l}}
 =
 \sum_{k=1}^l
 \sum_{s=1}^{n_l}
 \frac{A^k_s}{(z-a_k)^s}
-\]
+\label{buch:analytisch:rational:partial:eqn:ansatz}
+\end{equation}
 angesetzt werden.
+Man beachte, dass die Koeffizienten $A^k_s$ in
+\eqref{buch:analytisch:rational:partial:eqn:ansatz} nicht
+die gleiche Bedeutung haben wie in der Herleitung der
+Partialbruchzerlegung in den vorangegangenen Abschnitten.
 Durchmultiplizieren mit dem Nenner $(z-a_1)^{n_1}\dots (z-a_l)^{n_l}$
 und Koeffizientenvergleich liefert dann ein lineare Gleichungssystem
 für die Koeffizienten $A^k_s$.
@@ -497,7 +502,9 @@ f(z)
 \frac{z^2-4}{z^5+z^4-2z^3-2z^2+z+1}.
 \label{buch:analytisch:rational:partial:bsp:aufgabe}
 \end{equation}
-Dazu verwenden wir den Ansatz
+Dazu verwenden wir nach dem Muster von
+\eqref{buch:analytisch:rational:partial:eqn:ansatz}
+den Ansatz
 \begin{equation}
 f(z)
 =
@@ -535,7 +542,7 @@ A^2_1 = -\frac{13}{16},\quad
 A^2_2 = -\frac{ 5}{ 4},\quad
 A^2_3 = -\frac{ 3}{ 4}.
 \]
-Setzt man diese in den Ansatz
+Setzt man diese Koeffizienten in den Ansatz
 \eqref{buch:analytisch:rational:partial:bsp:ansatz}
 ein, erhält man
 \[
