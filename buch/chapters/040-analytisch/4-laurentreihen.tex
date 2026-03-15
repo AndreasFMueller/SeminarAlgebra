@@ -67,16 +67,16 @@ für jeden Punkt $a\in R(z_0;r_1,r_2)$.
 
 \begin{proof}
 Der in Abbildung~\ref{buch:analytisch:laurent:fig:ring} dargestellte
-Weg $\gamma$, der vom Punkt $A$ ausgehend zunächst dem äusseren Randkreis
+Weg, der vom Punkt $A$ ausgehend zunächst dem äusseren Randkreis
 folgt bis wieder zurück zum Punkt $A$, dann radial zum Punkt $a$, in 
 einem Halbkreis vom Radius $\varepsilon$ um den Punkt $a$ bis zum
 Punkt $B$, von dort im Uhrzeigersinn um den Inneren Randkreis zurück
 zum Punkt $B$ und erneut radial zum Punkt $A$, mit einem kleinen, 
 kreisförmigen Umweg vom Radius $\varepsilon$ um den Punkt $a$.
-Die Funktion ist im Inneren des Weges $\gamma$ überall holomorph,
+Die Funktion ist im Inneren des Weges überall holomorph,
 nach dem Integralsatz von Cauchy gilt daher
 \[
-\oint_\gamma \frac{f(z)}{z-a}\,dz 
+\oint_{\gamma_1-\gamma_2-\gamma_{\varepsilon}} \frac{f(z)}{z-a}\,dz 
 =
 0.
 \]
@@ -193,7 +193,9 @@ und $r_1 > r_2$.
 \label{buch:analytisch:laurent:satz:laurentreihe}
 Ist $f$ eine auf einer Umgebung des Ringgebietes $R(z_0;r_1,r_2)$ definierte
 holomorphe Funktion, dann kann sie in eine Laurent-Reihe entwickelt werden.
-Die Koeffizienten sind durch
+Ist $\gamma$ ein beliebiger Weg im Ringgebiet, der $z_0$ genau einmal
+im Gegenuhrzeigersinn umläuft, dann sind die 
+Koeffizienten durch
 \begin{align}
 a_k
 &=
@@ -210,66 +212,10 @@ f(z)(z-z_0)^{k-1}
 \,dz
 \label{buch:analytisch:laurent:eqn:laurentkoeffizienten}
 \end{align}
-gegeben
+gegeben.
 \end{satz}
 
 \begin{proof}
-Zunächst halten wir fest, dass die Formeln
-\eqref{buch:analytisch:laurent:eqn:laurentkoeffizienten}
-für die Koeffizienten sich als Integrale über nur einen
-der Randkreise ausdrücken lassen.
-Zum Beispiel gilt 
-\[
-\oint_{\gamma_2}
-f(z)\, (z-z_0)^{k-1}\,dz
-=
-0
-\]
-für $k\ge 1$, weil der Punkt $z_0$ ausserhalb der Kurve $\gamma_2$ ist
-und $(z-z_0)^{k-1}$ im Inneren der Kurve holomorph ist.
-Es folgt, dass
-\[
-b_k
-=
--
-\frac{1}{2\pi i}
-\oint_{\gamma} 
-f(z)\,(z-z_0)^{k-1}
-\,dz
-=
-\frac{1}{2\pi i}
-\oint_{\gamma_2} 
-f(z)\,(z-z_0)^{k-1}
-\,dz.
-\]
-Auch zum Integral
-\[
-\oint_{\gamma} 
-\frac{f(z)}{(z-a)^{k+1}}
-\,dz
-\]
-trägt für $k\ge 0$ nur der äussere Randkreis etwas bei.
-Dazu muss man mittels eine Koordinatentransformation $\zeta = 1/(z-z_0)$
-aus dem inneren Randkreis den äusseren Randkreis machen.
-Dann folgt wie vorhin, dass der innere Randkreis nichts beiträgt,
-man kann ihn daher weglassen.
-Nach Rücktransformation bleibt dann nur der Beitrag des inneren 
-Randkreises.
-In diesem Fall folgt
-\[
-a_k
-=
-\frac{1}{2\pi i}
-\oint_\gamma
-\frac{f(z)}{(z-z_0)^{k+1}}
-\,dz
-=
-\frac{1}{2\pi i}
-\oint_{\gamma_1}
-\frac{f(z)}{(z-z_0)^{k+1}}
-\,dz.
-\]
-
 Wir berechnen jetzt die beiden Integrale in
 \eqref{buch:analytisch:laurent:eqn:zweiintegrale} separat mit
 verschiedenen Entwicklungen des Integranden.
@@ -288,9 +234,9 @@ Reihe
 \frac{f(z)}{(z-z_0)^{k+1}}
 \,dz
 \biggr)
-(z-z_0)^k
+(a-z_0)^k
 =
-\sum_{k=0}^\infty a_k(z-z_0)^k
+\sum_{k=0}^\infty a_k(a-z_0)^k
 \]
 entwickeln.
 
@@ -371,6 +317,13 @@ b_k
 (a-z_0)^{-k},
 \end{align*}
 die versprochene Laurent-Reihe.
+
+Jetzt muss noch gezeigt werden, dass die Integrale über $\gamma_1$ 
+bzw.~$\gamma_2$ durch Integrale über den Weg $\gamma$ irgendwo
+im Ringgebiet ersetzt werden können.
+Die Integranden der Integrale sind im ganzen Ringgebiet holomorph.
+Die Deformation des Weges $\gamma_1$ in den Weg $\gamma$ oder des
+Weges $\gamma_2$ in den Weg $\gamma$ ändert daher das Integral nicht.
 \end{proof}
 
 %
@@ -472,7 +425,7 @@ Funktionen mit lauter isolierte Singulariäteten sind besonders
 leicht zu behandeln und verdienen daher einen eigenen Namen.
 
 \begin{definition}[meromorphe Funktion]
-Eine holomorphe Funktion $f\colon u\to\mathbb{C}$,
+Eine holomorphe Funktion $f\colon U\to\mathbb{C}$,
 für die $\mathbb{C}\setminus U$ aus lauter isolierten Punkten besteht,
 heisst \emph{meromorph}.
 \index{meromorph}%

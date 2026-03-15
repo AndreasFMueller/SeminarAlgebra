@@ -11,6 +11,7 @@
 \usepackage{csvsimple}
 \usetikzlibrary{arrows,intersections,math,calc}
 \definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
 \begin{document}
 \def\skala{1}
 \def\rone{0.8}
@@ -30,7 +31,18 @@
 		--
 		($(C)+({#1-6}:\rone)$);
 }
-\begin{tikzpicture}[>=latex,thick,scale=\skala]
+\def\Gammakopf#1{
+	\draw[->,color=darkgreen,line width=1.2pt]
+		({X(#1)},{Y(#1)})
+		--
+		({X(#1+0.1)},{Y(#1+0.1)});
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+	R(\t) = \rmiddle - 0.5*cos(\t-\w) + 0.2 * sin(5*\t);
+	X(\t) = 5 + R(\t) * cos(\t);
+	Y(\t) = 4 + R(\t) * sin(\t);
+}]
 
 \coordinate (P1) at (2,1);
 \coordinate (P2) at (8,1);
@@ -124,7 +136,7 @@
 \draw (C) circle[radius=0.05];
 \node at (C) [below] {$z_0$};
 
-\node[color=darkred] at ($(C)+(270:\rone)$) [below] {$\gamma_2$};
+\node[color=darkred] at ($(C)+(270:\rone)$) [below] {$-\gamma_2$};
 \node[color=darkred] at ($(C)+(110:\rtwo)$) [above left] {$\gamma_1$};
 
 \draw[->] (-0.1,0) -- (10.3,0) coordinate[label={$\operatorname{Re}$}];
@@ -135,6 +147,14 @@
 
 \node at ($(C)+(\w:\rtwo)$) [above right] {$A$};
 \node at ($(C)+(\w:\rone)$) [below left] {$B$};
+
+\draw[color=darkgreen,line width=1.2pt]
+	plot[domain=0:360,samples=360] ({X(\x)},{Y(\x)});
+
+\foreach \x in {5,41,...,360}{
+	\Gammakopf{\x}
+}
+\node[color=darkgreen] at ({X(125)},{Y(125)}) [above] {$\gamma$};
 
 \end{tikzpicture}
 \end{document}
