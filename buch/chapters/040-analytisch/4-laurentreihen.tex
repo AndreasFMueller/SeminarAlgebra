@@ -6,4 +6,440 @@
 \section{Laurent-Reihen und meromorphe Funktionen
 \label{buch:analytisch:section:laurentreihen}}
 \kopfrechts{Laurent-Reihen}
+Analytische Funktionen sind immer auf einem Kreisgebiet um den
+Entwicklungspunkt definiert.
+Der Radius dieses Gebietes wird beschränkt durch die nächstliegende
+Singularität der Funktion.
+Es kommt jedoch sehr häufig vor, dass eine holomorphe Funktion
+nur in einem Ringgebiet definiert ist.
+Die einfachsten Beispiele dafür sind die Funktion $z^{-n}$ mit
+$n\in\mathbb{N}\setminus\{0\}$, die auf $\mathbb{C}\setminus\{0\}$
+definiert sind.
+In diesem Abschnitt werden Funktionen auf einem Ringebiet genauer
+untersucht und es wird eine Erweiterung der Potenzreihenentwicklung
+für negative Potenzen, die Laurent-Reihe, konstruiert.
+
+%
+% Funktionen auf einem Ringgebiet
+%
+\subsection{Funktionen auf einem Ringgebiet}
+\input{chapters/040-analytisch/fig/fig-ring.tex}%
+Wir betrachten eine holomorphe Funktion $f\colon U\to\mathbb{C}$.
+Die offene Menge $U$ sei so gestaltet, dass der Ring
+\[
+R(z_0;r_1,r_2)
+=
+\{
+z\in\mathbb{C}
+\mid
+r_1 \le |z-z_0| \le r_2
+\}
+\]
+in $U$ enthalten ist.
+Abbildung~\ref{buch:analytisch:laurent:fig:ring} zeigt diese Situation.
+Da die Funktion $f$ im Inneren des kleinen Kreises mit Radius $r_1$ um
+den Punkt $z_0$ nicht überall definiert sein muss, ist der Integralsatz
+von Cauchy nicht auf den grossen Kreis anwendbar.
+Der folgende Satz zeigt dass es aber trotzdem möglich ist, den Wert von
+$f$ in einem beliebigen Punkt des Ringgebietes mit einem Wegintegral
+zu berechnen.
+
+\begin{satz}
+Seien $\gamma_2$ und $\gamma_1$ die im Gegenuhrzeigersinn durchlaufenen
+Randkreise des Ringgebietes $R(z_0;r_1,r_2)$ mit Radien $r_2$ und $r_1$.
+Dann gilt
+\begin{equation}
+f(a)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{z-a}
+\,dz
+-
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+\frac{f(z)}{z-a}
+\,dz
+\label{buch:analytisch:laurent:eqn:zweiintegrale}
+\end{equation}
+für jeden Punkt $a\in R(z_0;r_1,r_2)$.
+\end{satz}
+
+\begin{proof}
+Der in Abbildung~\ref{buch:analytisch:laurent:fig:ring} dargestellte
+Weg, der vom Punkt $A$ ausgehend zunächst dem äusseren Randkreis
+folgt bis wieder zurück zum Punkt $A$, dann radial zum Punkt $a$, in 
+einem Halbkreis vom Radius $\varepsilon$ um den Punkt $a$ bis zum
+Punkt $B$, von dort im Uhrzeigersinn um den Inneren Randkreis zurück
+zum Punkt $B$ und erneut radial zum Punkt $A$, mit einem kleinen, 
+kreisförmigen Umweg vom Radius $\varepsilon$ um den Punkt $a$.
+Die Funktion ist im Inneren des Weges überall holomorph,
+nach dem Integralsatz von Cauchy gilt daher
+\[
+\oint_{\gamma_1-\gamma_2-\gamma_{\varepsilon}} \frac{f(z)}{z-a}\,dz 
+=
+0.
+\]
+
+Die radialen Teile werden zweimal in entgegengesetzter Richtung durchlaufen
+und heben sich daher weg.
+Einen Beitrag zum Integral leisten daher nur die Kreise.
+Der kleine Kreis um den Punkt $a$ wird mit $t\mapsto \varepsilon e^{2\pi it}$
+parametrisiert.
+So wird das Integral
+\begin{align*}
+0
+&=
+\oint_{\gamma_1} \frac{f(z)}{z-a}\,dz
+-
+\oint_{\gamma_2} \frac{f(z)}{z-a}\,dz
+-
+\int_0^1
+\frac{f(a+\varepsilon e^{2\pi it})}{a+\varepsilon e^{2\pi it}-a}
+\cdot
+\frac{d}{dt}
+\varepsilon
+e^{2\pi it}
+\,dt
+\\
+\oint_{\gamma_1} \frac{f(z)}{z-a}\,dz
+-
+\oint_{\gamma_2} \frac{f(z)}{z-a}\,dz
+&=
+\int_0^1
+\frac{f(a+\varepsilon e^{2\pi it})}{\varepsilon e^{2\pi it}}
+\cdot
+2\pi i\varepsilon e^{2\pi it}
+\,dt
+\\
+&=
+2\pi i
+\int_0^1
+f(a+\varepsilon e^{2\pi it})
+\,dt.
+\end{align*}
+Die rechte Seite geht für $\varepsilon\to 0$ gegen $0$, so dass
+\[
+f(a)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{z-a}
+\,dz
+-
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+\frac{f(z)}{z-a}
+\,dz
+\]
+folgt.
+\end{proof}
+
+
+%
+% Die Laurent-Reihe
+%
+\subsection{Die Laurent-Reihe}
+Auf einem Kreisgebiet lässt sich eine holomorphe Funktion immer in eine
+Potenzreihe entwickeln.
+Auf einem Ringgebiet ist dies nicht mehr möglich.
+An die Stelle der Potenzreihe tritt ein sogenannte Laurent-Reihe.
+
+\begin{definition}[Laurent-Reihe]
+\label{buch:analytisch:laurent:def:laurentreihe}
+Eine \emph{Laurent-Reihe} ist eine Reihe der Form
+\index{Laurent-Reihe}%
+\begin{equation}
+f(a)
+=
+\sum_{k=0}^\infty a_k(a-z_0)^k
++
+\sum_{k=1}^\infty b_k(a-z_0)^{-k}
+\label{buch:analytisch:laurent:def:laurent}
+\end{equation}
+mit $a_k\in\mathbb{C}$, $k\in\mathbb{N}$ und $b_k\in\mathbb{C}$,
+$k\in\mathbb{N}\setminus\{0\}$.
+\end{definition}
+
+Die erste Reihe in
+\eqref{buch:analytisch:laurent:def:laurent}
+ist eine gewöhnliche Potenzreihen, deren Konvergenzradius wir mit $r_1$
+bezeichnen.
+Die zweite Reihe können wir auch als
+\begin{equation}
+\sum_{k=1}^\infty b_k(a-z_0)^{-k}
+=
+\sum_{k=1}^\infty b_k\biggl(\frac{1}{a-z_0}\biggr)^{k}
+\label{buch:analytisch:laurent:def:laurent2}
+\end{equation}
+schreiben, also als Potenzreihe in $1/(a-z_0)$.
+Ist $\varrho$ der Konvergenzradius dieser Potenzreihe, dann konvergiert
+die Reihe~\eqref{buch:analytisch:laurent:def:laurent2}
+offenbar für $|a-z_0| > 1/\varrho = r_2$.
+Nach dem Satz von Cauchy-Hadamard ist die Laurent-Reihe ist also genau
+dann auf dem Ringgebiet $R(z_0;r_1,r_2)$ definiert, wenn 
+\begin{align*}
+\frac{1}{r_1}
+&=
+\limsup_{n\to\infty}\!\sqrt[n]{|a_n|}
+&&\text{und}&
+r_2
+&=
+\limsup_{n\to\infty}\!\sqrt[n]{|b_n|}.
+\end{align*}
+und $r_1 > r_2$.
+
+\begin{satz}[Laurent-Reihe]
+\label{buch:analytisch:laurent:satz:laurentreihe}
+Ist $f$ eine auf einer Umgebung des Ringgebietes $R(z_0;r_1,r_2)$ definierte
+holomorphe Funktion, dann kann sie in eine Laurent-Reihe entwickelt werden.
+Ist $\gamma$ ein beliebiger Weg im Ringgebiet, der $z_0$ genau einmal
+im Gegenuhrzeigersinn umläuft, dann sind die 
+Koeffizienten durch
+\begin{align}
+a_k
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma} 
+\frac{f(z)}{(z-z_0)^{k+1}}
+\,dz
+&&\text{und}&
+b_k
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma} 
+f(z)(z-z_0)^{k-1}
+\,dz
+\label{buch:analytisch:laurent:eqn:laurentkoeffizienten}
+\end{align}
+gegeben.
+\end{satz}
+
+\begin{proof}
+Wir berechnen jetzt die beiden Integrale in
+\eqref{buch:analytisch:laurent:eqn:zweiintegrale} separat mit
+verschiedenen Entwicklungen des Integranden.
+Das erste Integral lässt sich wie früher in eine geometrische
+Reihe
+\[
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{z-a}
+\,dz
+=
+\sum_{k=0}^\infty
+\biggl(
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{(z-z_0)^{k+1}}
+\,dz
+\biggr)
+(a-z_0)^k
+=
+\sum_{k=0}^\infty a_k(a-z_0)^k
+\]
+entwickeln.
+
+Für das Integral über den inneren Randkreis 
+verwenden wir die geometrische Reihe
+\begin{align*}
+\frac{1}{z-a\mathstrut}
+&=
+\frac{1}{z-z_0-(a-z_0)\mathstrut}
+\\
+&=
+-
+\frac{1}{a-z_0}\cdot \frac{1}{1-\displaystyle\frac{z-z_0\mathstrut}{a-z_0}}
+=
+-
+\frac{1}{a-z_0}
+\sum_{k=0}^\infty \biggl(\frac{z-z_0}{a-z_0}\biggr)^k
+\\
+&=
+-
+\sum_{k=0}^\infty \frac{1}{(a-z_0)^{k+1}}(z-z_0)^k.
+\end{align*}
+Damit kann das Integral über $\gamma_2$ geschrieben werden als
+\begin{align*}
+-
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+\frac{f(z)}{z-a}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+\sum_{k=0}^\infty
+f(z)(z-z_0)^k
+\frac{1}{(a-z_0)^{k+1}}
+\,dz
+\\
+&=
+\sum_{k=0}^\infty
+\biggl(
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+f(z) (z-z_0)^k
+\,dz
+\biggr)
+\cdot
+\frac{1}{(a-z_0)^{k+1}}.
+\intertext{Durch Verschiebung des Summationsindex wird daraus}
+&=
+\sum_{k=1}^\infty
+\biggl(
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+f(z) (z-z_0)^{k-1}
+\,dz
+\biggr)
+\cdot
+\frac{1}{(a-z_0)^k}
+=
+\sum_{k=1}^\infty
+b_k
+\cdot
+\frac{1}{(a-z_0)^k}.
+\end{align*}
+
+Die beiden Reihenentwicklungen können wir jetzt zusammensetzen zu
+\begin{align*}
+f(a)
+&=
+\sum_{k=0}^\infty
+a_k
+\cdot 
+(a-z_0)^k
++
+\sum_{k=1}^\infty
+b_k
+\cdot 
+(a-z_0)^{-k},
+\end{align*}
+die versprochene Laurent-Reihe.
+
+Jetzt muss noch gezeigt werden, dass die Integrale über $\gamma_1$ 
+bzw.~$\gamma_2$ durch Integrale über den Weg $\gamma$ irgendwo
+im Ringgebiet ersetzt werden können.
+Die Integranden der Integrale sind im ganzen Ringgebiet holomorph.
+Die Deformation des Weges $\gamma_1$ in den Weg $\gamma$ oder des
+Weges $\gamma_2$ in den Weg $\gamma$ ändert daher das Integral nicht.
+\end{proof}
+
+%
+% Singularitäten
+%
+\subsection{Singuläre Punkte}
+Die Laurent-Reihenentwicklung ermöglicht, eine Funktion in der Umgebung
+eines singulären Punktes genauer zu untersuchen.
+Sei $U$ ein offene Teilmenge von $\mathbb{C}$ und $z_0$ ein isolierter
+Punkt von $\mathbb{C}\setminus U$.
+Ein auf $U$ definierte, holomorphe Funktion $f\colon U\to\mathbb{C}$
+ist also in jeder genügend kleinen Umgebung von $z_0$ in jedem Punkt
+definiert ausser im Punkt $a$.
+Eine solche Stelle heisst ein \emph{isolierter} singulärer Punkt.
+\index{singularer Punkt@singulärer Punkt}%
+
+Die Funktion $f$ ist in jedem Ringgebiet $R(z_0;r_1,r_2)$, um den Punkt
+$z_0$ definiert, sofern nur $r_1$ klein genug ist und für 
+alle inneren Radien $r_2<r_1$.
+Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} gibt es
+ein Laurent-Reihenentwicklung
+\begin{equation}
+f(z)
+=
+\sum_{k=0}^\infty a_k(z-z_0)^k
++
+\sum_{k=1}^\infty b_k(z-z_0)^{-k},
+\label{buch:analytisch:laurent:eqn:laurentsing}
+\end{equation}
+die für $z$ beliebig nahe an $z_0$ konvergiert.
+Es folgt, dass die Reihe
+\[
+u(z)
+=
+\sum_{k=1}^\infty b_kz^k
+\]
+für beliebig grosse $z$ konvergiert, sie ist also in ganz $\mathbb{C}$
+definiert.
+Am Nullpunkt ist $u(0)=0$.
+Die zweite Summe in der Laurent-Reihe
+\eqref{buch:analytisch:laurent:eqn:laurentsing}
+kann daher als $u(1/(z-z_0))$ geschrieben werden.
+Die Funktion $u(1/(z-z_0))$ heisst der \emph{singäre Teil} der Funktion $f$
+in einer Umgebung von $z_0$.
+\index{singularer Teil@singulärer Teil}%
+
+Falls $u=0$ ist, dann handelt es sich um eine \emph{hebbare} Singularität,
+die Funktion kann stetig in den Punkt $z_0$ hinein fortgesetzt werden.
+
+\begin{definition}[Ordnung eines singlären Punktes]
+Sei $z_0$ ein singulärer Punkt der Funktion $f(z)$ und $u(z)$ der 
+singuläre Teil an der Stelle $z_0$.
+Wenn $u(z)$ ein Polynom vom Grad $n$ ist, dann heisst $z_0$ ein
+\emph{Pol der Ordnung $n$}.
+\index{Pol}%
+Falls $u(z)$ kein Polynom ist, heisst $z_0$ eine \emph{essentielle
+Singularität}.
+\index{essentielle Singularitat@essentielle Singularität}%
+Falls $u=0$ ist und $a_k=0$ für $k\le n$ in 
+\eqref{buch:analytisch:laurent:eqn:laurentsing},
+dann heisst $z_0$ eine \emph{Nullstelle der Ornung $n$}.
+Die Funktion $\omega(f,z_0)$ ist definiert durch
+\[
+\omega(z_0;f)
+=
+\begin{cases}
+-\infty&\qquad\text{falls $z_0$ eine essentielle Singularität von $f$ ist}\\
+-n&\qquad\text{falls $z_0$ ein Pol der Ordnung $n$ von $f$ ist}\\
+\phantom{-}m&\qquad\text{falls $z_0$ eine Nullstelle der Ordnung $m$ von $f$ ist}\\
+\phantom{-}\infty&\qquad\text{falls $f=0$ ist}
+\end{cases}
+\]
+\end{definition}
+
+Für die Ordnung $\omega(z_0,f)$ gelten die folgenden Rechenregeln.
+\begin{align*}
+\omega(z_0,f+g) &\ge \min\bigl(\omega(z_0,f),  \omega(z_0,g)\bigr)
+\\
+\omega(z_0,fg) &= \omega(z_0,f) + \omega(z_0,g).
+\end{align*}
+
+Wenn $f$ eine Singularität der Ordnung $n$ an der Stelle $z_0$ hat, 
+dann ist $(z-z_0)^{-n}f(z)$ eine analytische Funktion mit einer
+hebbaren Singularität an der Stelle $z_0$, die dort nicht verschwindet.
+Insbesondere ist dann auch $1/(z-z_0)^{-n}\cdot 1/f(z)$ eine in einer
+Umgebung von $z_0$ holomorphe Funktion, so dass man
+\[
+\omega(z_0;f)
+=
+-\omega(z_0;1/f)
+\]
+schliessen kann.
+
+%
+% Meromorphe Funktionen
+%
+\subsection{Meromorphe Funktionen}
+Funktionen mit lauter isolierte Singulariäteten sind besonders
+leicht zu behandeln und verdienen daher einen eigenen Namen.
+
+\begin{definition}[meromorphe Funktion]
+Eine holomorphe Funktion $f\colon U\to\mathbb{C}$,
+für die $\mathbb{C}\setminus U$ aus lauter isolierten Punkten besteht,
+heisst \emph{meromorph}.
+\index{meromorph}%
+\end{definition}
+
+Die wichtigsten Beispiel für meromorphe Funktionen sind die rationalen
+Funktionen
+\[
+f(z)
+=
+\frac{f(z)}{g(z)},
+\]
+wobei $f(z)$ und $g(z)$ Polynome sind.
+Die Singularitäten sind dann genau die Nullstellen von $g(z)$ und die
+Ordnung der Pole von $f(z)$ ist die Ordnung der Nullstellen von $g(z)$.
+
 

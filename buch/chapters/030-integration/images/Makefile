@@ -3,7 +3,20 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	wege.pdf rechteck.pdf residuum.pdf argument.pdf lochgebiet.pdf homotopie.pdf dreiecke.pdf beliebig.pdf green.pdf deformation.pdf
+all:	wege.pdf							\
+	rechteck.pdf							\
+	residuum.pdf							\
+	argument.pdf							\
+	lochgebiet.pdf							\
+	homotopie.pdf							\
+	dreiecke.pdf							\
+	beliebig.pdf							\
+	green.pdf							\
+	deformation.pdf							\
+	cauchyverteilung.pdf						\
+	ecos.pdf							\
+	paar.pdf							\
+	merohomolog.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -35,3 +48,14 @@ green.pdf:	green.tex
 deformation.pdf:	deformation.tex
 	pdflatex deformation.tex
 
+cauchyverteilung.pdf:	cauchyverteilung.tex
+	pdflatex cauchyverteilung.tex
+
+ecos.pdf:	ecos.tex
+	pdflatex ecos.tex
+
+paar.pdf:	paar.tex
+	pdflatex paar.tex
+
+merohomolog.pdf:	merohomolog.tex
+	pdflatex merohomolog.tex

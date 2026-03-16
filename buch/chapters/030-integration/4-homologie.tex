@@ -1,0 +1,235 @@
+%
+% 4-homologie.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Homologie
+\label{buch:integration:section:homologie}}
+Der Integralsatz von Cauchy besagt, dass ein Deformation des Weges
+eines Wegintegrals sich nicht auf den Wert des Integrals auswirkt,
+solange die Deformation keine Singulartität der Funktion trifft.
+\input{chapters/030-integration/fig/fig-paar.tex}%
+Abbildung~\ref{buch:integration:homologie:fig:paar}
+zeigt die Deformation des Pfades $\gamma$, der die beiden ``Löcher''
+im Definitionsbereich um die Foki $F_1$ und $F_2$ der Lemniskate
+einmal umläuft, in zwei Wege $\gamma_+$ und $\gamma_-$, die $F_1$
+und $F_2$ separat umlaufen, verbunden über zwei Wegstücke entlang
+der reellen Achse, die in entgegengesetzter Richtung durchlaufen
+werden und sich im Integral daher wegheben.
+Es folgt, dass
+\[
+\int_\gamma f(z)\,dz
+=
+\int_{\gamma_+} f(z)\,dz
++
+\int_{\gamma_-} f(z)\,dz.
+\]
+Wir müssen daher die Idee eines Weges wie $\gamma$ zu einer 
+Vereinigung von Wegen wie $\{\gamma_+,\gamma_-\}$ verallgemeinern.
+
+\begin{definition}[Kette]
+\label{buch:integration:homologie:def:kette}
+Eine \emph{Kette} $C$ in $U$ ist eine formale Summe
+\index{Kette}%
+\begin{equation}
+C
+=
+c_1\gamma_1 + \dots + c_n\gamma_n
+\label{buch:integration:homologie:eqn:def:kette}
+\end{equation}
+von Wegen $\gamma_k\colon I \to U$ mit $c_i\in\mathbb{C}$.
+\end{definition}
+
+Das Wegintegral entlang einer Kette wird durch Linearkombination
+gebildet:
+
+\begin{definition}[Wegintegral einer Kette]
+Ist $C$ eine Kette der Form
+\eqref{buch:integration:homologie:eqn:def:kette}
+und $f$ eine in $U$ holomorphe Funktion, dann ist das 
+\emph{Wegintegral entlang $C$} definiert durch
+\index{Wegintegral entlang einer Kette}%
+\[
+\int_C f(z)\,dz
+=
+c_1
+\oint_{\gamma_1}f(z)\,dz
++
+\ldots
++
+c_n
+\oint_{\gamma_n}f(z)\,dz
+=
+\sum_{k=1}^n
+c_k \oint_{\gamma_k} f(z)\,dz.
+\]
+\end{definition}
+
+Abbildung~\ref{buch:integration:homologie:fig:paar}
+zeigt eine Situation einer Kette $C=\gamma_++\gamma_-$, deren
+Wegintegral
+\[
+\int_C f(z)\,dz
+=
+\oint_{\gamma_+} f(z)\,dz
++
+\oint_{\gamma_-} f(z)\,dz
+=
+\oint_{\gamma} f(z)\,dz
+\]
+mit dem Wegintegral entlang der Kurve $\gamma$ übereinstimmt.
+Soweit es um Wegintegrale entlang einer Kette geht, gibt es 
+zwischen $\gamma$ und $C$ keinen Unterschied.
+
+Zwischen $\gamma$ und nur der Komponente $\gamma_+$ gibt es
+ein wesentlichen Unterschied.
+Die Funktion $f(z) = 1/(z-F_1)$ hat eine Polstelle im Punkt $F_1$.
+Die Wegintegrale sind
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma f(z)\,dz
+&=
+\\
+\frac{1}{2\pi i}
+\oint_\gamma \frac{1}{z-F_1}\,dz
+&=
+\\
+\operatorname{ind}_\gamma(F_1)
+&=
+1
+\\
+&\ne
+\frac{1}{2\pi i}
+\oint_{\gamma_+} f(z)\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma_+} \frac{1}{z-F_1}\,dz
+\\
+&=
+\operatorname{ind}_{\gamma_+}(F_1)
+\\
+&=
+0
+\end{align*}
+sind jedoch verschieden.
+Der Grund dafür ist, dass $\gamma$ und $\gamma_+$ den Punkt $F_1$
+nicht gleich oft umlaufen.
+Wir definieren daher ein Äquivalenzrelation von Ketten durch die
+Anzahl der Male, die sie Punkte ausserhalb von $U$ umlaufen.
+
+\begin{definition}[Umlaufzahl einer Kette]
+Die \emph{Umlaufzahl} einer Kette $C$ um einen Punkt $z_0$ ist
+\index{Umlaufzahl}%
+\[
+\operatorname{ind}_C(z_0)
+=
+\frac{1}{2\pi i}
+\int_C
+\frac{1}{z-z_0}
+\,dz.
+\]
+\end{definition}
+
+\begin{definition}[homolog]
+Die Ketten $C_1$ und $C_2$ heissen \emph{homolog} in $U$, in Zeichen
+$C_1\sim C_2$ oder $C_1\sim_{U}C_2$, wenn
+\index{homolog}%
+für jeden Punkt $a\in \mathbb{C}\setminus U$
+\[
+\operatorname{ind}_{C_1}(a)
+=
+\operatorname{ind}_{C_2}(a)
+\]
+gilt.
+\end{definition}
+
+Die Kette $\gamma_++\gamma_-$ ist also zu $\gamma$ homolog.
+Für homologe Ketten ist nicht nur die Umlaufzahl gleich, sondern
+jedes Integral.
+
+\begin{satz}
+Sind die Ketten $C_1$ und $C_2$ homolog, dann ist
+\[
+\int_{C_1} f(z)\,dz
+=
+\int_{C_2} f(z)\,dz.
+\]
+\end{satz}
+
+Wir betrachten jetzt einen später besonders nützlichen Spezialfall.
+\input{chapters/030-integration/fig/fig-merohomolog.tex}%
+In Abbildung~\ref{buch:integration:homologie:fig:merohomolog}
+ist ein Gebiet $U$ mit einer einfach geschlossenen Kurve
+$\gamma$ dargestellt.
+Das Komplement von $U$ im Inneren der Kurve $\gamma$ besteht
+aus den isolierten Punkten $z_k$.
+Jeder dieser Punkte kann so mit der Kurve $\gamma$ verbunden werden,
+dass sich die Verbindungen nicht schneiden.
+Ausserdem wird jeder von diesen Punkten von einem kleinen Kreis $\gamma_k$
+im Gegenuhrzeigersinn umlaufen.
+Aus $\gamma$, den im Uhrzeigersinn durchlaufenen Kreisen $-\gamma_k$
+und den Verbindungen zu $\gamma$ lässt sich ein neuer Weg zusammensetzen,
+der sich in $U$ zusammenziehen lässt.
+Das Wegintegral über den gesamten Weg verschwindet daher.
+Die Verbindungswege zur Kurve $\gamma$ werden dabei zweimal in
+entgegengesetzter Richtung durchlaufen und tragen daher nicht zum
+Wegintegral bei.
+Das Wegintegral einer in $U$ holomorphen Funktion über $\gamma$
+ist daher gleich der Summe der Wegintegrale der Funktion
+über die Kreise $\gamma_k$.
+
+\begin{satz}
+\label{buch:integration:homologie:satz:pfadpunkte}
+Ist $\gamma$ eine einfach geschlossene Kurve in $U$ und besteht das Komplement
+von $U$ im Inneren von $\gamma$ nur aus endlich vielen isolierten Punkten
+$z_k$, $1\le k\le n$, dann gibt es einen Radius $r$ derart, dass $\gamma$
+homolog zu einem Zyklus 
+\[
+C
+=
+\sum_{k=1}^n \gamma_k,
+\]
+wobei jedes $\gamma_k$ ein Kreis vom Radius $r$ um $z_k$ ist.
+\end{satz}
+
+\begin{proof}
+Es muss nur der Radius $r$ berechnet werden.
+Nimmt man
+\[
+r
+=
+\frac13
+\min \{ |z_k-z_l|\mid 1\le k,l\le n\},
+\]
+dann können sich die Kreise um die Punkte $z_k$ mit Radius $r$ nicht
+schneiden.
+Für jeden Punkt $z_k$ ist dann die Umlaufzahl 
+\[
+\operatorname{ind}_{\gamma_k}(z_l)
+=
+\delta_{kl}
+=
+\begin{cases}
+1&\qquad\text{für $k=l$}\\
+0&\qquad\text{für $k\ne l$.}
+\end{cases}
+\]
+Für den ganzen Zyklus $C$ gilt dann
+\[
+\operatorname{ind}_C(z_l)
+=
+\sum_{k=1}^n
+\delta_{kl}
+=
+1
+=
+\operatorname{ind}_\gamma(z_l).
+\]
+Dies zeigt, dass $\gamma$ und $C$ homolog sind.
+\end{proof}
+
+
+
+
+

@@ -1,0 +1,51 @@
+Zeichnen Sie die Wege mit den Parametrisierungen mit $t\in I=[0,1]$
+\begin{teilaufgaben}
+\item $\gamma_1(t) = 1 + it$
+\item $\gamma_2(t) = e^{-\pi it}$
+\item $\gamma_3(t) = e^{\pi it}$
+\item $\gamma_4(t) = 1 + it + t^2$
+\end{teilaufgaben}
+Berechnen Sie ausserdem die Ableitung nach $t$.
+
+\begin{loesung}
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick,scale=3]
+\def\w{70}
+
+\draw[->] (-1.1,0) -- (2.1,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-1.1) -- (0,1.2) coordinate[label={right:$\operatorname{Im}$}];
+
+\draw[->,color=darkred,line width=1.2pt] (1,0) -- (1,1);
+\node at (1,0.7) [right] {$\gamma_1$};
+
+\draw[color=darkred,line width=1.2pt] (1,0) arc(0:-179:1);
+\draw[<-,color=darkred,line width=1.2pt] (-1,0) -- ++(0,-0.03);
+\node at (-\w:1) [below right] {$\gamma_2$};
+
+\draw[color=darkred,line width=1.2pt] (1,0) arc(0:179:1);
+\draw[<-,color=darkred,line width=1.2pt] (-1,0) -- ++(0,0.03);
+\node at (\w:1) [above right] {$\gamma_3$};
+
+\draw[->,color=darkred,line width=1.2pt]
+	plot[domain=0:1,samples=100] ({1+\x*\x},{\x});
+\def\X{0.8}
+\node at ({1+\X*\X},{\X}) [below right] {$\gamma_4$};
+
+\fill[color=darkred] (1,0) circle[radius=0.03];
+
+\end{tikzpicture}
+\caption{Pfade von Aufgabe \ref{301}.
+\label{buch:integration:aufgabe:fig:301}}
+\end{figure}
+Die Pfade sind in Abbildung~\ref{buch:integration:aufgabe:fig:301}
+dargestellt.
+Die Ableitungen sind die folgenden:
+\begin{teilaufgaben}
+\item $\dot{\gamma}_1(t) = i$.
+\item $\dot{\gamma}_2(t) = -\pi i e^{-\pi it}$.
+\item $\dot{\gamma}_3(t) =  \pi i e^{\pi it}$.
+\item $\dot{\gamma}_4(t) = 2t+it$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
