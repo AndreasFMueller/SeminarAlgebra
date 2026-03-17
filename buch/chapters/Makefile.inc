@@ -14,3 +14,5 @@ include chapters/020-holomorph/Makefile.inc
 include chapters/030-integration/Makefile.inc
 include chapters/040-analytisch/Makefile.inc
 include chapters/050-differentialgleichungen/Makefile.inc
+include chapters/060-ratint/Makefile.inc
+include chapters/070-integration/Makefile.inc
