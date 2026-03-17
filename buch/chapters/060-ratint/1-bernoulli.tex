@@ -6,3 +6,144 @@
 \section{Integration rationaler Funktionen nach Bernoulli
 \label{buch:ratint:section:bernoulli}}
 \kopfrechts{Integration rationaler Funktionen nach Bernoulli}%
+
+%
+% Problemstellung
+%
+\subsection{Problemstellung}
+
+%
+% Stammfunktionen für Partialbrüche
+%
+\subsection{Stammfunktionen für Partialbrüche}
+
+%
+% Rationale Funktionen mit reellen Koeffizienten
+%
+\subsection{Rationale Funktionen mit reellen Koeffizienten}
+Der Fundamentalsatz der Algebra garantiert eine Faktorisierung 
+eines Polynoms mit komplexen Koeffizienten in Linearfaktoren
+der Form $z-\alpha$, wobei $\alpha$ eine Nullstelle des Polynoms
+ist.
+Dies ist jedoch nur möglich, wenn wenn komplexe Nullstellen zugelassen
+werden.
+Es ist jedoch einfach Polynome anzugeben, die über den reellen Zahlen
+nicht in Linearfaktoren zerlegt werden können.
+Das Polynom $p(x)=x^2+1$ hat keine reellen Nullstellen.
+Über den reellen Zahlen ist $p(x)$ ein irreduzibles Polynom.
+Über den komplexen Zahlen ist jedoch $p(x)=(x+i)(x-i)$ eine
+Faktorisierung in Linearfaktoren.
+
+%
+% Faktorisierung in lineare und quadratische Faktoren
+%
+\subsubsection{Faktorisierung in lineare und quadratische Faktoren}
+Für ein reelles Polynom 
+$p(z) = a_0 + a_1z + \dots + a_{n-1}z^{n-1} + a_nz^n$
+kann man also eine Faktorisierung in Linearfaktoren
+nicht erwarten.
+Betrachtet man das Polynom jedoch als ein Polynom mit komplexen
+Koeffizienten, dann garantiert der Fundamentalsatz der Algebra eine
+Faktorisierung
+\[
+p(z)
+=
+a_n
+(z-\alpha_1) 
+(z-\alpha_2) 
+\cdot
+\ldots
+\cdot
+(z-\alpha_n),
+\]
+wobei die $\alpha_k$ Nullstellen des Polynoms sind.
+Es gilt also $p(\alpha_k)=0$ für alle $k$.
+
+Das Polynom $p(x)$ hat reelle Koeffizienten, die $\bar{a}_k=a_k$
+für alle $k$ erfüllen.
+Daher kann man die Bedinung $p(\alpha_k)=0$ komplex konjugieren
+und bekommt
+\begin{align*}
+0
+=
+\overline{p(\alpha_k)}
+&=
+\bar{a}_0
++
+\bar{a}_1 \bar{\alpha}_k
++
+\bar{a}_2 \bar{\alpha}_k^2
++
+\ldots
++
+\bar{a}_{n-1} \bar{\alpha}_k^{n-1}
++
+\bar{a}_{n} \bar{\alpha}_k^{n}
+\\
+&=
+a_0
++
+a_1 \bar{\alpha}_k
++
+a_2 \bar{\alpha}_k^2
++
+\ldots
++
+a_{n-1} \bar{\alpha}_k^{n-1}
++
+a_{n} \bar{\alpha}_k^{n}
+\\
+&=
+p(\bar{\alpha}_k).
+\end{align*}
+Es folgt, dass $\bar{\alpha}_k$ ebenfalls eine Nullstelle ist.
+Falls $\alpha_k=\bar{\alpha}_k$ ist, ist $\alpha_k$ eine reelle
+Nullstelle.
+Falls $\alpha_k\ne \bar{\alpha}_k$ ist, dann ist $\bar{\alpha}_k$
+eine der anderen Nullstellen.
+Die Nullstellen eines reellen Polynoms sind als entweder reell,
+oder wenn sie nicht reell sind, dann treten Sie in Paaren von
+konjugiert komplexen Nullstellen auf.
+
+Ein paar von konjugiert komplexen Nullstellen führt auf den Faktor
+\begin{align}
+(z-\alpha)(z-\bar{\alpha})
+&=
+z^2 -(\alpha+\bar{\alpha}) z + \alpha\bar{\alpha}
+=
+\label{buch:ratint:bernoulli:reell:faktoren}
+\intertext{Die Summe konjugiert komplexer Zahlen ist
+$(a+bi)+(a-bi) = 2a $, also das Doppelte des Realteils.
+Daher ist der zu berechnende Faktor}
+z^2 -2\operatorname{Re}(\alpha)\, z + |\alpha|^2
+\notag
+\end{align}
+Sowohl $\operatorname{Re}\alpha$ und $|\alpha|^2$ sind reell.
+Indem man die Paare konjugiert komplexer Zahlen zu quadratischen
+Faktoren wie in \eqref{buch:ratint:bernoulli:reell:faktoren}
+zusammenfasst, findet man eine Faktorisierung des Polynoms in
+der Form
+\[
+p(z)
+=
+a_n
+(z-\alpha_1)
+\cdot\ldots\cdot
+(z-\alpha_m)
+\cdot
+(z^2 + \beta_1 z + \gamma_1)
+\cdot \ldots \cdot
+(z^2 + \beta_l z + \gamma_l),
+\]
+wobei die $\alpha_1,\dots,\alpha_m$ die reellen Nullstellen sind
+und die Faktoren $z^2 +\beta_k z +\gamma_k$ Paare von
+konjugiert komplexen, aber nicht reellen Lösungen haben.
+Damit die rechte Seite den richtigen Grad hat, muss $n=m+2l$ sein.
+
+%
+% Stammfunktionen für quadratische Faktoren
+%
+\subsection{Stammfunktionen für quadratische Faktoren}
+
+
+
