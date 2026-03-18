@@ -155,6 +155,7 @@ grösser als in der Faktorisierung.
 Dies ist im folgenden Satz zusammengefasst.
 
 \begin{satz}
+\label{buch:ratint:bernoulli:satz:reelle-partialbruchzerlegung}
 Ist der Nenner $q(z)$ der rationalen Funktion $f(z)=p(z)/q(z)$ 
 ein Polynom mit einer Faktorisierung der Form
 \begin{equation}
@@ -168,10 +169,10 @@ a_n
 \cdots
 (z^2+\beta_l z + \gamma_l)^{r_l}
 \end{equation}
-dann gibt es eine Partialbruchzerlegung der Form
+dann gibt es eine eindeutig bestimmte Partialbruchzerlegung der Form
 \begin{equation}
 \renewcommand{\arraycolsep}{2pt}
-\renewcommand{\arraystretch}{1.7}
+%\renewcommand{\arraystretch}{1.7}
 \begin{array}{rcclcccl}
 f(z)
 &=&&
@@ -181,15 +182,15 @@ f(z)
 \displaystyle
 \frac{A_1^{r_1}}{(z-\alpha_1)^{s_1}}
 \\
-&&&&&&&
-\\
+&&&\hspace*{11pt}\vdots&&&&\hspace*{17pt}\vdots
+\\[2pt]
 &&+&
 \displaystyle
 \frac{A_m^{1}  }{ z-\alpha_m       }
 &+& \ldots &+&
 \displaystyle
 \frac{A_m^{s_m}}{(z-\alpha_m)^{s_m}}
-\\
+\\[10pt]
 &&+&
 \displaystyle
 \frac{B_1^1    z + C_1^1    }{ z+\beta_1 z + \gamma_1       }
@@ -197,7 +198,8 @@ f(z)
 \displaystyle
 \frac{B_1^{r_1}z + C_1^{r_1}}{(z+\beta_1 z + \gamma_1)^{r_1}}
 \\
-&&&&&&&\\
+&&&\hspace*{24pt}\vdots&&&&\hspace*{29pt}\vdots
+\\[2pt]
 &&+&
 \displaystyle
 \frac{B_l^1    z + C_1^l    }{ z+\beta_l z + \gamma_l       }
@@ -205,15 +207,237 @@ f(z)
 \displaystyle
 \frac{B_l^{r_l}z + C_l^{r_1}}{(z+\beta_l z + \gamma_l)^{r_l}}
 \end{array}
+\label{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
 \end{equation}
+Darin sind die Zahlen $A_i^k$, $B_i^k$ und $C_i^k$ reelle Zahlen.
 \end{satz}
 
+\begin{proof}
+Die Form der Partialbruchzerlegung ist aus der früheren Diskussion,
+die zu Satz~\ref{buch:analytisch:ratioinal:satz:partialbruchzerlegung}
+geführt hat, klar.
+Es muss höchstens noch gezeigt werden, dass diese Zerlegung auch
+eindeutig ist.
 
+Offenbar sind $s_i$ Zahlen $A_i^k$ zu bestimmen, insgesamt also
+$s_1+\dots+s_m$ Unbekannte für Terme zu den Linearfaktoren.
+Zu den quadratischen Faktoren sind je $s_i$ Unbekannte
+$B_i^k$ und $C_i^k$ zu bestimmen, also insgesamt
+$2r_1+\dots+2r_l$ Unbekannte.
+Die Gesamtzahl der Unbekannten ist $s_1+\dots+s_m+2r_1+\dots+2r_l=n$.
+
+
+Multipliziert man die Gleichung
+\eqref{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
+mit dem Nenner $q(z)$, dann bleibt auf der linken Seite das Polynom
+$p(z)$ und auf der rechten ein Polynom, dessen Koeffizienten
+Linearkombinationen der Unbekannten $A_i^k$, $B_i^k$ und $C_i^k$
+sind.
+Das Zählerpolynom hat Grad $<n$, es enthält also höchstens $n$
+Koeffizienten.
+Koeffizientenvergleich liefert dann insgesamt $n$ lineare Gleichungen
+für die Unbekannten.
+Das entstehende lineare Gleichungssystem hat also $n$ Gleichungen für
+$n$ Unbekannte.
+\end{proof}
+
+Die reelle Partialbruchzerlegung erlaubt die Berechnung einer
+Stammfunktion durch Integration der einzelnen Terme.
+Für die linearen Terme ist bereits die Stammfunktion
+\[
+\int\frac{dz}{z-\alpha}
+=
+\log (z-\alpha)
+\]
+bekannt.
+Die Stammfunktion für die Terme zu den quadratischen Faktoren
+des Nenners wird im nächsten Abschnitt bestimmt.
 
 %
 % Stammfunktionen für quadratische Faktoren
 %
-\subsection{Stammfunktionen für quadratische Faktoren}
+\subsubsection{Stammfunktionen für quadratische Faktoren}
+Wir betrachten jetzt einen quadratischen Nenner der Form
+\[
+z^2 + \beta z + \gamma
+=
+(z-\alpha)(z-\bar{\alpha}),
+\]
+wobei $\beta = 2\operatorname{Re}\alpha$ und $\gamma=|\alpha|^2$ ist.
+
+Als erstes berechnen wir das Integral eines Terms, in dessen Nenner
+der quadratische Faktor einmal vorkommt, mit Hilfe der komplexen
+Partialbruchzerlegung, die die Form
+\begin{align*}
+\frac{Bz+C}{z^2+\beta z+\gamma}
+&=
+\frac{A_1}{z-\alpha}
++
+\frac{A_2}{z-\bar{\alpha}}.
+\intertext{Durch Multiplizieren mit dem Nenner $(z-\alpha)(z-\bar{\alpha})$
+entsteht}
+Bz+C
+&=
+A_1(z-\bar{\alpha})
++
+A_2(z-\alpha)
+=
+(A_1+A_2)z-(A_1\bar{\alpha}+A_2\alpha).
+\end{align*}
+Durch Koeffizientenvergleich entsteht das lineare Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcr}
+             A_1 &+&        A_2 &=&  B\\
+\bar{\alpha} A_1 &+& \alpha A_2 &=& -C\rlap{,}
+\end{array}
+\]
+Das Gleichungssystem ist am einfachsten mit der Carmerschen Regel
+zu lösen:
+\begin{align*}
+A_1
+&=
+\frac{
+\left|\,\begin{matrix*}[r]
+     B       &    1   \\
+    -C       & \alpha
+\end{matrix*}\,\right|
+}{
+\left|\,\begin{matrix*}[r]
+     1       &    1   \\
+\bar{\alpha} & \alpha
+\end{matrix*}\,\right|
+}
+=
+\frac{B\alpha+C}{2\operatorname{Im}\alpha}
+&
+A_2
+&=
+\frac{
+\left|\,\begin{matrix*}[r]
+     1       &    B   \\
+\bar{\alpha} &   -C  
+\end{matrix*}\,\right|
+}{
+\left|\,\begin{matrix*}[r]
+     1       &    1   \\
+\bar{\alpha} & \alpha
+\end{matrix*}\,\right|
+}
+=
+-
+\frac{B\bar{\alpha}+C}{2\operatorname{Im}\alpha}.
+\end{align*}
+Wir wissen bereits, dass der Realteil von $\alpha$ durch
+$\operatorname{Re}\alpha=\frac12 \beta$ ausgedrückt werden kann.
+Wegen $\gamma=|\alpha|^2$ und $\beta=2\alpha$ kann man
+auch den Imaginärteil von $\alpha$ durch $\beta$ und $\gamma$ ausdrücken,
+es ist nämlich
+\begin{align*}
+(\operatorname{Im}\alpha)^2 &= |\alpha|^2 - (\operatorname{Re}\alpha)^2
+\\
+\operatorname{Im}\alpha &= \frac12\!\sqrt{4\gamma^2 - \beta^2}.
+\end{align*}
+Damit kann die Lösung auch
+\begin{align*}
+A_1
+&=
+\frac{B\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
+&&&
+A_2
+&=
+-
+\frac{B\bar{\alpha} + C}{\!\sqrt{4\gamma^2-\beta^2}}
+\\
+&=
+\frac{B\operatorname{Re}\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB\operatorname{Im}\alpha}{2\operatorname{Im}\alpha}
+&&&
+&=
+-
+\frac{B\operatorname{Re}\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB\operatorname{Im}\alpha}{2\operatorname{Im}\alpha}
+\\
+&=
+\frac{B\beta + 2C}{2\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB}2
+&&&
+&=
+-
+\frac{B\beta + 2C}{2\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB}2
+\end{align*}
+
+Die Partialbruchzerlegung ist also
+\[
+\frac{Bz+C}{(z-\alpha)(z-\bar{\alpha})}
+=
+\frac{1}{2\operatorname{Im}\alpha}
+\biggl(
+\frac{B\alpha +C}{z-\alpha}
+-
+\frac{B\bar{\alpha} +C}{z-\bar{\alpha}}
+\biggr)
+\]
 
 
+In dieser Form kann die Stammfunktion jetzt mit Logarithmusfunktionen
+in der Form
+\begin{align*}
+\int
+\frac{Bz+C}{(z-\alpha)(z-\bar{\alpha})}
+\,dz
+&=
+\frac{1}{2\operatorname{Im}\alpha}
+\biggl(
+(B\alpha+C)
+\log(z-\alpha)
+-
+(B\bar{\alpha}+C)
+\log(z-\bar{\alpha})
+\biggr)
+\\
+&=
+\frac{1}{2\operatorname{Im}\alpha}
+(B\operatorname{Re}\alpha+C)
+\log\frac{z-\alpha}{z-\bar{\alpha}}
+\\
+&\qquad
++
+\frac{1}{2\operatorname{Im}\alpha}
+\biggl(
+iB\operatorname{Im}\alpha
+\log(z-\alpha)
++
+iB\operatorname{Im}\alpha
+\log(z-\bar{\alpha})
+\biggr)
+\\
+&=
+\frac{1}{2\operatorname{Im}\alpha}
+(B\operatorname{Re}\alpha+C)
+\log\frac{z-\alpha}{z-\bar{\alpha}}
++
+\frac{iB}{2}
+\log\bigl((z-\alpha)(z-\bar{\alpha})\bigr)
+)
+\\
+&=
+\frac{B\operatorname{Re}\alpha+C}{2\operatorname{Im}\alpha}
+\log
+\frac{z-\alpha}{z-\bar{\alpha}}
++
+\frac{iB}2
+\log(z^2+\beta z+\gamma)
+\end{align*}
+dargestellt werden.
+
+%
+% Stammfunktion für Potenzen von quadratischen Faktoren
+%
+\subsubsection{Stammfunktion für Potenzen von quadratischen Faktoren}
 
