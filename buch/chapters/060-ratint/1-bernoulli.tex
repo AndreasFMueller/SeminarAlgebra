@@ -102,7 +102,7 @@ Nullstelle.
 Falls $\alpha_k\ne \bar{\alpha}_k$ ist, dann ist $\bar{\alpha}_k$
 eine der anderen Nullstellen.
 Die Nullstellen eines reellen Polynoms sind als entweder reell,
-oder wenn sie nicht reell sind, dann treten Sie in Paaren von
+oder wenn sie nicht reell sind, dann treten sie in Paaren von
 konjugiert komplexen Nullstellen auf.
 
 Ein paar von konjugiert komplexen Nullstellen führt auf den Faktor
@@ -110,11 +110,11 @@ Ein paar von konjugiert komplexen Nullstellen führt auf den Faktor
 (z-\alpha)(z-\bar{\alpha})
 &=
 z^2 -(\alpha+\bar{\alpha}) z + \alpha\bar{\alpha}
-=
 \label{buch:ratint:bernoulli:reell:faktoren}
 \intertext{Die Summe konjugiert komplexer Zahlen ist
 $(a+bi)+(a-bi) = 2a $, also das Doppelte des Realteils.
 Daher ist der zu berechnende Faktor}
+&=
 z^2 -2\operatorname{Re}(\alpha)\, z + |\alpha|^2
 \notag
 \end{align}
@@ -123,7 +123,7 @@ Indem man die Paare konjugiert komplexer Zahlen zu quadratischen
 Faktoren wie in \eqref{buch:ratint:bernoulli:reell:faktoren}
 zusammenfasst, findet man eine Faktorisierung des Polynoms in
 der Form
-\[
+\begin{equation}
 p(z)
 =
 a_n
@@ -134,11 +134,81 @@ a_n
 (z^2 + \beta_1 z + \gamma_1)
 \cdot \ldots \cdot
 (z^2 + \beta_l z + \gamma_l),
-\]
+\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+\end{equation}
 wobei die $\alpha_1,\dots,\alpha_m$ die reellen Nullstellen sind
 und die Faktoren $z^2 +\beta_k z +\gamma_k$ Paare von
 konjugiert komplexen, aber nicht reellen Lösungen haben.
 Damit die rechte Seite den richtigen Grad hat, muss $n=m+2l$ sein.
+\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+
+%
+% Reelle Partialbruchzerlegung
+%
+\subsubsection{Reelle Partialbruchzerlegung}
+In der Zerlegung
+\eqref{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+können einzelne Faktoren auch mehrfach vorkommen.
+Die Konstruktion der Partialbruchzerlegung produziert
+daher für jeden Faktor Partialnenner in Potenzen nicht
+grösser als in der Faktorisierung.
+Dies ist im folgenden Satz zusammengefasst.
+
+\begin{satz}
+Ist der Nenner $q(z)$ der rationalen Funktion $f(z)=p(z)/q(z)$ 
+ein Polynom mit einer Faktorisierung der Form
+\begin{equation}
+q(z)
+=
+a_n
+(z-\alpha_1)^{s_1}
+\cdots
+(z-\alpha_m)^{s_m}
+(z^2+\beta_1 z + \gamma_1)^{r_1}
+\cdots
+(z^2+\beta_l z + \gamma_l)^{r_l}
+\end{equation}
+dann gibt es eine Partialbruchzerlegung der Form
+\begin{equation}
+\renewcommand{\arraycolsep}{2pt}
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{rcclcccl}
+f(z)
+&=&&
+\displaystyle
+\frac{A_1^1    }{ z-\alpha_1       }
+&+& \ldots &+&
+\displaystyle
+\frac{A_1^{r_1}}{(z-\alpha_1)^{s_1}}
+\\
+&&&&&&&
+\\
+&&+&
+\displaystyle
+\frac{A_m^{1}  }{ z-\alpha_m       }
+&+& \ldots &+&
+\displaystyle
+\frac{A_m^{s_m}}{(z-\alpha_m)^{s_m}}
+\\
+&&+&
+\displaystyle
+\frac{B_1^1    z + C_1^1    }{ z+\beta_1 z + \gamma_1       }
+&+& \ldots &+&
+\displaystyle
+\frac{B_1^{r_1}z + C_1^{r_1}}{(z+\beta_1 z + \gamma_1)^{r_1}}
+\\
+&&&&&&&\\
+&&+&
+\displaystyle
+\frac{B_l^1    z + C_1^l    }{ z+\beta_l z + \gamma_l       }
+&+& \ldots &+&
+\displaystyle
+\frac{B_l^{r_l}z + C_l^{r_1}}{(z+\beta_l z + \gamma_l)^{r_l}}
+\end{array}
+\end{equation}
+\end{satz}
+
+
 
 %
 % Stammfunktionen für quadratische Faktoren
