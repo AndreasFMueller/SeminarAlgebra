@@ -1,0 +1,581 @@
+%
+% 1-elementar.tex -- Elementare Funktionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Elementare Funktionen
+\label{buch:intalg:section:elementar}}
+\kopfrechts{Elementare Funktionen}%
+
+%
+% Exponentialdarstellung der trigonometrischen Funktionen
+%
+\subsection{Exponentialdarstellung der trigonometrischen Funktionen
+\label{buch:intalg:elementar:subsection:trigo}}
+Die trigonometrischen Funktionen wurden ursprünglich für die Zwecke
+der Beschreibung der Himmelskugel entwickelt und in der ebenen
+Geometrie bei der Berechnung von Dreiecken angewendet.
+Mit der eulerschen Formel $e^{it}=\cos t + i\sin t$ wird jedoch 
+auch eine Beziehung zur komplexen Exponentialfunktion offengelegt.
+Sie ermöglicht die trigonometrischen Funktionen und ihre Umkehrfunktionen
+ausschliesslich die Exponentialfunktion und ihre Umkehrfunktion, den
+Logarithmus, zu beschreiben.
+
+
+%
+% Hyperbolische Funktionen
+%
+\subsubsection{Hyperbolische Funktionen}
+Bei den hyperbolischen Funktionen ist die Situation viel einfacher,
+da diese Funktionen bereits durch die reelle Exponentialfunktion
+definiert sind.
+
+\begin{definition}[Hyperbolische Funktionen]
+\label{buch:intalg:elementar:trigo:def:hyperbolisch}
+Die \emph{hyperbolischen Funktionen} sind durch
+\index{hyperbolische Funktion}%
+\begin{align*}
+\sinh x &= \frac{e^x-e^{-x}}2,
+&
+\cosh x &= \frac{e^x+e^{-x}}2,
+&
+\tanh x &= \frac{e^x-e^{-x}}{e^x+e^{-x}},
+&
+\coth x &= \frac{e^x+e^{-x}}{e^x-e^{-x}}
+\end{align*}
+definiert für beliebige Argumente $x\in \mathbb{C}$.
+\index{sinh}%
+\index{cosh}%
+\index{tanh}%
+\index{coth}%
+\end{definition}
+
+Die hyperbolischen Funktionen sind besonderes nützlich für die Lösung
+von Differentialgleichungen zweiter Ordnung, weil sie ähnlich einfache 
+Anfangsbedingungen wie die Funktionen $\cos x$ und $\sin x$ haben.
+Die Differentialgleichung $y''=y$ hat die Exponentialfunktionen 
+$y_+(x)=e^x$ und $y_-(x)=e^{-x}$ als linear unabhängige Lösungen.
+Um jedoch eine Lösung der Differentialgleichung zu den Anfangsbedingungen
+$y(0)=y_0$ und $y'(0)=y_1$ zu finden, muss man eine Linearkombination
+\[
+y(x) = A y_+(x) + B y_-(x)
+\]
+finden, die die korrekten Anfangsbedingungen erfüllt. 
+Dazu setzt  man die Linearkombination in die Anfangsbedinungen ein
+und erhält das Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\left.
+\begin{array}{rcrcrcr}
+y(0)  &=& A y_+(0)  &+& B y_-(0)  &=& y_0 \\
+y'(0) &=& A y_+'(0) &+& B y_-'(0) &=& y_1 \\
+\end{array}
+\quad
+\right\}
+\qquad
+\Rightarrow
+\qquad
+\left\{
+\quad
+\begin{array}{rcrcl}
+A &+& B &=& y_0 \\
+A &-& B &=& y_1.
+\end{array}
+\right.
+\]
+Durch Addition bzw.~Subtraktion der beiden Gleichungen ist das 
+Gleichungssystem einfach zu lösen, man findet die Koeffizienten
+\[
+A
+=
+\frac{y_0+y_1}2
+\qquad\text{und}\qquad
+B
+=
+\frac{y_0-y_1}2
+\]
+und daraus die Lösung
+\begin{align*}
+y(x)
+=
+Ay_+(x) + By_-(x)
+&=
+\frac{y_0+y_1}2 e^x
++
+\frac{y_0-y_1}2 e^{-x}
+\\
+&=
+y_0
+\frac{e^x+e^{-x}}2
++
+y_1
+\frac{e^x-e^{-x}}2
+=
+y_0\cosh x + y_1 \sinh x
+\end{align*}
+der Differentialgleichung.
+Die hyperbolischen Funktionen tauchen also genauso natürlich in der
+Lösung der Differentialgleichung $y''=y$ auf, wie die trigonometrischen
+Funktionen in der Lösung der Schwingungsdifferentialgleichung $y''=-y$
+auftreten.
+Der Grund dafür ist natürlich, dass die Funktionen die gleichen
+Anfangsbedingungen
+\[
+\begin{aligned}
+\cos  0 &= 1,& \cos'  0 &= 0,\\
+\sin  0 &= 0,& \sin'  0 &= 1
+\end{aligned}
+\qquad\text{bzw.}\qquad
+\begin{aligned}
+\cosh 0 &= 1,& \cosh' 0 &= 0,\\
+\sinh 0 &= 0,& \sinh' 0 &= 1
+\end{aligned}
+\]
+haben.
+
+%
+% Die hyperbolischen Umkehrfunktionen
+%
+\subsubsection{Die hyperbolischen Umkehrfunktionen}
+Die Logarithmusfunktion ist die Umkehrfunktion der Exponentialfunktion.
+Mit ihr lassen sich auch die hyperbolischen Funktionen invertieren.
+
+Um die Umkehrfunktion $\operatorname{arcosh}y$ zu finden, muss die
+reelle Zahl $x$ gefunden werden, die $\cosh x = y$ gilt.
+Aus der Definition folgt die Gleichung
+\begin{align*}
+\frac{e^x + e^{-x}}2 &= y.
+\intertext{Da die Exponentialfunktion nicht verschwinden kann, verlieren
+wir nichts, wenn wir mit $e^x$ multiplizieren. 
+Dies ergibt}
+\frac{(e^x)^2 + 1}2 &= y e^x
+\intertext{oder als quadratische Gleichung für $e^x$ geschrieben:}
+(e^x)^2 - 2y e^x + 1 &= 0.
+\end{align*}
+Die Lösung der quadratischen Gleichung ist
+\begin{equation}
+e^x
+=
+y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\qquad
+\Rightarrow
+\qquad
+x
+=
+\log\Bigl(
+y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\Bigr).
+\label{buch:intalg:elementar:eqn:arcosh}
+\end{equation}
+Da $\cosh x$ eine gerade Funktion ist, gibt es zu den meisten
+$y$-Werten zwei $x$-Werte.
+Da $\cosh x$ eine gerade Funktion ist, würden wir erwarten,
+dass die beiden Werte in \eqref{buch:intalg:elementar:eqn:arcosh}
+entgegengesetzt sind.
+Dazu müssen aber die Argumente des Logarithmus reziprok sein.
+Tatsächlich
+\begin{align*}
+\frac{1}{y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}}
+&=
+\frac{
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+}{
+(
+y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+)(
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+)
+}
+\\
+&=
+\frac{
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+}{
+y^2-(y^2-1)
+}
+\\
+&=
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}.
+\end{align*}
+Die beiden Argumente des Logarithmus sind also tatsächlich
+reziprok.
+
+Auch für die hyperbolische Sinusfunktion kann mit der gleichen
+Methode ein Ausdruck für die Umkehrfunktion gefunden werden.
+Aus
+\[
+\sinh x = y
+\qquad\Rightarrow\qquad
+\frac{e^x - e^{-x}}2 = y
+\]
+folgt durch Multiplikation mit $2e^x$
+\begin{align*}
+(e^x)^2 -2ye^x - 1 &= 0
+\notag
+\intertext{mit der Lösung}
+e^x &= y\pm\!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
+\label{buch:intalg:elementar:trig:eqn:arsinh}
+\end{align*}
+Da das negative Zeichen auf der rechten Seite zu einem negativen Wert 
+führt, bleibt nur die Lösung
+\[
+x
+=
+\log\Bigl(y+\!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}\Bigr)
+.
+\]
+
+Für die hyperbolische Tangens- und Kotangensfunktion ist der
+entsprechende Ansatz
+\begin{align*}
+\tanh x
+=
+\frac{e^x-e^{-x}}{e^x+e^{-x}}
+&=
+y
+&
+&\text{bzw.}&
+\coth x
+=
+\frac{e^x+e^{-x}}{e^x-e^{-x}}
+&=
+y
+\intertext{oder nach Multiplizieren mit dem Nenner}
+e^x-e^{-x}
+&=
+ye^x+ye^{-x}
+&
+&&
+e^x+e^{-x}
+&=
+ye^x-ye^{-x}
+\intertext{und $e^x$}
+(e^x)^2-1
+&=
+y(e^x)^2+y
+&
+&&
+(e^x)^2+1
+&=
+y(e^x)^2-y.
+\intertext{Umgeschrieben als quadratische Gleichung für $e^x$ ist dies}
+(1-y) (e^x)^2
+&=
+1 +y
+&
+&&
+(1-y) (e^x)^2
+&=
+-1-y.
+\intertext{Mit der Quadratwurzel findet man}
+e^x
+&=
+\!\sqrt{\frac{1+y}{1-y}}
+&
+&\text{bzw.}&
+e^x
+&=
+\!\sqrt{\frac{y+1}{y-1}}
+\intertext{und schliesslich mit dem Logarithmus den Wert}
+x
+=
+\operatorname{artanh}y
+&=
+\log
+\!\sqrt{\frac{1+y}{1-y}}
+&
+&\text{bzw.}&
+x
+=
+\operatorname{arcoth}y
+&=
+\log
+\!\sqrt{\frac{y+1}{y-1}}
+\\
+&=
+\frac12\log
+\frac{1+y}{1-y}
+&
+&&
+&=
+\frac12\log
+\frac{y+1}{y-1}
+\end{align*}
+der Umkehrfunktion der hyperbolischen Tangens- bzw.~Kotangensfunktion.
+
+\begin{satz}
+Die Umkehrfunktionen der hyperbolischen Funktionen sind
+\begin{align*}
+\operatorname{arsinh}y
+&=
+\log\Bigl(
+y + \!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}
+\Bigr),
+&
+\operatorname{arcosh}y
+&=
+\log\Bigl(
+y + \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\Bigr),
+\\
+\operatorname{artanh}y
+&=
+\frac12\log
+\frac{1+y}{1-y},
+&
+\operatorname{arcoth}y
+&=
+\frac12\log
+\frac{y+1}{y-1}.
+\end{align*}
+\end{satz}
+
+Der Satz zeigt also, dass nicht nur die hyperbolischen Funktionen
+sondern auch ihre Umkehrfunktionen ausschliesslich durch algebraische
+Funktionen und den Logarithmus definiert werden können.
+
+Die Funktionen $\operatorname{tanh}x$ und $\operatorname{coth}x$ sind
+reziprok.
+Die beiden Funktionen $\operatorname{artanh}y$ und
+$\operatorname{arcoth}y$
+müssen also unter der Substitution $y\to 1/y$ ineinander übergehen.
+Tatsächlich wird das Argument des Logarithmus in der Areatangensfunktion
+unter der Substitution zu
+\[
+\frac{1+y}{1-y}
+\to
+\frac{1+1/y}{1-1/y}
+=
+\frac{y+1}{y-1},
+\]
+dem Argument des Logarithmus der Areakotangensfunktion.
+
+%
+% Sinus und Kosinus
+%
+\subsubsection{Sinus und Kosinus}
+Aus der Identität
+\[
+e^{ix}
+=
+\cos x + i \sin x
+\]
+folgt zunächst mittels der Substitution $x\to -x$
+\[
+e^{-ix}
+=
+\cos x - i \sin x.
+\]
+Diese beiden Formeln bilden ein lineares Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcl}
+\cos x &+& i\sin x &=& e^{\phantom{-}ix} \\
+\cos x &-& i\sin x &=& e^{-ix}
+\end{array}
+\]
+für die Funktionen $\cos x$ und $\sin x$.
+Es kann durch Addition bzw.~Subtraktion gelöst werden.
+Die Lösungen sind
+\[
+\cos x = \frac{e^{ix}+e^{-ix}}{2}
+\qquad\text{und}\qquad
+\sin x = \frac{e^{ix}-e^{-ix}}{2i}.
+\]
+Die Funktionen können also mit der Exponentialfunktion in der gleichen
+Form ausgedrückt werden, in der die hyperbolischen Funktionen 
+definiert sind.
+Durch Vergleich mit den Formeln in der
+Definition~\ref{buch:intalg:elementar:trigo:def:hyperbolisch}
+ergeben sich die Beziehungen
+\[
+\cos x = \cosh ix
+\qquad\text{und}\qquad
+\sin x = \frac{1}{i} \sinh ix.
+\]
+Die Multiplikation mit $i$ entspricht geometrisch einer Drehung
+der komplexen Zahlenebene um $90^\circ$.
+Man kann also sagen, dass trigonometrischen Funktionen durch Drehung
+der Argumentebene um $90^\circ$ aus den hyperbolischen Funktionen
+hervorgehen.
+
+Für die Umkehrfunktionen $\arccos y$ und $\arcsin y$ sind die gleichen
+algebraischen Umformungen anwendbar, die auf die Umkehrfunktionen
+$\operatorname{arcosh}y$ und $\operatorname{arsinh}y$ der hyperbolischen
+Funktionen geführt haben.
+Aus
+\input{chapters/070-intalg/fig/fig-invcis.tex}%
+\begin{align}
+\cos x = \frac{e^{ix}+e^{-ix}}{2} &= y
+&
+&\text{bzw.}&
+\sin x = \frac{e^{ix}-e^{-ix}}{2i} &= y
+\notag
+\intertext{folgen durch Multiplikation mit dem Nenner und mit $e^{ix}$
+die quadratischen Gleichungen}
+(e^{ix})^2 -2ye^{ix} + 1 &= 0
+&
+&&
+(e^{ix})^2 - 2iy e^{ix} - 1 &= 0
+\notag
+\intertext{für $e^{ix}$ mit den Lösungen}
+e^{ix}
+&=
+y \pm \!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+&
+&&
+e^{ix}
+&=
+iy\pm \!\sqrt{-\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
+\notag
+\intertext{Da die Kosinuswerte Betrag nicht grösser als $1$ haben
+können, ist der Radikand in der linken Gleichung immer negativ.
+Wir können das Vorzeichen kehren, indem wir den Faktor $i$ vor die
+Wurzel ziehen.  }
+e^{ix}
+&=
+y \pm i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+&
+&&
+e^{ix}
+&=
+iy\pm \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}.
+\label{buch:intalg:elementar:trigo:eqn:invcisrhs}
+\end{align}
+Abbildung~\ref{buch:intalg:elementar:trigo:fig:invcis} zeigt 
+in rot die rechten Seiten der Gleichungen
+\eqref{buch:intalg:elementar:trigo:eqn:invcisrhs}.
+Da die Punkte auf dem Einheitskreis liegen, ist der Logarithmus
+der in blau eingezeichnete Winkel $x$.
+
+\begin{satz}
+Die trigonometrischen Funktionen
+\begin{align*}
+\cos x &= \frac{e^{ix}+e^{-ix}}{2}
+&&\text{und}&
+\sin x &= \frac{e^{ix}-e^{-ix}}{2i}
+\intertext{in Exponentialdarstellung haben die logarithmischen
+Umkehrfunktionen}
+\arccos y
+&=
+\log
+\Bigl(
+y \pm \!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+\Bigr)
+&&\text{bzw.}&
+\arcsin y
+&=
+\log
+\Bigl(
+iy\pm \!\sqrt{-\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}
+\Bigr).
+\end{align*}
+\end{satz}
+
+%
+% Tangens und Kotangens
+%
+\subsubsection{Tangens und Kotangens}
+Tangens und Kotangens sind Quotienten der Sinus- und Kosinusfunktionen
+\input{chapters/070-intalg/fig/fig-invtan.tex}%
+oder in Exponentialdarstellung
+\begin{align*}
+\tan x
+&=
+\frac1{i}\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&
+&\text{bzw.}&
+\cot x
+&=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+\end{align*}
+Für die Umkehrfunktionen setzt man wieder 
+\begin{align*}
+\tan x
+= 
+\frac1i\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&=
+y
+&&&
+\cot x
+=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+&=
+y
+\intertext{und multipliziert mit dem Nenner}
+e^{ix}-e^{-ix}
+&=
+iy
+(e^{ix}+e^{-ix})
+&&&
+e^{ix}+e^{-ix}
+&=
+-iy
+(e^{ix}-e^{-ix})
+\\
+(1-iy)e^{ix}
+&=
+(1+iy)e^{-ix}
+&&&
+(iy-1)e^{ix}
+&=
+-(1+iy)e^{-ix}
+\intertext{Durch Multiplizieren mit $e^{ix}$ kann man nach $e^{2ix}$
+auflösen und findet}
+e^{2ix}
+&=
+\frac{1+iy}{1-iy}
+&&&
+e^{2ix}
+&=
+\frac{1-iy}{1+iy}
+\\
+x
+&=
+\frac12
+\log
+\frac{1+iy}{1-iy}
+&&\text{bzw.}&
+x
+&=
+\frac12
+\log
+\frac{1-iy}{1+iy}.
+\end{align*}
+In Abbildung~\ref{buch:intalg:elementar:trigo:fig:invtan} sind
+die Zahlen $1+iy$ und $1-iy$ dargestellt.
+Der gesuchte Winkel $x$ tritt beim Ursprung auf.
+Da die Multiplikation mit einer komplexen Zahl eine Drehungstreckung ist,
+muss der Quotient den Drehstreckungsfaktor zurückliefen.
+Der Quotient von $1+iy$ und $1-iy$ ist ein komplexe Zahl vom Betrag $1$,
+die Drehung von $1-iy$ auf $i+iy$ beschreibt.
+Der zugehörige Drehwinkel ist $2x$.
+Somit ist der gesuchte Winkel tatsächlich der halbe Logarithmus
+des Quotienten der beiden Zahlen.
+
+\begin{satz}
+Die trigonometrischen Funktionen
+\begin{align*}
+\tan x
+&=
+\frac1{i}\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&
+&\text{und}&
+\cot x
+&=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+\intertext{in Exponentialdarstellung haben die logarithmische Umkehrfunktion}
+\arctan y
+&=
+\frac12
+\log
+\frac{1+iy}{1-iy}
+&&\text{bzw.}&
+\operatorname{arccot} y
+&=
+\frac12
+\log
+\frac{1-iy}{1+iy}.
+\end{align*}
+\end{satz}
+
