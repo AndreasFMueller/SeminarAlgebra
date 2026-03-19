@@ -431,7 +431,7 @@ iy\pm \!\sqrt{-\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
 \intertext{Da die Kosinuswerte Betrag nicht grösser als $1$ haben
 können, ist der Radikand in der linken Gleichung immer negativ.
 Wir können das Vorzeichen kehren, indem wir den Faktor $i$ vor die
-Wurzel ziehen.  }
+Wurzel ziehen:}
 e^{ix}
 &=
 y \pm i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
@@ -458,16 +458,18 @@ Die trigonometrischen Funktionen
 Umkehrfunktionen}
 \arccos y
 &=
+\frac{1}{i}
 \log
 \Bigl(
-y \pm \!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+y + i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
 \Bigr)
 &&\text{bzw.}&
 \arcsin y
 &=
+\frac{1}{i}
 \log
 \Bigl(
-iy\pm \!\sqrt{-\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}
+iy + \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
 \Bigr).
 \end{align*}
 \end{satz}
@@ -532,13 +534,13 @@ e^{2ix}
 \\
 x
 &=
-\frac12
+\frac1{2i}
 \log
 \frac{1+iy}{1-iy}
 &&\text{bzw.}&
 x
 &=
-\frac12
+\frac1{2i}
 \log
 \frac{1-iy}{1+iy}.
 \end{align*}
@@ -567,15 +569,76 @@ i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
 \intertext{in Exponentialdarstellung haben die logarithmische Umkehrfunktion}
 \arctan y
 &=
-\frac12
+\frac1{2i}
 \log
 \frac{1+iy}{1-iy}
 &&\text{bzw.}&
 \operatorname{arccot} y
 &=
-\frac12
+\frac1{2i}
 \log
 \frac{1-iy}{1+iy}.
 \end{align*}
 \end{satz}
+
+%
+% Stammfunktion einer rationalen Funktion
+%
+\subsubsection{Stammfunktion einer rationalen Funktion}
+In Abschnitt~\ref{buch:integration:residuen:section:beispiel}
+wurde die Aufgabe gestellt, das die Stammfunktion
+\[
+\int \frac{dx}{x^2+1}
+\]
+zu bestimmen.
+Die Partialbruchzerlegung des Integranden ist
+\[
+\frac{1}{x^2+1}
+=
+\frac1{2i}
+\biggl(
+\frac{1}{x-i}
+-
+\frac{1}{x+i}
+\biggr).
+\]
+In dieser Form ist die Stammfunktion einfach zu bestimmen, sie ist
+\begin{align*}
+\int
+\frac{1}{x^2+1}
+\,dx
+&=
+\frac{1}{2i}
+\bigl(
+\log(x-i)
+-
+\log(x+i)
+\bigr)
+=
+\frac{1}{2i}
+\log
+\frac{x-i}{x+i}
+=
+\frac{1}{2i}
+\log
+\frac{1+ix}{-1+ix}.
+\intertext{%
+In dieser Form stimmt das Resultat nicht mit der Form des erwarteten
+Resultates, nämlich der Arkustangens-Funktion überein.
+Der Nenner hat das falsche Vorzeichen.
+Multiplikation mit $-1$ im Argument des Logarithmus ändert aber den
+Wert der Logarithmusfunktion nur um die Konstante $\pi$, also kann
+man immer noch schliessen}
+&=
+\frac{1}{2i}
+\log
+\frac{1+ix}{1-ix}
++C
+=
+\arctan x + C.
+\end{align*}
+Das Beispiel illustriert, dass sich Integrale von rationalen Funktionen
+über $\mathbb{R}$ tatsächlich nur mit der komplexen Logarithmus-Funktion
+berechnen lassen.
+
 
