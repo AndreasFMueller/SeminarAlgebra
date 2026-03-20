@@ -103,6 +103,10 @@ Wir brauchen also eine Menge von Funktionen, in der alle arithmetischen
 Operationen durchgeführt werden können, also einen Körper von
 Funktionen.
 
+%
+% Koeffizientenkörper
+%
+\subsubsection{Koeffizientenkörper}
 In Abschnitt~\ref{buch:ratint:section:bernoulli} haben wir als
 Funktionenkörper den Körper $\mathbb{C}(x)$ verwendet, dann
 aber später eingesehen, dass der Körper $\mathbb{C}$ zu gross ist.
@@ -152,6 +156,25 @@ Körper betrachtet werden.
 Damit sagt man, dass keine weiteren Beziehungen zwischen diesen
 Koeffizienten bekannt sind.
 
+%
+% Das Funktionsargument
+%
+\subsubsection{Das Funktionsargument}
+In einem Funktionsausdruck spielt ein Symbol die spezielle Rolle
+des Funktionsarguments.
+Aus algebraischer Sicht verhält sich der Platzhalter für das
+Funktionsargument nicht anders wie jeder andere Parameter.
+Im Ausdruck $f(x) = ax^2 + bx + c$ werden die Zeichen $a$, $b$ und $c$
+wie gewöhnliche Zahlen behandelt, während das Symbol $x$ für das
+Funktionsargument steht, für das man nach der Intuition, die man
+beim ersten Kontakt mit dem Funktionsbegriff kennenlernt, beliebige
+Werte einsetzen kann.
+Aus algebraischer Sicht ist $x$ einfach nur ein weiteres transzendentes
+Element, um das der Koeffizientenkörper erweitert wird.
+Eine besondere Bedeutung erhält $x$ erst, wenn wir, wie das im
+nächsten Abschnitt geschehen soll, mit der Ableitung die Konstanten
+von der Variablen $x$ unterscheiden können.
+
 \begin{beispiel}
 Die rationale Funktion
 \[
@@ -194,14 +217,429 @@ und den trigonometrischen Funktionen herzustellen.
 \end{beispiel}
 
 %
-% Differentialalgebren von Funktionen
+% Differentialkörper von Funktionen
 %
-\subsection{Differentialalgebren von Funktionen}
+\subsection{Differentialkörper von Funktionen}
+In einem Funktionsausdruck für eine differenzierbare Funktion spielt
+unter das Funktionsargument unter allen Symbolen 
+eine besondere Rolle.
+Wir gehen davon aus, dass man nach dem Funktionsargument ableiten
+kann, weil es ``variabel'' ist.
+Nach den Parametern gedenkt man dagegen nicht abzuleiten, da man
+diese als ``konstant'' ansehen möchte.
+
+%
+% Derivation
+%
+\subsubsection{Derivation}
+Im rein algebraischen Framework eines Funktionenkörpers ist es nicht
+sinnvoll, die Definition der Ableitung als Grenzwert
+\[
+f'(z)
+=
+\lim_{h\to 0}
+\frac{f(z+h)-f(z)}{h}
+\]
+eines Differenzenquotienten zu verwenden.
+Um den Grenzwert zu definieren, wird ein Ordnungsrelation gebraucht,
+ein Konzept, welches sich nicht mit rein algebraischen Eigenschaften
+erfassen lässt.
+Für den Grenzwert wird ein Zahlenkörper gebraucht, in dem alle
+Grenzwerte existieren, was in $\mathbb{Q}$ nicht gegeben ist.
+Der einzige Körper, der vollständig wäre, ist $\mathbb{R}$, der aber
+im Computer nicht exakt dargestellt werden kann und daher nicht als
+Basis eines CAS definiert werden kann.
+
+Als alternativer Ansatz für die Definition der können die einfachsten
+bekannten Rechenregeln der Ableitung verwendet werden.
+Die Ableitung ist zum Beispiel eine lineare Abbildung.
+Dies allein reicht jedoch nicht, weil die Ableitung auch für 
+Potenzen $z^n$ oder für Produkte von Funktionen angewendet werden
+soll.
+Die Linearität kann darüber nichts aussagen.
+Daher braucht es eine zusätzlich Regel für Produkte, die natürlich
+die Produktregel für dei Ableitung wiedergeben soll.
+
+\begin{definition}[Derivation]
+Eine \emph{Deriviation} in einem Funktionenkörper $K$ ist eine 
+lineare Abbildung $D\colon K\to K$, die zusätzlich die Produktregel
+\[
+D(fg) = (Df)g + f(Dg)\qquad\forall f,g\in K
+\]
+erfüllt.
+\index{Deriviation}%
+\end{definition}
+
+In der Definition steht nichts davon, nach welcher Variablen da
+abgeleitet werden soll.
+In der Analysis verwendet man die Notation
+\[
+\frac{\partial}{\partial a},\qquad
+\frac{\partial}{\partial b},\qquad
+\frac{\partial}{\partial c},\qquad
+\frac{\partial}{\partial x},\qquad
+\frac{\partial}{\partial y}\qquad\text{oder}
+\frac{d}{dx},\qquad\text{und}\qquad
+\frac{d}{dz},
+\]
+die die Variable, nach der abgeleitet wird, klar erkennbar macht.
+Allerdings ist in der Analysis auch die Notation $f'$ für die
+abgeleitete Funktion üblich, aus der man die Variable auch nicht
+ablesen kann.
+
+Die spezielle Kennzeichnung des Funktionsargumentes ist aber auch
+nicht nötig.
+Betrachten wir $x$ als das Funktionsargument, dann ist $f(x)=x$ die
+einfachste nichtkonstante Funktion, die wir uns denken können.
+Die Ableitung dieser Funktion nach $x$ ist in der klassischen Analysis
+ist $f'(x)=1$, wir können daher das Funktionsargument im Funktionenkörper
+durch die Relation $Dx=1$ charakterisieren.
+
+%
+% Ableitungsregeln
+%
+\subsubsection{Ableitungsregeln}
+Die Produktregel reicht bereits, um die aus dem Analysisunterricht
+bekannten Ableitungsregeln zu reproduzieren.
+
+\begin{enumerate}
+\item Ableitung einer Potenz: wir betrachten die Potenz $f^n$ eines
+Elementes $f\in K$.
+Die Deriviationseigenschaft liefert
+\begin{align*}
+D(f^n)
+&=
+D(\underbrace{f\cdot f\cdot\ldots\cdot f}_{\displaystyle n})
+\\
+&=
+Df\cdot\ldots f
++
+f\cdot (Df)\cdot\ldots \cdot f
++
+\ldots
++
+f\cdot f \cdot\ldots \cdot Df
+=
+nf^{n-1}\cdot Df.
+\end{align*}
+Die ist die aus der Analysis wohlbekannte Regel für Ableitungen einer
+Potenz.
+\item Ableitung der Eins: Die Eins zeichnet sich durch die
+Eigenschaft $1^n=1$ aus.
+Lässt man die Derivation darauf wirken, erhält man
+\[
+D(1^n)
+=
+n1^{n-1}D1
+=
+D1
+\qquad\Rightarrow\qquad
+(n-1)D1 = 0.
+\]
+Da $n-1\ne 1$ ist, folgt $D1=0$, die Ableitung der Eins ist somit $1$.
+Da die Derivation $D$ linear ist, gilt für jedes andere Element
+$q\in\mathbb{Q}$ sofort $Dq = D(q\cdot 1) = q\cdot D1 = 0$.
+\item
+Ableitung von $1/f$: Die reziproke Funktion $1/f$ ist charakterisiert
+durch die Eigenschaft $f\cdot (1/f)=1$.
+Die Ableitung davon ist
+\begin{align*}
+&&
+D(f\cdot(1/f))
+&=
+(Df)\cdot (1/f) + f\cdot D(1/f)
+=
+D1
+=
+0
+\\
+&\Rightarrow&
+f\cdot D(1/f) &= -\frac{Df}{f}
+\\
+&\Rightarrow&
+D(1/f)
+&=
+-\frac{Df}{f^2},
+\end{align*}
+dies ist die Ableitungsregel einer Potenz $f^{-1}$.
+\item Potenzregel für beliebige Exponenten: Wir wissen bereits,
+dass $D(f^n)=nf^{n-1}Df$ für positive $n$.
+Für einen negativen Exponenten ist
+\[
+D(f^{-n})
+=
+D\biggl(\frac{1}{f^n}\biggr)
+=
+-
+\frac{D(f^n)}{f^{2n}}
+=
+-\frac{nf^{n-1}Df}{f^{2n}}
+=
+-
+n
+f^{-n-1}
+Df,
+\]
+dies ist die erwartete Ableitungsformel für beliebige ganzzahlige 
+Exponenten.
+\item Ableitungsregel für Polynome:
+Sie $p(X) = p(X) = p_0 + p_1X + \dots + p_nX^n \in K[X]$ ein Polynom
+mit Koeffizienten im Koeffizientenkörper.
+Wir möchten die Ableitung von $Dp(f)$ berechnen.
+Nach der Potenzregel gilt
+\begin{align*}
+Dp(f)
+&=
+D(p_0+p_1f + p_2f^2 + \ldots + p_{n-1}f^{n-1}+p_nf^n)
+\\
+&=
+p_1Df + p_2\cdot 2f Df + \ldots p_{n-1}(n-1)f^{n-2}Df + p_nnf^{n-1}Df
+\\
+&=
+\bigl(
+p_1 + 2p_2 f + 3p_3f^2 + \ldots + p_{n-1}(n-1)f^{n-2} + p_nnf^{n-1}
+\bigr)
+Df.
+\intertext{Das Polynom auf der rechten Seite ist auch bekannt als
+das abgeleitete Polynom $p'(X)$, so dass man}
+&= p'(f)\, Df
+\end{align*}
+schreiben kann.
+Dies ist formal die Kettenregel für Polynome.
+\item Quotientenregel:
+Der Quotient $f/g$ kann auch als Produkt $f\cdot (1/g)$ geschrieben
+werden.
+Daher ist die Ableitung davon
+\begin{align*}
+D\frac{f}{g}
+&=
+D\biggl(f\cdot\frac1g\biggr)
+=
+Df\cdot\frac1g + f\cdot D\frac1g
+\\
+&=
+Df\cdot\frac1g + f\cdot \biggl(-\frac{Dg}{g^2}\biggr)
+\\
+&=
+\frac{Df}{g} - \frac{f\cdot Dg}{g^2}
+=
+\frac{Df\cdot g - f\cdot Dg}{g^2}.
+\end{align*}
+Dies ist die bekannte Quotientenregel.
+\item Ableitung einer rationalen Funktion:
+Eine rationale Funktion ist ein Quotient $p[X]/q[X]$ mit
+Polynomen $p,q\in K[X]$.
+Wir möchten $p(f)/q(f)$ ableiten:
+\begin{align*}
+D\biggl(\frac{p(f)}{q(f)}\biggr)
+&=
+\frac{
+(Dp(f))\cdot q(f) - p(f)\cdot Dq(f)
+}{
+q(f)^2
+}
+\\
+&=
+\frac{p'(f)\,Df\cdot q(f)-p(f)\cdot q'(f)\, Df}{q(f)^2}
+\\
+&=
+\frac{p'(f)q(f)-p(f) q'(f)}{q(f)^2}
+Df.
+\end{align*}
+Dies ist die Kettenregel für den Polynombruch $p(X)/q(X)$.
+\end{enumerate}
+
+Diese Beispiele zeigen, dass alle Regeln, die man üblicherweise
+zur Berechnung von Ableitungen braucht, allein aus der Linearität
+und Eigenschaft der Derivation folgen.
+Der Funktionenkörper $F$ mit der Deriviation $D$ ist daher ein
+vollständiges Modell für die algebraischen Eigenschaften der
+Ableitung.
+Es ist daher auch denkbar, dass das Problem, eine Stammfunktion
+zu finden, allein in diesem algebraischen Rahmen gelöst werden
+kann.
+
+Der Vollständigkeit halber halten wir hier noch die Definition
+des abgeleiteten Polynoms fest.
+
+\begin{definition}[Ableitung eines Polynoms]
+Ist $p(X)\in K[X]$ ein Polynom mit Koeffizienten in einem
+Koeffizientenkörper mit der Darstellung
+\[
+p(X)
+=
+p_0 + p_1X + p_2X^2 + \ldots + p_{n-1}X^{n-1} + p_nX^n,
+=
+\sum_{k=0}^n p_k X^k
+\]
+dann heisst
+\[
+p'(X)
+=
+p_1 + 2p_2 X + 3p_3 X^2 + \ldots + (n-1)p_{n-1}X^{n-2} + np_n X^{n-1}
+=
+\sum_{k=1}^n kp_k X^{k-1}
+\]
+das \emph{abgeleitete Polynom}.
+\end{definition}
+
+%
+% Ableitung eines algebraischen Elementes
+%
+\subsubsection{Ableitung eines algebraischen Elementes}
+Wenn der Funktionenkörper $F$ um ein algebraisches Element $\alpha$
+erweitert wird, dann muss auch die Ableitung $D\alpha$ berechnet
+werden können, damit $F(\alpha)$ wieder ein Differentialkörper ist.
+
+Sei als $p(X)\in F[X]$ das Minimalpolynom des Elementes $\alpha$,
+es gilt also $p(\alpha)=0$.
+Die Ableitung ist nach den Berechungsregeln
+\begin{align*}
+0
+=
+Dp(\alpha)
+&=
+p'(\alpha)D\alpha
++
+(Dp_0+Dp_1\alpha + \dots + Dp_n\alpha^n)
+\intertext{Da $p$ das Minimalpolynom von $\alpha$ ist, kann $p'(\alpha)$
+nicht verschwinden, denn dann wäre $p'$ ein Polynom kleineren Grades,
+das auf $\alpha$ verschwindet.
+Somit kann man die Gleichung nach $D\alpha$ auflösen und erhält}
+D\alpha
+&=
+-
+\frac{Dp_0+(Dp_1)\alpha +\ldots+(Dp_n)\alpha^n}{p'(\alpha)}.
+\end{align*}
+Die Ableitung eines algebraischen Elementes ist also durch das
+Minimalpolynom eindeutig bestimmt.
+
+\begin{beispiel}
+Die Quadratwurzel $\!\sqrt{f}$ eines Elementes $f\in F$ hat das
+Minimalpolynom $p(X) = X^2 -f \in F[X]$ mit der Ableitung $p'(X)=2X$.
+Die Ableitung der Koeffizienten ergibt das Polynom $-Df$.
+Damit ist die Ableitung der Quadratwurzel
+\begin{align*}
+D\!\sqrt{f}
+&=
+\frac{-Df}{p'(\!\sqrt{f})}
+=
+-\frac{1}{2\!\sqrt{f}}\cdot Df.
+\end{align*}
+Dies ist die Kettenregel für die Wurzelfunktion.
+\end{beispiel}
+
+\begin{beispiel}
+Die $n$-te Wurzel $\sqrt[n]{f}$ eines Elementes $f\in K$ ist algebraisch
+mit dem Minimalpolynom $p(X)=X^n -f$ mit Ableitung $p'(X)=nX^{n-1}$ und
+dem Polynom mit den abgeleiteten Koeffizienten $-Df$.
+Dann ist
+\begin{align*}
+D\!\sqrt[n]{f}
+&=
+\frac{-Df}{p'\bigl(\!\sqrt[n]{f}\bigr)}
+=
+-
+\frac{1}{n\bigl(\!\sqrt[n]{f}\bigr)^{n-1}}
+\cdot
+Df.
+\end{align*}
+Dies ist die Kettenregel für die $n$-Wurzel.
+\end{beispiel}
+
+%
+% Konstantenkörper
+%
+\subsubsection{Konstantenkörper}
+Bei der Konstruktion des Funktionskörpers sind wir davon ausgegangen,
+dass wir bereits wissen, welche Objekte Konstanten sind.
+Die Ableitung $D$ ermöglicht jetzt aber auch, die Konstanten dadurch
+zu definieren, dass ihre Ableitung verschwindet.
+
+\begin{definition}[Konstantenkörper]
+Sei $F$ ein Differentialkörper, dann heisst
+\[
+C=\{c\in F\mid Dc=0\}
+\]
+der Körper der Konstanten oder \emph{Konstantenkörper} in $F$.
+\index{Konstantenkorper@Konstantenkörper}%
+\end{definition}
+
+Wir müssen uns noch überlegen, dass $C$ wirklich ein Körper ist.
+Dazu müssen wir nachrechnen, dass Summe, Produkt und Quotient
+konstanter Elemente aus $C$ wieder in $C$ liegt.
+Wir wählen daher $a,b\in C$, d.~h.~$Da=0$ und $Db=0$.
+Dann gilt auch
+\begin{align*}
+D(a\pm b)
+&=
+Da\pm Db = 0\pm 0 = 0
+&&\Rightarrow&
+a\pm b&\in C
+\\
+D(ab)
+&=
+(Da)\cdot b + a\cdot (Db)
+=
+0\cdot b + a\cdot 0
+=
+0
+&&\Rightarrow&
+ab&\in C
+\\
+D\frac{a}{b}
+&=
+\frac{(Da)\cdot b - a\cdot (Db)}{b^2}
+=
+\frac{0\cdot b - a\cdot 0}{b^2}
+=
+0.
+&&\Rightarrow&
+\frac{a}{b}&\in C.
+\end{align*}
+$C$ ist somit ein Körper.
+Der Konstantenkörper kann grösser sein als der ursprüngliche
+Koeffizientenkörper.
 
 %
 % Exponential- und Logarithmusfunktionen
 %
 \subsection{Exponential- und Logarithmusfunktionen}
+Die Exponential- und Logarithmusfunktionen werden in der klassischen
+Analysis mithilfe einer Potenzreihe oder durch die Umkehrfunktion
+definiert.
+Beide Konzepte stehen im algebraischen Umfeld eines Differentialkörpers
+nicht zur Verfügung.
+Es muss also eine alternative Methode gefunden werden, diese Funktionen
+zu charakterisieren.
+
+Die Potenzreihenmethode zur Lösung von Differentialgleichungen
+hat in Kapitel~\ref{chapter:differentialgleichungen} gezeigt,
+dass die Potenzreihe von $e^x$ eine Folge der Differentialgleichung
+für die Exponentialgleichung ist.
+Die Differentialgleichung lässt sich auch in einem Differentialkörper
+definieren, es liegt daher nahe, diese anstelle der Potenzreihe
+zur Definition der Exponentialfunktion zu verwenden.
+
+\begin{definition}[Exponential- und Logarithmusfunktione]
+\label{buch:intalg:elementar:def:explog}
+Sei $F$ ein Differentialkörper und $f\in F$.
+Ein Element $\vartheta\in F$ heisst eine \emph{Exponentialfunktion}
+von $f$, wenn $D\vartheta = \vartheta\cdot Df$.
+\index{Exponentialfunktion}%
+Die Exponentialfunktion wird manchmal auch $\vartheta=e^f$ geschrieben.
+$\vartheta$ heisst ein \emph{Logarithmus} von $f$, wenn
+$D\vartheta = Df/\vartheta$ oder $\vartheta\cdot D\vartheta = Df$.
+\index{Logarithmus}%
+Der Logarithmus wird manchmal auch $\log f$ geschrieben.
+\end{definition}
+
+Das Konzept der Zusammensetzung von Funktionen kommt in einem
+Differentialkörper nicht vor, so dass die Frage, ob der
+Logarithmus die Umkehrfunktion der Exponentialfunktion ist,
+nicht sinnvoll gestellt werden kann.
+Der Begriff der Umkehrfunktion ist nur sinnvoll, wenn man
+Funktionen zusammensetzen kann.
 
 %
 % Exponentialdarstellung der trigonometrischen Funktionen
