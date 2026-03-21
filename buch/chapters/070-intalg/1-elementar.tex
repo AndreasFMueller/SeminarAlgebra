@@ -45,6 +45,7 @@ In der Stammfunktion kommt nicht überraschend die
 Funktion $\!\sqrt{\tan x}$
 wieder vor, aber auch Polynome in dieser Funktion sowie Logarithmus
 und Arkustangens-Funktionen, mit solchen Polynomen als Argument.
+\index{arctan}%
 Schreibt man $\vartheta(x)=\!\sqrt{\tan x}$, dann wird die Stammfunktion
 zu
 \begin{align*}
@@ -261,13 +262,13 @@ Daher braucht es eine zusätzlich Regel für Produkte, die natürlich
 die Produktregel für dei Ableitung wiedergeben soll.
 
 \begin{definition}[Derivation]
-Eine \emph{Deriviation} in einem Funktionenkörper $K$ ist eine 
+Eine \emph{Derivation} in einem Funktionenkörper $K$ ist eine 
 lineare Abbildung $D\colon K\to K$, die zusätzlich die Produktregel
 \[
 D(fg) = (Df)g + f(Dg)\qquad\forall f,g\in K
 \]
 erfüllt.
-\index{Deriviation}%
+\index{Derivation}%
 \end{definition}
 
 In der Definition steht nichts davon, nach welcher Variablen da
@@ -295,6 +296,28 @@ Die Ableitung dieser Funktion nach $x$ ist in der klassischen Analysis
 ist $f'(x)=1$, wir können daher das Funktionsargument im Funktionenkörper
 durch die Relation $Dx=1$ charakterisieren.
 
+\begin{definition}[Differentialkörper]
+\index{Differentialkorper@Differentialkörper}%
+Ein \emph{Differentialkörper} $K$ ist ein Funktionenkörper mit einer
+Derivation.
+\end{definition}
+
+Der Hauptsatz der Infinitesimalrechnung besagt, dass das Integral
+einer Funktion auch eine Stammfunktion ist.
+Die Definition des Integrals ist daher für die Arbeit eines
+Computeralgebrasystems nicht relevant, es mur nur eine Stammfunktion
+finden können.
+Der klassische Begriff der Stammfunktion verwendet die Ableitung.
+Für den vorliegenden algebraischen Zusammenhang kann er wie folgt
+verallgemeinert werden.
+
+\begin{definition}[Stammfunktion]
+Sei $F$ ein Differentialkörper mit Deriviation $D$.
+Eine Funktion $\vartheta\in F$ heisst eine \emph{Stammfunktion} von 
+$f\in F$, wenn $D\vartheta=f$.
+\index{Stammfunktion}%
+\end{definition}
+
 %
 % Ableitungsregeln
 %
@@ -305,7 +328,7 @@ bekannten Ableitungsregeln zu reproduzieren.
 \begin{enumerate}
 \item Ableitung einer Potenz: wir betrachten die Potenz $f^n$ eines
 Elementes $f\in K$.
-Die Deriviationseigenschaft liefert
+Die Derivationseigenschaft liefert
 \begin{align*}
 D(f^n)
 &=
@@ -452,7 +475,7 @@ Dies ist die Kettenregel für den Polynombruch $p(X)/q(X)$.
 Diese Beispiele zeigen, dass alle Regeln, die man üblicherweise
 zur Berechnung von Ableitungen braucht, allein aus der Linearität
 und Eigenschaft der Derivation folgen.
-Der Funktionenkörper $F$ mit der Deriviation $D$ ist daher ein
+Der Funktionenkörper $F$ mit der Derivation $D$ ist daher ein
 vollständiges Modell für die algebraischen Eigenschaften der
 Ableitung.
 Es ist daher auch denkbar, dass das Problem, eine Stammfunktion
@@ -463,6 +486,7 @@ Der Vollständigkeit halber halten wir hier noch die Definition
 des abgeleiteten Polynoms fest.
 
 \begin{definition}[Ableitung eines Polynoms]
+\index{Ableitung eines Polynoms}%
 Ist $p(X)\in K[X]$ ein Polynom mit Koeffizienten in einem
 Koeffizientenkörper mit der Darstellung
 \[
@@ -686,6 +710,7 @@ Differentialkörper nicht vor, so dass die Frage, ob der
 Logarithmus die Umkehrfunktion der Exponentialfunktion ist,
 nicht sinnvoll gestellt werden kann.
 Der Begriff der Umkehrfunktion ist nur sinnvoll, wenn man
+\index{Umkehrfunktion}%
 Funktionen zusammensetzen kann.
 
 Trotzdem kann man eine Interpretation finden, nach der der Logarithmus
@@ -727,17 +752,19 @@ schreiben.
 Dies bedeutet, dass $\log e^f = f+c$ mit einer Konstante $c\in C$ ist.
 
 Umgekehrt ist
-\[
+\begin{align*}
 D\frac{e^{\log f}}{f}
-=
+&=
 \frac{(De^{\log f})\cdot f - e^{\log f}\cdot Df}{f^2}
-=
+\\
+&=
 \frac{e^{\log f}D(\log f)\cdot f - e^{\log f}\cdot Df }{f^2}
-=
+\\
+&=
 \frac{e^{\log f} (Df/f)\cdot f - e^{\log f}\cdot Df }{f^2}
 =
 0,
-\]
+\end{align*}
 $e^{\log f}$ ist also bis auf einen konstanten Faktor die ursprüngliche
 Funktion $f$.
 
@@ -830,6 +857,7 @@ Die trigonometrischen Funktionen wurden ursprünglich für die Zwecke
 der Beschreibung der Himmelskugel entwickelt und in der ebenen
 Geometrie bei der Berechnung von Dreiecken angewendet.
 Mit der eulerschen Formel $e^{it}=\cos t + i\sin t$ wird jedoch 
+\index{eulersche Formel}%
 auch eine Beziehung zur komplexen Exponentialfunktion offengelegt.
 Sie ermöglicht die trigonometrischen Funktionen und ihre Umkehrfunktionen
 ausschliesslich die Exponentialfunktion und ihre Umkehrfunktion, den
@@ -1115,6 +1143,8 @@ x
 \frac{y+1}{y-1}
 \end{align*}
 der Umkehrfunktion der hyperbolischen Tangens- bzw.~Kotangensfunktion.
+\index{artanh}%
+\index{arcoth}%
 
 \begin{satz}
 \label{buch:intalg:elementar:trigo:satz:invhyperbolisch}
@@ -1189,6 +1219,8 @@ Diese beiden Formeln bilden ein lineares Gleichungssystem
 \end{array}
 \]
 für die Funktionen $\cos x$ und $\sin x$.
+\index{sin}%
+\index{cos}%
 Es kann durch Addition bzw.~Subtraktion gelöst werden.
 Die Lösungen sind
 \[
@@ -1217,6 +1249,8 @@ Für die Umkehrfunktionen $\arccos y$ und $\arcsin y$ sind die gleichen
 algebraischen Umformungen anwendbar, die auf die Umkehrfunktionen
 $\operatorname{arcosh}y$ und $\operatorname{arsinh}y$ der hyperbolischen
 Funktionen geführt haben.
+\index{arccos}%
+\index{arcsin}%
 Aus
 \input{chapters/070-intalg/fig/fig-invcis.tex}%
 \begin{align}
@@ -1307,6 +1341,7 @@ oder in Exponentialdarstellung
 i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
 \end{align*}
 Für die Umkehrfunktionen setzt man wieder 
+\index{arctan}%
 \begin{align*}
 \tan x
 = 
@@ -1457,9 +1492,9 @@ Das Beispiel illustriert, dass sich Integrale von rationalen Funktionen
 berechnen lassen.
 
 %
-% Die Differentialalgebra der hyperbolischen Funktionen
+% Die Differentialkörper der hyperbolischen Funktionen
 %
-\subsubsection{Die Differentialalgebra der hyperbolischen Funktionen}
+\subsubsection{Die Differentialkörper der hyperbolischen Funktionen}
 Der Körper $\mathbb{Q}(x)$ enthält weder die trigonometrischen noch
 die hyperbolischen Funktionen.
 Wie früher betrachten wir die Derivation $D$ mit $Dx=1$, die die
@@ -1513,7 +1548,7 @@ e(x)^2 - 2e(x)\frac{1}{e(x)} + \frac{1}{(e(x))^2}
 1
 \]
 folgt allein durch algebraische Umformung.
-Die Ableitungseigenschaften der Funktion $e(x)$ in der Differentialalgebra
+Die Ableitungseigenschaften der Funktion $e(x)$ im Differentialkörper
 als Exponentialfunktion von $x$ reichen aus, um die Ableitungsregeln
 \begin{align*}
 D\cosh x
@@ -1584,7 +1619,7 @@ x + s_-(x)
 gebildet werden können.
 Indem wir die Logarithmen $\operatorname{arsinh}(x) = \log(x+s_+(x))$
 und $\operatorname{arcosh}(x) = \log(x+s_-(x))$
-hinzufügen, erhalten wir die Differentialalgebra
+hinzufügen, erhalten wir den Differentialkörper
 \[
 \mathbb{Q}(x,e(x),s_\pm(x),
 \operatorname{arsinh}(x),\operatorname{arcosh}(x)),
@@ -1595,10 +1630,10 @@ allein durch den Prozess der algebraischen, exponentiellen oder
 logarithmischen Erweiterung erhalten werden.
 
 %
-% Die Differentialalgebra der trigonometrischen Funktionen
+% Die Differentialkörper der trigonometrischen Funktionen
 %
-\subsubsection{Die Differentialalgebra der trigonometrischen Funktionen}
-Eine Differentialalgebra für die trigonometrischen Funktionen und ihre
+\subsubsection{Die Differentialkörper der trigonometrischen Funktionen}
+Ein Differentialkörper für die trigonometrischen Funktionen und ihre
 Umkehrfunktionen lässt sich ganz analog zur Konstruktion für die 
 hyperbolischen Funktionen im vorangegangenen Abschnitt konstruieren.
 Damit die Konstruktion möglich wird, muss dem Körper $\mathbb{Q}(x)$
@@ -1713,7 +1748,7 @@ s(x)
 \! \sqrt{1-\smash{x^2}\raisebox{1.5pt}{\mathstrut}}
 \]
 hinzufügen.
-Die Differentialalgebra $\mathbb{Q}(x,i,s(x))$ enthält dann auch
+Der Differentialkörper $\mathbb{Q}(x,i,s(x))$ enthält dann auch
 die Funktionen
 \[
 x+is(x)
@@ -1752,10 +1787,179 @@ die Funktionen
 enthält.
 
 Wie bei den hyperbolischen Funktionen können wir schliessen, dass
-die Differentialalgebra $\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
+den Differentialkörper $\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
 die inversen trigonometrischen Funktionen entält.
 Die trigonometrischen Funktionen ebenso wie ihre Umkehrfunktionen
 sind daher elementare Funktionen.
+
+%
+% Eindeutigkeit der trigonometrischen und hyperbolischen Funktionen
+%
+\subsubsection{Eindeutigkeit der trigonometrischen und hyperbolischen
+Funktionen}
+Die Definition der trigonometrischen und hyperbolischen Funktionen 
+sowie ihrer Umkehrfunktionen in einem Differentialkörper basieren
+auf einer Exponential- und Logarithmus-Funktionen.
+Da diese nicht eindeutig bestimmt sind, sind auch die
+trigonometrischen und hyperbolischen Funktionen nicht eindeutig
+bestimmt.
+Die Exponentialfunktion ist nur bis auf einen konstanten Faktor bestimmt,
+der sich natürlich auch in der Definition der trigonometrischen und
+hyperbolischen Funktionen niederschlägt.
+Dies scheint den Beziehungen
+\[
+\cos^2 x + \sin^2 x = 1
+\qquad\text{und}\qquad
+\cosh^2 x - \sinh^2 x = 1
+\]
+zu widersprechen, die für jede Wahl der Exponentialfunktion gelten.
+Wir versuchen daher für die konkrete Wahl der Exponentialfunktion $e^x$
+der klassischen Analysis den Einfluss eines Faktors auf die
+trigonometrischen und hyperbolischen Funktionen zu ermitteln.
+Im Folgenden reservieren wir daher die Notation $e^f$ und $\log f$
+für die klassische definierten Exponential- und Logarithmusfunktionen.
+Ebenso unterscheiden wir die verallgemeinerten trigonometrischen
+und hyperbolischen Funktion mithilfe eines grossen Anfangsbuchstabens
+von den klassischen Funtkionen.
+
+Wir beginnen mit den hyperbolischen Funktionen.
+Eine beliebige Exponentialfunktion $e(x)$ von $x$ ist ein Vielfaches
+$a e^x$ der klassischen Exponentialfunktion.
+Die hyperbolischen Funktionen sind dann
+\begin{align*}
+\operatorname{Cosh} x
+&=
+\frac{ae^x + e^{-x}/a}{2}
+&&\text{und}&
+\operatorname{Sinh} x
+&=
+\frac{ae^x - e^{-x}/a}{2}.
+\intertext{Mit den Exponentialgesetzen folgt}
+\operatorname{Cosh} x
+&=
+\frac{e^{x+\log a} + e^{-x-\log a}}{2}
+&& \text{und}&
+\operatorname{Sinh} x
+&=
+\frac{e^{x+\log a} - e^{-x-\log a}}{2}
+\\
+&=
+\cosh(x+\log a)
+&&&
+&=
+\sinh(x+\log a).
+\end{align*}
+Die verschiedenen möglichen hyperbolischen Funktionen entstehen daher
+durch Verschiebung der unabhängigen Variablen.
+Da man die Funktionen $\operatorname{Cosh}$ und $\operatorname{Sinh}$
+als durch eine autonome Differentialgleichung definiert ansehen kann,
+ist nachvollziehbar, dass die Definition die verschiedenen möglichen
+Lösungen nicht unterscheiden kann.
+
+Bei den trigonometrischen Funktionen betrachten wir einen Faktor der
+Form $a=e^{i\delta}$, woraus $1/a = e^{-i\delta}$ folgt.
+Die trigonometrischen Funktionen sind dann
+\begin{align*}
+\operatorname{Cos} x
+&=
+\frac12(ae^{ix}+e^{-ix}/a)
+=
+\frac12(e^{i\delta}e^{ix}+e^{ix}e^{-i\delta})
+=
+\frac12(e^{i(x+\delta)}+e^{-i(x+\delta)})
+=
+\cos(x+\delta)
+\\
+\operatorname{Sin} x
+&=
+\frac12(ae^{ix}-e^{-ix}/a)
+=
+\frac12(e^{i\delta}e^{ix}-e^{ix}e^{-i\delta})
+=
+\frac12(e^{i(x+\delta)}-e^{-i(x+\delta)})
+=
+\sin(x+\delta).
+\end{align*}
+Multiplikation mit einem Skalenfaktor bedeutet also wieder nur eine
+Verschiebung des Arguments.
+
+Die oben durchgeführten Rechnungen funktionieren natürlich auch für
+einen komplexen Faktor, den wir $a=e^{b}$ schreiben können.
+\begin{align*}
+\operatorname{Cosh} x
+&=
+\frac12 ( ae^{x} + e^{-x}/a )
+=
+\frac12 ( e^{x+b} + e^{-x-b} )
+=
+\cosh(x+b)
+\\
+\operatorname{Sinh} x
+&=
+\frac12 ( ae^{x} - e^{-x}/a )
+=
+\frac12 ( e^{x+b} - e^{-x-b} )
+=
+\sinh(x+b).
+\end{align*}
+Entsprechende Formeln für die trigonometrischen Funktionen ergeben sich
+daraus durch Multiplikation des Argumentes mit $i$.
+In allen Fällen führen die verschiedenen Expontialfunktion zu einer
+möglicherweise um einen komplexen Summanden verschobenen Funktion.
+
+Bei den Umkehrfunktionen ist die Situation noch einfacher.
+Sie sind als ein Logarithmus definiert.
+Ein solcher ist nur bis auf einen konstanten Summanden definiert.
+Diese Beobachtung ist auch konsistent mit der Interpretation der
+Umkehrbeziehung für die Exponential- und Logarithmusfunktionen.
+Die additive Konstante, um die sich die trigonometrischen und
+hyperbolischen Umkehrfunktionen unterscheiden, ist auch die konstante
+Translation, um die sich die trigonometrischen und hyperbolischen
+Funktionen unterscheiden.
+
+%
+% Elementare Funktionen
+%
+\subsection{Elementare Funktionen und das Integrationsproblem}
+Der Prozess der Erweiterung des Differentialkörpers der 
+rationalen Funktionen $\mathbb{Q}(x)$ durch algebraische Elemente,
+Logarithen und Exponentialfunktionen reproduziert also die Vorgehensweise
+eines Mathematikers, der ein Integralproblem lösen will.
+Er beginnt mit der Konstruktion eines Funktionenkörpers, der den
+Integranden enthält.
+Dazu wird es notwendig sein, zusätzliche Konstanten wie Wurzeln,
+$\pi$, $i$ und andere oder Parameter hinzuzufügen.
+Ausserdem müssen möglicherweise wiederholt Exponentialfunktionen,
+Logarithmen und algebraische Funktionen hinzugefügt werden.
+Alle Funktionen, mit denen ein menschlicher Rechner arbeitet, sind
+auf diese Art konstruierbar.
+Dies rechtfertigt, diesen Funktionen einen eigenen Namen zu geben.
+
+\begin{definition}[Elementare Funktionen]
+Sei $D$ eine Derivation in $\mathbb{Q}(x)$ mit $Dx=1$.
+Eine Funktion $f(x)$ heisst \emph{elementar}, wenn $f$ in einer
+Erweiterung von $\mathbb{Q}(x)$ enthalten ist, die durch hinzufügen
+algebraischer Elemente, Logarithmen oder Exponentialfunktionen
+entsteht.
+\index{elementare Funktion}%
+\end{definition}
+
+Mit dem Begriff der elementaren Funktion lässt sich jetzt das
+Problem der Integration in geschlossener Form präzis formulieren.
+\index{geschlossene Form}%
+Ein menschlicher Rechner erwartet, dass er den Differentialkörper,
+in dem der Integrand gefunden werden kann, durch weitere Erweiterungen
+so vergrössern kann, dass sich auch die Stammfunktion darin finden
+lässt.
+Die Stammfunktion ist daher auch eine elementare Funktion.
+Das Problem der Integration in geschlossener Form ist daher das
+folgende.
+
+\begin{problem}[Integration in geschlossener Form]
+\index{Integration in geschlossener Form}%
+Gegebene eine elementare Funktion $f$ in einem Differentialkörper
+$F$, finde eine elementare Funktion $\vartheta$ mit $D\vartheta = f$.
+\end{problem}
 
 
 

@@ -11,5 +11,3 @@ invcis.pdf:	invcis.tex
 invtan.pdf:	invtan.tex
 	pdflatex invtan.tex
 
-
-
