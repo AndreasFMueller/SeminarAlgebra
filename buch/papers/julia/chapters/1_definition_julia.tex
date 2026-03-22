@@ -2,9 +2,10 @@
 \label{sec:julia}
 Julia-Mengen und Fatou-Mengen entstehen aus der Überlegung was geschieht, wenn man eine Funktion $f$ wiederholt auf ein $z \in \mathbb{C}$ anwendet.
 Hierraus ergibt sich für jedes $z$ eine Folge komplexer Zahlen
-\begin{equation*}
+\begin{equation}
     z \rightarrow f(z) \rightarrow f(f(z)) \rightarrow \ldots \:,
-\end{equation*}
+    \label{julia_folge}
+\end{equation}
 bzw.
 \begin{equation*}
     z_{n + 1} = f(z_n) \quad \text{mit}\: n \in \mathbb{N}_0\: \text{und einem Startwert}\: z_0 \in \overline{\mathbb{C}} = \mathbb{C} \cup \infty.
@@ -17,35 +18,38 @@ Je nach Wahl des Startwerts $z_0$ kann diese Folge zwei Verhalten zeigen:
 \end{enumerate}
 
 \subsection{Periodische Folgen}
-Um das Verhalten von solchen Folgen genauer zu untersuchen, werden nun Folgen betrachtet, für die gilt $z_n = z_0$ für ein $n$.
+Das Verhalten von solchen Folgen ist besonders dann interessant, wenn diese periodisch sind, bzw. $z_n = z_0$ für ein $n > 0$ gilt.
 In dem Fall wird $z_0$ als \emph{periodischer Punkt} bezeichnet.
 Ist $n$ die kleinste natürliche Zahl mit dieser Eigenschaft, so heisst $n$ die \emph{Periode} des Zyklus.
 Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist $z_0$, nicht nur ein periodischer Punkt, sondern auch ein \emph{Fixpunkt} von $f$.
-
 Aus diesen Definitionen geht hervor, dass ein periodischer Punkt von $f$ mit Periode $n$ gleichzeitig ein Fixpunkt der $n$-fach zusammengesetzten Funktion $f^n$ ist.
 
+\subsubsection{Erstes Beispiel}
 Am Beispiel der Funktion 
 \begin{equation*}
     f(z) = z^2,
 \end{equation*}
-lassen sich diese Eigenschaften charakterisieren.
+lassen sich solche periodische Folgen beobachten.
 Durch $n$-maliges Anwenden erhält man $f^n(z) = z^{2^n}$.
-Nun hat die Funktion $f$ drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z_0) = z_0$.
-Nimmt man die Fixpunkte als Startwerte $z_0$, geschieht für $0$ und $\infty$ durch leichtes Verändern folgendes:
+Weiter hat die Funktion $f$ drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z_0) = z_0$.
+
+Entwickelt man nun die Folge \eqref{julia_folge}, ausgehend von den Startwerten $0$ und $\infty$, geschieht durch leichtes Verändern, mittels eines kleinen Wertes $\varepsilon$, folgendes:
 \begin{itemize}
     \item Für $z_0 = 0$: $f^n(0 + \varepsilon) = (0 + \varepsilon)^{2^n} \to 0$ mit $|\varepsilon| > 0$
     \item Für $z_0 \to \infty$: $f^n(\infty + \varepsilon) = (\infty + \varepsilon)^{2^n} \to \infty$ mit $|\varepsilon| > 0$
 \end{itemize}
-Obwohl die Startwerte verändert wurden, erhält man schlussendlich das gleiche Resultat wie ohne Verändern der Startwerte.
-Diese beiden Startwerte scheinen Folgen anzuziehen.
+Obwohl die Startwerte verändert wurden, erhält man schlussendlich das gleiche Resultat.
+Anders ausgedrückt führen kleine Änderungen des Startwerts zu praktisch derselben Folge.
+Es scheint, dass diese beiden Startwerte Folgen in ihrer Umgebung anziehen.
 
 Für den Startwert $1$ erhält man, durch leichtes Verändern, ein anderes Resultat:
 \begin{itemize}
     \item $f^n(1 + \varepsilon) = (1 + \varepsilon)^{2^n} \to \infty$ mit $\varepsilon > 0$
     \item $f^n(1 - \varepsilon) = (1 - \varepsilon)^{2^n} \to 0$ mit $\varepsilon > 0$
 \end{itemize}
-Es scheint, dass dieser Startwert Folgen von sich wegstösst, man erhält durch leichtes Verändern sofort eine ganz andere Folge.
+Hier scheint es, dass eine kleine Änderung des Startwerts zu einer ganz anderen Folge führt, dieser Startwert stösst Folgen in seiner nahen Umgebung weg.
 
+\subsubsection{Zweites Beispiel}
 Als zweites Beispiel dient die Funktion
 \begin{equation*}
     h(z) = z + z^7.
@@ -53,37 +57,95 @@ Als zweites Beispiel dient die Funktion
 Diese Funktion hat Fixpunkte bei $-\infty, 0$ und $\infty$.
 Die Fixpunkte $-\infty$ und $\infty$ verhalten sich, analog zum vorherigen Beispiel, anziehend und werden daher nicht näher untersucht.
 Nimmt man jedoch $0$ als Startwert, passiert etwas anderes.
-Durch leichtes Verändern erhält man,
+Durch eine kleine Änderung erhält man,
 \begin{equation*}
     h(0 + \varepsilon) = (0 + \varepsilon) + (0 + \varepsilon)^7 \text{ mit } |\varepsilon| > 0.
 \end{equation*}
-Der hintere Summand verschwindet, da es sich bei $\varepsilon$ um eine sehr kleine Zahl handelt, übrig bleibt der lineare Term.
+Der zweite Summand verschwindet, da es sich bei $\varepsilon$ um eine sehr kleine Zahl handelt, übrig bleibt der lineare Term.
 Somit ist
 \begin{equation*}
     h(0 + \varepsilon) = 0 + \varepsilon.
 \end{equation*}
 Wendet man nun erneut $h$ auf dieses Resultat an, erhält man wieder $0 + \varepsilon$.
 Auch durch $n$-maliges Anwenden von $h$ ändert sich das Resultat nicht.
+Die Folge bewegt sich also, anders als vorhin, nicht.
 Der Startwert $0$, scheint also Folgen weder abzustossen, noch anzuziehen.
 
-Fixpunkte bzw. periodische Punkte von Funktionen können sich also unterschiedlich verhalten.
-Die Art, wie sich ein periodischer Punkt verhält, lässt sich folgendermassen definieren und klassifizieren.
-Sei $z_0$ ein periodischer Punkt von $f$ mit Periode $n$, weiter sei
+\subsubsection{Arten von periodischen Punkten}
+Das Verhalten einer Folge hängt also von der Art der periodischen Punkte ab.
+Sei $z_0$ ein periodischer Punkt von $f$ mit Periode $n$, demzufolge ist $z_0$ ein Fixpunkt von $g = f^n$.
+Dadurch wird die Frage nach dem Verhalten in der Nähe eines periodischen Punktes reduziert, auf die Frage nach dem Verhalten in der Nähe eines Fixpunktes.
+Diese Frage lässt sich mithilfe der Taylorreihe um $z_0$
 \begin{equation*}
-    \lambda = \left(f^n\right)^\prime(z_0).
+    g(z) \approx z_0 + g^\prime(z_0) (z - z_0)
+    \label{taylor}
 \end{equation*}
-Der periodische Punkt $z_0$ heisst nun
+beantworten, wobei höhere Potenzen in der Nähe von $z_0$ verschwinden.
+Verwendet man $z_0$ als Startwert und ändert diesen leicht, bedeutet dies
+\begin{equation*}
+    z = z_0 + \varepsilon \text{ mit } |\varepsilon| > 0.
+\end{equation*}
+Setzt man dies in die Taylorreihe ein, erhält man
+\begin{equation*}
+    g(z) = g(z_0 + \varepsilon) \approx z_0 + g^\prime(z_0) \left((z_0 + \varepsilon) - z_0\right) = z_0 + g^\prime(z_0) \varepsilon.
+\end{equation*}
+Wird $g$ erneut und wiederholt auf dieses Resultat angewendet, so wird das Verhalten der entstehenden Folge einzig von $g^\prime(z_0)$ festgelegt.
+Ist $|g^\prime(z_0)| < 1$, so wird der zweite Summand durch wiederholte Anwendungen immer kleiner und die Folge kehrt zu $z_0$ zurück.
+Bei $|g^\prime(z_0)| = 0$ geschieht dies bereits nach der ersten Anwendung von $g$.
+Im Fall dass $|g^\prime(z_0)| > 1$ ist, wird der zweite Summand immer grösser und die Folge kehrt nicht zu $z_0$ zurück, sondern konvergiert zu einem anderen Wert.
+
+Wenn $|g^\prime(z_0)| = 1$ ist, ergibt sich ein Spezialfall.
+Durch wiederholtes Anwenden scheint das Resultat immer $z_0 + \varepsilon$ zu bleiben, das stimmt aber nicht.
+Die Formel \eqref{taylor} für die Taylorreihe ignoriert die höheren Potenzen, da diese in den drei anderen Fällen nichts am Ausgang ändern.
+Wiederholtes Anwenden der Funktion führt dazu, dass die höheren Potenzen irgendwann nicht mehr verschwinden, und im Fall $|g^\prime(z_0)| = 1$ werden sie sogar sehr wichtig.
+Das Verhalten der Folge wird hier durch diese höheren Potenzen bestimmt und kann, sowohl auf die eine, als auch auf die andere Art ausfallen.
+Dieses Phänomen wird im Abschnitt \ref{sec:indifferent} näher beschrieben.
+
+Somit sei nun
+\begin{equation*}
+    \lambda = g^\prime(z_0) = \left(f^n\right)^\prime(z_0).
+\end{equation*}
+
+Dann heisst der periodische Punkt $z_0$
 \begin{itemize}
     \item \emph{stark anziehend}, wenn $\lambda = 0$,
     \item \emph{anziehend}, wenn $0 < \left|\lambda\right| < 1$,
     \item \emph{indifferent}, wenn $\left|\lambda\right| = 1$,
     \item \emph{abstosstend}, wenn  $\left|\lambda\right| > 1$.
 \end{itemize}
-Die beiden Begriffe \emph{stark anziehend} und \emph{anziehend} unterscheiden sich nur insofern, als dass Folgen die von \emph{stark anziehenden} Startwerten ausgehen, schneller wieder beim Startwert landen.
 
-%% TODO: Wieso Ableitung von f^n?
+\subsection{Beobachtungen}
+Wie die vorhergehenden Beispiele zeigen, scheinen, per Definition aus Abschnitt \ref{sec:julia}, abstossende periodische Punkte zur Julia-Menge der jeweiligen Funktion zu gehören.
+Ebenfalls scheinen anziehende periodische Punkte zur Fatou-Menge zu gehören.
+Dies reicht jedoch noch nicht zur Definition dieser Mengen aus, sowohl indifferente periodische Punkte, als auch nicht-periodische Punkte wurden noch nicht genauer betrachtet.
+
+\subsubsection{Indifferente periodische Punkte}
+\label{sec:indifferent}
+%% TODO: Fill out (gibt Unterarten indifferenter Punkte die je nach dem zu J_f oder F_f gehören können)
+
+
+\subsubsection{Nicht-periodische Punkte}
+Punkte die nicht periodisch sind, können entweder zur Julia-Menge oder zur Fatou-Menge gehören.
+Zum Beispiel gehört der Punkt $z_0 = e^{2\pi i\sqrt{2}}$ zur Julia-Menge der Funktion $f(z) = z^2 = e^{2\pi i(2 \varphi)}$, obwohl er nicht periodisch ist.
+Durch $n$-maliges Anwenden wird $f$ zu $f^n(z) = r^{2^n} e^{2\pi i(2^n \varphi)}$.
+Setzt man den Punkt $z_0$ ein, d.h. setzt $\sqrt{2}$ für $\varphi$ ein, müsste
+\begin{equation*}
+    2^n \sqrt{2} = \sqrt{2}
+\end{equation*}
+für ein $n$ gelten, damit $z_0$ periodisch ist.
+Dies ist aber nur für $n = 0$ der Fall, was bedeutet dass $z_0$ nicht periodisch ist.
+
+Nimmt man $z_0$ als Startwert für eine Folge und verändert diesen leicht, d.h. verwendet $\sqrt{2} + \varepsilon$ für $\varphi$ im Exponenten, erhält man eine ganz andere Folge.
+Nach $n$-maligem Anwenden erhält man $2^n \sqrt{2} + 2^n \varepsilon$ anstatt $2^n \sqrt{2}$, die Folge verhält sich chaotisch.
+Dieser Punkt gehört daher zur Julia-Menge von $f$.
+
+Verwendet man für die gleiche Funktion $0.5$ als Startwert und verändert diesen leicht, so erhält man $f^n(0.5 + \varepsilon) = (0.5 + \varepsilon)^{2^n}$, was gegen $0$ konvergiert.
+Die Folge für den unveränderten Startwert konvergiert ebenfalls gegen $0$, was bedeutet, dass dieser Punkt zur Fatou-Menge von $f$ gehört.
+
+Nicht-periodische Punkte können sich also unterschiedlich verhalten und gehören daher entweder izur Julia-Menge oder zur Fatou-Menge.
 
 \subsection{Definition Julia-Mengen}
+%% TODO: Rework
 Betrachtet man erneut die Funktion $f(z) = z^2$, welche \emph{stark anziehende} Fixpunkte bei $0$ und $\infty$ hat, sowie einen \emph{abstossenden} Fixpunkt bei $1$, lassen sich daraus Julia-Mengen definieren.
 Wählt man den Startwert $z_0 = 1$ und verändert diesen ganz leicht, erhält man, bei mehrmaligem Anwenden von $f$, wie im vorherigen Abschnitt beschrieben, eine ganz andere Folge.
 Das gleiche Verhalten tritt auf für alle $|z| = 1$.
@@ -102,7 +164,7 @@ bzw. allgemeiner
 Dabei bezieht sich \emph{Abschluss} auf den topologischen Abschluss \cite{julia:abschluss}.
 
 \subsection{Definition Fatou-Mengen}
-Die Definition der Fatou-Mengen lässt sich direkt aus dem obigen Beispiel $f(z) = z^2$ herleiten.
+Die Definition der Fatou-Mengen lässt sich ebenfalls aus dem obigen Beispiel $f(z) = z^2$ herleiten.
 Wie bereits beschrieben, gehören alle Startwerte auf dem Rand des Einheitskreises zur Julia-Menge.
 Für alle anderen Startwerte, d.h. $|z| \neq 1$, erhält man, durch leichtes Verändern, mehr oder weniger die gleichen Folgen.
 Folglich lässt sich die Fatou-Menge als
@@ -113,4 +175,3 @@ definieren oder allgemein formuliert
 \begin{equation*}
     F_f \coloneqq \overline{\mathbb{C}} \setminus J_f.
 \end{equation*}
-
