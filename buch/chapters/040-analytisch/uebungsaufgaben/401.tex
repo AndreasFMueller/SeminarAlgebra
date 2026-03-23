@@ -1,0 +1,43 @@
+Bestimmen Sie die Potenzreihe der Funktion
+\[
+f(z)
+=
+\begin{cases}
+\displaystyle \frac{e^z - 1}{z} & \qquad\text{falls $z\ne 0$}\\
+              1                 & \qquad\text{falls $z=0$}
+\end{cases}
+\]
+an der Stelle $z=0$.
+Bestimmen Sie den Konvergenzradius.
+
+\begin{loesung}
+Aus der Reihenentwicklung
+\[
+e^z
+=
+1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \frac{z^4}{4!} + \dots
+=
+\sum_{k=0}^\infty \frac{z^k}{k!}
+\]
+der Exponentialfunktion bekommt man erst die Potenzreihe
+\[
+e^z - 1
+=
+z + \frac{z^2}{2!} + \frac{z^3}{3!} + \frac{z^4}{4!} + \dots
+=
+\sum_{k=1}^\infty \frac{z^k}{k!}
+\]
+als Potenzreihe von $e^z-1$.
+Da diese Funktion offenbar eine Nullstelle bei $z=0$ hat, kann man
+durch $z$ dividieren und erhält die gesuchte Potenzreihe
+\[
+\frac{e^z - 1}{z}
+=
+1 + \frac{z}{2!} + \frac{z^2}{3!} + \frac{z^3}{4!} + \dots
+=
+\sum_{k=1}^\infty
+\frac{z^k}{(k+1)!}.
+\]
+Da die Funktion $f(z)$ in ganz $\mathbb{C}$ definiert ist, ist
+der Konvergenzradius $\infty$.
+\end{loesung}

@@ -153,6 +153,72 @@ a^1_k
 % Analytische Fortsetzung entlang einer Kurve
 %
 \subsection{Analytische Fortsetzung entlang einer Kurve}
+Sei $\gamma$ eine Kurve in der komplexen Ebene und $f$ eine
+Funktion, die in einer Umgebung des Punktes $\gamma(0)$ der
+Kurve holomorph ist.
+Die Funktion ist also in einem Kreis vom Radius $\varrho(\gamma(0))$
+um den Punkt $\gamma(0)$ analytisch.
+Nach \eqref{buch:analytisch:fortsetzung:eqn:taylor01}
+kann die Funktion $f(z)$ in jedem Punkt $\gamma(t)$ wieder in eine
+Potenzreihe mit Konvergenzradius $\varrho(\gamma(t))$ entwickelt
+werden, so dass die beiden Potenzreihen auf dem Schnittgebiet der
+beiden Konvergenzkreise übereinstimmen.
+Für einen Punkt $\gamma(t)$ nahe dem Rand des Konvergenzkreises 
+der Potenzreihe im Punkt $\gamma(0)$ kann der Konvergenzkreis
+der neuen Reihe über den Rand des alten Konvergenzkreises hinausragen.
+Die neue Potenzreihe erweitert also die Funktion über den ursprünglichen
+Konvergenzkreis hinaus.
+Indem dies entlang der Kurve immer wieder wiederholt wird, kann die
+Funktion auf ein Umgebung der Kurve ausgedehnt werden, wie dies zum
+für die Wurzelfunktion in
+Abbildung~\ref{buch:analytisch:fortsetzung:fig:wurzel2}
+illustriert wird.
+
+\begin{beispiel}
+Die Funktion $f(z)=\frac{1}{z}$ ist holomorph in $\mathbb{C}\setminus\{0\}$.
+Sie $\gamma(t)=e^{2\pi it}$ der Einheitskreis.
+Im Punkt $\gamma(0)=1$ kann die Funktion durch die geometrische Reihe
+\begin{equation}
+\frac{1}{z}
+=
+\frac{1}{1+(z-1)}
+=
+\sum_{k=0}^\infty (z-1)^k
+\label{buch:analytisch:fortsetzung:bsp:geom1}
+\end{equation}
+dargestellt werden, die in $B_1(1)$ konvergent ist.
+Der Punkt $\gamma(\frac{\pi}4)$ liegt innerhalb dieses Konvergenzkreises.
+Die Entwicklung
+\begin{equation}
+\frac{1}{z}
+=
+\frac{1}{a+(z-a)}
+=
+\frac1a \frac{1}{1+\displaystyle\frac{z-a\mathstrut}{a}}
+=
+\sum_{k=0}^\infty
+\frac{1}{a^k}(z-a)^k
+\label{buch:analytisch:fortsetzung:bsp:geoma}
+\end{equation}
+ist eine Potenzreihenentwicklung im Punkt $a$ mit Konvergenzradius $|a|$.
+Für $a=\gamma(\frac{\pi}4)$ ist die Reihe von
+\eqref{buch:analytisch:fortsetzung:bsp:geoma},
+die in einer Umgebung von $a$ mit der Reihe
+\eqref{buch:analytisch:fortsetzung:bsp:geom1}
+übereinstimmt.
+Der Punkt $i\in\mathbb{C}$ ist nicht im Konvergenzkreis der Reihe 
+\eqref{buch:analytisch:fortsetzung:bsp:geom1},
+der Wert $f(i)$ kann also damit nicht berechnet werden,
+wohl aber mit
+\eqref{buch:analytisch:fortsetzung:bsp:geoma}.
+\end{beispiel}
+
+Im Beispiel führt die analytische Fortsetzung entlang der Kurve 
+nach einem Umlauf wieder zur selben Entwicklung
+\eqref{buch:analytisch:fortsetzung:bsp:geom1}
+im Punkt $1$.
+Dies ist jedoch nicht selbstverständlich, wie die Beispiele
+im kommenden Abschnitt zeigen werden.
 
 %
 % Überlagerungen der komplexen Ebene
@@ -179,10 +245,10 @@ Die reelle Wurzelfunktion $x\mapsto \!\sqrt{x\mathstrut}$ lässt
 sich in der Polardarstellung $z=r(\cos\varphi+i\sin\varphi)$ einer
 komplexen Zahl durch
 \[
-\sqrt{z\mathstrut}
+\!\sqrt{z\mathstrut}
 =
-\sqrt{r\mathstrut}
-\biggl(\cos\frac{\varphi}2+i\sin\frac{\varphi}2\biggr)
+\!\sqrt{r\mathstrut}
+\Bigl(\cos\frac{\varphi}2+i\sin\frac{\varphi}2\Bigr)
 \]
 zu einer Wurzelfunktion für komplexe Zahlen erweitert werden.
 Die Polardarstellung einer komplexen Zahl ist jedoch nicht eindeutig.
@@ -202,27 +268,27 @@ r(\cos(\varphi+2\pi k) + i\sin(\varphi+2\pi k)
 $.
 Die möglichen Werte der Quadratwurzel sind daher
 \begin{align*}
-\sqrt{z}
+\!\sqrt{z}
 &=
-\sqrt{r\mathstrut}\biggl(
+\!\sqrt{r\mathstrut}\Bigl(
 \cos\frac{\varphi+2\pi k}{2}
 +
 i
 \sin\frac{\varphi+2\pi k}{2}
-\biggr)
+\Bigr)
 \\
 &=
-\sqrt{r\mathstrut}\biggl(
-\cos\biggl(\frac{\varphi}2+\pi k\biggr)
+\!\sqrt{r\mathstrut}\Bigl(
+\cos\Bigl(\frac{\varphi}2+\pi k\Bigr)
 +
 i
-\sin\biggl(\frac{\varphi}2+\pi k\biggr)
-\biggr)
+\sin\Bigl(\frac{\varphi}2+\pi k\Bigr)
+\Bigr)
 \\
 &=
-\sqrt{r\mathstrut}
+\!\sqrt{r\mathstrut}
 (-1)^k
-\biggl(\cos\frac{\varphi}2+i\sin\frac{\varphi}2\biggr).
+\Bigl(\cos\frac{\varphi}2+i\sin\frac{\varphi}2\Bigr).
 \end{align*}
 Wie erwartet hat jede von $0$ verschiedene komplexe Zahl zwei
 verschiedene Quadratwurzeln, die sich um den Faktor $-1$ 
