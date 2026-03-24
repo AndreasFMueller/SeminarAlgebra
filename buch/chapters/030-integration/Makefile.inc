@@ -4,6 +4,12 @@
 # (c) 2025 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
 
+AUFGABENFILES +=							\
+	chapters/030-integration/uebungsaufgaben/301.tex		\
+	chapters/030-integration/uebungsaufgaben/302.tex		\
+	chapters/030-integration/uebungsaufgaben/303.tex		\
+	chapters/030-integration/uebungsaufgaben/304.tex
+
 CHAPTERFILES += 							\
 	chapters/030-integration/1-wegintegral.tex			\
 	chapters/030-integration/2-cauchy.tex				\
