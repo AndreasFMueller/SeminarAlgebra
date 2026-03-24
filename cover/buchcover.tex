@@ -30,7 +30,7 @@
 \begin{tikzpicture}[>=latex, scale=1]
 \tikzmath{
 	real \ruecken, \einschlag, \gelenk, \breite, \hoehe;
-	\ruecken = 2.5;
+	\ruecken = 3.0;
 	\einschlag = 1.6;
 	\gelenk = 0.8;
 	\breite = 16.7;
@@ -46,7 +46,8 @@
 \hsize=13.6cm
 
 \begin{scope}
-\clip (0,0) rectangle({\bogenbreite},{0.53*\bogenhoehe});
+%\clip (0,0) rectangle({\bogenbreite},{0.53*\bogenhoehe});
+\clip (0,0) rectangle({\bogenbreite},{\bogenhoehe});
 
 \coordinate (A) at (0,0);
 \coordinate (B) at ({0.9*\bogenbreite},0);
@@ -58,10 +59,16 @@
 \coordinate (H) at (0,{0.2*\bogenhoehe});
 
 
+%\begin{scope}
+%%\clip (D) -- (E) -- (F) -- (G) -- (H) -- cycle;
+%\node at ({0.75*\bogenbreite},8.0)
+%	{\includegraphics[width=16cm]{meme.jpg}};
+%\end{scope}
+
 \begin{scope}
 %\clip (D) -- (E) -- (F) -- (G) -- (H) -- cycle;
-\node at ({0.75*\bogenbreite},8.0)
-	{\includegraphics[width=16cm]{meme.jpg}};
+\node at ({0.55*\bogenbreite},14.4)
+	{\includegraphics[width=60cm]{images/farben-transparent.png}};
 \end{scope}
 
 \end{scope}
