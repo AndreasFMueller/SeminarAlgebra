@@ -1,0 +1,479 @@
+%
+% 4-homologie.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Homologie
+\label{buch:integration:section:homologie}}
+In Anwendungen des cauchyschen Integralsatzes kommt es auf die Wahl
+eines geeigneten Weges an.
+Schon im Beweis des Integralsatzes wurde das Argument verwendet, dass
+Wegestücke, die zweimal in entgegengesetzter Richtung durchlaufen
+werden, keinen Betrag zum Integral leisten.
+Ein beliebiger Weg, der einmal den Punkt $z_0$ umläuft, führt auf die
+gleichen Werte des Integrals wie ein kleiner Kreis um den Punkt $z_0$.
+Es scheint also gar nicht so sehr auf den Verlauf des Weges anzukommen,
+sondern nur darauf was wie oft umlaufen wird.
+Der Begriff der \emph{Homologie} versucht diese Beobachtung
+zu präzisieren.
+
+%
+% Ketten und Zyklen
+%
+\subsection{Ketten und Zyklen}
+Der Integralsatz von Cauchy besagt, dass ein Deformation des Weges
+eines Wegintegrals sich nicht auf den Wert des Integrals auswirkt,
+solange die Deformation keine Singulartität der Funktion trifft.
+\input{chapters/030-integration/fig/fig-paar.tex}%
+Abbildung~\ref{buch:integration:homologie:fig:paar}
+zeigt die Deformation des Pfades $\gamma$, der die beiden ``Löcher''
+im Definitionsbereich um die Foki $F_1$ und $F_2$ der Lemniskate
+einmal umläuft, in zwei Wege $\gamma_+$ und $\gamma_-$, die $F_1$
+und $F_2$ separat umlaufen, verbunden über zwei Wegstücke entlang
+der reellen Achse, die in entgegengesetzter Richtung durchlaufen
+werden und sich im Integral daher wegheben.
+Es folgt, dass
+\[
+\int_\gamma f(z)\,dz
+=
+\int_{\gamma_+} f(z)\,dz
++
+\int_{\gamma_-} f(z)\,dz.
+\]
+Wir müssen daher die Idee eines Weges wie $\gamma$ zu einer 
+Vereinigung von Wegen wie $\{\gamma_+,\gamma_-\}$ verallgemeinern.
+
+\begin{definition}[Kette]
+\label{buch:integration:homologie:def:kette}
+Eine \emph{Kette} $C$ in $U$ ist eine formale Summe
+\index{Kette}%
+\begin{equation}
+c
+=
+c_1\gamma_1 + \dots + c_n\gamma_n
+\label{buch:integration:homologie:eqn:def:kette}
+\end{equation}
+von Wegen $\gamma_k\colon I \to U$ mit $c_k\in\mathbb{Z}$.
+Wir bezeichnen mit
+\[
+C_1
+=
+C_1
+=
+\{
+c_1\gamma_1+\ldots+c_n\gamma_n
+\mid
+\gamma_k:I\colon U, c_k\in \mathbb{Z}
+\}
+\]
+heisst die Menge der (eindimensionalen) Ketten.
+\end{definition}
+
+Die Definition unterscheidet alle Wege, auch solche, die ineinander
+deformierbar sind.
+\input{chapters/030-integration/fig/fig-kettenzyklen.tex}%
+Es wird auch nicht verlangt, dass die Wege geschlossen sind.
+Die Wege können geschlossen sein, es kann aber auch sein, dass sich
+die Wege zu einem geschlossenen Weg zusammensetzen lassen.
+
+\begin{definition}[Randoperator]
+\label{buch:integration:homologie:definition:randoperator}
+Die Menge der \emph{$0$-dimensionalen Ketten} ist
+\index{Ketten!0-dimensional}%
+\[
+C_0 
+=
+C_0(U)
+=
+\{
+c_1P_1+\ldots+c_nP_n
+\mid
+c_k\in \mathbb{Z}, P_k\in U
+\}.
+\]
+Der \emph{Randoperator} ist eine
+\index{Randoperator}%
+lineare Abbildung $\partial \colon C_1\to C_0$, die einen
+Weg $\gamma$ auf
+\[
+\gamma \mapsto 1\cdot \gamma(1) - 1\cdot \gamma(0)
+\]
+abbildet.
+\end{definition}
+
+Der Endpunkt eines Weges erhält also das Gewicht $1$, während der
+Anfangspunkt das Gewicht $-1$ erhält.
+Mehrere Wege können zusammengesetzt werden, wenn der Endpunkt
+eines Wegestückes mit den Anfangspunkt des nächsten Stücks
+übereinstimmt, wenn also $\gamma_k(1) = \gamma_{k+1}(0)$ gilt.
+Der Randoperator bildet $\gamma_k + \gamma_{k+1}$ auf
+\[
+\partial ( \gamma_k + \gamma_{k+1} )
+=
+-\gamma_k(0) + \gamma_k(1) -\gamma_{k+1}(0) + \gamma_{k+1}(1)
+=
+-\gamma_k(0) + \gamma_{k+1}(1)
+\]
+ab.
+Die Zusammensetzbarkeit der Wege ist also genau dann gegeben, 
+wenn sich bei Anwendung des Randoperators die Punkte, wo die
+Wege zusammengesetzt werden müssen, wegheben.
+In Abbildung~\ref{buch:integration:homologie:fig:kettenzyklen}
+tritt diese Situation im Zyklus $d$ beim Punkt $B_2$ ein.
+Wenn sich alle Punkte wegheben, dann lassen sich die Wegstücke
+zu einem geschlossenen Weg zusammensetzen.
+In Abbildung~\ref{buch:integration:homologie:fig:kettenzyklen}
+tritt dies für den Zyklus $c$ ein.
+Wir definieren daher einen Zyklus wie folgt.
+
+\begin{definition}[Zyklus]
+\label{buch:integration:homologie:definition:zyklus}
+Ein \emph{Zyklus} ist eine Kette in $C_1$, deren Rand verschwindet:
+\index{Zyklus}%
+\[
+Z_1
+=
+Z_1(U)
+=
+\{
+c\in C_1
+\mid
+\partial c = 0
+\}.
+\]
+\end{definition}
+
+In Abbildung~\ref{buch:integratoin:homologie:fig:kettenzyklen} sind
+zwei Ketten $c=\gamma_1+\gamma_2+\gamma_3+\gamma_4$ und $d=\delta_1+\delta_2$
+dargestellt.
+Der Randoperator von $d$ ist
+\begin{align*}
+\partial d
+&=
+\partial\delta_1
++
+\partial\delta_2
+=
+B_2-B_1 + B_3-B_2
+=
+B_3-B_1,
+\intertext{es bleiben also die Puntke $B_3$ und $B_1$ mit verschiedenen
+Vorzeichen.
+Für $c$ ist der Randoperator}
+\partial c
+&=
+\partial \gamma_1
++
+\partial \gamma_2
++
+\partial \gamma_3
++
+\partial \gamma_4
+=
+A_2-A_1
++
+A_3-A_2
++
+A_4-A_3
++
+A_1-A_4
+=
+0,
+\end{align*}
+die Kette $c$ ist also ein Zyklus.
+Jeder Teilweg beginnt im Endpunkt eines anderen Weges und endet
+im Anfangspunkt eines anderen Weges.
+
+%
+% Integral über Ketten
+%
+\subsection{Integral über Ketten}
+Damit das Wegintegral eine lineare Abbildung von Ketten wird, 
+muss das Wegintegral entlang einer Kette wird durch Linearkombination
+der einzelnen Integrale gebildet:
+
+\begin{definition}[Wegintegral einer Kette]
+Ist $c\in C_1$ eine Kette der Form
+\eqref{buch:integration:homologie:eqn:def:kette}
+und $f$ eine in $U$ holomorphe Funktion, dann ist das 
+\emph{Wegintegral entlang $C$} definiert durch
+\index{Wegintegral entlang einer Kette}%
+\[
+\int_c f(z)\,dz
+=
+c_1
+\int_{\gamma_1}f(z)\,dz
++
+\ldots
++
+c_n
+\int_{\gamma_n}f(z)\,dz
+=
+\sum_{k=1}^n
+c_k \int_{\gamma_k} f(z)\,dz.
+\]
+\end{definition}
+
+Ist $F(z)$ eine Stammfunktion von $f(z)$
+
+Ist $c$ ein Zyklus, dann lassen sich die Teilwege von $c$ zu einem
+geschlossenen Weg zusammen setzen, wie dies in
+Abbildung~\ref{buch:integration:homologie:fig:kettenzyklen}
+dargestellt ist.
+In diesem Fall ist es sinnvoll vom Integral über einen geschlossen
+Weg zu sprechen und
+\[
+\partial c = 0
+\qquad\Rightarrow\qquad
+\int_c f(z)\,dz
+=
+\oint_c f(z)\,dz
+\]
+zu schreiben
+
+
+Abbildung~\ref{buch:integration:homologie:fig:paar}
+zeigt eine Situation einer Kette $C=\gamma_++\gamma_-$, deren
+Wegintegral
+\[
+\int_C f(z)\,dz
+=
+\int_{\gamma_+} f(z)\,dz
++
+\int_{\gamma_-} f(z)\,dz
+=
+\int_{\gamma} f(z)\,dz
+\]
+mit dem Wegintegral entlang der Kurve $\gamma$ übereinstimmt.
+Soweit es um Wegintegrale entlang einer Kette geht, gibt es 
+zwischen $\gamma$ und $C$ keinen Unterschied.
+
+Zwischen $\gamma$ und nur der Komponente $\gamma_+$ gibt es
+ein wesentlichen Unterschied.
+Die Funktion $f(z) = 1/(z-F_1)$ hat eine Polstelle im Punkt $F_1$.
+Die Wegintegrale sind
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma f(z)\,dz
+&=
+\\
+\frac{1}{2\pi i}
+\oint_\gamma \frac{1}{z-F_1}\,dz
+&=
+\\
+\operatorname{ind}_\gamma(F_1)
+&=
+1
+\\
+&\ne
+\frac{1}{2\pi i}
+\oint_{\gamma_+} f(z)\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma_+} \frac{1}{z-F_1}\,dz
+\\
+&=
+\operatorname{ind}_{\gamma_+}(F_1)
+\\
+&=
+0
+\end{align*}
+sind jedoch verschieden.
+Der Grund dafür ist, dass $\gamma$ und $\gamma_+$ den Punkt $F_1$
+nicht gleich oft umlaufen.
+Wir definieren daher ein Äquivalenzrelation von Ketten durch die
+Anzahl der Male, die sie Punkte ausserhalb von $U$ umlaufen.
+
+\begin{definition}[Umlaufzahl einer Kette]
+Die \emph{Umlaufzahl} einer Kette $C$ um einen Punkt $z_0$ ist
+\index{Umlaufzahl}%
+\[
+\operatorname{ind}_C(z_0)
+=
+\frac{1}{2\pi i}
+\int_C
+\frac{1}{z-z_0}
+\,dz.
+\]
+\end{definition}
+
+%
+% Homologie von Ketten
+%
+\subsection{Homologie von Ketten
+\label{buch:integration:homologie:subsection:homologie}}
+Die Homotpieeigenschaft des Wegintegrals hat gezeigt, dass sich der
+Wert eines Wegintegrals einer holomorphen Funktion nicht ändert, wenn
+man den Weg stetig deformiert.
+Dies wurde zum Beispiel in Abbildung~\ref{buch:integration:fig:residuum}
+verwendet, um zu zeigen, dass der Weg $\gamma$ und der kleine Kreis
+um den Punkt $z_0$ zu den gleichen Werten der Wegintegrale führen.
+Diese Äquivalenz von Ketten, die zu gleichen Wegintegralen führen,
+verdient einen eigenen Namen.
+
+\begin{definition}[homolog]
+Die Ketten $c_1$ und $c_2$ heissen \emph{homolog} in $U$, in Zeichen
+$c_1\sim c_2$ oder $c_1\sim_{U}c_2$, wenn
+\index{homolog}%
+für jeden Punkt $a\in \mathbb{C}\setminus U$
+\[
+\operatorname{ind}_{c_1}(a)
+=
+\operatorname{ind}_{c_2}(a)
+\]
+gilt.
+\end{definition}
+
+Die Kette $\gamma_++\gamma_-$ ist also zu $\gamma$ homolog.
+Für homologe Ketten ist nicht nur die Umlaufzahl gleich, sondern
+jedes Integral.
+
+\begin{satz}
+Sind die Ketten $c_1$ und $c_2$ homolog, dann ist
+\[
+\int_{c_1} f(z)\,dz
+=
+\int_{c_2} f(z)\,dz.
+\]
+\end{satz}
+
+Wir betrachten jetzt einen später besonders nützlichen Spezialfall.
+\input{chapters/030-integration/fig/fig-merohomolog.tex}%
+In Abbildung~\ref{buch:integration:homologie:fig:merohomolog}
+ist ein Gebiet $U$ mit einer einfach geschlossenen Kurve
+$\gamma$ dargestellt.
+Das Komplement von $U$ im Inneren der Kurve $\gamma$ besteht
+aus den isolierten Punkten $z_k$.
+Jeder dieser Punkte kann so mit der Kurve $\gamma$ verbunden werden,
+dass sich die Verbindungen nicht schneiden.
+Ausserdem wird jeder von diesen Punkten von einem kleinen Kreis $\gamma_k$
+im Gegenuhrzeigersinn umlaufen.
+Aus $\gamma$, den im Uhrzeigersinn durchlaufenen Kreisen $-\gamma_k$
+und den Verbindungen zu $\gamma$ lässt sich ein neuer Weg zusammensetzen,
+der sich in $U$ zusammenziehen lässt.
+Das Wegintegral über den gesamten Weg verschwindet daher.
+Die Verbindungswege zur Kurve $\gamma$ werden dabei zweimal in
+entgegengesetzter Richtung durchlaufen und tragen daher nicht zum
+Wegintegral bei.
+Das Wegintegral einer in $U$ holomorphen Funktion über $\gamma$
+ist daher gleich der Summe der Wegintegrale der Funktion
+über die Kreise $\gamma_k$.
+
+\begin{satz}
+\label{buch:integration:homologie:satz:pfadpunkte}
+Ist $\gamma$ eine einfach geschlossene Kurve in $U$ und besteht das Komplement
+von $U$ im Inneren von $\gamma$ nur aus endlich vielen isolierten Punkten
+$z_k$, $1\le k\le n$, dann gibt es einen Radius $r$ derart, dass $\gamma$
+homolog zu einem Zyklus 
+\[
+c
+=
+\sum_{k=1}^n \gamma_k,
+\]
+wobei jedes $\gamma_k$ ein Kreis vom Radius $r$ um $z_k$ ist.
+\end{satz}
+
+\begin{proof}
+Es muss nur der Radius $r$ berechnet werden.
+Nimmt man
+\[
+r
+=
+\frac13
+\min \{ |z_k-z_l|\mid 1\le k,l\le n\},
+\]
+dann können sich die Kreise um die Punkte $z_k$ mit Radius $r$ nicht
+schneiden.
+Für jeden Punkt $z_k$ ist dann die Umlaufzahl 
+\[
+\operatorname{ind}_{\gamma_k}(z_l)
+=
+\delta_{kl}
+=
+\begin{cases}
+1&\qquad\text{für $k=l$}\\
+0&\qquad\text{für $k\ne l$.}
+\end{cases}
+\]
+Für den ganzen Zyklus $C$ gilt dann
+\[
+\operatorname{ind}_c(z_l)
+=
+\sum_{k=1}^n
+\delta_{kl}
+=
+1
+=
+\operatorname{ind}_\gamma(z_l).
+\]
+Dies zeigt, dass $\gamma$ und $c$ homolog sind.
+\end{proof}
+
+%
+% Homologiegruppe
+%
+\subsection{Homologiegruppe}
+Im Abschnitt \ref{buch:integration:homologie:subsection:homologie}
+haben wir die Homologierelation durch die die Umlaufzahl um Punkte,
+die ausserhalb des Definitionsgebietes liegen, definiert.
+\input{chapters/030-integration/fig/fig-raender.tex}%
+Unter Verwendung der Homotopieeigenschaft können wir aber auch eine
+algebraische Definition aufbauen.
+Dazu konstruieren wir zunächst die zweidimensionalen Ketten.
+
+\begin{definition}[Zweidimensionale Ketten]
+Eine \emph{zweidimensionale Kette} ist eine formale Linearkombination
+von Abbildungen 
+\[
+\Gamma
+\colon
+I\times I \to U
+:
+(s,t) \mapsto \Gamma(s,t)
+\].
+Der \emph{Randoperator} für zweidimensionale Ketten ist die lineare
+Abbildung, die einer einzelnen Abbildung $\Gamma$ die Summe
+\[
+\partial \Gamma
+=
+\gamma_1
++
+\gamma_2
++
+\gamma_3
++
+\gamma_4
+\]
+zuordnet, wobei die $\gamma_k$ die Wege
+\[
+\begin{array}{rlcl}
+\gamma_1 &\colon I \to U&:&t\mapsto \Gamma(t,0)\\
+\gamma_2 &\colon I \to U&:&t\mapsto \Gamma(1,t)\\
+\gamma_3 &\colon I \to U&:&t\mapsto \Gamma(1-t,1)\\
+\gamma_4 &\colon I \to U&:&t\mapsto \Gamma(0,1-t)
+\end{array}
+\]
+sind.
+\end{definition}
+
+Die Wege $\gamma_k$ sind in
+Abbildung~\ref{buch:integration:homologie:fig:raender} dargestellt.
+$\gamma_1$ ist der Weg auf dem Rand von $A$ nach $B$,
+$\gamma_2$ ist das Randstück von $B$ nach $C$,
+$\gamma_3$ das Randstück von $C$ nach $D$ und
+$\gamma_4$ das Randstück von $D$ zurück nach $A$.
+Es ist offensichtlich, dass die vier Wegstücke einen geschlossenen
+Weg bilden und dass daher $\partial\partial \Gamma=0$ ist.
+Die Ketten $\gamma_1$ und $-\gamma_2-\gamma_3-\gamma_4$ sind homolog
+da die $\gamma_1+\gamma_2+\gamma_3+\gamma_4$ ein geschlossener
+Weg ist.
+
+
+%
+% Homologie in höheren Dimensionen
+%
+\subsection{Homologie in höheren Dimensionen}
+
+
+

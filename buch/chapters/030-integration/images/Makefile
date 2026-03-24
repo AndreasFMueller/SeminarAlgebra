@@ -16,7 +16,9 @@ all:	wege.pdf							\
 	cauchyverteilung.pdf						\
 	ecos.pdf							\
 	paar.pdf							\
-	merohomolog.pdf
+	merohomolog.pdf							\
+	kettenzyklen.pdf						\
+	raender.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -59,3 +61,10 @@ paar.pdf:	paar.tex
 
 merohomolog.pdf:	merohomolog.tex
 	pdflatex merohomolog.tex
+
+kettenzyklen.pdf:	kettenzyklen.tex
+	pdflatex kettenzyklen.tex
+
+raender.pdf:	raender.tex
+	pdflatex raender.tex
+

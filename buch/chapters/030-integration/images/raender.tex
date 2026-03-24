@@ -1,0 +1,92 @@
+%
+% raender.tex -- Definition für Raender
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\def\punkt#1#2{
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw[color=#2,line width=1.2pt] #1 circle[radius=0.05];
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\coordinate (A) at (1,2);
+\coordinate (B) at (4,1);
+\coordinate (C) at (5,4);
+\coordinate (D) at (2,5);
+
+\coordinate (A0) at (-6,1);
+\coordinate (B0) at (-2,1);
+\coordinate (C0) at (-2,5);
+\coordinate (D0) at (-6,5);
+
+\fill[color=gray!20] (A0) rectangle (C0);
+\draw[line width=1.2pt] (A0) rectangle (C0);
+\node at ($0.5*(A0)+0.5*(C0)$) {$I\times I$};
+
+\node at (A0) [below] {$(0,0)$};
+\node at (B0) [below] {$(1,0)$};
+\node at (C0) [above] {$(1,1)$};
+\node at (D0) [above] {$(0,1)$};
+
+\punkt{(A0)}{black}
+\punkt{(B0)}{black}
+\punkt{(C0)}{black}
+\punkt{(D0)}{black}
+
+\draw[->,color=blue,shorten <= 0.2cm,shorten >= 0.2cm]
+	(A0) to[out=30,in=160] (A);
+\draw[->,color=blue,shorten <= 0.2cm,shorten >= 0.2cm]
+	(B0) to[out=-10,in=-150] (B);
+\draw[->,color=blue,shorten <= 0.2cm,shorten >= 0.2cm]
+	(C0) to[out=30,in=130] (C);
+\draw[->,color=blue,shorten <= 0.2cm,shorten >= 0.2cm]
+	(D0) to[out=-20,in=-160] (D);
+
+\node at (A) [below left] {$A$};
+\node at (B) [below right] {$B$};
+\node at (C) [above right] {$C$};
+\node at (D) [above left] {$D$};
+
+\fill[color=darkred!20] (A)
+	to[out=-10,in=-170] (B)
+	to[out=90,in=-90] (C)
+	to[out=-180,in=10] (D)
+	to[out=-100,in=100] cycle;
+\draw[color=darkred,line width=1.2pt] (A)
+	to[out=-10,in=-170] (B)
+	to[out=90,in=-90] (C)
+	to[out=-180,in=10] (D)
+	to[out=-100,in=100] cycle;
+
+\node at ($0.25*(A)+0.25*(B)+0.25*(C)+0.25*(D)$) {$\Gamma(I\times I)$};
+
+\punkt{(A)}{darkred}
+\punkt{(B)}{darkred}
+\punkt{(C)}{darkred}
+\punkt{(D)}{darkred}
+
+\node[color=darkred] at ($0.5*(A)+0.5*(B)$) [below left] {$\gamma_1$};
+\node[color=darkred] at ($0.5*(B)+0.5*(C)$) [below right] {$\gamma_2$};
+\node[color=darkred] at ($0.5*(C)+0.5*(D)$) [above right] {$\gamma_3$};
+\node[color=darkred] at ($0.5*(D)+0.5*(A)$) [above left] {$\gamma_4$};
+
+\draw[->] (-0.1,0) -- (5.8,0)
+	coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-0.1) -- (0,6.3)
+	coordinate[label={right:$\operatorname{Im}$}];
+
+\node at (5.5,6) {$\mathbb{C}$};
+
+\end{tikzpicture}
+\end{document}
+
