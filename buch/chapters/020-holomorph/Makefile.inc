@@ -10,7 +10,7 @@ AUFGABENFILES +=							\
 
 CHAPTERFILES += 							\
 	chapters/020-holomorph/1-holomorph.tex				\
-	chapters/020-holomorph/2-funktionen.tex				\
+	chapters/020-holomorph/2-geometrie.tex				\
 	chapters/020-holomorph/3-nichtholomorph.tex			\
 	chapters/020-holomorph/chapter.tex
 
