@@ -18,7 +18,8 @@ all:	wege.pdf							\
 	paar.pdf							\
 	merohomolog.pdf							\
 	kettenzyklen.pdf						\
-	raender.pdf
+	raender.pdf							\
+	hauptwert.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -67,4 +68,7 @@ kettenzyklen.pdf:	kettenzyklen.tex
 
 raender.pdf:	raender.tex
 	pdflatex raender.tex
+
+hauptwert.pdf:	hauptwert.tex
+	pdflatex hauptwert.tex
 

@@ -482,9 +482,82 @@ zusammenfassen.
 Tatsächlich ändert der Integrand nicht, wenn man $t$ durch $-t$ ersetzt.
 
 %
+% Die Methode
 %
+\subsection{Die Methode}
+
 %
-\subsection{ }
+% Hauptwert
+%
+\subsection{Hauptwert}
+Die Berechnung des Integrals in
+Abschnitt~\ref{buch:integration:residuen:section:beispiel}
+hat einen Weg verwendet, der den Nullpunkt in einem grossen
+Bogen umrundet hat.
+\input{chapters/030-integration/fig/fig-hauptwert.tex}%
+So wurde das Integral zwischen $-R$ und $R$ zu einem Wegintegral
+über eine geschlossene Kurve vervollständigt, wodurch sich der
+Integralsatz anwenden liess.
+Eine ähnliche Situation tritt bei der Berechnung des Integrals
+\begin{equation}
+I
+=
+\int_{-\infty}^\infty \frac{\sin x}{x}\,dx
+\label{buch:integration:residuen:eqn:sinxxintegral}
+\end{equation}
+auf.
+Um es mithilfe eines Wegintegrals zu berechnen, muss ein komplexer
+Integrand und ein passender Weg gefunden werden.
+Als Integrand bietet sich
+\[
+f(z)
+=
+\frac{e^{iz}}{z}
+\]
+an.
+Während der ursprüngliche reelle Integrand an der Stelle $x=0$ stetig
+ist, hat $f(z)$ dort einen Pol.
+Als Weg kann man der in
+Abbildung~\ref{buch:integration:residuen:fig:hauptwert}
+dargestellt Weg verwendet werden.
+Er setzt sich zusammen aus den beiden Segmenten $[\varepsilon,R]$
+und $[-R,-\varepsilon]$ und den Kreisbögen mit Radien $R$ und $\varepsilon$,
+die die Segmente zu einem geschlossenen Weg verbinden.
+Im Inneren dieses Weges ist $f(z)$ eine holomorphe Funktion.
+Das gesuchte Integral ist also der Teil über die beiden Segmente
+$\gamma_\pm$ im Grenzwert $R\to\infty$ und $\varepsilon\to 0$:
+\begin{align*}
+I
+&=
+\lim_{R\to\infty}
+\lim_{\varepsilon\to 0}
+\biggl(
+\int_{\gamma_+}
+f(z)\,dz
++
+\int_{\gamma_-}
+f(z)\,dz
+\biggr)
+\intertext{Aus dem Integralsatz kann man dann schliessen, dass
+das Integral auch}
+&=
+-
+\lim_{R\to\infty}
+\int_{\gamma_R} f(z)\,dz
+-
+\lim_{\varepsilon\to 0}
+\int_{\gamma_{\varepsilon}} f(z)\,dz
+\end{align*}
+ist.
+Bei dieser Berechnung berechnet man das Integral entlang der
+reellen Achse aber mit symmetrischen Segmenten.
+Die Definition eines uneigentlichen Integrals verlangt, dass für
+die Grenzen unabhängig voneinander ein Grenzübergang durchgeführt
+wird.
+Der symmetrische Grenzwert heisst auch der \emph{Hauptwert} des
+Integrals und wird im Kapitel~\ref{chapter:hauptwert} ausführlicher 
+dargestellt.
+
 
 %
 % Ein Beispiel ohne Pole
