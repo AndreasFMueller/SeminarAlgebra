@@ -3,6 +3,617 @@
 %
 % (c) 2026 Prof Dr Andreas Müller
 %
-\section{Integration rationaler Funktionen nach Hermite
+\section{Quadratfreie Faktorisierung und die Methode von Hermite
 \label{buch:ratint:section:hermite}}
-\kopfrechts{Integration rationaler Funktionen nach Hermite}%
+\kopfrechts{Quadratfreie Faktorisierung und die Methode von Hermite}%
+Gemäss dem Plan am Ende von Abschnitt~\ref{buch:ratint:section:bernoulli}
+ist, ist eine Faktorisierung des Nenners mit sehr speziellen
+Teilbarkeitseigenschaften nötig.
+Im vorangegangenen Abschnitt wurde mit dem euklidischen Algorithmus
+das dazu geeignete Werzeug gefunden.
+Dieses soll jetzt dazu eingesetzt werden, die Faktorisierung zu
+finden und den Reduktionsschritt für die Integrale durchzuführen.
+
+%
+% Quadratfreie Faktorisierung
+%
+\subsection{Quadratfreie Faktorisierung}
+
+
+%
+% Mehrfache Nullstellen
+%
+\subsubsection{Mehrfache Nullstellen}
+Sei $q(z) \in \mathbb{C}[z]$ ein Polynom mit einer $n$-fachen Nullstelle
+$\alpha$.
+Dies bedeutet, dass $q(z)$ in der Form
+\[
+q(z)
+=
+(z-\alpha)^n\cdot s(z)
+\]
+mit einem Polynom $s(z)\in\mathbb{C}[z]$ geschrieben werden kann.
+Das Polynom $s(z)$ hat $\alpha$ nicht als Nullstelle, $s(\alpha)\ne 0$,
+es ist also nicht durch $z-\alpha$ teilbar.
+
+Nach der Produktregel ist die Ableitung von $q(z)$
+\[
+q'(z)
+=
+n
+(z-\alpha)^{n-1}
+\cdot s(z)
++
+(z-\alpha)^n\cdot s'(z)
+=
+(z-\alpha)^{n-1} 
+\cdot (s(z)+(z-\alpha)\cdot s'(z)).
+\]
+Für $z=\alpha$ ist der Klammerfaktor
+\[
+s(\alpha) + (\alpha-\alpha)\cdot s'(\alpha)
+=
+s(\alpha)
+\ne 0,
+\]
+der Klammerfaktor hat $\alpha$ nicht als Nullstelle.
+Für eine mehrfache Nullstelle ist $n>1$ und es folgt, dass $q'(z)$
+die Zahl $\alpha$ als $n-1$-fache Nullstelle hat.
+
+Diese Beobachtung lässt sich auch verallgemeinern.
+Hat $q(z)$ einen Faktor $p(z)$, der $n$-fach in $q(z)$ vorkommt,
+dann kann man
+\[
+q(z)
+=
+p(z)^n\cdot s(z)
+\]
+schreiben, wobei $s(z)$ nicht durch $p(z)$ teilbar ist.
+Die Ableitung von $q'(z)$ ist dann nach der Produktregel
+\[
+q'(z)
+=
+n p(z)^{n-1} \cdot s(z) + p(z)^n \cdot s'(z)
+=
+q(z)^{n-1}\cdot (ns(z) + p(z) s'(z)).
+\]
+Der Faktor auf der rechten Seite ist nicht durch $p(z)$ teilbar,
+weil $s(z)$ nicht durch $p(z)$ teilbar ist.
+Es folgt, dass $q'(z)$ durch $p(z)^{n-1}$ teilbar ist.
+
+Wenn also $q(z)$ einen mehrfachen vorkommenden Faktor hat,
+dann ist dieser Faktor ein gemeinsamer Teiler von $q(z)$
+und $q'(z)$.
+
+\begin{beispiel}
+TODO
+\end{beispiel}
+
+%
+% Quadratfreie Polynome
+%
+\subsubsection{Quadratfreie Polynome}
+Damit $q(z)$ und $q'(z)$ keinen nichtrivialen gemeinsamen Teiler
+haben, darf jeder Linearfaktor nur ein einziges Mal vorkommen.
+Solche Polynome heissen quadratfrei im Sinne der folgenden
+Definition.
+
+\begin{definition}
+Ein Polynom in $\mathbb{C}[z]$ heisst \emph{quadratfrei}, wenn es
+keine mehrfachen Nullstellen hat oder wenn es keine mehrfachen
+Faktoren hat.
+\index{quadratfrei}%
+\end{definition}
+
+Über den komplexen Zahlen zerfällt also ein quadratfreies Polynom
+immer in ein Produkt von \emph{verschiedenen} Linearfaktoren.
+
+Wenn ein Polynome $q(z)$ mehrfache Nullstellen hat, dann hat die
+Ableitung die gleichen Nullstellen, aber mit einer um $1$ kleineren
+Ordnung.
+Der grösste gemeinsame Teiler von $q(x()$ und $q'(x)$ besteht
+daher alle Faktoren, die mehr als einmal vorkommen, mit einer
+gegenüber $q(z)$ um $1$ verminderten Vielfachheit.
+Im Quotienten
+\[
+p(z)
+=
+\frac{q(z)}{\operatorname{ggT}(q(z),q'(z))}
+\]
+bleiben dann nur noch alle Linearfaktoren genau einmal stehen.
+
+\begin{beispiel}
+Das Polynom 
+\[
+q(z)
+=
+z^5-z^4-2z^3+2z^2+z-1
+\]
+hat die Ableitung
+\[
+q'(z)
+=
+5z^4-4z^3-6z^2+4z+1.
+\]
+Der euklidische Algoritmus liefert als grössten gemeinsamen
+Teiler das Polnom
+\[
+g(z)
+=
+\operatorname{ggT}(q(z), q'(z))
+=
+z^3-z^2-1+1.
+\]
+Der Quotient
+\[
+\frac{q(z)}{g(z)}
+=
+z^2-1
+\]
+ist ein quadratfreies Polynom, welches alle Linearfaktoren von $q(z)$
+enthält.
+Es ist in diesem Fall einfach zu sehen, dass $z^2-1=(z-1)(z+1)$,
+d.~h.~die einzigen Nullstellen von $q(x)$ sind $\pm 1$.
+
+Man kann aber die Faktoren auch noch auf etwas systematischere Art
+finden.
+Dazu berechnet man den grössten gemeinsamen Teiler von $g(z)$ und $g'(z)$,
+wegen $g'(z) = 3z^2 -2z -1$ ist
+ist
+\[
+\operatorname{ggT}(g(z),g'(z))
+=
+z-1
+\]
+und
+\[
+\frac{g(z)}{\operatorname{ggT}(g(z),g'(z))}
+=
+z^2-1.
+\]
+Daraus kann man schliessen, dass es zwei Linearfaktoren von $q(z)$
+gibt.
+Einer davon kommt genau zweimal vor, der andere ist $z-1$ und kommt
+dreimal vor.
+Durch Division $(z^2-1)/(z-1)=z+1$ findet man jetzt, dass $z+1$
+der Faktor ist, der genau zweimal ist.
+Wir haben somit die Faktorisierung
+\[
+q(z)
+=
+(z+1)^2 (z-1)^3
+\]
+gefunden.
+\end{beispiel}
+
+Das Beispiel zeigt, dass die Suche nach quadratfreien Faktoren
+mithilfe des grössten gemeinsamen Teilers manchmal sogar eine
+Faktorisierung des Polynoms liefern kann.
+
+%
+% Die Aufgabe der Faktorisierung in quadratfreie Faktoren
+%
+\subsubsection{Die Aufgabe der Faktorisierung in quadratfreie Faktoren}
+Ein beliebiges normiertes Polynom $q(z)$ kann einzelne Nullstellen
+mehrfach enthalten.
+Man kann aber immer noch eine Faktorisierung der Form
+\[
+q(z)
+=
+\prod_{k=1}^n
+(z-\alpha_k)^{n_k},
+\]
+wobei alle Nullstellen $\alpha_k$ verschieden sind und $n_k$ ihre
+Vielfachheit ist.
+Fasst man die Faktoren mit gleicher Vielfachheit zusammen, kann man
+zu jeder Vielfachheit $l$ das Polynom
+\[
+q_l(z) = \prod_{n_k=l} (z-\alpha_k)
+\]
+bilden.
+Da die Faktoren von $q_l(z)$ im Polynom $q(z)$ genau $l$-mal vorkommen,
+kann man das Polynom $q(z)$ aus
+\[
+q(z)
+=
+q_1(z)
+\cdot
+q_2(z)^2
+\cdot
+q_3(z)^3
+\cdot
+\ldots
+\cdot
+q_m(z)^m
+\]
+rekonstruieren.
+Nach Konstruktion kann ein Linearfaktor nur immer in genau einem
+der Faktoren $q_l(z)$ vorkommen, die Faktoren sind also paarweise
+teilerfremd.
+
+\begin{definition}[quadratfreie Faktorisierung]
+\index{quadratfreie Faktorisierung}%
+\index{Faktorisierung, quadratfrei}%
+Die \emph{quadratfreie Faktorisierung} eines Polynoms $q(z)$ ist eine
+Faktorisierung der Form
+\[
+q(z)
+=
+a
+\prod_{l=1}^m q_l(z)^l
+\]
+mit teilerfremden Faktoren.
+\end{definition}
+
+Die Bestimmung der quadratfreien Faktorisierung aus der Zerlegung
+in Linearfaktoren zeigt zwar, dass es eine solche Faktorisierung
+gibt, ist aber kein praktikabler Weg, sie algorithmisch zu bestimmen.
+daher soll in diesem Abschnitt soll die folgende Aufgabe gelöst werden.
+
+\begin{aufgabe}
+Formuliere einen Algorithmus, der zu einem beliebigen rationalen Polynom
+$q(z)\in\mathbb{Q}[z]$ die quadratfreie Faktorisierung findet.
+\end{aufgabe}
+
+%
+% Berechnung der quadratfreien Faktorisierung
+%
+\subsubsection{Berechnung der quadratfreien Faktorisierung}
+Aus dem Beispiel lesen wir ab, dass der grösste gemeinsame
+Teiler $g(z)=\operatorname{ggT}\bigl(q(z),q'(z)\bigr)$ von $q(z)$
+und $q'(z)$ alle mehrfachen Faktoren enthält und der Quotient
+$q(z)/g(z)$ alle Linearfaktoren genau einmal.
+Diese Eigenschaft soll jetzt dazu verwendet werden, die Faktoren
+$q_l(z)$ zu finden.
+Dazu konstruieren wir zunächst zwei Folgen $g_k(z)$ und $p_k(z)$
+wie folgt.
+Das Polynom $g_0(z)$ ist $g_0(z)=q(z)$.
+Die Polynome $g_k(z)$ und $p_k(z)$ mit $k>0$ sind rekursiv definiert
+durch
+\begin{align*}
+g_{k+1}(z) &= \operatorname{ggT}\bigl(g_k(z),g'_k(z)\bigr)
+&&\text{und}&
+p_{k+1}(z) &= \frac{g_k(z)}{g_{k+1}(z)}.
+\end{align*}
+Nach Konstruktion sind die Polynom $p_k(z)$ alle quadratfrei.
+Sie enthalten alle Linearfaktoren von $g_k(z)$.
+Nach Konstruktion ist $g_{k+1}(z)$ immer ein echter Teiler von $g_k(z)$.
+Der Grad nimmt daher in jedem Schritt ab.
+Die Konstruktion bricht daher nach endlich vielen Schritten ab.
+
+In jedem Iterationsschritt nimmt der Exponent der in $g_k(z)$
+vertretenen Linearfaktoren um $1$ ab.
+Das Ende $g_k(z)=1$ wird also genau in dem Moment erreicht, 
+in dem der grösste Exponent auf $1$ reduziert worden ist.
+Somit ist $k$ der grösste Exponent eines Linearfaktors.
+
+Die Polynome $p_k(z)$ enthalten alle Linearfaktoren, die
+mindestens $k$ mal in $q(z)$ aufreten.
+Es folgt, dass $p_{k+1}(z)$ ein Teiler von $p_k(z)$ ist und dass
+der Quotient $p_k(z)/p_{k+1}(z)$ aus den Faktoren besteht, die 
+genau $k$-mal in $q(z)$ vorkommen.
+Dies ist genau, was die Polynome $q_l(z)$ definiert.
+Dies beweist den folgenden Satz.
+
+\begin{satz}[quadratfreie Faktorisierung]
+Sei $q(z)\in K[z]$ ein normiertes Polynom.
+Setze $q_0(z)=q(z)$ und bilde rekursiv die Folgen
+\begin{align*}
+g_k(z) &= \operatorname{ggT}\bigl(g_{k-1}(z),g_{k-1}'(z)\bigr)
+&
+p_k(z) &= \frac{g_{k-1}(z)}{g_k(z)}
+&
+q_k(z) &= \frac{p_k(z)}{p_{k+1}(z)}.
+\end{align*}
+Sei $m$ dasjenige $k$, für das $p_k(z)=1$ ist.
+Dann ist
+\[
+q(z)
+=
+\prod_{l=1}^m q_l(z)^l
+\]
+die quadratfreie Faktorisierung.
+\end{satz}
+
+\begin{beispiel}
+Wir betrachten das Polynom
+\begin{align*}
+q(z)
+&=
+z^9+z^8-5z^7-5z^6+9z^5+9z^4-7z^3-7z^2+2z+2
+\intertext{mit der Ableitung}
+q'(z)
+&=
+9z^8+8z^7-35z^6-30z^5+45z^4+36z^3-21z^2-14z+2
+\end{align*}
+Die Polynome $g_k(z)$, $p_k(z)$ und $q_l(z)$ sind
+\begin{align*}
+g_1(z)
+&=
+z^5+z^4-2z^3-2z^2+z+1,
+&
+p_1(z)
+&=
+z^4-3z^2+2,
+&
+q_1(z)
+&=
+z^2-2,
+\\
+g_2(z)
+&=
+z^3+z^2-z-1,
+&
+p_2(z)
+&=
+z^2-1,
+&
+q_2(z)
+&=
+1,
+\\
+g_3(z)
+&=,
+z+1
+&
+p_3(z)
+&=
+z^2-1,
+&
+q_3(z)
+&=
+z-1,
+\\
+g_4(z)
+&=
+1,
+&
+p_4(z)
+&=
+z+1,
+&
+q_4(z)
+&=
+z+1,
+\\
+g_5(z)
+&=
+1,
+&
+p_5(z)
+&=
+1.
+&
+&
+\end{align*}
+Tatsächlich kann man nachrechnen, dass
+\[
+q(z)
+=
+(z^2-2)(z-1)^3(z+1)^4
+\]
+ist.
+Man beachte aber, dass diese Faktorisierung mit $z^2-2$ auch einen Faktor
+enthält, der kein Linearfaktor ist.
+Da $z^2-2 = (z+\!\sqrt{2})(z-\!\sqrt{2})$, gibt es über $\mathbb{Q}$
+gar keine Faktorisierung in Linearfaktoren.
+\end{beispiel}
+
+
+%
+% Reduktion des Integrals
+%
+\subsection{Reduktion des Integrals}
+Mit dem Werkzeug der quadratfreien Faktorisierung lässen sich jetzt
+die für den rationalen Teil des Integrals nötigen Schritte des Plans
+vom Ende von Abschnitt~\ref{buch:ratint:section:bernoulli} durchführen.
+Zu diesem Zwck muss erst eine Partialbruchzerlegung gefunden werden.
+Anschliessend müssen die einzelnen Terme der Partialbruchzerlegung
+integriert werden.
+
+%
+% Partialbruchzerlegung zur quadratfreien Faktorisierung
+%
+\subsubsection{Partialbruchzerlegung zur quadratfreien Faktorisierung}
+Der wesentliche Schritt zur Konstruktion der Partialbruchzerlegung
+ist der folgende Satz.
+
+\begin{satz}
+Sei 
+\[
+f(z)
+=
+\frac{p(z)}{q(z)^m r(z)},
+\]
+wobei $q(z)$ teilerfremd zu $r(z)$ ist.
+Dann gibt es 
+\[
+f(z)
+=
+f_0(z)
++
+\frac{s(z)}{r(z)}
++
+\sum_{k=1}^m \frac{t_k(z)}{q(z)^k},
+\]
+wobei $f_0(z)$ ein Polynom ist, $s(z)$ ein Polynom mit Grad
+$\deg s(z)<\deg r(z)$ und die Polynome $t_k(z)$ Grad $\deg t_k(z)<\deg q(z)$
+haben.
+\end{satz}
+
+\begin{proof}
+Da $q(z)$ und $r(z)$ teilerfremd sind, sind auch $q(z)^m$ und $r(z)$
+teilerfremd.
+Daher gibt es $s(z)$ und $t(z)$ mit
+\begin{equation}
+p(z)
+=
+s(z)q(z)^m + t(z)r(z).
+\label{buch:ratint:hermite:eqn:p=sq+tr}
+\end{equation}
+Einsetzen in den Bruch ergibt
+\begin{align}
+f(z)
+&=
+\frac{p(z)}{q(z)^m r(z)}
+=
+\frac{s(z)q(z)^m + t(z)r(z)}{q(z)^mr(z)}
+=
+\frac{s(z)}{r(z)}
++
+\frac{t(z)}{q(z)^m}.
+\label{buch:ratint:hermite:eqn:srtq}
+\end{align}
+Falls der Zähler einen Grad mindestens so gross wie der Nenner
+hat, kann durch Division des Zählers mit Rest das Polynom $f_0(z)$
+abgespaltet werden.
+
+Es muss jetzt nur noch gezeigt werden, dass das der zweite Bruch
+\eqref{buch:ratint:hermite:eqn:srtq}
+in eine Summe der verlangten Art umgefomrt werden kann.
+Dazu schreibt man den Zähler als
+\begin{equation*}
+t(z)
+=
+a_m(z) q(z) + t_{m}(z)
+\end{equation*}
+mit $\deg b(z) < \deg q(z)$.
+Dann wird
+\begin{align*}
+\frac{t(z)}{q(z)^m}
+&=
+\frac{a(z)q(z)+b(z)}{q(z)^m}
+=
+\frac{a(z)}{q(z)^{m-1}}
++
+\frac{b(z)}{q(z)^m}.
+\intertext{Durch wiederholte Anwendung dieser Beobachtung auf
+den neuen Zähler $a_m(z) = a_{m-1}(z)q(z)+t_{m-1}(z)$
+wird daraus eine Summe der Form}
+&=
+\frac{t_1(z)}{q(z)}
++
+\frac{t_2(z)}{q(z)^2}
++
+\ldots
++
+\frac{t_m(z)}{q(z)^m}.
+\end{align*}
+Damit ist der Satz vollständig bewiesen.
+\end{proof}
+
+Durch Anwendung auf eine Faktorisierung von $r(z)$ kann schrittweise
+die Partialbruchzerlegung mit den Teilnennern $q_l(z)^k$, $k\le l$
+für alle $l$ gefunden werden.
+Man beachte, dass dazu wieder nur die Polynomdivision
+und für die Identität 
+\eqref{buch:ratint:hermite:eqn:p=sq+tr}
+der euklidische Algorithmus benötigt wird.
+Beide können für Polynome in einer beliebigen Körpererweiterung
+für den Koeffizientenkörper durchgeführt werden.
+
+
+%
+% Integration des rationalen Teils
+%
+\subsubsection{Integration des rationalen Teils}
+Ganz analog der Vorgehensweise in der Methode von Bernoulli im
+Abschnitt~\ref{buch:ratint:section:bernoulli} können auch die
+Integranden mit Potenzen quadratfreier Polynome $q(z)$ im Nenner
+auf den Nenner $q(z)$ reduziert werden.
+
+\begin{satz}
+\label{buch:ratint:hermite:satz:reduktion}
+Sei $q(z)$ ein quadratfreies Polynom und $p(z)$ ein beliebiges
+Polynom von kleinerem Grad $\deg q(z)<\deg p(z)$.
+Dann gibt es Polynome $s(z)$ und $t(z)$ Polynome mit
+\begin{equation}
+s(z)\cdot q(z)
++
+t(z)\cdot q'(z)
+=
+p(z),
+\label{buch:ratint:hermite:ggtsz}
+\end{equation}
+für die zudem
+\begin{align*}
+\int
+\frac{p(z)}{q(z)^m}
+\,dz
+&=
+\int
+\frac{s(z)+t'(z)/(m-1)}{q(z)^{m-1}}
+\,dz
++
+\frac{t(z)}{(1-m)q(z)^{m-1}}
+\end{align*}
+wird.
+\end{satz}
+
+\begin{proof}
+Da $q(z)$ quadratfrei ist sind  $q(z)$ und $q'(z)$ teilerfremd.
+Nach dem euklidischen Algorithmus für Polynome gibt es daher
+Polynome $s(z)$ und $t(z)$ derart, dass \eqref{buch:ratint:hermite:ggtsz}
+gilt.
+Einsetzen ins Integral ergibt
+\begin{align*}
+\int
+\frac{p(z)}{q(z)^m}
+\,dz
+&=
+\int
+\frac{s(z)\cdot q(z)+t(z)\cdot q'(z)}{q(z)^m}
+\,dz
+\\
+&=
+\int
+\frac{s(z)}{q(z)^{m-1}}
+\,dz
++
+\int
+t(z)
+\cdot
+\frac{q'(z)}{q(z)^m}
+\,dz
+\intertext{Auf das zweite Integral kann partielle Integration
+angewendet werden.
+Das Polynom $p(z)$  wird abgeleitet während der Bruch
+$q'(z)/q(z)^m$ integriert wird.
+So entsteht}
+&=
+\int
+\frac{s(z)}{q(z)^{m-1}}
+\,dz
++
+t(z)
+\frac{1}{(1-m)q(z)^{m-1}}
+-
+\int
+\frac{t'(z)}{(1-m)q(z)^{m-1}}
+\,dz
+\\
+&=
+\int
+\frac{s(z)+t'(z)/(m-1)}{q(z)^{m-1}}
+\,dz
++
+t(z)
+\frac{1}{(1-m)q(z)^{m-1}}.
+\end{align*}
+Damit ist der Satz bewiesen.
+\end{proof}
+
+Durch wiederholte Anwendung des
+Satzes~\ref{buch:ratint:hermite:satz:reduktion}
+kann man die Potenz des Nenners immer weiter reduzieren, bis
+nur noch das Integral
+\[
+\int
+\frac{p(z)}{q(z)}
+\,dz
+\]
+bestimmt werden muss.
+
+
+
+
