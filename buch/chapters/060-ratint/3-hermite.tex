@@ -18,7 +18,10 @@ finden und den Reduktionsschritt für die Integrale durchzuführen.
 % Quadratfreie Faktorisierung
 %
 \subsection{Quadratfreie Faktorisierung}
-
+Die quadratfreie Faktorisierung löst das Problem, den Nenner ohne
+Bestimmung der Nullstellen so zu faktorisieren, dass eine
+Partialbruchzerlegung möglich wird, mit der die Stammfunktion
+bestimmt werden kann.
 
 %
 % Mehrfache Nullstellen
@@ -613,7 +616,23 @@ nur noch das Integral
 \,dz
 \]
 bestimmt werden muss.
+Dieser Teil des Integrationsproblems heisst auch der 
+\emph{logarithmische Teil} des Integrals.
+\index{logarithmischer Teil}%
 
-
+%
+% Die Methode von Horowitz-Ostrogradski
+%
+\subsection{Die Methode von Horowitz-Ostrogradski}
+Die Berechnung der quadratfreien Zerlegung sowie die Reduktion
+der Nennerpotenz mit der Methode von Hermite ist zwar algebraisch
+einfach, verlangt aber die häufig wiederholte Berechnung von 
+grössten gemeinsamen Teilern von Polynomen mit dem erweiterten
+euklidischen Algorithmus.
+Da jetzt aber die erwartete Form des rationalen und des logarithmischen
+kennen, können die zugehörigen Zählerpolynome auch direkt mithilfe
+eines linearen Gleichungssystems gesucht werden.
+Dies ist die Methode von Horowitz, die allerdings schon früher von
+Ostrogradski gefunden wurde.
 
 
