@@ -1,0 +1,110 @@
+%
+% konsequenzen.tex -- Konsequenzen
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\bgroup
+\begin{frame}[t]
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\frametitle{Konsequenzen der Holomorphie}
+\begin{definition}[holomorph]
+Eine Funktion $f\colon U\to\mathbb{C}$ heisst \emph{holomorph}, wenn sie
+komplex differenzierbar ist:
+\[
+f'(z)
+=
+\frac{\partial f}{\partial z}
+=
+\frac12\biggl(
+\frac{\partial f}{\partial x}
+-
+i
+\frac{\partial f}{\partial y}
+\biggr),
+\qquad
+\frac{\partial f}{\partial \bar{z}}
+=
+\frac{1}{2}\biggl(
+\frac{\partial f}{\partial x}
++i
+\frac{\partial f}{\partial y}
+\biggr)
+=
+0.
+\]
+\end{definition}
+%
+\only<2-3>{
+\begin{satz}[Cauchy-Riemann-Differentialgleichungen]
+Realteil $u$ und Imaginärteil $v$ einer holomorphen Funktion
+erfüllen die \emph{Cauchy-Riemann-Differentialgleichungen}
+\[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+\qquad\text{und}\qquad
+\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\]
+\end{satz}
+}
+%
+\only<3-5>{
+\begin{satz}[harmonisch]
+Realteil $u$ und Imaginärteil $v$ einer holomorphen Funktion sind
+harmonisch $\Delta u=0$ und $\Delta v=0$.
+\end{satz}
+}
+%
+\only<4-5>{
+\begin{satz}[Maximum-Minimum-Prinzip]
+$u$ und $v$ erfüllen das Maximum-/Minimum-Prinzip: Maximum und
+Minimum sind nicht im Inneren des Definitionsgebietes.
+\end{satz}
+}
+%
+\only<5>{
+\begin{satz}[Mittelwerteigenschaft]
+Ist $f$ holomorph, dann erfüllen $u$ und $v$ die Mittelwerteigenschaft.
+\end{satz}
+}
+%
+\only<6-7>{
+\begin{satz}
+Ist $\gamma$ ein geschlossener, zusammenziehbarer Weg im Definitionsgebiet
+einer holomorphen Funktion $f$, dann ist
+\[
+\oint_\gamma f(z)\,dz = 0.
+\]
+\end{satz}
+}
+%
+\only<7>{\vspace*{-0.7cm}}
+\only<8->{\vspace*{-0.3cm}}
+\only<7-9>{
+\begin{satz} Ist $f$ eine holomorphe Funktion und $\gamma$ ein geschlossener
+Weg, der den Punkt $a$ einmal im Gegenuhrzeigersinn umläuft, dann gilt
+\[
+f^{(k)}(a)
+=
+\frac{k!}{2\pi i}
+\oint_\gamma \frac{f(z)}{(z-1)^{k+1}}\,dz.
+\]
+\end{satz}
+}
+%
+\only<8-9>{
+\vspace*{-0.8cm}
+\begin{satz}
+Ist $f$ holomorph, dann ist $f$ auch analytisch, d.~h.~hat eine konvergente
+Potenzreihenentwicklung.
+\end{satz}
+}
+%
+\only<9>{
+\vspace*{-0.1cm}
+\begin{satz}
+Holomorphe Funktionen sind beliebig oft stetig differenzierbar, d.~h.~glatt.
+\end{satz}
+}
+
+\end{frame}
+\egroup

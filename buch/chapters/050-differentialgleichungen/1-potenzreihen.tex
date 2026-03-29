@@ -6,4 +6,270 @@
 \section{Potenzreihenansatz für Differentialgleichungen
 \label{buch:differentialgleichungen:section:potenzreihen}}
 \kopfrechts{Potenzreihenansatz für Differentialgleichungen}
+Wir betrachten eine gewöhnliche Differentialgleichung
+\[
+F(x,y,y',\dots,y^{(n)}) = 0
+\]
+der Ordnung $n$.
+Wir nehmen an, dass die Lösung sich als Potenzreihe in der
+Form
+\begin{equation}
+y(x)
+=
+\sum_{k=0}^\infty a_kx^k
+\label{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
+\end{equation}
+schreiben lässt.
+Dann kann die Lösung auch als holomorphe Funktion einer komplexen
+Variable $x$ betrachtet werden und die Ableitungen von $y(x)$ sind
+komplexe Ableitungen.
+Für viele Differentialgleichungen wird dann auch die Differentialgleichung
+für die holomorphe Funktion erfüllt sein.
+Die folgenden Beispiele sollen dies zeigen.
 
+%
+% Die Exponentialfunktion
+%
+\subsection{Die Exponentialfunktion}
+Wir betrachten die Differentialgleichung
+\begin{equation}
+y' = -ky
+\label{buch:differentialgleichungen:potenzreihen:eqn:expdgl}
+\end{equation}
+und setzen den
+Potenzreihenansatz~\eqref{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
+in die Differentialgleichung ein.
+Die Ableitung der  
+Potenzreihen~\eqref{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
+ist
+\[
+y'(x)
+=
+\sum_{k=1}^\infty ka_kx^{k-1}.
+\]
+Einsetzen in die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:expdgl}
+ergibt die Gleichung
+\begin{align*}
+\sum_{l=1}^\infty a_llx^{l-1}
+&=
+-k
+\sum_{l=0}\infty a_lx^l.
+\intertext{Um diese besser vergleichen zu können, ersetzen wir $l-1$ durch
+$l$, oder $l$ durch $l+1$ auf der linken Seite und erhalten}
+\sum_{l=0}^\infty a_{l+1} (l+1)x^{l}
+&=
+-k
+\sum_{l=0}^\infty a_lx^l.
+\end{align*}
+Durch Vergleich der Koeffizienten der beiden Potenzreihen können wir
+schliessen, dass
+\begin{equation}
+a_{l+1}
+=
+-k
+\frac{1}{l+1} a_l
+\label{buch:differentialgleichungen:potenzreihen:eqn:exprek}
+\end{equation}
+für alle $l\ge 0$.
+Wir haben also keine Gleichung, mit der $a_0$ bestimmt werden kann,
+aber die Rekursionsgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:exprek}
+erlauben uns,
+alle Koeffizienten durch $a_0$ auszudrücken:
+\begin{align*}
+a_1
+&=
+-k\frac{1}{0+1}a_0 = -ka_0 
+\\
+a_2
+&=
+-k\frac{1}{1+1}a_1 = -\frac{k}{2}a_1 = \phantom{-}\frac{k^2}{2}a_0
+\\
+a_3
+&=
+-k\frac{1}{2+1}a_2 = -\frac{k}{3}a_2 = -\frac{k^3}{3!}a_0
+\\
+a_4
+&=
+-k\frac{1}{3+1}a_3 = -\frac{k}{4}a_3 = \phantom{-}\frac{k^4}{4!}a_0
+\\
+a_5
+&=
+-k\frac{1}{4+1}a_4 = -\frac{k}{5}a_4 = -\frac{k^5}{5!}a_0
+\\
+&\hspace*{1mm}\vdots
+\\
+a_l
+&=
+(-1)^l \frac{k^l}{l!}a_0.
+\end{align*}
+Daraus ergibt sich als Lösung der Differentialgleichung
+\[
+y(x)
+=
+\sum_{l=0}^\infty a_lx^l
+=
+a_0
+\sum_{l=0}^\infty
+(-1)^l
+\frac{k^l}{l!}x^l
+=
+a_0e^{-kx}.
+\]
+Tatsächlich ist die Ableitung dieser Funktion
+\[
+y'(x)
+=
+-ka_0e^{-kx}
+=
+-ky(x),
+\]
+die Exponentialfunktion löst also die Differentialgleichung.
+
+Da 
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:expdgl}
+eine Differentialgleichung erster Ordnung ist, erwartet man 
+genau eine frei wählbare Integrationskonstante.
+Der Koeffizient $a_0$ ist diese Konstante.
+Sie kann aus einer Anfangsbedingung $y(0)=a_0$ bestimmt werden.
+
+%
+% Schwingungen
+%
+\subsection{Schwingungen}
+Die Schwingungsdifferentialgleichung ist eine Differentialgleichung
+der Form
+\[
+y''
+=
+-\omega^2\,y.
+\]
+Auch in diesem Fall sind die Koeffizienten konstant und somit
+analytisch und es ist gerechtfertigt, eine analytische Lösung
+zu erwarten und mit einem Potenzreihenansatz zu suchen.
+Die zweite Ableitung des
+Ansatzes~\eqref{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
+ist
+\[
+y''(x)
+=
+\sum_{l=2}^\infty
+a_l l(l-1) x^{l-2}
+.
+\]
+Setzen wir dies in die Differentialgleichung ein, ergibt sich
+\begin{align*}
+\sum_{l=2}^\infty
+a_l l(l-1) x^{l-2}
+&=
+-\omega^2
+\sum_{l=0}^\infty
+a_lx^l
+\intertext{Auch in diesem Fall ist es notwendig, auf der rechten
+Seite $l+2$ durch $l$ zu ersetzen, was auf die Gleichung}
+\sum_{l=0}^\infty
+a_{l+2} (l+1)(l+2) x^{l}
+&=
+-\omega^2
+\sum_{l=0}^\infty
+a_lx^l
+\end{align*}
+Koeffizientenvergleich ergibt die Rekursionsformel
+\begin{align*}
+(l+1)(l+2)
+a_{l+2} 
+&=
+-\omega^2
+a_l
+\intertext{für $l>0$ oder}
+a_{l+2}
+&=
+-\frac{\omega^2}{(l+1)(l+2)} a_{l}.
+\end{align*}
+Diese Rekursionsformeln ermöglichen, die Koeffizienten $a_l$ mit $l\ge 2$
+durch $a_0$ und $a_1$ als
+\begin{align*}
+a_2
+&=
+-\omega^2 \frac{1}{1\cdot 2} a_0
+\\
+a_3
+&=
+-\omega^2 \frac{1}{2\cdot 3} a_1
+%=
+%-\omega^2 \frac{1}{3!} a_1
+\\
+a_4
+&=
+-\omega^2 \frac{1}{3\cdot 4} a_2
+=
+\phantom{-}\omega^4 \frac{1}{4!} a_0
+\\
+a_5
+&=
+-\omega^2 \frac{1}{4\cdot 5} a_3
+=
+\phantom{-}\omega^4 \frac{1}{5!} a_1
+\\
+a_6
+&=
+-\omega^2 \frac{1}{5\cdot 6} a_4
+=
+-\omega^6 \frac{1}{6!} a_0
+\\
+a_7
+&=
+-\omega^2 \frac{1}{6\cdot 7} a_5
+=
+-\omega^6 \frac{1}{7!} a_1
+\intertext{auszudrücken oder allgemein}
+a_{2n}   &= (-1)^n \omega^{2n} \frac{1}{(2n)!}   a_0
+\\
+a_{2n+1} &= (-1)^n \omega^{2n} \frac{1}{(2n+1)!} a_1.
+\end{align*}
+Daraus kann die Lösung als
+\begin{align}
+y(x)
+&=
+a_0
+\sum_{n=0}^\infty
+(-1)^n\omega^{2n}\frac{1}{(2n)!} x^{2n}
++
+a_1
+\sum_{n=0}^\infty
+(-1)^n\omega^{2n}\frac{1}{(2n+1)!} x^{2n+1}
+\notag
+\\
+&=
+a_0
+\sum_{n=0}^\infty
+\frac{(-1)^n}{(2n)!} (\omega x)^{2n}
++
+\frac{a_1}{\omega}
+\sum_{n=0}^\infty
+\frac{(-1)^n}{(2n+1)!} (\omega x)^{2n+1}
+\notag
+\\
+&=
+a_0\cos(\omega x)
++
+\frac{a_1}{\omega}\sin(\omega x)
+\label{buch:differentialgleichungen:potenzreihen:eqn:schwloesung}
+\end{align}
+ableiten.
+Die Lösungen sind also Linearkombinationen von Sinus-
+bzw.~Kosinus-Schwin\-gun\-gen.
+
+Auch in diesem Fall ist die zweite Ableitung der Lösung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:schwloesung}
+\[
+y''(x)
+=
+-\omega^2 a_0\cos(\omega x)
+-
+\omega^2 \frac{a_1}{\omega} \sin(\omega x)
+=
+-\omega^2 y(x),
+\]
+und erfüllt damit wie erwartet die Schwingungsdifferentialgleichung.

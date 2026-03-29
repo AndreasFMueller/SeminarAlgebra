@@ -1,0 +1,59 @@
+Verwenden Sie den Integralsatz um das Integral
+\[
+I
+=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{e^z}{z^3(z+10)}
+\,dz
+\]
+entlang des Einheitskreises zu berechnen.
+
+\begin{loesung}
+Mit $f(z)=e^z/(z+10)$ ist das gesuchte Integral
+\begin{align*}
+I
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{z^3}
+\,dz
+=
+\frac1{2}
+\frac{2!}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{z^3}
+\,dz
+=
+\frac{1}{2}
+f''(0).
+\end{align*}
+Die Ableitung von $f(z)$ ist
+\begin{align*}
+f'(z)
+&=
+\frac{e^z (z+10) - e^z}{(z+10)^2}
+=
+\frac{e^z(z+9)}{(z+10)^2}
+\\
+f''(z)
+&=
+\frac{
+(e^z + e^z(z+9))(z+10)^2
+- e^z(z+9)2(z+10)
+}{(z+10)^4}
+=
+\frac{z^2+18z + 82}{(z+10)^3}
+e^z
+\\
+f'(0)
+&=
+\frac{82}{10^3}
+=
+\frac{41}{1000}.
+\intertext{und damit}
+I&=
+\frac{9}{200}.
+\qedhere
+\end{align*}
+\end{loesung}

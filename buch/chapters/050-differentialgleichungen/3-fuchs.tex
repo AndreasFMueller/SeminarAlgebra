@@ -1,0 +1,448 @@
+%
+% 2-fuchs.tex -- Differentialgleichungen der fuchsschen Klasse
+%
+% (c) 2025 Prof Dr Andreas Müller
+%
+\section{Fuchssche Differentialgleichung
+\label{buch:differentialgleichungen:section:fuchs}}
+\kopfrechts{Fuchssche Differentialgleichung}
+Ein Beispiel für eine Art von Differentialgleichung, die in der 
+Praxis häufig vorkommt, ist eine \emph{fuchssche Differentialgleichung}
+\index{fuchssche Differentialgleichung}
+in der Form
+\begin{equation}
+x^2y'' + p(x)xy' + q(x)y = 0,
+\label{buch:differentialgleichungen:fuchs:eqn:dgl}
+\end{equation}
+wobei $p(x)$ und $q(x)$ in einer Umgebung von $0$ eine konvergente
+Potenzreihenentwicklung haben.
+
+%
+% Warum Potenzreihen nicht immer reichen
+%
+\subsection{Warum Potenzreihen nicht immer reichen
+\label{buch:differentialgleichungen:fuchs:subsection:warum}}
+
+Schreibt man die Differentialgleichung
+\eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
+in der Form
+\[
+y''
+=
+-
+\frac{p(x)}{x}y'
+-
+\frac{q(x)}{x^2}y
+\]
+kann man erkennen, dass schon für konstante Funktionen $p(x)$ und
+$q(x)$ die zweite Ableitung $y''$ an der Stelle $x=0$
+eine Singulartität haben muss, die sich mit einer gewöhnlichen
+Potenzreihe nicht darstellen lässt.
+ man eine physikalische Anwendung an, dann haben
+$x^2y''$, $xy'$ und $y$ alle die gleiche Masseinheit, so dass
+die Funktionen $p(x)$ und $q(x)$ dimensionslos sein können.
+
+%
+% Konstante Koeffizienten
+%
+\subsubsection{Konstante Koeffizienten
+\label{buch:differentialgleichungen:fuchs:subsection:konstant}}
+Noch etwas expliziter kann man versuchen, die Differentialgleichung
+mit $p(x)=p_0$ und $q(x)=q_0$ mit einem Ansatz
+\[
+y(x) = \sum_{k=0}a_kx^k
+\]
+zu lösen.
+Setzt man den Ansatz in die Gleichung ein, erhält man
+\begin{align*}
+x^2
+\sum_{k=0}^\infty k(k-1) a_k x^{k-2}
++
+p_0x\sum_{k=0}^\infty ka_k x^{k-1}
++
+q_0\sum_{k=0}^\infty a_kx^k
+&=
+0
+\\
+\sum_{k=0}^\infty k(k-1) a_k x^k
++
+p_0\sum_{k=0}^\infty ka_k x^k
++
+q_0\sum_{k=0}^\infty a_kx^k
+&=
+0
+\\
+\sum_{k=0}^\infty
+\bigl(
+k(k-1) + p_0k + q_0
+\bigr)
+a_k
+x^k
+&=
+0.
+\end{align*}
+Damit die Reihe verschwindet, müssen alle Koeffizienten verschwinden,
+es gilt also entweder 
+\[
+k(k-1)+p_0k+q_0
+=
+k^2+(p_0-1)k+q_0
+=
+0
+\qquad\text{oder}\qquad
+a_k=0
+\]
+für alle $k\ge 0$ gelten.
+Für $k=0$ besagt die Gleichung, dass $q_0=0$ oder $a_0=0$ sein
+muss.
+Für $k=1$ folgt, dass $p_0-1+q_0=0$ oder $a_1=0$ sein muss.
+Auf der linken Seite steht eine quadratische Gleichung für $k$, diese 
+Bedingung kann also höchstens für zwei Koeffizienten erfüllt sein,
+entsprechend können höchstens zwei der Koeffizienten der Potenzreihe
+$y(x)$ von $0$ verschieden sein.
+Sind $k_1$ und $k_2$ die zugehörigen Koeffizienten, dann muss
+\[
+k_1k_2 = q_0
+\qquad\text{und}\qquad
+k_1+k_2
+=
+1-p_0
+\]
+sein.
+Ausser für diese speziellen Werte von $p_0$ und $q_0$ ist
+die quadratische Gleichung nie erfüllt, entsprechend müssen
+alle Koeffizienten $a_k=0$ sein und damit ist $y(x)=0$
+die triviale Lösung.
+
+%
+%
+%
+\subsubsection{Lösungsversuch mit einer verallgemeinerten Potenzreihe}
+Wir versuchen die Differentialgleichung 
+\eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
+mit konstanten Koeffizienten $p(x)=p_0$ und $q(x)=q_0$
+mithilfe einer verallgemeinerten Potenzreihe
+\begin{align*}
+y(x)
+&=
+\sum_{k=0}^\infty
+a_k x^{k+\varrho}
+\intertext{zu lösen.
+Die Ableitungen sind}
+p_0xy'(x)
+&=
+\sum_{k=0}^\infty
+p_0
+(k+\varrho)
+a_k x^{k+\varrho}
+\\
+x^2y''
+&=
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}.
+\end{align*}
+Setzt man dies in die Differentialgleichung ein entsteht
+\begin{align*}
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)
+a_kx^{k+\varrho}.
++
+\sum_{k=0}^\infty
+p_0
+(k+\varrho)
+a_k x^{k+\varrho}
++
+\sum_{k=0}^\infty
+q_0
+a_k x^{k+\varrho}
+&=
+0
+\\
+\sum_{k=0}^\infty
+\bigl(
+(k+\varrho)(k+\varrho-1)
++
+p_0
+(k+\varrho)
++
+q_0
+\bigr)
+a_k x^{k+\varrho}
+&=
+0.
+\end{align*}
+Durch Koeffizientenvergleich folgt, dass
+\[
+\bigl((k+\varrho)^2+(p_0-1)(k+\varrho) + q_0\bigr) a_k = 0
+\]
+für alle $k$ sein.
+Wieder folgt, dass hächstens zwei Koeffizienten $a_k$ von $0$
+verschieden sein können, die Lösung müsste also von der Form
+\[
+y(x)
+=
+A x^{\lambda_1} + B x^{\lambda_2}
+\]
+sein, wobei $\lambda_1$ und $\lambda_2$ Lösungen der quadratischen
+Gleichung
+\[
+\lambda^2 +(p_0-1)\lambda + q_0
+=
+0
+\]
+ist.
+Diese Lösung kann man natürlich auch direkt aus einem
+Potenzansatz erhalten.
+
+%
+% Fuchssche Gleichung
+%
+\subsection{Fuchssche Gleichung mit nicht konstanten Funktionen
+$p(x)$ und $q(x)$
+\label{buch:differentialgleichungen:fuchs:subsection:nichtkonstant}}
+In diesem Abschnitt lösen wir die Differentialgleichung
+\eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
+für nicht konstanten Koeffizienten
+\[
+p(x)
+=
+\sum_{l=0}^\infty p_lx^l
+\qquad
+\text{und}
+\qquad
+q(x)
+=
+\sum_{l=0}^\infty q_lx^l.
+\]
+Die Lösung setzen wir in der Form einer verallgemeinerten Potenzreihe
+\[
+y(x)
+=
+\sum_{k=0}^\infty
+a_kx^k
+\]
+an, wobei nach Definition einer verallgemeinerten Potenzreihe $a_0\ne 0$
+sein muss.
+
+\subsubsection{Differentialgleichung und Koeffizientenvergleich}
+Die Einsetzen von $y(x)$ in die Differentialgleichung ergibt
+\begin{align*}
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}
++
+\sum_{k=0}^\infty
+\sum_{l=0}^\infty
+(k+\varrho)a_kp_l x^{k+\varrho+l}
++
+\sum_{k=0}^\infty
+\sum_{l=0}^\infty
+a_kq_l x^{k+\varrho+l}
+&=
+0
+\\
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}
++
+\sum_{k=0}^\infty
+\sum_{s=0}^k
+(k-s+\varrho)a_{k-s}p_s x^{k+\varrho}
++
+\sum_{k=0}^\infty
+\sum_{s=0}^k
+a_{k-s}q_s x^{k+\varrho}
+&=
+0
+\\
+\sum_{k=0}^\infty
+\biggl(
+(k+\varrho)(k+\varrho-1)a_k
++
+\sum_{s=0}^k
+(k-s+\varrho)a_{k-s}p_s
++
+\sum_{s=0}^k
+a_{k-s}q_s
+\biggr)
+x^{k+\varrho}
+&=
+0
+\end{align*}
+Ein Koeffizientenvergleich liefert jetzt die Bedingungen
+\begin{equation}
+(k+\varrho)(k+\varrho-1)a_k
++
+\sum_{s=0}^k
+(k-s+\varrho)a_{k-s}p_s
++
+\sum_{s=0}^k
+a_{k-s}q_s
+=
+0,
+\label{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+\end{equation}
+die für beliebige $k\in\mathbb{>N}$ erfüllt sein muss.
+
+%
+% Indexgleichung
+%
+\subsubsection{Indexgleichung}
+Der Fall $k=0$ der Bedingungen
+\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+ist
+\[
+(
+\varrho(\varrho-1)
++
+\varrho p_0
++
+q_0
+)
+a_0
+=
+0,
+\]
+was wegen $a_0\ne 0$ die Gleichung
+\begin{equation}
+\varrho(\varrho-1)
++
+\varrho p_0
++
+q_0
+=
+0
+\end{equation}
+gelten muss, die auch die \emph{Indexgleichung}
+\index{Indexgleichung}%
+genannt wird.
+Eine Lösung in Form einer verallgemeinerten Potenzreihe ist also
+nur möglich, wenn $\varrho$ eine Nullstelle der Indexgleichung ist.
+
+Für spätere Verwendung schreiben wir die linke Seite der Indexgleichung
+als Funktion
+\[
+F(\varrho)
+=
+\varrho(\varrho-1)
++
+\varrho p_0
++
+q_0
+=
+\varrho^2
++
+(p_0-1)\varrho
++
+q_0.
+\]
+Diese Funktion wird im folgenden Abschnitt bei der rekursiven
+Bestimmung der Koeffizienten $a_n$ nützlich sein.
+
+%
+% Rekursive Bestimmung der a_n
+%
+\subsubsection{Rekursive Bestimmung der $a_n$}
+Die Bedingungen~\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+können jetzt verwendet werden, um alle Koeffizienten $a_n$ für $n>0$
+aus $a_0$ zu bestimmen.
+Dazu spalten wir
+in der Gleichung
+\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+für $k=n$
+von den Summen den ersten Term ab und erhalten
+\begin{equation*}
+(n+\varrho)(n+\varrho+1)
+a_n
++
+(n+\varrho)a_np_0
++
+\sum_{s=1}^n
+(n-s+\varrho)a_{k-s}p_s
++
+a_nq_0
++
+\sum_{s=1}^n
+a_{n-s}q_s
+=
+0.
+\end{equation*}
+Wir bringen die Terme mit $a_n$ auf die linke Seite 
+von
+\begin{equation}
+\bigl(
+(n+\varrho)(n+\varrho+1)
++
+(n+\varrho)p_0
++
+q_0
+\bigr)
+a_n
+=
+-
+\sum_{s=1}^n
+\Bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\Bigr)
+a_{n-s}
+\label{buch:differentialgleichungen:fuchs:eqn:anrekursion}
+\end{equation}
+oder
+\begin{align}
+a_n
+&=
+-
+\frac{1}{
+(n+\varrho)(n+\varrho+1)
++
+(n+\varrho)p_0
++
+q_0
+}
+\sum_{s=1}^n
+\bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\bigr)
+a_{n-s}
+\notag
+\\
+&=
+-
+\frac{1}{F(n+\varrho)}
+\sum_{s=1}^n
+\bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\bigr)
+a_{n-s}.
+\label{buch:differentialgleichungen:fuchs:eqn:rekursionan}
+\end{align}
+Die rechte Seite hängt nur von den Termen $a_0,\dots,a_{n-1}$ ab.
+
+Die Rekursionsformel
+\eqref{buch:differentialgleichungen:fuchs:eqn:rekursionan}
+offenbart aber noch eine weitere Schwierigkeit.
+Wenn $n+\varrho$ eine Nullstelle der Funktion $F$ ist, dann verschwindet
+die linke Seite von
+\eqref{buch:differentialgleichungen:fuchs:eqn:anrekursion},
+es muss also auch die rechte verschwinden, wenn es eine Lösung
+geben soll.
+Dies auferlegt den Koeffizienten $a_n$ die zusätzliche
+Bedingung
+\[
+\frac{1}{F(n+\varrho)}
+\sum_{s=1}^n
+\bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\bigr)
+a_{n-s}
+=
+0.
+\]
+
+

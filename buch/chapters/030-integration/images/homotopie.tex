@@ -56,8 +56,8 @@ YY(\t,\s) = \t*(0)+(1-\t)*(4)+sin(180*\t)*Y(\t,\s);
 	\fill[color=white] (B) circle[radius=0.05];
 	\draw[color=blue] (B) circle[radius=0.05];
 
-	\node at (A) [left] {$A$};
-	\node at (B) [right] {$B$};
+	\node at ($(A)+(0,-0.1)$) [left] {$a$};
+	\node at ($(B)+(0,0.07)$) [right] {$b$};
 
 	\node at (3,5.5) {$\gamma_1$};
 	\node at (4,0) {$\gamma_0$};

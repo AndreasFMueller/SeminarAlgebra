@@ -8,5 +8,6 @@ CHAPTERFILES += 							\
 	chapters/030-integration/1-wegintegral.tex			\
 	chapters/030-integration/2-cauchy.tex				\
 	chapters/030-integration/3-residuen.tex				\
+	chapters/030-integration/4-homologie.tex			\
 	chapters/030-integration/chapter.tex
 

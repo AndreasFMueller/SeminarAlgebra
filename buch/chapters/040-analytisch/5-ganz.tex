@@ -1,0 +1,479 @@
+%
+% 5-ganz.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Ganze Funktionen
+\label{buch:analytisch:section:ganz}}
+Viele vertraute Funktionen wie die Exponentialfunktion oder die Sinus-
+und Kosinus-Funktionen sind für alle komplexen Argumente definiert,
+da der Konvergenzradius ihrer Potenzreihen unendlich gross ist.
+Damit wird es sinnvoll zu fragen, wie sich die Funktion für $z\to\infty$ 
+entwickelt.
+Hier zeigt sich erneut, dass die komplexe Analysis solchen Funktionen
+strikte Einschränkungen auferlegt.
+
+%
+% Definition
+%
+\subsection{Definition
+\label{buch:analytisch:ganz:subsection:definition}}
+Während meromorphe Funktionen nur in isolierten Punkten nicht definiert
+sind, sind ganze Funktionen gemäss der folgenden Definition überall
+definiert.
+
+\begin{definition}[Ganze Funktion]
+Eine holomorphe Funktion, die auf ganz $\mathbb{C}$ definiert ist,
+heisst \emph{ganz}.
+\index{ganze Funktion}%
+\end{definition}
+
+\begin{beispiel}
+Jedes Polynom $a(z) = a_0 + a_1z + \ldots + a_{n-1}z^{n-1} + a_nz^n$ 
+mit $n>0$ ist eine ganze Funktion.
+\end{beispiel}
+
+\begin{beispiel}
+Die Exponentialfunktion
+\[
+e^z
+=
+1
++
+z
++
+\frac{z^2}{2}
++
+\frac{z^3}{3!}
++
+\frac{z^4}{4!}
++
+\ldots
+=
+\sum_{k=0}^\infty \frac{z^k}{k!}
+\]
+ist eine ganze Funktion, denn ihr Konvergenzradius ist gemäss
+Beispiel~\ref{buch:komplex:funktionen:bsp:exponentialfunktion}
+unendlich gross.
+\end{beispiel}
+
+%
+% Die Cauchy-Ungleichungen und der Satz von Liouville
+%
+\subsection{Die Cauchy-Ungleichungen und der Satz von Liouville
+\label{buch:analytisch:ganz:subsection:cauchy-ungleichung}}
+Die Cauchy-Integralformel für die Koeffizienten der Potenzreihenentwicklung
+einer Funktion schränkt ein, wie gross die Koeffizienten werden
+können.
+
+\begin{satz}[Cauchy-Ungleichung]
+\label{buch:analytisch:ganz:satz:cauchy-ungleichung}
+Sei $f$ ein holomorphe Funktion, die auf einem offenen Gebiet definiert
+ist, welches die abgeschlossene Kreisscheibe vom Radius $r$ um den
+Nullpunkt enthält.
+Sei ausserdem $M$ so, dass $|f(z)| \le M$ für alle $z$ mit $|z|=r$.
+Dann gilt für die Koeffizienten $c_k$ der Potenzreihenentwicklung
+die \emph{Cauchy-Ungleichung}
+\begin{equation}
+|c_k| \le \frac{M}{r^k}
+\label{buch:analytisch:ganz:satz:cauchy-ungleichung}
+\end{equation}
+für alle $k\in\mathbb{R}$.
+\end{satz}
+
+\begin{proof}
+Sei $\gamma$ der Kreis vom Radius $r$ um den Nullpunkt.
+Aus der Formel
+\begin{align*}
+c_k
+&=
+\frac{1}{2\pi i} \oint_\gamma
+\frac{f(z)}{z^{k+1}}\,dz
+\intertext{folgt}
+|c_k|
+&=
+\biggl|
+\frac{1}{2\pi i} \oint_\gamma
+\frac{f(z)}{z^{k+1}}\,dz
+\biggr|
+\\
+&\le
+\frac{1}{2\pi}
+\int_0^1
+\frac{|f(\gamma(t))|}{|\gamma(t)|^{k+1}}
+\cdot
+|\dot{\gamma}(t)|
+\,dt
+\\
+&\le
+\frac{1}{2\pi}
+\cdot
+\frac{M}{r^{k+1}}
+\int_0^1
+|\dot{\gamma}(t)|
+\,dt.
+\intertext{Das verbleibende Integral berechnet die Länge des
+Weges $\gamma$.
+Da $\gamma$ ein Kreis vom Radius $r$ ist, ist der Wert des
+Integrals $2\pi r$.
+Somit wird die rechte Seite zu}
+&=
+\frac{1}{2\pi}
+\cdot
+\frac{M}{r^{k+1}}
+\cdot
+2\pi r
+=
+\frac{M}{r^k}.
+\end{align*}
+Dies ist die behauptete Ungleichung.
+\end{proof}
+
+\begin{satz}[Liouville]
+\label{buch:analytisch:ganz:satz:liouville}
+Sei $f(z)$ eine ganze Funktion und seien $a\in\mathbb{R}$ und
+$N\in\mathbb{N}$ Zahlen mit der Eigenschaft, dass
+\[
+|f(z)| \le a(1+|z|^N)
+\]
+für alle $z\in\mathbb{C}$, dann ist $f(z)$ ein Polynom vom Grad nicht
+grösser als $N$.
+\end{satz}
+
+\begin{proof}
+Die Vorqaussetzungen des Satzes sagen, dass die auf einem Kreis
+vom Radius $r$ die Ungleichung
+\begin{equation}
+|f(z)|
+\le
+a(1+r^N)
+\label{buch:analytisch:ganz:liouville:proof1}
+\end{equation}
+gilt.
+
+Der Konvergenzradius der Potenzreihe einer ganzen Funktion ist
+unendlich gross, insbesondere kann die cauchysche Ungleichung
+\eqref{buch:analytisch:ganz:satz:cauchy-ungleichung}
+für beliebig
+grosse Radien anwenden.
+Dabei ist für die Schranke $M$ die rechte Seite der Ungleichung
+\eqref{buch:analytisch:ganz:liouville:proof1}
+zu verwenden.
+Der Koeffizient vom Grad $n$ der Potenzreihe erfüllt damit
+\begin{align*}
+|c_n|
+&\le 
+\frac{M}{r^n}
+=
+a\frac{1+r^N}{r^n}.
+\end{align*}
+Wir betrachten den Fall $n>N$ und lassen $r\to\infty$ gehen.
+In
+\begin{align*}
+\lim_{r\to\infty}
+a\frac{1+r^N}{r^n}
+&=
+a
+\lim_{r\to\infty} \frac{1}{r^n}
++
+a
+\lim_{r\to\infty} \frac{1}{r^{n-N}}
+\intertext{verschwinden die Grenzwerte wegen $n-N>0$ auf der rechten
+Seite.
+Somit folgt}
+|c_n|
+&
+=0.
+\end{align*}
+Somit verschwinden alle Koeffizienten der Potenzreihe für $n>N$,
+die Potenzreihe ist daher nur ein Polynom vom Grad $N$.
+\end{proof}
+
+Ein wichtiger Spezialfall ist $N=0$:
+
+\begin{korollar}
+Ist $f$ eine beschränkte ganze Funktion, dann ist $f$ konstant.
+\end{korollar}
+
+%
+% Der Fundamentalsatz der Algebra
+%
+\subsection{Der Fundamentalsatz der Algebra
+\label{buch:analytisch:ganz:subsection:fundamentalsatz}}
+Die komplexen Zahlen wurden als Körpererweiterung der reellen Zahlen
+konstruiert, um beliebige Quadratwurzeln ziehen zu können.
+Damit ist noch nicht klar, dass sich jetzt auch Wurzeln höherer
+Ordnung ziehen lassen oder noch allgemeiner, dass jedes Polynom
+eine Nullstelle in $\mathbb{C}$ hat.
+
+\begin{satz}[Fundamentalsatz der Algebra]
+\label{buch:analytisch:ganz:satz:fundamentalsatz}
+\index{Fundamentalsatz der Algebra}%
+Das Polynom $f(z) = a_0 + a_1z + \ldots + a_{n-1}z^{n-1} + a_nz^n$ mit
+$n>0$ hat mindestens eine komplexe Nullstelle.
+\end{satz}
+
+\begin{proof}
+Wir untersuchen das Verhalten des Betrags von $f(z)$ für $z\to\infty$.
+Dazu schreiben wir
+\begin{equation}
+|f(z)|
+= 
+|a_nz^n|
+\cdot
+\biggl|
+\frac{a_0}{a_nz^n}
++
+\frac{a_1}{a_nz^{n-1}}
++
+\ldots
++
+\frac{a_k}{a_nz^{n-k}}
++
+\ldots
++
+\frac{a_{n-1}}{a_nz}
++
+1
+\biggr|.
+\label{buch:analytisch:ganz:fundamental:eqn:1}
+\end{equation}
+Wenn $|z|$ gross genug ist, dann ist die $1$ auf der rechten Seite
+der dominierende Term.
+Wählt man $r$ so gross, dass für alle $k$, $0\le k\le n-1$
+\begin{equation}
+\frac{a_k}{a_n}
+\le
+\frac{r^{n-k}}{n+1}
+\label{buch:analytisch:ganz:fundamental:proof:2}
+\end{equation}
+gilt, dann ist jeder Terme auf der rechten Seite von
+\eqref{buch:analytisch:ganz:fundamental:eqn:1}
+\[
+\biggl|
+\frac{a_k}{a_nz^{n-k}}
+\biggr|
+=
+\biggl|
+\frac{a_k}{a_n}
+\biggr|
+\cdot
+\frac{1}{r^{n-k}}
+\le
+\frac{r^{n-k}}{n+1}
+\cdot
+\frac{1}{r^{n-k}}
+=
+\frac{1}{n+1}.
+\]
+Explizit bedeutet dies, dass 
+\begin{equation}
+r\ge
+\max
+\Bigl\{
+\!\sqrt[n-k]{(n+1)|a_k/a_n|}
+\;
+\Big|
+\;
+0\le k\le n-1
+\Bigr\}
+\label{buch:analytisch:ganz:fundamental:proof:r}
+\end{equation}
+gewählt werden muss.
+
+Mit der Wahl \eqref{buch:analytisch:ganz:fundamental:proof:r}
+von $r$ wird die Ungleichung
+\eqref{buch:analytisch:ganz:fundamental:eqn:1}
+für $|z|\ge r$
+wegen
+\label{buch:analytisch:ganz:fundamental:proof:2}
+\begin{equation}
+|f(z)|
+\ge
+|a_nr^n|
+\cdot
+\biggl|
+1
+-
+n
+\cdot
+\frac{1}{n+1}
+\biggr|
+=
+|a_nr^n|
+\cdot
+\frac{1}{n+1}.
+\label{buch:analytisch:ganz:fundamental:eqn:2}
+\end{equation}
+Der Betrag von $f(z)$ wächst also mit $r^n$.
+Wir haben also gezeigt, dass der Term höchsten Grades im Polynom
+das Wachstum dominiert.
+
+Wir nehmen jetzt an, dass $f(z)$ keine Nullstelle hat.
+Dann ist $1/f(z)$ eine ganze Funktion.
+Aus der Ungleichung
+\eqref{buch:analytisch:ganz:fundamental:eqn:2}
+folgt dann, dass
+\begin{equation}
+\frac{1}{|f(z)|}
+\le
+\frac{n+1}{ |a_n| r^n }
+\label{buch:analytisch:ganz:fundamental:eqn:3}
+\end{equation}
+für alle $|z|\ge r$ sein muss.
+$1/f(z)$ ist innerhalb des Kreises vom Radius $r$ sicher beschränkt
+und wegen
+\eqref{buch:analytisch:ganz:fundamental:eqn:3}
+auch ausserhalb.
+Nach dem Satz von Liouville ist $1/f(z)$ daher eine Konstante und
+daher auch $f(z)$.
+Insbesondere kann $f(z)$ kein Polynom vom Grad $\ge 1$ sein.
+Dieser Widerspruch zeigt, dass $f(z)$ eine Nullstelle haben muss.
+\end{proof}
+
+Der Satz
+\ref{buch:analytisch:ganz:satz:fundamentalsatz}
+verspricht
+nur die Existenz einer Nullstelle.
+Mithilfe des Divisionsalgorithmus für Polynome lässt sich
+daraus sofort eine Faktorisierung in Linearfaktoren konstruieren.
+Dies wird im folgenden Satz gezeigt.
+
+\begin{satz}
+Jedes Polynom $f(z) = a_0 + a_1z + \ldots + a_{n-1}z^{n-1} + a_nz^n$
+vom Grad $n$ mit Koeffizienten in $\mathbb{C}$ lässt sich in $n$
+Linearfaktoren
+\[
+f(z)
+=
+a_n
+(z - z_1)
+\cdot
+\ldots
+\cdot
+(z - z_n)
+\]
+zerlegen, wobei die Zahlen $z_k\in\mathbb{C}$ die Nullstellen von
+$f(z)$ sind.
+\end{satz}
+
+\begin{proof}
+Wir beweisen die Aussage mithilfe vollständiger Induktion.
+Ein Polynom ersten Grades ist bereits ein Linearfaktor, dies ist die
+Induktionsverankerung.
+
+Zur Verankerung der Induktion nehmen wir jetzt an, dass bereits gezeigt
+ist, dass alle Polynome vom Grad $n-1$ sich als Produkt von $n-1$
+Linearfaktoren schreiben lassen.
+
+Das Polynom $f(z)$ hat nach
+Satz~\ref{buch:analytisch:ganz:satz:fundamentalsatz} eine
+Nullstelle $z_n$.
+Der Divisionsalgorithmus für Polynome liefert dann Polynome
+$q(z)$ und $r(z)$ derart, dass
+\[
+f(z) = (z-z_n)\cdot q(z) + r(z).
+\]
+Der Grad von $r(z)$ muss kleiner sein als der Grad von $z-z_n$,
+$r(z)$ ist daher eine Konstante.
+Da $f(z_n)=0$ und $z-z_n=0$ ist, muss auch $r(z_n)=0$ sein, daher
+ist die Konstante $0$.
+
+Das Polynom $q(z)$ hat Grad $n-1$ und ist daher nach Induktionsannahme
+ein Produkt
+\[
+q(z)
+=
+a_n(z-z_1)\cdot\ldots\cdot (z-z_{n-1})
+\]
+von Linearfaktoren.
+Also ist auch $f(z)$ ein Produkt von Linearfaktoren.
+\end{proof}
+
+Der Fundamentalsatz sagt nicht, dass es für die Nullstellen eines
+Polynoms eine einfach Formel gibt, wie dies zum Beispiel für die
+Nullstellen
+\[
+x_{1,2}
+=
+\frac{-a_1\pm\!\sqrt{a_1^2-4a_0a_2}}{2a_2}
+\]
+eines quadratischen Polynoms der Fall ist.
+Auch für kubische Polynome gibt es eine solche Formel.
+Das normierte kubische Polynom $x^3+a_2x^2+a_1x+a_0$ 
+kann durch die Verschiebung $u = x-a_2/3$ 
+in die Form
+\[
+u^3
++
+\biggl(
+\frac13 a_2^2
+-\frac23 a_1a_2
++a_1
+\biggr)
+u
++
+\biggl(
+\frac{1}{27} a_2
++
+\frac19 a_2^3
+-\frac13 a_1a_2
++
+a_0
+\biggr)
+=
+u^3 + pu + q
+\]
+gebracht werden.
+Eine Nullstelle dieses Polynoms ist dann durch die Cardanische Formel
+\[
+u
+=
+\!\sqrt[\scriptstyle3]{
+-\frac{q}3+\!\sqrt{
+\rlap{$\raisebox{0.5pt}{\phantom{\bigg|}}$}
+\smash{
+\biggl(\frac{q}2\biggr)^{\raisebox{-2pt}{$\scriptstyle 2$}}
++
+\biggl(\frac{p}3\biggr)^{\raisebox{-2pt}{$\scriptstyle 3$}}
+}}
+}
++
+\!\sqrt[\scriptstyle3]{
+-\frac{q}3-\!\sqrt{
+\rlap{$\raisebox{0.5pt}{\phantom{\bigg|}}$}
+\smash{
+\biggl(\frac{q}2\biggr)^{\raisebox{-2pt}{$\scriptstyle 2$}}
++
+\biggl(\frac{p}3\biggr)^{\raisebox{-2pt}{$\scriptstyle 3$}}
+}}
+}
+\]
+gegben.
+
+Auch für Polynome vierten Grades gibt es ähnliche Formeln 
+\index{Polynom vierten Grades}%
+von Ludovico Ferrari.
+\index{Ferrari, Ludovico}%
+Niels Henrik Abel hat jedoch gezeigt, dass es für $n>4$ im
+\index{Abel, Niels Henrik}%
+Allgemeinen keine solche Formel gibt.
+Es ist daher zwar wahr, dass es für jedes Polynom vom Grad $n$
+über $\mathbb{C}$ eine Produktdarstellung aus Linearfaktoren
+gibt, aber es gibt kein Methode, diese Nullstellen in Form eines
+algebraischen Ausdrucks zu finden.
+Für ein Computeralgebrasystem entsteht somit die Schwierigkeit,
+dass es keinen Algorithmus gibt, diese Nullstellen zu finden.
+
+Für die Integration rationaler Funktionen wird zum Beispiel gelehrt,
+dass die Partialbruchzerlegung gebildet werden muss, für deren einzelne
+\index{Partialbruchzerlegung}%
+Summanden Stammfunktionen relativ einfach gefunden werden können.
+Die Bildung der Partialbruchzerlegung verlangt aber, dass die
+Nullstellen des Nenners in algebraischer Form gefunden werden
+müssen.
+Da es dafür keinen Algorithmus gibt, kann ein Computeralgebrasystem
+diesen Algorithmus nur in Spezialfällen implementieren, in denen
+eine Faktorisierung des Nenners bekannt ist.
+
+

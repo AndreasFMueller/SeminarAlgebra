@@ -1,0 +1,1966 @@
+%
+% 1-elementar.tex -- Elementare Funktionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Elementare Funktionen
+\label{buch:intalg:section:elementar}}
+\kopfrechts{Elementare Funktionen}%
+Der Benutzer eines Computeralgebrasystems erwartet, dass er
+als Integranden Funktionen wie
+\[
+\!\sqrt{ax^2+bx+c},\quad
+\sin(x-\pi),\quad
+\sqrt{\tan x},\quad
+e^{-x^2}
+\]
+eingeben kann und als Output eine Stammfunktion in einer ähnlichen
+Form erhalten kann.
+Zum Beispiel liefert Maxima für die dritte Funktion die Stammfunktion
+\begin{align*}
+\int\!\sqrt{\tan x}\,dx
+&=
+-\frac1{2^{\frac32}}
+\Bigl(
+\log \bigl(\tan x+\!\sqrt{2}\sqrt{\tan x}+1\bigr)
+-
+\log \bigl(\tan x-\!\sqrt{2}\sqrt{\tan x}+1\bigr)
+\Bigr)
+\\
+&\qquad
++\frac1{\!\sqrt{2}}
+\Bigl(
+\arctan \bigl( \!\sqrt{2}\sqrt{\tan x}+1 \bigr)
++
+\arctan \bigl( \!\sqrt{2}\sqrt{\tan x}-1 \bigr)
+\Bigr).
+\end{align*}
+Natürlich ist es recht anspruchsvoll, auf diese Lösung zu kommen.
+Allein durch Anwendung heuristischer Integrationsregeln kommt
+man wohl kaum darauf.
+Es braucht also einen algebraischen Prozess, der diese sehr 
+komplizierte Stammfunktion schrittweise aufbauen kann.
+
+In der Stammfunktion kommt nicht überraschend die
+Funktion $\!\sqrt{\tan x}$
+wieder vor, aber auch Polynome in dieser Funktion sowie Logarithmus
+und Arkustangens-Funktionen, mit solchen Polynomen als Argument.
+\index{arctan}%
+Schreibt man $\vartheta(x)=\!\sqrt{\tan x}$, dann wird die Stammfunktion
+zu
+\begin{align*}
+\int\vartheta(x)\,dx
+&=
+-\frac1{2\!\sqrt{2}}
+\Bigl(
+\log \bigl(\vartheta(x)^2 +\!\sqrt{2} \vartheta(x) + 1\bigr)
+-
+\log \bigl(\vartheta(x)^2 -\!\sqrt{2} \vartheta(x) + 1\bigr)
+\Bigr)
+\\
+&\qquad
++\frac1{\!\sqrt{2}}
+\Bigl(
+\arctan \bigl( \!\sqrt{2}\vartheta(x) + 1 \bigr)
++
+\arctan \bigl( \!\sqrt{2}\vartheta(x) - 1 \bigr)
+\Bigr).
+\end{align*}
+Um diese Funktion aufzubauen, wird zusätzlich zur Funktion $\vartheta(x)$
+zunächst die Konstante $\!\sqrt{2}$ benötigt.
+Damit lassen sich dann die Polynome
+\[
+\vartheta(x)^2 + \!\sqrt{2}\vartheta(x) + 1,
+\quad
+\vartheta(x)^2 - \!\sqrt{2}\vartheta(x) + 1,
+\quad
+\!\sqrt{2}\vartheta(x)+1,
+\quad
+\!\sqrt{2}\vartheta(x)-1
+\]
+in $\vartheta(x)$ bilden.
+Im nächsten Schritt muss dann der Logarithmus bzw.~die Arkustangensfunktion
+angewendet werden.
+Schliesslich kann die Stammfunktion als Linearkombination gebildet werden.
+
+Jahrelange Beschäftigung mit algebraischen Umformungen hat die Intuition
+gebildet, die in der obenstehenden Analyse der Struktur der Formel
+angewendet worden ist.
+Um auf diesen Ideen aufbauend einen Integrationsalgorithmus herstellen
+zu können, müssen wir die einzelnen Schritt durch wohldefinierte
+algebraische Konstruktionen ersetzen.
+
+%
+% Funktionenkörper
+%
+\subsection{Funktionenkörper}
+In Kapitel~\ref{chapter:ratint} wurden das Problem studiert,
+rationale Funktionen zu integrieren.
+Die meisten Operationen bei der Lösung dieses Problems ergaben
+wieder rationale Funktionen.
+Nur ganz am Schluss traten Terme auf, deren Integrale mit dem
+Logarithmus eines Polynoms berechnet werden können.
+Wir brauchen also eine Menge von Funktionen, in der alle arithmetischen
+Operationen durchgeführt werden können, also einen Körper von
+Funktionen.
+
+%
+% Koeffizientenkörper
+%
+\subsubsection{Koeffizientenkörper}
+In Abschnitt~\ref{buch:ratint:section:bernoulli} haben wir als
+Funktionenkörper den Körper $\mathbb{C}(x)$ verwendet, dann
+aber später eingesehen, dass der Körper $\mathbb{C}$ zu gross ist.
+Wenn man mit irrationalen Zahlen algebraisch rechnen muss, muss
+man deren algebraischen Eigenschaften kennen.
+Die Nullstellen eines Polynoms, die für die Partialbruchzerlegung
+benötigt wurden, sind algebraische Element über einem Körper, der
+alle Koeffizienten des Nennerpolynoms enthält.
+Der Ausgangskörper für die Konstruktion der rationalen Funktionen
+entsteht also durch Hinzufügen weiterer Konstanten zu den rationalen
+Zahlen.
+Die zusätzlichen Konstanten können algebraisch sein, wie die
+Wurzel $\!\sqrt{2}$, oder transzendent, wie $\pi$, für die es keine
+polynomielle Relation gibt.
+Als Zahlenkörper, aus dem die Koeffizienten der Polynome stammen
+muss daher immer in Erweiterung von $\mathbb{Q}$ verwendet werden,
+die durch Hinzufügen endlich vieler Elemente $c_1,\dots,c_n$ entstehen.
+In der Kette
+\[
+\underbrace{\mathbb{Q}}_{\displaystyle = K_0}
+\subset
+\underbrace{\mathbb{Q}(c_1)}_{\displaystyle = K_1}
+\subset
+\underbrace{\mathbb{Q}(c_1,c_2)}_{\displaystyle = K_2}
+\subset
+\underbrace{\mathbb{Q}(c_1,c_2,c_3)}_{\displaystyle = K_3}
+\subset
+\ldots
+%\subset
+%\underbrace{\mathbb{Q}(c_1,c_2,c_3,\ldots,c_{n-1})}_{\displaystyle = K_{n-1}}
+\subset
+\underbrace{\mathbb{Q}(c_1,c_2,c_3,\ldots,c_{n-1},c_n)}_{\displaystyle = K_n}
+=
+K.
+\]
+Jedes Element $c_k$ ist transzendent oder algebraisch ist über
+dem vorangegangenen Körper.
+Falls $c_k$ algebraisch ist, dann gibt es ein Minimalpolynom
+$m_k(x) \in K_{k-1}[x]$, welches $m_k(c_k)=0$.
+
+Zu den transzendenten Elementen in $K$ gehören insbesondere auch
+Parameter in den Ausdrücken.
+Wenn ein CAS den quadratischen Ausdruck $ax^2+bx+c$ integrieren soll,
+ohne den Koeffizienten $a$, $b$ und $c$ feste Werte zuzuordnen, dann
+müssen diese Elemente als transzendet über jedem zugrundeliegenden
+Körper betrachtet werden.
+Damit sagt man, dass keine weiteren Beziehungen zwischen diesen
+Koeffizienten bekannt sind.
+
+%
+% Das Funktionsargument
+%
+\subsubsection{Das Funktionsargument}
+In einem Funktionsausdruck spielt ein Symbol die spezielle Rolle
+des Funktionsarguments.
+Aus algebraischer Sicht verhält sich der Platzhalter für das
+Funktionsargument nicht anders wie jeder andere Parameter.
+Im Ausdruck $f(x) = ax^2 + bx + c$ werden die Zeichen $a$, $b$ und $c$
+wie gewöhnliche Zahlen behandelt, während das Symbol $x$ für das
+Funktionsargument steht, für das man nach der Intuition, die man
+beim ersten Kontakt mit dem Funktionsbegriff kennenlernt, beliebige
+Werte einsetzen kann.
+Aus algebraischer Sicht ist $x$ einfach nur ein weiteres transzendentes
+Element, um das der Koeffizientenkörper erweitert wird.
+Eine besondere Bedeutung erhält $x$ erst, wenn wir, wie das im
+nächsten Abschnitt geschehen soll, mit der Ableitung die Konstanten
+von der Variablen $x$ unterscheiden können.
+
+\begin{beispiel}
+Die rationale Funktion
+\[
+f(x) 
+=
+\frac{ax^2 + \!\sqrt{2}x - \sqrt{\pi}}{x^2+\pi}
+\]
+hat im Zählerpolynom die drei Koeffizienten $a$, $\!\sqrt{2}$ und
+$\!\sqrt{\pi}$, im Nenner kommt ausserdem der Koeffizient $\pi$ hinzu.
+Die Elemente $a$ und $\pi$ sind transzendent über den rationalen
+Zahlen.
+Die Elemente
+$\!\sqrt{2}$
+und
+$\!\sqrt{\pi}$
+entstehen
+durch algebraische Erweiterung von $\mathbb{Q}$ mit dem
+Minimalpolynom $m(x)=x^2-2$ bzw.~von $\mathbb{Q}(\pi)$ mit
+dem Minimalpolynom $m(x)=x^2-\pi$.
+Die Funktion ist daher ein Element im Körper der rationalen
+Funktionen
+\[
+f(x)
+\in
+\mathbb{Q}(\!\sqrt{2},\pi,\!\sqrt{\pi},a,x).
+\]
+Man könnte auch versuchen, $\!\sqrt{\pi}$ als transzendentes Element
+über $\mathbb{Q}$ zu betrachten.
+Dann müsste man aber das Element $\pi$ als das Quadrat von $\!\sqrt{\pi}$
+betrachten.
+In diesem Fall wäre es zweckmässiger, die Funktion als
+\[
+f(x)
+=
+\frac{ax^2+\!\sqrt{2}-c}{x^2+c^2}
+\]
+mit einem transzendenten Element $c$ zu schreiben.
+Diese Version macht es aber schwieriger, eine Beziehung zwischen $\pi$ 
+und den trigonometrischen Funktionen herzustellen.
+\end{beispiel}
+
+%
+% Differentialkörper von Funktionen
+%
+\subsection{Differentialkörper von Funktionen}
+In einem Funktionsausdruck für eine differenzierbare Funktion spielt
+unter das Funktionsargument unter allen Symbolen 
+eine besondere Rolle.
+Wir gehen davon aus, dass man nach dem Funktionsargument ableiten
+kann, weil es ``variabel'' ist.
+Nach den Parametern gedenkt man dagegen nicht abzuleiten, da man
+diese als ``konstant'' ansehen möchte.
+
+%
+% Derivation
+%
+\subsubsection{Derivation}
+Im rein algebraischen Framework eines Funktionenkörpers ist es nicht
+sinnvoll, die Definition der Ableitung als Grenzwert
+\[
+f'(z)
+=
+\lim_{h\to 0}
+\frac{f(z+h)-f(z)}{h}
+\]
+eines Differenzenquotienten zu verwenden.
+Um den Grenzwert zu definieren, wird ein Ordnungsrelation gebraucht,
+ein Konzept, welches sich nicht mit rein algebraischen Eigenschaften
+erfassen lässt.
+Für den Grenzwert wird ein Zahlenkörper gebraucht, in dem alle
+Grenzwerte existieren, was in $\mathbb{Q}$ nicht gegeben ist.
+Der einzige Körper, der vollständig wäre, ist $\mathbb{R}$, der aber
+im Computer nicht exakt dargestellt werden kann und daher nicht als
+Basis eines CAS definiert werden kann.
+
+Als alternativer Ansatz für die Definition der können die einfachsten
+bekannten Rechenregeln der Ableitung verwendet werden.
+Die Ableitung ist zum Beispiel eine lineare Abbildung.
+Dies allein reicht jedoch nicht, weil die Ableitung auch für 
+Potenzen $z^n$ oder für Produkte von Funktionen angewendet werden
+soll.
+Die Linearität kann darüber nichts aussagen.
+Daher braucht es eine zusätzlich Regel für Produkte, die natürlich
+die Produktregel für dei Ableitung wiedergeben soll.
+
+\begin{definition}[Derivation]
+Eine \emph{Derivation} in einem Funktionenkörper $K$ ist eine 
+lineare Abbildung $D\colon K\to K$, die zusätzlich die Produktregel
+\[
+D(fg) = (Df)g + f(Dg)\qquad\forall f,g\in K
+\]
+erfüllt.
+\index{Derivation}%
+\end{definition}
+
+In der Definition steht nichts davon, nach welcher Variablen da
+abgeleitet werden soll.
+In der Analysis verwendet man die Notation
+\[
+\frac{\partial}{\partial a},\quad
+\frac{\partial}{\partial b},\quad
+\frac{\partial}{\partial c},\quad
+\frac{\partial}{\partial x},\quad
+\frac{\partial}{\partial y}\qquad\text{oder}\qquad
+\frac{d}{dx},\quad\text{und}\quad
+\frac{d}{dz},
+\]
+die die Variable, nach der abgeleitet wird, klar erkennbar macht.
+Allerdings ist in der Analysis auch die Notation $f'$ für die
+abgeleitete Funktion üblich, aus der man die Variable auch nicht
+ablesen kann.
+
+Die spezielle Kennzeichnung des Funktionsargumentes ist aber auch
+nicht nötig.
+Betrachten wir $x$ als das Funktionsargument, dann ist $f(x)=x$ die
+einfachste nichtkonstante Funktion, die wir uns denken können.
+Die Ableitung dieser Funktion nach $x$ ist in der klassischen Analysis
+ist $f'(x)=1$, wir können daher das Funktionsargument im Funktionenkörper
+durch die Relation $Dx=1$ charakterisieren.
+
+\begin{definition}[Differentialkörper]
+\index{Differentialkorper@Differentialkörper}%
+Ein \emph{Differentialkörper} $K$ ist ein Funktionenkörper mit einer
+Derivation.
+\end{definition}
+
+Der Hauptsatz der Infinitesimalrechnung besagt, dass das Integral
+einer Funktion auch eine Stammfunktion ist.
+Die Definition des Integrals ist daher für die Arbeit eines
+Computeralgebrasystems nicht relevant, es mur nur eine Stammfunktion
+finden können.
+Der klassische Begriff der Stammfunktion verwendet die Ableitung.
+Für den vorliegenden algebraischen Zusammenhang kann er wie folgt
+verallgemeinert werden.
+
+\begin{definition}[Stammfunktion]
+Sei $F$ ein Differentialkörper mit Deriviation $D$.
+Eine Funktion $\vartheta\in F$ heisst eine \emph{Stammfunktion} von 
+$f\in F$, wenn $D\vartheta=f$.
+\index{Stammfunktion}%
+\end{definition}
+
+%
+% Ableitungsregeln
+%
+\subsubsection{Ableitungsregeln}
+Die Produktregel reicht bereits, um die aus dem Analysisunterricht
+bekannten Ableitungsregeln zu reproduzieren.
+
+\begin{enumerate}
+\item Ableitung einer Potenz: wir betrachten die Potenz $f^n$ eines
+Elementes $f\in K$.
+Die Derivationseigenschaft liefert
+\begin{align*}
+D(f^n)
+&=
+D(\underbrace{f\cdot f\cdot\ldots\cdot f}_{\displaystyle n})
+\\
+&=
+Df\cdot\ldots f
++
+f\cdot (Df)\cdot\ldots \cdot f
++
+\ldots
++
+f\cdot f \cdot\ldots \cdot Df
+=
+nf^{n-1}\cdot Df.
+\end{align*}
+Die ist die aus der Analysis wohlbekannte Regel für Ableitungen einer
+Potenz.
+\item Ableitung der Eins: Die Eins zeichnet sich durch die
+Eigenschaft $1^n=1$ aus.
+Lässt man die Derivation darauf wirken, erhält man
+\[
+D(1^n)
+=
+n1^{n-1}D1
+=
+D1
+\qquad\Rightarrow\qquad
+(n-1)D1 = 0.
+\]
+Da $n-1\ne 1$ ist, folgt $D1=0$, die Ableitung der Eins ist somit $1$.
+Da die Derivation $D$ linear ist, gilt für jedes andere Element
+$q\in\mathbb{Q}$ sofort $Dq = D(q\cdot 1) = q\cdot D1 = 0$.
+\item
+Ableitung von $1/f$: Die reziproke Funktion $1/f$ ist charakterisiert
+durch die Eigenschaft $f\cdot (1/f)=1$.
+Die Ableitung davon ist
+\begin{align*}
+&&
+D(f\cdot(1/f))
+&=
+(Df)\cdot (1/f) + f\cdot D(1/f)
+=
+D1
+=
+0
+\\
+&\Rightarrow&
+f\cdot D(1/f) &= -\frac{Df}{f}
+\\
+&\Rightarrow&
+D(1/f)
+&=
+-\frac{Df}{f^2},
+\end{align*}
+dies ist die Ableitungsregel einer Potenz $f^{-1}$.
+\item Potenzregel für beliebige Exponenten: Wir wissen bereits,
+dass $D(f^n)=nf^{n-1}Df$ für positive $n$.
+Für einen negativen Exponenten ist
+\[
+D(f^{-n})
+=
+D\biggl(\frac{1}{f^n}\biggr)
+=
+-
+\frac{D(f^n)}{f^{2n}}
+=
+-\frac{nf^{n-1}Df}{f^{2n}}
+=
+-
+n
+f^{-n-1}
+Df,
+\]
+dies ist die erwartete Ableitungsformel für beliebige ganzzahlige 
+Exponenten.
+\item Ableitungsregel für Polynome:
+Sie $p(X) = p(X) = p_0 + p_1X + \dots + p_nX^n \in K[X]$ ein Polynom
+mit Koeffizienten im Koeffizientenkörper.
+Wir möchten die Ableitung von $Dp(f)$ berechnen.
+Nach der Potenzregel gilt
+\begin{align*}
+Dp(f)
+&=
+D(p_0+p_1f + p_2f^2 + \ldots + p_{n-1}f^{n-1}+p_nf^n)
+\\
+&=
+p_1Df + p_2\cdot 2f Df + \ldots p_{n-1}(n-1)f^{n-2}Df + p_nnf^{n-1}Df
+\\
+&=
+\bigl(
+p_1 + 2p_2 f + 3p_3f^2 + \ldots + p_{n-1}(n-1)f^{n-2} + p_nnf^{n-1}
+\bigr)
+Df.
+\intertext{Das Polynom auf der rechten Seite ist auch bekannt als
+das abgeleitete Polynom $p'(X)$, so dass man}
+&= p'(f)\, Df
+\end{align*}
+schreiben kann.
+Dies ist formal die Kettenregel für Polynome.
+\item Quotientenregel:
+Der Quotient $f/g$ kann auch als Produkt $f\cdot (1/g)$ geschrieben
+werden.
+Daher ist die Ableitung davon
+\begin{align*}
+D\frac{f}{g}
+&=
+D\biggl(f\cdot\frac1g\biggr)
+=
+Df\cdot\frac1g + f\cdot D\frac1g
+\\
+&=
+Df\cdot\frac1g + f\cdot \biggl(-\frac{Dg}{g^2}\biggr)
+\\
+&=
+\frac{Df}{g} - \frac{f\cdot Dg}{g^2}
+=
+\frac{Df\cdot g - f\cdot Dg}{g^2}.
+\end{align*}
+Dies ist die bekannte Quotientenregel.
+\item Ableitung einer rationalen Funktion:
+Eine rationale Funktion ist ein Quotient $p[X]/q[X]$ mit
+Polynomen $p,q\in K[X]$.
+Wir möchten $p(f)/q(f)$ ableiten:
+\begin{align*}
+D\biggl(\frac{p(f)}{q(f)}\biggr)
+&=
+\frac{
+(Dp(f))\cdot q(f) - p(f)\cdot Dq(f)
+}{
+q(f)^2
+}
+\\
+&=
+\frac{p'(f)\,Df\cdot q(f)-p(f)\cdot q'(f)\, Df}{q(f)^2}
+\\
+&=
+\frac{p'(f)q(f)-p(f) q'(f)}{q(f)^2}
+Df.
+\end{align*}
+Dies ist die Kettenregel für den Polynombruch $p(X)/q(X)$.
+\end{enumerate}
+
+Diese Beispiele zeigen, dass alle Regeln, die man üblicherweise
+zur Berechnung von Ableitungen braucht, allein aus der Linearität
+und Eigenschaft der Derivation folgen.
+Der Funktionenkörper $F$ mit der Derivation $D$ ist daher ein
+vollständiges Modell für die algebraischen Eigenschaften der
+Ableitung.
+Es ist daher auch denkbar, dass das Problem, eine Stammfunktion
+zu finden, allein in diesem algebraischen Rahmen gelöst werden
+kann.
+
+Der Vollständigkeit halber halten wir hier noch die Definition
+des abgeleiteten Polynoms fest.
+
+\begin{definition}[Ableitung eines Polynoms]
+\index{Ableitung eines Polynoms}%
+Ist $p(X)\in K[X]$ ein Polynom mit Koeffizienten in einem
+Koeffizientenkörper mit der Darstellung
+\[
+p(X)
+=
+p_0 + p_1X + p_2X^2 + \ldots + p_{n-1}X^{n-1} + p_nX^n,
+=
+\sum_{k=0}^n p_k X^k
+\]
+dann heisst
+\[
+p'(X)
+=
+p_1 + 2p_2 X + 3p_3 X^2 + \ldots + (n-1)p_{n-1}X^{n-2} + np_n X^{n-1}
+=
+\sum_{k=1}^n kp_k X^{k-1}
+\]
+das \emph{abgeleitete Polynom}.
+\end{definition}
+
+%
+% Ableitung eines algebraischen Elementes
+%
+\subsubsection{Ableitung eines algebraischen Elementes}
+Wenn der Funktionenkörper $F$ um ein algebraisches Element $\alpha$
+erweitert wird, dann muss auch die Ableitung $D\alpha$ berechnet
+werden können, damit $F(\alpha)$ wieder ein Differentialkörper ist.
+
+Sei als $p(X)\in F[X]$ das Minimalpolynom des Elementes $\alpha$,
+es gilt also $p(\alpha)=0$.
+Die Ableitung ist nach den Berechungsregeln
+\begin{align*}
+0
+=
+Dp(\alpha)
+&=
+p'(\alpha)D\alpha
++
+(Dp_0+Dp_1\alpha + \dots + Dp_n\alpha^n)
+\intertext{Da $p$ das Minimalpolynom von $\alpha$ ist, kann $p'(\alpha)$
+nicht verschwinden, denn dann wäre $p'$ ein Polynom kleineren Grades,
+das auf $\alpha$ verschwindet.
+Somit kann man die Gleichung nach $D\alpha$ auflösen und erhält}
+D\alpha
+&=
+-
+\frac{Dp_0+(Dp_1)\alpha +\ldots+(Dp_n)\alpha^n}{p'(\alpha)}.
+\end{align*}
+Die Ableitung eines algebraischen Elementes ist also durch das
+Minimalpolynom eindeutig bestimmt.
+
+\begin{beispiel}
+Die Quadratwurzel $\!\sqrt{f}$ eines Elementes $f\in F$ hat das
+Minimalpolynom $p(X) = X^2 -f \in F[X]$ mit der Ableitung $p'(X)=2X$.
+Die Ableitung der Koeffizienten ergibt das Polynom $-Df$.
+Damit ist die Ableitung der Quadratwurzel
+\begin{align*}
+D\!\sqrt{f}
+&=
+\frac{-Df}{p'(\!\sqrt{f})}
+=
+-\frac{1}{2\!\sqrt{f}}\cdot Df.
+\end{align*}
+Dies ist die Kettenregel für die Wurzelfunktion.
+\end{beispiel}
+
+\begin{beispiel}
+Die $n$-te Wurzel $\sqrt[n]{f}$ eines Elementes $f\in K$ ist algebraisch
+mit dem Minimalpolynom $p(X)=X^n -f$ mit Ableitung $p'(X)=nX^{n-1}$ und
+dem Polynom mit den abgeleiteten Koeffizienten $-Df$.
+Dann ist
+\begin{align*}
+D\!\sqrt[n]{f}
+&=
+\frac{-Df}{p'\bigl(\!\sqrt[n]{f}\bigr)}
+=
+-
+\frac{1}{n\bigl(\!\sqrt[n]{f}\bigr)^{n-1}}
+\cdot
+Df.
+\end{align*}
+Dies ist die Kettenregel für die $n$-Wurzel.
+\end{beispiel}
+
+%
+% Konstantenkörper
+%
+\subsubsection{Konstantenkörper}
+Bei der Konstruktion des Funktionskörpers sind wir davon ausgegangen,
+dass wir bereits wissen, welche Objekte Konstanten sind.
+Die Ableitung $D$ ermöglicht jetzt aber auch, die Konstanten dadurch
+zu definieren, dass ihre Ableitung verschwindet.
+
+\begin{definition}[Konstantenkörper]
+Sei $F$ ein Differentialkörper, dann heisst
+\[
+C=\{c\in F\mid Dc=0\}
+\]
+der Körper der Konstanten oder \emph{Konstantenkörper} in $F$.
+\index{Konstantenkorper@Konstantenkörper}%
+\end{definition}
+
+Wir müssen uns noch überlegen, dass $C$ wirklich ein Körper ist.
+Dazu müssen wir nachrechnen, dass Summe, Produkt und Quotient
+konstanter Elemente aus $C$ wieder in $C$ liegt.
+Wir wählen daher $a,b\in C$, d.~h.~$Da=0$ und $Db=0$.
+Dann gilt auch
+\begin{align*}
+D(a\pm b)
+&=
+Da\pm Db = 0\pm 0 = 0
+&&\Rightarrow&
+a\pm b&\in C
+\\
+D(ab)
+&=
+(Da)\cdot b + a\cdot (Db)
+=
+0\cdot b + a\cdot 0
+=
+0
+&&\Rightarrow&
+ab&\in C
+\\
+D\frac{a}{b}
+&=
+\frac{(Da)\cdot b - a\cdot (Db)}{b^2}
+=
+\frac{0\cdot b - a\cdot 0}{b^2}
+=
+0.
+&&\Rightarrow&
+\frac{a}{b}&\in C.
+\end{align*}
+$C$ ist somit ein Körper.
+Der Konstantenkörper kann grösser sein als der ursprüngliche
+Koeffizientenkörper.
+
+%
+% Exponential- und Logarithmusfunktionen
+%
+\subsection{Exponential- und Logarithmusfunktionen}
+Die Exponential- und Logarithmusfunktionen werden in der klassischen
+Analysis mithilfe einer Potenzreihe oder durch die Umkehrfunktion
+definiert.
+Beide Konzepte stehen im algebraischen Umfeld eines Differentialkörpers
+nicht zur Verfügung.
+Es muss also eine alternative Methode gefunden werden, diese Funktionen
+zu charakterisieren.
+
+Die Potenzreihenmethode zur Lösung von Differentialgleichungen
+hat in Kapitel~\ref{chapter:differentialgleichungen} gezeigt,
+dass die Potenzreihe von $e^x$ eine Folge der Differentialgleichung
+für die Exponentialgleichung ist.
+Die Differentialgleichung lässt sich auch in einem Differentialkörper
+definieren, es liegt daher nahe, diese anstelle der Potenzreihe
+zur Definition der Exponentialfunktion zu verwenden.
+
+\begin{definition}[Exponential- und Logarithmusfunktion]
+\label{buch:intalg:elementar:def:explog}
+Sei $F$ ein Differentialkörper und $f\in F$.
+Ein Element $\vartheta\in F$ heisst eine \emph{Exponentialfunktion}
+von $f$, wenn $D\vartheta = \vartheta\cdot Df$.
+\index{Exponentialfunktion}%
+Die Exponentialfunktion wird manchmal auch $\vartheta=e^f$ geschrieben.
+$\vartheta$ heisst ein \emph{Logarithmus} von $f$, wenn
+$D\vartheta = Df/\vartheta$ oder $\vartheta\cdot D\vartheta = Df$.
+\index{Logarithmus}%
+Der Logarithmus wird manchmal auch $\log f$ geschrieben.
+\end{definition}
+
+%
+% Eindeutigkeit
+%
+\subsubsection{Eindeutigkeit}
+Exponential- und Logarithmusfunktion sind durch die Bedingungen der
+Definition~\ref{buch:intalg:elementar:def:explog} nicht eindeutig
+festgelegt.
+Sind $\vartheta_1$ und $\vartheta_2$ zwei Logarithmen von $f\in F$,
+dann ist
+\[
+D(\vartheta_1-\vartheta_2)
+=
+\frac{Df}{f}-\frac{Df}{f}
+=
+0,
+\]
+die Differenz ist also eine Konstante $\vartheta_1-\vartheta_2\in C$.
+Eine Logarithmusfunktion ist also nur bis auf eine Konstante in $C$
+bestimmt.
+Verwendet man die Notation $\log f$ suggeriert das zwar eine eindeutig
+bestimmte Funktion, es kann aber nur eine Menge von Funktionen
+$\vartheta_1 + C$ gemeint sein.
+
+Sind andererseits $\varphi_1$ und $\varphi_2$ Exponentialfunktionen
+von $f$, dann ist
+\[
+D
+\frac{\varphi_1}{\varphi_2}
+=
+\frac{D\varphi_1\cdot\varphi_2 - \varphi_1\cdot D\varphi_2}{\varphi_2^2}
+=
+\frac{
+\varphi_1 Df\varphi_2 - \varphi_1 \varphi_2 Df
+}{\varphi_2^2}
+=
+0,
+\]
+der Quotient $\varphi_1/\varphi_2$ ist also eine Konstante.
+Eine Exponentialfunktion ist also nur bis auf einen konstanten
+Faktor in $C$ bestimmt.
+Die Notation $e^f$ suggeriert eine eineutig bestimmte Funktion,
+gemeint sein kann aber nur eine Menge $C\varphi_1$ von Funktionen in $F$.
+
+%
+% Logarithmus als Umkehrfunktion der Exponentialfunktion
+%
+\subsubsection{Logarithmus als Umkehrfunktion der Exponentialfunktion}
+Das Konzept der Zusammensetzung von Funktionen kommt in einem
+Differentialkörper nicht vor, so dass die Frage, ob der
+Logarithmus die Umkehrfunktion der Exponentialfunktion ist,
+nicht sinnvoll gestellt werden kann.
+Der Begriff der Umkehrfunktion ist nur sinnvoll, wenn man
+\index{Umkehrfunktion}%
+Funktionen zusammensetzen kann.
+
+Trotzdem kann man eine Interpretation finden, nach der der Logarithmus
+eine Art Umkehrfunktion ist.
+Da die Exponentialfunktion und der Logarithmus durch die
+Definition über ihre differentiellen Eigenschaften nicht eindeutig 
+bestimmt sind, kann auch die Umkehrbeziehung nur im Sinne einer
+Differentialbeziehung gelten.
+
+Sei jetzt $f\in F$ und $\vartheta$ eine Exponentialfunktion von $f$.
+Nach Definition erfüllt sie $D\vartheta=\vartheta\cdot Df$.
+Weiter sei $\varphi$ ein Logarithmus von $\vartheta$, d.~h.~nach
+Definition ist $D\varphi=D\vartheta/\vartheta$.
+Setzt man die definierende Eigenschaft der Exponentialfunktion
+in die Ableitung des Logarithmus ein, erhält man
+\[
+D\varphi
+=
+\frac{D\vartheta}{\vartheta}
+=
+\frac{\vartheta\cdot Df}{\vartheta}
+=
+Df.
+\]
+Dies bedeutet, dass $\varphi$ bis auf eine additive Konstante mit
+$f$ übereinstimmt.
+Mit der konventionellen Schreibweise für Exponentialfunktion und
+Logarithmus kann man dies auch als
+\[
+D\log e^f
+=
+\frac{De^f}{e^f}
+=
+\frac{e^f Df}{e^f}
+=
+Df
+\]
+schreiben.
+Dies bedeutet, dass $\log e^f = f+c$ mit einer Konstante $c\in C$ ist.
+
+Umgekehrt ist
+\begin{align*}
+D\frac{e^{\log f}}{f}
+&=
+\frac{(De^{\log f})\cdot f - e^{\log f}\cdot Df}{f^2}
+\\
+&=
+\frac{e^{\log f}D(\log f)\cdot f - e^{\log f}\cdot Df }{f^2}
+\\
+&=
+\frac{e^{\log f} (Df/f)\cdot f - e^{\log f}\cdot Df }{f^2}
+=
+0,
+\end{align*}
+$e^{\log f}$ ist also bis auf einen konstanten Faktor die ursprüngliche
+Funktion $f$.
+
+%
+% Logarithmus und Exponentialgesetze
+%
+\subsubsection{Logarithmus- und Exponentialgesetze}
+Für die algebraische Rechnung sind Regeln nötig, mit denen Ausdrücke
+mit Logarithmen und Exponentialfunktionen umgeformt werden können.
+Dazu gehören die Logarithmus- und Exponentialgesetze
+\index{Logarithmusgesetz}%
+\index{Exponentialgesetz}%
+\[
+\log ab = \log a + \log b
+\qquad\text{und}\qquad
+e^{a+b}=e^ae^b.
+\]
+Da weder Logarithmus noch Exponentialfunktion eindeutig festgelegt
+sind, kann man so eine einfache Beziehung nicht mehr erwarten.
+
+Sind $f_1,f_2\in F$ Funktionen in $F$ und $\vartheta_1$ und $\vartheta_2$
+Exponentialfunktionen von $f_1$ bzw.~$f_2$, dann gilt
+\[
+D(\vartheta_1\vartheta_2)
+=
+(D\vartheta_1)\vartheta_2
++
+\vartheta_1(D\vartheta_1)
+=
+\vartheta_1 (Df_1) \vartheta_2
++
+\vartheta_1\vartheta_2 (Df_2)
+=
+\vartheta_1\vartheta_2 D(f_1+f_2).
+\]
+Das Produkt $\vartheta = \vartheta_1\vartheta_2$ ist daher wegen
+\[
+D\vartheta = \vartheta D(f_1+f_2)
+\]
+eine Exponentialfunktion von $f_1+f_2$.
+In der konventionellen Notation wird dies als
+\[
+e^{f_1} e^{f_2}
+=
+e^{f_1+f_2}
+\]
+geschrieben.
+Das Produkt der Exponentialfunktionen der Faktoren ist also eine
+Exponentialfunktion der Summe.
+Das Exponentialgesetzt ist also in diesem erweiterten Sinn immer noch
+gültig.
+
+Seien jetzt umgekehrt $\vartheta_1$ und $\vartheta_2$ Logarithmen von
+$f_1$ bzw.~$f_2$.
+Dann gilt
+\[
+D(\vartheta_1+\vartheta_2)
+=
+\frac{Df_1}{f_1}
++
+\frac{Df_2}{f_2}
+=
+\frac{Df_1\cdot f_2+f_1\cdot Df_2}{f_1f_2}
+=
+\frac{D(f_1f_2)}{f_1f_2}.
+\]
+Schreibt man $f=f_1f_2$, dann ist die Summe
+$\vartheta=\vartheta_1+\vartheta_2$ wegen
+\[
+D\vartheta = \frac{Df}{f}
+\]
+ein Logarithmus des Produktes $f$.
+In der konventionellen Notation bedeutet dies, dass
+\[
+\log (f_1f_2)
+=
+\log f_1 + \log f_2
+\]
+ist.
+Die Summe der Logarithmen der Faktoren ist also ein Logarithmus
+des Produktes.
+
+
+%
+% Exponentialdarstellung der trigonometrischen Funktionen
+%
+\subsection{Exponentialdarstellung der trigonometrischen Funktionen
+\label{buch:intalg:elementar:subsection:trigo}}
+Die trigonometrischen Funktionen wurden ursprünglich für die Zwecke
+der Beschreibung der Himmelskugel entwickelt und in der ebenen
+Geometrie bei der Berechnung von Dreiecken angewendet.
+Mit der eulerschen Formel $e^{it}=\cos t + i\sin t$ wird jedoch 
+\index{eulersche Formel}%
+auch eine Beziehung zur komplexen Exponentialfunktion offengelegt.
+Sie ermöglicht die trigonometrischen Funktionen und ihre Umkehrfunktionen
+ausschliesslich die Exponentialfunktion und ihre Umkehrfunktion, den
+Logarithmus, zu beschreiben.
+
+%
+% Hyperbolische Funktionen
+%
+\subsubsection{Hyperbolische Funktionen}
+Bei den hyperbolischen Funktionen ist die Situation viel einfacher,
+da diese Funktionen bereits durch die reelle Exponentialfunktion
+definiert sind.
+
+\begin{definition}[Hyperbolische Funktionen]
+\label{buch:intalg:elementar:trigo:def:hyperbolisch}
+Die \emph{hyperbolischen Funktionen} sind durch
+\index{hyperbolische Funktion}%
+\begin{align*}
+\sinh x &= \frac{e^x-e^{-x}}2,
+&
+\cosh x &= \frac{e^x+e^{-x}}2,
+&
+\tanh x &= \frac{e^x-e^{-x}}{e^x+e^{-x}},
+&
+\coth x &= \frac{e^x+e^{-x}}{e^x-e^{-x}}
+\end{align*}
+definiert für beliebige Argumente $x\in \mathbb{C}$.
+\index{sinh}%
+\index{cosh}%
+\index{tanh}%
+\index{coth}%
+\end{definition}
+
+Die hyperbolischen Funktionen sind besonderes nützlich für die Lösung
+von Differentialgleichungen zweiter Ordnung, weil sie ähnlich einfache 
+Anfangsbedingungen wie die Funktionen $\cos x$ und $\sin x$ haben.
+Die Differentialgleichung $y''=y$ hat die Exponentialfunktionen 
+$y_+(x)=e^x$ und $y_-(x)=e^{-x}$ als linear unabhängige Lösungen.
+Um jedoch eine Lösung der Differentialgleichung zu den Anfangsbedingungen
+$y(0)=y_0$ und $y'(0)=y_1$ zu finden, muss man eine Linearkombination
+\[
+y(x) = A y_+(x) + B y_-(x)
+\]
+finden, die die korrekten Anfangsbedingungen erfüllt. 
+Dazu setzt  man die Linearkombination in die Anfangsbedinungen ein
+und erhält das Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\left.
+\begin{array}{rcrcrcr}
+y(0)  &=& A y_+(0)  &+& B y_-(0)  &=& y_0 \\
+y'(0) &=& A y_+'(0) &+& B y_-'(0) &=& y_1 \\
+\end{array}
+\quad
+\right\}
+\qquad
+\Rightarrow
+\qquad
+\left\{
+\quad
+\begin{array}{rcrcl}
+A &+& B &=& y_0 \\
+A &-& B &=& y_1.
+\end{array}
+\right.
+\]
+Durch Addition bzw.~Subtraktion der beiden Gleichungen ist das 
+Gleichungssystem einfach zu lösen, man findet die Koeffizienten
+\[
+A
+=
+\frac{y_0+y_1}2
+\qquad\text{und}\qquad
+B
+=
+\frac{y_0-y_1}2
+\]
+und daraus die Lösung
+\begin{align*}
+y(x)
+=
+Ay_+(x) + By_-(x)
+&=
+\frac{y_0+y_1}2 e^x
++
+\frac{y_0-y_1}2 e^{-x}
+\\
+&=
+y_0
+\frac{e^x+e^{-x}}2
++
+y_1
+\frac{e^x-e^{-x}}2
+=
+y_0\cosh x + y_1 \sinh x
+\end{align*}
+der Differentialgleichung.
+Die hyperbolischen Funktionen tauchen also genauso natürlich in der
+Lösung der Differentialgleichung $y''=y$ auf, wie die trigonometrischen
+Funktionen in der Lösung der Schwingungsdifferentialgleichung $y''=-y$
+auftreten.
+Der Grund dafür ist natürlich, dass die Funktionen die gleichen
+Anfangsbedingungen
+\[
+\begin{aligned}
+\cos  0 &= 1,& \cos'  0 &= 0,\\
+\sin  0 &= 0,& \sin'  0 &= 1
+\end{aligned}
+\qquad\text{bzw.}\qquad
+\begin{aligned}
+\cosh 0 &= 1,& \cosh' 0 &= 0,\\
+\sinh 0 &= 0,& \sinh' 0 &= 1
+\end{aligned}
+\]
+haben.
+
+%
+% Die hyperbolischen Umkehrfunktionen
+%
+\subsubsection{Die hyperbolischen Umkehrfunktionen}
+Die Logarithmusfunktion ist die Umkehrfunktion der Exponentialfunktion.
+Mit ihr lassen sich auch die hyperbolischen Funktionen invertieren.
+
+Um die Umkehrfunktion $\operatorname{arcosh}y$ zu finden, muss die
+reelle Zahl $x$ gefunden werden, die $\cosh x = y$ gilt.
+Aus der Definition folgt die Gleichung
+\begin{align*}
+\frac{e^x + e^{-x}}2 &= y.
+\intertext{Da die Exponentialfunktion nicht verschwinden kann, verlieren
+wir nichts, wenn wir mit $e^x$ multiplizieren. 
+Dies ergibt}
+\frac{(e^x)^2 + 1}2 &= y e^x
+\intertext{oder als quadratische Gleichung für $e^x$ geschrieben:}
+(e^x)^2 - 2y e^x + 1 &= 0.
+\end{align*}
+Die Lösung der quadratischen Gleichung ist
+\begin{equation}
+e^x
+=
+y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\qquad
+\Rightarrow
+\qquad
+x
+=
+\log\Bigl(
+y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\Bigr).
+\label{buch:intalg:elementar:eqn:arcosh}
+\end{equation}
+Da $\cosh x$ eine gerade Funktion ist, gibt es zu den meisten
+$y$-Werten zwei $x$-Werte.
+Da $\cosh x$ eine gerade Funktion ist, würden wir erwarten,
+dass die beiden Werte in \eqref{buch:intalg:elementar:eqn:arcosh}
+entgegengesetzt sind.
+Dazu müssen aber die Argumente des Logarithmus reziprok sein.
+Tatsächlich
+\begin{align*}
+\frac{1}{y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}}
+&=
+\frac{
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+}{
+(
+y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+)(
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+)
+}
+\\
+&=
+\frac{
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+}{
+y^2-(y^2-1)
+}
+\\
+&=
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}.
+\end{align*}
+Die beiden Argumente des Logarithmus sind also tatsächlich
+reziprok.
+
+Auch für die hyperbolische Sinusfunktion kann mit der gleichen
+Methode ein Ausdruck für die Umkehrfunktion gefunden werden.
+Aus
+\[
+\sinh x = y
+\qquad\Rightarrow\qquad
+\frac{e^x - e^{-x}}2 = y
+\]
+folgt durch Multiplikation mit $2e^x$
+\begin{align*}
+(e^x)^2 -2ye^x - 1 &= 0
+\notag
+\intertext{mit der Lösung}
+e^x &= y\pm\!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
+\label{buch:intalg:elementar:trig:eqn:arsinh}
+\end{align*}
+Da das negative Zeichen auf der rechten Seite zu einem negativen Wert 
+führt, bleibt nur die Lösung
+\[
+x
+=
+\log\Bigl(y+\!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}\Bigr)
+.
+\]
+
+Für die hyperbolische Tangens- und Kotangensfunktion ist der
+entsprechende Ansatz
+\begin{align*}
+\tanh x
+=
+\frac{e^x-e^{-x}}{e^x+e^{-x}}
+&=
+y
+&
+&\text{bzw.}&
+\coth x
+=
+\frac{e^x+e^{-x}}{e^x-e^{-x}}
+&=
+y
+\intertext{oder nach Multiplizieren mit dem Nenner}
+e^x-e^{-x}
+&=
+ye^x+ye^{-x}
+&
+&&
+e^x+e^{-x}
+&=
+ye^x-ye^{-x}
+\intertext{und $e^x$}
+(e^x)^2-1
+&=
+y(e^x)^2+y
+&
+&&
+(e^x)^2+1
+&=
+y(e^x)^2-y.
+\intertext{Umgeschrieben als quadratische Gleichung für $e^x$ ist dies}
+(1-y) (e^x)^2
+&=
+1 +y
+&
+&&
+(1-y) (e^x)^2
+&=
+-1-y.
+\intertext{Mit der Quadratwurzel findet man}
+e^x
+&=
+\!\sqrt{\frac{1+y}{1-y}}
+&
+&\text{bzw.}&
+e^x
+&=
+\!\sqrt{\frac{y+1}{y-1}}
+\intertext{und schliesslich mit dem Logarithmus den Wert}
+x
+=
+\operatorname{artanh}y
+&=
+\log
+\!\sqrt{\frac{1+y}{1-y}}
+&
+&\text{bzw.}&
+x
+=
+\operatorname{arcoth}y
+&=
+\log
+\!\sqrt{\frac{y+1}{y-1}}
+\\
+&=
+\frac12\log
+\frac{1+y}{1-y}
+&
+&&
+&=
+\frac12\log
+\frac{y+1}{y-1}
+\end{align*}
+der Umkehrfunktion der hyperbolischen Tangens- bzw.~Kotangensfunktion.
+\index{artanh}%
+\index{arcoth}%
+
+\begin{satz}
+\label{buch:intalg:elementar:trigo:satz:invhyperbolisch}
+Die Umkehrfunktionen der hyperbolischen Funktionen sind
+\begin{align*}
+\operatorname{arsinh}y
+&=
+\log\Bigl(
+y + \!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}
+\Bigr),
+&
+\operatorname{arcosh}y
+&=
+\log\Bigl(
+y + \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\Bigr),
+\\
+\operatorname{artanh}y
+&=
+\frac12\log
+\frac{1+y}{1-y},
+&
+\operatorname{arcoth}y
+&=
+\frac12\log
+\frac{y+1}{y-1}.
+\end{align*}
+\end{satz}
+
+Der Satz zeigt also, dass nicht nur die hyperbolischen Funktionen
+sondern auch ihre Umkehrfunktionen ausschliesslich durch algebraische
+Funktionen und den Logarithmus definiert werden können.
+
+Die Funktionen $\operatorname{tanh}x$ und $\operatorname{coth}x$ sind
+reziprok.
+Die beiden Funktionen $\operatorname{artanh}y$ und
+$\operatorname{arcoth}y$
+müssen also unter der Substitution $y\to 1/y$ ineinander übergehen.
+Tatsächlich wird das Argument des Logarithmus in der Areatangensfunktion
+unter der Substitution zu
+\[
+\frac{1+y}{1-y}
+\to
+\frac{1+1/y}{1-1/y}
+=
+\frac{y+1}{y-1},
+\]
+dem Argument des Logarithmus der Areakotangensfunktion.
+
+%
+% Sinus und Kosinus
+%
+\subsubsection{Sinus und Kosinus}
+Aus der Identität
+\[
+e^{ix}
+=
+\cos x + i \sin x
+\]
+folgt zunächst mittels der Substitution $x\to -x$
+\[
+e^{-ix}
+=
+\cos x - i \sin x.
+\]
+Diese beiden Formeln bilden ein lineares Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcl}
+\cos x &+& i\sin x &=& e^{\phantom{-}ix} \\
+\cos x &-& i\sin x &=& e^{-ix}
+\end{array}
+\]
+für die Funktionen $\cos x$ und $\sin x$.
+\index{sin}%
+\index{cos}%
+Es kann durch Addition bzw.~Subtraktion gelöst werden.
+Die Lösungen sind
+\[
+\cos x = \frac{e^{ix}+e^{-ix}}{2}
+\qquad\text{und}\qquad
+\sin x = \frac{e^{ix}-e^{-ix}}{2i}.
+\]
+Die Funktionen können also mit der Exponentialfunktion in der gleichen
+Form ausgedrückt werden, in der die hyperbolischen Funktionen 
+definiert sind.
+Durch Vergleich mit den Formeln in der
+Definition~\ref{buch:intalg:elementar:trigo:def:hyperbolisch}
+ergeben sich die Beziehungen
+\[
+\cos x = \cosh ix
+\qquad\text{und}\qquad
+\sin x = \frac{1}{i} \sinh ix.
+\]
+Die Multiplikation mit $i$ entspricht geometrisch einer Drehung
+der komplexen Zahlenebene um $90^\circ$.
+Man kann also sagen, dass trigonometrischen Funktionen durch Drehung
+der Argumentebene um $90^\circ$ aus den hyperbolischen Funktionen
+hervorgehen.
+
+Für die Umkehrfunktionen $\arccos y$ und $\arcsin y$ sind die gleichen
+algebraischen Umformungen anwendbar, die auf die Umkehrfunktionen
+$\operatorname{arcosh}y$ und $\operatorname{arsinh}y$ der hyperbolischen
+Funktionen geführt haben.
+\index{arccos}%
+\index{arcsin}%
+Aus
+\input{chapters/070-intalg/fig/fig-invcis.tex}%
+\begin{align}
+\cos x = \frac{e^{ix}+e^{-ix}}{2} &= y
+&
+&\text{bzw.}&
+\sin x = \frac{e^{ix}-e^{-ix}}{2i} &= y
+\notag
+\intertext{folgen durch Multiplikation mit dem Nenner und mit $e^{ix}$
+die quadratischen Gleichungen}
+(e^{ix})^2 -2ye^{ix} + 1 &= 0
+&
+&&
+(e^{ix})^2 - 2iy e^{ix} - 1 &= 0
+\notag
+\intertext{für $e^{ix}$ mit den Lösungen}
+e^{ix}
+&=
+y \pm \!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+&
+&&
+e^{ix}
+&=
+iy\pm \!\sqrt{-\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
+\notag
+\intertext{Da die Kosinuswerte Betrag nicht grösser als $1$ haben
+können, ist der Radikand in der linken Gleichung immer negativ.
+Wir können das Vorzeichen kehren, indem wir den Faktor $i$ vor die
+Wurzel ziehen:}
+e^{ix}
+&=
+y \pm i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+&
+&&
+e^{ix}
+&=
+iy\pm \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}.
+\label{buch:intalg:elementar:trigo:eqn:invcisrhs}
+\end{align}
+Abbildung~\ref{buch:intalg:elementar:trigo:fig:invcis} zeigt 
+in rot die rechten Seiten der Gleichungen
+\eqref{buch:intalg:elementar:trigo:eqn:invcisrhs}.
+Da die Punkte auf dem Einheitskreis liegen, ist der Logarithmus
+der in blau eingezeichnete Winkel $x$.
+
+\begin{satz}
+\label{buch:intalg:elementar:trigo:satz:trigonometrisch}
+Die trigonometrischen Funktionen
+\begin{align*}
+\cos x &= \frac{e^{ix}+e^{-ix}}{2}
+&&\text{und}&
+\sin x &= \frac{e^{ix}-e^{-ix}}{2i}
+\intertext{in Exponentialdarstellung haben die logarithmischen
+Umkehrfunktionen}
+\arccos y
+&=
+\frac{1}{i}
+\log
+\Bigl(
+y + i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+\Bigr)
+&&\text{bzw.}&
+\arcsin y
+&=
+\frac{1}{i}
+\log
+\Bigl(
+iy + \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+\Bigr).
+\end{align*}
+\end{satz}
+
+%
+% Tangens und Kotangens
+%
+\subsubsection{Tangens und Kotangens}
+Tangens und Kotangens sind Quotienten der Sinus- und Kosinusfunktionen
+\input{chapters/070-intalg/fig/fig-invtan.tex}%
+oder in Exponentialdarstellung
+\begin{align*}
+\tan x
+&=
+\frac1{i}\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&
+&\text{bzw.}&
+\cot x
+&=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+\end{align*}
+Für die Umkehrfunktionen setzt man wieder 
+\index{arctan}%
+\begin{align*}
+\tan x
+= 
+\frac1i\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&=
+y
+&&&
+\cot x
+=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+&=
+y
+\intertext{und multipliziert mit dem Nenner}
+e^{ix}-e^{-ix}
+&=
+iy
+(e^{ix}+e^{-ix})
+&&&
+e^{ix}+e^{-ix}
+&=
+-iy
+(e^{ix}-e^{-ix})
+\\
+(1-iy)e^{ix}
+&=
+(1+iy)e^{-ix}
+&&&
+(iy-1)e^{ix}
+&=
+-(1+iy)e^{-ix}
+\intertext{Durch Multiplizieren mit $e^{ix}$ kann man nach $e^{2ix}$
+auflösen und findet}
+e^{2ix}
+&=
+\frac{1+iy}{1-iy}
+&&&
+e^{2ix}
+&=
+\frac{1-iy}{1+iy}
+\\
+x
+&=
+\frac1{2i}
+\log
+\frac{1+iy}{1-iy}
+&&\text{bzw.}&
+x
+&=
+\frac1{2i}
+\log
+\frac{1-iy}{1+iy}.
+\end{align*}
+In Abbildung~\ref{buch:intalg:elementar:trigo:fig:invtan} sind
+die Zahlen $1+iy$ und $1-iy$ dargestellt.
+Der gesuchte Winkel $x$ tritt beim Ursprung auf.
+Da die Multiplikation mit einer komplexen Zahl eine Drehungstreckung ist,
+muss der Quotient den Drehstreckungsfaktor zurückliefen.
+Der Quotient von $1+iy$ und $1-iy$ ist ein komplexe Zahl vom Betrag $1$,
+die Drehung von $1-iy$ auf $i+iy$ beschreibt.
+Der zugehörige Drehwinkel ist $2x$.
+Somit ist der gesuchte Winkel tatsächlich der halbe Logarithmus
+des Quotienten der beiden Zahlen.
+
+\begin{satz}
+Die trigonometrischen Funktionen
+\begin{align*}
+\tan x
+&=
+\frac1{i}\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&
+&\text{und}&
+\cot x
+&=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+\intertext{in Exponentialdarstellung haben die logarithmische Umkehrfunktion}
+\arctan y
+&=
+\frac1{2i}
+\log
+\frac{1+iy}{1-iy}
+&&\text{bzw.}&
+\operatorname{arccot} y
+&=
+\frac1{2i}
+\log
+\frac{1-iy}{1+iy}.
+\end{align*}
+\end{satz}
+
+%
+% Stammfunktion einer rationalen Funktion
+%
+\subsubsection{Stammfunktion einer rationalen Funktion}
+In Abschnitt~\ref{buch:integration:residuen:section:beispiel}
+wurde die Aufgabe gestellt, das die Stammfunktion
+\[
+\int \frac{dx}{x^2+1}
+\]
+zu bestimmen.
+Die Partialbruchzerlegung des Integranden ist
+\[
+\frac{1}{x^2+1}
+=
+\frac1{2i}
+\biggl(
+\frac{1}{x-i}
+-
+\frac{1}{x+i}
+\biggr).
+\]
+In dieser Form ist die Stammfunktion einfach zu bestimmen, sie ist
+\begin{align*}
+\int
+\frac{1}{x^2+1}
+\,dx
+&=
+\frac{1}{2i}
+\bigl(
+\log(x-i)
+-
+\log(x+i)
+\bigr)
+=
+\frac{1}{2i}
+\log
+\frac{x-i}{x+i}
+=
+\frac{1}{2i}
+\log
+\frac{1+ix}{-1+ix}.
+\intertext{%
+In dieser Form stimmt das Resultat nicht mit der Form des erwarteten
+Resultates, nämlich der Arkustangens-Funktion überein.
+Der Nenner hat das falsche Vorzeichen.
+Multiplikation mit $-1$ im Argument des Logarithmus ändert aber den
+Wert der Logarithmusfunktion nur um die Konstante $\pi$, also kann
+man immer noch schliessen}
+&=
+\frac{1}{2i}
+\log
+\frac{1+ix}{1-ix}
++C
+=
+\arctan x + C.
+\end{align*}
+Das Beispiel illustriert, dass sich Integrale von rationalen Funktionen
+über $\mathbb{R}$ tatsächlich nur mit der komplexen Logarithmus-Funktion
+berechnen lassen.
+
+%
+% Die Differentialkörper der hyperbolischen Funktionen
+%
+\subsubsection{Die Differentialkörper der hyperbolischen Funktionen}
+Der Körper $\mathbb{Q}(x)$ enthält weder die trigonometrischen noch
+die hyperbolischen Funktionen.
+Wie früher betrachten wir die Derivation $D$ mit $Dx=1$, die die
+Ableitung nach $x$ symbolisiert.
+
+Um die hyperbolischen Funktionen zu $\mathbb{Q}(x)$ hinzuzufügen,
+muss ein Exponentialfunktion $e(x)$ hinzugefügt werden.
+Damit lassen sich dann die Funktionen
+\[
+\cosh x
+=
+\frac12
+\biggl(
+e(x) + \frac{1}{e(x)}
+\biggr),
+\quad
+\sinh x
+=
+\frac12
+\biggl(
+e(x) - \frac{1}{e(x)}
+\biggr),
+\quad
+\tanh x
+=
+\frac{
+\displaystyle
+e(x)-\frac{1}{e(x)}
+}{
+\displaystyle
+e(x)+\frac{1}{e(x)}
+}
+=
+\frac{e(x)^2-1}{e(x)^2+1}
+.
+\]
+Die bekannte Relation
+\[
+(\cosh x)^2
+-
+(\sinh x)^2
+=
+\frac14\biggl(
+e(x)^2 + 2e(x)\frac{1}{e(x)} + \frac{1}{(e(x))^2}
+\biggr)
+-
+\frac14\biggl(
+e(x)^2 - 2e(x)\frac{1}{e(x)} + \frac{1}{(e(x))^2}
+\biggr)
+=
+1
+\]
+folgt allein durch algebraische Umformung.
+Die Ableitungseigenschaften der Funktion $e(x)$ im Differentialkörper
+als Exponentialfunktion von $x$ reichen aus, um die Ableitungsregeln
+\begin{align*}
+D\cosh x
+&=
+\frac12\biggl(
+De(x) + D\frac1{e(x)}
+\biggr)
+=
+\frac12
+\biggl(
+e(x) - \frac{1}{e(x)}
+\biggr)
+=
+\sinh x,
+\\
+D\sinh x
+&=
+\frac12
+\biggl(
+De(x) - D\frac{1}{e(x)}
+\biggr)
+=
+\frac12
+\biggl(
+e(x) + \frac{1}{e(x)}
+\biggr)
+=
+\cosh x
+\end{align*}
+für die hyperbolischen Funktionen zu verifizieren.
+Auch die Ableitungsregel für den hyperbolischen Tangens können wir
+leicht nachrechnen:
+\begin{align*}
+D\tanh x
+&=
+D
+\frac{\sinh x}{\cosh x}
+\\
+&=
+\frac{(D\sinh x)\cdot \cosh x - \sinh x\cdot(D\cosh x)}{(\cosh x)^2}
+\\
+&=
+\frac{(\cosh x)^2 - (\sinh x)^2}{(\cosh x)^2}
+\\
+&=
+\frac{1}{(\cosh x)^2}.
+\end{align*}
+Dies ist die bekannte Ableitung der hyperbolischen Tangensfunktion.
+Diese Beispiele zeigen, dass alle Eigenschaften der hyperbolischen
+Funktionen von den Details der Funktion $e(x)$ unabhängig sind.
+
+Für die hyperbolischen Umkehrfunktionen müssen gemäss den Formeln
+von Satz~\ref{buch:intalg:elementar:trigo:satz:invhyperbolisch}
+zunächst die Wurzeln
+\[
+s_+(x) = \sqrt{\smash{y^2} + 1\raisebox{1.5pt}{\mathstrut}}
+\qquad\text{und}\qquad
+s_-(x) = \sqrt{\smash{y^2} - 1\raisebox{1.5pt}{\mathstrut}}
+\]
+hinzufügen, mit denen anschliessend im Funktionenkörper
+$\mathbb{Q}(x,e(x),s_+(x),s_-(x))$
+die Funktionen
+\[
+x + s_+(x)
+\qquad\text{und}\qquad
+x + s_-(x)
+\]
+gebildet werden können.
+Indem wir die Logarithmen $\operatorname{arsinh}(x) = \log(x+s_+(x))$
+und $\operatorname{arcosh}(x) = \log(x+s_-(x))$
+hinzufügen, erhalten wir den Differentialkörper
+\[
+\mathbb{Q}(x,e(x),s_\pm(x),
+\operatorname{arsinh}(x),\operatorname{arcosh}(x)),
+\]
+die die gesuchten Umkehrfunktionen entält.
+Die hyperbolischen Funktionen und ihre Umkehrfunktionen können also
+allein durch den Prozess der algebraischen, exponentiellen oder
+logarithmischen Erweiterung erhalten werden.
+
+%
+% Die Differentialkörper der trigonometrischen Funktionen
+%
+\subsubsection{Die Differentialkörper der trigonometrischen Funktionen}
+Ein Differentialkörper für die trigonometrischen Funktionen und ihre
+Umkehrfunktionen lässt sich ganz analog zur Konstruktion für die 
+hyperbolischen Funktionen im vorangegangenen Abschnitt konstruieren.
+Damit die Konstruktion möglich wird, muss dem Körper $\mathbb{Q}(x)$
+im ersten Schritt die neue Konstante $i$ durch algebraische
+Erweiterung mit dem Minimalpolynom $x^2+1$ hinzugefügt werden.
+Der Ausgangskörper für die Konstruktion ist also $\mathbb{Q}(x,i)$.
+
+Statt der reellen Exponentialfunktion fügen wir im nächsten Schritt 
+dem Körper die Exponentialfunktion $e(x)$ von $ix$ hinzu.
+Sie erfüllt die definierende Eigenschaft $De(x) = e(x)\cdot D(ix) = ie(x)$.
+Damit können dann die trigonometrischen Funktionen
+\begin{align*}
+\sin x
+&=
+\frac12\biggl(
+e(x)+\frac{1}{e(x)}
+\biggr),
+&
+\cos x
+&=
+\frac1{2i}\biggl(
+e(x)-\frac{1}{e(x)}
+\biggr),
+&
+\tan x
+&=
+\frac{1}{i}
+\frac{
+\displaystyle e(x)-\frac{1}{e(x)}
+}{
+\displaystyle e(x)+\frac{1}{e(x)}
+}
+=
+\frac{1}{i}\frac{e(x)^2-1}{e(x)^2+1}
+\end{align*}
+durch algebraische Operationen in diesem Körper konstruiert werden.
+Der ``Satz des Pythagoras'' ist eine rein algebraische Eigenschaft,
+es gilt nämlich
+\begin{align*}
+(\sin x)^2 + (\cos x)^2
+&=
+\frac1{4i^2}
+\biggl(
+e(x)^2 - 2 + \frac{1}{e(x)^2}
+\biggr)
++
+\frac14
+\biggl(
+e(x)^2 + 2 + \frac{1}{e(x)^2}
+\biggr)
+\\
+&=
+-
+\frac1{4}
+\biggl(
+e(x)^2 - 2 + \frac{1}{e(x)^2}
+\biggr)
++
+\frac14
+\biggl(
+e(x)^2 + 2 + \frac{1}{e(x)^2}
+\biggr)
+=
+1.
+\end{align*}
+Auch die Ableitungsregeln folgen direkt aus der Definition
+\begin{align*}
+D\sin x
+&=
+\frac{1}{2i}
+\biggl(
+De(x) - D\frac{1}{e(x)}
+\biggr)
+=
+\frac{1}{2i}
+\biggl(
+ie(x) + i\frac{1}{e(x)}
+\biggr)
+=
+\cos x
+\\
+D\cos x
+&=
+\frac12
+\biggl(
+De(x) + D\frac{1}{e(x)}
+\biggr)
+=
+\frac12
+\biggl(
+ie(x) - i\frac{1}{e(x)}
+\biggr)
+=
+-
+\frac1{2i}
+\biggl(
+e(x) - \frac{1}{e(x)}
+\biggr)
+=
+-
+\sin x.
+\end{align*}
+Die Funktionen $\sin x$ und $\cos x$ sind also in der Körpererweiterung
+$\mathbb{Q}(x,i,e(x))$ enthalten.
+
+Für die Umkehrfunktionen sind nach
+Satz~\ref{buch:intalg:elementar:trigo:satz:trigonometrisch}
+zusätzlich das algebraische Element
+\[
+s(x)
+=
+\! \sqrt{1-\smash{x^2}\raisebox{1.5pt}{\mathstrut}}
+\]
+hinzufügen.
+Der Differentialkörper $\mathbb{Q}(x,i,s(x))$ enthält dann auch
+die Funktionen
+\[
+x+is(x)
+=
+x + i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+\qquad
+\text{und}
+\qquad
+ix+s(x)
+=
+ix + \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}},
+\]
+da sie durch algebraische Operationen entstehen.
+Schliesslich müssen nur noch die Logarithmen
+\[
+\vartheta_1(x)
+=
+\log(y+is(x))
+\qquad
+\text{und}
+\qquad
+\vartheta_2(x)
+=
+\log(iy+s(x))
+\]
+dieser Funktionen hinzugefügt werden, damit dann in
+$\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
+die Funktionen
+\[
+\arccos x = \frac{1}{i}\vartheta_1(x)
+\qquad
+\text{und}
+\qquad
+\arcsin x = \frac{1}{i}\vartheta_2(x)
+\]
+enthält.
+
+Wie bei den hyperbolischen Funktionen können wir schliessen, dass
+den Differentialkörper $\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
+die inversen trigonometrischen Funktionen entält.
+Die trigonometrischen Funktionen ebenso wie ihre Umkehrfunktionen
+sind daher elementare Funktionen.
+
+%
+% Eindeutigkeit der trigonometrischen und hyperbolischen Funktionen
+%
+\subsubsection{Eindeutigkeit der trigonometrischen und hyperbolischen
+Funktionen}
+Die Definition der trigonometrischen und hyperbolischen Funktionen 
+sowie ihrer Umkehrfunktionen in einem Differentialkörper basieren
+auf einer Exponential- und Logarithmus-Funktionen.
+Da diese nicht eindeutig bestimmt sind, sind auch die
+trigonometrischen und hyperbolischen Funktionen nicht eindeutig
+bestimmt.
+Die Exponentialfunktion ist nur bis auf einen konstanten Faktor bestimmt,
+der sich natürlich auch in der Definition der trigonometrischen und
+hyperbolischen Funktionen niederschlägt.
+Dies scheint den Beziehungen
+\[
+\cos^2 x + \sin^2 x = 1
+\qquad\text{und}\qquad
+\cosh^2 x - \sinh^2 x = 1
+\]
+zu widersprechen, die für jede Wahl der Exponentialfunktion gelten.
+Wir versuchen daher für die konkrete Wahl der Exponentialfunktion $e^x$
+der klassischen Analysis den Einfluss eines Faktors auf die
+trigonometrischen und hyperbolischen Funktionen zu ermitteln.
+Im Folgenden reservieren wir daher die Notation $e^f$ und $\log f$
+für die klassische definierten Exponential- und Logarithmusfunktionen.
+Ebenso unterscheiden wir die verallgemeinerten trigonometrischen
+und hyperbolischen Funktion mithilfe eines grossen Anfangsbuchstabens
+von den klassischen Funtkionen.
+
+Wir beginnen mit den hyperbolischen Funktionen.
+Eine beliebige Exponentialfunktion $e(x)$ von $x$ ist ein Vielfaches
+$a e^x$ der klassischen Exponentialfunktion.
+Die hyperbolischen Funktionen sind dann
+\begin{align*}
+\operatorname{Cosh} x
+&=
+\frac{ae^x + e^{-x}/a}{2}
+&&\text{und}&
+\operatorname{Sinh} x
+&=
+\frac{ae^x - e^{-x}/a}{2}.
+\intertext{Mit den Exponentialgesetzen folgt}
+\operatorname{Cosh} x
+&=
+\frac{e^{x+\log a} + e^{-x-\log a}}{2}
+&& \text{und}&
+\operatorname{Sinh} x
+&=
+\frac{e^{x+\log a} - e^{-x-\log a}}{2}
+\\
+&=
+\cosh(x+\log a)
+&&&
+&=
+\sinh(x+\log a).
+\end{align*}
+Die verschiedenen möglichen hyperbolischen Funktionen entstehen daher
+durch Verschiebung der unabhängigen Variablen.
+Da man die Funktionen $\operatorname{Cosh}$ und $\operatorname{Sinh}$
+als durch eine autonome Differentialgleichung definiert ansehen kann,
+ist nachvollziehbar, dass die Definition die verschiedenen möglichen
+Lösungen nicht unterscheiden kann.
+
+Bei den trigonometrischen Funktionen betrachten wir einen Faktor der
+Form $a=e^{i\delta}$, woraus $1/a = e^{-i\delta}$ folgt.
+Die trigonometrischen Funktionen sind dann
+\begin{align*}
+\operatorname{Cos} x
+&=
+\frac12(ae^{ix}+e^{-ix}/a)
+=
+\frac12(e^{i\delta}e^{ix}+e^{ix}e^{-i\delta})
+=
+\frac12(e^{i(x+\delta)}+e^{-i(x+\delta)})
+=
+\cos(x+\delta)
+\\
+\operatorname{Sin} x
+&=
+\frac12(ae^{ix}-e^{-ix}/a)
+=
+\frac12(e^{i\delta}e^{ix}-e^{ix}e^{-i\delta})
+=
+\frac12(e^{i(x+\delta)}-e^{-i(x+\delta)})
+=
+\sin(x+\delta).
+\end{align*}
+Multiplikation mit einem Skalenfaktor bedeutet also wieder nur eine
+Verschiebung des Arguments.
+
+Die oben durchgeführten Rechnungen funktionieren natürlich auch für
+einen komplexen Faktor, den wir $a=e^{b}$ schreiben können.
+\begin{align*}
+\operatorname{Cosh} x
+&=
+\frac12 ( ae^{x} + e^{-x}/a )
+=
+\frac12 ( e^{x+b} + e^{-x-b} )
+=
+\cosh(x+b)
+\\
+\operatorname{Sinh} x
+&=
+\frac12 ( ae^{x} - e^{-x}/a )
+=
+\frac12 ( e^{x+b} - e^{-x-b} )
+=
+\sinh(x+b).
+\end{align*}
+Entsprechende Formeln für die trigonometrischen Funktionen ergeben sich
+daraus durch Multiplikation des Argumentes mit $i$.
+In allen Fällen führen die verschiedenen Expontialfunktion zu einer
+möglicherweise um einen komplexen Summanden verschobenen Funktion.
+
+Bei den Umkehrfunktionen ist die Situation noch einfacher.
+Sie sind als ein Logarithmus definiert.
+Ein solcher ist nur bis auf einen konstanten Summanden definiert.
+Diese Beobachtung ist auch konsistent mit der Interpretation der
+Umkehrbeziehung für die Exponential- und Logarithmusfunktionen.
+Die additive Konstante, um die sich die trigonometrischen und
+hyperbolischen Umkehrfunktionen unterscheiden, ist auch die konstante
+Translation, um die sich die trigonometrischen und hyperbolischen
+Funktionen unterscheiden.
+
+%
+% Elementare Funktionen
+%
+\subsection{Elementare Funktionen und das Integrationsproblem}
+Der Prozess der Erweiterung des Differentialkörpers der 
+rationalen Funktionen $\mathbb{Q}(x)$ durch algebraische Elemente,
+Logarithen und Exponentialfunktionen reproduziert also die Vorgehensweise
+eines Mathematikers, der ein Integralproblem lösen will.
+Er beginnt mit der Konstruktion eines Funktionenkörpers, der den
+Integranden enthält.
+Dazu wird es notwendig sein, zusätzliche Konstanten wie Wurzeln,
+$\pi$, $i$ und andere oder Parameter hinzuzufügen.
+Ausserdem müssen möglicherweise wiederholt Exponentialfunktionen,
+Logarithmen und algebraische Funktionen hinzugefügt werden.
+Alle Funktionen, mit denen ein menschlicher Rechner arbeitet, sind
+auf diese Art konstruierbar.
+Dies rechtfertigt, diesen Funktionen einen eigenen Namen zu geben.
+
+\begin{definition}[Elementare Funktionen]
+Sei $D$ eine Derivation in $\mathbb{Q}(x)$ mit $Dx=1$.
+Eine Funktion $f(x)$ heisst \emph{elementar}, wenn $f$ in einer
+Erweiterung von $\mathbb{Q}(x)$ enthalten ist, die durch hinzufügen
+algebraischer Elemente, Logarithmen oder Exponentialfunktionen
+entsteht.
+\index{elementare Funktion}%
+\end{definition}
+
+Mit dem Begriff der elementaren Funktion lässt sich jetzt das
+Problem der Integration in geschlossener Form präzis formulieren.
+\index{geschlossene Form}%
+Ein menschlicher Rechner erwartet, dass er den Differentialkörper,
+in dem der Integrand gefunden werden kann, durch weitere Erweiterungen
+so vergrössern kann, dass sich auch die Stammfunktion darin finden
+lässt.
+Die Stammfunktion ist daher auch eine elementare Funktion.
+Das Problem der Integration in geschlossener Form ist daher das
+folgende.
+
+\begin{problem}[Integration in geschlossener Form]
+\index{Integration in geschlossener Form}%
+Gegebene eine elementare Funktion $f$ in einem Differentialkörper
+$F$, finde eine elementare Funktion $\vartheta$ mit $D\vartheta = f$.
+\end{problem}
+
+
+
+
