@@ -101,7 +101,7 @@ in eine Laurent-Reihe
 +
 a_0+a_1(z-\alpha) + a_2(z-\alpha)^2+\ldots
 \]
-entwickelt werden.
+um den Punkt $\alpha$ entwickelt werden.
 Gliedweise Integration der Reiher ergibt in einer Umgebung von $\alpha$
 \[
 \int
@@ -134,8 +134,67 @@ A
 \]
 \end{satz}
 
+Der Satz ist eine Folge des folgenden, algemeineren Satzes.
+Er gilt für einen beliebigen Bruch von holomorphen Funktionen,
+dessen Nenner eine einfache Nullstelle hat.
+
+\begin{satz}
+Ist $f(z)$ in einer Umgebung von $\alpha$ holomorph und hat $g(z)$
+eine Nullstelle erster Ordnung in $\alpha$, dann ist das Residuum
+von $f(z)/g(z)$ an der Stelle $\alpha$ der Wert $f(\alpha)/g'(\alpha)$.
+\end{satz}
+
 \begin{proof}
-TODO
+Da $g(z)$ eine Nullstelle erster Ordnung an der Stelle $\alpha$
+hat, kann man
+\[
+g(z) = (z-\alpha)\bigl(g'(\alpha)+ r(z)(z-\alpha)\bigr)
+\]
+und damit
+\[
+\frac{f(z)}{g(z)}
+=
+\frac{f(z)}{(z-\alpha)\bigl(g'(\alpha)+r(z)(z-\alpha)\bigr)}
+=
+\frac{1}{z-\alpha}
+\cdot
+\frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+=
+\frac{1}{z-\alpha}
+\cdot
+h(z)
+\]
+mit einer in einer Umgebung von $\alpha$ holomorphen Funktion
+$h(z)$ schreiben.
+Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} ist
+das Residuum das Integral
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{g(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z-\alpha}
+\frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac1{z-\alpha}
+\cdot
+h(z)
+\,dz.
+\intertext{Nach dem Integralsatz~\ref{buch:integration:satz:residuensatz}
+ergibt das Integral}
+&=
+h(\alpha)
+=
+\frac{f(\alpha)}{g'(\alpha)}.
+\end{align*}
+Dies beweist den Satz.
 \end{proof}
 
 %
