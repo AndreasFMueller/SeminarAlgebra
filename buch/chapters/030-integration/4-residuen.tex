@@ -3,11 +3,11 @@
 %
 % (c) 2025 Prof Dr Andreas Müller
 %
-\section{Residuen
+\section{Reelle Integrale mit dem cauchyschen Integralsatz
 \label{buch:integration:section:residuen}}
 \kopfrechts{Residuen}
-Der Residuensatz ermöglicht, reelle Integrale zu berechnen, denen 
-allein mit den Mitteln der reellen Analysis nur schwer beizukommen
+Der cauchysche Integralsatz ermöglicht, reelle Integrale zu berechnen,
+denen allein mit den Mitteln der reellen Analysis nur schwer beizukommen
 ist.
 Die Vorgehensweise ist dabei immer die Gleiche.
 Das Integrationsintervall ist eine Strecke in der komplexen Ebene.
@@ -434,7 +434,7 @@ und daher erneut
 \label{buch:integration:residuen:eqn:piet}
 \end{equation}
 
-Die Resutlate
+Die Resultate
 \eqref{buch:integration:residuen:eqn:pie-t}
 und
 \eqref{buch:integration:residuen:eqn:piet}
@@ -482,13 +482,86 @@ zusammenfassen.
 Tatsächlich ändert der Integrand nicht, wenn man $t$ durch $-t$ ersetzt.
 
 %
+% Die Methode
 %
+\subsection{Die Methode}
+Die im Abschnitt~\ref{buch:integration:residuen:section:beispiel}
+dargestellt Methode löst also die Aufgabe ein reelles Integral
+\input{chapters/030-integration/fig/fig-methode.tex}%
+\[
+I
+=
+\int_a^b f(x)\,dx
+\]
+zu lösen.
+Sie geht dazu wie folgt vor.
+
+\begin{enumerate}
+\item
+Die reelle Funktion im Integranden muss durch eine komplexe
+Funktion $f(z)$ ersetzt werden.
+\item
+Das Integral entlang des Segmentes $[a,b]$ auf der reellen Achse
+wird durch ein Kurve $\gamma_0$ zu einem geschlossenen Weg $\gamma$
+ergänzt, wie er in
+Abbildung~\ref{buch:integration:residuen:fig:methode}
+dargestellt ist.
+\item
+Falls der Integrand im Inneren der Kurve $\gamma$ holomorph ist,
+verschwindet das Wegintegral.
+Dann folgt, dass das Integral durch
+\[
+I
+=
+\int_a^b f(x)\,dx
+=
+-\int_{\gamma_0} f(z)\,dz
+\]
+berechnet werden.
+\item
+Falls im Inneren der Kurve $\gamma$ Singulartitäten des Integranden
+vorhanden sind (in der Abbildung~\ref{buch:integration:residuen:fig:methode}
+durch blaue Kreuze dargestellt), muss diesen durch zusätzliche
+Summanden auf der rechten Seite Rechnung getragen werden.
+Da dies durch Integrale über beliebig kleine Kreise um die Singularitäten
+herum geschehen kann, hängen diese Korrekturterme nur von den
+Funktionswerten und Ableitungen in unmittelbarer Nähe der
+Singularität ab.
+Techniken zu ihrer Berechnung, insbesondere der Begriff des Residuums,
+werden in Kapitel~\ref{chapter:analytisch} dargestellt.
+Das Integral ist dann
+\[
+\int_a^b f(x)\,dx
+=
+-\int_{\gamma_0} f(z)\,dz
++
+\text{Singularitätenterme.}
+\]
+\end{enumerate}
+Da die Berechnung der Singularitätenterme, wie im einführenden Beispiel,
+meist nicht schwierig ist, ist die Methode vor allem dann erfolgreich,
+wenn das Wegintegral entlang $\gamma_0$ deutlich einfacher zu berechnen
+ist.
+
+Die Methode wird oft in Fällen angewendet, wo der Weg von einem
+Parameter abhängt, wie im einführenden Beispiel der Radius $R$.
+Wenn der gesuchte Integralwert ein Grenzwert für den Parameter ist,
+kann man hoffen, dass das Integral über $\gamma_0$ im Grenzwert
+deutlich einfacher zu berechnen ist.
+Im Beispiel ist das Integral über den zusätzlichen Wegteil im
+Grenzwert sogar verschwunden.
+
+Im nächsten Abschnitt wird ein weiteres Beispiel für diese Methode
+gezeigt. 
+Ausserdem motiviert die Methode auch den Begriff des Hauptwertes,
+der in Abschnitt~\ref{buch:integration:residuen:subsection:hauptwert}
+skizziert und in Kapitel~\ref{chapter:hauptwert} ausführlicher
+erklärt wird.
+
 %
-\subsection{ }
-
-\subsection{Weitere Beispiele}
-
-\subsubsection{Ein Beispiel ohne Pole}
+% Ein Beispiel ohne Pole
+%
+\subsection{Ein Beispiel ohne Pole}
 \input{chapters/030-integration/fig/fig-ecos.tex}%
 Die Funktion $f(z)=e^{-z^2}$ ist holomorph in der ganzen komplexen 
 Ebene, für jeden beliebigen geschlossenen Weg gilt daher nach dem
@@ -634,10 +707,87 @@ e^{-x^2}
 &=
 \!\sqrt{\pi}e^{-b^2}.
 \end{align*}
+Man beachte, dass das Integral nicht mit der traditionellen Methode
+der Stammfunktion berechnet werden kann.
+Wie für den Integranden $e^{-x^2}$ kann auch für den Integranden
+$\cos(2bx)e^{-x^2}$ kein Stammfunktion in geschlossener Form
+gefunden werden.
+Die Methode der Wegintegrale in der komplexen Ebene ist also die
+einzige Methode, dieses Integral exakt zu berechnen.
 
 
-
-
+%
+% Hauptwert
+%
+\subsection{Hauptwert
+\label{buch:integration:residuen:subsection:hauptwert}}
+Die Berechnung des Integrals in
+Abschnitt~\ref{buch:integration:residuen:section:beispiel}
+hat einen Weg verwendet, der den Nullpunkt in einem grossen
+Bogen umrundet hat.
+\input{chapters/030-integration/fig/fig-hauptwert.tex}%
+So wurde das Integral zwischen $-R$ und $R$ zu einem Wegintegral
+über eine geschlossene Kurve vervollständigt, wodurch sich der
+Integralsatz anwenden liess.
+Eine ähnliche Situation tritt bei der Berechnung des Integrals
+\begin{equation}
+I
+=
+\int_{-\infty}^\infty \frac{\sin x}{x}\,dx
+\label{buch:integration:residuen:eqn:sinxxintegral}
+\end{equation}
+auf.
+Um es mithilfe eines Wegintegrals zu berechnen, muss ein komplexer
+Integrand und ein passender Weg gefunden werden.
+Als Integrand bietet sich
+\[
+f(z)
+=
+\frac{e^{iz}}{z}
+\]
+an.
+Während der ursprüngliche reelle Integrand an der Stelle $x=0$ stetig
+ist, hat $f(z)$ dort einen Pol.
+Als Weg kann man der in
+Abbildung~\ref{buch:integration:residuen:fig:hauptwert}
+dargestellt Weg verwendet werden.
+Er setzt sich zusammen aus den beiden Segmenten $[\varepsilon,R]$
+und $[-R,-\varepsilon]$ und den Kreisbögen mit Radien $R$ und $\varepsilon$,
+die die Segmente zu einem geschlossenen Weg verbinden.
+Im Inneren dieses Weges ist $f(z)$ eine holomorphe Funktion.
+Das gesuchte Integral ist also der Teil über die beiden Segmente
+$\gamma_\pm$ im Grenzwert $R\to\infty$ und $\varepsilon\to 0$:
+\begin{align*}
+I
+&=
+\lim_{R\to\infty}
+\lim_{\varepsilon\to 0}
+\biggl(
+\int_{\gamma_+}
+f(z)\,dz
++
+\int_{\gamma_-}
+f(z)\,dz
+\biggr)
+\intertext{Aus dem Integralsatz kann man dann schliessen, dass
+das Integral auch}
+&=
+-
+\lim_{R\to\infty}
+\int_{\gamma_R} f(z)\,dz
+-
+\lim_{\varepsilon\to 0}
+\int_{\gamma_{\varepsilon}} f(z)\,dz
+\end{align*}
+ist.
+Bei dieser Berechnung berechnet man das Integral entlang der
+reellen Achse aber mit symmetrischen Segmenten.
+Die Definition eines uneigentlichen Integrals verlangt, dass für
+die Grenzen unabhängig voneinander ein Grenzübergang durchgeführt
+wird.
+Der symmetrische Grenzwert heisst auch der \emph{Hauptwert} des
+Integrals und wird im Kapitel~\ref{chapter:hauptwert} ausführlicher 
+dargestellt.
 
 
 

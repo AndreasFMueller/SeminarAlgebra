@@ -1,0 +1,35 @@
+/*
+ * qf.maxima -- quadratfreie faktorisierung
+ *
+ * (c) 2026 Prof Dr Andreas Müller
+ */
+q: expand((z-1)^3*(z+1)^4*(z+sqrt(2))*(z-sqrt(2)));
+tex(q);
+tex(diff(q,z));
+
+g0: q;
+g1: gcd(g0, diff(g0,z));
+tex(g1)$
+p1: ratsimp(g0/g1);
+g2: gcd(g1, diff(g1,z));
+tex(g2)$
+p2: ratsimp(g1/g2);
+g3: gcd(g2, diff(g2,z));
+tex(g3)$
+p3: ratsimp(g2/g3);
+g4: gcd(g3, diff(g3,z));
+tex(g4)$
+p4: ratsimp(g3/g4);
+g5: gcd(g4, diff(g4,z));
+tex(g5)$
+p5: ratsimp(g4/g5);
+
+
+q1: ratsimp(p1/p2);
+q2: ratsimp(p2/p3);
+q3: ratsimp(p3/p4);
+q4: ratsimp(p4/p5);
+
+expand(q1 * q2^2 * q3^3 * q4^4) - q;
+
+partfrac(1/q,z);

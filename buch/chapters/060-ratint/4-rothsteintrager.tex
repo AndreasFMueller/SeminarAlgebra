@@ -1,0 +1,268 @@
+%
+% 4-rothsteintrager.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Die Methode von Rothstein-Trager
+\label{buch:ratint:section:rothsteintrager}}
+\kopfrechts{Die Methode von Rothstein-Trager}%
+Die Methode von Rothstein-Trager ermöglicht, auch den logarithmischen
+Teil
+\begin{equation}
+I
+=
+\int
+\frac{p(z)}{q(z)}
+\,dz
+\label{buch:ratint:rothsteintrager:eqn:integral}
+\end{equation}
+für einen quadratfreien Nenner $q(z)$ und einen dazu teilerfremden
+Zähler $p(z)$ mit $\deg p(z)<\deg q(z)$ zu berechnen.
+
+%
+% Residuen und die Form des Integrals
+%
+\subsection{Residuen und die Form des Integrals
+\label{buch:ratint:rothsteintrager:subsection:residuen}}
+In den komplexen zahlen lässt sich der quadratfreie Nenner $q(z)$ von
+\eqref{buch:ratint:rothsteintrager:eqn:integral}
+in ein Produkt verschiedner Linearfaktoren
+\begin{equation}
+q(z)
+=
+(z-\alpha_1)\cdots(z-\alpha_n)
+\label{buch:ratint:rothsteintrager:eqn:faktorisierung}
+\end{equation}
+zerlegen.
+Da die Nullstellen alle verschieden sind, hat die Partialbruchzerlegung
+des Integranden die Form
+\begin{equation}
+\frac{p(z)}{q(z)}
+=
+\frac{A_1}{z-\alpha_1}
++
+\ldots
++
+\frac{A_n}{z-\alpha_n}.
+\label{buch:ratint:rothsteintrager:eqn:integrand}
+\end{equation}
+In dieser Form lässt sich das Integral jedoch sofort angeben, es ist
+\begin{equation}
+\int
+\frac{p(z)}{q(z)}
+\,dz
+=
+A_1\log(z-\alpha_1)
++
+\ldots
++
+A_n\log(z-\alpha_n).
+\label{buch:ratint:rothsteintrager:eqn:integralform}
+\end{equation}
+Der Ausdruck kann noch etwas vereinfacht werden, wenn zwei der
+Koeffizienten gleich sind.
+Ist nämlich $A_k=A_l$, dann können die beiden Summanden in
+$A_k\log\bigl((z-\alpha_k)(z-\alpha_k)\bigr)$
+zusammengefasst werden.
+Für entgegengesetzte Koeffizienten $A_k=-A_l$ folgt entsprechend
+\[
+A_k\log \frac{z-\alpha_k}{z-\alpha_l}.
+\]
+Diese Form tritt zum Beispiel bei der Integration reeller Funktionen
+auf, wo die Nullstellen des Nenners paarweise konjugiert komplex sind.
+
+Wenn die Faktorisierung
+\eqref{buch:ratint:rothsteintrager:eqn:faktorisierung}
+von $q(z)$ bekannt ist, ist das Integrationsproblem an dieser
+Stelle gelöst.
+Wie früher bereits dargelegt wurde, kann man jedoch nicht davon
+ausgehen, dass das Faktorisierungsproblem gelöst werden kann.
+Es müssen also alternative Methoden gesucht werden, die ohne die 
+die Faktorisierung auskommen.
+
+%
+% Die Koeffizienten A_k und Residuen
+%
+\subsubsection{Die Koeffizienten $A_k$ und Residuen}
+Die Form 
+\eqref{buch:ratint:rothsteintrager:eqn:integrand}
+des Integranden des logarithmischen Teils zeigt, dass er isolierte
+Singularitäten hat und daher um jede Singularität in eine Laurent-Reihe
+entwickelt werden kann.
+Man kann sogar sagen, dass die Singularitäten Pole erster Ordnung
+sein müssen.
+
+Sie jetzt $\alpha$ eine dieser Pole, dann kann der Integrand
+in eine Laurent-Reihe
+\[
+\frac{p(z)}{q(z)}
+=
+\frac{b_1}{z-\alpha}
++
+a_0+a_1(z-\alpha) + a_2(z-\alpha)^2+\ldots
+\]
+um den Punkt $\alpha$ entwickelt werden.
+Gliedweise Integration der Reiher ergibt in einer Umgebung von $\alpha$
+\[
+\int
+\frac{p(z)}{q(z)}
+\,dz
+=
+b_1\log(z-\alpha)
++
+a_0(z-\alpha) + \frac{a_1}{2}(z-\alpha)^2 + \frac{a_2}{3}(z-\alpha)^3
++\ldots
+\]
+Durch Vergleich mit
+\eqref{buch:ratint:rothsteintrager:eqn:integralform}
+folgt, dass die gesuchten Koeffizienten $A_k$ die Residuen
+des Integranden an den Nullstellen von $q(z)$ sein müssen.
+Diese Koeffizienten lassen sich aber direkt aus den Polynomen 
+$p(z)$ und $q(z)$ berechnen.
+
+\begin{satz}
+\label{buch:ratint:rothsteintrager:satz:residuum}
+Sind $p(z)$ und $q(z)$ teilerfremd und $q(z)$ quadratfrei und
+$\alpha$ eine Nullstelle des Nenners.
+Dann ist das Residuum von $p(z)/q(z)$ an der Stelle $\alpha$
+\[
+A
+=
+\operatorname{res}\biggl(\alpha;\frac{p(z)}{q(z)}\biggr)
+=
+\frac{p(\alpha)}{q'(\alpha)}.
+\]
+\end{satz}
+
+Der Satz ist eine Folge des folgenden, algemeineren Satzes.
+Er gilt für einen beliebigen Bruch von holomorphen Funktionen,
+dessen Nenner eine einfache Nullstelle hat.
+
+\begin{satz}
+Ist $f(z)$ in einer Umgebung von $\alpha$ holomorph und hat $g(z)$
+eine Nullstelle erster Ordnung in $\alpha$, dann ist das Residuum
+von $f(z)/g(z)$ an der Stelle $\alpha$ der Wert $f(\alpha)/g'(\alpha)$.
+\end{satz}
+
+\begin{proof}
+Da $g(z)$ eine Nullstelle erster Ordnung an der Stelle $\alpha$
+hat, kann man
+\[
+g(z) = (z-\alpha)\bigl(g'(\alpha)+ r(z)(z-\alpha)\bigr)
+\]
+und damit
+\[
+\frac{f(z)}{g(z)}
+=
+\frac{f(z)}{(z-\alpha)\bigl(g'(\alpha)+r(z)(z-\alpha)\bigr)}
+=
+\frac{1}{z-\alpha}
+\cdot
+\frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+=
+\frac{1}{z-\alpha}
+\cdot
+h(z)
+\]
+mit einer in einer Umgebung von $\alpha$ holomorphen Funktion
+$h(z)$ schreiben.
+Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} ist
+das Residuum das Integral
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{g(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z-\alpha}
+\frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac1{z-\alpha}
+\cdot
+h(z)
+\,dz.
+\intertext{Nach dem Integralsatz~\ref{buch:integration:satz:residuensatz}
+ergibt das Integral}
+&=
+h(\alpha)
+=
+\frac{f(\alpha)}{g'(\alpha)}.
+\end{align*}
+Dies beweist den Satz.
+\end{proof}
+
+%
+% Der Satz von Rothstein-Trager
+%
+\subsection{Der Satz von Rothstein-Trager}
+Die Form des logarithmischen Teils des Integrals ist zwar bekannt,
+und der Satz~\ref{buch:ratint:rothsteintrager:satz:residuum}
+ermöglicht eine direkte Berechnung des Koeffizienten, sobald
+die Nullstellen bekannt sind, aber genau die Bestimmung der
+Nullstellen war ja der Punkt, warum die Methode von Bernoulli-Methode
+als unzureichend erkannt wurde.
+Dies ändert der folgende Satz von Rothstein-Trager.
+
+\begin{satz}[Rothstein-Trager]
+\label{buch:ratint:rothsteintrager:satz:rothsteintrager}
+Ist $p(z)$ teilerfremd zum quadratfreien Polynom $q(z)$ mit
+$\deg p(z)<\deg q(z)$, dann ist
+\[
+\int
+\frac{p(z)}{q(z)}
+\,dz
+=
+\sum_{i=1}^m c_i \log v_i(z),
+\]
+wobei die $c_i$ die möglicherweise komplexen Zahlen $c$ sind, derart,
+dass $p(z)-cq'(z)$ und $q(z)$ einen gemeinsamen Faktor haben.
+Die zugehörigen $r_i(z)$ sind
+\[
+r_i(z)
+=
+\operatorname{ggT}\bigl(p(z)-c_iq'(z),q(z)\bigr).
+\]
+\end{satz}
+
+\begin{proof}
+TODO
+\end{proof}
+
+Wenn es gelingt, eine algebraische Methode zur Bestimmung der
+Koeffizienten $c_i$ zu finden, können auch die Faktoren 
+$r_i(z)$ gefunden werden.
+Man beachte, dass nicht mehr eine Faktorisierung von $q(z)$
+verlangt wird, sondern nur noch die Möglichkeit, gemeinsame
+Faktoren zu finden, was im Prinzip mit dem euklidischen Algorithmus
+möglich ist.
+
+%
+% Gemeinsame Nullstellen und die Resultante
+%
+\subsubsection{Gemeinsame Nullstellen und die Resultante}
+Der Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
+verlagert das Problem, die Nullstellen des Nenners zu finden darauf,
+die Koeffizienten $c_i$ zu finden.
+Dies ist aus zwei Gründen einfacher:
+\begin{enumerate}
+\item
+Oft sind einige der Koeffizienten $A_k$ gleich.
+In diesen Fällen ist es nicht nötig, die zugehörigen Linearfaktoren
+zu kennen, es genügt das Produkt dieser Linearfaktoren zu finden,
+dies ist das Polynom $r_i(z)$ im
+Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}.
+\item
+Für das Kriterium, einen gemeinsamen Teiler zu finden gibt es
+ein einfaches algebraisches Kriterium, nämlich die Resultante.
+\end{enumerate}
+
+In Kapitel~\ref{chapter:resultante} wird beschrieben, wie die 
+Resultante des Problem, die Koeffizienten $c_i$ zu finden, lösen
+kann.
+

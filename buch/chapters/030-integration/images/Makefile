@@ -3,20 +3,25 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	wege.pdf							\
+all:									\
+	argument.pdf							\
+	beliebig.pdf							\
+	cauchyverteilung.pdf						\
+	deformation.pdf							\
+	dreiecke.pdf							\
+	ecos.pdf							\
+	green.pdf							\
+	hauptwert.pdf							\
+	homotopie.pdf							\
+	kettenzyklen.pdf						\
+	lochgebiet.pdf							\
+	merohomolog.pdf							\
+	methode.pdf							\
+	paar.pdf							\
+	raender.pdf							\
 	rechteck.pdf							\
 	residuum.pdf							\
-	argument.pdf							\
-	lochgebiet.pdf							\
-	homotopie.pdf							\
-	dreiecke.pdf							\
-	beliebig.pdf							\
-	green.pdf							\
-	deformation.pdf							\
-	cauchyverteilung.pdf						\
-	ecos.pdf							\
-	paar.pdf							\
-	merohomolog.pdf
+	wege.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -59,3 +64,15 @@ paar.pdf:	paar.tex
 
 merohomolog.pdf:	merohomolog.tex
 	pdflatex merohomolog.tex
+
+kettenzyklen.pdf:	kettenzyklen.tex
+	pdflatex kettenzyklen.tex
+
+raender.pdf:	raender.tex
+	pdflatex raender.tex
+
+hauptwert.pdf:	hauptwert.tex
+	pdflatex hauptwert.tex
+
+methode.pdf:	methode.tex
+	pdflatex methode.tex
