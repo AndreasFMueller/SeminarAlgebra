@@ -60,16 +60,268 @@ der Algorithmus auf Polynome verallgemeinert.
 % Der Grundalgorithmus
 %
 \subsubsection{Der Grundalgorithmus}
+Seien $a>b$ natürliche Zahlen und $q$ und $r$ so gewählte
+natürliche Zahlen, dass $a=bq+r$ mit $r<b$.
+Der grösste gemeinsame Teiler $g=\operatorname{ggT}(a,b)$ teilt dann
+sowohl $a$ als auch $b$, er muss daher auch $r$ teilen.
+Wiederholt man die Rechnung mit $b$ anstelle von $a$ und $r$ anstelle
+von $b$ folgt, dass $g$ erneut den Rest teilt.
+Da der Rest immer kleiner wird, gibt es einen Moment, bei dem
+er erstmals verschwindet.
+Der Divisor $b$ ist dann der grösste gemeinsame Teiler.
+
+\begin{beispiel}
+\label{buch:ratint:euklid:bsp:euklidzahlen}
+Für die Zahlen $a=36$ und $b=28$ ergibt sich die Rechnung
+\begin{center}
+\input{chapters/060-ratint/fig/tabular-euklid.tex}
+\end{center}
+aus der man $\operatorname{ggT}(36,28)=4$ ablesen kann.
+\end{beispiel}
 
 %
 % Der erweiterte Algorithmus
 %
 \subsubsection{Der erweiterte Algorithmus}
+Wir analysieren euklidischen Algorithmus nochmals etwas im Detail.
+Dazu führen wir die folgende Notation ein.
+Wir beginnen mit $a_0=a$ und $b_0=b$.
+Wir konstruieren dann $q_0$ und $r_0$ mit $a_0=q_0b_0+r_0$ und 
+setzen anschliessend $a_1 = b_0$ und $b_1 = r_0$.
+Dieser Prozess wird für $k>0$ gemäss
+\begin{align*}
+a_k &= b_{k-1} &
+b_k &= r_{k-1} &
+&\text{und}&
+a_k &= q_k b_k + r_k 
+&&\Rightarrow&
+r_k &= a_k - q_kb_k
+\end{align*}
+wiederholt, bis $r_{n+1}=0$ ist.
+Der grösste gemeinsame Teiler ist dann $r_n$.
+Rechnet man ausgehend von $r_n$ rückwärts, findet man
+\begin{align*}
+r_n &= a_n - q_n b_n
+\\
+    &= b_{n-1} - q_n r_{n-1}
+\\
+    &= b_{n-1} - q_n ( a_{n-1} - q_{n-1} b_{n-1} )
+     = q_n a_{n-1} + (1 + q_n q_{n-1}) b_{n-1}
+\\
+    &\phantom{1}\vdots
+\intertext{Durch wiederholte Anwendung der Definitionsformeln
+für $a_k$ und $b_k$ finden wir schliesslich ganze Zahlen $s$ und $t$
+mit der Eigenschaft}
+    &= s a_0 + t b_0.
+\end{align*}
+
+\begin{beispiel}
+Für das Beispiel~\ref{buch:ratint:euklid:bsp:euklidzahlen} folgt
+aus der zweiten Zeile der Tabelle
+\[
+\operatorname{ggT}(a,b)
+=
+4
+= 
+28 - 3\cdot 8
+\]
+Da 8 der Rest der vorangegangenen Zeile ist, kann man ihn durch
+$36-1\cdot 28$ ersetzen und erhält
+\[
+4
+=
+28 - 3 \cdot (36-28)
+=
+4\cdot 28 - 3\cdot 36.
+\]
+Damit sind die Zahlen $s=-3$ und $t=4$ gefunden.
+\end{beispiel}
+
+Der erweiterte euklidische Algorithmus kann also nicht nur den 
+grössten gemeinsamen Teiler von $a$ und $b$ finden, sondern zusätzlich
+Zahlen $s$ und $t$ derart, dass
+\[
+sa + tb
+=
+\operatorname{ggT}(a,b)
+\]
+gilt.
+Die Berechnung nach Abschluss ist jedoch eher unzweckmässig.
+Gewünscht ist eine Erweiterung des Grundalgorithmus, die die Zahlen
+$s$ und $t$ gleich mitberechnet.
+
+\begin{satz}
+Gegeben sind die natürlichen Zahlen $a$ und $b$.
+Der folgende Algorithmus berechnet den grössten gemeinsamen Teiler $g$
+und Zahlen $s$ und $t$ mit $g=sa+tb$.
+\begin{enumerate}
+\item
+Setze $a_0=a$, $b_0=b$, $k=0$ und $s_{-2}=1$, $t_{-2}=0$, $s_{-1}=0$
+und $t_{-1}=1$
+\item
+Finde $q_k$ und $q_k$ mit $a_k= q_kb_k+r_k$.
+\item
+Berechne
+$s_k=s_{k-2}-q_ks_{k-1}$ 
+und
+$t_k=t_{k-2}-q_kt_{k-1}$.
+\end{enumerate}
+Für alle $k$ gilt
+$r_k = s_ka+t_kb$
+Für den grössten Index $n$, für den $r_n\ne 0$ ist, folgt
+\[
+\operatorname{ggT}(a,b)
+=
+s_na+t_nb
+\qquad\text{und}\qquad
+0
+=
+s_{n+1}a+t_{n+1}b.
+\]
+\end{satz}
+
+\begin{proof}
+Wir schreiben die Division als Matrizenprodukt:
+\[
+\begin{pmatrix}
+b_k\\
+r_k
+\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+ 0 & 1   \\
+ 1 &-q_k
+\end{pmatrix}
+}_{\displaystyle = Q(q_k)}
+\begin{pmatrix}
+a_k\\
+b_k
+\end{pmatrix}
+\]
+Wiederholte Anwendung ergibt
+\[
+\begin{pmatrix}
+r_n\\
+0
+\end{pmatrix}
+=
+Q(q_{n+1})
+Q(q_n)
+\cdots
+Q(q_1)
+Q(q_0)
+\begin{pmatrix}
+a\\ b
+\end{pmatrix}.
+\]
+Das Produkt der Matrizen enthält in der ersten Zeile die gesuchten
+Zahlen $s_n$ und $t_n$ und in der zweiten Zeile die Zahlen
+$s_{n+1}$ und $t_{n+1}$.
+
+Da das Matrizenprodukt assoziativ ist, kann das Produkt von rechts
+her aufgelöst werden.
+Dazu definieren wir die Matrix
+\[
+S_k
+= 
+\begin{pmatrix}
+s_{k-1} & t_{k-1} \\
+s_{k}   & t_{k} 
+\end{pmatrix}
+\]
+mit der initialen Matrix
+\[
+S_{-1}
+=
+\begin{pmatrix}
+s_{-2} & t_{-2} \\
+s_{-1} & t_{-1} 
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}.
+\]
+Die Multiplikation mit $Q(q_k)$ mit $S_{k-1}$ erzeugt $S_k$, es gilt
+daher die Rekursionsformel
+\begin{align*}
+S_k
+&= 
+\begin{pmatrix}
+s_{k-1} & t_{k-1} \\
+s_{k}   & t_{k} 
+\end{pmatrix}
+=
+Q(q_k)
+S_{k-1}
+=
+Q(q_k)
+\begin{pmatrix}
+s_{k-2} & t_{k-2} \\
+s_{k-1} & t_{k-1} 
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+0&1\\
+1&-q_k
+\end{pmatrix}
+\begin{pmatrix}
+s_{k-2} & t_{k-2} \\
+s_{k-1} & t_{k-1} 
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+s_{k-1}            & t_{k-1}           \\
+s_{k-2}-q_ks_{k-1} & t_{k-2}-q_kt_{k-1} 
+\end{pmatrix}
+\end{align*}
+In der zweiten Zeile stehen die Rekursionsformeln für die
+Zahlen $s_k$ und $t_k$.
+\end{proof}
+
 
 %
 % Anwendung des erweiterten Algorithmus
 %
 \subsubsection{Anwendung des erweiterten Algorithmus}
+Der erweiterte euklidische Algorithmus kann dazu verwendet werden,
+die multiplikative inverse in einem endlichen Körper zu finden.
+Sei $p$ eine Primzahl und $\mathbb{F}_p$ die Menge der Reste modulo $p$.
+Die multiplikative Inverse eines Elementes $a\in\mathbb{F}_p$ kann
+jetzt wie folgt gefunden werden.
+Da $p$ ein Primzahl ist, sind $a$ und $p$ teilerfremd.
+Der erweiterte euklidische Algorithmus liefert zwei Zahlen $s$ und $t$
+mit
+\[
+sa + tp = \operatorname{ggT}(a,p) = 1.
+\]
+Modulo $p$ wird diese Gleichung zu
+\[
+sa \equiv 1 \mod p.
+\]
+Der Rest von $s$ modulo $p$ ist daher die multiplikative Inverse $a$.
+
+\begin{beispiel}
+Für $p=47$ und $a=43$ ergibt der erweiterte euklidische Algorithmus
+\[
+-12 \cdot 43
++
+11\cdot 47
+= 1.
+\]
+Die multiplikative Inverse von $43$ im Körper $\mathbb{F}_{47}$ ist
+daher $-12\equiv 35\mod 47$.
+Tatsächlich ist 
+\[
+35\cdot 43 = 1505 = 32\cdot 47 + 1,
+\]
+wie behauptet.
+\end{beispiel}
+
 
 %
 % Der euklidische Algorithmus für Polynome
