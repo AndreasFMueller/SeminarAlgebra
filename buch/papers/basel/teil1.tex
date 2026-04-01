@@ -55,11 +55,14 @@ Er war also auf der richtigen Spur.
 Im Jahr 1735 publizierte er sein Ergebnis, was ihn europaweit berühmt machte.
  
 \begin{table}
+\def\korrekt#1{
+\bgroup\color{darkred}#1\egroup
+}
 \centering
 \begin{tabular}{r r l}
-\toprule
+\hline
 $n$ & $10^n$ & $\operatorname{basel}(10^n)$ \\
-\midrule
+\hline
 0 & 1           & \korrekt{1.0} \\
 1 & 10          & \korrekt{1.}5497677311665408 \\
 2 & 100         & \korrekt{1.6}349839001848923 \\
@@ -67,7 +70,7 @@ $n$ & $10^n$ & $\operatorname{basel}(10^n)$ \\
 4 & 10\,000     & \korrekt{1.644}8340718480652 \\
 5 & 100\,000    & \korrekt{1.6449}240668982423 \\
 6 & 1\,000\,000 & \korrekt{1.64493}306684877 \\
-\bottomrule
+\hline
 \end{tabular}
 \caption{Näherungswerte von $\sum_{n=1}^{N} \frac{1}{n^2}$ für $N = 10^n$.
 Die \korrekt{rot hervorgehobenen} Ziffern stimmen bereits mit dem exakten Wert
