@@ -1,0 +1,214 @@
+%
+% 2-euklid.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Der euklidische Algorithmus
+\label{buch:ratint:section:euklid}}
+\kopfrechts{Der euklidische Algorithmus}%
+Die Konstruktion der Partialbruchzerlegung hat erfordert, dass gemeinsame
+Faktoren von Polynomen gefunden werden mussten.
+Es ist natürlich immer denkbar, eine Faktorisierung der beteiligten
+Polynome zu suchen, und die gemeinsamen Faktoren zu identifizieren.
+Der Fundamentalsatz der Algebra garantiert zwar, dass solche
+Faktoren über $\mathbb{C}$ existieren, für die Anwendung in einem
+Computeralgebrasystem brauchen wir aber eine Faktorisierung über
+$\mathbb{Q}$ oder einer Körpererweiterung von $\mathbb{Q}$, die in nur
+endlich vielen Schritten erfolgt ist.
+
+Das Finden der Faktoren ist eine weitere Schwierigkeit.
+Selbst über $\mathbb{C}$ können die vom Fundamentalsatz garantierten
+Linearfaktoren für Polynome vom Grad $\ge 5$ algorithmisch im
+Allgemeinen nicht gefunden werden.
+Es ist daher nicht angebracht, auf dem Umweg über die Faktorisierung
+nach gemeinsame Faktoren zu suchen.
+
+Es gibt aber eine direkte Möglichkeit, gemeinsame Faktoren zu finden.
+In seiner ursprünglichen Version, die in
+Abschnitt~\ref{buch:ratint:euklid:subsection:ganzezahlen}
+beschrieben wird, findet der euklidische Algorithmus den grössten
+gemeinsamen Teiler $r$ zweier ganzer Zahlen $a$ und $b$.
+Die erweiterte Form ist zudem in der Lage, den grössten gemeinsamen
+Teiler als $r=sa+tb$ zu schreiben mit ganzen Zahlen $s,t\in\mathbb{Z}$.
+Diese Version kann dazu verwendet werden, die multiplikative Inverse 
+in einem endlichen Körper zu finden.
+
+Der euklidische Algorithmus ist nicht auf ganze Zahlen beschränkt.
+Er lässt sich in jedem sogenannten euklidischen Ring durchführen.
+Dazu gehören auch die Polynomringe.
+Der grösste gemeinsame Teiler von zwei Polynomen ist ein gemeinsamer
+Faktor, der gemeinsame Nullstellen enthält.
+Eine mehrfache Nullstelle eines Polynoms $p(X)$ führt zu einem gemeinsamen
+Teiler von $p'(X)$ und $p(X)$, auch solche mehrfache Faktoren
+können also mit dem euklidischen Algorithmus gefunden werden.
+
+%
+% Der euklidische Algorithmus für ganz Zahlen
+%
+\subsection{Der euklidische Algorithmus für ganze Zahlen
+\label{buch:ratint:euklid:subsection:ganzezahlen}}
+In diesem Abschnitt wird der euklidische Algorithmus für ganze
+Zahlen entwickelt.
+Diese Form des Algorithmus ist seit dem Altertum bekannt und wird
+oft bereits in der Mittelschule als Beispiel ein sowohl historisch
+wie auch mathematisch bedeutsames Beispiel eines Algorithmus
+unterrichtet.
+Im Abschnitt~\ref{buch:ratint:euklid:subsection:polynome} wird dann
+der Algorithmus auf Polynome verallgemeinert.
+
+%
+% Der Grundalgorithmus
+%
+\subsubsection{Der Grundalgorithmus}
+
+%
+% Der erweiterte Algorithmus
+%
+\subsubsection{Der erweiterte Algorithmus}
+
+%
+% Anwendung des erweiterten Algorithmus
+%
+\subsubsection{Anwendung des erweiterten Algorithmus}
+
+%
+% Der euklidische Algorithmus für Polynome
+%
+\subsection{Der euklidische Algorithmus für Polynome
+\label{buch:ratint:euklid:subsection:polynome}}
+
+%
+% Polynomdivision
+%
+\subsubsection{Polynomdivision}
+
+%
+% Gemeinsame Teiler für Polynome
+%
+\subsubsection{Gemeinsame Teiler für Polynome}
+
+%
+% Der erweiterte euklidische Algorithmus für Polynome
+%
+\subsubsection{Der erweiterte euklidische Algorithmus für Polynome}
+
+%
+% Euklidische Ringe
+%
+\subsubsection{Euklidische Ringe}
+Der euklidische Algorithmus benötigt erst mal, dass es keine
+pathologischen Faktoren gibt, die ein Produkt auslöschen können.
+Solche pathologischen Fälle führen dazu, dass es nicht sinnvoll ist
+von einer eindeutigen Faktorisierung zu sprechen.
+
+\begin{definition}[Nullteiler, Integritätsbereich]
+Nullteiler \emph{Nullteiler} in einem Ring $R$ sind Zahlen
+$a,b\in R^*=R\setminus\{0\}$ mit $ab=0$.
+Ein Ring $R$ ohne Nullteiler heisst \emph{nullteilerfrei} oder ein
+\emph{Integritätsbereich}.
+\index{Nullteiler}%
+\index{nullteilerfrei}%
+\index{Integritatsbereich@Integritätsbereich}%
+\end{definition}
+
+Der euklidische Algorithmus für ganze Zahlen verwendet, dass der Rest
+bei der ganzzahligen Division kleiner als der Divisor ist.
+Polynome kann man nicht vergleichen.
+Der euklidische Algorithmus für Polynome braucht aber, dass der Grad
+des Restes kleiner wird als der Grad des Divisors.
+Der Algorithmus ist also auf eine allgemeinere Situation übertragbar,
+wenn ein Eigenschaft ähnlich dem Grad gefunden werden kann, die bei
+der Division kleiner wird.
+
+\begin{definition}[Euklidischer Ring]
+\label{buch:ratint:euklid:def:euklidischerring}
+Ein nullteilerfreier Ring  $R$ heisst ein \emph{euklidischer Ring},
+wenn es eine Funktion $d\colon R^*\to\mathbb{Z}$
+\begin{enumerate}
+\item $d(r) \ge 0$ für alle $r\in R^*$.
+\item $d(r)\le d(rs)$ für alle $r,s\in R^*$.
+\item Sind $a,b\in R^*$, dann gibt es $q,r$ mit $a=qb+r$ mit $r=0$ oder
+$d(r)<d(b)$.
+\end{enumerate}
+Die Funktion $d$ heisst auch die \emph{Gradfunktion} des euklidischen
+Rings.
+\index{Gradfunktion}%
+Die letzte Eigenschaft kann etwas vereinfacht werden, wenn man
+$d(0)=-\infty$ definiert.
+\end{definition}
+
+Für die ganzen Zahlen ist die $d\colon\mathbb{Z}^*\to\mathbb{Z}: a\to a$
+die Funktion, die die ganzen Zahlen zu einem euklidischen Ring macht.
+Für Polynome mit Koeffizienten in einem Körper ist es der Grad
+$\deg\colon K[X] \to \mathbb{Z} : p(X) \mapsto \deg p$.
+
+Ein weiteres interessantes Beispiel für einen euklidischen Ring ist
+der Ring der ganzen gaussschen Zahlen.
+
+\begin{beispiel}
+Wir betrachten die Menge
+\[
+\mathbb{Z}[i]
+=
+\{a+bi\mid a,b\in\mathbb{Z}\}\subset\mathbb{C}.
+\]
+Sie heisst der \emph{Ring der ganzen gaussschen Zahlen}.
+\index{gausssche Zahlen}%
+Als Teilmenge des Körpers der komplexen Zahlen ist $\mathbb{Z}[i]$
+sicher ein nullteilerfreier Ring.
+Als Gradfunktion kann das Betragsquadrat 
+\[
+d
+\colon
+\mathbb{Z}[i] \to \mathbb{Z}
+:
+(a+bi) \mapsto a^2+b^2
+\]
+verwendet werden.
+Es müssen die drei Eigenschaften der 
+Definition~\ref{buch:ratint:euklid:def:euklidischerring}
+verifizieren.
+\begin{enumerate}
+\item
+Für $a+bi\ne 0$ ist $d(a+bi)=a^2+b^2>0$.
+\item
+Für das Produkt gilt für $(a+bi)\ne 0$ ist $d(a+bi)\ge 1$
+\[
+d\bigl(
+(a+bi)(c+di)
+\bigr)
+=
+(a^2+b^2)(c^2+d^2)
+=
+d(a+bi)d(c+di)
+\ge
+d(c+di)
+\]
+für all $c+di\in \mathbb{Z}[i]$.
+\item
+TODO
+\end{enumerate}
+Dies zeigt, dass die ganzen gaussschen Zahlen einen euklidischen
+Ring bilden.
+Es ist daher sinnvoll, vom grössten gemeinsamen Teiler ganzer
+gaussscher Zahlen zu sprechen und es ist möglich, diese mit dem
+euklidischen Algorithmus zu finden.
+\end{beispiel}
+
+Die ganzschen gaussschen Zahlen können zum Beispiel dazu verwendet
+werden, dann folgenden fermatschen Zweiquadratesatz zu beweisen
+\cite[Satz 10.4]{buch:luneburg}.
+
+\begin{satz}[Fermat]
+Ist $p$ eine Primzahl mit $p\equiv 1\mod 4$, dann gibt es ganze
+Zahlen $a,b\in\mathbb{Z}$ mit $p=a^2+b^2$.
+\end{satz}
+
+%
+% Polynome mit Polynomkoeffizienten
+%
+\subsection{Polynome mit Polynomkoeffizienten
+\label{buch:ratint:euklid:subsection:polypoly}}
+
+
+

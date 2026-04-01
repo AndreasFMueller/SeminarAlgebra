@@ -1,0 +1,47 @@
+%
+% chapter.tex -- Analytische Funktionen
+%
+% (c) 2025 Prof Dr Andreas Müller
+%
+% !TeX spellcheck = de_CH
+\chapter{Integration rationaler Funktionen
+\label{chapter:ratint}}
+\kopflinks{Integration rationaler Funktionen}
+Schon früh in der Geschichte der Analysis wurde klar, dass es für
+rationale Funktionen immer möglich ist, eine Stammfunktion anzugeben.
+Die Methode von Bernoulli, die in
+Abschnitt~\ref{buch:ratint:section:bernoulli} dargestellt wird,
+findet eine solche Stammfunktion.
+Er basiert jedoch auf einer Faktorisierung des Nenners in Linearfaktoren,
+deren Existenz der Fundamentalsatz der Algebra zwar garantiert, aber
+nicht finden kann.
+Die Methode von Bernoulli ist daher im Allgemeinen für ein
+Computeralgebrasystem (CAS) nicht durchführbar.
+Das Prinzip ist aber verallgemeinerungsfähig, es muss nur eine geeignete
+Alternative zur klassischen Partialbruchzerlegung gefunden werden.
+Die quadratfreie Faktorisierung einer rationialen Funktion setzt jedoch
+eine effiziente Methode voraus, gemeinsame Teiler von Polynomen
+zu finden.
+Der verallgemeinerte euklidische Algorithmus für Polynome wird in
+Abschnitt~\ref{buch:ratint:section:euklid} dargestellt.
+Mit der quadratfreien Faktorisierung können somit ein CAS-taugliche
+Integrationsalgorithmen konstruiert wird.
+Wir stellen die Methode von Hermite in
+Abschnitt~\ref{buch:ratint:section:hermite} und die Methode von Horowitz in
+Abschnitt~\ref{buch:ratint:section:horowitz} dar.
+
+\input{chapters/060-ratint/1-bernoulli.tex}
+\input{chapters/060-ratint/2-euklid.tex}
+\input{chapters/060-ratint/3-hermite.tex}
+\input{chapters/060-ratint/4-rothsteintrager.tex}
+
+
+%\uebungsabschnitt
+%
+%\aufgabetoplevel{chapters/060-ratint/uebungsaufgaben}
+%\begin{uebungsaufgaben}
+%\uebungsaufgabe{601}
+%\uebungsaufgabe{602}
+%\end{uebungsaufgaben}
+%\enduebungsabschnitt
+
