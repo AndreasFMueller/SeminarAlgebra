@@ -274,10 +274,10 @@ s_{k-1} & t_{k-1}
 \end{pmatrix}
 \\
 &=
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 s_{k-1}            & t_{k-1}           \\
 s_{k-2}-q_ks_{k-1} & t_{k-2}-q_kt_{k-1} 
-\end{pmatrix}
+\end{pmatrix*}.
 \end{align*}
 In der zweiten Zeile stehen die Rekursionsformeln für die
 Zahlen $s_k$ und $t_k$.
@@ -328,6 +328,13 @@ wie behauptet.
 %
 \subsection{Der euklidische Algorithmus für Polynome
 \label{buch:ratint:euklid:subsection:polynome}}
+Der euklidische Algorithmus funktioniert auch für Polynome.
+Dies ermöglicht, rationale Funktionen effizient zu kürzen.
+Später werden wir den erweiterten euklidischen Algorithmus
+auch verwenden, um die quadratfreie Faktorisierung und die 
+zugehörige Partialbruchzerlegung einer rationalen Funktion
+zu finden und um Integrale von rationalen Funktionen auf 
+einfachere Form zu reduzieren.
 
 %
 % Polynomdivision
