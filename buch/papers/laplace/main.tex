@@ -6,29 +6,31 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\chapter{Thema\label{chapter:laplace}}
+
+
+\chapter{Laplace-Inversion und Bromwich-Integral\label{chapter:laplace}}
 \kopflinks{Thema}
 \begin{refsection}
-\chapterauthor{Noel Karlsson\\Simon Widmer}
+\chapterauthor{Noel Karlsson und Simon Widmer}
 
-Ein päär Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+\noindent
+Inhalt des Kapitels ist die Rücktransformationen der Laplacetransformation mittles dem Bromwich-Integral.
+Das Bromwich-Integral ist ein spezieller Anwendungsfall eines Komplexen geschlossenen Integral.
+Elementar wird dabei der Residuensatz chapter:Residuensatz und die Laurent-Reihenentwicklung chapter:Laurentreihe.
+Die Laplace-Inversion, an sich, wird hier nicht im betrachtet.
+Fokus dieses Kapitels ist es vor allem, dem Leser zu zeigen wie durch spezielle geschlossene Integrationswege ein schwieriges Integral, wie ein solches, welches durch die Laplace-Inversion zustande kommt, einfach gelöst werden kann.
+Für eine Ausführliche Behandlung der Laplace-Transformation sei auf \cite{laplace:laplacetransform} verwiesen.
+
+\section{Die Laplacetransformation\label{laplace:section:teil0}}
+\kopfrechts{Teil 0}
+
+Die Laplace-Transformation ist eine Integraltransformation von der Form
+\begin{equation}
+F(s) = \int_{0}^{\infty} f(t) \, e^{-st} \, \mathrm{d}t,
+\label{Laplace:teil0:Laplacetransformation}
+\end{equation}
+wobei $f$ die zu transformierende Zeitfunktion ist ($f$ ist meistens Real) und $s = \delta + i \omega$ eine Variable aus dem $\mathbb{C}$ ist.
+
 
 \input{papers/laplace/teil0.tex}
 \input{papers/laplace/teil1.tex}
