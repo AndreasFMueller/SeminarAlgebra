@@ -26,10 +26,27 @@ Für eine Ausführliche Behandlung der Laplace-Transformation sei auf \cite{lapl
 
 Die Laplace-Transformation ist eine Integraltransformation von der Form
 \begin{equation}
-F(s) = \int_{0}^{\infty} f(t) \, e^{-st} \, \mathrm{d}t,
+F(s) = \int_{0}^{\infty} f(t) \, e^{-st} \, \mathrm{d}t ,
 \label{Laplace:teil0:Laplacetransformation}
 \end{equation}
-wobei $f$ die zu transformierende Zeitfunktion ist ($f$ ist meistens Real) und $s = \delta + i \omega$ eine Variable aus dem $\mathbb{C}$ ist.
+wobei $f(t)$ die zu transformierende Zeitfunktion ist ($f$ ist meistens Real) und $s$ ein Parameter der Transformation aus dem Komplexen Zahlenraum ist.
+Der Real- und Imaginärteil von $s$ wird meistens mit $\delta$ und $\omega$ abgekürzt.
+Somit repräsentiert mit $e^{-st} = e^{\delta t} \cdot e^{i \omega t}$ im Integral $\delta$ eine Abklingkonstante und $\omega$ eine Kreisfrequenz mit denen auf Orthogonalität mit $f$ geprüft werden.
+Des weiteren bildet $F(s)$ die Laplace-Transformierte.
+Die Laplace-Transformation wird oft abgekürzt mit $ F(s) = (\mathcal{L}\circ f)(s)$ oder $F(s) = \mathcal{L}\{f(t)\}$.
+
+Breite Anwendung findet die Laplace-Transformation dadurch, dass sie Ableitungen in algebraische Ausdrücke umwandeln kann.
+Dadurch können sonst schwierige Differentialgleichungen vereinfacht oder direkt gelöst werden.
+Die Differentiationseigenschaft kann einfach bewiesen werden indem eine nach der Zeit abgeleitete Funktion $f'(t)$ eingefügt wird und anschliessend der Ausdruck durch Partielle Integration vereinfacht wird.
+Dadurch wird aus
+\begin{equation}
+\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t
+\end{equation}
+mit wobei die Stammfunktion von $f'(t)$ $f$ ist,
+\begin{equation}
+\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t
+\end{equation}
+
 
 
 \input{papers/laplace/teil0.tex}
