@@ -24,71 +24,33 @@
 \chapterauthor{Noel Karlsson und Simon Widmer}
 
 \noindent
-Inhalt des Kapitels ist die Laplace-Inversion mittles dem Bromwich-Integral.
-Das Bromwich-Integral ist ein spezieller Anwendungsfall eines Komplexen geschlossenen Integral.
+Inhalt des Kapitels ist die Berechnung der Laplace-Inversion mittles dem Bromwich-Integral.
+% noach anpassen
+
 Elementar wird dabei der Residuensatz chapter:Residuensatz und die Laurent-Reihenentwicklung chapter:Laurentreihe.
 Die Laplace-Inversion, an sich, wird hier nicht im betrachtet.
 Fokus dieses Kapitels ist es vor allem, dem Leser zu zeigen wie durch spezielle geschlossene Integrationswege ein schwieriges Integral, wie ein solches, welches durch die Laplace-Inversion zustande kommt, einfach gelöst werden kann.
 Für eine Ausführliche Behandlung der Laplace-Transformation sei auf \cite{laplace:laplacetransform} verwiesen.
 
-\section{Die Laplacetransformation\label{laplace:section:teil0}}
-\kopfrechts{Teil 0}
 
-Die Laplace-Transformation ist eine Integraltransformation von der Form
-\begin{equation}
-F(s) = \int_{0}^{\infty} f(t) \, e^{-st} \, \mathrm{d}t ,
-\label{Laplace:teil0:Laplacetransformation}
-\end{equation}
-wobei $f(t)$ die zu transformierende Zeitfunktion ist ($f$ ist meistens Real) und $s$ ein Parameter der Transformation aus dem Komplexen Zahlenraum ist.
-Der Real- und Imaginärteil von $s$ wird meistens mit $\delta$ und $\omega$ abgekürzt.
-Somit repräsentiert mit $e^{-st} = e^{\delta t} \cdot e^{i \omega t}$ im Integral $\delta$ eine Abklingkonstante und $\omega$ eine Kreisfrequenz mit denen auf Orthogonalität mit $f$ geprüft werden.
-Des weiteren bildet $F(s)$ die Laplace-Transformierte.
-Die Laplace-Transformation wird oft abgekürzt mit $ F(s) = (\mathcal{L}\circ f)(s)$ oder $F(s) = \mathcal{L}\{f(t)\}$.
-
-Bei den Laplace-Transformierten Funktionen, abhängig von $s$, spricht man von Funktionen im Bildbereich, bei den Zeitabhängigen Funktionen vom Zeitbereich.
-Es gibt also über die Transformation eine Korrespondenz.
-Dabei spricht man $f(t)$ Korrespondiert mit $F(t)$.
-Diese Korrespondenz wird mit einem "Hantelsymbol" geschrieben so dass $f(t) \laplacecorr F(s)$ oder $F(s) \invlaplacecorr f(t)$ Symbol ausgedrückt.
-
-
-
-Breite Anwendung findet die Laplace-Transformation vor allem dadurch, dass sie Ableitungen in algebraische Ausdrücke umwandeln kann.
-Dadurch können sonst schwierige Differentialgleichungen vereinfacht oder direkt gelöst werden.
-Die Differentiationseigenschaft kann einfach bewiesen werden indem eine nach der Zeit abgeleitete Funktion $f'(t)$ eingefügt wird und anschliessend der Ausdruck durch Partielle Integration vereinfacht wird.
-Dadurch wird aus
-\begin{equation}
-	\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t,
-	\label{Laplace:teil0:integral ableitung laplacetransformation}
-\end{equation}
-wobei die Stammfunktion von $f'(t)$ $f$ ist,
-\begin{equation}
-	\mathcal{L}\{f'(t)\} = \left. e^{-st} f(t) \, \right|_{t=0}^{t=\infty} - 
-	\int_{0}^{\infty} f(t) \, (-s \, e^{-st}) \, dt.
-	\label{Laplace:teil0:partielle Integration}
-\end{equation}
-Mit der Mit der Annahme, dass $\delta > 0$ ist und dass $f(t)$ nicht stärker wächst, als $e^{-\delta}$ abnimmt, wird der erste Term der Rechten Seite gegen $0 - f(0^+)$ konvergieren.
-Der Zweite Term auf der rechten Seite ist wiederum die normale Laplace-Transformation mit dem Vorfaktor $s$. 
-Dadurch ergibt sich
-\begin{equation}
-	\begin{aligned}
-		\mathcal{L}\{f'(t)\} &= s \mathcal{L}\{ f(t) \} - f(0^{+}) \\
-		&= sF(s) - f(0^{+}).
-	\end{aligned}
-	\label{Laplace:teil0:ableitung laplacetransformation}
-\end{equation}
-Somit ergibt sich als erste Korrespondenz 
-\begin{equation}
-	f'(t) \laplacecorr sF(s) - f(0^+).
-	\label{Laplace:teil0:ableitung korrespondenz}
-\end{equation}
-Höhergradige Ableitungskorrespondenzen können einfach durch Substitution gefunden werden.
-Dabei wird aus formel 
 
 
 \input{papers/laplace/teil0.tex}
-\input{papers/laplace/teil1.tex}
-\input{papers/laplace/teil2.tex}
-\input{papers/laplace/teil3.tex}
+
+\section{Bromwich-Integral}
+
+\section{Bromwich-Kontur und Jordan-Lemma}
+
+\subsection{Beispiel}
+
+\section{Weiterführende spezielle Konturen}
+
+%\input{papers/laplace/teil1.tex}
+
+%\subsection{Weiterführende berechnung }
+
+%\input{papers/laplace/teil2.tex}
+%\input{papers/laplace/teil3.tex}
 
 \printbibliography[heading=subbibliography]
 \end{refsection}
