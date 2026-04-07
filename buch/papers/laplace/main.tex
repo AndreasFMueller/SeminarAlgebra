@@ -7,16 +7,10 @@
 % !TEX encoding = UTF-8
 %
 
-% Pfäde zum behandeln: e^sqrt{s}, hankel kontur s^{-a}, Doumbell Countour, Unendlich viele pole
+% TODO:
+% - Gemeinsamer standart für bildergenerierung erstellen
 
-% In der Präambel:
-\newcommand{\laplacecorr}{%
-  \mathrel{\circ}\joinrel\relbar\joinrel\relbar\joinrel\mathrel{\bullet}%
-}
 
-\newcommand{\invlaplacecorr}{%
-  \mathrel{\bullet}\joinrel\relbar\joinrel\relbar\joinrel\mathrel{\circ}%
-}
 
 \chapter{Laplace-Inversion und Bromwich-Integral\label{chapter:laplace}}
 \kopflinks{Thema}
@@ -25,7 +19,7 @@
 
 \noindent
 Inhalt des Kapitels ist die Berechnung der Laplace-Inversion mittles dem Bromwich-Integral.
-% noach anpassen
+% TODO: Sätze überarbeiten
 
 Elementar wird dabei der Residuensatz chapter:Residuensatz und die Laurent-Reihenentwicklung chapter:Laurentreihe.
 Die Laplace-Inversion, an sich, wird hier nicht im betrachtet.
@@ -33,24 +27,18 @@ Fokus dieses Kapitels ist es vor allem, dem Leser zu zeigen wie durch spezielle 
 Für eine Ausführliche Behandlung der Laplace-Transformation sei auf \cite{laplace:laplacetransform} verwiesen.
 
 
+\input{papers/laplace/makros.tex}
 
 
 \input{papers/laplace/teil0.tex}
+\input{papers/laplace/teil1.tex}
+\input{papers/laplace/teil2.tex}
+\input{papers/laplace/teil3.tex}
+\input{papers/laplace/teil4.tex}
+\input{papers/laplace/teil5.tex}
+\input{papers/laplace/teil6.tex}
 
-\section{Bromwich-Integral}
 
-\section{Bromwich-Kontur und Jordan-Lemma}
-
-\subsection{Beispiel}
-
-\section{Weiterführende spezielle Konturen}
-
-%\input{papers/laplace/teil1.tex}
-
-%\subsection{Weiterführende berechnung }
-
-%\input{papers/laplace/teil2.tex}
-%\input{papers/laplace/teil3.tex}
 
 \printbibliography[heading=subbibliography]
 \end{refsection}
