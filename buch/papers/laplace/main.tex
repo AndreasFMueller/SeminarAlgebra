@@ -7,6 +7,16 @@
 % !TEX encoding = UTF-8
 %
 
+% Pfäde zum behandeln: e^sqrt{s}, hankel kontur s^{-a}, Doumbell Countour, Unendlich viele pole
+
+% In der Präambel:
+\newcommand{\laplacecorr}{%
+  \mathrel{\circ}\joinrel\relbar\joinrel\relbar\joinrel\mathrel{\bullet}%
+}
+
+\newcommand{\invlaplacecorr}{%
+  \mathrel{\bullet}\joinrel\relbar\joinrel\relbar\joinrel\mathrel{\circ}%
+}
 
 \chapter{Laplace-Inversion und Bromwich-Integral\label{chapter:laplace}}
 \kopflinks{Thema}
@@ -14,7 +24,7 @@
 \chapterauthor{Noel Karlsson und Simon Widmer}
 
 \noindent
-Inhalt des Kapitels ist die Rücktransformationen der Laplacetransformation mittles dem Bromwich-Integral.
+Inhalt des Kapitels ist die Laplace-Inversion mittles dem Bromwich-Integral.
 Das Bromwich-Integral ist ein spezieller Anwendungsfall eines Komplexen geschlossenen Integral.
 Elementar wird dabei der Residuensatz chapter:Residuensatz und die Laurent-Reihenentwicklung chapter:Laurentreihe.
 Die Laplace-Inversion, an sich, wird hier nicht im betrachtet.
@@ -35,18 +45,44 @@ Somit repräsentiert mit $e^{-st} = e^{\delta t} \cdot e^{i \omega t}$ im Integr
 Des weiteren bildet $F(s)$ die Laplace-Transformierte.
 Die Laplace-Transformation wird oft abgekürzt mit $ F(s) = (\mathcal{L}\circ f)(s)$ oder $F(s) = \mathcal{L}\{f(t)\}$.
 
-Breite Anwendung findet die Laplace-Transformation dadurch, dass sie Ableitungen in algebraische Ausdrücke umwandeln kann.
+Bei den Laplace-Transformierten Funktionen, abhängig von $s$, spricht man von Funktionen im Bildbereich, bei den Zeitabhängigen Funktionen vom Zeitbereich.
+Es gibt also über die Transformation eine Korrespondenz.
+Dabei spricht man $f(t)$ Korrespondiert mit $F(t)$.
+Diese Korrespondenz wird mit einem "Hantelsymbol" geschrieben so dass $f(t) \laplacecorr F(s)$ oder $F(s) \invlaplacecorr f(t)$ Symbol ausgedrückt.
+
+
+
+Breite Anwendung findet die Laplace-Transformation vor allem dadurch, dass sie Ableitungen in algebraische Ausdrücke umwandeln kann.
 Dadurch können sonst schwierige Differentialgleichungen vereinfacht oder direkt gelöst werden.
 Die Differentiationseigenschaft kann einfach bewiesen werden indem eine nach der Zeit abgeleitete Funktion $f'(t)$ eingefügt wird und anschliessend der Ausdruck durch Partielle Integration vereinfacht wird.
 Dadurch wird aus
 \begin{equation}
-\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t
+	\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t,
+	\label{Laplace:teil0:integral ableitung laplacetransformation}
 \end{equation}
-mit wobei die Stammfunktion von $f'(t)$ $f$ ist,
+wobei die Stammfunktion von $f'(t)$ $f$ ist,
 \begin{equation}
-\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t
+	\mathcal{L}\{f'(t)\} = \left. e^{-st} f(t) \, \right|_{t=0}^{t=\infty} - 
+	\int_{0}^{\infty} f(t) \, (-s \, e^{-st}) \, dt.
+	\label{Laplace:teil0:partielle Integration}
 \end{equation}
-
+Mit der Mit der Annahme, dass $\delta > 0$ ist und dass $f(t)$ nicht stärker wächst, als $e^{-\delta}$ abnimmt, wird der erste Term der Rechten Seite gegen $0 - f(0^+)$ konvergieren.
+Der Zweite Term auf der rechten Seite ist wiederum die normale Laplace-Transformation mit dem Vorfaktor $s$. 
+Dadurch ergibt sich
+\begin{equation}
+	\begin{aligned}
+		\mathcal{L}\{f'(t)\} &= s \mathcal{L}\{ f(t) \} - f(0^{+}) \\
+		&= sF(s) - f(0^{+}).
+	\end{aligned}
+	\label{Laplace:teil0:ableitung laplacetransformation}
+\end{equation}
+Somit ergibt sich als erste Korrespondenz 
+\begin{equation}
+	f'(t) \laplacecorr sF(s) - f(0^+).
+	\label{Laplace:teil0:ableitung korrespondenz}
+\end{equation}
+Höhergradige Ableitungskorrespondenzen können einfach durch Substitution gefunden werden.
+Dabei wird aus formel 
 
 
 \input{papers/laplace/teil0.tex}
