@@ -1,0 +1,103 @@
+%
+% 2-liouville.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Das Prinzip von Liouville
+\label{buch:intalg:section:liouville}}
+\kopfrechts{Das Prinzip von Liouville}%
+Die in Kapitel~\ref{chapter:ratint} durchgerechneten Beispiele 
+uggerieren, dass eine Stammfunktion immer nur eine Linearkombination
+von Logarithmen der Teilnenner der Partialbruchzerlegung ist.
+Das Prinzip von Liouville zeigt, dass dies ganz allgemein gilt.
+
+%
+% Das Prinzip
+%
+\subsection{Das Prinzip 
+\label{buch:intalg:liouville:subsection:prinzip}}
+
+\begin{satz}
+Sei $F$ ein Funktionenkörper mit Konstantenkörper $K$ und $f\in F$.
+Wenn $f$ eine Stammfunktion $g$ in einer elementaren Erweiterung
+$G\supset F$ hat, die den gleichen Konstantenkörper wie $F$ hat, dann
+gibt es $v_0,v_1,\dots,v_n\in F$ und $c_1,\dots,c_k\in K$ mit
+\begin{equation}
+f
+=
+Dv_0
++
+\sum_{i=1}^n c_i\frac{Dv_i}{v_i},
+\end{equation}
+d.~h.~
+\[
+\int f(z)\,dz
+=
+v_0
++ 
+\sum_{i=1}^n c_i \log(v_i).
+\]
+$G$ muss also alle Logarithmen $\log(v_i)$, $i=1,\dots,n$, enthalten.
+\end{satz}
+
+Wie kann man überhaupt eine solche Aussage beweisen?
+Wenn $g$ die Stammfunktion von $f$ ist, dann muss die Ableitung
+von $g$ wieder $f$ ergeben, also $Dg=f$.
+Wenn also $g$ in einer Erweiterung $F(\vartheta_1,\dots,\vartheta_n)$
+von $F$ liegt, dann kann man versuchen, einen Ausdruck für $g$ in den
+Elementen $\vartheta_k$ abzuleiten.
+Dabei muss ein Ausdruck entstehen, welcher mit $f$ übereinstimmt.
+Alle Terme mit den Elementen $\vartheta_k$ müssen sich daher wegheben.
+
+Der allgemeine Fall einer Erweiterung der Form
+$F(\vartheta_1,\dots,\vartheta_n)$ führt zu ziemlich komplizierten
+Ausdrücken.
+Daher beginnen wir damit einer Erweiterung $F(\vartheta)$ um ein
+einziges $\vartheta$.
+In diesem Fall muss $g$ die Form einer rationalen Funktion
+\[
+g
+=
+\frac{a(\vartheta)}{b(\vartheta)} 
+=
+\frac{
+a_0 + a_1\vartheta + \dots a_n\vartheta^n
+}{
+b_0 + b_1\vartheta + \dots b_m\vartheta^m
+},
+\]
+wobei $a(\vartheta)\in F[\vartheta]$ und $b(\vartheta)\in F[\vartheta]$
+Polynome mit Koeffizienten in $F$ sind.
+In diesem Fall lässt sich die Ableitung von $g$ leichter 
+berechnen.
+Zu diesem Zweck berechnen wir im
+Abschnitt~\ref{buch:intalt:liouville:subsection:polynome}
+zunächst die Ableitung von Polynomen von $\vartheta$ für die
+verschiedenen Arten von Erweiterungen.
+Diese Resultate verwenden wir dann im
+Abschnitt~\ref{buch:intalt:liouville:subsection:spezialfaelle},
+um das Prinzip von Liouville für eine Erweiterung der Form $F(\vartheta)$
+zu beweisen.
+In Abschnitt~\ref{buch:intalt:liouville:subsection:allgemein}
+wird dann der allgemeine Fall bewiesen.
+
+%
+% Polynome von Erweiterungen
+%
+\subsection{Polynome von Erweiterungen
+\label{buch:intalg:liouville:subsection:polynome}}
+
+%
+% Beweis des Prinzips von Liouville in Spezialfällen
+%
+\subsection{Beweis des Prinzips von Liouville in Spezialfällen
+\label{buch:intalg:liouville:subsection:spezialfaelle}}
+
+%
+% Beweis im allgemeinen Fall
+%
+\subsection{Beweis im allgemeinen Fall
+\label{buch:intalg:liouville:subsection:allgemein}}
+
+
+
