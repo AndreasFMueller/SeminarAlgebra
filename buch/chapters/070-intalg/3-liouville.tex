@@ -55,7 +55,7 @@ Ausdrücken.
 Daher beginnen wir damit einer Erweiterung $F(\vartheta)$ um ein
 einziges $\vartheta$.
 In diesem Fall muss $g$ die Form einer rationalen Funktion
-\[
+\begin{equation}
 g
 =
 \frac{a(\vartheta)}{b(\vartheta)} 
@@ -65,7 +65,8 @@ a_0 + a_1\vartheta + \dots a_n\vartheta^n
 }{
 b_0 + b_1\vartheta + \dots b_m\vartheta^m
 },
-\]
+\label{buch:intalg:liouville:eqn:bruch}
+\end{equation}
 wobei $a(\vartheta)\in F[\vartheta]$ und $b(\vartheta)\in F[\vartheta]$
 Polynome mit Koeffizienten in $F$ sind.
 In diesem Fall lässt sich die Ableitung von $g$ leichter 
@@ -86,12 +87,467 @@ wird dann der allgemeine Fall bewiesen.
 %
 \subsection{Polynome von Erweiterungen
 \label{buch:intalg:liouville:subsection:polynome}}
+Die oben formulierte Beweisstrategie für das Prinzip von Liouville
+basiert darauf, dass wir die Ableitung der Stammfunktion ausrechnen
+und dann nachweisen, dass nur logarithmische Terme als Ableitung
+Ausdrücke in $F$ ergeben.
+Dazu müssen zunächst die Ableitungen von Zähler und Nenner in
+\eqref{buch:intalg:liouville:eqn:bruch}
+verstanden werden, was in den folgenden Abschnitten geklärt werden
+soll.
+
+%
+% Polynome einer logarithmischen Erweiterung
+%
+\subsubsection{Polynome einer logarithmischen Erweiterung}
+Das Prinzip von Liouville verspricht, dass nur logarithmische Erweiterungen
+für die Stammfunktion gebraucht werden, und dass diese nur linear
+vorkommen.
+Dies wird sich darin äussern, dass die Erweiterung im rationalen Teil
+nicht vorkommen kann.
+Dies wird sich daraus ergeben, wie genau sich der Grad eines Polynoms
+in $\vartheta$ beim Ableiten ändert.
+Der folgende Satz gibt darüber Auskunft.
+
+\begin{satz}
+Sei $F$ ein Funktionenkörper mit Konstantenkörper $K\subset F$ und sei
+$\vartheta$ ein logarithmisch transzendentes Element über $F$ mit
+$\vartheta=\log u$ mit $u\in F$.
+Sei ausserdem
+$a(\vartheta) = a_0+a_1\vartheta+\dots+a_n\vartheta^n\in F[\vartheta]$
+ein Polynom in $\vartheta$ mit Koeffizienten in $F$.
+Dann gilt:
+\begin{enumerate}
+\item
+Die Ableitung von $a(\vartheta)$ ist ebenfalls ein Polynom mit Koeffizienten
+in $F$: $Da(\vartheta)\in F[\vartheta]$.
+\item
+Wenn der Leitkoeffizient $a_n$ eine Konstante ist, dann ist
+$\deg Da(\vartheta)=\deg a(\vartheta) -1$.
+\item
+Wenn der Leitkoeffizient $a_n$ keine Konstante ist, dann ist
+$\deg Da(\vartheta)=\deg a(\vartheta)$.
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Die Ableitung ist
+\begin{align*}
+Da(\vartheta)
+&=
+D\sum_{k=0}^n a_k\vartheta^k
+=
+\sum_{k=0}^n \bigl(Da_k\vartheta^k + a_kk\vartheta^{k-1}D\vartheta\bigr)
+\\
+&=
+\sum_{k=0}^n Da_k\vartheta^k
++
+D\vartheta \sum_{k=0}^{n-1} a_{k+1}(k+1)\vartheta^k
+\\
+&=
+\sum_{k=0}^{n-1} \bigl(Da_k+(k+1)a_{k+1}D\vartheta\bigr) \vartheta^k
++
+Da_n \vartheta^n
+\\
+&=
+\sum_{k=0}^{n-1}
+\biggl(
+\underbrace{Da_k+(k+1)a_{k+1}\frac{Du}{u}}_{\displaystyle\in F}
+\biggr) \vartheta^k
++
+Da_n \vartheta^n
+\end{align*}
+Da $Du\in F$ und $u\in F$ folgt, dass der Koeffizient in der Klammer
+ebenfalls in $F$ ist und daher ist $Da(\vartheta)\in F[\vartheta]$.
+\item
+Wenn $a_n$ eine Konstante ist, dann fällt der Term mit $\vartheta^n$ weg,
+der Grad von $Da(\vartheta)$ ist also höchstens $n-1$.
+Es ist zu zeigen, dass der Grad genau $n-1$ ist, d.~h.~dass der Koeffizient
+von $\vartheta^{n-1}$ nicht verschwindet.
+Würde dieser Koeffizient verschwinden, dann wäre wegen $Da_n=0$
+\begin{align*}
+0
+&=
+Da_{n-1} + na_n D\vartheta
+\\
+&=
+D(a_{n-1}+na_n\vartheta),
+\end{align*}
+d.~h.~$a_{n-1}+na_n\vartheta=c$ ist eine Konstante $c\in K$.
+Es folgt die Gleichung
+\[
+na_n\cdot\vartheta
++
+(\underbrace{a_{n-1}-c}_{\displaystyle\in K})
+=
+0
+\]
+bedeutet aber, dass $\vartheta$ algebraisch ist über $K$.
+Dies widerspricht der Voraussetzung, dass $\vartheta$ transzendent ist.
+Der Widerspruch zeigt, dass $\deg Da(\vartheta)=n-1$ ist.
+\item
+Wenn $a_n$ keine Konstante ist, dann ist $Da_n\ne 0$ und damit
+$\deg Da(\vartheta)=n$.
+\qedhere
+\end{enumerate}
+\end{proof}
+
+%
+% Polynome einer exponentiellen Erweiterung
+%
+\subsubsection{Polynome einer exponentiellen Erweiterung}
+Im Gegensatz zu einer logarithmischen Erweiterung nimmt der Grad
+eines Polynoms einer exponentiellen Erweiterung beim Ableiten nicht ab.
+
+\begin{satz}
+Sei $F$ ein Funktionenkörper mit Konstantenkörper $K\subset F$ und sei
+$\vartheta$ ein exponentielles transzendentes Element über $F$ mit
+$\vartheta=\exp u$ mit $u\in F$.
+Sei ausserdem
+$a(\vartheta) = a_0+a_1\vartheta+\dots+a_n\vartheta^n\in F[\vartheta]$
+ein Polynom in $\vartheta$ mit Koeffizienten in $F$.
+Dann gilt:
+\begin{enumerate}
+\item
+Für $h\in F$ und $n\ne 0$ gilt $D(h\vartheta^n) = \bar{h}\vartheta^n$ mit
+$\bar{h}\in F$ und $\bar{h}\ne 0$.
+\item
+Für ein Polynom
+$a(\vartheta)\in F[\vartheta]$
+gilt
+$\deg Da(\vartheta) = \deg a(\vartheta)$.
+\item
+$a(\vartheta) \in F[\vartheta]$
+teilt $Da(\vartheta)$ genau dann, wenn $a(\vartheta)$ ein Monom ist,
+also $a(\vartheta)=h\vartheta^n$ mit $h\in F\setminus\{0\}$, $n\in\mathbb{Z}$.
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Die Ableitung ist
+\[
+D(h\vartheta^n)
+=
+Dh\cdot\vartheta^n + hn\vartheta^{n-1}D\vartheta
+=
+Dh\cdot\vartheta^n + hn\vartheta^{n-1} \vartheta Du
+=
+(\underbrace{Dh+ hn Du}_{\displaystyle=\bar{h}}) \vartheta^n
+\]
+Wäre $\bar{h}=0$, dann würde gelten $h\vartheta^n$ eine Konstante $c\in K$,
+d.~h.~es gilt eine Gleichung der Form
+\[
+h\cdot \vartheta^n - c = 0.
+\]
+Dies bedeutet, dass $\vartheta$ algebraisch ist über $F$, im Widerspruch
+zur Voraussetzung, dass $\vartheta$ transzendent ist.
+Somit folgt $\bar{h}\ne 0$.
+\item
+Die Ableitung des Terms $a_n\vartheta^n$ des Polynoms ist
+$\bar{a}_n\vartheta^n$ mit $\bar{a}_n\ne 0$.
+Somit ist $\deg Da(\vartheta) = n = \deg a(\vartheta)$.
+\item
+Wenn $a(\vartheta)$ das Monom $h\vartheta^n$ ist, dann ist
+\[
+Da(\vartheta)
+=
+\bar{h}\vartheta^n
+=
+\frac{\bar{h}}{h}
+\cdot
+h\vartheta^n
+=
+\frac{\bar{h}}{h}
+\cdot
+a(\vartheta),
+\]
+d.~h.~wegen $\bar{h}/h\in F$ ist $Da(\vartheta)$ ist ein Teiler von
+$a(\vartheta)$.
+
+Sei jetzt umgekehrt $Da(\vartheta)$ ein Teiler von $a(\vartheta)$.
+Es gibt dann ein $g\in F$ mit $Da(\vartheta)=ga(\vartheta)$.
+Sei $m$ der höchste Exponent $<n$ von $\vartheta$ im Polynom $a(\vartheta)$,
+welcher einen nicht verschwindenen Koeffizienten $a_m\ne 0$ hat.
+Das Polynom hat also die Form
+\begin{align*}
+a(\vartheta)
+&=
+a_n\vartheta^n + a_m\vartheta^m + \ldots + a_1\vartheta + a_0
+\intertext{mit der Ableitung}
+Da(\vartheta)
+&=
+\bar{a}_n\vartheta^n
++
+\bar{a}_m\vartheta^m
++
+\ldots
++
+\bar{a}_1\vartheta
++
+Da_0.
+\end{align*}
+mit $\bar{a}_k=Da_k+ka_kDu$.
+Die Teilbarkeitsbedingung bedeutet dann
+\[
+\renewcommand{\arraycolsep}{2pt}
+Da(\vartheta)
+=
+ga(\vartheta)
+\quad
+\Rightarrow
+\quad
+\left\{\;
+\begin{array}{lclclcl}
+ga_n &=& \bar{a}_n &=& Da_n &+& na_n Du \\
+ga_m &=& \bar{a}_m &=& Da_m &+& ma_m Du.
+\end{array}
+\right.
+\]
+Auflösen nach $g$ ergibt
+\begin{align*}
+g
+&=
+\frac{Da_n}{a_n} + n\,Du
+=
+\frac{Da_m}{a_m} + m\,Du.
+\intertext{Die Differenz der rechten Seiten ist}
+0
+&=
+\frac{Da_n}{a_n}
+-
+\frac{Da_m}{a_m}
++
+(n-m)\,Du
+\intertext{Die rechte Seite kann man auch als}
+0
+&=
+D
+\biggl(
+\frac{a_n}{a_m}
++
+(n-m)u
+\biggr)
+\end{align*}
+Die rechte Seite ermöglicht auch, die Ableitung
+\begin{align*}
+D
+\biggl(
+\frac{a_n}{a_m}\vartheta^{n-m}
+\biggr)
+&=
+\frac{(Da_n) a_m - a_n\,Da_m}{a_m^2} \vartheta^{n-m}
++
+(n-m)\vartheta^{n-m}Du
+\\
+&=
+\frac{a_n}{a_m}
+\biggl(
+\frac{Da_n}{a_n}
+-
+\frac{Da_m}{a_m}
+-
+(n-m)Du
+\biggr)
+=
+0
+\end{align*}
+zu berechnen.
+Somit ist $(a_n/a_m)\vartheta^{n-m}$ eine Konstante, was nur für $n-m=0$
+möglich ist.
+Es gibt also gar keinen Koeffizienten $a_m\ne 0$ mit $m<n$.
+Somit ist $a(\vartheta)=a_n\vartheta^n$ ein Monom.
+\qedhere
+\end{enumerate}
+\end{proof}
+
+%
+% Polynome einer algebraischen Erweiterung
+%
+\subsubsection{Polynome einer algebraischen Erweiterung}
 
 %
 % Beweis des Prinzips von Liouville in Spezialfällen
 %
 \subsection{Beweis des Prinzips von Liouville in Spezialfällen
 \label{buch:intalg:liouville:subsection:spezialfaelle}}
+Das Prinzip von Liouville geht davon aus, dass eine Funktion $f$
+in einem Funktionenkörper eine Stammfunktion $g$ in einer geeigneten
+Erweiterung hat.
+Es zeigt dann, dass diese Erweiterung nur Logarithmen von Elementen
+in $F$ braucht und dass diese Logarithmen in der Stammfunktion nur 
+linear vorkommen.
+Beim Ableiten müssen die Terme, die Elemente der Erweiterung enthalten,
+wieder verschwinden.
+Man muss also für exponentielle und algebraische Erweiterungen zeigen,
+dass diese beim Ableiten nicht verschwinden können.
+Und für logarithmische Erweiterungen muss man zeigen, dass diese genau
+dann verschwinden können, wenn sie linear in der Stammfunktion auftreten.
+
+In diesem Abschnitt beweisen wir dies für eine Erweiterung, die von einem
+einzigen zusätzlichen Element erzeugt werden.
+Dies ist zwar nicht ausreichend für das Integral
+\[
+\int \frac{dx}{x^2+1}
+=
+\frac{1}{2i}\log(x+i)
+-
+\frac{1}{2i}\log(x-i)
+=
+\arctan x,
+\]
+welches zwei unabhängige logarithmische Erweiterungen braucht, aber
+die Methode, die wir dabei kennenlernen werden, wird in
+Abschnitt~\ref{buch:intalg:liouville:subsection:allgemein}
+verallgemeinert, so dass sie auch für kompliziertere Integrale
+gilt und damit das liouvillesche Prinzip bestätigt.
+
+%
+% Ein Ausdruck für die Stammfunktion
+%
+\subsubsection{Ein Ausdruck für die Stammfunktion}
+In diesem Abschnitt ist $F$ ein Funktionenkörper mit Konstantenkörper
+$K$ und $f\in F$ eine Funktion.
+Es wird angenommen, dass es eine Stammfunktion $g$ von $f$ in einem
+Erweiterungskörper $F(\vartheta)$ gibt.
+$g\in F(\vartheta)$ bedeutet aber, dass $g$ ein rationaler Ausdruck
+in $\vartheta$ ist.
+Insbesondere kann $g$ als
+\begin{equation}
+g
+=
+a_0(\vartheta)
++
+\frac{a(\vartheta)}{b(\vartheta)}
+\label{buch:intalg:liouville:spezial:eqn:bruch}
+\end{equation}
+geschrieben werden, wobei $a_0(\vartheta)$, $a(\vartheta)$ und $b(\vartheta)$
+Polynome mit Koeffizienten in $F$ sind.
+Ausserdem darf angenommen werden, dass $a(\vartheta)$ und $b(\vartheta)$
+teilerfremd sind und dass $\deg a(\vartheta)<\deg b(\vartheta)$ sind,
+dass der Bruch in 
+\eqref{buch:intalg:liouville:spezial:eqn:bruch}
+vollständig gekürzt.
+
+Wir nehmen ausserdem an, dass $F$ und $F(\vartheta)$ den gleichen
+Konstantenkörper haben.
+Dies kann immer erreicht werden, indem man alle für das Integral
+nötigen Konstanten bereits dem Körper $F$ hinzufügt, bevor man beginnt,
+um nichtkonstante Funktionen zu erweitern.
+
+Wir müssen zeigen, dass $\vartheta$ nur ein Logarithmus sein kann und dass
+$\vartheta$ nur linear in $g$ vorkommen kann.
+
+%
+% Der Fall einer logarithmischen Erweiterung
+%
+\subsubsection{Der Fall einer logarithmischen Erweiterung}
+
+\begin{satz}
+Sei $F(\vartheta)$ eine logarithmische Erweiterung eines Funktionenkörpers
+$F$.
+$F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
+Weiter sei $f\in F$ und $g \in F(\vartheta)$ eine Stammfunktion.
+Dann ist $g=c+d\vartheta$ mit $c,d\in F$.
+\end{satz}
+
+\begin{proof}
+Der Nenner $b(\vartheta)$ des Ausdrucks 
+\eqref{buch:intalg:liouville:spezial:eqn:bruch}
+für $g$ kann in die irreduziblen Faktoren
+$b_1(\vartheta),\ldots,b_m(\vartheta)$
+zerlegt werden.
+Weiter dürfen wir annehmen, dass die Faktoren $b_k(\vartheta)$
+normierte Polynome sind.
+Die zugehörige Partialbruchzerlegung hat daher die Form
+\begin{align}
+g
+&=
+a_0(\vartheta)
++
+\sum_{k=1}^m
+\sum_{i=1}^{r_k}
+\frac{a_{ik}(\vartheta)}{b_k(\vartheta)^i},
+\notag
+\intertext{wobei $a_{ik}(\vartheta)\in F(\vartheta)$ Polynome mit
+$\deg a_{ik}(\vartheta) < \deg b_k(\vartheta)$ sind.
+Die Ableitung von $g$ ist}
+f
+=
+Dg
+&=
+Da_0(\vartheta)
++
+\sum_{k=1}^m
+\sum_{i=1}^{r_k}
+D
+\frac{a_{ik}(\vartheta)}{b_k(\vartheta)^i}.
+\label{buch:intalg:liouville:speziell:eqn:fabgeleitet}
+\intertext{Dabei ist wichtig, dass $f\in F$ ist und daher die Erweiterung
+$\vartheta$ nicht enthält.
+Wir wollen zeigen, dass diese zur Folge hat, dass gar keine Bruchterme
+vorkommen können.
+Die Ableitung eines einzelnen Terms in der Summe ist}
+D
+\frac{a_{ik}(\vartheta)}{b_k(\vartheta)^i}
+&=
+\frac{
+Da_{ik}(\vartheta)\cdot b_k(\vartheta)^i
+-
+a_{ik}(\vartheta)ib_k(\vartheta)^{i-1} Db_k(\vartheta)
+}{
+b_k(\vartheta)^{2i}
+}
+\notag
+\\
+&=
+\frac{Da_{ik}(\vartheta)}{b_k(\vartheta)^i}
+-
+i
+\frac{
+a_{ik}(\vartheta) Db_k(\vartheta)
+}{
+b_k(\vartheta)^{i+1}
+}.
+\label{buch:intalg:liouville:speziell:eqn:abgeleitet}
+\end{align}
+Die Ableitung $Db_k(\vartheta)$ hat Grad
+$\deg Db_k(\vartheta) = \deg b_k(\vartheta)-1$.
+Da $b_k(\vartheta)$ irreduzibel ist, sind $Db_k(\vartheta)$
+und $b_k(\vartheta)$ teilerfremd.
+Die Terme 
+\eqref{buch:intalg:liouville:speziell:eqn:abgeleitet}
+sind alle vollständig gekürzt.
+Die höchste Nennerpotenz von $b_k(\vartheta)$ in
+\eqref{buch:intalg:liouville:speziell:eqn:fabgeleitet}
+hat den Exponenten $r_k+1$, und sie kommt nur genau einmal
+im letzten Summanden vor.
+Daher gibt es keinen weiteren Term, mit dem er sich wegheben könnte.
+Die Summe in~\eqref{buch:intalg:liouville:speziell:eqn:fabgeleitet}
+muss daher verschwinden und $g$ ist nur ein Polynom von $a_0(\vartheta)$.
+
+Da $f=Dg=Da_0(\vartheta)$ nicht von $\vartheta$ abhängen darf, muss
+$a_0(\vartheta)$ ein Polynom vom Grad höchstens $1$ sein, also
+\[
+g
+=
+a_0(\vartheta) = a_{0,0}+a_{0,1}\vartheta,
+\]
+wie behauptet.
+\end{proof}
+
+%
+% Der Fall einer exponentiellen Erweiterung
+%
+\subsubsection{Der Fall einer exponentiellen Erweiterung}
+
+%
+% Der Fall einer algebraischen Erweiterung
+%
+\subsubsection{Der Fall einer algebraischen Erweiterung}
 
 %
 % Beweis im allgemeinen Fall
