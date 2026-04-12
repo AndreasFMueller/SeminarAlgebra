@@ -1,0 +1,127 @@
+%
+% einleitung.tex -- Beispiel-File für die Einleitung
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Die Zeta-Funktion}
+\label{basel:section:zeta}
+
+\subsection{Definition der Zeta-Funktion}
+\label{basel:subsection:zetadef}
+
+Die \emph{Riemannsche Zeta-Funktion} ist definiert als
+\begin{equation}
+    \zeta(n)
+    =
+    \sum_{r=1}^{\infty} \frac{1}{r^n}
+    =
+    1 + \frac{1}{2^n} + \frac{1}{3^n} + \cdots.
+    \label{basel:equation:zetadef}
+\end{equation}
+
+\subsection{Konvergenzverhalten der Zeta-Funktion}
+\label{basel:subsection:zetakonvergenz}
+
+Wenn $n = 1$ gilt, so divergiert $\zeta(n)$ (sehr langsam).
+Diese Reihe ist auch bekannt unter dem Namen \emph{harmonische Reihe}.
+Für alle Werte $n > 1$ konvergiert die Zeta-Funktion.
+
+Der Beweis:
+Die Terme werden in Zweiergruppen zusammengefasst und mit einer geometrischen
+Reihe abgeschätzt:
+\begin{align*}
+    \sum_{r=1}^{\infty} \frac{1}{r^n}
+    &=
+    1 + \frac{1}{2^n} + \frac{1}{3^n} + \frac{1}{4^n} + \cdots
+    \\
+    &=
+    1
+    + \left(\frac{1}{2^n} + \frac{1}{3^n}\right)
+    + \left(\frac{1}{4^n} + \frac{1}{5^n} + \frac{1}{6^n} + \frac{1}{7^n}\right)
+    + \cdots
+    \\
+    &<
+    1 + \frac{2}{2^n} + \frac{4}{4^n} + \cdots
+    \\
+    &=
+    1
+    + \frac{1}{2^{n-1}}
+    + \left(\frac{1}{2^{n-1}}\right)^{\!2}
+    + \left(\frac{1}{2^{n-1}}\right)^{\!3}
+    + \cdots
+    \\
+    &=
+    \frac{1}{1 - \dfrac{1}{2^{n-1}}}.
+\end{align*}
+Da die Reihe mit der unendlichen geometrischen Zahlenreihe in einer Ungleichung
+in Beziehung gebracht wurde, erhalt man als Grenzwert
+\[
+    S
+    =
+    \lim_{n \to \infty} s_n
+    =
+    \frac{a_1}{1-q},
+    \qquad
+    \text{mit } q = \frac{1}{2^{n-1}}
+    \text{ und } |q| < 1.
+\]
+Damit die Reihe auch konvergieren kann, muss also gelten:
+\[
+    \left| \frac{1}{2^{n-1}} \right| < 1
+    \;\Rightarrow\;
+    |2^{n-1}| > 1
+    \;\Rightarrow\;
+    n - 1 > 0
+    \;\Rightarrow\;
+    n > 1.
+\]
+
+\subsection{Primzahlen der Zeta-Funktion}
+\label{basel:subsection:zetaprimzahlen}
+
+Jede positive ganze Zahl lässt sich als Produkt von Primzahlen ausdrücken.
+Daraus folgerte Euler, dass jede ganze positive Zahl $r$ sich für irgendwelche
+$r_1, r_2, r_3, \ldots \in \{0, 1, 2, 3, 5, \ldots\}$ in der Form
+$r = 2^{r_1} \cdot 3^{r_2} \cdot 5^{r_3}$ ausdrücken lässt, und deswegen gilt
+\[
+    \frac{1}{r^x}
+    =
+    \frac{1}{\bigl(2^{r_1} 3^{r_2} 5^{r_3} \cdots\bigr)^x}
+    =
+    \frac{1}{2^{x r_1} 3^{x r_2} 5^{x r_3} \cdots}.
+\]
+Fur $x > 1$ ergibt sich daher
+\[
+    \zeta(x)
+    =
+    \sum_{r=1}^{\infty} \frac{1}{r^x}
+    =
+    \sum_{\substack{r_1,\, r_2,\, r_3,\, \ldots\, \geq\, 0}}
+        \frac{1}{2^{x r_1} 3^{x r_2} 5^{x r_3} \cdots}
+    =
+    \left(\sum_{r_1 \geq 0} \frac{1}{2^{x r_1}}\right)
+    \left(\sum_{r_2 \geq 0} \frac{1}{3^{x r_2}}\right)
+    \left(\sum_{r_3 \geq 0} \frac{1}{5^{x r_3}}\right)
+    =
+    \prod_{p \text{ prim}}
+    \left(\sum_{\alpha=0}^{\infty} \frac{1}{p^{x\alpha}}\right).
+\]
+Auch hier ist jeder Faktor eine geometrische Reihe und deren Summe beträgt
+\[
+    \frac{1}{1 - \dfrac{1}{p^x}}
+    =
+    \frac{1}{1 - p^{-x}}.
+\]
+Dadurch erhalten wir die \emph{Eulersche Produktformel}:
+\begin{equation}
+    \zeta(x)
+    =
+    \sum_{r=1}^{\infty} \frac{1}{r^x}
+    =
+    \prod_{p \text{ prim}} \frac{1}{1 - p^{-x}},
+    \qquad x > 1.
+    \label{basel:equation:eulerprod}
+\end{equation}

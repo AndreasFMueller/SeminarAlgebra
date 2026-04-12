@@ -4,6 +4,11 @@
 # (c) 2025 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
 
+AUFGABENFILES +=							\
+	chapters/040-analytisch/uebungsaufgaben/401.tex			\
+	chapters/040-analytisch/uebungsaufgaben/402.tex			\
+	chapters/040-analytisch/uebungsaufgaben/403.tex
+
 CHAPTERFILES += 							\
 	chapters/040-analytisch/1-potenzreihen.tex			\
 	chapters/040-analytisch/2-rational.tex				\
@@ -11,8 +16,5 @@ CHAPTERFILES += 							\
 	chapters/040-analytisch/4-laurentreihen.tex			\
 	chapters/040-analytisch/5-ganz.tex				\
 	chapters/040-analytisch/6-argument.tex				\
-	chapters/040-analytisch/uebungsaufgaben/401.tex			\
-	chapters/040-analytisch/uebungsaufgaben/402.tex			\
-	chapters/040-analytisch/uebungsaufgaben/403.tex			\
 	chapters/040-analytisch/chapter.tex
 

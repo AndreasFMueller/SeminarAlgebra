@@ -1,0 +1,232 @@
+%
+% Die Umlaufzahl
+%
+\section{Die Umlaufzahl
+\label{buch:integration:cauchy:subsetion:umlaufzahl}}
+Die Sätze der vorangegangenen Abschnitte mussten jeweils die etwas
+schwerfällige Voraussetzung über den Weg $\gamma$ machen, dass er
+den Punkt $z_0$ im Gegenuhrzeigersinn einmal umläuft.
+Der Grund dafür war, dass der Weg jeweils mittels Homotopie auf einen
+kreisformigen Weg um den Punkt $z_0$ deformiert wurde, der den Punkt $z_0$
+ebenfalls genau einmal gegen den Uhrzeigersinn umläuft.
+
+%
+% Die Umlaufzahl eine Weges um einen Punkt
+%
+\subsection{Die Umlaufzahl eines Weges um einen Punkt}
+Offenbar ist es notwendig, die Zahl der Umläufe eines Weges $\gamma$
+im Gegenuhrzeigersinn um den Punkt $z_0$ etwas genauer zu fassen.
+Damit diese Zahl wohldefiniert ist, darf der Weg den Punkt $z_0$
+nicht treffen.
+Wir zeichnen vom Punkt $z_0$ aus einen Strahl $s$ in eine beliebige
+Richtung.
+Schneidet die Kurve diesen Strahl nicht, dann lässt sich die Kurve
+in der Menge  $\mathbb{C}\setminus s$ zu einem Punkt zusammeziehen,
+insbesondere umläuft die Kurve den Punkt $z_0$ gar nicht.
+Ein im Gegenurzeigersinn durchlaufener Kreis um den Punkt $z_0$
+schneidet dagegen den Strahl genau einmal.
+Durchläuft man den Kreis mehrmals, wie in $t\mapsto t+re^{2\pi int}$,
+dann ist die Zahl der Schnittpunkte gerade $n$.
+Die Anzahl der Kreuzungspunkte des Strahls mit der Kurve scheint
+also an die Anzahl der Umläufe um den Punkt $z_0$ gekoppelt zu sein.
+Dies funktioniert sogar für negative $n$, wenn man die Umläufe im
+Uhrzeigersinn negativ zählt.
+
+Die Anzahl der Schnittpunkte kann aber sogar unendlich gross werden,
+wenn der Weg $\gamma$ ein Stück weit entlang eines Strahls verläuft.
+Es ist auch mögich, dass der Weg von einer Seite auf den Strahl trifft,
+ihn dann aber gleich wieder auf die selbe Seite verlässt.
+In diesem Fall berührt der Weg den Strahl.
+Der Strahl muss also so gewählt werden, dass der Weg ihn in jedem
+Kreuzungspunkt mit einem positiven Schnittwinkel oder \emph{transversal}
+\index{transversal}%
+kreuzt.
+Damit dies festgestellt werden kann, muss der Weg $\gamma$ differenzierbar
+sein.
+Durch Drehung des Strahls um den Punkt $z_0$ kann man immer erreichen,
+dass der Weg den Strahl transversal schneidet.
+
+Sei jetzt also $s$ ein von $z_0$ ausgehender Strahl, der den Weg 
+$\gamma\colon I\to\mathbb{C}$ für die Punkte $t_i\in I$ schneidet.
+\input{chapters/030-integration/fig/fig-argument.tex}%
+Abbildung~\ref{buch:integration:fig:argument}
+zeigt links den Wege $\gamma$ in rot, rechts das Argument von
+$\gamma(t)-z_0$.
+Wir zählen einen Kreuzungspunkt positiv, wenn das Argument 
+\(
+\varphi(t)
+=
+\operatorname{arg} (\gamma(t) - z_0)
+\)
+an der Stelle $t_i$ wächst, und negativ, wenn es abnimmt.
+Wir setzen also
+\begin{equation}
+n_i
+=
+\begin{cases}
+\phantom{-}1&\qquad \text{falls $\dot{\varphi}_i > 0$} \\
+         - 1&\qquad \text{falls $\dot{\varphi}_i < 0$,} 
+\end{cases}
+\label{buch:integration:umlaufzahl:eqn:ni}
+\end{equation}
+wobei 
+\[
+v_i
+=
+\frac{d}{dt} \operatorname{arg}(\gamma(t)-z_0)\bigg|_{t=t_i}
+\]
+die Änderungsgeschwindigkeit des Arguments ist.
+Die Umlaufzahl des Weges $\gamma$ um den Punkt $z_0$ ist dann die
+Summe der $n_i$.
+
+\begin{definition}[Umlaufzahl]
+\label{buch:integration:definition:umlaufzahl}
+\index{Umlaufzahl}%
+Die \emph{Umlaufzahl} eines Weges $\gamma$ in der komplexen Ebene
+$\mathbb{C}$ ist die Anzahl
+\[
+\operatorname{ind}_\gamma(z_0)
+=
+\sum_i n_i
+\]
+mit den Summanden $n_i$ aus
+\eqref{buch:integration:umlaufzahl:eqn:ni}.
+\end{definition}
+
+In Abbildung~\ref{buch:integration:fig:argument} sind die Schnittpunkte
+des Arguments mit der Richtung $\varphi_0$ des Strahls als orange
+Punkte eingezeichnet.
+Schnittpunkte, in denen das Argument ansteigt, werden positiv gezählt.
+Schnittpunkte, in denen das Argument abnimmt, werden negativ gezählt.
+
+%
+% Umlaufzahl und komplexe Integration
+%
+\subsection{Umlaufzahl und komplexe Integration}
+Die Umlaufzahl 
+nach Definition~\ref{buch:integration:definition:umlaufzahl}
+zu berechnen ist eher mühsam.
+Daher ist es besonders erfreulich, dass man sie auch mit komplexer
+Wegintegration berechnen kann, wie der folgende Satz zeigt.
+Der Beweis beruht auf der Idee, dass sich der in der
+Abbildung~\ref{buch:integration:fig:argument} rot gezeichnete Weg
+in den grünen Weg deformieren lässt, der die Richtung $s$ immer in der
+gleichen Richtung überschreitet und damit seinerseits homotop zu
+einem Weg der Form $t\mapsto e^{2\pi int}$, für den sich das Integral
+leicht berechnen lässt.
+
+\begin{satz}
+Sei $\gamma$ ein Weg in $\mathbb{C}$, der den Punkt $z_0$ nicht trifft,
+dann umläuft der Weg den Punkt $z_0$
+\[
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{1}{2\pi i}
+\oint_\gamma \frac{dz}{z-z_0}
+\]
+mal.
+\end{satz}
+
+\begin{proof}
+Abbildung~\ref{buch:integration:fig:argument} zeigt, wie die Umlaufzahl
+berechnet wird.
+Durch ``Strecken'' des Graphen von $\varphi(t)$ zu einer Geraden
+(in der Abbildung grün eingezeichnet), kann der Weg durch ein
+Homotopie in einen Weg deformiert werden, der durch  die
+Parametrisierung $\gamma_1(t) = z_0+re^{2\pi i n t}$ beschrieben werden kann.
+Nach Satz~\ref{buch:integration:satz:homotopie} ergeben die
+die beiden Wege denselben Wert des Integrals.
+Der Wert des Integrals über den Weg $\gamma_1$ ist
+\[
+\oint_{\gamma_1}
+\frac{dz}{z-z_0}
+=
+\int_0^1
+\frac{2\pi i nre^{2\pi int}}{z_0+re^{2\pi i nt}-z_0}
+\,dt
+=
+\int_0^1
+2\pi i n
+\,dt
+=
+2\pi i n.
+\]
+Aufgelöst nach $n$ folgt daraus
+\[
+n
+=
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}\frac{dz}{z-z_0}
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}\frac{dz}{z-z_0}
+\]
+Damit ist der Satz bewiesen.
+\end{proof}
+
+%
+% Integralsatz für allgemein Wege
+%
+\subsection{Integralsatz für allgemeine Wege}
+Der Integralsatz~\ref{buch:integration:satz:residuensatz} beruhte darauf,
+dass der Weg $\gamma$ um den Punkt sich in einen Weg deformieren liess,
+der sich entlang eines Kreises genau einmal im Gegenuhrzeigersinn um den
+Punkt $z_0$ windet.
+Die Umlaufzahl andererseits zeigt, dass sich Wege, die sich mehrmals
+um den Punkt winden, ebenfalls deformieren lassen in einen Weg, der sich
+entlang einer Kreislinie mit gleichmässig ansteigendem Argument gleichviele
+Male um $z_0$ windet.
+
+\begin{satz}
+\label{buch:integration:satz:residuensatzn}
+Sei $f\colon U \to \mathbb{C}$ eine holomorphe Funktion und $\gamma$
+ein Weg in $U$, der den Punkt $z_0$ nicht trifft, aber in den Punkt $z_0$
+zusammengezogen werden kann.
+Dann gilt
+\[
+f(z_0)
+\cdot
+\operatorname{ind}_{\gamma}(z_0)
+=
+\frac{1}{2\pi i}
+\oint_\gamma \frac{f(z)}{z-z_0}\,dz.
+\]
+\end{satz}
+
+Die im Satz zusätzlich geforderte Bedingung, dass der Weg in den Punkt 
+$z_0$ zusammengezogen werden kann, stellt sicher, dass sich der Weg nicht
+um andere ``Löcher'' im Definitionsgebiet $U$ windet, in denen sich weitere
+Polstellen der Funktion $f(z)$ verstecken könnten.
+\input{chapters/030-integration/fig/fig-lochgebiet.tex}%
+Sie ist in Abbildung~\ref{buch:integration:fig:lochgebiet} illustriert.
+Der Weg $\gamma_1$ windet sich um das Loch im Gebiet $U$ herum und kann
+daher nicht in einen Punkt zusammengezogen werden, dies ist nur für den
+Weg $\gamma_2$ möglich.
+
+%
+% Ableitungen
+%
+\subsection{Ableitungen}
+Auch für die Ableitungen lässt sich die Formel
+\eqref{buch:integration:eqn:ableitungn}
+verallgemeinern.
+Mit einem Weg wie in Satz~\ref{buch:integration:satz:residuensatzn}
+kann man die Ableitungen
+\[
+f^{(h)}(z_0)
+\cdot
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{n!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^n}
+\,dz
+\]
+berechnen.
+Alle Ableitungen lassen sich also allein aus den Werten der Funktion
+$\gamma$ entlang des Weges $\gamma$ bestimmen.
+
+
+

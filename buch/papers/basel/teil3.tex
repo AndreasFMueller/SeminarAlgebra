@@ -6,38 +6,135 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 3
-\label{basel:section:teil3}}
-\kopfrechts{Teil 3}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
-
-\subsection{De finibus bonorum et malorum
-\label{basel:subsection:malorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
-
-
+\section{Eulers Beweis}
+\label{basel:section:beweis}
+ 
+Für die heutige Zeit ist der Beweis von Euler nicht ganz aktuell.
+Die Standards für einen korrekten Beweis waren zu seiner Zeit andere als heute.
+ 
+\subsection{Linearfaktoren}
+\label{basel:subsection:linearfaktoren}
+ 
+Wenn ein Polynom $p(x)$ den Grad $n$ hat und die Nullstellen $a_1, a_2, a_3, \ldots, a_n$ besitzt,
+dann kann es in seine Linearfaktoren zerlegt werden.
+Man erhält
+\[
+    p(x) = b(x - a_1)(x - a_2)(x - a_3) \cdots (x - a_n),
+    \quad\text{mit}\quad
+    b = p(0) \Big/ \prod_{i=1}^{n} (-a_i).
+\]
+Teilt man durch das Produkt aller Nullstellen, ergibt sich
+\[
+    p(x)
+    =
+    p(0)
+    \left(1 - \frac{x}{a_1}\right)
+    \left(1 - \frac{x}{a_2}\right)
+    \left(1 - \frac{x}{a_3}\right)
+    \cdots
+    \left(1 - \frac{x}{a_n}\right).
+\]
+Euler setzte voraus, dass dies bei Potenzreihen analog zu Polynomen einfach mit unendlich vielen Nullstellen funktioniert.
+Ob das stimmt, hätte er beweisen müssen -- hat er aber nicht.
+ 
+\subsection{Der Kardinalsinus}
+\label{basel:subsection:kardinalsinus}
+ 
+Der \emph{Kardinalsinus}
+\[
+    \operatorname{si}(x) = \frac{\sin x}{x}
+\]
+hat bis auf die Null die gleichen Nullstellen wie der Sinus.
+Euler stellt nun den Kardinalsinus als Produkt der Linearfaktoren dar,
+\begin{align*}
+    \operatorname{si}(x)
+    &\stackrel{?}{=}
+    \prod_{k=1}^{\infty}
+    \left(1 - \frac{x}{k\pi}\right)
+    \left(1 + \frac{x}{k\pi}\right)
+    \\
+    &=
+    \left(1 - \frac{x}{\pi}\right)
+    \left(1 + \frac{x}{\pi}\right)
+    \left(1 - \frac{x}{2\pi}\right)
+    \left(1 + \frac{x}{2\pi}\right)
+    \left(1 - \frac{x}{3\pi}\right)
+    \left(1 + \frac{x}{3\pi}\right)
+    \cdots.
+\end{align*}
+Das darf man im Allgemeinen nicht einfach so machen.
+150 Jahre später bewies Karl Weierstrass, dass es in diesem Fall aber funktioniert.
+ 
+Mit Hilfe der 3.\ binomischen Formel werden jeweils die Faktoren zusammengefasst,
+welche sich nur durch das Vorzeichen unterscheiden.
+Man erhält diese unendlichen Produkte
+\[
+    \left(1 - \frac{x^2}{\pi^2}\right)
+    \left(1 - \frac{x^2}{4\pi^2}\right)
+    \left(1 - \frac{x^2}{9\pi^2}\right)
+    \cdots
+    =
+    \prod_{k=1}^{\infty}
+    \left(1 - \frac{x^2}{k^2 \pi^2}\right).
+\]
+Damit ist aber eigentlich ein Grenzwert endlicher Produkte gemeint,
+\[
+    \lim_{n \to \infty}
+    \prod_{k=1}^{n}
+    \left(1 - \frac{x^2}{k^2 \pi^2}\right),
+\]
+welcher jetzt ausmultipliziert werden kann.
+Ein Produkt mit $n$ Faktoren ergibt jeweils ein Polynom mit dem Grad $2n$,
+\[
+    \lim_{n \to \infty}
+    \sum_{i=1}^{2n} a_{n,i}\, x^i,
+    \qquad\text{mit}\quad
+    a_{n,2}
+    =
+    -\sum_{k=1}^{n} \frac{1}{k^2 \pi^2}
+    =
+    -\frac{1}{\pi^2} \sum_{k=1}^{n} \frac{1}{k^2}.
+\]
+Der Grenzwert wäre dann also
+\[
+    \sum_{i=0}^{\infty} a_i\, x^i,
+    \qquad\text{mit}\quad
+    a_2 = -\frac{1}{\pi^2} \sum_{k=1}^{\infty} \frac{1}{k^2},
+\]
+und bis auf den Vorfaktor entspricht dieser dem Basel-Problem.
+ 
+\subsection{Die Taylorreihe}
+\label{basel:subsection:taylor}
+ 
+Euler benutzte ebenfalls noch eine andere Darstellung des Kardinalsinus.
+Er ging von der Taylorreihe für den Sinus aus und teilte durch $x$,
+\[
+    \operatorname{si}(x)
+    =
+    \frac{\sin x}{x}
+    =
+    \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n+1)!}
+    =
+    1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \frac{x^8}{9!} \pm \cdots.
+\]
+ 
+\subsection{Der Beweis}
+\label{basel:subsection:der-beweis}
+ 
+Diese zwei Darstellungen des Kardinalsinus als Potenzreihen müssen natürlich identisch sein.
+Darum kann man einen Koeffizientenvergleich machen.
+Für $x^2$ mit $a_2$ erhält man
+\[
+    -\frac{1}{3!}
+    =
+    -\frac{1}{\pi^2} \sum_{k=1}^{\infty} \frac{1}{k^2},
+\]
+die zu beweisende Identität.
+Jetzt muss nur noch auf beiden Seiten mit $-\pi^2$ multipliziert werden, und man erhält
+\begin{equation}
+    \frac{\pi^2}{6}
+    =
+    \sum_{k=1}^{\infty} \frac{1}{k^2}.
+    \label{basel:equation:ergebnis}
+\end{equation}
+Somit stimmt der Beweis von Euler~\eqref{basel:equation:ergebnis}, auch wenn er nicht die heutigen Standards erfüllt.
