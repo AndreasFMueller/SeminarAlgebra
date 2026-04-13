@@ -544,6 +544,7 @@ Stammfunktion von $f\in F$, falls sie in $F(\vartheta)$ liegt,
 die Form $c_0+c_1\vartheta$ haben muss, wobei $c_1$ eine Konstante ist.
 
 \begin{satz}
+\label{buch:intalg:liouville:satz:logsimple}
 Sei $F(\vartheta)$ eine logarithmische Erweiterung eines Funktionenkörpers
 $F$.
 $F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
@@ -651,6 +652,7 @@ Stammfunktion einer Funktion $f\in F$ gar nicht vorkommen.
 Dies zeigt auch der folgende Satz.
 
 \begin{satz}
+\label{buch:intalg:liouville:satz:expsimple}
 Sei $F(\vartheta)$ eine exponentielle transzendente Erweiterung eines
 Funktionenkörpers $F$.
 $F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
@@ -664,6 +666,34 @@ Die Stammfunktion $g\in F(\vartheta)$ kann wieder mit einer Zerlegung
 in irreduzible Faktoren des Nenners in der Form einer Partialbruchzerlegung
 \eqref{buch:intalg:liouville:speziell:eqn:f}
 geschrieben werden.
+
+Im Fall einer logarithmischen Erweiterung
+(Beweis von Satz~\label{buch:intalg:liouville:satz:logsimple})
+haben wir dann unter Verwendung von
+Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch}
+gezeigt, dass der Term mit der höchsten Nennerpotenz $b_k(\vartheta)^{r_k+1}$
+sich gegen nichts wegheben kann.
+Dies hat dann gezeigt, dass die Bruchterme in der Stammfunktion nicht
+vorkommen können.
+
+Im vorliegenden Fall ist $b_k(\vartheta)$ kein Monom, also nicht von
+der Form $h\vartheta^m$.
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+sind also $b_k(\vartheta)$ und $b_k(\vartheta)'$ teilerfremd und damit
+die Bruchterme in \eqref{buch:intalg:liouville:speziell:eqn:f}
+vollständig gekürzt.
+Wie im Fall einer logarithmischen Erweiterung folgt jetzt, dass sich
+die Bruchterme nicht wegheben können.
+Da auf der linken Seite von \eqref{buch:intalg:liouville:speziell:eqn:f}
+$\vartheta$ nicht vorkommen darf, dürfen in der Stammfunktion keine 
+Bruchterme vorkommen.
+
+Es bleibt also nur noch der polynomielle Teil.
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+kann aber der Grad des Polynoms $a_0(\vartheta)$ beim Differenzieren
+nicht abnehen, die Ableitung $Da_0(\vartheta)$ kann daher $\vartheta$
+nicht enhalten, wenn $a_0(\vartheta)$ ein Polynom vom, Grad 0 ist,
+also $g=a_0(\vartheta)=a_{0,0}\in F$.
 \end{proof}
 
 %
@@ -675,6 +705,7 @@ dass die Stammfunktion einer Funktion des Funktionenkörpers die
 Erweiterung gar nicht enthält.
 
 \begin{satz}
+\label{buch:intalg:liouville:satz:algsimple}
 Sei $F(\vartheta)$ eine algebraische Erweiterung eines
 Funktionenkörpers $F$.
 $F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
