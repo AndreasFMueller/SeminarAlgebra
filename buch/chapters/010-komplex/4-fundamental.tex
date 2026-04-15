@@ -51,6 +51,7 @@ für alle Permutationen $\sigma\in S_n$.
 \end{definition}
 
 \begin{beispiel}
+\label{buch:komplex:fundamental:symmetrisch:bsp:n=2}
 Wir bestimmen die symmetrischen Polynome für $n=2$.
 Es gibt nur zwei Permutationen für $n=2$, nämlich die identische
 Permutation und die Vertauschung $1\leftrightarrow 2$.
@@ -67,24 +68,79 @@ q(X_1,X_2)
 &=
 X_1^2+X_2^2.
 \intertext{Allerdings ist dies kein neues Polynom, denn es ist}
+X_1^2+X_2^2
 &=
 (X_1+X_2)^2 - 2X_1X_2
-=
+\\
+&=
 \sigma_1(X_1,X_2)^2 - 2 \sigma_2(X_1,X_2).
 \end{align*}
+Das Polynom $X_1^2+X_2^2$ kann also durch $\sigma_1(X_1,X_2)$ und
+$\sigma_2(X_1,X_2)$ ausgedrückt werden.
 
 Auch für symmetrische Polynome dritten Grades können wir Beispiele
 finden.
-In allen Fällen lassen sich diese Polynome zu durch die $\sigma_k(X_1,X_2)$
-ausdrücken:
+In allen Fällen lassen sich diese Polynome zu durch die
+$\sigma_k(X_1,X_2)$ ausdrücken:
 \begin{align*}
 X_1^2X_2 + X_1X_2^2
 &=
 (X_1+X_2)X_1X_2
 =
 \sigma_1(X_1,X_2)\cdot\sigma_2(X_1,X_2),
+\\
+X_1^3 + X_2^3
+&=
+(X_1+X_2)^3 - 3X_1^2X_2 - 3X_1X_2^2
+\\
+&=
+(X_1+X_2)^3 - 3(X_1^2X_2 + X_1X_2^2)
+\\
+&=
+\sigma_1(X_1,X_2)^3 - 3\sigma_1(X_1,X_2)\cdot \sigma_2(X_1,X_2).
+\intertext{Dasselbe gilt für symmetrische Polynome vom Grad 4:}
+X_1^2X_2^2
+&=
+\sigma_1(X_1,X_2)^2
+\\
+X_1^3X_2+X_1X_2^3
+&=
+X_1X_2(X_1^2+X_2^2)
+\\
+&=
+\sigma_2(X_1,X_2)\bigl(\sigma_1(X_1,X_2)^2-2\sigma_2(X_1,X_2)\bigr)
+\\
+&=
+\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
+-2
+\sigma_2(X_1,X_2)^2
+\\
+X_1^4+X_2^4
+&=
+\sigma_1(X_1,X_2)^4
+-
+4\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
++8
+\sigma_2(X_1,X_2)^2
+-
+6\sigma_2(X_1,X_2)^2
+\\
+&=
+\sigma_1(X_1,X_2)^4
+-
+4\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
++2
+\sigma_2(X_1,X_2)^2.
 \end{align*}
+Keines der symmetrischen Polynome dritten oder vierten Grades enthält
+Information, die sich nicht auch schon aus den beiden speziellen
+Polynomen $\sigma_1(X_1,X_2)$ und $\sigma_2(X_1,X_2)$ ablesen lässt.
 \end{beispiel}
+
+Im Beispiel wurden zwei Polynome gefunden, mit denen sich alle 
+anderen symmetrischen Polynome ausdrücken liessen.
+Dies sind die sogenannten elemetarsymmetrischen Polynome,
+die im nächsten Abschnitt eingeführt werden.
 
 %
 % Elementarsymmetrische Polynome
@@ -102,6 +158,7 @@ Variablen $X_1,\dots,X_n$.
 Multipliziert man das Polynom aus und fasst die Terme mit gleicher
 Potenz von $T$ zusammen erhält man
 \[
+\renewcommand{\arraycolsep}{2pt}
 \begin{array}{rclclclcl}
 p(T,X_1,\dots,X_n)
 &=&
@@ -147,6 +204,71 @@ Polynome.
 Die Polynome $\sigma_k(X_1,\dots,X_n)\in \mathbb{Z}[X_1,\dots,X_n]$ 
 heissen \emph{elementarsymmetrische Polynome}.
 \end{definition}
+
+\begin{beispiel}
+Für $n=2$ entstehen die elementarsymmetrischen Polynome aus dem
+Produkt
+\[
+(T+X_1)(T+X_2)
+=
+T^2 +(X_1+X_2)T+X_1X_2
+\quad\Rightarrow\quad
+\left\{
+\begin{aligned}
+\sigma_1(X_1,X_2) &= X_1+X_2 \\
+\sigma_2(X_1,X_2) &= X_1X_2.
+\end{aligned}
+\right.
+\]
+Dies sind genau die Polynome, die im
+Beispiel~\ref{buch:komplex:fundamental:symmetrisch:bsp:n=2}
+gefunden wurden.
+\end{beispiel}
+
+\begin{beispiel}
+Für $n=3$ 
+kann man aus dem Produkt
+\[
+(T+X_1)
+(T+X_2)
+(T+X_3)
+=
+T^3
++
+(X_1+X_2+X_3)T^2
++(X_1X_2+X_1X_3+X_2X_3)T
++
+X_1X_2X_3
+\]
+die elementarsymmetrischen Polynome
+\begin{align*}
+\sigma_1(X_1,X_2,X_3) &= X_1+X_2+X_3\\
+\sigma_2(X_1,X_2,X_3) &= X_1X_2 + X_1X_3 + X_2X_3\\
+\sigma_3(X_1,X_2,X_3) &= X_1X_2X_3
+\end{align*}
+ablesen.
+\end{beispiel}
+
+Die Beispiele zeigen auch, dass für beliebiges $n$ die
+elementarsymmetrischen Polynome für $k=1$ und 
+$k=n$
+die besonders einfache Form
+\begin{align*}
+\sigma_1(X_1,\dots,X_n) &= X_1+\ldots + X_n\\
+\sigma_n(X_1,\dots,X_n) &= X_1 \cdots X_n
+\end{align*}
+haben.
+Die anderen elementarsymmetrischen Polynome können 
+\[
+\sigma_k(X_1,\dots,X_n)
+=
+\sum_{1\le i_1<i_2<\dots<i_k\le n}
+X_{i_1}
+X_{i_2}
+\cdots
+X_{i_k}
+\]
+geschrieben werden.
 
 %
 % Der Fundamentalsatz für symmetrische Polynome
