@@ -385,19 +385,21 @@ in $F(\vartheta)$ liegt.
 
 \begin{satz}
 \label{buch:intalg:liouville:polynome:satz:algebraisch}
-Sei $\vartheta$ ein algebraisches Element über $F$ mit minimalpolynom
+Sei $\vartheta$ ein algebraisches Element über $F$ mit Minimalpolynom
 \begin{equation}
 0
 =
 p(\vartheta)
 =
-p_0 + p_1\vartheta + \ldots + p_{n-1}\vartheta^{n+1} + \vartheta^n
+p_0 + p_1\vartheta + \ldots + p_{n-1}\vartheta^{n-1} + \vartheta^n
 =
 \sum_{k=0}^n p_k\vartheta^k
 \label{buch:intalg:liouville:polynome:eqn:minimal}
 \end{equation}
 mit $p_n=1$.
-Dann hat die Ableitung von $\vartheta$ die Form
+\begin{enumerate}
+\item
+Die Ableitung von $\vartheta$ die Form
 \[
 D\vartheta
 =
@@ -417,9 +419,15 @@ e(\vartheta)
 \sum_{k=0}^{n-1} (k+1)Dp_{k+1} \vartheta^k.
 \label{buch:intalg:liouville:polynome:eqn:zaehlernenner}
 \end{equation}
+\item
+Eine rationale Funktion von $\vartheta$ mit Koeffizienten in $F$
+kann immer als Polynom vom Grad höchstens $n-1$ geschrieben werden.
+\end{enumerate}
 \end{satz}
 
 \begin{proof}
+\begin{enumerate}
+\item
 Ableiten von
 \eqref{buch:intalg:liouville:polynome:eqn:minimal}
 liefert
@@ -455,6 +463,45 @@ F(\vartheta).
 \]
 Zähler und Nenner sind die Polynome in
 \eqref{buch:intalg:liouville:polynome:eqn:zaehlernenner}
+\item
+Sei 
+\begin{equation}
+f(\vartheta)
+=
+\frac{u(\vartheta)}{v(\vartheta)}
+\label{buch:intalg:liouville:polyalg:eqn:bruch}
+\end{equation}
+ein Quotient von Polynomen mit Koeffizienten in $F$.
+Nach Reduktion mit dem Minimalpolynom darf man annehmen, dass
+der Grad von Zähler und Nenner kleiner als $n$ ist.
+Insbesondere sind $v(Z)$ und das Minimalpolynom $p(Z)$
+teilerfremd.
+Nach dem erweiterten euklidischen Algorithmus gibt es
+Polynome $s(Z)$ und $t(Z)$ mit 
+\[
+s(Z)v(Z) + t(Z)p(Z) = 1.
+\]
+Einsetzen von $\vartheta$ liefert
+\[
+s(\vartheta)v(\vartheta) = 1
+\qquad\Rightarrow\qquad s(\vartheta) = \frac{1}{v(\vartheta)}.
+\]
+Damit ist das inverse Element von $v(\vartheta)$ als Polynom in
+$\vartheta$ ausgedrückt.
+Für den Bruch~\eqref{buch:intalg:liouville:polyalg:eqn:bruch}
+folgt daher
+\[
+f(\vartheta)
+=
+\frac{u(\vartheta)}{v(\vartheta)}
+=
+u(\vartheta)\cdot s(\vartheta).
+\]
+Die rechte Seite ist ein Polynom.
+Mit dem Minimalpolynom kann es weiter auf ein Polynom vom 
+Grad $<n$ reduziert werden.
+\qedhere
+\end{enumerate}
 \end{proof}
 
 
@@ -712,6 +759,57 @@ $F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
 Weiter sei $f\in F$ und $g\in F(\vartheta)$ eine Stammfunktion von $f$.
 Dann ist $g\in F$.
 \end{satz}
+
+\begin{proof}
+Sei jetzt $\vartheta$ ein algebraisches Element über $F$ mit Minimalpolynom
+$p$ mit Koeffizienten in $F$.
+Wie früher ist die Stammfunktion $g$ eine rationale Funktion 
+in $\vartheta$ mit Koeffizienten in $F$.
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:algebraisch}
+lässt sie sich aber auch als Polynom in $\vartheta$ mit Koeffizienten
+in $F$ schreiben, wir schreiben $g=a(\vartheta)$ mit $u(Z)\in F[Z]$.
+Die Ableitung ist
+\[
+f
+=
+Dg
+=
+Da(\vartheta)
+=
+\]
+Die Ableitung des Polynoms $a$ in $\vartheta$ mit Koeffizienten
+in $F$ ist
+\begin{align*}
+Da(\vartheta)
+&=
+\sum_{k=0}^m Da_k\vartheta^k
++
+\sum_{k=1}^m ka_k\vartheta^{k-1} D\vartheta
+\\
+&=
+\sum_{k=0}^{m-1}
+\bigl(
+Da_k
++
+(k+1)a_{k+1}
+D\vartheta
+\bigr)
+\vartheta^k
++
+Da_m\vartheta^m.
+\end{align*}
+Darin ist $D\vartheta$ die Ableitung von $\vartheta$, die nach
+Satz~\ref{buch:intalg:liouville:polynome:satz:algebraisch}
+eine rationale Funktion $\vartheta$ mit Koeffzienten in $F$ ist.
+Es folgt, dass $Dg$ eine rationale Funktion von $\vartheta$ mit
+Koeffizienten in $F$ ist, die Ihrerseits wieder als Polynom
+geschrieben werden kann.
+
+Das muss jetzt noch gezeigt werden, dass aus $f=Dg$ folgt,
+dass $a(\vartheta)$ nicht von $\vartheta$ abhängt.
+
+TODO
+\end{proof}
 
 %
 % Beweis im allgemeinen Fall
