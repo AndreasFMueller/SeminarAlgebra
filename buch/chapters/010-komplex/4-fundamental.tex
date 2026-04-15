@@ -7,4 +7,165 @@
 \label{buch:komplex:section:fundamental}}
 \kopfrechts{Der Fundamentalsatz der Algebra}
 
+\subsection{Nullstellen von Polynomen über $\mathbb{C}$}
+
+\subsection{Nullstellen von Polynomen über $\mathbb{Q}$}
+
+%
+% Symmetrische Polynome und die Spur
+%
+\subsection{Symmetrische Polynome und die Spur}
+Der Fundamentalsatz besagt, dass sich ein Polynom in Linearfaktoren
+zerlegen lässt.
+Multipliziert man die Linearfaktoren aus, entstehen die Koeffizienten
+des ursprünglichen Polynoms durch algebraische Ausdrücke aus den
+Nullstellen.
+In diesem Abschnitt soll untersucht werden, wie diese algebraischen
+Ausdrücke entstehen.
+
+%
+% Symmetrische Polynome
+%
+\subsubsection{Symmetrische Polynome}
+Die Reihenfolge der Linearfaktoren, in die eine Polynom zerfällt, spielt
+keine Rolle.
+Jede Reihenfolge führt auf das gleiche ausmultiplizierte Polynom.
+Um die Entstehung der Koeffizienten zu verstehen, müssen wir daher nur
+algebraische Ausdrücke in den Nullstellen studiert werden, die sich nicht
+ändert, wenn man die Nullstellen vertauscht.
+Da beim Ausmultiplizieren nur Multiplikation und Addition verwendet
+werden, müssen wir also Polynome in mehreren Variablen studieren, die
+sich nicht ändern, wenn man die Variablen vertauscht.
+
+\begin{definition}
+Ein Polynom $p(X_1,\dots,X_n)$ in den Variablen $X_1,\dots,X_n$
+heisst \emph{symmetrisch}, wenn für jede Permutation $\sigma\in S_n$
+der Variablen das gleiche Polynome ergibt.
+Es gilt also
+\[
+p(X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+p(X_1,\dots,X_n)
+\]
+für alle Permutationen $\sigma\in S_n$.
+\end{definition}
+
+\begin{beispiel}
+Wir bestimmen die symmetrischen Polynome für $n=2$.
+Es gibt nur zwei Permutationen für $n=2$, nämlich die identische
+Permutation und die Vertauschung $1\leftrightarrow 2$.
+
+Das Polynom $p(X_1,X_2)=X_1$ ist nicht symmetrisch, da die Vertauschung
+$1\leftrightarrow 2$ daraus das Polynom $X_2\ne p(X_1,X_2)$ macht.
+Erst die Kombination $\sigma_1(X_1,X_2)=X_1+X_2$ ist unter der Vertauschung
+invariant.
+
+Symmetrische Polynome zweiten Grades sind zum Beispiel
+$\sigma_2(X_1,X_2)=X_1X_2$, aber auch
+\begin{align*}
+q(X_1,X_2)
+&=
+X_1^2+X_2^2.
+\intertext{Allerdings ist dies kein neues Polynom, denn es ist}
+&=
+(X_1+X_2)^2 - 2X_1X_2
+=
+\sigma_1(X_1,X_2)^2 - 2 \sigma_2(X_1,X_2).
+\end{align*}
+
+Auch für symmetrische Polynome dritten Grades können wir Beispiele
+finden.
+In allen Fällen lassen sich diese Polynome zu durch die $\sigma_k(X_1,X_2)$
+ausdrücken:
+\begin{align*}
+X_1^2X_2 + X_1X_2^2
+&=
+(X_1+X_2)X_1X_2
+=
+\sigma_1(X_1,X_2)\cdot\sigma_2(X_1,X_2),
+\end{align*}
+\end{beispiel}
+
+%
+% Elementarsymmetrische Polynome
+%
+\subsubsection{Elementarsymmetrische Polynome}
+Wir betrachten das Polynom
+\[
+p(T,X_1,\dots,X_n)
+=
+(T+X_1)\cdot\ldots\cdot (T+X_n)
+\]
+in den Variablen $T,X_1,\dots,X_n$.
+Da das Produkt kommutativ ist, ist dieses Polynom symmetrisch in den
+Variablen $X_1,\dots,X_n$.
+Multipliziert man das Polynom aus und fasst die Terme mit gleicher
+Potenz von $T$ zusammen erhält man
+\[
+\begin{array}{rclclclcl}
+p(T,X_1,\dots,X_n)
+&=&
+T^n
+&+&
+\sigma_1(X_1,\dots,X_n)
+T^{n-1}
+&+&
+\sigma_2(X_1,\dots,X_n)
+T^{n-2}
+&+&
+\ldots
+\\
+& &
+\ldots
+&+&
+\sigma_{n-1}(X_1,\dots,X_n) T
+&+&
+\sigma_n(X_1,\dots,X_n)
+\end{array}
+\]
+mit Polynomen $\sigma_k(X_1,\dots,X_n)$.
+Da $p(T,X_1,\dots,X_n)$ symmetrisch ist, gilt
+\[
+p(T,X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+p(T,X_1,\dots,X_n)
+\] 
+für jede Permutation $\sigma\in S_n$.
+Durch Koeffizientenvergleich folgt, dass
+\[
+\sigma_k(X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+\sigma_k(X_1,\dots,X_n)
+\]
+für jeden Koeffizienten $\sigma_k$, $k=1,\dots,n$, und für jede
+Permutation $\sigma\in S_n$.
+Insbesondere sind die $\sigma_k(X_1,\dots,X_n)$ alle symmetrische
+Polynome.
+
+\begin{definition}[Elementarsymmetrische Polynome]
+\label{buch:komplex:fundamental:def:elementarsymmetrisch}
+Die Polynome $\sigma_k(X_1,\dots,X_n)\in \mathbb{Z}[X_1,\dots,X_n]$ 
+heissen \emph{elementarsymmetrische Polynome}.
+\end{definition}
+
+%
+% Der Fundamentalsatz für symmetrische Polynome
+%
+\subsubsection{Der Fundamentalsatz für symmetrische Polynome}
+Die elementarsymmetrischen Polynome sind in einem gewissen Sinne
+die einzigen symmetrischen Polynome, die man braucht.
+Dies ist der Inhalt des folgenden Fundamentalsatzes für
+symmetrische Polynome: jedes symmetrische Polynom lässt sich
+als Polynom in den elementarsymmetrischen Polynomen ausdrücken.
+
+\begin{satz}[Fundamentalsatz für symmetrische Polynome]
+Ist $p(X_1,\dots,X_n)\in K[X_1,\dots,X_n]$ ein symmetrisches
+Polynom von $n$ Variablen, dann gibt es genau ein Polynom
+$q(S_1,\dots,S_n)\in K[S_1,\dots,S_n]$ derart, dass
+\[
+p(X_1,\dots,X_n)
+=
+g\bigl(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n)\bigr).
+\]
+\end{satz}
 
