@@ -178,9 +178,12 @@ T^{n-2}
 \sigma_{n-1}(X_1,\dots,X_n) T
 &+&
 \sigma_n(X_1,\dots,X_n)
+\\
+&=&
+\rlap{$\displaystyle \sum_{k=0}^n \sigma_k(X_1,\dots,X_n) T^{n-k} $}
 \end{array}
 \]
-mit Polynomen $\sigma_k(X_1,\dots,X_n)$.
+mit Polynomen $\sigma_k(X_1,\dots,X_n)$, $k=0,\dots,n$.
 Da $p(T,X_1,\dots,X_n)$ symmetrisch ist, gilt
 \[
 p(T,X_{\sigma(1)},\dots,X_{\sigma(n)})
@@ -250,15 +253,16 @@ ablesen.
 \end{beispiel}
 
 Die Beispiele zeigen auch, dass für beliebiges $n$ die
-elementarsymmetrischen Polynome für $k=1$ und 
+elementarsymmetrischen Polynome für $k=0$, $k=1$ und 
 $k=n$
 die besonders einfache Form
 \begin{align*}
-\sigma_1(X_1,\dots,X_n) &= X_1+\ldots + X_n\\
+\sigma_0(X_1,\dots,X_n) &= 1 \\
+\sigma_1(X_1,\dots,X_n) &= X_1+\ldots + X_n \\
 \sigma_n(X_1,\dots,X_n) &= X_1 \cdots X_n
 \end{align*}
 haben.
-Die anderen elementarsymmetrischen Polynome können 
+Die anderen elementarsymmetrischen Polynome können als
 \[
 \sigma_k(X_1,\dots,X_n)
 =
