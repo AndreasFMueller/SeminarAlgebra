@@ -435,6 +435,7 @@ symmetrische Polynome: jedes symmetrische Polynom lässt sich
 als Polynom in den elementarsymmetrischen Polynomen ausdrücken.
 
 \begin{satz}[Fundamentalsatz für symmetrische Polynome]
+\label{buch:komplex:fundamental:satz:fundamentalpolynom}
 Ist $p(X_1,\dots,X_n)\in K[X_1,\dots,X_n]$ ein symmetrisches
 Polynom von $n$ Variablen, dann gibt es genau ein Polynom
 $q(S_1,\dots,S_n)\in K[S_1,\dots,S_n]$ derart, dass
@@ -444,4 +445,61 @@ p(X_1,\dots,X_n)
 q\bigl(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n)\bigr).
 \]
 \end{satz}
+
+%
+% Die Spur eines algebraischen Elementes
+%
+\subsubsection{Die Spur eines algebraischen Elements}
+
+%
+% Symmetrische Funktionen der Nullstellen
+%
+\subsubsection{Symmetrische Funktionen der Nullstellen}
+Die elementarsymmetrischen Polynome ausgewertet auf den Nullstellen
+eines Polynoms mit Koeffizienten in $K$ ergeben Werte in $K$, selbst
+dann wenn die Nullstellen selbst nicht in $K$ sind.
+Zusammen mit dem
+Fundamentalsatz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+kann man daraus folgern, dass jedes symmetrische Polynom der Nullstellen
+ebenfalls in $K$ liegt.
+
+\begin{satz}
+Sei $p(X)\in K[X]$ ein Polynom mit den Nullstellen
+$\alpha_1,\dots,\alpha_n$.
+Sei weiter $f(X_1,\dots,X_n)$ ein Polynom mit Koeffizienten in $K$,
+das symmetrisch in den Variablen $X_1,\dots,X_n$ ist.
+Dann ist $f(\alpha_1,\dots,\alpha_n)\in K$.
+\end{satz}
+
+\begin{proof}
+Nach Satz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+kann das Polynom $f(X_1,\dots,X_n)$ als Polynom $g(S_1,\dots,S_n)$
+mit Koeffizienten in $K$ geschrieben werden, so dass
+\[
+f(X_1,\dots,X_n)
+=
+g(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n))
+\]
+gilt.
+Einsetzen der Nullstellen ergibt
+\[
+f(\alpha_1,\dots,\alpha_n)
+=
+g(
+\underbrace{\sigma_1(\alpha_1,\dots,\alpha_n)}_{\displaystyle\in K}
+,\dots,
+\underbrace{\sigma_n(\alpha_1,\dots,\alpha_n)}_{\displaystyle\in K}
+)
+\in K.
+\]
+Es folgt, dass der Wert $f(\alpha_1,\dots,\alpha_n)$ in $K$ liegt.
+\end{proof}
+
+Wenn man zeigen kann, dass eine rationale Funktion von $X_1,\dots,X_n$
+genau dann symmetrisch ist, wenn Zähler und Nenner symmetrisch sind,
+dann folgt auch, dass die Werte rationaler, symmetrischer Funktionen
+der Nullstellen im Koeffizientenkörper liegen.
+
+TODO
+
 
