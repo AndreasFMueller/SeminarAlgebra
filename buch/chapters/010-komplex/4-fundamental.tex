@@ -500,6 +500,66 @@ genau dann symmetrisch ist, wenn Zähler und Nenner symmetrisch sind,
 dann folgt auch, dass die Werte rationaler, symmetrischer Funktionen
 der Nullstellen im Koeffizientenkörper liegen.
 
-TODO
+\begin{satz}
+Sei $p(X)\in K[X]$ ein Polynom mit den Nullstellen
+$\alpha_1,\dots,\alpha_n$.
+Sei weiter $f(X_1,\dots,X_n)$ eine rationale Funktion mit Koeffizienten
+in $K$, die symmetrisch ist unter vertauschungen der Argumente.
+Dann kann $f$ geschrieben werden als Bruch
+\[
+f(X_1,\dots,X_n)
+=
+\frac{u(X_1,\dots,X_n)}{v(X_1,\dots,X_n)},
+\]
+wobei sowohl $u$ als auch $v$ symmetrische Polynome mit Koeffizienten
+in $K$ sind.
+Insbesondere ist $f(\alpha_1,\dots,\alpha_n)$ auch eine rationale Funktion
+der Werte $\sigma_k(\alpha_1,\dots,\alpha_n)\in K$ mit Koeffizienten in $K$.
+\end{satz}
+
+\begin{proof}
+Sei 
+\[
+f(X_1,\dots,X_n)
+=
+\frac{a(X_1,\dots,X_n)}{b(X_1,\dots,X_n)}
+\]
+mit Polynomen $a,b\in K[X_1,\dots,X_n]$.
+Die rationale Funktion $f$ ist symmetrisch.
+Insbesondere folgt
+\begin{align*}
+f(X_1,\dots,X_n)
+&=
+\frac{1}{n!}
+\sum_{\pi\in S_n}
+\frac{a^\pi(X_1,\dots,X_n)}{b^\pi(X_1,\dots,X_n)}.
+\intertext{Durch Zusammenfassen entsteht ein Bruch der Form}
+&=
+\frac{
+A(X_1,\dots,X_n)
+}{
+\displaystyle
+n!\prod_{\pi\in S_n} b^\pi(X_1,\dots,X_n)
+},
+\qquad
+\text{mit }
+B(X_1,\dots,X_n)
+=
+n!\prod_{\pi\in S_n} b^\pi(X_1,\dots,X_n).
+\end{align*}
+Der Nenner $B(X_1,\dots,X_n)$ ist offensichtlich ein symmetrisches
+Polynom.
+Da auch $f$ symmetrisch ist, folgt, dass das Polynom
+\[
+A(X_1,\dots,X_n)
+=
+f(X_1,\dots,X_n)\cdot B(X_1,\dots,X_n)
+\]
+ebenfalls symmetrisch ist.
+Damit ist die Existenz zweier symmetrischer Polynome $u$ und $v$
+gezeigt.
+Die verbleibenden Behauptungen folgen dann aus den entsprechenden
+Behauptungen für Polynome.
+\end{proof}
 
 
