@@ -7,4 +7,559 @@
 \label{buch:komplex:section:fundamental}}
 \kopfrechts{Der Fundamentalsatz der Algebra}
 
+\subsection{Nullstellen von Polynomen über $\mathbb{C}$}
+
+\subsection{Nullstellen von Polynomen über $\mathbb{Q}$}
+
+%
+% Symmetrische Polynome und die Spur
+%
+\subsection{Symmetrische Polynome und die Spur}
+Der Fundamentalsatz besagt, dass sich ein Polynom in Linearfaktoren
+zerlegen lässt.
+Multipliziert man die Linearfaktoren aus, entstehen die Koeffizienten
+des ursprünglichen Polynoms durch algebraische Ausdrücke aus den
+Nullstellen.
+In diesem Abschnitt soll untersucht werden, wie diese algebraischen
+Ausdrücke entstehen.
+
+%
+% Symmetrische Polynome
+%
+\subsubsection{Symmetrische Polynome}
+Die Reihenfolge der Linearfaktoren, in die eine Polynom zerfällt, spielt
+keine Rolle.
+Jede Reihenfolge führt auf das gleiche ausmultiplizierte Polynom.
+Um die Entstehung der Koeffizienten zu verstehen, müssen wir daher nur
+algebraische Ausdrücke in den Nullstellen studiert werden, die sich nicht
+ändert, wenn man die Nullstellen vertauscht.
+Da beim Ausmultiplizieren nur Multiplikation und Addition verwendet
+werden, müssen wir also Polynome in mehreren Variablen studieren, die
+sich nicht ändern, wenn man die Variablen vertauscht.
+
+\begin{definition}
+Ein Polynom $p(X_1,\dots,X_n)$ in den Variablen $X_1,\dots,X_n$
+heisst \emph{symmetrisch}, wenn für jede Permutation $\sigma\in S_n$
+der Variablen das gleiche Polynome ergibt.
+Es gilt also
+\[
+p(X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+p(X_1,\dots,X_n)
+\]
+für alle Permutationen $\sigma\in S_n$.
+\end{definition}
+
+\begin{beispiel}
+\label{buch:komplex:fundamental:symmetrisch:bsp:n=2}
+Wir bestimmen die symmetrischen Polynome für $n=2$.
+Es gibt nur zwei Permutationen für $n=2$, nämlich die identische
+Permutation und die Vertauschung $1\leftrightarrow 2$.
+
+Das Polynom $p(X_1,X_2)=X_1$ ist nicht symmetrisch, da die Vertauschung
+$1\leftrightarrow 2$ daraus das Polynom $X_2\ne p(X_1,X_2)$ macht.
+Erst die Kombination $\sigma_1(X_1,X_2)=X_1+X_2$ ist unter der Vertauschung
+invariant.
+
+Symmetrische Polynome zweiten Grades sind zum Beispiel
+$\sigma_2(X_1,X_2)=X_1X_2$, aber auch
+\begin{align*}
+q(X_1,X_2)
+&=
+X_1^2+X_2^2.
+\intertext{Allerdings ist dies kein neues Polynom, denn es ist}
+X_1^2+X_2^2
+&=
+(X_1+X_2)^2 - 2X_1X_2
+\\
+&=
+\sigma_1(X_1,X_2)^2 - 2 \sigma_2(X_1,X_2).
+\end{align*}
+Das Polynom $X_1^2+X_2^2$ kann also durch $\sigma_1(X_1,X_2)$ und
+$\sigma_2(X_1,X_2)$ ausgedrückt werden.
+
+Auch für symmetrische Polynome dritten Grades können wir Beispiele
+finden.
+In allen Fällen lassen sich diese Polynome zu durch die
+$\sigma_k(X_1,X_2)$ ausdrücken:
+\begin{align*}
+X_1^2X_2 + X_1X_2^2
+&=
+(X_1+X_2)X_1X_2
+=
+\sigma_1(X_1,X_2)\cdot\sigma_2(X_1,X_2),
+\\
+X_1^3 + X_2^3
+&=
+(X_1+X_2)^3 - 3X_1^2X_2 - 3X_1X_2^2
+\\
+&=
+(X_1+X_2)^3 - 3(X_1^2X_2 + X_1X_2^2)
+\\
+&=
+\sigma_1(X_1,X_2)^3 - 3\sigma_1(X_1,X_2)\cdot \sigma_2(X_1,X_2).
+\intertext{Dasselbe gilt für symmetrische Polynome vom Grad 4:}
+X_1^2X_2^2
+&=
+\sigma_1(X_1,X_2)^2
+\\
+X_1^3X_2+X_1X_2^3
+&=
+X_1X_2(X_1^2+X_2^2)
+\\
+&=
+\sigma_2(X_1,X_2)\bigl(\sigma_1(X_1,X_2)^2-2\sigma_2(X_1,X_2)\bigr)
+\\
+&=
+\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
+-2
+\sigma_2(X_1,X_2)^2
+\\
+X_1^4+X_2^4
+&=
+\sigma_1(X_1,X_2)^4
+-
+4\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
++8
+\sigma_2(X_1,X_2)^2
+-
+6\sigma_2(X_1,X_2)^2
+\\
+&=
+\sigma_1(X_1,X_2)^4
+-
+4\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
++2
+\sigma_2(X_1,X_2)^2.
+\end{align*}
+Keines der symmetrischen Polynome dritten oder vierten Grades enthält
+Information, die sich nicht auch schon aus den beiden speziellen
+Polynomen $\sigma_1(X_1,X_2)$ und $\sigma_2(X_1,X_2)$ ablesen lässt.
+\end{beispiel}
+
+Im Beispiel wurden zwei Polynome gefunden, mit denen sich alle 
+anderen symmetrischen Polynome ausdrücken liessen.
+Dies sind die sogenannten elemetarsymmetrischen Polynome,
+die im nächsten Abschnitt eingeführt werden.
+
+%
+% Elementarsymmetrische Polynome
+%
+\subsubsection{Elementarsymmetrische Polynome}
+Wir betrachten das Polynom
+\[
+p(T,X_1,\dots,X_n)
+=
+(T+X_1)\cdot\ldots\cdot (T+X_n)
+\]
+in den Variablen $T,X_1,\dots,X_n$.
+Da das Produkt kommutativ ist, ist dieses Polynom symmetrisch in den
+Variablen $X_1,\dots,X_n$.
+Multipliziert man das Polynom aus und fasst die Terme mit gleicher
+Potenz von $T$ zusammen erhält man
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclclclcl}
+p(T,X_1,\dots,X_n)
+&=&
+T^n
+&+&
+\sigma_1(X_1,\dots,X_n)
+T^{n-1}
+&+&
+\sigma_2(X_1,\dots,X_n)
+T^{n-2}
+&+&
+\ldots
+\\
+& &
+\ldots
+&+&
+\sigma_{n-1}(X_1,\dots,X_n) T
+&+&
+\sigma_n(X_1,\dots,X_n)
+\\
+&=&
+\rlap{$\displaystyle \sum_{k=0}^n \sigma_k(X_1,\dots,X_n) T^{n-k} $}
+\end{array}
+\]
+mit Polynomen $\sigma_k(X_1,\dots,X_n)$, $k=0,\dots,n$.
+Da $p(T,X_1,\dots,X_n)$ symmetrisch ist, gilt
+\[
+p(T,X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+p(T,X_1,\dots,X_n)
+\] 
+für jede Permutation $\sigma\in S_n$.
+Durch Koeffizientenvergleich folgt, dass
+\[
+\sigma_k(X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+\sigma_k(X_1,\dots,X_n)
+\]
+für jeden Koeffizienten $\sigma_k$, $k=1,\dots,n$, und für jede
+Permutation $\sigma\in S_n$.
+Insbesondere sind die $\sigma_k(X_1,\dots,X_n)$ alle symmetrische
+Polynome.
+
+\begin{definition}[Elementarsymmetrische Polynome]
+\label{buch:komplex:fundamental:def:elementarsymmetrisch}
+Die Polynome $\sigma_k(X_1,\dots,X_n)\in \mathbb{Z}[X_1,\dots,X_n]$ 
+heissen \emph{elementarsymmetrische Polynome}.
+\end{definition}
+
+\begin{beispiel}
+Für $n=2$ entstehen die elementarsymmetrischen Polynome aus dem
+Produkt
+\[
+(T+X_1)(T+X_2)
+=
+T^2 +(X_1+X_2)T+X_1X_2
+\quad\Rightarrow\quad
+\left\{
+\begin{aligned}
+\sigma_1(X_1,X_2) &= X_1+X_2 \\
+\sigma_2(X_1,X_2) &= X_1X_2.
+\end{aligned}
+\right.
+\]
+Dies sind genau die Polynome, die im
+Beispiel~\ref{buch:komplex:fundamental:symmetrisch:bsp:n=2}
+gefunden wurden.
+\end{beispiel}
+
+\begin{beispiel}
+Für $n=3$ 
+kann man aus dem Produkt
+\[
+(T+X_1)
+(T+X_2)
+(T+X_3)
+=
+T^3
++
+(X_1+X_2+X_3)T^2
++(X_1X_2+X_1X_3+X_2X_3)T
++
+X_1X_2X_3
+\]
+die elementarsymmetrischen Polynome
+\begin{align*}
+\sigma_1(X_1,X_2,X_3) &= X_1+X_2+X_3\\
+\sigma_2(X_1,X_2,X_3) &= X_1X_2 + X_1X_3 + X_2X_3\\
+\sigma_3(X_1,X_2,X_3) &= X_1X_2X_3
+\end{align*}
+ablesen.
+\end{beispiel}
+
+Die Beispiele zeigen auch, dass für beliebiges $n$ die
+elementarsymmetrischen Polynome für $k=0$, $k=1$ und 
+$k=n$
+die besonders einfache Form
+\begin{align*}
+\sigma_0(X_1,\dots,X_n) &= 1 \\
+\sigma_1(X_1,\dots,X_n) &= X_1+\ldots + X_n \\
+\sigma_n(X_1,\dots,X_n) &= X_1 \cdots X_n
+\end{align*}
+haben.
+Die anderen elementarsymmetrischen Polynome können als
+\[
+\sigma_k(X_1,\dots,X_n)
+=
+\sum_{1\le i_1<i_2<\dots<i_k\le n}
+X_{i_1}
+X_{i_2}
+\cdots
+X_{i_k}
+\]
+geschrieben werden.
+
+Die elementarsymmetrischen Polynome können dazu verwendet werden, die
+Koeffizienten eines Polynoms aus den Nullstellen zu berechnen.
+Die Nullstellen eines solchen Polynoms sind algebraische Zahlen über
+dem Koeffizientenkörper.
+Oft sind alle Nullstellen ausserhalb des Koeffzientenkörpers.
+Trotzdem sind die Werte der elementarsymmetrischen Funktionen, ausgewertet
+auf den Nullstellen des Polynoms, wieder im Koeffizientenkörper.
+
+\begin{beispiel}
+Das Polynom $p(X) = X^2+pX+q$ hat die Nullstellen
+\[
+\alpha_{\pm}
+=
+-\frac{p}{2}
+\pm
+\!
+\sqrt{ \frac{p^2}{4}-q }.
+\]
+Setzt man diese Nullstellen in die elementarsymmetrischen Funktionen
+für $n=2$ ein, erhält man
+\[
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rccclcl}
+\sigma_1(\alpha_+,\alpha_-)
+&=&
+\alpha_++\alpha_-
+&=&
+\displaystyle
+-\frac{p}{2}
++
+\!\sqrt{ \frac{p^2}{4}-q }
++
+-\frac{p}{2}
+-
+\!\sqrt{ \frac{p^2}{4}-q }
+&=&
+-p,
+\\[7pt]
+\sigma_2(\alpha_+,\alpha_-)
+&=&
+\alpha_+\cdot \alpha_-
+&=&
+\displaystyle
+\biggl(
+-\frac{p}{2}
++
+\!\sqrt{ \frac{p^2}{4}-q }
+\biggr)
+\biggl(
+-\frac{p}{2}
+-
+\!\sqrt{ \frac{p^2}{4}-q }
+\biggr)
+\\[7pt]
+& &
+&=&
+\displaystyle
+\biggl(-\frac{p}{2}\biggr)^2
+-
+\biggl(
+\!\sqrt{ \frac{p^2}{4}-q }
+\biggr)^2
+\\[7pt]
+& &
+&=&
+\displaystyle
+\frac{p^2}{4}
+-
+\frac{p^2}{4}+q
+&=&
+q.
+\end{array}
+\]
+Die Werte der elementarsymmetrischen Funktionen von $\alpha_{\pm}$ sind
+also wieder im Koeffizientenkörper.
+\end{beispiel}
+
+\begin{satz}
+Sei $p(X) = p_0+p_1X+\dots +p_{n-1}X^{n-1} + X^n\in K[X]$ ein normiertes
+mit Koeffizienten in einem Körper $K$ und seien $\alpha_1,\dots,\alpha_n$
+alle Nullstellen, so dass 
+\[
+p(X)
+=
+(X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_n) =
+\prod_{k=1}^n (X-\alpha_k).
+\]
+Dann ist 
+\[
+(-1)^k
+\sigma_k(\alpha_1,\dots,\alpha_n) 
+=
+p_k
+\]
+für $k=1,\dots,n$ oder
+\[
+p(X)
+=
+\sum_{k=0}^n
+(-1)^k
+\sigma_k(\alpha_1,\dots,\alpha_n) X^{n-k}.
+\]
+Ausserdem ist
+\[
+\sigma_k(\alpha_1,\dots,\alpha_n) \in K
+\]
+für $k=1,\dots,n$.
+\end{satz}
+
+\begin{beispiel}
+Für das Polynom $p(X) = X^5 + 2X^4+3X^3+4X^2+5X+6\in\mathbb{Z}[X]$
+kann man numerisch (zum Beispiel mit Maxima) die Nullstellen
+\[
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rcrcl}
+\alpha_1 &=&  0.5516854634589816 &+& 1.2533488602772058 i\\
+\alpha_2 &=&  0.5516854634589816 &-& 1.2533488602772058 i\\
+\alpha_3 &=& -0.8057864693890309 &+& 1.2229047133744104 i\\
+\alpha_4 &=& -0.8057864693890309 &-& 1.2229047133744104 i\\
+\alpha_5 &=& -1.4917979881399015 & &
+\end{array}
+\]
+finden.
+Die Werte der elementarsymmetrischen Polynome müssen wieder
+ganze Zahlen ergeben. 
+Das Polynom $\sigma_1(X_1,\dots,X_5)$ ist die Summe
+und $\sigma_5(X_1,\dots,X_5)$ ist das Produkt der Argumente.
+Tatsächlich sind Summe und Produkt
+\[
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rcccl}
+\sigma_1(\alpha_1,\dots,\alpha_5)
+&=&
+\displaystyle
+\sum_{k=1}^5 \alpha_k
+&=&
+-2
+\\
+\sigma_5(\alpha_1,\dots,\alpha_5)
+&=&
+\displaystyle
+\prod_{k=1}^5 \alpha_k
+&=&
+-6.000000000000004 + 3.525489416408166\cdot 10^{-16}i
+\end{array}
+\]
+mit sehr hoher Genauigkeit bis auf das Vorzeichen die Koeffizienten
+des Polynoms $p(X)$.
+\end{beispiel}
+
+%
+% Der Fundamentalsatz für symmetrische Polynome
+%
+\subsubsection{Der Fundamentalsatz für symmetrische Polynome}
+Die elementarsymmetrischen Polynome sind in einem gewissen Sinne
+die einzigen symmetrischen Polynome, die man braucht.
+Dies ist der Inhalt des folgenden Fundamentalsatzes für
+symmetrische Polynome: jedes symmetrische Polynom lässt sich
+als Polynom in den elementarsymmetrischen Polynomen ausdrücken.
+
+\begin{satz}[Fundamentalsatz für symmetrische Polynome]
+\label{buch:komplex:fundamental:satz:fundamentalpolynom}
+Ist $p(X_1,\dots,X_n)\in K[X_1,\dots,X_n]$ ein symmetrisches
+Polynom von $n$ Variablen, dann gibt es genau ein Polynom
+$q(S_1,\dots,S_n)\in K[S_1,\dots,S_n]$ derart, dass
+\[
+p(X_1,\dots,X_n)
+=
+q\bigl(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n)\bigr).
+\]
+\end{satz}
+
+%
+% Die Spur eines algebraischen Elementes
+%
+\subsubsection{Die Spur eines algebraischen Elements}
+
+%
+% Symmetrische Funktionen der Nullstellen
+%
+\subsubsection{Symmetrische Funktionen der Nullstellen}
+Die elementarsymmetrischen Polynome ausgewertet auf den Nullstellen
+eines Polynoms mit Koeffizienten in $K$ ergeben Werte in $K$, selbst
+dann wenn die Nullstellen selbst nicht in $K$ sind.
+Zusammen mit dem
+Fundamentalsatz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+kann man daraus folgern, dass jedes symmetrische Polynom der Nullstellen
+ebenfalls in $K$ liegt.
+
+\begin{satz}
+Sei $p(X)\in K[X]$ ein Polynom mit den Nullstellen
+$\alpha_1,\dots,\alpha_n$.
+Sei weiter $f(X_1,\dots,X_n)$ ein Polynom mit Koeffizienten in $K$,
+das symmetrisch in den Variablen $X_1,\dots,X_n$ ist.
+Dann ist $f(\alpha_1,\dots,\alpha_n)\in K$.
+\end{satz}
+
+\begin{proof}
+Nach Satz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+kann das Polynom $f(X_1,\dots,X_n)$ als Polynom $g(S_1,\dots,S_n)$
+mit Koeffizienten in $K$ geschrieben werden, so dass
+\[
+f(X_1,\dots,X_n)
+=
+g(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n))
+\]
+gilt.
+Einsetzen der Nullstellen ergibt
+\[
+f(\alpha_1,\dots,\alpha_n)
+=
+g(
+\underbrace{\sigma_1(\alpha_1,\dots,\alpha_n)}_{\displaystyle\in K}
+,\dots,
+\underbrace{\sigma_n(\alpha_1,\dots,\alpha_n)}_{\displaystyle\in K}
+)
+\in K.
+\]
+Es folgt, dass der Wert $f(\alpha_1,\dots,\alpha_n)$ in $K$ liegt.
+\end{proof}
+
+Wenn man zeigen kann, dass eine rationale Funktion von $X_1,\dots,X_n$
+genau dann symmetrisch ist, wenn Zähler und Nenner symmetrisch sind,
+dann folgt auch, dass die Werte rationaler, symmetrischer Funktionen
+der Nullstellen im Koeffizientenkörper liegen.
+
+\begin{satz}
+Sei $p(X)\in K[X]$ ein Polynom mit den Nullstellen
+$\alpha_1,\dots,\alpha_n$.
+Sei weiter $f(X_1,\dots,X_n)$ eine rationale Funktion mit Koeffizienten
+in $K$, die symmetrisch ist unter vertauschungen der Argumente.
+Dann kann $f$ geschrieben werden als Bruch
+\[
+f(X_1,\dots,X_n)
+=
+\frac{u(X_1,\dots,X_n)}{v(X_1,\dots,X_n)},
+\]
+wobei sowohl $u$ als auch $v$ symmetrische Polynome mit Koeffizienten
+in $K$ sind.
+Insbesondere ist $f(\alpha_1,\dots,\alpha_n)$ auch eine rationale Funktion
+der Werte $\sigma_k(\alpha_1,\dots,\alpha_n)\in K$ mit Koeffizienten in $K$.
+\end{satz}
+
+\begin{proof}
+Sei 
+\[
+f(X_1,\dots,X_n)
+=
+\frac{a(X_1,\dots,X_n)}{b(X_1,\dots,X_n)}
+\]
+mit Polynomen $a,b\in K[X_1,\dots,X_n]$.
+Die rationale Funktion $f$ ist symmetrisch.
+Insbesondere folgt
+\begin{align*}
+f(X_1,\dots,X_n)
+&=
+\frac{1}{n!}
+\sum_{\pi\in S_n}
+\frac{a^\pi(X_1,\dots,X_n)}{b^\pi(X_1,\dots,X_n)}.
+\intertext{Durch Zusammenfassen entsteht ein Bruch der Form}
+&=
+\frac{
+A(X_1,\dots,X_n)
+}{
+\displaystyle
+n!\prod_{\pi\in S_n} b^\pi(X_1,\dots,X_n)
+},
+\qquad
+\text{mit }
+B(X_1,\dots,X_n)
+=
+n!\prod_{\pi\in S_n} b^\pi(X_1,\dots,X_n).
+\end{align*}
+Der Nenner $B(X_1,\dots,X_n)$ ist offensichtlich ein symmetrisches
+Polynom.
+Da auch $f$ symmetrisch ist, folgt, dass das Polynom
+\[
+A(X_1,\dots,X_n)
+=
+f(X_1,\dots,X_n)\cdot B(X_1,\dots,X_n)
+\]
+ebenfalls symmetrisch ist.
+Damit ist die Existenz zweier symmetrischer Polynome $u$ und $v$
+gezeigt.
+Die verbleibenden Behauptungen folgen dann aus den entsprechenden
+Behauptungen für Polynome.
+\end{proof}
+
 

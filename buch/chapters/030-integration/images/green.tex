@@ -1,0 +1,103 @@
+%
+% green.tex -- Gebietsdefinition für den Satz von Green
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\def\punkt#1#2{
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw[color=#2] #1 circle[radius=0.05];
+}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\begin{scope}[xshift=-3.2cm]
+	\coordinate (A) at (2,0.7);
+	\coordinate (B) at (5,3);
+	\coordinate (C) at (3,4);
+	\coordinate (D) at (0.5,2.2);
+	\fill[color=gray!20]
+		(A) to[out=0,in=-90]
+		(B) to[out=90,in=0]
+		(C) to[out=180,in=90]
+		(D) to[out=-90,in=180]
+		cycle;
+	\draw[color=darkgreen] (4,0) -- (4,3.9);
+	\draw (4,-0.05) -- ++(0,0.1);
+	\node[color=darkgreen] at (4,0) [below] {$x\mathstrut$};
+	\node at ($0.25*(A)+0.25*(B)+0.25*(C)+0.25*(D)$) {$G$};
+	\draw[line width=0.4pt] (B) -- (5,0);
+	\draw[line width=0.4pt] (D) -- (0.5,0);
+	\draw (5,-0.05) -- ++(0,0.1);
+	\draw (0.5,-0.05) -- ++(0,0.1);
+	\node at (0.5,0) [below] {$x_-\mathstrut$};
+	\node at (5,0) [below] {$x_+\mathstrut$};
+	\draw[color=darkred]
+		(B) to[out=90,in=0]
+		(C) to[out=180,in=90]
+		(D);
+	\draw[color=blue]
+		(D) to[out=-90,in=180]
+		(A) to[out=0,in=-90]
+		(B);
+	\punkt{(B)}{black}
+	\punkt{(D)}{black}
+	\punkt{(4,1.26)}{darkgreen}
+	\punkt{(4,3.92)}{darkgreen}
+	\node[color=darkred] at (C) [above] {$\varphi_+(x)$};
+	\node[color=blue] at (A) [below] {$\varphi_-(x)$};
+	\draw[->] (-0.05,0) -- (5.6,0) coordinate[label={$x$}];
+	\draw[->] (0,-0.05) -- (0,4.5) coordinate[label={right:$y$}];
+\end{scope}
+
+\begin{scope}[xshift=3.2cm]
+	\coordinate (A) at (2,0.7);
+	\coordinate (B) at (5,3);
+	\coordinate (C) at (3,4);
+	\coordinate (D) at (0.5,2.2);
+	\fill[color=gray!20]
+		(A) to[out=0,in=-90]
+		(B) to[out=90,in=0]
+		(C) to[out=180,in=90]
+		(D) to[out=-90,in=180]
+		cycle;
+	\draw[color=darkgreen] (0,3.2) -- ++(4.97,0);
+	\draw (-0.05,3.2) -- ++(0.1,0);
+	\node[color=darkgreen] at (0,3.2) [left] {$y_{\phantom{+}}\mathstrut$};
+	\node at ($0.25*(A)+0.25*(B)+0.25*(C)+0.25*(D)$) {$G$};
+	\draw[line width=0.4pt] (A) -- (0,0.7);
+	\draw[line width=0.4pt] (C) -- (0,4);
+	\draw (-0.05,0.7) -- ++(0.1,0);
+	\draw (-0.05,4) -- ++(0.1,0);
+	\node at (0,0.7) [left] {$y_-\mathstrut$};
+	\node at (0,4) [left] {$y_+\mathstrut$};
+	\draw[color=darkred]
+		(A) to[out=0,in=-90]
+		(B) to[out=90,in=0]
+		(C);
+	\draw[color=blue]
+		(C) to[out=180,in=90]
+		(D) to[out=-90,in=180]
+		(A);
+	\punkt{(A)}{black}
+	\punkt{(C)}{black}
+	\punkt{(0.88,3.2)}{darkgreen}
+	\punkt{(4.97,3.2)}{darkgreen}
+	\node[color=darkred] at (B) [right] {$\psi_+(y)$};
+	\node[color=blue] at (D) [right] {$\psi_-(y)$};
+	\draw[->] (-0.05,0) -- (5.6,0) coordinate[label={$x$}];
+	\draw[->] (0,-0.05) -- (0,4.5) coordinate[label={right:$y$}];
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
+

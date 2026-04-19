@@ -1,0 +1,812 @@
+%
+% 1-bernoulli.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Integration rationaler Funktionen nach Bernoulli
+\label{buch:ratint:section:bernoulli}}
+\kopfrechts{Integration rationaler Funktionen nach Bernoulli}%
+Die Aufgabe, eine Stammfunktion zu finden, gehört zu den zentralen 
+Themen jeder Analysis-Grundvorlesung.
+Eine besondere Rolle spielt darin der Fall einer rationalen
+Funktion als Integrand.
+Für diesen Fall gibt es eine vollständige Lösung, mindestens
+im Prinzip.
+Dieser Abschnitt zeigt diese Lösung von Bernoulli und hebt vor
+allem hervor, warum sie für ein Computeralgebrasystem nicht
+geeignet ist.
+
+%
+% Problemstellung
+%
+\subsection{Problemstellung}
+Die von Bernoulli gelöste Aufgabe ist die Stammfunktion einer
+rationalen Funktion zu finden, für die ausserdem angenommen wird,
+dass eine Faktorisierung des Nenners in Linearfaktoren bekannt ist.
+Der Fundamentalsatz der Algebra garantiert, dass eine solche
+Faktorisierung immer exisiert, wenngleich er keine Methode
+bereitstellt, die Faktorisierung zu finden.
+
+\begin{aufgabe}
+Gegeben ist eine rationale Funktion $f\in \mathbb{C}(z)$ mit
+komplexen Koeffizienten.
+Finde eine Stammfunktion $F$.
+\end{aufgabe}
+
+Aufgrund seiner Annahmen kann Bernoulli annehmen, dass zur
+gegebenen rationale Funktion eine Partialbruchzerlegung 
+wie in Abschnitt~\ref{buch:analytisch:rational:subsection:partialbruch}
+gefunden werden kann.
+Der Integrand kann daher als Summe
+\begin{align*}
+f(z)
+=
+p(z)
++
+\sum_{k=1}^n\sum_{l=1}^{n_k}\frac{A_k^l}{(z-\alpha_k)^l}
+\end{align*}
+geschrieben werden, wobei $p(z)$ ein Polynom und $\alpha_k$ die Nullstellen
+des Nenners von $f(z)$ sind. 
+Um eine Stammfunktion zu finden, müssen Stammfunktionen der
+einzelnen Summanden gefunden werden.
+Der Polynomterm ist dabei das kleinste Problem, da die einzelnen
+Summanden $z^n$ die Stammfunktion $z^{n+1}/(n+1)$ haben.
+Etwas mehr Arbeit geben die Brüche.
+
+%
+% Stammfunktionen für Partialbrüche
+%
+\subsection{Stammfunktionen für Partialbrüche}
+Dank der Partialbruchzerlegung zerfällt in Summanden der Form
+\[
+\frac{A}{(z-\alpha)^l}
+=
+A(z-\alpha)^{-l}.
+\]
+Die Stammfunktion ist
+\[
+\int \frac{A}{(z-\alpha)^l} \,dz
+=
+\begin{cases}
+\displaystyle
+-\frac{A}{(l-1)(z-\alpha)^{l-1}}
+&\qquad\text{für $l>1$}
+\\[10pt]
+A\log(z-\alpha)
+&\qquad\text{für $l=1$.}
+\end{cases}
+\]
+Diese Stammfunktionen erlauben eine Stammfunktion für die
+Funktion $f(z)$ zu finden.
+Sie besteht aus zwei Teilen.
+Ein Teil hat die Form einer rationalen Funktion, die aus den
+Beiträgen des Polynoms $p(z)$ und den Beiträgen der
+Bruchterme $A_k^l/(z-\alpha_k)^l$ mit $l>1$ gelten.
+Dazu kommen als zweiter Teil die Funktionen
+\[
+\sum_{k=1}^n A_k^1\log(z-\alpha_k).
+\]
+Um eine Stammfunktion eines Integranden im Körper der rationalen Funktionen
+zu konstruieren, muss man den Funktionenkörper um Logarithmen der
+Linearfaktoren des Nenners erweitern.
+
+%
+% Rationale Funktionen mit reellen Koeffizienten
+%
+\subsection{Rationale Funktionen mit reellen Koeffizienten}
+Der Fundamentalsatz der Algebra garantiert eine Faktorisierung 
+eines Polynoms mit komplexen Koeffizienten in Linearfaktoren
+der Form $z-\alpha$, wobei $\alpha$ eine Nullstelle des Polynoms
+ist.
+Dies ist jedoch nur möglich, wenn wenn komplexe Nullstellen zugelassen
+werden.
+Es ist jedoch einfach Polynome anzugeben, die über den reellen Zahlen
+nicht in Linearfaktoren zerlegt werden können.
+Das Polynom $p(x)=x^2+1$ hat keine reellen Nullstellen.
+Über den reellen Zahlen ist $p(x)$ ein irreduzibles Polynom.
+Über den komplexen Zahlen ist jedoch $p(x)=(x+i)(x-i)$ eine
+Faktorisierung in Linearfaktoren.
+
+%
+% Faktorisierung in lineare und quadratische Faktoren
+%
+\subsubsection{Faktorisierung in lineare und quadratische Faktoren}
+Für ein reelles Polynom 
+$p(z) = a_0 + a_1z + \dots + a_{n-1}z^{n-1} + a_nz^n$
+kann man also eine Faktorisierung in Linearfaktoren
+nicht erwarten.
+Betrachtet man das Polynom jedoch als ein Polynom mit komplexen
+Koeffizienten, dann garantiert der Fundamentalsatz der Algebra eine
+Faktorisierung
+\[
+p(z)
+=
+a_n
+(z-\alpha_1) 
+(z-\alpha_2) 
+\cdot
+\ldots
+\cdot
+(z-\alpha_n),
+\]
+wobei die $\alpha_k$ Nullstellen des Polynoms sind.
+Es gilt also $p(\alpha_k)=0$ für alle $k$.
+
+Das Polynom $p(x)$ hat reelle Koeffizienten, die $\bar{a}_k=a_k$
+für alle $k$ erfüllen.
+Daher kann man die Bedinung $p(\alpha_k)=0$ komplex konjugieren
+und bekommt
+\begin{align*}
+0
+=
+\overline{p(\alpha_k)}
+&=
+\bar{a}_0
++
+\bar{a}_1 \bar{\alpha}_k
++
+\bar{a}_2 \bar{\alpha}_k^2
++
+\ldots
++
+\bar{a}_{n-1} \bar{\alpha}_k^{n-1}
++
+\bar{a}_{n} \bar{\alpha}_k^{n}
+\\
+&=
+a_0
++
+a_1 \bar{\alpha}_k
++
+a_2 \bar{\alpha}_k^2
++
+\ldots
++
+a_{n-1} \bar{\alpha}_k^{n-1}
++
+a_{n} \bar{\alpha}_k^{n}
+\\
+&=
+p(\bar{\alpha}_k).
+\end{align*}
+Es folgt, dass $\bar{\alpha}_k$ ebenfalls eine Nullstelle ist.
+Falls $\alpha_k=\bar{\alpha}_k$ ist, ist $\alpha_k$ eine reelle
+Nullstelle.
+Falls $\alpha_k\ne \bar{\alpha}_k$ ist, dann ist $\bar{\alpha}_k$
+eine der anderen Nullstellen.
+Die Nullstellen eines reellen Polynoms sind als entweder reell,
+oder wenn sie nicht reell sind, dann treten sie in Paaren von
+konjugiert komplexen Nullstellen auf.
+
+Ein paar von konjugiert komplexen Nullstellen führt auf den Faktor
+\begin{align}
+(z-\alpha)(z-\bar{\alpha})
+&=
+z^2 -(\alpha+\bar{\alpha}) z + \alpha\bar{\alpha}
+\label{buch:ratint:bernoulli:reell:faktoren}
+\intertext{Die Summe konjugiert komplexer Zahlen ist
+$(a+bi)+(a-bi) = 2a $, also das Doppelte des Realteils.
+Daher ist der zu berechnende Faktor}
+&=
+z^2 -2\operatorname{Re}(\alpha)\, z + |\alpha|^2
+\notag
+\end{align}
+Sowohl $\operatorname{Re}\alpha$ und $|\alpha|^2$ sind reell.
+Indem man die Paare konjugiert komplexer Zahlen zu quadratischen
+Faktoren wie in \eqref{buch:ratint:bernoulli:reell:faktoren}
+zusammenfasst, findet man eine Faktorisierung des Polynoms in
+der Form
+\begin{equation}
+p(z)
+=
+a_n
+(z-\alpha_1)
+\cdot\ldots\cdot
+(z-\alpha_m)
+\cdot
+(z^2 + \beta_1 z + \gamma_1)
+\cdot \ldots \cdot
+(z^2 + \beta_l z + \gamma_l),
+\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+\end{equation}
+wobei die $\alpha_1,\dots,\alpha_m$ die reellen Nullstellen sind
+und die Faktoren $z^2 +\beta_k z +\gamma_k$ Paare von
+konjugiert komplexen, aber nicht reellen Lösungen haben.
+Damit die rechte Seite den richtigen Grad hat, muss $n=m+2l$ sein.
+\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+
+%
+% Reelle Partialbruchzerlegung
+%
+\subsubsection{Reelle Partialbruchzerlegung}
+In der Zerlegung
+\eqref{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+können einzelne Faktoren auch mehrfach vorkommen.
+Die Konstruktion der Partialbruchzerlegung produziert
+daher für jeden Faktor Partialnenner in Potenzen nicht
+grösser als in der Faktorisierung.
+Dies ist im folgenden Satz zusammengefasst.
+
+\begin{satz}
+\label{buch:ratint:bernoulli:satz:reelle-partialbruchzerlegung}
+Ist der Nenner $q(z)$ der rationalen Funktion $f(z)=p(z)/q(z)$ 
+ein Polynom mit einer Faktorisierung der Form
+\begin{equation}
+q(z)
+=
+a_n
+(z-\alpha_1)^{s_1}
+\cdots
+(z-\alpha_m)^{s_m}
+(z^2+\beta_1 z + \gamma_1)^{r_1}
+\cdots
+(z^2+\beta_l z + \gamma_l)^{r_l}
+\end{equation}
+dann gibt es eine eindeutig bestimmte Partialbruchzerlegung der Form
+\begin{equation}
+\renewcommand{\arraycolsep}{2pt}
+%\renewcommand{\arraystretch}{1.7}
+\begin{array}{rcclcccl}
+f(z)
+&=&&
+\displaystyle
+\frac{A_1^1    }{ z-\alpha_1       }
+&+& \ldots &+&
+\displaystyle
+\frac{A_1^{r_1}}{(z-\alpha_1)^{s_1}}
+\\
+&&&\hspace*{11pt}\vdots&&&&\hspace*{17pt}\vdots
+\\[2pt]
+&&+&
+\displaystyle
+\frac{A_m^{1}  }{ z-\alpha_m       }
+&+& \ldots &+&
+\displaystyle
+\frac{A_m^{s_m}}{(z-\alpha_m)^{s_m}}
+\\[10pt]
+&&+&
+\displaystyle
+\frac{B_1^1    z + C_1^1    }{ z+\beta_1 z + \gamma_1       }
+&+& \ldots &+&
+\displaystyle
+\frac{B_1^{r_1}z + C_1^{r_1}}{(z+\beta_1 z + \gamma_1)^{r_1}}
+\\
+&&&\hspace*{24pt}\vdots&&&&\hspace*{29pt}\vdots
+\\[2pt]
+&&+&
+\displaystyle
+\frac{B_l^1    z + C_1^l    }{ z+\beta_l z + \gamma_l       }
+&+& \ldots &+&
+\displaystyle
+\frac{B_l^{r_l}z + C_l^{r_1}}{(z+\beta_l z + \gamma_l)^{r_l}}
+\end{array}
+\label{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
+\end{equation}
+Darin sind die Zahlen $A_i^k$, $B_i^k$ und $C_i^k$ reelle Zahlen.
+\end{satz}
+
+\begin{proof}
+Die Form der Partialbruchzerlegung ist aus der früheren Diskussion,
+die zu Satz~\ref{buch:analytisch:ratioinal:satz:partialbruchzerlegung}
+geführt hat, klar.
+Es muss höchstens noch gezeigt werden, dass diese Zerlegung auch
+eindeutig ist.
+
+Offenbar sind $s_i$ Zahlen $A_i^k$ zu bestimmen, insgesamt also
+$s_1+\dots+s_m$ Unbekannte für Terme zu den Linearfaktoren.
+Zu den quadratischen Faktoren sind je $s_i$ Unbekannte
+$B_i^k$ und $C_i^k$ zu bestimmen, also insgesamt
+$2r_1+\dots+2r_l$ Unbekannte.
+Die Gesamtzahl der Unbekannten ist $s_1+\dots+s_m+2r_1+\dots+2r_l=n$.
+
+
+Multipliziert man die Gleichung
+\eqref{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
+mit dem Nenner $q(z)$, dann bleibt auf der linken Seite das Polynom
+$p(z)$ und auf der rechten ein Polynom, dessen Koeffizienten
+Linearkombinationen der Unbekannten $A_i^k$, $B_i^k$ und $C_i^k$
+sind.
+Das Zählerpolynom hat Grad $<n$, es enthält also höchstens $n$
+Koeffizienten.
+Koeffizientenvergleich liefert dann insgesamt $n$ lineare Gleichungen
+für die Unbekannten.
+Das entstehende lineare Gleichungssystem hat also $n$ Gleichungen für
+$n$ Unbekannte.
+\end{proof}
+
+Die reelle Partialbruchzerlegung erlaubt die Berechnung einer
+Stammfunktion durch Integration der einzelnen Terme.
+Für die linearen Terme ist bereits die Stammfunktion
+\[
+\int\frac{dz}{z-\alpha}
+=
+\log (z-\alpha)
+\]
+bekannt.
+Die Stammfunktion für die Terme zu den quadratischen Faktoren
+des Nenners wird im nächsten Abschnitt bestimmt.
+
+%
+% Stammfunktionen für quadratische Faktoren
+%
+\subsubsection{Stammfunktionen für quadratische Faktoren}
+Wir betrachten jetzt einen quadratischen Nenner der Form
+\[
+z^2 + \beta z + \gamma
+=
+(z-\alpha)(z-\bar{\alpha}),
+\]
+wobei $\beta = 2\operatorname{Re}\alpha$ und $\gamma=|\alpha|^2$ ist.
+
+Als erstes berechnen wir das Integral eines Terms, in dessen Nenner
+der quadratische Faktor einmal vorkommt, mit Hilfe der komplexen
+Partialbruchzerlegung, die die Form
+\begin{align*}
+\frac{Bz+C}{z^2+\beta z+\gamma}
+&=
+\frac{A_1}{z-\alpha}
++
+\frac{A_2}{z-\bar{\alpha}}.
+\intertext{Durch Multiplizieren mit dem Nenner $(z-\alpha)(z-\bar{\alpha})$
+entsteht}
+Bz+C
+&=
+A_1(z-\bar{\alpha})
++
+A_2(z-\alpha)
+=
+(A_1+A_2)z-(A_1\bar{\alpha}+A_2\alpha).
+\end{align*}
+Durch Koeffizientenvergleich entsteht das lineare Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcr}
+             A_1 &+&        A_2 &=&  B\\
+\bar{\alpha} A_1 &+& \alpha A_2 &=& -C\rlap{,}
+\end{array}
+\]
+Das Gleichungssystem ist am einfachsten mit der Carmerschen Regel
+zu lösen:
+\begin{align*}
+A_1
+&=
+\frac{
+\left|\,\begin{matrix*}[r]
+     B       &    1   \\
+    -C       & \alpha
+\end{matrix*}\,\right|
+}{
+\left|\,\begin{matrix*}[r]
+     1       &    1   \\
+\bar{\alpha} & \alpha
+\end{matrix*}\,\right|
+}
+=
+\frac{B\alpha+C}{2\operatorname{Im}\alpha}
+&
+A_2
+&=
+\frac{
+\left|\,\begin{matrix*}[r]
+     1       &    B   \\
+\bar{\alpha} &   -C  
+\end{matrix*}\,\right|
+}{
+\left|\,\begin{matrix*}[r]
+     1       &    1   \\
+\bar{\alpha} & \alpha
+\end{matrix*}\,\right|
+}
+=
+-
+\frac{B\bar{\alpha}+C}{2\operatorname{Im}\alpha}.
+\end{align*}
+Wir wissen bereits, dass der Realteil von $\alpha$ durch
+$\operatorname{Re}\alpha=\frac12 \beta$ ausgedrückt werden kann.
+Wegen $\gamma=|\alpha|^2$ und $\beta=2\alpha$ kann man
+auch den Imaginärteil von $\alpha$ durch $\beta$ und $\gamma$ ausdrücken,
+es ist nämlich
+\begin{align*}
+(\operatorname{Im}\alpha)^2 &= |\alpha|^2 - (\operatorname{Re}\alpha)^2
+\\
+\operatorname{Im}\alpha &= \frac12\!\sqrt{4\gamma^2 - \beta^2}.
+\end{align*}
+Damit kann die Lösung auch
+\begin{align*}
+A_1
+&=
+\frac{B\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
+&&&
+A_2
+&=
+-
+\frac{B\bar{\alpha} + C}{\!\sqrt{4\gamma^2-\beta^2}}
+\\
+&=
+\frac{B\operatorname{Re}\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB\operatorname{Im}\alpha}{2\operatorname{Im}\alpha}
+&&&
+&=
+-
+\frac{B\operatorname{Re}\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB\operatorname{Im}\alpha}{2\operatorname{Im}\alpha}
+\\
+&=
+\frac{B\beta + 2C}{2\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB}2
+&&&
+&=
+-
+\frac{B\beta + 2C}{2\!\sqrt{4\gamma^2-\beta^2}}
++
+\frac{iB}2
+\end{align*}
+
+Die Partialbruchzerlegung ist also
+\[
+\frac{Bz+C}{(z-\alpha)(z-\bar{\alpha})}
+=
+\frac{1}{2\operatorname{Im}\alpha}
+\biggl(
+\frac{B\alpha +C}{z-\alpha}
+-
+\frac{B\bar{\alpha} +C}{z-\bar{\alpha}}
+\biggr)
+\]
+
+
+In dieser Form kann die Stammfunktion jetzt mit Logarithmusfunktionen
+in der Form
+\begin{align*}
+\int
+\frac{Bz+C}{(z-\alpha)(z-\bar{\alpha})}
+\,dz
+&=
+\frac{1}{2\operatorname{Im}\alpha}
+\biggl(
+(B\alpha+C)
+\log(z-\alpha)
+-
+(B\bar{\alpha}+C)
+\log(z-\bar{\alpha})
+\biggr)
+\\
+&=
+\frac{1}{2\operatorname{Im}\alpha}
+(B\operatorname{Re}\alpha+C)
+\log\frac{z-\alpha}{z-\bar{\alpha}}
+\\
+&\qquad
++
+\frac{1}{2\operatorname{Im}\alpha}
+\biggl(
+iB\operatorname{Im}\alpha
+\log(z-\alpha)
++
+iB\operatorname{Im}\alpha
+\log(z-\bar{\alpha})
+\biggr)
+\\
+&=
+\frac{1}{2\operatorname{Im}\alpha}
+(B\operatorname{Re}\alpha+C)
+\log\frac{z-\alpha}{z-\bar{\alpha}}
++
+\frac{iB}{2}
+\log\bigl((z-\alpha)(z-\bar{\alpha})\bigr)
+)
+\\
+&=
+\frac{B\operatorname{Re}\alpha+C}{2\operatorname{Im}\alpha}
+\log
+\frac{z-\alpha}{z-\bar{\alpha}}
++
+\frac{iB}2
+\log(z^2+\beta z+\gamma)
+\end{align*}
+dargestellt werden.
+
+%
+% Stammfunktion für Potenzen von quadratischen Nennern
+%
+\subsubsection{Stammfunktion für Potenzen von quadratischen Nennern}
+Die Berechnung des vorangegangenen Abschnitts hat gezeigt, wie rationale
+Funktionen mit rationalen Nennern integriert werden können.
+In der Partialbruchzerlegung treten aber auch noch Summanden mit
+Potenzen solcher Nenner auf.
+In diesem Abschnitt berechnen wir die Stammfunktionen dieser Terme.
+Dabei geht es vor allem um die Vorgehensweise und die dabei 
+ausgenützen Eigenschaften der Polynome, die wir später verallgemeinern
+werden, wenn allgemeinere Faktorisierungen des Nenners zur Konstruktion
+der Partialbruchzerlegung verwendet werden sollen.
+
+In diesem Abschnitt geht es also um die Stammfunktion einer rationalen
+Funktion der Form
+\begin{equation}
+f(z)
+=
+\frac{Az+B}{(z^2 +\beta z + \gamma)^m}
+\qquad\text{mit $m>1$.}
+\label{buch:ratint:bernoulli:eqn:quadrpotnenner}
+\end{equation}
+Wir schreiben auch $q(z) = z^2 +\beta z + \gamma$ und nehmen zudem
+an, dass $q(z)$ keine doppelten Nullstellen hat und dass $Az+B$
+kein Teiler von $q(z)$ ist.
+
+Zunächst beachten wir, dass der Fall $Az+B=q'(z)$ ein Spezialfall der Form 
+\eqref{buch:ratint:bernoulli:eqn:quadrpotnenner}
+des Integranden ist.
+Für diesen speziellen Zähler kann das Integral sofort ermittelt
+werden.
+
+\begin{satz}
+\label{buch:ratint:bernoulli:satz:einfacheintegrale}
+Unter den formulierten allgemeinen Voraussetzungen an $q(z)$ ist
+\begin{equation}
+\int
+\frac{q'(z)}{q(z)^m}\,dz
+=
+\begin{cases}
+\log q(z)                  &\qquad\text{für $m=1$}\\[5pt]
+\displaystyle
+\frac{1}{(1-m)q(z)^{m-1}}  &\qquad\text{für $m>1$.}
+\end{cases}
+\label{buch:ratint:bernoulli:eqn:einfacheintegrale}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Der Beweis erfolgt durch Nachrechnen der Ableitung
+auf der rechten Seite von \eqref{buch:ratint:bernoulli:eqn:einfacheintegrale}.
+Für den Fall $m=1$ rechnet man
+\begin{align*}
+\frac{d}{dz}\log q(z)
+&=
+\frac{1}{q(z)}\cdot q'(z)
+\intertext{nach der Kettenregel.
+Für $m>1$ gilt}
+\frac{d}{dz}\frac{1}{(1-m)q(z)^{m-1}}
+&=
+\frac{1}{1-m}
+\frac{d}{dz}
+q(z)^{1-m}
+=
+\frac{1}{1-m} (1-m)q(z)^{-m}\cdot q'(z)
+=
+\frac{q'(z)}{q(z)^m}.
+\end{align*}
+Damit ist der Satz bewiesen.
+\end{proof}
+
+Der Zähler $Az+B$ ist im Allgemeinen von $q'(z)$ verschieden,
+trotzdem gibt es eine Verbindung, die später ermöglichen wird,
+das Integral zu vereinfachen.
+
+\begin{satz}
+\label{buch:ratint:bernoulli:satz:euklidspezial}
+Unter den obigen allgemeinen Voraussetzungen gibt es eine Zahl
+$s\in\mathbb{R}$ und ein lineares Polynom $t(z)=uz+v\in\mathbb{R}[z]$
+derart, dass
+\begin{equation}
+s\cdot q(z) + t(z)\cdot q'(z) = Az+B.
+\label{buch:ratint:bernoulli:eqn:euklidspezial}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Man setzt die Polynome in die Gleichung
+\eqref{buch:ratint:bernoulli:eqn:euklidspezial}
+ein und erhält
+\begin{align*}
+s\cdot(z^2+\beta z+\gamma) + (uz+v)\cdot (2z+\beta) &=  Az+B
+\intertext{oder nach Ausmultiplizieren}
+sz^2 + \beta s z + \gamma s + 2uz^2 +(\beta u+2v)z +\beta v &= Az + B
+\intertext{oder zusammengefasst}
+(s+2u) z^2 + (\beta s + \beta u+2v)z +(\beta s + \beta v) &= Az + B.
+\end{align*}
+Durch Koeffizientenvergleich erhält man das lineare Gleichungssystem
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcrcr}
+       s&+&     2 u& &        &=& 0 \\
+ \beta s&+& \beta u&+&     2 v&=& A \\
+\gamma s& &        &+& \beta v&=& B
+\end{array}
+\]
+mit der Determinanten
+\[
+\left|\,
+\begin{matrix*}[r]
+     1 &     2 &     0 \\
+ \beta & \beta &     2 \\
+\gamma &     0 & \beta
+\end{matrix*}
+\,
+\right|
+=
+\beta^2 + 4\gamma - 2\beta^2
+=
+-(\beta^2-4\gamma).
+\]
+Der Klammerausdruck ist die Diskriminante des quadratischen
+Polynoms $q(z)$.
+Sie ist von $0$ verschieden, da angenommen wurde, dass $q(z)$
+keine doppelten Nullstellen hat.
+Die Koeffizientenmatrix ist somit regulär und das Gleichungssystem
+hat eine eindeutig bestimmte Lösung, was den Satz beweist.
+\end{proof}
+
+
+\begin{satz}
+\label{buch:ratint:bernoulli:satz:reduktion}
+Unter den gegebenen allgemeinen Voraussetzungen lässt sich mit den
+Faktoren $s$ und $t(z)$ von
+Satz~\eqref{buch:ratint:bernoulli:satz:euklidspezial}
+das Integral durch ein Integral mit niedrigerem Exponenten $m$ ausdrücken,
+nämlich
+\begin{equation}
+\int
+\frac{Az+B}{q(z)^m}
+\,dz
+=
+\int
+\frac{s+t'(z)/(m-1)}{q(z)^{m-1}}
+\,dz
++
+\frac{t(z)}{(1-m)q(z)^{m-1}}
+\label{buch:ratint:bernoulli:eqn:reduktion}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Setzt man die
+\eqref{buch:ratint:bernoulli:eqn:euklidspezial}
+in den Integranden ein, erhält man
+\begin{align*}
+\int
+\frac{Az+B}{q(z)^m}
+\,dz
+&=
+\int
+\frac{s\cdot q(z)}{q(z)^m}
+\,dz
++
+\int
+\frac{t(z) \cdot q'(z)}{q(z)^m}
+\,dz.
+\intertext{Im ersten Integral kann ein Faktor $q(z)$ weggekürzt werden.
+Im zweiten Integral kann partielle Integration angewendet werden,
+wobei $q'(z)/q(z)^m$ der Faktor ist, der integriert wird und $t(z)$
+der Faktor, der abgeleitet wird.
+Für die Stammfunktion von $q'(z)/q(z)^m$ wird
+Satz~\eqref{buch:ratint:bernoulli:satz:einfacheintegrale}
+verwendet.
+So erhält man}
+&=
+\int
+\frac{s}{q(z)^{m-1}}
+\,dz
++
+t(z)\cdot\frac{1}{(1-m)q(z)^{m-1}}
+-
+\int
+\frac{t'(z)}{(1-m)q(z)^{m-1}}
+\,dz.
+\\
+&=
+\int
+\frac{s+t'(z)/(m-1)}{q(z)^{m-1}}
+\,dz
++
+\frac{t(z)}{(1-m)q(z)^{m-1}}.
+\end{align*}
+Dies ist die behauptete Form des Integrals.
+\end{proof}
+
+Der letzte Satz zeigt, dass sich alle Integrale mit Nenner
+$q(z)^m$ mit $m>1$ immer auflösen lassen in eine rationale
+Funktion und ein Integral mit Nenner $q(z)^{m-1}$.
+Wiederholte Anwendung dieser Eigenschaft ermöglicht,
+das Integral soweit zu reduzieren, dass am Ende in Integral
+mit dem Nenner $q(z)$ übrig bleibt, wie es im vorangegangenen
+Abschnitt berechnet wurde.
+
+%
+% Die allgemeine Form der Stammfunktion
+%
+\subsubsection{Die allgemeine Form der Stammfunktion}
+Die vorangegangenen Berechnungen zeigen, dass das Integral einer
+rationalen Funktion $f(z)$ sich immer als eine Summe von Termen
+der folgenden Form darstellen lassen.
+\begin{enumerate}
+\item
+Für jeden Linearfaktor $z-\alpha$ sind rationale Terme der Form
+\[
+\frac{A}{(z-\alpha)^m}
+\]
+möglich, wobei $m$ nicht grösser sein kann als die Potenz, mit der
+der Faktor im Nenner von $f(z)$ vorkommt.
+
+Ausserdem ist ein Term der Form
+\[
+A \log (z-\alpha)
+\]
+möglich.
+\item
+Für jeden quadratischen Faktor der Form $q(z)=z^2+\beta z+\gamma$
+sind rationale Terme der Form $t(z) / q(z)^m$ möglich, wobei $t(z)$
+ein lineares Polynom ist und $m$ nicht grösser sein kann als die
+Potenz, in der $q(z)$ im Nnner von $f(z)$ vorkommt.
+
+Ausserdem ist ein Term der Form
+\[
+\log q(z)
+=
+\log (z^2 +\beta z + \gamma)
+\]
+möglich.
+\end{enumerate}
+
+%
+% Die der Methode zugrunde liegenden Prinzipien
+%
+\subsubsection{Die der Methode zugrunde liegenden Prinzipien}
+Es wurde bereits früher festgehalten, dass die dargestellte Methode
+für ein Computeralgebrasystem nicht durchführbar ist, weil eine
+Methode zur Bestimmung der Faktorisierung des Nenners in Linearfaktoren
+oder quadratische reelle Faktoren fehlt.
+Es muss daher eine alternative Vorgehensweise gefunden werden,
+die mit einer leichter zu findenden Faktorisierung des Nenners
+arbeiten kann.
+Die Faktorisierung muss immer noch einige Eigenschaften erfüllen,
+damit die einzelnen Schritte verallgemeinert werden können.
+
+\begin{enumerate}
+\item
+Die Partialbruchzerlegung wurde dazu verwendet, die 
+rationale Funktion in Term mit speziell einfachen Nennern
+aufzuspalten.
+In jedem Term kamen höchstens Potenzen eines einzigen Faktors
+des Nenners vor.
+Wie in der Darstellung der Partialbruchzerlegung angedeutet
+wurde, müssen die Faktoren teilerfremd sein.
+\item
+Für den Reduktionsschritt von
+Satz~\ref{buch:ratint:bernoulli:satz:reduktion}
+wurde benötigt, dass sich jeder denkbare Zähler in der Form
+\[
+s(z) \cdot q(z) + t(z)\cdot q'(z)
+\]
+ausdrücken lässt, wobei $q(z)$ ein einzelner Faktor in der
+Nennerfaktorisierung ist.
+Dies ist genau dann möglich, wenn $q(z)$ und $q'(z)$ teilerfremd
+sind, also keine gemeinsame Nullstelle haben.
+Dies wieder ist gleichbedeutend damit, dass $q(z)$ nur einfache
+Nullstellen hat.
+\item
+Es wird ein Algorithmus benötigt, der die Polynom $s(z)$ und
+$t(z)$ auf effiziente Art und Weise finden kann.
+\item
+Es müssen Integrale der Form 
+\[
+\int \frac{p(z)}{q(z)}\,dz
+\]
+gefunden werden, wobei $p(z)$ ein beliebiges Polynom ist.
+\end{enumerate}
+
+Die Aufgabe von Punkt~3, das Finden einer Darstellung eines
+beliebigen Zahlerpolynoms Zwecks Reduktion des Exponenten im
+Nenner wird durch den euklidischen Algorithmus ermöglicht,
+der im Abschnitt~\ref{buch:ratint:section:euklid} dargestellt
+wird.
+
+Eine geeignete Faktorisierung, die immer gefunden werden kann,
+ist die sogenannte quadratfreie Faktorisierung, die in Abschnitt 
+\ref{buch:ratint:section:hermite}
+zusammen mit der Reduktion der Integrale von rationalen
+Funktionen mit Potenzen des Nennerfaktors vorgestellt wird.
+
+

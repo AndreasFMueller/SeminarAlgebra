@@ -1,0 +1,496 @@
+%
+% 2-wurzel.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Integrale von $R(x,\vartheta)$ mit $\vartheta=\!\sqrt{ax^2+bx+c}$
+\label{buch:intalg:section:wurzel}}
+\kopfrechts{Integrale von $R(x,\vartheta)$ mit $\vartheta=\!\sqrt{ax^2+bx+c}$}
+In Kapitel~\ref{chapter:ratint} ist es uns bereits gelungen, Stammfunktionen
+für beliebige rationale Funktionen zu finden.
+Der Formalismus von Abschnitt~\ref{buch:intalg:section:elementar} zeigt,
+dass die Stammfunktion immer ein elementare Funktion ist.
+In diesem Abschnitt soll untersucht werden, was sich ändert, wenn man den
+Körper $\mathbb{Q}(z)$ der rationalen Funktionen algebraisch um die
+Quadratwurzel 
+\[
+\vartheta = \!\sqrt{ax^2+bx+c}
+\]
+erweitert.
+Die Vorgehensweise soll später verallgemeinert werden und zeigen, wie
+allgemein entschieden werden kann, ob ein Integrand eine elementare
+Stammfunktion hat.
+
+%
+% Der Funktionekörper
+%
+\subsection{Der Funktionenkörper $\mathbb{Q}(z,\vartheta)$
+\label{buch:intalg:wurzel:subsection:koerper}}
+Der Körper $\mathbb{Q}(z,\vartheta)$ besteht aus den Funktionen
+\[
+f(z)
+=
+\frac{
+\tilde{p}_0 + \tilde{p}_1\vartheta + \tilde{p}_2\vartheta^2
++ \ldots + \tilde{p}_n\vartheta^n
+}{
+\tilde{q}_0 + \tilde{q}_1\vartheta + \tilde{q}_2\vartheta^2
++ \ldots + \tilde{q}_m\vartheta^m
+}
+\]
+mit $p_k\in\mathbb{Q}(z)$, $k=1,\dots,n$, und $q_k\in\mathbb{Q}(z)$,
+$k=1,\dots,m$.
+Da $\vartheta$ eine algebraisches Element über $\mathbb{Q}$ ist, welches
+die Identität
+\[
+\vartheta^2 = az^2 +bz +c
+\]
+mit $a,b,c\in\mathbb{Q}$ erfüllt, können die höheren Potenzen
+$\vartheta^{2l}$ und $\vartheta^{2l+1}$ durch Potenzen des Radikanden
+ersetze werden:
+\begin{align*}
+\vartheta^{2l}
+&=
+(az^2 + bz + c)^l
+&&\text{und}&
+\vartheta^{2l+1}
+&=
+(az^2 + bz + c)^l \vartheta.
+\end{align*}
+Es ist daher möglich, die Funktion $f(z)$ in der einfacheren Form
+\begin{equation}
+f(z)
+=
+\frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
+\label{buch:algint:wurzel:eqn:funktion}
+\end{equation}
+zu schreiben.
+Gesucht ist also eine Stammfunktion von
+\[
+f
+\in
+\mathbb{Q}(z,\vartheta)
+=
+\biggl\{
+\frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
+\;
+\bigg|
+\;
+p_k,q_k\in\mathbb{Q}(z)\, k=0,1
+\biggr\}
+\]
+als elementare Funktion.
+Da schon die Stammfunktionen von rationalen Funktionen nicht unbedingt
+rational sein müssen, kann man nicht erwarten, dass eine Stammfunktion
+einer Funktion in $\mathbb{Q}(z,\vartheta)$ in diesem Körper liegen wird.
+Es werden also Erweiterungen des Körpers um weitere Funktionen nötig sein,
+um das Problem lösen zu können.
+
+%
+% Rationalisierung
+%
+\subsection{Rationalisierung
+\label{buch:intalg:wurzel:subsection:rationalisierung}}
+Die Darstellung~\eqref{buch:algint:wurzel:eqn:funktion} der Funktion kann
+weiter vereinfacht werden, mit potenzieller Vereinfachung der Berechnung
+der Stammfunktion.
+Dazu wird \eqref{buch:algint:wurzel:eqn:funktion} mit
+$q_0-q_1\vartheta$ zu
+\begin{align}
+f
+&=
+\frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
+\cdot
+\frac{q_0-q_1\vartheta}{q_0-q_1\vartheta}
+\notag
+\\
+&=
+\frac{
+p_0q_0 +(p_0q_1+p_1q_0)\vartheta + p_1q_1\vartheta^2
+}{
+q_0^2-q_1^2\vartheta^2
+}
+\notag
+\\
+&=
+\frac{
+p_0q_0+p_1q_1(az^2+bz+c)
+}{
+q_0^2-q_1^2(az^2+bz+c)
+}
++
+\frac{
+p_0q_1+p_1q_0
+}{
+q_0^2-q_1^2(az^2+bz+c)
+}
+\vartheta
+\notag
+\\
+&=
+p + q\vartheta
+\label{buch:intalg:wurzel:eqn:linkombtheta}
+\end{align}
+erweitert.
+Daraus liest man ab, dass der Funktionenkörper sogar als
+\[
+\mathbb{Q}(z,\vartheta)
+=
+\{
+p+q\vartheta
+\mid
+p,q\in\mathbb{Q}(z)
+\}
+\]
+geschrieben werden kann.
+
+Die Relation $\vartheta^2-(az^2+bz+c)=0$ für das algebraische Element
+$\vartheta$ bedeutet auch, dass
+\[
+\vartheta
+=
+\frac{az^2+bz+c}{\vartheta}
+\]
+und damit, dass der Funktionenkörper auch aus Linearkombinationen
+\begin{equation}
+\mathbb{Q}(z,\vartheta)
+=
+\biggl\{
+p+q\frac{1}{\vartheta}
+\bigg|
+p,q\in\mathbb{Q}
+\biggr\}
+\label{buch:intalg:wurzel:eqn:linkombthetainverse}
+\end{equation}
+von $1$ und $1/\vartheta$ mit Koeffizienten in $\mathbb{Q}(z)$ erzeugen.
+
+%
+% Das Integrationsproblem
+%
+\subsection{Das Integrationsproblem
+\label{buch:intalg:wurzel:subsection:integration}}
+Die in Abschnitt~\ref{buch:intalg:wurzel:subsection:rationalisierung}
+erfolgte Rationalisierung zeigt, dass eine rationale Funktion der Form
+$R(z,\vartheta)$ immer in die Form \eqref{buch:intalg:wurzel:eqn:linkombtheta}
+oder \eqref{buch:intalg:wurzel:eqn:linkombthetainverse} gebracht
+werden kann.
+Es müssen also nur noch Integrale der Form
+\begin{equation*}
+\int
+p(z)+q(z)\vartheta
+\,dz
+\qquad\text{oder}\qquad
+\int
+p(z)+q(z)\frac{1}{\vartheta}
+\,dz
+\end{equation*}
+gelöst werden, wobei $p$ und $q$ rationale Funktionen in $\mathbb{Q}(z)$
+sind.
+Das Integral über den ersten Summanden ist das Integral einer rationalen
+Funktion und kann daher mit der Methode von Kapitel~\ref{chapter:ratint}
+integriert werden.
+Es bleibt daher nur noch Integrale der Form
+\begin{equation}
+\int q(z)\,\vartheta\,dz
+\qquad\text{oder}\qquad
+\int \frac{q(z)}{\vartheta}\,dz
+\label{buch:intalg:wurzel:eqn:integrand}
+\end{equation}
+zu bestimmen.
+
+
+Im Folgenden bevorzugen wir die zweite Form des Integrals in
+\eqref{buch:intalg:wurzel:eqn:integrand}.
+Um den Grund zu verstehen, betrachten wir die Ableitung
+\begin{align*}
+\vartheta^2
+&=
+az^2+bz+c
+\\
+2\vartheta\vartheta'
+&=
+2az + b
+\intertext{und drücken $\vartheta'$ durch $\vartheta$ als}
+\vartheta'
+&=
+\frac{2ax+b}{2\vartheta}
+=
+\frac{ax+b/2}{\vartheta}
+&&\Rightarrow&
+\frac{1}{\vartheta}
+&=
+\frac{\vartheta'}{ax+b/2}
+\end{align*}
+aus.
+Man kann also $1/\vartheta$ durch die Ableitung $\vartheta'$ ersetzen,
+was die Möglichkeit der partiellen Integration eröffnet.
+
+Die rationale Funktion $q(z)$ im rechten Integral von
+\eqref{buch:intalg:wurzel:eqn:integrand} ist ein Bruch von Polynomen
+von $z$.
+Durch Dividieren mit Rest lässt es sich schreiben als Summe
+\begin{equation}
+q(z)
+=
+\varphi(z)
++
+w(z)
+\qquad
+\varphi(z)\in\mathbb{Q}[z],
+w(z)\in\mathbb{Q}(z)
+\label{buch:intalg:wurzel:eqn:summe}
+\end{equation}
+eines Polynoms und einer vollständig gekürzten rationalen Funktion,
+deren Nenner grösseren Grad hat als der Zähler.
+
+%
+% Integranden der Form Polynom/theta
+%
+\subsection{Integranden der Form $\text{Polynom}/\vartheta$}
+Der Summand $\varphi$ in
+\eqref{buch:intalg:wurzel:eqn:summe}
+lässt sich auf ein Integral nur von $1/\vartheta$ reduzieren,
+wie der folgende Satz zeigt.
+
+\begin{satz}
+Sei $\varphi\in\mathbb{Q}[z]$ ein Polynom mit rationalen Koeffizienten
+und $\vartheta=\!\sqrt{az^2+bz+c}$.
+Dann gibt es ein Polynom $\psi\in\mathbb{Q}[z]$ mit 
+\begin{equation}
+\int\frac{\varphi}{\vartheta}
+=
+\psi\vartheta
++
+A\int\frac{1}{\vartheta},
+\label{buch:intalg:wurzel:eqn:polytheta}
+\end{equation}
+wobei $A$ eine Konstante ist.
+\end{satz}
+
+\begin{proof}
+Wenn es das Polynom $\psi$ und die Konstante $A$ gibt, dann 
+muss auch die Ableitung der Gleichung~\eqref{buch:intalg:wurzel:eqn:polytheta} 
+erfüllt sein, also
+\begin{equation}
+\frac{\varphi}{\vartheta}
+=
+\psi'\vartheta + \psi\vartheta'+A\frac{1}{\vartheta}.
+\label{buch:intalg:wurzel:eqn:polytheta'}
+\end{equation}
+Die Ableitung von $\vartheta$ ist
+\[
+\vartheta'
+=
+\frac{2az+b}{2\vartheta}
+=
+\frac{az+b/2}{\vartheta}.
+\]
+Eingesetzt in 
+\eqref{buch:intalg:wurzel:eqn:polytheta'} und mit $\vartheta$ multipliziert
+erhält man die Gleichung
+\begin{align*}
+\varphi
+&=
+\psi'\vartheta^2 + \psi (az+b/2) + A
+\\
+\varphi
+&=
+\psi' (az^2+bz+c) + \psi (az+b/2) + A
+\end{align*}
+Um diese Differentialgleichung für die Funktion $\psi$ zu lösen, verwenden
+wir Ansätze der Form
+\[
+\renewcommand{\arraycolsep}{1pt}
+\begin{array}{rcrcrcrcrcccrcr}
+\varphi&=& \varphi_mz^m &+& \varphi_{m-1}z^{m-1} &+&   \varphi_{m-2}z^{m-2} &+&   \varphi_{m-3}z^{m-3} &+& \ldots &+& \varphi_1 z &+& \varphi_0\phantom{.}\\
+\psi   &=&              & &    \psi_{m-1}z^{m-1} &+&      \psi_{m-2}z^{m-2} &+&      \psi_{m-3}z^{m-3} &+& \ldots &+&    \psi_1 z &+&    \psi_1\phantom{.}\\
+\psi'  &=&              & &                      & & (m-1)\psi_{m-1}z^{m-2} &+& (m-2)\psi_{m-2}z^{m-3} &+& \ldots &+&   2\psi_2 z &+&    \psi_1.
+\end{array}
+\]
+Durch Ausmultiplizieren und Koeffizientenvergleich entstehen die Gleichungen
+\[
+\renewcommand{\arraycolsep}{1pt}
+\def\i#1{\rlap{$\scriptstyle #1$}\phantom{m-2}}
+\begin{array}{lcrcrcrcrcrcrcr}
+\varphi_{m  } &=& (m-1)a\psi_{m-1}   & &                    & &                    &+& a\psi_{m-1}   & &                   & &   \\
+\varphi_{m-1} &=& (m-2)a\psi_{m-2}   &+& (m-1)b\psi_{m-1}   & &                    &+& a\psi_{m-2}   &+& (b/2)\psi_{m-1} & &   \\
+\varphi_{m-2} &=& (m-3)a\psi_{m-3}   &+& (m-2)b\psi_{m-2}   &+& (m-1)c\psi_{m-1}   &+& a\psi_{m-3}   &+& (b/2)\psi_{m-2}   & &   \\
+\varphi_{m-3} &=& (m-4)a\psi_{m-4}   &+& (m-3)b\psi_{m-3}   &+& (m-2)c\psi_{m-2}   &+& a\psi_{m-4}   &+& (b/2)\psi_{m-3}   & &   \\
+              &\vdots &              & &                    & &                    & &               & &                   & &   \\
+\varphi_{3}   &=&     2a\psi_{\i{2}} &+&     3b\psi_{\i{3}} &+&     4c\psi_{\i{4}} &+& a\psi_{\i{2}} &+& (b/2)\psi_{\i{3}} & &   \\
+\varphi_{2}   &=&      a\psi_{\i{1}} &+&     2b\psi_{\i{2}} &+&     3c\psi_{\i{3}} &+& a\psi_{\i{1}} &+& (b/2)\psi_{\i{2}} & &   \\
+\varphi_{1}   &=&                    & &      b\psi_{\i{1}} &+&     2c\psi_{\i{2}} &+& a\psi_{\i{0}} &+& (b/2)\psi_{\i{1}} & &   \\
+\varphi_{0}   &=&                    & &                    & &      c\psi_{\i{1}} & &               &+& (b/2)\psi_{\i{0}} &+& A \\
+\end{array}
+\]
+oder zusammengefasst
+\[
+\renewcommand{\arraycolsep}{1pt}
+\def\i#1{\rlap{$\scriptstyle #1$}\phantom{m-2}}
+\begin{array}{lcrcrcrcrcr}
+\varphi_{m  } &=& \phantom{(}m\phantom{\mathstrut-0)}a\psi_{m-1}
+                                     & &                             & &                    & &   \\
+\varphi_{m-1} &=& (m-1)a\psi_{m-2}   &+&  ((2(m-1)+1)b/2)\psi_{m-1}  & &                    & &   \\
+\varphi_{m-2} &=& (m-2)a\psi_{m-3}   &+&  ((2(m-2)+1)b/2)\psi_{m-2}  &+& (m-1)c\psi_{m-1}   & &   \\
+\varphi_{m-3} &=& (m-3)a\psi_{m-4}   &+&  ((2(m-3)+1)b/2)\psi_{m-3}  &+& (m-2)c\psi_{m-2}   & &   \\
+              &\vdots &              & &                             & &                    & &   \\
+\varphi_{3}   &=&     3a\psi_{\i{2}} &+& 7b/2\phantom{)}\psi_{\i{3}} &+&     4c\psi_{\i{4}} & &   \\
+\varphi_{2}   &=&     2a\psi_{\i{1}} &+& 5b/2\phantom{)}\psi_{\i{2}} &+&     3c\psi_{\i{3}} & &   \\
+\varphi_{1}   &=&      a\psi_{\i{0}} &+& 3b/2\phantom{)}\psi_{\i{1}} &+&     2c\psi_{\i{2}} & &   \\
+\varphi_{0}   &=&                    & &  b/2\phantom{)}\psi_{\i{0}} &+&      c\psi_{\i{1}} &+& A.\\
+\end{array}
+\]
+Daraus kann man Rekursionsformeln für die Koeffizienten $\psi_k$ ableiten:
+\begin{align*}
+\psi_{m-1}
+&=
+\frac{1}{ma}\varphi_m
+\\
+\psi_{m-2}
+&=
+\frac{1}{(m-1)a}\biggl(
+\varphi_{m-1}
+-
+((2(m-1)+1)b/2)\psi_{m-1}
+\biggr)
+\\
+\psi_{m-3}
+&=
+\frac{1}{(m-2)a}\biggl(
+\varphi_{m-2}
+-
+((2(m-1)+1)b/2)\psi_{m-2}
+-
+(m-1)c\psi_{m-1}
+\biggr)
+\\
+&\phantom{a}\vdots
+\\
+\psi_{k}
+&=
+\frac{1}{(k+1)a}
+\biggl(
+\varphi_{k+1}
+-
+((2(k+1)+1)b/2)\psi_{k+1}
+-
+(k+2)
+\psi_{k+2}
+\biggr)
+\\
+&\phantom{a}\vdots
+\\
+\psi_0
+&=
+\frac{1}{a}\biggl(
+\varphi_1
+-
+3b/2\psi_1
+-
+2c\psi_2
+\biggr)
+\\
+A
+&=
+\varphi_0 -(b/2)\psi_0 - c\psi_1.
+\end{align*}
+Damit sind der Reihe nach die Koeffizienten
+$\psi_{m-1},\psi_{m-2},\dots,\psi_2,\psi_1,\psi_0,A$
+eindeutig festgelegt, was die Existenz des Polynoms $\psi$ und der
+Konstanten $A$ beweist.
+\end{proof}
+
+Der Satz besagt, dass der erste Summand in~\eqref{buch:intalg:wurzel:eqn:summe}
+zu einem Integranden führt, dessen Integral sich auf das Integral von
+$1/\vartheta$ reduzieren lässt.
+Diese Art von Integral tritt auch bei der Berechnung des zweiten Summanden
+auf und wird im
+Abschnitt~\ref{buch:intalg:wurzel:subsection:stammfunktiontheta}
+berechnet.
+
+%
+% Partialbruchzeregung des gebrochenen Teils
+%
+\subsection{Partialbruchzerlegung des gebrochenen Teils}
+Es bleibt jetzt also noch das Integral der Form
+\[
+\int \frac{w(z)}{\vartheta}\,dz
+\]
+zu berechnen.
+
+%
+% Die Stammfunktion von 1/theta
+%
+\subsection{Die Stammfunktion von $1/\vartheta$
+\label{buch:intalg:wurzel:subsection:stammfunktiontheta}}
+Durch Nachrechnen der Ableitung von
+\[
+\Theta
+=
+\frac{1}{\!\sqrt{a}}
+\log\Bigl(
+2az + b - 2\!\sqrt{a} \vartheta
+\Bigr)
+\]
+bekommt man
+\begin{align*}
+\Theta'
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\cdot
+(2a - 2\!\sqrt{a}\vartheta')
+\\
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\cdot
+\biggl(
+2a -2\!\sqrt{a}\frac{2az+b}{2\vartheta}
+\biggr)
+\\
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\cdot
+\frac{
+4a\vartheta -2\!\sqrt{a}(2az+b)
+}{
+2\vartheta
+}
+\\
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\cdot
+\frac{
+2\!\sqrt{a}\cdot
+\bigl(
+\!\sqrt{a}\vartheta
+-
+2az-b
+\bigr)
+}{
+2\vartheta
+}
+=
+\frac{1}{\vartheta},
+\end{align*}
+Die Funktion $\Theta$ ist also eine Stammfunktion von $1/\vartheta$.
+Sie liegt in einem Erweiterungskörper, dem die Konstante $\!\sqrt{a}$
+und der Logarithmus $\log(2az+b-2\!\sqrt{a}\vartheta)$ hinzugefügt
+werden ist.
+Damit der Logarithmus hinzugefügt werden kann, muss auch noch $b$
+hinzugefügt werden.
+Somit ist
+\[
+\Theta
+\in
+\mathbb{Q}\bigl(z,\theta,\!\sqrt{a},b,\log(\!\sqrt{a}\vartheta-2az-b)\bigr)
+\]
+eine elementare Stammfunktion von $1/\vartheta$.
+

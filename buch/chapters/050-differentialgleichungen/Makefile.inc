@@ -6,6 +6,7 @@
 
 CHAPTERFILES += 							\
 	chapters/050-differentialgleichungen/1-potenzreihen.tex		\
-	chapters/050-differentialgleichungen/2-fuchs.tex		\
+	chapters/050-differentialgleichungen/2-verallgemeinert.tex	\
+	chapters/050-differentialgleichungen/3-fuchs.tex		\
 	chapters/050-differentialgleichungen/chapter.tex
 
