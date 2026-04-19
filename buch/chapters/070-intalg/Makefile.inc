@@ -6,7 +6,8 @@
 
 CHAPTERFILES += 							\
 	chapters/070-intalg/1-elementar.tex				\
-	chapters/070-intalg/2-liouville.tex				\
-	chapters/070-intalg/3-risch.tex					\
+	chapters/070-intalg/2-wurzel.tex				\
+	chapters/070-intalg/3-liouville.tex				\
+	chapters/070-intalg/4-risch.tex					\
 	chapters/070-intalg/chapter.tex
 
