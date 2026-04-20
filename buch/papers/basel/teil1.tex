@@ -15,8 +15,12 @@ Im 14.\ Jahrhundert fand Nikolaus von Oresme heraus, dass die \emph{harmonische 
 \]
 nicht konvergiert.
 Das heisst, die Summe der Kehrwerte aller natürlichen Zahlen ist keine Zahl, sondern wird unendlich.
- 
-Etwa um im Jahr 1650 stellte sich der Mathematiker Pietro Mengoli die Frage, ob man eine
+Im Gegensatz dazu stellt sich die Frage, ob eine kleine Modifikation der 
+harmonischen Reihe, nämlich das Quadrieren der Nenner, ausreicht, 
+um Konvergenz zu erzwingen. Die harmonische Reihe und das Basel-Problem 
+sind sich also strukturell ähnlich, unterscheiden sich aber grundlegend 
+in ihrem Verhalten.
+Etwa im Jahr 1650 stellte sich der Mathematiker Pietro Mengoli die Frage, ob man eine
 konvergente Lösung erhält, wenn man die Nenner der harmonischen Reihe quadriert, also ob
 \[
     \sum_{n=1}^{\infty} \frac{1}{n^2}
@@ -24,27 +28,27 @@ konvergente Lösung erhält, wenn man die Nenner der harmonischen Reihe quadrier
 konvergiert, und wenn ja, welche Summe sich daraus ergibt.
  
 Eine erste Näherung berechnete der Engländer John Wallis im Jahr 1665.
-Seine Näherung
+Seine Näherung war auf drei Stellen nach dem Komma korrekt
 \[
-    \sum_{n=1}^{\infty} \frac{1}{n^2} \approx 1.645
+    \sum_{n=1}^{\infty} \frac{1}{n^2} \approx 1.645.
 \]
-war auf drei Stellen nach dem Komma korrekt.
- 
 Eine Näherung ist aber im Sinne der Mathematik keine vollständig befriedigende Antwort.
 Darum machten sich mehrere Mathematiker daran, eine Lösung für das Problem zu finden.
 Die ersten, welche wirkliche Erfolge erzielten, waren alle aus Basel -- daher auch der Name
 \emph{Basel-Problem}.
  
-Der Mathematiker und Physiker Jakob I Bernoulli begann Ende des 17.\ Jahrhunderts mit der
+Der Mathematiker und Physiker Jakob Bernoulli begann Ende des 17.\ Jahrhunderts mit der
 Studie von unendlichen Reihen.
 Jedoch konnte auch er Mengolis Frage nicht beantworten.
-Er vererbte das Problem also seinem 13 Jahre jüngeren Bruder Johann I Bernoulli.
+Er vererbte das Problem also seinem dreizehn Jahre jüngeren Bruder Johann Bernoulli.
 Wiederum kam auch er nicht wirklich weiter.
 So entschloss er sich, das Problem seinem talentiertesten Schüler Leonhard Euler weiterzugeben.
  
-Euler verbesserte die Näherung von Wallis auf sechs und später auf 20 Stellen nach dem Komma
+Euler verbesserte die Näherung von Wallis auf sechs und später auf 20 Stellen nach dem Komma.
+Die folgende Tabelle zeigt auf wie viele Reihenglieder für solche Annäherungen nötig wären.
 (Tabelle~\ref{basel:tabelle:naeherung}).
 %Tabelle hier einfügen (siehe unten)
+Die Näherungen von Euler wurden also unmöglich so berechnet.
 Selbst für die Näherung von Wallis hätten die ersten 1000 Reihenglieder nicht ausgereicht.
 Euler hatte aufgrund seiner Näherung geahnt, dass die Lösung des Problems
 \[
@@ -61,9 +65,9 @@ Im Jahr 1735 publizierte er sein Ergebnis, was ihn europaweit berühmt machte.
 \centering
 \begin{tabular}{r r l}
 \hline
-$n$ & $10^n$ & $\operatorname{basel}(10^n)$ \\
+$k$ & $10^k$ & $\operatorname{basel}(10^k)$ \\
 \hline
-0 & 1           & \korrekt{1.0} \\
+0 & 1           & \korrekt{1}.0 \\
 1 & 10          & \korrekt{1.}5497677311665408 \\
 2 & 100         & \korrekt{1.6}349839001848923 \\
 3 & 1\,000      & \korrekt{1.64}39345666815615 \\
@@ -72,7 +76,7 @@ $n$ & $10^n$ & $\operatorname{basel}(10^n)$ \\
 6 & 1\,000\,000 & \korrekt{1.64493}306684877 \\
 \hline
 \end{tabular}
-\caption{Näherungswerte von $\sum_{n=1}^{N} \frac{1}{n^2}$ für $N = 10^n$.
+\caption{Näherungswerte von $\sum_{n=1}^{N} \frac{1}{n^2}$ für $N = 10^k$.
 Die \korrekt{rot hervorgehobenen} Ziffern stimmen bereits mit dem exakten Wert
 %die korrekten Kommastellen sind rot gekennzeichnet was vlt nicht erlaubt ist.
 $\frac{\pi^2}{6} \approx 1.6449340668\ldots$ überein.
