@@ -15,7 +15,8 @@ um den Kehrwert der Kathetenlängen.
 \subsection{Der traverse Satz des Pythagoras}
 \label{basel:subsection:traverser-pythagoras}
 
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[>=latex, thick]
 \coordinate (A) at (0,0);
 \coordinate (B) at (4,0);
@@ -29,11 +30,9 @@ um den Kehrwert der Kathetenlängen.
 \node at (2.85, 0.9) {$h$};
 \draw (H) ++(0.15,0) -- ++(0,0.15) -- ++(-0.15,0);
 \end{tikzpicture}
-
-\smallskip
-Abbildung 10.7: Rechtwinkliges Dreieck mit Katheten $a$, $b$, Hypotenuse $c$
-und Höhe $h$ auf die Hypotenuse.
-\end{center}
+\caption{Rechtwinkliges Dreieck mit Katheten $a$, $b$, Hypotenuse $c$
+und Höhe $h$ auf die Hypotenuse.}
+\end{figure}
 
 Das Produkt der Kathetenlängen $ab$ ergibt die Fläche eines Rechtecks, das
 bekanntlich genau doppelt so gross wie das Dreieck ist.
@@ -82,7 +81,8 @@ $|M_1 Z|$.
 Durch $M_1$ wird eine Senkrechte zu $ZM_1$ gezeichnet.
 Dadurch erhält man die Punkte $P_{1,1}$ und $P_{1,2}$.
 
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[>=latex, thick]
 % Kreis k0: Mittelpunkt M0, Radius 1.8
 \def\R{1.8}
@@ -101,13 +101,12 @@ Dadurch erhält man die Punkte $P_{1,1}$ und $P_{1,2}$.
 \node at ({-\R-0.35}, 0) {$1$};
 \node at ({ \R+0.35}, 0) {$1$};
 \end{tikzpicture}
+\caption{Ausgangskreis $k_0$ mit Umfang 2, Mittelpunkt $M_0$,
+oberem Punkt $M_1$ und unterem Punkt $Z$.}
+\end{figure}
 
-\smallskip
-Abbildung 10.8: Ausgangskreis $k_0$ mit Umfang 2, Mittelpunkt $M_0$,
-oberem Punkt $M_1$ und unterem Punkt $Z$.
-\end{center}
-
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[>=latex, thick]
 % k0: Mittelpunkt M0=(0,0), Radius r0=1.0
 % k1: Mittelpunkt M1=(0,1.0), Radius r1=2.0
@@ -140,12 +139,10 @@ oberem Punkt $M_1$ und unterem Punkt $Z$.
 \node[font=\small] at (-1.3, -0.5)        {$1$};
 \node[font=\small] at ( 1.3, -0.5)        {$1$};
 \end{tikzpicture}
-
-\smallskip
-Abbildung 10.9: Erster Konstruktionsschritt: Kreis $k_1$ um $M_1$ mit den Punkten
+\caption{Erster Konstruktionsschritt: Kreis $k_1$ um $M_1$ mit den Punkten
 $P_{1,1}$ und $P_{1,2}$. Bogenlängen: $P_{1,1}P_{1,2} = 2$, $P_{1,2}Z = 1$,
-$ZP_{1,1} = 1$.
-\end{center}
+$ZP_{1,1} = 1$.}
+\end{figure}
 
 Daraus ergibt sich aus den Punkten $P_{1,1}$, $P_{1,2}$, $Z$ ein rechtwinkliges
 Dreieck (Satz des Thales).
@@ -206,7 +203,8 @@ P_{2,4}Z = 1.
 %
 % ROTE LINIEN (Bild 1): Z->P2,3->M2->P1,1->Z  (ein Viereck)
 %
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[>=latex, thick]
 \def\r{0.82}
 \coordinate (Z)   at (0,0);
@@ -257,11 +255,9 @@ P_{2,4}Z = 1.
 \node[font=\small] at (-0.7,-0.7) {$1$};
 \node[font=\small] at ( 0.7,-0.7) {$1$};
 \end{tikzpicture}
-
-\smallskip
-Abbildung 10.10: Zweiter Konstruktionsschritt: Kreis $k_2$ mit den Punkten
-$P_{2,1}$, $P_{2,2}$, $P_{2,3}$, $P_{2,4}$.
-\end{center}
+\caption{Zweiter Konstruktionsschritt: Kreis $k_2$ mit den Punkten
+$P_{2,1}$, $P_{2,2}$, $P_{2,3}$, $P_{2,4}$.}
+\end{figure}
 
 
 
@@ -295,7 +291,8 @@ sodass die Bögen konstant die Länge 2 haben.
 %   Viereck 1: Z -> P3,6 -> M3 -> P2,2 -> Z
 %   Viereck 2: Z -> P2,3 -> M3 -> P3,2 -> Z
 %
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[>=latex, thick]
 \def\r{0.42}
 \coordinate (Z)   at (0,0);
@@ -369,11 +366,9 @@ sodass die Bögen konstant die Länge 2 haben.
 \node[font=\small] at (-0.7,-0.7) {$\mathbf{1}$};
 \node[font=\small] at ( 0.7,-0.7) {$\mathbf{1}$};
 \end{tikzpicture}
-
-\smallskip
-Abbildung 10.11: Dritter Konstruktionsschritt: Kreis $k_3$ mit acht
-äquidistanten Punkten.
-\end{center}
+\caption{Dritter Konstruktionsschritt: Kreis $k_3$ mit acht
+äquidistanten Punkten.}
+\end{figure}
 
 
 \subsection{Der Grenzübergang}

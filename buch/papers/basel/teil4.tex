@@ -15,7 +15,8 @@ Die Darstellung von Funktionen als unendliche Summen von trigonometrischen
 Funktionen ist etwas, worüber Euler auch schon nachgedacht hat, aber er kam nie
 so weit, dass man hier von einer Theorie sprechen konnte.
 
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}
 \begin{axis}[
     width=10cm, height=6cm,
@@ -49,11 +50,9 @@ so weit, dass man hier von einer Theorie sprechen konnte.
 \addlegendentry{$F_3$ drittes Polynom}
 \end{axis}
 \end{tikzpicture}
-
-\smallskip
-Abbildung 10.1: Periodische Fortsetzung von $f(x) = x^2$ mit den Fourierpolynomen
-$F_0$ bis $F_3$.
-\end{center}
+\caption{Periodische Fortsetzung von $f(x) = x^2$ mit den Fourierpolynomen
+$F_0$ bis $F_3$.}
+\end{figure}
 
 Das nullte Fourierpolynom dieser Funktion ist nicht besonders, denn es handelt sich
 lediglich um eine konstante Funktion.
@@ -68,7 +67,8 @@ stetig ist.
 \subsection{Berechnung der Fourierpolynome}
 \label{basel:subsection:berechnung-fourierpolynome}
 
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}
 \begin{axis}[
     width=9cm, height=4.5cm,
@@ -91,10 +91,8 @@ stetig ist.
 \draw[blue, dashed] (axis cs:3.1416,0) -- (axis cs:3.1416,9.8696);
 \end{axis}
 \end{tikzpicture}
-
-\smallskip
-Abbildung 10.6: Im Punkt $\pi$ liegt Konvergenz gegen den Funktionswert $\pi^2$ vor.
-\end{center}
+\caption{Im Punkt $\pi$ liegt Konvergenz gegen den Funktionswert $\pi^2$ vor.}
+\end{figure}
 
 Ausgangspunkt der Analyse ist die Funktion
 \[
