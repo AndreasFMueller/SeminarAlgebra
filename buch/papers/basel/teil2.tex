@@ -6,38 +6,56 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 2 
-\label{basel:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
-
-\subsection{De finibus bonorum et malorum
-\label{basel:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
-
-
+\section{Konvergiert das Basel-Problem überhaupt?}
+\label{basel:section:konvergenz}
+ 
+Um die Konvergenz bestimmen zu können, braucht man die Ungleichung
+\[
+    \frac{1}{n^2} < \frac{1}{n(n-1)}.
+\]
+Diese gilt weil $n^2 > n(n-1)$ für alle $n \geq 2$, denn
+$n^2 = n \cdot n$ und $n(n-1) = n^2 - n,$
+ist $n^2$ um genau $n$ grösser als $n(n-1)$ ist. Kehrt man die Nenner um, dreht sich die Ungleichung:
+\[
+    \frac{1}{n^2} < \frac{1}{n(n-1)}
+\]
+welche für alle natürlichen Zahlen $n > 1$ gilt.
+Daraus folgt die Ungleichung für Reihen
+\[
+    \sum_{n=2}^{\infty} \frac{1}{n^2}
+    \leq
+    \sum_{n=2}^{\infty} \frac{1}{n(n-1)}
+    =
+    \sum_{n=1}^{\infty} \frac{1}{n(n+1)},
+\]
+bei der man darauf achten muss, dass die Startwerte der Laufvariablen so gesetzt werden,
+dass man nicht durch Null dividiert.
+Dies spielt aber für die Konvergenzüberlegung keine Rolle.
+ 
+Zur Berechnung schaut man sich die $m$-te Partialsumme an,
+\[
+    \sum_{n=1}^{m} \frac{1}{n(n+1)}
+    =
+    \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} + \cdots + \frac{1}{m(m+1)},
+\]
+und schreibt jeden Summanden als Differenz zweier Brüche,
+so erhält man die \emph{Teleskopsumme}
+\begin{align*}
+    \left(1 - \frac{1}{2}\right)
+    + \left(\frac{1}{2} - \frac{1}{3}\right)
+    + \left(\frac{1}{3} - \frac{1}{4}\right)
+    + \cdots
+    + \left(\frac{1}{m} - \frac{1}{m+1}\right).
+\end{align*}
+Diese heisst so, weil sich zwei benachbarte Terme neutralisieren und man somit die Reihe zusammenfahren kann.
+So bleibt nur noch der erste und der letzte Term
+\[
+    1 - \frac{1}{m+1}
+\]
+übrig.
+Lässt man $m$ gegen unendlich gehen, geht diese Differenz gegen eins,
+\[
+    1 - \frac{1}{m+1} \xrightarrow{m \to \infty} 1.
+\]
+Anhand des sogenannten \emph{Majorantenkriteriums} weiss man also, dass die Reihe des Basel-Problems konvergiert.
+Ebenfalls weiss man jetzt, dass die Summe der Reihe nicht grösser als zwei sein kann.

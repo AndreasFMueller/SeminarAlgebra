@@ -1,0 +1,447 @@
+%
+% einleitung.tex -- Beispiel-File für die Einleitung
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Geometrisch Physikalischer Beweis}
+\label{basel:section:geometrisch-physikalischer-beweis}
+
+Als erstes braucht man den Inversen Satz des Pythagoras, bei diesem Satz geht es
+um den Kehrwert der Kathetenlängen.
+
+\subsection{Der traverse Satz des Pythagoras}
+\label{basel:subsection:traverser-pythagoras}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex, thick]
+\coordinate (A) at (0,0);
+\coordinate (B) at (4,0);
+\coordinate (C) at (2.5,2);
+\coordinate (H) at (2.5,0);
+\draw (A) -- (B) -- (C) -- cycle;
+\draw[dashed] (C) -- (H);
+\node at (1.0, 1.2) {$b$};
+\node at (3.6, 1.2) {$a$};
+\node at (2.0,-0.3) {$c$};
+\node at (2.85, 0.9) {$h$};
+\draw (H) ++(0.15,0) -- ++(0,0.15) -- ++(-0.15,0);
+\end{tikzpicture}
+\caption{Rechtwinkliges Dreieck mit Katheten $a$, $b$, Hypotenuse $c$
+und Höhe $h$ auf die Hypotenuse.}
+\end{figure}
+
+Das Produkt der Kathetenlängen $ab$ ergibt die Fläche eines Rechtecks, das
+bekanntlich genau doppelt so gross wie das Dreieck ist.
+Nun wird die Höhe des Dreieckes auf die Hypotenuse $c$ gefällt.
+Auch hier wird die Fläche des Dreiecks verdoppelt: $ab = ch$.
+Anschliessend wird die Summe der Quadrate der Kehrwerte der Kathetenlängen
+berechnet:
+\[
+\frac{1}{a^2} + \frac{1}{b^2}
+=
+\frac{a^2 + b^2}{a^2 b^2}
+=
+\frac{c^2}{c^2 h^2}
+=
+\frac{1}{h^2}.
+\]
+Die Summe der Quadrate der Kehrwerte der Kathetenlängen ist also das Quadrat
+des Kehrwertes der Höhe auf die Hypotenuse.
+
+\subsection{Der Konstruktionsprozess}
+\label{basel:subsection:konstruktionsprozess}
+
+Man startet mit einem Kreis $k_0$ um einen Punkt $M_0$, der den Umfang 2 hat.
+Auf dem Kreis liegt ein Punkt $Z$, genau gegenüber liegt der Punkt $M_1$.
+Der Durchmesser ergibt sich aus dem Umfang:
+\[
+U = 2 = \pi d
+\implies
+d = \frac{2}{\pi} = |M_1 Z|.
+\]
+Alle Intensitäten, die nachfolgend auf den Punkt $Z$ entfallen, sind zu berechnen;
+daher wird $Z$ im Index nicht berücksichtigt. Die Intensität von $M_1$ beträgt
+\[
+I(M_1)
+=
+\frac{1}{|M_1 Z|^2}
+=
+\frac{1}{d^2}
+=
+\frac{1}{\left(\dfrac{2}{\pi}\right)^2}
+=
+\frac{\pi^2}{4}.
+\]
+Es wird ein weiterer Kreis $k_1$ um den Punkt $M_1$ gezeichnet mit dem Radius
+$|M_1 Z|$.
+Durch $M_1$ wird eine Senkrechte zu $ZM_1$ gezeichnet.
+Dadurch erhält man die Punkte $P_{1,1}$ und $P_{1,2}$.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex, thick]
+% Kreis k0: Mittelpunkt M0, Radius 1.8
+\def\R{1.8}
+\coordinate (M0) at (0, 0);
+\coordinate (M1) at (0, \R);
+\coordinate (Z)  at (0,-\R);
+% Kreis
+\draw (M0) circle (\R);
+% Vertikale Linie M1--Z
+\draw (M1) -- (Z);
+% Punkte
+\fill (M0) circle (2pt) node[right=3pt] {$M_0$};
+\fill (M1) circle (2pt) node[right=3pt] {$M_1$};
+\fill (Z)  circle (2pt) node[below=3pt] {$Z$};
+% Bogenlängen links/rechts
+\node at ({-\R-0.35}, 0) {$1$};
+\node at ({ \R+0.35}, 0) {$1$};
+\end{tikzpicture}
+\caption{Ausgangskreis $k_0$ mit Umfang 2, Mittelpunkt $M_0$,
+oberem Punkt $M_1$ und unterem Punkt $Z$.}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex, thick]
+% k0: Mittelpunkt M0=(0,0), Radius r0=1.0
+% k1: Mittelpunkt M1=(0,1.0), Radius r1=2.0
+% Z=(0,-1.0), P1,1=(2.0,1.0), P1,2=(-2.0,1.0)
+\def\rz{1.0}  % Radius k0
+\def\ro{2.0}  % Radius k1
+\coordinate (M0)  at (0,    0);
+\coordinate (M1)  at (0,  \rz);
+\coordinate (Z)   at (0, -\rz);
+\coordinate (P11) at ( \ro, \rz);
+\coordinate (P12) at (-\ro, \rz);
+% Kreise
+\draw (M0) circle (\rz);
+\draw (M1) circle (\ro);
+% Horizontale Linie durch M1 (Senkrechte zu ZM1)
+\draw[thin] (P12) -- (P11);
+% Linien von Z zu P1,1 und P1,2
+\draw (Z) -- (P11);
+\draw (Z) -- (P12);
+% Punkte
+\fill (M0)  circle (2pt) node[right=3pt, font=\small] {$M_0$};
+\fill (M1)  circle (2pt) node[right=3pt, font=\small] {$M_1$};
+\fill (Z)   circle (2pt) node[below=3pt, font=\small] {$Z$};
+\fill (P11) circle (2pt) node[right=3pt, font=\small] {$P_{1,1}$};
+\fill (P12) circle (2pt) node[left=3pt,  font=\small] {$P_{1,2}$};
+% k1-Label
+\node[font=\small] at (-1.1, 2.5) {$k_1$};
+% Bogenlängen
+\node[font=\small] at (0,    {2*\ro+0.3}) {$2$};
+\node[font=\small] at (-1.3, -0.5)        {$1$};
+\node[font=\small] at ( 1.3, -0.5)        {$1$};
+\end{tikzpicture}
+\caption{Erster Konstruktionsschritt: Kreis $k_1$ um $M_1$ mit den Punkten
+$P_{1,1}$ und $P_{1,2}$. Bogenlängen: $P_{1,1}P_{1,2} = 2$, $P_{1,2}Z = 1$,
+$ZP_{1,1} = 1$.}
+\end{figure}
+
+Daraus ergibt sich aus den Punkten $P_{1,1}$, $P_{1,2}$, $Z$ ein rechtwinkliges
+Dreieck (Satz des Thales).
+$M_1$ ist daher der Höhenfusspunkt in diesem Dreieck, sodass die Intensität
+von $M_1$ auf die beiden Punkte $P_{1,1}$ und $P_{1,2}$ verteilt wird:
+\[
+I(M_1) = \frac{\pi^2}{4} = I(P_{1,1}) + I(P_{1,2}).
+\]
+Um $M_2$ wird ein weiterer Kreis $k_2$ mit dem Radius $|M_2 Z|$ gezeichnet.
+Die Gerade $M_2 P_{1,1}$ erzeugt auf dem Kreis $k_2$ die Punkte $P_{2,1}$ und
+$P_{2,3}$, die Gerade $M_2 P_{1,2}$ die Punkte $P_{2,2}$ und $P_{2,4}$.
+Das Dreieck $P_{2,1}P_{2,3}Z$ steht rechtwinklig mit dem rechten Winkel bei $Z$
+(Satz des Thales).
+$P_{1,1}$ ist somit der Höhenfusspunkt in diesem Dreieck.
+Damit lässt sich die Intensität von $P_{1,1}$ auf die beiden Punkte $P_{2,1}$ und
+$P_{2,3}$ verteilen:
+\[
+I(P_{1,1}) = I(P_{2,1}) + I(P_{2,3}).
+\]
+Analog steht das Dreieck $P_{2,2}P_{2,4}Z$ rechtwinklig mit dem rechten Winkel
+bei $Z$ (Satz des Thales).
+$P_{1,2}$ ist der Höhenfusspunkt in diesem Dreieck.
+Deshalb lässt sich die Intensität von $P_{1,2}$ auf die beiden Punkte $P_{2,2}$ und
+$P_{2,4}$ verteilen.
+Also gilt insgesamt:
+\[
+I(P_{1,1}) + I(P_{1,2})
+=
+I(P_{2,1}) + I(P_{2,3}) + I(P_{2,2}) + I(P_{2,4})
+=
+\frac{\pi^2}{4}.
+\]
+Der Kreis $k_2$ ist doppelt so gross wie $k_1$, dementsprechend hat er den
+Umfang 8.
+Die Bögen zwischen den Punkten haben folgende Längen:
+\[
+ZP_{2,1} = 1,\quad
+P_{2,1}P_{2,2} = 2,\quad
+P_{2,2}P_{2,3} = 2,\quad
+P_{2,3}P_{2,4} = 2,\quad
+P_{2,4}Z = 1.
+\]
+
+% ===== FIGUR 1 (Abbildung 10.10) =====
+% Geometrie exakt nach Referenzbild 1:
+% - Z unten auf vertikaler Achse
+% - k2 grosser Kreis, Mittelpunkt M2 auf Diaglonanlenschnittpunkt (oben-rechts von Mitte)
+% - k1 kleiner Kreis innen
+% - k0 kleinster Kreis
+% - 4 Geraden durch M2: horizontal, vertikal, 2 Diagonalen
+% - P2,3 oben-links auf k2 (auf Diagonale)
+% - P2,2 oben-rechts auf k2 (auf Diagonale) 
+% - P2,1 unten-rechts auf k2 (auf Diagonale)
+% - P2,4 unten-links auf k2 (auf Diagonale, nahe Z)
+% - M2 = Mittelpunkt k2, liegt auf horizontaler Achse rechts von Mitte
+% - P1,1 rechts auf horizontaler Linie (auf k1)
+% - P1,2 links auf horizontaler Linie (auf k1)
+%
+% ROTE LINIEN (Bild 1): Z->P2,3->M2->P1,1->Z  (ein Viereck)
+%
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex, thick]
+\def\r{0.82}
+\coordinate (Z)   at (0,0);
+\coordinate (M0)  at (0,{\r});
+\coordinate (M1)  at (0,{2*\r});
+\coordinate (M2)  at (0,{4*\r});
+% P1 Punkte (senkrecht zu ZM1 durch M1)
+\coordinate (P11) at ({2*\r},{2*\r});
+\coordinate (P12) at ({-2*\r},{2*\r});
+% P2 Punkte (auf Diagonalen von M2, Radius 4r)
+% 2.828 = 4*0.7071 = 4/sqrt2
+\coordinate (P21) at ({2.828*\r},{1.172*\r});   % 315 Grad, unten-rechts
+\coordinate (P22) at ({2.828*\r},{6.828*\r});   % 45 Grad, oben-rechts
+\coordinate (P23) at ({-2.828*\r},{6.828*\r});  % 135 Grad, oben-links
+\coordinate (P24) at ({-2.828*\r},{1.172*\r});  % 225 Grad, unten-links
+% Kreise
+\draw (M0) circle ({\r});
+\draw (M1) circle ({2*\r});
+\draw (M2) circle ({4*\r});
+% Geraden durch M2
+\draw[thin] (0,{-0.6}) -- (0,{8*\r+0.6});
+\draw[thin] ({-4*\r-0.6},{4*\r}) -- ({4*\r+0.6},{4*\r});
+\draw[thin] ({-2.828*\r-0.55},{6.828*\r+0.55}) -- ({2.828*\r+0.55},{1.172*\r-0.55});
+\draw[thin] ({2.828*\r+0.55},{6.828*\r+0.55}) -- ({-2.828*\r-0.55},{1.172*\r-0.55});
+% ROTE LINIEN: Dreieck 1: P2,3 -- P2,1 -- Z; Dreieck 2: Z -- P1,1 -- P2,1
+\draw[red, thick] (P23) -- (P21) -- (Z) -- cycle;
+\draw[red, thick] (Z) -- (P11) -- (P21) -- cycle;
+% Punkte
+\fill (Z)   circle (1.5pt) node[below=4pt,       font=\small] {$Z$};
+\fill (M0)  circle (1.5pt) node[right=5pt,        font=\small] {$M_0$};
+\fill (M1)  circle (1.5pt) node[right=5pt,        font=\small] {$M_1$};
+\fill (M2)  circle (1.5pt) node[above right=2pt,  font=\small] {$M_2$};
+\fill (P11) circle (1.5pt) node[above right=2pt,  font=\small] {$P_{1,1}$};
+\fill (P12) circle (1.5pt) node[above left=2pt,   font=\small] {$P_{1,2}$};
+\fill (P21) circle (1.5pt) node[below right=2pt,  font=\small] {$P_{2,1}$};
+\fill (P22) circle (1.5pt) node[above right=2pt,  font=\small] {$P_{2,2}$};
+\fill (P23) circle (1.5pt) node[above left=2pt,   font=\small] {$P_{2,3}$};
+\fill (P24) circle (1.5pt) node[below left=2pt,   font=\small] {$P_{2,4}$};
+% k-Labels
+\node[font=\small] at ({-2.828*\r-0.4},{6.828*\r-0.4}) {$k_2$};
+\node[font=\small] at ({-1.8*\r},{4*\r-0.4}) {$k_1$};
+% Bogenlängen
+\node[font=\small] at ({2.828*\r+0.9},{6.828*\r+0.9})  {$2$};
+\node[font=\small] at ({-2.828*\r-0.9},{6.828*\r+0.9}) {$2$};
+\node[font=\small] at ({2.828*\r+0.9},{1.172*\r-0.9})  {$2$};
+\node[font=\small] at ({-2.828*\r-0.9},{1.172*\r-0.9}) {$2$};
+\node[font=\small] at (0.5,{8*\r+0.9}) {$2$};
+\node[font=\small] at (-0.7,-0.7) {$1$};
+\node[font=\small] at ( 0.7,-0.7) {$1$};
+\end{tikzpicture}
+\caption{Zweiter Konstruktionsschritt: Kreis $k_2$ mit den Punkten
+$P_{2,1}$, $P_{2,2}$, $P_{2,3}$, $P_{2,4}$.}
+\end{figure}
+
+
+
+Um $M_3$ wird ein Kreis $k_3$ mit einem Radius von $|M_3 Z|$ gezeichnet.
+Als Beispiel sei das Dreieck $P_{3,2}P_{3,6}Z$ betrachtet: es ist rechtwinklig mit
+dem rechten Winkel bei $Z$ (Satz des Thales).
+$P_{2,2}$ ist der Höhenfusspunkt in diesem Dreieck, sodass die Intensität
+von $P_{2,2}$ auf die beiden Punkte $P_{3,2}$ und $P_{3,6}$ verteilt wird.
+Dies gilt für jeden Punkt, welcher auf $k_2$ liegt.
+Damit lassen sich alle Intensitäten aller Punkte von $k_2$ auf die entsprechenden
+Punkte von $k_3$ übertragen.
+Dadurch ergeben sich zwei Konstanten bei diesem schrittweisen Konstruktionsprozess:
+Die Summe aller Intensitäten aller Punkte auf einem Kreis bleibt $\frac{\pi^2}{4}$,
+und die Punkte auf einem Kreis liegen äquidistant (gleiche Abstände aufweisend),
+sodass die Bögen konstant die Länge 2 haben.
+
+% ===== FIGUR 2 (Abbildung 10.11) =====
+% Geometrie exakt nach Referenzbild 2:
+% k3 grosser Kreis, Mittelpunkt M3=(0,8r), Radius 8r
+% 8 Punkte P3,x gleichmässig verteilt:
+%   P3,8 = unten = Z (270 Grad)
+%   P3,1 = unten-rechts (315 Grad)
+%   P3,2 = rechts (0 Grad)
+%   P3,3 = oben-rechts (45 Grad)
+%   P3,4 = oben (90 Grad)
+%   P3,5 = oben-links (135 Grad)
+%   P3,6 = links (180 Grad)
+%   P3,7 = unten-links (225 Grad)
+%
+% ROTE LINIEN (Bild 2):
+%   Viereck 1: Z -> P3,6 -> M3 -> P2,2 -> Z
+%   Viereck 2: Z -> P2,3 -> M3 -> P3,2 -> Z
+%
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex, thick]
+\def\r{0.42}
+\coordinate (Z)   at (0,0);
+\coordinate (M0)  at (0,{\r});
+\coordinate (M1)  at (0,{2*\r});
+\coordinate (M2)  at (0,{4*\r});
+\coordinate (M3)  at (0,{8*\r});
+% P2 Punkte (auf Diagonalen von M2)
+\coordinate (P21) at ({2.828*\r},{1.172*\r});
+\coordinate (P22) at ({4*\r},{4*\r});   % Schnittpunkt Diagonale P3,1-P3,6 mit k2
+\coordinate (P23) at ({-2.828*\r},{6.828*\r});
+\coordinate (P24) at ({-2.828*\r},{1.172*\r});
+% P1 Punkte
+\coordinate (P11) at ({2*\r},{2*\r});
+\coordinate (P12) at ({-2*\r},{2*\r});
+% P3 Punkte auf k3 (M3=(0,8r), Radius=8r)
+% Nummerierung gemäss Bild: P3,6=oben-links(135 Grad)
+\coordinate (P31) at ({8*\r*cos(-45)}, {8*\r+8*\r*sin(-45)});  % 315 unten-rechts
+\coordinate (P32) at ({8*\r},           {8*\r});                 % 0 rechts
+\coordinate (P33) at ({8*\r*cos(45)},  {8*\r+8*\r*sin(45)});   % 45 oben-rechts
+\coordinate (P34) at (0,               {16*\r});                 % 90 oben
+\coordinate (P35) at ({-8*\r},          {8*\r});                 % 180 links
+\coordinate (P36) at ({8*\r*cos(135)}, {8*\r+8*\r*sin(135)});  % 135 oben-links = P3,6 gemäss Bild
+\coordinate (P37) at ({8*\r*cos(225)}, {8*\r+8*\r*sin(225)});  % 225 unten-links
+% Kreise
+\draw[thin,gray] (M0) circle ({\r});
+\draw[thin,gray] (M1) circle ({2*\r});
+\draw[thin,gray] (M2) circle ({4*\r});
+\draw (M3) circle ({8*\r});
+% Geraden durch M3
+\draw[thin,gray] (0,{-0.5}) -- (0,{16*\r+0.5});
+\draw[thin,gray] ({-8*\r-0.5},{8*\r}) -- ({8*\r+0.5},{8*\r});
+\draw[thin,gray] ({8*\r*cos(135)-0.45},{8*\r+8*\r*sin(135)+0.45}) -- ({8*\r*cos(-45)+0.45},{8*\r+8*\r*sin(-45)-0.45});
+\draw[thin,gray] ({8*\r*cos(45)+0.45},{8*\r+8*\r*sin(45)+0.45}) -- ({8*\r*cos(225)-0.45},{8*\r+8*\r*sin(225)-0.45});
+% ROTE LINIEN: Dreieck 1: P3,6 -- P3,1 -- Z; Dreieck 2: P2,2 -- P3,1 -- Z
+\draw[red, thick] (P36) -- (P31) -- (Z) -- cycle;
+\draw[red, thick] (P22) -- (P31) -- (Z) -- cycle;
+% P3 Punkte
+\fill (P31) circle (1.5pt) node[below right=2pt, font=\tiny] {$P_{3,1}$};
+\fill (P32) circle (1.5pt) node[right=4pt,        font=\tiny] {$P_{3,2}$};
+\fill (P33) circle (1.5pt) node[above right=2pt,  font=\tiny] {$P_{3,3}$};
+\fill (P34) circle (1.5pt) node[above=3pt,        font=\tiny] {$P_{3,4}$};
+\fill (P35) circle (1.5pt) node[left=4pt,         font=\tiny] {$P_{3,5}$};
+\fill (P36) circle (1.5pt) node[above left=2pt,   font=\tiny] {$P_{3,6}$};
+\fill (P37) circle (1.5pt) node[below left=2pt,   font=\tiny] {$P_{3,7}$};
+% P2 Punkte
+\fill (P21) circle (1.5pt) node[below right=2pt,  font=\tiny] {$P_{2,1}$};
+\fill (P22) circle (1.5pt) node[above right=2pt,  font=\tiny] {$P_{2,2}$};
+\fill (P23) circle (1.5pt) node[above left=2pt,   font=\tiny] {$P_{2,3}$};
+\fill (P24) circle (1.5pt) node[below left=2pt,   font=\tiny] {$P_{2,4}$};
+% P1 Punkte
+\fill (P11) circle (1.5pt) node[above right=2pt,  font=\tiny] {$P_{1,1}$};
+\fill (P12) circle (1.5pt) node[above left=2pt,   font=\tiny] {$P_{1,2}$};
+% Mittelpunkte
+\fill (M0) circle (1.5pt) node[right=5pt, font=\tiny]  {$M_0$};
+\fill (M1) circle (1.5pt) node[right=5pt, font=\tiny]  {$M_1$};
+\fill (M2) circle (1.5pt) node[right=5pt, font=\tiny]  {$M_2$};
+\fill (M3) circle (1.5pt) node[above right=2pt,font=\small] {$M_3$};
+\fill (Z)  circle (1.5pt) node[below=4pt, font=\small] {$Z$};
+% k-Labels
+\node[font=\small] at ({-8*\r+0.4},{16*\r-0.6}) {$k_3$};
+\node[font=\tiny]  at ({-4*\r+0.2},{ 8*\r-0.5}) {$k_2$};
+% Bogenlängen
+\node[font=\small] at (0.5,{16*\r+0.9}) {$\mathbf{2}$};
+\node[font=\small] at ({-8*\r-1.0},{8*\r+0.2}) {$\mathbf{2}$};
+\node[font=\small] at ({ 8*\r+1.0},{8*\r+0.2}) {$\mathbf{2}$};
+\node[font=\small] at ({8*\r*cos(135)-1.0},{8*\r+8*\r*sin(135)+0.9}) {$\mathbf{2}$};
+\node[font=\small] at ({8*\r*cos(45)+1.0}, {8*\r+8*\r*sin(45)+0.9})  {$\mathbf{2}$};
+\node[font=\small] at ({8*\r*cos(225)-1.0},{8*\r+8*\r*sin(225)-0.7}) {$\mathbf{2}$};
+\node[font=\small] at ({8*\r*cos(-45)+1.0},{8*\r+8*\r*sin(-45)-0.7}) {$\mathbf{2}$};
+\node[font=\small] at (-0.7,-0.7) {$\mathbf{1}$};
+\node[font=\small] at ( 0.7,-0.7) {$\mathbf{1}$};
+\end{tikzpicture}
+\caption{Dritter Konstruktionsschritt: Kreis $k_3$ mit acht
+äquidistanten Punkten.}
+\end{figure}
+
+
+\subsection{Der Grenzübergang}
+\label{basel:subsection:grenzuebergang}
+
+Im Grenzübergang erhält man einen unendlich grossen Kreis durch $Z$, besser
+gesagt eine Gerade durch $Z$.
+Wegen den konstanten Bogenlängen $1, 2, 2, \ldots$ liegen die Punkte der
+Geraden im Abstand $1, 3, 5, 7, \ldots$ zu beiden Seiten von $Z$.
+
+Die Summe aller Intensitäten beträgt immer noch $\frac{\pi^2}{4}$:
+\[
+\bigl(
+I(P_1) + I(P_2) + I(P_3) + I(P_4) + \cdots
+\bigr)
++
+\bigl(
+I(P_{-1}) + I(P_{-2}) + I(P_{-3}) + I(P_{-4}) + \cdots
+\bigr)
+=
+\frac{\pi^2}{4}.
+\]
+Wegen der Symmetrie gilt jedoch:
+\[
+I(P_1) + I(P_2) + I(P_3) + I(P_4) + \cdots = \frac{\pi^2}{8}.
+\]
+Die Intensitäten lassen sich nun explizit bestimmen.
+Da die Punkte im Abstand $1, 3, 5, 7, \ldots$ von $Z$ liegen, ergibt sich
+\[
+\frac{1}{1^2} + \frac{1}{3^2} + \frac{1}{5^2} + \frac{1}{7^2} + \frac{1}{9^2}
++ \cdots
+=
+\frac{\pi^2}{8}
+=:
+S_u.
+\]
+Das Ziel der Betrachtung ist $S_u = \frac{\pi^2}{8}$.
+Nun setzt man die vollständige Reihe zusammen:
+\[
+S
+=
+\frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2}
++ \frac{1}{5^2} + \frac{1}{6^2} + \frac{1}{7^2} + \frac{1}{8^2}
++ \cdots
+=
+S_u + S_g,
+\]
+\[
+S_g
+=
+\frac{1}{2^2} + \frac{1}{4^2} + \frac{1}{6^2} + \frac{1}{8^2} + \cdots
+=
+\frac{1}{2^2}
+\left(
+\frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \cdots
+\right)
+=
+\frac{1}{4} S.
+\]
+Also gilt
+\[
+S
+=
+S_u + S_g
+=
+\frac{\pi^2}{8} + \frac{1}{4} S
+\implies
+\frac{3}{4} S = \frac{\pi^2}{8}
+\implies
+S = \frac{\pi^2}{8} \cdot \frac{4}{3},
+\]
+und damit
+\begin{equation}
+S = \frac{\pi^2}{6}.
+\label{basel:equation:geometrie-ergebnis}
+\end{equation}

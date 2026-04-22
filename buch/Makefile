@@ -16,7 +16,7 @@ include chapters/Makefile.inc
 include papers/common/Makefile.inc
 include papers/common/includes.inc
 
-ALLTEXFILES = $(TEXFILES) $(CHAPTERFILES)
+ALLTEXFILES = $(TEXFILES) $(CHAPTERFILES) $(AUFGABENFILES)
 
 #
 # Buchblock für Druckerei
@@ -26,14 +26,14 @@ $(workdir):
 buch.pdf:	$(workdir)/buch.pdf
 	cp $(workdir)/buch.pdf buch.pdf
 
-$(workdir)/buch.pdf:	$(workdir) buch.tex $(TEXFILES) $(workdir)/buch.ind $(BLXFILES)
+$(workdir)/buch.pdf:	$(workdir) buch.tex $(ALLTEXFILES) $(workdir)/buch.ind $(BLXFILES)
 	$(pdflatex) buch.tex
 	cd $(workdir); $(bibtex) buch
 
 $(workdir)/buch.ind:	$(workdir) $(workdir)/buch.idx
 	cd $(workdir); $(makeindex) buch.idx
 
-$(workdir)/buch.idx:	$(workdir) buch.tex $(TEXFILES) images
+$(workdir)/buch.idx:	$(workdir) buch.tex $(ALLTEXFILES) images
 	$(touch) $(workdir)/buch.ind
 	$(pdflatex) buch.tex
 
@@ -50,11 +50,11 @@ buch = $(seminar)
 $(buch).pdf:	$(workdir)/$(buch).pdf
 	cp $(workdir)/$(buch).pdf $(buch).pdf
 
-$(workdir)/$(seminar).pdf:	$(buch).tex $(TEXFILES) $(workdir)/$(buch).ind $(SBLXFILES)
+$(workdir)/$(seminar).pdf:	$(buch).tex $(ALLTEXFILES) $(workdir)/$(buch).ind $(SBLXFILES)
 	$(pdflatex) $(buch).tex
 	cd $(workdir); $(bibtex) $(buch)
 
-$(workdir)/$(buch).idx:	$(workdir) $(buch).tex $(TEXFILES) images
+$(workdir)/$(buch).idx:	$(workdir) $(buch).tex $(ALLTEXFILES) images
 	$(touch) $(workdir)/$(buch).ind
 	$(pdflatex) $(buch).tex
 

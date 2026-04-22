@@ -1,58 +1,84 @@
 %
-% teil1.tex -- Beispiel-File für das Paper
+% teil1.tex -- Beispiel-File für teil1 
 %
 % (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 1
-\label{basel:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
-\begin{equation}
-\int_a^b x^2\, dx
-=
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{basel:equation1}
-\end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
-
-\subsection{De finibus bonorum et malorum
-\label{basel:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{basel:equation1}.
-
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{basel:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{basel:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
-
-
+\section{Geschichtlicher Hintergrund}
+\label{basel:section:geschichte}
+ 
+Im 14.\ Jahrhundert fand Nikolaus von Oresme heraus, dass die \emph{harmonische Reihe}
+\[
+    \sum_{n=1}^{\infty} \frac{1}{n}
+\]
+nicht konvergiert.
+Das heisst, die Summe der Kehrwerte aller natürlichen Zahlen ist keine Zahl, sondern wird unendlich.
+Im Gegensatz dazu stellt sich die Frage, ob eine kleine Modifikation der 
+harmonischen Reihe, nämlich das Quadrieren der Nenner, ausreicht, 
+um Konvergenz zu erzwingen. Die harmonische Reihe und das Basel-Problem 
+sind sich also strukturell ähnlich, unterscheiden sich aber grundlegend 
+in ihrem Verhalten.
+Etwa im Jahr 1650 stellte sich der Mathematiker Pietro Mengoli die Frage, ob man eine
+konvergente Lösung erhält, wenn man die Nenner der harmonischen Reihe quadriert, also ob
+\[
+    \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+konvergiert, und wenn ja, welche Summe sich daraus ergibt.
+ 
+Eine erste Näherung berechnete der Engländer John Wallis im Jahr 1665.
+Seine Näherung war auf drei Stellen nach dem Komma korrekt
+\[
+    \sum_{n=1}^{\infty} \frac{1}{n^2} \approx 1.645.
+\]
+Eine Näherung ist aber im Sinne der Mathematik keine vollständig befriedigende Antwort.
+Darum machten sich mehrere Mathematiker daran, eine Lösung für das Problem zu finden.
+Die ersten, welche wirkliche Erfolge erzielten, waren alle aus Basel -- daher auch der Name
+\emph{Basel-Problem}.
+ 
+Der Mathematiker und Physiker Jakob Bernoulli begann Ende des 17.\ Jahrhunderts mit der
+Studie von unendlichen Reihen.
+Jedoch konnte auch er Mengolis Frage nicht beantworten.
+Er vererbte das Problem also seinem dreizehn Jahre jüngeren Bruder Johann Bernoulli.
+Wiederum kam auch er nicht wirklich weiter.
+So entschloss er sich, das Problem seinem talentiertesten Schüler Leonhard Euler weiterzugeben.
+ 
+Euler verbesserte die Näherung von Wallis auf sechs und später auf 20 Stellen nach dem Komma.
+Die folgende Tabelle zeigt auf wie viele Reihenglieder für solche Annäherungen nötig wären.
+(Tabelle~\ref{basel:tabelle:naeherung}).
+%Tabelle hier einfügen (siehe unten)
+Die Näherungen von Euler wurden also unmöglich so berechnet.
+Selbst für die Näherung von Wallis hätten die ersten 1000 Reihenglieder nicht ausgereicht.
+Euler hatte aufgrund seiner Näherung geahnt, dass die Lösung des Problems
+\[
+    \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+\]
+sein könnte.
+Er war also auf der richtigen Spur.
+Im Jahr 1735 publizierte er sein Ergebnis, was ihn europaweit berühmt machte.
+ 
+\begin{table}
+\def\korrekt#1{
+\bgroup\color{darkred}#1\egroup
+}
+\centering
+\begin{tabular}{r r l}
+\hline
+$k$ & $10^k$ & $\operatorname{basel}(10^k)$ \\
+\hline
+0 & 1           & \korrekt{1}.0 \\
+1 & 10          & \korrekt{1.}5497677311665408 \\
+2 & 100         & \korrekt{1.6}349839001848923 \\
+3 & 1\,000      & \korrekt{1.64}39345666815615 \\
+4 & 10\,000     & \korrekt{1.644}8340718480652 \\
+5 & 100\,000    & \korrekt{1.6449}240668982423 \\
+6 & 1\,000\,000 & \korrekt{1.64493}306684877 \\
+\hline
+\end{tabular}
+\caption{Näherungswerte von $\sum_{n=1}^{N} \frac{1}{n^2}$ für $N = 10^k$.
+Die \korrekt{rot hervorgehobenen} Ziffern stimmen bereits mit dem exakten Wert
+%die korrekten Kommastellen sind rot gekennzeichnet was vlt nicht erlaubt ist.
+$\frac{\pi^2}{6} \approx 1.6449340668\ldots$ überein.
+\label{basel:tabelle:naeherung}}
+\end{table}
