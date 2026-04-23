@@ -1,0 +1,189 @@
+
+\section{Kugeln\label{gamma:section:spheres}}
+\kopfrechts{Kugeln}
+
+$\pi$ ist definiert als die Konstante, welche die Gleichung 
+\ref{gamma-eq:circumference} erfüllt.
+
+\begin{equation}
+\label{gamma-eq:circumference}
+    2 \pi r = \text{Umfang eines Kreises mit dem Radius r}
+\end{equation}
+
+Daraus lässt sich die Fläche einer Kreisscheibe herleiten. 
+Wenn die Dicke eines Rings gegen 0 geht, verhält sich dessen 
+Wachtstum gleich wie das des Umfangs des Rings: Gleichung \ref{gamma-eq:area}. 
+Für eine grafische Darstellung dieser Intuition siehe Abb. \ref{gamma-fig:ring-integration}.
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \foreach \r in {0.2, 0.4, 0.6, 0.8, 1.0} {
+            \draw[thick] (0,0) circle (\r cm);
+        }
+        \draw[{|}-{|}] (0.8,-1) -- (1.0, -1) 
+            node[midway, yshift=-.2cm] {$dr$};       
+
+    \end{tikzpicture} 
+    \caption{Intuition hinter Integration unendlich dünner Ringe zur Berechnung der Fläche}
+    \label{gamma-fig:ring-integration}
+\end{wrapfigure}
+
+\begin{equation}
+\label{gamma-eq:area}
+    A(r) = \int_{0}^{r} 2 \pi r \,dr = \pi r^2
+\end{equation}
+
+Der Satz des Pythagoras gibt uns eine einfache Beschreibung aller 
+Punkte, die Teil des Kreises sind,
+nämlich die Ungleichung \ref{gamma-eq:pythagoras}.
+
+\begin{equation}
+\label{gamma-eq:pythagoras}
+    x^2 + y^2 \leq r^2
+\end{equation}
+
+Aufgrund der Ungleichung \ref{gamma-eq:pythagoras} 
+lässt sich eine weitere Definition der Kreisfläche herleiten, 
+wenn wir sie nach $y$ auflösen (Gl. \ref{gamma-eq:pythagoras-y})
+und für jedes $x$ den jeweils höchsten $y$-Wert integrieren
+(Gl. \ref{gamma-eq:area-pythagoras}). Die Intuition dahinter wird
+in Abb. \ref{gamma-fig:rect-integration} dargestellt.
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \def\r{1}
+        \draw[{|}-{|}] (0.8,-1) -- (1.0, -1) 
+            node[midway, yshift=-.2cm] {$dx$};       
+
+        \draw[thick] (0,0) circle (\r);
+        \draw[thick] (-1.2,0) -- (1.2,0);
+        \def\numrect{10}
+        \pgfmathsetmacro\dx{2*\r/\numrect}
+        \foreach \i in {0,1,...,\numrect} {
+            \pgfmathsetmacro\x{-\r + \i*\dx}
+            \pgfmathsetmacro\h{sqrt(max(0, \r*\r - \x*\x))}
+            \draw[thick] (\x, 0) rectangle ++(\dx, \h);
+        }
+    \end{tikzpicture}
+    \caption{Intuition hinter Integration unendlich dünner Rechtecke zur Berechnung der Fläche}
+    \label{gamma-fig:rect-integration}
+\end{wrapfigure}
+
+\begin{equation}
+\label{gamma-eq:pythagoras-y}
+    y \leq \sqrt{r^2 - x^2}
+\end{equation} 
+
+\begin{equation}
+\label{gamma-eq:area-pythagoras}
+    A(r) = 2 \int_{-r}^{r} \sqrt{r^2-x^2} \,dx
+\end{equation} 
+
+Das Integral aus Gleichung \ref{gamma-eq:area-pythagoras} ist nicht trivial 
+zu lösen, deswegen werden wir es vermeiden. Ein Vorteil dieses Ansatzes ist jedoch, 
+dass sich die durch den Satz des Pythagoras definierte Distanz-Metrik sehr 
+einfach auf weitere Dimensionen erweitern lässt, zum Beispiel $3$ wie in Gleichung 
+\ref{gamma-eq:pythagoras-3d}.
+
+\begin{equation}
+\label{gamma-eq:pythagoras-3d}
+    \begin{split}
+    x^2 + y^2 + z^2 \leq r^2 \\
+    z \leq \sqrt{r^2 - x^2 - y^2}
+    \end{split}
+\end{equation}
+
+Nun können wir das Volumen einer Kugel herleiten, indem wir Halbkreise entsprechender 
+Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}). 
+Dabei integrieren wir jetzt entlang der Achse $x$ und der Achse $y$ - wobei für ein 
+bestimmtes $x$ die Möglichkeit der $y$-Werte gemäss Ungleichung 
+\ref{gamma-eq:pythagoras-y} eingeschränkt ist und für ein bestimmtes $x$ und $y$ dann
+der maximale Wert für $z$ gemäss Ungleichung \ref{gamma-eq:pythagoras-3d} genommen wird. 
+Dies ist in der Gleichung \ref{gamma-eq:sphere-volume} zu sehen.
+
+Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(r)$
+zur in der Berechnung des Kugelvolumens extrahieren, wie in Gleichung 
+\ref{gamma-eq:composed-sphere-volume}.
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \centering
+    \tdplotsetmaincoords{70}{25}
+    \begin{tikzpicture}[tdplot_main_coords]
+        \def\r{1} 
+        \def\numrect{8}
+        \pgfmathsetmacro\dx{2*\r/\numrect}
+
+        \draw[->] (-\r-0.5, 0, 0) -- (\r+0.5, 0, 0) node[anchor=north east] {$x$};
+        \draw[->] (0, -\r-0.5, 0) -- (0, \r+0.5, 0) node[anchor=north west] {$y$};
+        \draw[->] (0, 0, -\r-0.5) -- (0, 0, \r+0.5) node[anchor=south] {$z$};
+
+        \foreach \i in {1,...,\numrect} {
+            \pgfmathsetmacro\xc{-\r + \i*\dx - 0.5*\dx} 
+            \pgfmathsetmacro\sliceR{sqrt(max(0, \r*\r - \xc*\xc))} 
+
+            \pgfmathsetmacro\nextxc{-\r + (\i+1)*\dx - 0.5*\dx} 
+            
+            \draw[black, thick, fill=black!10, fill opacity=0.4] 
+                plot[domain=0:180, samples=40] ({\xc}, {\sliceR*cos(\x)}, {\sliceR*sin(\x)}) -- cycle;
+            \draw[black, thick, fill=black!10, fill opacity=0.4] 
+                plot[domain=0:180, samples=40] ({\nextxc}, {\sliceR*cos(\x)}, {\sliceR*sin(\x)}) -- cycle;
+            \draw[black, thick] (\xc, \sliceR, 0) -- (\nextxc, \sliceR, 0);
+            \draw[black, thick] (\xc, -\sliceR, 0) -- (\nextxc, -\sliceR, 0);
+            \draw[black, thick] (\xc, 0.17*\sliceR, \sliceR) -- (\nextxc+0.05,  0.19*\sliceR, \sliceR);
+        }
+
+        % \draw[thick, gray] plot[domain=0:360, samples=60] ({\r*cos(\x)}, {\r*sin(\x)}, 0);
+        % \draw[thick, gray] plot[domain=0:360, samples=60] ({\r*cos(\x)}, 0, {\r*sin(\x)});
+        % \draw[thick, gray] plot[domain=0:360, samples=60] (0, {\r*cos(\x)}, {\r*sin(\x)});
+
+        % dx measurement - aligned with the first slice
+        \pgfmathsetmacro\firstX{-\r + 1*\dx - 0.5*\dx}
+        \draw[|-|] (\firstX-\dx/2, 0, -\r-0.4) -- (\firstX+\dx/2, 0, -\r-0.4) node[midway, below] {$dx$};
+    \end{tikzpicture}
+    \caption{Intuition hinter Integration von Halbkreisen zur Berechnung des Volumens}
+    \label{gamma-fig:semicircle-integration}
+\end{wrapfigure}
+
+\begin{equation}
+\label{gamma-eq:sphere-volume}
+    V(r) = 2 \int_{-r}^{r} \int_{-\sqrt{r^2-x^2}}^{\sqrt{r^2-x^2}} \sqrt{r^2-x^2-y^2} \,dy \,dx
+\end{equation}
+
+\begin{equation}
+\label{gamma-eq:composed-sphere-volume}
+    V(r) = 2 \int_{-r}^{r} A\left(\sqrt{r^2-x^2}\right) \,dx
+\end{equation}
+
+Wir haben etwas interessantes getan, nämlich haben wir unsere Berechnung für 2 Dimensionen 
+verwendet, um das Volumen in 3 Dimensionen zu berechnen. 
+
+TODO Satz von Foubini 
+
+Auf diese Weise lässt sich also das Volumen auf beliebige Dimensionen $> 2$ erweitern, und zwar 
+mit der Gleichung \ref{gamma-eq:n-sphere-volume}.
+
+\begin{equation}
+\label{gamma-eq:n-sphere-volume}
+    V_{n+1}(r) = \int_{-r}^{r} V_n\left(\sqrt{r^2-x^2}\right) \,dx
+\end{equation}
+
+Betrachtet man $A(r) = V_2(r) = 2 \pi r$, so scheint es intuitiv, dass $V_n$ jeweils mit $C_n r^n$
+dargestellt werden kann, wobei $C_n$ eine der Dimension zugehörige Konstante ist.
+
+Wir können induktiv beweisen, dass $V{n+1}$ dieser Form entspricht, sofern $V(n)$ dieser Form 
+entspricht, siehe Gleichung \ref{gamma-eq:const-structure-induction}.
+
+\begin{equation}
+\label{gamma-eq:const-structure-induction}
+    \begin{split}
+         \text{Nehme an, dass } V_n(r) &= C_n r^n \\
+         \text{Dann gilt: } V_{n+1}(r) &= \int_{-r}^{r} C_n \left(\sqrt{r^2-x^2}\right)^n \,dx  \\ 
+        &= \int_{-r}^{r} C_n \left(r^2-x^2\right)^{n/2} \,dx \\
+        &= \int_{-1}^{1} C_n \left(r^2 - (ru)^2\right)^{n/2} r \,du \\
+        &= \int_{-1}^{1} C_n \left(r^2 (1- u)^2\right)^{n/2} r \,du \\
+        &= \int_{-1}^{1} C_n r^{n+1} (1- u)^{n/2} \,du \\
+        &= r^{n+1} \underbrace{C_n \int_{-1}^{1} (1- u)^{n/2} \,du}_{C_{n+1}} \\
+    \end{split}
+\end{equation}
