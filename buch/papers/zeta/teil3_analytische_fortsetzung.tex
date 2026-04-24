@@ -1,0 +1,66 @@
+%
+% teil3.tex -- Beispiel-File für Teil 3
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Analytische Fortsetzung
+\label{Analytische Fortsetzung}}
+
+Die analytische Fortsetzung ist ein Konzept aus der komplexen Analysis.
+Im Grunde genommen kann durch sie eine Funktion erweitert werden
+ausserhalb ihres Definitionsbereiches.
+
+Voraussetzung dafür ist lediglich, dass die Funktion holomorph ist.
+
+Grundsätzlich wird in der Analytischen Fortsetzung einfach eine neue
+Funktion konstruiert, die den selben Definitionsbereich wie die
+ursprüngliche Funktion hat. Jedoch ist diese neue Funktion auch
+ausserhalb dieses Bereichs definiert.
+
+In der Anwendung auf die Riemannsche Zeta-Funktion kann eine solche
+analytische Fortsetzung fast auf die gesamte komplexe Ebene angewendet
+werden. Die einzige Ausnahme ist der Punkt bei s = 1.
+
+%
+%
+
+\subsection{Anwendung auf die Zeta-Funktion\label{Anwendung auf die Zeta-Funktion}}
+
+Beispielsweise wenn man die Zeta-Funktion anschaut mit
+
+\[\zeta(s) = 1 + \frac{1}{2^{s}} + \frac{1}{3^{s}} + \frac{1}{4^{s}} + \ldots\]
+
+, so ist diese nur korrekt für alle Zahlen \textgreater{} 1.
+
+Wenn man jedoch dann die Analytische Fortsetzung verwendet und die
+Funktion anders darstellt durch eine Erweiterung des Terms, bekommt man
+
+\[\zeta(s) = \frac{1}{{1 - 2}^{1 - s}}(1 + \frac{1}{2^{s}} + \frac{1}{3^{s}} + \frac{1}{4^{s}} + \ldots)\]
+
+, was nun schon korrekt ist für alle Zahlen \textgreater{} 0.
+
+Die Formel wird nun erweitert, bis man
+
+\[\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1 - s)\,\zeta(1 - s)\].
+
+hat. So ist sie definiert für auch fast alle negativen Werte für s. 
+Wenn man für s jetzt -1 einsetzt, so kommt man mit den Umformungen von
+
+\[\zeta(-1) = 2^{-1} \pi^{-2} \sin\left(-\frac{\pi}{2}\right)\Gamma(2)\zeta(2)\].
+
+auf
+
+\[\sin\left(-\frac{\pi}{2}\right) = -1, \quad \Gamma(2) = 1! = 1, \quad \zeta(2) = \frac{\pi^2}{6}\].
+
+und schlussendlich auf
+
+\[\frac{1}{2} \cdot \frac{1}{\pi^2} \cdot (-1) \cdot 1 \cdot \frac{\pi^2}{6} = -\frac{1}{12}]
+
+, was [-\frac{1}{12}] ergibt. 
+
+%Berechnung und analytische Fortsetzung noch besser beschreiben, auch Zusammenhang mit komplexen Zahlen näher erklären.
+
+
