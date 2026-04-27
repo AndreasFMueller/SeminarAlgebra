@@ -165,32 +165,42 @@ Weitere Details sind im Abschnitt 13 in \cite{julia:indifferente_punkte} beschri
 
 \subsubsection{Nicht-fixe periodische Punkte}
 \label{sec:nicht_fix_periodisch}
-Am Ende des Abschnitts \ref{arten_periodische_punkte} wurde festgestellt, dass die Funktion $f(z) = z^2$ einen abstossenden Fixpunkt hat.
-Diese Funktion hat jedoch weitere abstossende, nicht-fixe periodische Punkte --- sogar unendlich viele.
-Es handelt sich dabei um einige Einheitswurzeln, dies sind komplexe Zahlen, deren $m$-te Potenz $1$ ergibt.
+Am Ende des Abschnitts \ref{arten_periodische_punkte} wurde festgestellt, dass die Funktion $f(z) = z^2$ einen abstossenden Fixpunkt bei $1$ hat.
+Diese Funktion hat jedoch weitere abstossende, nicht-fixe periodische Punkte --- wenn $n \to \infty$, dann sogar unendlich viele.
 
-Damit eine Einheitswurzel $z_e$, mit $z_e^m = 1$, periodisch ist, muss $f^n(z_e) = z_e^{2^n} = z_e$ für ein $n$ gelten.
-Dividiert man die beiden rechten Terme der vorherigen Gleichung durch $z_e$ erhält man
+Damit ein Punkt periodisch, aber nicht fix ist, muss
 \begin{equation*}
-    z_e^{2^n - 1} = 1.
+    f^n(z) = z^{2^n} = z,
 \end{equation*}
-Nun muss $m\: |\: 2^n - 1$ bzw. $2^n - 1 \equiv 0 \mod(m)$ gelten.
-Für alle ungeraden $m$ ist dies erfüllt, da $2^n \equiv 1 \mod(m)$.
+für ein $n > 1$ gelten.
+Betrachtet man die beiden rechten Ausdrücke dieser Gleichung und faktorisiert diese, erhält man
+\begin{equation*}
+    z \left(z^{2^n - 1} - 1\right) = 0.
+\end{equation*}
+Periodische Punkte sind also:
+\begin{itemize}
+    \item $z = 0$, wie bereits beschrieben ist dieser Punkt \emph{stark anziehend} und wird daher nicht weiter betrachtet.
+    \item $z^{2^n - 1} = 1$.
+\end{itemize}
 
-Weiter sind Einheitswurzeln mit ungeraden Potenzen abstossend.
-Dazu berechnet man
+Bei der zweiten Lösung handelt es sich um Einheitswurzeln des Grades $2^n - 1$, d.h. komplexe Zahlen, welche durch Potenzieren irgendwann $1$ ergeben.
+Für $n \to \infty$ gibt es unendlich viele Einheitswurzeln dieses Grades, was bedeutet, dass $f$ unendlich viele periodische Punkte hat.
+
+Weiter sind diese Einheitswurzeln $z_e$ auch abstossend.
+Um dies zu zeigen, berechnet man
 \begin{equation*}
     \lambda = \left(f^n\right)^\prime(z_e) = 2^n z_e^{2^n - 1}.
 \end{equation*}
-Weil $2^n - 1$ ein Vielfaches von $m$ ist, ist der zweite Faktor gleich $1$, es bleibt
+Der zweite Faktor ist, aufgrund der Periodizität, gleich $1$, es bleibt
 \begin{equation*}
     \lambda = 2^n 1 = 2^n
 \end{equation*}
-und weil $\lambda > 1$, handelt es sich um \emph{abstossende} Punkte.
+und weil $\lambda > 1$, handelt es sich um \emph{abstossende} periodische Punkte.
 
-Einheitswurzeln liegen stets auf dem Einheitskreis, d.h. $|z_e| = 1$.
-Wäre dies nicht der Fall, würde der Betrag durch das Potenzieren verschwinden, bzw. ansteigen und somit würde $z_e^m = 1$ nicht mehr gelten.
-Daraus geht hervor, dass Einheitswurzeln mit ungerader Potenz auch zur Julia-Menge der Funktion $f$ gehören müssen.
+Zudem liegen Einheitswurzeln stets auf dem Einheitskreis, d.h. $|z_e| = 1$.
+Wäre dies nicht der Fall, würde der Betrag durch das Potenzieren verschwinden, bzw. ansteigen und somit würde $z_e^{2^n - 1} = 1$ nicht mehr gelten.
+Daraus geht hervor, dass diese Einheitswurzeln auch zur Julia-Menge der Funktion $f$ gehören müssen.
+
 Addiert man nämlich ein $\varepsilon$ mit $0 < |\varepsilon| << 1$ zu $z_e$, ist der Betrag entweder kleiner oder grösser als $1$.
 Wiederholtes Anwenden von $f$ wird nun entweder gegen $0$ oder gegen $\infty$ gehen.
 Ohne $\varepsilon$ bewirkt $f$, dass das Argument sich um den Einheitskreis dreht und periodisch zu $1$ zurückkehrt.
@@ -198,6 +208,7 @@ Ohne $\varepsilon$ bewirkt $f$, dass das Argument sich um den Einheitskreis dreh
 Somit sind nicht nur abstossende Fixpunkte, sondern auch abstossende periodische Punkte relevant zur Definition der Julia-Mengen.
 
 \subsubsection{Nicht-periodische Punkte}
+\label{sec:nicht_periodisch}
 Punkte die nicht periodisch sind, können entweder zur Julia-Menge oder zur Fatou-Menge gehören.
 Zum Beispiel gehört der Punkt $z_0 = e^{2\pi i\sqrt{2}}$ zur Julia-Menge der Funktion $f(z) = z^2 = r e^{2\pi i(2 \varphi)}$, obwohl er nicht periodisch ist.
 Durch $n$-maliges Anwenden wird $f$ zu $f^n(z) = z^{2^n} = r^{2^n} e^{2\pi i(2^n \varphi)}$.
@@ -227,17 +238,17 @@ Wie im Abschnitt \ref{sec:beobachtungen} gezeigt, scheint es, dass eine Definiti
 Betrachtet man erneut die Funktion $f(z) = z^2$, so ist bereits bekannt, dass alle \emph{abstossenden} periodischen und Fixpunkte in der Julia-Menge enthalten sind.
 Alle diese Punkte liegen auf dem Einheitskreis und wie im Abschnitt \ref{sec:nicht_fix_periodisch} beschrieben, gibt es unendlich viele davon.
 
-Diese \emph{abstossenden} Punkte sind jedoch nicht dicht, umgangssprachlich ausgedrückt gibt es Lücken auf dem Einheitskreis, welche nicht zu dieser Punktemenge gehören.
+Diese \emph{abstossenden} Punkte sind jedoch nicht deckungsgleich mit dem Einheitskreis, es gibt ``Lücken'' auf dem Einheitskreis, welche nicht zu dieser Punktemenge gehören (siehe \ref{sec:nicht_periodisch} für ein Beispiel).
 Allerdings ist die Distanz von jeder Lücke zu einem \emph{abstossenden} Punkt arbiträr klein.
 Obwohl die ``Lückenpunkte'' selber nicht periodisch sind, verhalten sie sich gleich wie \emph{abstossende} periodische Punkte weil sie so nahe bei diesen liegen.
 
-Entwickelt man die Folge \eqref{julia_folge} ausgehend von einem ``Lückenpunkt'' $z_l$ und entwickelt dann eine zweite Folge ausgehend von $z_l + \varepsilon$, erhält man zwei komplett andere Folgen.
+Entwickelt man die Folge \eqref{julia_folge} ausgehend von einem ``Lückenpunkt'' $z_l$ und entwickelt dann eine zweite Folge ausgehend von $z_l + \varepsilon$, erhält man ebenfalls zwei komplett andere Folgen.
 Für den Startwert $z_l$ führt wiederholtes Anwenden von $f$ auch dazu, dass sich das Argument um den Einheitskreis dreht, jedoch nie mehr zu $1$ zurückkehrt.
 Für $z_l + \varepsilon$ geht wiederholtes Anwenden gegen $0$, wenn $\varepsilon$ negativ ist und gegen $\infty$, wenn $\varepsilon$ positiv ist.
 
 Was die \emph{indifferenten} periodischen Punkte angeht, so hat die Funktion $f$ keine davon.
 Allgemein verhalten sich diese jedoch auch \emph{abstossend} wenn sie in einer solchen ``Lücke'' liegen.
-Ihr genaues Verhalten ist aber wesentlich komplexer und zur vollständigen Beschreibung wird auf Abschnitt 13 in \cite{julia:indifferente_punkte} verwiesen.
+Ihr genaues Verhalten ist aber wesentlich komplexer und zur vollständigen Beschreibung wird erneut auf Abschnitt 13 in \cite{julia:indifferente_punkte} verwiesen.
 
 Abschliessend bedeutet das, dass die Julia-Menge von $f$ dem Rand des Einheitskreises entsprechen muss
 \begin{equation*}
