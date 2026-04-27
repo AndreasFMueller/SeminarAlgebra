@@ -24,6 +24,8 @@ Ist $n$ die kleinste natürliche Zahl mit dieser Eigenschaft, so heisst $n$ die 
 Falls dies bereits für $n = 1$ zutrifft, wenn also $f(z_0) = z_0$ gilt, so ist $z_0$, nicht nur ein periodischer Punkt, sondern auch ein \emph{Fixpunkt} von $f$.
 Aus diesen Definitionen geht hervor, dass ein periodischer Punkt von $f$ mit Periode $n$ gleichzeitig ein Fixpunkt der $n$-fach zusammengesetzten Funktion $f^n$ ist.
 
+Um die Komplexität der Fragestellung zu reduzieren, werden zunächst nur Fixpunkte betrachtet.
+
 \subsubsection{Erstes Beispiel}
 Am Beispiel der Funktion 
 \begin{equation*}
@@ -33,21 +35,22 @@ lassen sich solche periodische Folgen beobachten.
 Durch $n$-maliges Anwenden erhält man $f^n(z) = z^{2^n}$.
 Weiter hat die Funktion $f$ drei Fixpunkte: $0, 1$ und $\infty$, denn für diese Punkte gilt $f(z_0) = z_0$.
 
-Entwickelt man nun die Folge \eqref{julia_folge}, ausgehend von den Startwerten $0$ und $\infty$, geschieht durch leichtes Verändern, mittels eines kleinen Wertes $\varepsilon$, folgendes:
+Entwickelt man nun die Folge \eqref{julia_folge}, ausgehend von den Startwerten $0$ und $\infty$, so erhält man $f^n(0) = 0$ bzw. $f^n(\infty) \to \infty$.
+Nun werden diese Startwerte leicht verändert, dies geschieht mittels einem $\varepsilon \ll 1$:
 \begin{itemize}
     \item Für $z_0 = 0$: $f^n(0 + \varepsilon) = (0 + \varepsilon)^{2^n} \to 0$ mit $|\varepsilon| > 0$
     \item Für $z_0 \to \infty$: $f^n(\infty + \varepsilon) = (\infty + \varepsilon)^{2^n} \to \infty$ mit $|\varepsilon| > 0$
 \end{itemize}
-Obwohl die Startwerte verändert wurden, erhält man schlussendlich das gleiche Resultat.
-Anders ausgedrückt führen kleine Änderungen des Startwerts zu praktisch derselben Folge.
+Obwohl die Startwerte verändert wurden, erhält man schlussendlich die gleichen Resultate, wie wenn man die Startwerte nicht verändert hätte.
+Anders ausgedrückt führen kleine Änderungen der Startwerte zu praktisch denselben Folgen.
 Es scheint, dass diese beiden Startwerte Folgen in ihrer Umgebung anziehen.
 
-Für den Startwert $1$ erhält man, durch leichtes Verändern, ein anderes Resultat:
+Für den Startwert $1$ erhält man $f^n(1) = 1$, durch leichtes Verändern jedoch:
 \begin{itemize}
     \item $f^n(1 + \varepsilon) = (1 + \varepsilon)^{2^n} \to \infty$ mit $\varepsilon > 0$
     \item $f^n(1 - \varepsilon) = (1 - \varepsilon)^{2^n} \to 0$ mit $\varepsilon > 0$
 \end{itemize}
-Hier scheint es, dass eine kleine Änderung des Startwerts zu einer ganz anderen Folge führt, dieser Startwert stösst Folgen in seiner nahen Umgebung weg.
+Hier scheint es also, dass eine kleine Änderung des Startwerts zu einer ganz anderen Folge führt, dieser Startwert stösst Folgen in seiner nahen Umgebung weg.
 
 \subsubsection{Zweites Beispiel}
 Als zweites Beispiel dient die Funktion
@@ -55,13 +58,13 @@ Als zweites Beispiel dient die Funktion
     h(z) = z + z^7.
 \end{equation*}
 Diese Funktion hat Fixpunkte bei $-\infty, 0$ und $\infty$.
-Die Fixpunkte $-\infty$ und $\infty$ verhalten sich, analog zum vorherigen Beispiel, anziehend und werden daher nicht näher untersucht.
+Die Fixpunkte $-\infty$ und $\infty$ verhalten sich erneut anziehend und werden daher nicht näher untersucht.
 Nimmt man jedoch $0$ als Startwert, passiert etwas anderes.
-Durch eine kleine Änderung erhält man,
+Zunächst ergibt sich $h^n(0) = 0$, durch eine kleine Änderung erhält man,
 \begin{equation*}
-    h(0 + \varepsilon) = (0 + \varepsilon) + (0 + \varepsilon)^7 \text{ mit } |\varepsilon| > 0.
+    h(0 + \varepsilon) = (0 + \varepsilon) + (0 + \varepsilon)^7 \text{ mit } 0 < |\varepsilon| \ll 1.
 \end{equation*}
-Der zweite Summand verschwindet, da es sich bei $\varepsilon$ um eine sehr kleine Zahl handelt, übrig bleibt der lineare Term.
+Da es sich bei $\varepsilon$ um eine sehr kleine Zahl handelt, verschwindet der zweite Summand und übrig bleibt der lineare Term.
 Somit ist
 \begin{equation*}
     h(0 + \varepsilon) = 0 + \varepsilon.
@@ -115,24 +118,89 @@ Dann heisst der periodische Punkt $z_0$
     \item \emph{abstosstend}, wenn  $\left|\lambda\right| > 1$.
 \end{itemize}
 
-\subsection{Beobachtungen}
-Wie die vorhergehenden Beispiele zeigen, scheinen, per Definition aus Abschnitt \ref{sec:julia}, abstossende periodische Punkte zur Julia-Menge der jeweiligen Funktion zu gehören.
-Ebenfalls scheinen anziehende periodische Punkte zur Fatou-Menge zu gehören.
-Dies reicht jedoch noch nicht zur Definition dieser Mengen aus, sowohl indifferente periodische Punkte, als auch nicht-periodische Punkte wurden noch nicht genauer betrachtet.
+Wendet man dies auf das vorherige Beispiel der Funktion $f(z) = z^2$ bzw. $f^n(z) = z^{2^n}$ an, bekommt man
+\begin{equation*}
+    \lambda = \left(f^n\right)^\prime(z_0) = 2^n z_0^{2^n - 1}.
+\end{equation*}
+Für die Fixpunkte von $f$ ergibt dies
+\begin{itemize}
+    \item $\lambda_0 = 0$,
+    \item $\lambda_1 = 2^n$.
+\end{itemize}
+Somit sind diese Punkte \emph{stark anziehend}, bzw. \emph{abstossed}.
 
-\subsubsection{Indifferente periodische Punkte}
+Im Fall des Fixpunkts $\infty$ ist zunächst ein Koordinatenwechsel nötig, da sich dieser --- ausserhalb der komplexen Zahlenebene --- auf der Riemannschen Zahlenkugel befindet.
+Sei
+\begin{equation*}
+    \omega = \frac{1}{z},
+\end{equation*}
+damit ist
+\begin{equation*}
+    f(\omega) = \omega^2 = \frac{1}{z^2}.
+\end{equation*}
+Für $\omega \to 0$ verhält sich $f$ gleich, wie für $z \to \infty$.
+Berechnet man nun $\lambda$, unter Berücksichtigung der neuen Koordinate, bekommt man
+\begin{equation*}
+    \lambda = \left(f^n\right)^\prime(\omega_0) = 2 \omega_0,
+\end{equation*}
+was für $\omega \to 0$, den Wert $0$ ergibt.
+Insofern ist auch dieser Fixpunkt \emph{stark anziehend}.
+
+Die Namensgebungen decken sich also mit dem beobachteten Verhalten von Folgen, ausgehend von diesen Startwerten.
+Es scheint als ob eine Definition für die Julia-Mengen auf \emph{abstossenden} Fixpunkten aufbauen muss. 
+
+\subsection{Beobachtungen}
+\label{sec:beobachtungen}
+Wie die vorhergehenden Beispiele zeigen, scheinen, per Definition aus Abschnitt \ref{sec:julia}, abstossende Fixpunkte zur Julia-Menge der jeweiligen Funktion zu gehören.
+Ebenfalls scheinen anziehende Fixpunkte zur Fatou-Menge zu gehören.
+Dies reicht jedoch noch nicht zur Definition dieser Mengen aus denn indifferente Punkte, nicht-fixe periodische Punkte und nicht-periodische Punkte wurden noch nicht genauer betrachtet.
+
+\subsubsection{Indifferente Punkte}
 \label{sec:indifferent}
 Im Abschnitt \ref{arten_periodische_punkte} wurde beschrieben, dass indifferente periodische Punkte einen Spezialfall bilden.
 Abhängig von den höheren Potenzen in der Taylorreihe, können indifferente Punkte entweder zur Julia-Menge oder zur Fatou-Menge ihrer jeweiligen Funktion gehören.
 Wenn diese höheren Potenzen bei $n$-maliger Anwendung von $f$ verschwinden, gehört der indifferente Punkt zur Fatou-Menge.
 Wachsen diese jedoch langsam, so verhält sich der indifferente Punkt wie ein abstossender Punkt und gehört daher zur Julia-Menge.
-Weitere Details sind im Abschnitt 13 in \eqref{julia:indifferente_punkte} beschrieben.
+Weitere Details sind im Abschnitt 13 in \cite{julia:indifferente_punkte} beschrieben.
 
+\subsubsection{Nicht-fixe periodische Punkte}
+\label{sec:nicht_fix_periodisch}
+Am Ende des Abschnitts \ref{arten_periodische_punkte} wurde festgestellt, dass die Funktion $f(z) = z^2$ einen abstossenden Fixpunkt hat.
+Diese Funktion hat jedoch weitere abstossende, nicht-fixe periodische Punkte --- sogar unendlich viele.
+Es handelt sich dabei um einige Einheitswurzeln, dies sind komplexe Zahlen, deren $m$-te Potenz $1$ ergibt.
+
+Damit eine Einheitswurzel $z_e$, mit $z_e^m = 1$, periodisch ist, muss $f^n(z_e) = z_e^{2^n} = z_e$ für ein $n$ gelten.
+Dividiert man die beiden rechten Terme der vorherigen Gleichung durch $z_e$ erhält man
+\begin{equation*}
+    z_e^{2^n - 1} = 1.
+\end{equation*}
+Nun muss $m\: |\: 2^n - 1$ bzw. $2^n - 1 \equiv 0 \mod(m)$ gelten.
+Für alle ungeraden $m$ ist dies erfüllt, da $2^n \equiv 1 \mod(m)$.
+
+Weiter sind Einheitswurzeln mit ungeraden Potenzen abstossend.
+Dazu berechnet man
+\begin{equation*}
+    \lambda = \left(f^n\right)^\prime(z_e) = 2^n z_e^{2^n - 1}.
+\end{equation*}
+Weil $2^n - 1$ ein Vielfaches von $m$ ist, ist der zweite Faktor gleich $1$, es bleibt
+\begin{equation*}
+    \lambda = 2^n 1 = 2^n
+\end{equation*}
+und weil $\lambda > 1$, handelt es sich um \emph{abstossende} Punkte.
+
+Einheitswurzeln liegen stets auf dem Einheitskreis, d.h. $|z_e| = 1$.
+Wäre dies nicht der Fall, würde der Betrag durch das Potenzieren verschwinden, bzw. ansteigen und somit würde $z_e^m = 1$ nicht mehr gelten.
+Daraus geht hervor, dass Einheitswurzeln mit ungerader Potenz auch zur Julia-Menge der Funktion $f$ gehören müssen.
+Addiert man nämlich ein $\varepsilon$ mit $0 < |\varepsilon| << 1$ zu $z_e$, ist der Betrag entweder kleiner oder grösser als $1$.
+Wiederholtes Anwenden von $f$ wird nun entweder gegen $0$ oder gegen $\infty$ gehen.
+Ohne $\varepsilon$ bewirkt $f$, dass das Argument sich um den Einheitskreis dreht und periodisch zu $1$ zurückkehrt.
+
+Somit sind nicht nur abstossende Fixpunkte, sondern auch abstossende periodische Punkte relevant zur Definition der Julia-Mengen.
 
 \subsubsection{Nicht-periodische Punkte}
 Punkte die nicht periodisch sind, können entweder zur Julia-Menge oder zur Fatou-Menge gehören.
-Zum Beispiel gehört der Punkt $z_0 = e^{2\pi i\sqrt{2}}$ zur Julia-Menge der Funktion $f(z) = z^2 = e^{2\pi i(2 \varphi)}$, obwohl er nicht periodisch ist.
-Durch $n$-maliges Anwenden wird $f$ zu $f^n(z) = r^{2^n} e^{2\pi i(2^n \varphi)}$.
+Zum Beispiel gehört der Punkt $z_0 = e^{2\pi i\sqrt{2}}$ zur Julia-Menge der Funktion $f(z) = z^2 = r e^{2\pi i(2 \varphi)}$, obwohl er nicht periodisch ist.
+Durch $n$-maliges Anwenden wird $f$ zu $f^n(z) = z^{2^n} = r^{2^n} e^{2\pi i(2^n \varphi)}$.
 Setzt man den Punkt $z_0$ ein, d.h. setzt $\sqrt{2}$ für $\varphi$ ein, müsste
 \begin{equation*}
     2^n \sqrt{2} = \sqrt{2}
@@ -147,18 +215,31 @@ Dieser Punkt gehört daher zur Julia-Menge von $f$.
 Verwendet man für die gleiche Funktion $0.5$ als Startwert und verändert diesen leicht, so erhält man $f^n(0.5 + \varepsilon) = (0.5 + \varepsilon)^{2^n}$, was gegen $0$ konvergiert.
 Die Folge für den unveränderten Startwert konvergiert ebenfalls gegen $0$, was bedeutet, dass dieser Punkt zur Fatou-Menge von $f$ gehört.
 
-Nicht-periodische Punkte können sich also unterschiedlich verhalten und gehören daher entweder zur Julia-Menge oder zur Fatou-Menge.
+Nicht-periodische Punkte können sich also auch unterschiedlich verhalten und gehören daher entweder zur Julia-Menge oder zur Fatou-Menge.
 
 \subsection{Definition Julia-Mengen}
-%% TODO: Rework (warum reicht der Abschluss um die abstossenden Punkte um Julia-Mengen zu definieren?)
-Betrachtet man erneut die Funktion $f(z) = z^2$, welche \emph{stark anziehende} Fixpunkte bei $0$ und $\infty$ hat, sowie einen \emph{abstossenden} Fixpunkt bei $1$, lassen sich daraus Julia-Mengen definieren.
-Wählt man den Startwert $z_0 = 1$ und verändert diesen ganz leicht, erhält man, bei mehrmaligem Anwenden von $f$, wie im vorherigen Abschnitt beschrieben, eine ganz andere Folge.
-Das gleiche Verhalten tritt auf für alle $|z| = 1$.
+Wie im Abschnitt \ref{sec:beobachtungen} gezeigt, scheint es, dass eine Definition für Julia-Mengen:
+\begin{itemize}
+    \item Auf \emph{abstossenden} periodischen Punkten (nicht nur Fixpunkten) aufbauen muss,
+    \item sowie \emph{indifferente} periodische Punkte und nicht-periodische Punkte berücksichtigen muss.
+\end{itemize}
 
-Für alle Startwerte $|z| < 1$ erhält man durch leichtes Verändern mehr oder weniger die gleiche Folge --- denn diese Folgen konvergieren stets zu $0$.
-Bei Startwerten mit $|z| > 1$, erhält man durch leichtes Verändern Folgen, die stets gegen $\infty$ konvergieren --- also auch wieder mehr oder weniger die gleichen Folgen.
+Betrachtet man erneut die Funktion $f(z) = z^2$, so ist bereits bekannt, dass alle \emph{abstossenden} periodischen und Fixpunkte in der Julia-Menge enthalten sind.
+Alle diese Punkte liegen auf dem Einheitskreis und wie im Abschnitt \ref{sec:nicht_fix_periodisch} beschrieben, gibt es unendlich viele davon.
 
-Damit und anhand der Beschreibung am Anfang des Abschnitts \ref{sec:julia}, besteht die Julia-Menge von $f$ aus allen Punkten mit $|z| = 1$, was dem Rand des Einheitskreises entspricht,
+Diese \emph{abstossenden} Punkte sind jedoch nicht dicht, umgangssprachlich ausgedrückt gibt es Lücken auf dem Einheitskreis, welche nicht zu dieser Punktemenge gehören.
+Allerdings ist die Distanz von jeder Lücke zu einem \emph{abstossenden} Punkt arbiträr klein.
+Obwohl die ``Lückenpunkte'' selber nicht periodisch sind, verhalten sie sich gleich wie \emph{abstossende} periodische Punkte weil sie so nahe bei diesen liegen.
+
+Entwickelt man die Folge \eqref{julia_folge} ausgehend von einem ``Lückenpunkt'' $z_l$ und entwickelt dann eine zweite Folge ausgehend von $z_l + \varepsilon$, erhält man zwei komplett andere Folgen.
+Für den Startwert $z_l$ führt wiederholtes Anwenden von $f$ auch dazu, dass sich das Argument um den Einheitskreis dreht, jedoch nie mehr zu $1$ zurückkehrt.
+Für $z_l + \varepsilon$ geht wiederholtes Anwenden gegen $0$, wenn $\varepsilon$ negativ ist und gegen $\infty$, wenn $\varepsilon$ positiv ist.
+
+Was die \emph{indifferenten} periodischen Punkte angeht, so hat die Funktion $f$ keine davon.
+Allgemein verhalten sich diese jedoch auch \emph{abstossend} wenn sie in einer solchen ``Lücke'' liegen.
+Ihr genaues Verhalten ist aber wesentlich komplexer und zur vollständigen Beschreibung wird auf Abschnitt 13 in \cite{julia:indifferente_punkte} verwiesen.
+
+Abschliessend bedeutet das, dass die Julia-Menge von $f$ dem Rand des Einheitskreises entsprechen muss
 \begin{equation*}
     J_f = \left\{z \in \overline{\mathbb{C}}\:\mid\:|z| = 1\right\},
 \end{equation*}
@@ -166,7 +247,7 @@ bzw. allgemeiner
 \begin{equation*}
     J_f \coloneqq \text{Abschluss}\left\{z \in \overline{\mathbb{C}}\:\mid\:z\text{ ist ein abstossender periodischer Punkt von f}\right\}.
 \end{equation*}
-Dabei bezieht sich \emph{Abschluss} auf den topologischen Abschluss \cite{julia:abschluss}.
+Dabei bezieht sich \emph{Abschluss} auf den topologischen Abschluss \cite{julia:abschluss}, dies bewirkt, dass die ``Lückenpunkte'' auch in $J_f$ enthalten sind.
 
 \subsection{Definition Fatou-Mengen}
 Die Definition der Fatou-Mengen lässt sich ebenfalls aus dem obigen Beispiel $f(z) = z^2$ herleiten.
