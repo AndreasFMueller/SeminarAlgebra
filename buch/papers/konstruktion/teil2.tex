@@ -1,43 +1,109 @@
 %
-% teil2.tex -- Beispiel-File für teil2 
+% teil2.tex -- Polardarstellung und Drehung
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+\section{Polardarstellung und Drehung
+\label{komplex:section:polar}}
+Die kartesische Form $z = a + bi$ ist für die Addition optimal,
+für die Multiplikation aber unhandlich.
+Die Polardarstellung schliesst diese Lücke
+und macht zugleich die geometrische Deutung der Multiplikation als
+Drehstreckung sichtbar.
+In den folgenden Unterabschnitten werden Polarform, Multiplikation als
+Rotation und schliesslich der Drehfaktor entwickelt,
+mit dem alle späteren Konstruktionen ausgeführt werden.
+
 %
-% !TEX root = ../../buch.tex
-% !TEX encoding = UTF-8
+% Polarform einer komplexen Zahl
 %
-\section{Teil 2 
-\label{konstruktion:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
+\subsection{Polarform einer komplexen Zahl
+\label{komplex:subsection:polarform}}
+Jeder Punkt $z \neq 0$ der Ebene ist eindeutig durch seinen Abstand
+$r = |z|$ vom Ursprung
+und den Winkel $\varphi$, den der Pfeil zum Punkt mit der positiven reellen
+Achse einschliesst, festgelegt.
+Mit
+\begin{equation}
+z
+=
+r \cdot ( \cos(\varphi) + i \sin(\varphi) )
+\label{komplex:eq:polarform}
+\end{equation}
+erhält man die \emph{Polarform}.
+Der Winkel $\varphi$ heisst \emph{Argument} und wird mit $\arg(z)$
+bezeichnet;
+er ist nur bis auf ganzzahlige Vielfache von $2\pi$ eindeutig.
+Üblicherweise wählt man den Hauptwert in $(-\pi, \pi]$.
+Die Umrechnung zwischen kartesischer und polarer Form lautet
+\begin{equation}
+x = r \cdot \cos(\varphi) ,
+\qquad
+y = r \cdot \sin(\varphi) ,
+\qquad
+r = \sqrt{x^2 + y^2} .
+\label{komplex:eq:umrechnung}
+\end{equation}
+Das Vorzeichen des Winkels gibt den Drehsinn an:
+$\varphi > 0$ entspricht einer Drehung gegen den Uhrzeigersinn,
+$\varphi < 0$ einer Drehung im Uhrzeigersinn.
 
-\subsection{De finibus bonorum et malorum
-\label{konstruktion:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+%
+% Multiplikation als Rotation
+%
+\subsection{Multiplikation als Rotation
+\label{komplex:subsection:rotation}}
+Aus den Additionstheoremen für Sinus und Kosinus folgt für zwei Zahlen in
+Polarform $z_1 = r_1 ( \cos(\varphi_1) + i \sin(\varphi_1) )$
+und $z_2 = r_2 ( \cos(\varphi_2) + i \sin(\varphi_2) )$ die Produktformel
+\begin{equation}
+z_1 \cdot z_2
+=
+r_1 r_2 \cdot \bigl( \cos(\varphi_1 + \varphi_2)
+                   + i \sin(\varphi_1 + \varphi_2) \bigr) .
+\label{komplex:eq:produkt-polar}
+\end{equation}
+Diese Identität ist die zentrale Aussage des gesamten Abschnitts:
+Bei der Multiplikation komplexer Zahlen multiplizieren sich die Beträge,
+und die Argumente addieren sich.
+Die Multiplikation mit einer festen Zahl
+$w = r \cdot ( \cos(\varphi) + i \sin(\varphi) )$
+wirkt damit auf die Ebene als \emph{Drehstreckung} ---
+eine Streckung um den Faktor $r$ und eine gleichzeitige Drehung um den
+Winkel $\varphi$, beides um den Ursprung.
 
+Insbesondere ist die Multiplikation mit
+$\cos(\varphi) + i \sin(\varphi)$
+eine reine Drehung um den Ursprung um den Winkel $\varphi$.
+Diese Beobachtung verwandelt jede Drehung in der Ebene in eine algebraische
+Operation, was in den späteren Konstruktionen zur Schlüsselrechnung wird.
 
+%
+% Der Drehfaktor
+%
+\subsection{Der Drehfaktor
+\label{komplex:subsection:drehfaktor}}
+Im Folgenden bezeichnen wir mit $d$ den \emph{Drehfaktor}
+\begin{equation}
+d
+=
+\cos(\varphi) + i \sin(\varphi) ,
+\label{komplex:eq:drehfaktor}
+\end{equation}
+also die komplexe Zahl vom Betrag $1$, deren Multiplikation einer Drehung
+um den Winkel $\varphi$ entspricht.
+Eine Drehung um einen beliebigen Punkt $z_0$ lässt sich aus drei Schritten
+zusammensetzen:
+Verschiebung des Drehzentrums in den Ursprung,
+Drehung um den Ursprung
+und Verschiebung zurück.
+In Formeln gilt
+\begin{equation}
+D(z)
+=
+z_0 + d \cdot (z - z_0) .
+\label{komplex:eq:drehung-allg}
+\end{equation}
+Diese Formel wird im Folgenden so häufig verwendet,
+dass sie als eigentliches Arbeitspferd der Arbeit gelten kann.
+Sie ist die direkte algebraische Übersetzung des Konzepts ``Drehung um
+einen Punkt'' und erlaubt es, Konstruktionen, die mit Zirkel und Lineal
+sehr aufwändig wären, in wenigen Zeilen zu rechnen.

@@ -1,58 +1,132 @@
 %
-% teil1.tex -- Beispiel-File für das Paper
+% teil1.tex -- Komplexe Zahlen als Punkte der Ebene
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+\section{Komplexe Zahlen als Punkte der Ebene
+\label{komplex:section:zahlenebene}}
+Der gesamte folgende Aufbau ruht auf einer einzigen Identifikation:
+Eine komplexe Zahl wird gleichzeitig als algebraisches Objekt
+mit Real- und Imaginärteil und als Punkt einer Ebene gelesen.
+Beide Lesarten werden im Folgenden parallel geführt,
+sodass jede Rechnung eine geometrische Bedeutung erhält.
+Die Unterabschnitte stellen zunächst die kartesische Form
+\eqref{komplex:eq:kartesisch} bereit
+und führen anschliessend Addition, Multiplikation, Betrag und Konjugation
+ein.
+
 %
-% !TEX root = ../../buch.tex
-% !TEX encoding = UTF-8
+% Algebraische Form und Gausssche Zahlenebene
 %
-\section{Teil 1
-\label{konstruktion:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
+\subsection{Algebraische Form und Gausssche Zahlenebene
+\label{komplex:subsection:algebraisch}}
+Eine komplexe Zahl ist ein Ausdruck der Form
 \begin{equation}
-\int_a^b x^2\, dx
+z
 =
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{konstruktion:equation1}
+a + bi
+\label{komplex:eq:kartesisch}
 \end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+mit reellen Zahlen $a$ und $b$.
+Die Grösse $i$ erfüllt definitionsgemäss $i^2 = -1$
+und wird als \emph{imaginäre Einheit} bezeichnet.
+Die reelle Zahl $a$ heisst \emph{Realteil} und wird mit $\Re(z)$ bezeichnet,
+$b$ heisst \emph{Imaginärteil} und wird mit $\Im(z)$ bezeichnet.
+Die Menge aller komplexen Zahlen wird mit $\mathbb{C}$ bezeichnet.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
+Identifiziert man $z = a + bi$ mit dem Punkt $(a, b)$ der reellen Ebene,
+so ist $\mathbb{C}$ als Menge mit $\mathbb{R}^2$ identisch.
+Diese Identifikation heisst \emph{Gausssche Zahlenebene}.
+Die reelle Achse trägt die Zahlen mit $\Im(z) = 0$,
+die imaginäre Achse die Zahlen mit $\Re(z) = 0$.
+Was $\mathbb{C}$ von $\mathbb{R}^2$ unterscheidet,
+ist nicht die Menge der Punkte,
+sondern die zusätzliche Multiplikation,
+die jedem Punktepaar einen weiteren Punkt zuordnet.
+Diese Multiplikation hat eine geometrische Bedeutung,
+die in Abschnitt~\ref{komplex:subsection:multiplikation} sichtbar wird.
 
-\subsection{De finibus bonorum et malorum
-\label{konstruktion:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{konstruktion:equation1}.
+%
+% Addition, Subtraktion und Translation
+%
+\subsection{Addition, Subtraktion und Translation
+\label{komplex:subsection:addition}}
+Sind $z_1 = a_1 + b_1 i$ und $z_2 = a_2 + b_2 i$ zwei komplexe Zahlen,
+so ist die Summe komponentenweise definiert:
+\begin{equation}
+z_1 + z_2
+=
+(a_1 + a_2) + (b_1 + b_2) \, i .
+\label{komplex:eq:addition}
+\end{equation}
+Geometrisch entspricht die Addition genau der Vektoraddition in
+$\mathbb{R}^2$.
+Stellt man $z_1$ und $z_2$ als Pfeile vom Ursprung zum jeweiligen Punkt dar,
+so ergibt sich $z_1 + z_2$ durch Aneinanderfügen dieser Pfeile nach dem
+Parallelogrammgesetz.
+Insbesondere ist die Abbildung $z \mapsto z + w$ für ein festes $w$
+eine \emph{Translation} der Ebene um den Vektor $w$.
+Translationen sind die einfachsten Transformationen,
+die in dieser Arbeit auftreten.
 
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{konstruktion:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{konstruktion:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
+Die Subtraktion $z_1 - z_2$ hat eine besonders nützliche Bedeutung:
+Der Vektor von Punkt $z_2$ zu Punkt $z_1$ wird gerade durch $z_1 - z_2$
+dargestellt.
+Diese Beobachtung ist klein, aber zentral,
+denn sie erlaubt es, Strecken und Richtungen unmittelbar als komplexe
+Zahlen zu schreiben.
 
+%
+% Multiplikation als Drehstreckung
+%
+\subsection{Multiplikation als Drehstreckung
+\label{komplex:subsection:multiplikation}}
+Die Multiplikation ergibt sich aus der Forderung $i^2 = -1$ und der
+Distributivität:
+\begin{equation}
+(a_1 + b_1 i)(a_2 + b_2 i)
+=
+(a_1 a_2 - b_1 b_2) + (a_1 b_2 + a_2 b_1) \, i .
+\label{komplex:eq:multiplikation-kartesisch}
+\end{equation}
+In dieser Form sieht man der Multiplikation ihre geometrische Bedeutung
+kaum an.
+Um sie sichtbar zu machen, betrachtet man zwei Spezialfälle.
+Multiplikation mit einer reellen Zahl $r > 0$ streckt jeden Punkt vom
+Ursprung weg um den Faktor $r$.
+Multiplikation mit $i$ bildet $a + bi$ auf $-b + ai$ ab,
+was geometrisch einer Drehung um $90^\circ$ gegen den Uhrzeigersinn
+entspricht.
+Die volle geometrische Deutung der Multiplikation als \emph{Drehstreckung}
+wird in Abschnitt~\ref{komplex:subsection:rotation} abgeleitet.
 
+%
+% Betrag, Konjugation und Abstand
+%
+\subsection{Betrag, Konjugation und Abstand
+\label{komplex:subsection:betrag}}
+Der \emph{Betrag} einer komplexen Zahl ist definiert als
+\begin{equation}
+|z|
+=
+\sqrt{a^2 + b^2}
+\label{komplex:eq:betrag}
+\end{equation}
+und entspricht dem euklidischen Abstand des Punktes $z$ vom Ursprung.
+Die \emph{konjugiert komplexe} Zahl ist $\overline{z} = a - bi$;
+sie ergibt sich durch Spiegelung an der reellen Achse.
+Aus der Definition folgt unmittelbar
+\begin{equation}
+z \cdot \overline{z}
+=
+a^2 + b^2
+=
+|z|^2 ,
+\label{komplex:eq:konjugation}
+\end{equation}
+was später in Beweisen wiederholt verwendet wird.
+
+Der Abstand zweier Punkte $z_1$ und $z_2$ der Gaussschen Ebene ist gerade
+$|z_1 - z_2|$.
+Damit lassen sich geometrische Bedingungen wie ``der Punkt $z$ hat von zwei
+festen Punkten denselben Abstand'' sofort als algebraische Gleichungen
+schreiben --- eine Idee, die in Abschnitt~\ref{komplex:section:objekte}
+systematisch genutzt wird.
