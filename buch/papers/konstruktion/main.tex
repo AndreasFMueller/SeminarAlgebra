@@ -1,39 +1,53 @@
 %
-% main.tex -- Paper zum Thema <konstruktion>
+% main.tex -- Seminararbeit "Komplexe Zahlen und geometrische
+%              Konstruktionen in der Ebene"
 %
-% (c) 2020 Autor, OST Ostschweizer Fachhochschule
+% Autoren: Pascal Hirzel und Timon Gnehm
+% Kuerzel: komplex
 %
-% !TEX root = ../../buch.tex
-% !TEX encoding = UTF-8
-%
-\chapter{Konst\label{chapter:konstruktion}}
-\kopflinks{Thema}
-\begin{refsection}
-\chapterauthor{Timon Gnehm und Pascal Hirzel}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+\documentclass[a4paper,12pt]{report}
 
-\input{papers/konstruktion/teil0.tex}
-\input{papers/konstruktion/teil1.tex}
-\input{papers/konstruktion/teil2.tex}
-\input{papers/konstruktion/teil3.tex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
 
-\printbibliography[heading=subbibliography]
-\end{refsection}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\newtheorem{satz}{Satz}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage[
+backend=biber,
+style=numeric
+]{biblatex}
+
+\addbibresource{references.bib}
+
+\begin{document}
+	
+	\chapter{Komplexe Zahlen und geometrische Konstruktionen}
+	\label{komplex:chapter}
+	
+	\begin{refsection}
+		
+		\textbf{Autoren: Pascal Hirzel und Timon Gnehm}
+		
+		\vspace{1cm}
+		
+		\input{teil0.tex}
+		\input{teil1.tex}
+		\input{teil2.tex}
+		\input{teil3.tex}
+		\input{teil4.tex}
+		\input{teil5.tex}
+		\input{teil6.tex}
+		\input{teil7.tex}
+		
+		\printbibliography[heading=subbibliography]
+		
+	\end{refsection}
+	
+\end{document}

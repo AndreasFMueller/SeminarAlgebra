@@ -1,0 +1,67 @@
+%
+% paper-standalone.tex -- Standalone-Build der Seminararbeit
+%
+% Diese Datei dient zum eigenstaendigen Bauen des Papers ausserhalb
+% des Buchprojekts. Im Buchprojekt selbst wird main.tex importiert,
+% das die Kapitel ueber \chapter / \chapterauthor einbindet (analog zum
+% paper.tex aus der Anleitung).
+%
+% Aufruf:  pdflatex paper-standalone
+%          bibtex   paper-standalone
+%          pdflatex paper-standalone
+%          pdflatex paper-standalone
+%
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=ngerman,provide=*]{babel}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+% Sicherstellen, dass die Captions auf Deutsch sind, falls babel die
+% Defaults nicht ueberschreibt:
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\renewcommand{\figurename}{Abbildung}
+\renewcommand{\tablename}{Tabelle}
+\renewcommand{\refname}{Literaturverzeichnis}
+
+% Etwas mehr Spielraum bei der Zeilenumbruchsuche fuer deutsche Texte:
+\emergencystretch=2em
+
+% Theorem-Umgebung gemaess Buchstil
+\theoremstyle{plain}
+\newtheorem{satz}{Satz}[section]
+
+\title{Komplexe Zahlen und geometrische Konstruktionen
+in der Ebene\\[2mm]
+\large Eine Seminararbeit zur Verbindung von Algebra und Anschauung}
+\author{Pascal Hirzel \and Timon Gnehm}
+\date{Mathematisches Seminar\\
+Leitung: Prof.\ Dr.\ Andreas Müller\\
+OST -- Ostschweizer Fachhochschule, Rapperswil}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\bigskip
+
+\input{teil0.tex}
+\input{teil1.tex}
+\input{teil2.tex}
+\input{teil3.tex}
+\input{teil4.tex}
+\input{teil5.tex}
+\input{teil6.tex}
+\input{teil7.tex}
+
+\renewcommand{\refname}{Literaturverzeichnis}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
