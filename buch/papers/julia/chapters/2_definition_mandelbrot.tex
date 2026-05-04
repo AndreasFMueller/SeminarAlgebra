@@ -1,0 +1,21 @@
+\section{Mandelbrot-Menge}
+\label{sec:mandelbrot}
+
+Die Mandelbrot-Menge entsteht aus einer ähnlichen Überlegung wie die Julia- und Fatou-Mengen.
+Auch hier werden Funktionen wiederholt auf Punkte angewendet, jedoch werden nur eine bestimmte Art von Funktionen, sowie ein Punkt betrachtet.
+Konkret werden quadratische Funktionen der Art
+\begin{equation*}
+    f_c(z) = z^2 + c,
+\end{equation*}
+sowie der Punkt $z = 0$ untersucht.
+
+Nun lässt sich die Mandelbrot-Menge als
+\begin{equation*}
+    M \coloneqq \left\{c \in \overline{\mathbb{C}}\:\mid\:f_c^n(0) \not\to \infty,\:\text{wenn}\:n \to \infty \right\},
+\end{equation*}
+definieren.
+Das heisst, die Mandelbrot-Menge ist die Menge der Parameter $c$, für welche die Rekursion $z_{n+1}=z_{n}^{2} + c$ beschränkt bleibt, wenn man $z_0 = 0$ wählt.
+
+Anhand dieser Definition wird der grundliegende Unterschied zwischen Julia- und Fatou-Mengen, sowie der Mandelbrot-Menge klar.
+Die Julia- und Fatou-Mengen sind im Zustandsraum der Dynamik, sie sind Teilmengen der $z$-Ebene.
+Bei der Mandelbrot-Menge findet die Dynamik zwar auch in der $z$-Ebene statt, jedoch existiert die Mandelbrot-Menge im Parameterraum, bzw. der $c$-Ebene.

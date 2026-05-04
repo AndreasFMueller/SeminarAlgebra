@@ -11,29 +11,13 @@
 \begin{refsection}
 \chapterauthor{Nicola Dall'Acqua}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+%% TODO: Beschreibung/Einführung in komplexe Dynamik (Motivation)
 
-\input{papers/julia/teil0.tex}
-\input{papers/julia/teil1.tex}
-\input{papers/julia/teil2.tex}
-\input{papers/julia/teil3.tex}
+\input{papers/julia/chapters/1_definition_julia.tex}
+\input{papers/julia/chapters/2_definition_mandelbrot.tex}
+\input{papers/julia/chapters/3_relation.tex}
+\input{papers/julia/chapters/4_visualisierung.tex}
+
 
 \printbibliography[heading=subbibliography]
 \end{refsection}
