@@ -6,53 +6,79 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 1
+\section{Allgemeiner Aufbau einer Mödius Transformation
 \label{moebius:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
-\begin{equation}
-\int_a^b x^2\, dx
-=
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{moebius:equation1}
-\end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+\kopfrechts{Allgemeiner Aufbau einer Mödius Transformation}
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
+Eine Möbius Transformation kann man als Kombinationen von einfachen Transformationen verstehen.
+Es gibt drei Arten von diesen Transformationen.
 
-\subsection{De finibus bonorum et malorum
-\label{moebius:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{moebius:equation1}.
+\textbf{Die Translation:}
 
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{moebius:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{moebius:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
+\[
+z \mapsto z + b
+\]
+
+Sie verschiebt jeden Punkt der komplexen Ebene um die komplexe Zahl b
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{bild5.pdf}
+	\caption{Verschiebung des Imaginärteils}
+\end{figure}
 
 
+\textbf{Die Skalierung und Rotation:}
+
+\[
+z \mapsto az
+\]
+
+Diese Transformation beschreibt eine Streckung und gleichzeitig eine Rotation der komplexen Ebene um den Ursprung.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{bild3.pdf}
+	\caption{Drehung um 90 Grad}
+\end{figure}
+
+Für die Rotation wird für $a = e^{i\varphi}$ eingesetzt.
+
+
+\textbf{Die Inversion:}
+
+\[
+z \mapsto \frac{1}{z}
+\]
+
+Die Inversion bildet jeden Punkt der komplexen Ebene auf seinen Kehrwert ab und ist verantwortlich für die charakteristische Abbildung von Geraden auf Kreise und umgekehrt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{bild4.pdf}
+	\caption{Gerade zu Kreis}
+\end{figure}
+
+
+\textbf{Die Allgemeine Form einer Möbius Transformation:}
+
+\[
+f(z) = \frac{a z + b}{c z + d}, \quad a,b,c,d \in \mathbb{C}, \; ad - bc \neq 0
+\]
+
+kann als Verkettung von Translation, Skalierung/Rotation und Inversion verstanden werden.
+
+\[ad - bc \neq 0\]
+
+Dies ist notwendig, da die Transformation sonst degeneriert. Für \(ad - bc = 0\) wäre die Abbildung nicht mehr invertierbar und würde die gesamte Ebene auf eine konstante oder eindimensionale Menge abbilden.
+
+Möbius-Transformationen sind bijektiv.
+
+Das bedeutet, dass sie sowohl injektiv als auch surjektiv sind:
+
+\begin{itemize}
+	\item \textbf{Injektiv:} Verschiedene Punkte der Definitionsmenge werden auf verschiedene Punkte abgebildet.
+	\item \textbf{Surjektiv:} Jeder Punkt der Zielmenge wird von mindestens einem Punkt der Definitionsmenge getroffen.
+\end{itemize}
+
+Damit ist jede Möbius-Transformation umkehrbar, d.\,h. es existiert eine inverse Möbius-Transformation.

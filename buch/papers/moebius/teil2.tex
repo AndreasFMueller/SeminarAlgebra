@@ -6,38 +6,109 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 2 
+\section{Inversion 
 \label{moebius:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
+\kopfrechts{Inversion}
+\subsection*{Inversion in der komplexen Ebene}
 
-\subsection{De finibus bonorum et malorum
-\label{moebius:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+Bei der Inversion wird jeder Punkt \( z \) auf seinen Kehrwert \( \frac{1}{z} \) abgebildet.
+
+Schreibt man \( z \) in Polarform,
+\[
+z = r e^{i\varphi},
+\]
+so ergibt sich:
+\[
+\frac{1}{z} = \frac{1}{r} e^{-i\varphi}.
+\]
+
+\textbf{Dabei gilt:}
+
+\begin{itemize}
+	\item Der Betrag wird invertiert: \( r \rightarrow \frac{1}{r} \)  
+	\item Der Winkel wird gespiegelt: \( \varphi \rightarrow -\varphi \)
+\end{itemize}
+
+\textbf{Das bedeutet geometrisch:}
+\begin{itemize}
+	\item Punkte nahe bei \(0\) werden weit nach außen abgebildet  
+	\item Große Abstände werden klein  
+	\item Kreise können sich stark verformen (werden zu anderen Kreisen oder Geraden)  
+	\item Der Winkel wird an der reellen Achse gespiegelt
+\end{itemize}
 
 
+Die folgende Tabelle zeigt, wie sich Kreise und Geraden unter der Inversion verhalten, insbesondere abhängig davon, ob der Punkt \(0\) enthalten ist.
+
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Objekt} & \textbf{Enthält 0?} & \textbf{Ergebnis} \\
+		\hline
+		Kreis & Ja & Gerade \\
+		\hline
+		Kreis & Nein & Kreis \\
+		\hline
+		Gerade & Ja & Gerade \\
+		\hline
+		Gerade & Nein & Kreis \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+Kreise, welche den Punkt \(0\) enthalten, werden unter der Inversion auf Geraden abgebildet.
+
+\textbf{Beweis:}
+
+Wir betrachten die allgemeine Kreisgleichung mit Mittelpunkt \(1\) und Radius \(1\):
+\[
+|z - 1| = 1.
+\]
+
+Sei die Inversion gegeben durch
+\[
+w = \frac{1}{z}
+\quad \Leftrightarrow \quad
+z = \frac{1}{w}.
+\]
+
+Einsetzen von \( z = \frac{1}{w} \) ergibt:
+\[
+\left|\frac{1}{w} - 1\right| = 1.
+\]
+
+Nun umformen:
+\[
+\left|\frac{1 - w}{w}\right| = 1.
+\]
+
+Mit den Eigenschaften des Betrags:
+\[
+\frac{|1 - w|}{|w|} = 1.
+\]
+
+Multiplikation mit \( |w| \) ergibt:
+\[
+|1 - w| = |w|.
+\]
+
+Dies beschreibt eine Gerade, da alle Punkte \( w \) den gleichen Abstand zu den Punkten \(0\) und \(1\) haben.
+
+
+\begin{figure}[h]
+	\centering
+	
+	\includegraphics[width=0.6\textwidth]{bild1.pdf}
+	\caption{Vor der Transformation}
+	
+	\vspace{0.8cm}
+	
+	\includegraphics[width=0.6\textwidth]{bild2.pdf}
+	\caption{Nach der Transformation}
+	
+\end{figure}
