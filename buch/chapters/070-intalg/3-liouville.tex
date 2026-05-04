@@ -16,8 +16,11 @@ Das Prinzip von Liouville zeigt, dass dies ganz allgemein gilt.
 %
 \subsection{Das Prinzip 
 \label{buch:intalg:liouville:subsection:prinzip}}
+Die Erfahrung bei den rationalen Funktionen hat gezeigt, dass die
+Stammfunktion sich immer nur logarithmische Erweiterungen enthält.
+Tatsächlich gilt dies ganz allemein, wie der folgende Satz zeigt.
 
-\begin{satz}
+\begin{satz}[Prinzip von Liouville]
 Sei $F$ ein Funktionenkörper mit Konstantenkörper $K$ und $f\in F$.
 Wenn $f$ eine Stammfunktion $g$ in einer elementaren Erweiterung
 $G\supset F$ hat, die den gleichen Konstantenkörper wie $F$ hat, dann
@@ -110,6 +113,7 @@ in $\vartheta$ beim Ableiten ändert.
 Der folgende Satz gibt darüber Auskunft.
 
 \begin{satz}
+\label{buch:intalg:liouville:polynome:satz:logarithmisch}
 Sei $F$ ein Funktionenkörper mit Konstantenkörper $K\subset F$ und sei
 $\vartheta$ ein logarithmisch transzendentes Element über $F$ mit
 $\vartheta=\log u$ mit $u\in F$.
@@ -202,6 +206,7 @@ Im Gegensatz zu einer logarithmischen Erweiterung nimmt der Grad
 eines Polynoms einer exponentiellen Erweiterung beim Ableiten nicht ab.
 
 \begin{satz}
+\label{buch:intalg:liouville:polynome:satz:exponentiell}
 Sei $F$ ein Funktionenkörper mit Konstantenkörper $K\subset F$ und sei
 $\vartheta$ ein exponentielles transzendentes Element über $F$ mit
 $\vartheta=\exp u$ mit $u\in F$.
@@ -368,6 +373,137 @@ Somit ist $a(\vartheta)=a_n\vartheta^n$ ein Monom.
 % Polynome einer algebraischen Erweiterung
 %
 \subsubsection{Polynome einer algebraischen Erweiterung}
+Logarithmische und exponentielle transzendente Erweiterungen
+sind durch ihre Eigenschaften unter Differentiation charakterisiert.
+Damit ist bereits sichergestellt, dass die Ableitung im erweiterten
+Funktionenkörper liegt.
+Für eine algebraische Erweiterung $F(\vartheta)$ von $F$ ist dies
+jedoch nicht selbstverständlich.
+Der folgende Satz zeigt, dass auch für eine algebraische Erweiterung
+um das algebraische Element $\vartheta$ die Ableitung $D\vartheta$
+in $F(\vartheta)$ liegt.
+
+\begin{satz}
+\label{buch:intalg:liouville:polynome:satz:algebraisch}
+Sei $\vartheta$ ein algebraisches Element über $F$ mit Minimalpolynom
+\begin{equation}
+0
+=
+p(\vartheta)
+=
+p_0 + p_1\vartheta + \ldots + p_{n-1}\vartheta^{n-1} + \vartheta^n
+=
+\sum_{k=0}^n p_k\vartheta^k
+\label{buch:intalg:liouville:polynome:eqn:minimal}
+\end{equation}
+mit $p_n=1$.
+\begin{enumerate}
+\item
+Die Ableitung von $\vartheta$ die Form
+\[
+D\vartheta
+=
+-
+\frac{d(\vartheta)}{e(\vartheta}
+\in
+F(\vartheta)
+\]
+mit Polynomen 
+\begin{equation}
+d(\vartheta)
+=
+\sum_{k=0}^{n-1} (Dp_k) \vartheta^k
+\qquad\text{und}\qquad
+e(\vartheta)
+=
+\sum_{k=0}^{n-1} (k+1)p_{k+1} \vartheta^k.
+\label{buch:intalg:liouville:polynome:eqn:zaehlernenner}
+\end{equation}
+\item
+Eine rationale Funktion von $\vartheta$ mit Koeffizienten in $F$
+kann immer als Polynom vom Grad höchstens $n-1$ geschrieben werden.
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Ableiten von
+\eqref{buch:intalg:liouville:polynome:eqn:minimal}
+liefert
+\begin{align*}
+0
+=
+Dp(\vartheta)
+&=
+\sum_{k=0}^n (Dp_k)\vartheta^k
++
+\biggl(\sum_{k=0}^n kp_k\vartheta^{k-1} \biggl)D\vartheta
+\\
+&=
+\sum_{k=0}^{n-1} (Dp_k)\vartheta^k
++
+\biggl(\sum_{k=0}^{n-1} (k+1)p_{k+1}\vartheta^k \biggl)D\vartheta
+,
+\end{align*}
+wobei wir $Dp_n=0$ bereits ausgenützt haben.
+Auflösen nach $D\vartheta$ liefert
+\[
+D\vartheta
+=
+-\frac{
+\displaystyle
+\sum_{k=0}^{n-1} (Dp_k) \vartheta^k
+}{
+\displaystyle
+\sum_{k=0}^{n-1} (k+1)p_{k+1} \vartheta^k
+}
+\in
+F(\vartheta).
+\]
+Zähler und Nenner sind die Polynome in
+\eqref{buch:intalg:liouville:polynome:eqn:zaehlernenner}
+\item
+Sei 
+\begin{equation}
+f(\vartheta)
+=
+\frac{u(\vartheta)}{v(\vartheta)}
+\label{buch:intalg:liouville:polyalg:eqn:bruch}
+\end{equation}
+ein Quotient von Polynomen mit Koeffizienten in $F$.
+Nach Reduktion mit dem Minimalpolynom darf man annehmen, dass
+der Grad von Zähler und Nenner kleiner als $n$ ist.
+Insbesondere sind $v(Z)$ und das Minimalpolynom $p(Z)$
+teilerfremd.
+Nach dem erweiterten euklidischen Algorithmus gibt es
+Polynome $s(Z)$ und $t(Z)$ mit 
+\[
+s(Z)v(Z) + t(Z)p(Z) = 1.
+\]
+Einsetzen von $\vartheta$ liefert
+\[
+s(\vartheta)v(\vartheta) = 1
+\qquad\Rightarrow\qquad s(\vartheta) = \frac{1}{v(\vartheta)}.
+\]
+Damit ist das inverse Element von $v(\vartheta)$ als Polynom in
+$\vartheta$ ausgedrückt.
+Für den Bruch~\eqref{buch:intalg:liouville:polyalg:eqn:bruch}
+folgt daher
+\[
+f(\vartheta)
+=
+\frac{u(\vartheta)}{v(\vartheta)}
+=
+u(\vartheta)\cdot s(\vartheta).
+\]
+Die rechte Seite ist ein Polynom.
+Mit dem Minimalpolynom kann es weiter auf ein Polynom vom 
+Grad $<n$ reduziert werden.
+\qedhere
+\end{enumerate}
+\end{proof}
+
 
 %
 % Beweis des Prinzips von Liouville in Spezialfällen
@@ -445,13 +581,22 @@ $\vartheta$ nur linear in $g$ vorkommen kann.
 % Der Fall einer logarithmischen Erweiterung
 %
 \subsubsection{Der Fall einer logarithmischen Erweiterung}
+Das Prinzip von Liouville besagt nicht nur, dass in der Stammfunktion nur
+logarithmische Erweiterungen vorkommt, sondern dass sie sogar nur
+linear mit konstanten Koeffizienten vorkommen.
+In diesem Abschnitt betrachten wir eine einzelne logarithmische
+Erweiterungen $F(\vartheta)\supset F$.
+Das Prinzip von Liouville besagt in diesem Spezialfall, dass die
+Stammfunktion von $f\in F$, falls sie in $F(\vartheta)$ liegt,
+die Form $c_0+c_1\vartheta$ haben muss, wobei $c_1$ eine Konstante ist.
 
 \begin{satz}
+\label{buch:intalg:liouville:satz:logsimple}
 Sei $F(\vartheta)$ eine logarithmische Erweiterung eines Funktionenkörpers
 $F$.
 $F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
 Weiter sei $f\in F$ und $g \in F(\vartheta)$ eine Stammfunktion.
-Dann ist $g=c+d\vartheta$ mit $c,d\in F$.
+Dann ist $g=c_0+c_1\vartheta$ mit $c_0\in F$ und $c_1\in K$.
 \end{satz}
 
 \begin{proof}
@@ -471,7 +616,7 @@ a_0(\vartheta)
 \sum_{k=1}^m
 \sum_{i=1}^{r_k}
 \frac{a_{ik}(\vartheta)}{b_k(\vartheta)^i},
-\notag
+\label{buch:intalg:liouville:speziell:eqn:f}
 \intertext{wobei $a_{ik}(\vartheta)\in F(\vartheta)$ Polynome mit
 $\deg a_{ik}(\vartheta) < \deg b_k(\vartheta)$ sind.
 Die Ableitung von $g$ ist}
@@ -534,26 +679,263 @@ $a_0(\vartheta)$ ein Polynom vom Grad höchstens $1$ sein, also
 \[
 g
 =
-a_0(\vartheta) = a_{0,0}+a_{0,1}\vartheta,
+a_0(\vartheta) = c_0+c_1\vartheta
+\qquad\text{mit $c_k\in F$.}
 \]
-wie behauptet.
+Damit $\vartheta$ in $Dg$ nicht vorkommt, muss der Grad von des Polynoms
+$a_0(\vartheta)$ beim Differenzieren um eins abnehmen, was nur möglich ist,
+wenn der Koeffizient von $\vartheta$ eine Konstante ist, also $c_1\in K$.
+Somit 
 \end{proof}
 
 %
 % Der Fall einer exponentiellen Erweiterung
 %
 \subsubsection{Der Fall einer exponentiellen Erweiterung}
+Nach dem Prinzip von Liouville treten in einer Stammfunktion nur
+logarithmische Erweiterungen auf.
+Eine exponentielle Erweiterung $F(\vartheta)$ sollte also in der
+Stammfunktion einer Funktion $f\in F$ gar nicht vorkommen.
+Dies zeigt auch der folgende Satz.
+
+\begin{satz}
+\label{buch:intalg:liouville:satz:expsimple}
+Sei $F(\vartheta)$ eine exponentielle transzendente Erweiterung eines
+Funktionenkörpers $F$.
+$F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
+Weiter sei $f\in F$ und $g\in F(\vartheta)$ eine Stammfunktion von $f$.
+Dann ist $g\in F$.
+\end{satz}
+
+\begin{proof}
+Sei also $\vartheta = \exp(u)$ eine Exponentialfunktion von $u\in F$.
+Die Stammfunktion $g\in F(\vartheta)$ kann wieder mit einer Zerlegung
+in irreduzible Faktoren des Nenners in der Form einer Partialbruchzerlegung
+\eqref{buch:intalg:liouville:speziell:eqn:f}
+geschrieben werden.
+
+Im Fall einer logarithmischen Erweiterung
+(Beweis von Satz~\label{buch:intalg:liouville:satz:logsimple})
+haben wir dann unter Verwendung von
+Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch}
+gezeigt, dass der Term mit der höchsten Nennerpotenz $b_k(\vartheta)^{r_k+1}$
+sich gegen nichts wegheben kann.
+Dies hat dann gezeigt, dass die Bruchterme in der Stammfunktion nicht
+vorkommen können.
+
+Im vorliegenden Fall ist $b_k(\vartheta)$ kein Monom, also nicht von
+der Form $h\vartheta^m$.
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+sind also $b_k(\vartheta)$ und $b_k(\vartheta)'$ teilerfremd und damit
+die Bruchterme in \eqref{buch:intalg:liouville:speziell:eqn:f}
+vollständig gekürzt.
+Wie im Fall einer logarithmischen Erweiterung folgt jetzt, dass sich
+die Bruchterme nicht wegheben können.
+Da auf der linken Seite von \eqref{buch:intalg:liouville:speziell:eqn:f}
+$\vartheta$ nicht vorkommen darf, dürfen in der Stammfunktion keine 
+Bruchterme vorkommen.
+
+Es bleibt also nur noch der polynomielle Teil.
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+kann aber der Grad des Polynoms $a_0(\vartheta)$ beim Differenzieren
+nicht abnehen, die Ableitung $Da_0(\vartheta)$ kann daher $\vartheta$
+nicht enhalten, wenn $a_0(\vartheta)$ ein Polynom vom, Grad 0 ist,
+also $g=a_0(\vartheta)=a_{0,0}\in F$.
+\end{proof}
 
 %
 % Der Fall einer algebraischen Erweiterung
 %
 \subsubsection{Der Fall einer algebraischen Erweiterung}
+Auch für eine algebraische Erweiterung besagt das Prinzip von Liouville,
+dass die Stammfunktion einer Funktion des Funktionenkörpers die
+Erweiterung gar nicht enthält.
+
+\begin{satz}
+\label{buch:intalg:liouville:satz:algsimple}
+Sei $F(\vartheta)$ eine algebraische Erweiterung eines
+Funktionenkörpers $F$.
+$F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
+Weiter sei $f\in F$ und $g\in F(\vartheta)$ eine Stammfunktion von $f$.
+Dann ist $g\in F$.
+\end{satz}
+
+\begin{proof}
+Sei jetzt $\vartheta$ ein algebraisches Element über $F$ mit Minimalpolynom
+$p$ mit Koeffizienten in $F$.
+Wie früher ist die Stammfunktion $g$ eine rationale Funktion 
+in $\vartheta$ mit Koeffizienten in $F$.
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:algebraisch}
+lässt sie sich aber auch als Polynom in $\vartheta$ mit Koeffizienten
+in $F$ schreiben, wir schreiben $g=a(\vartheta)$ mit $u(Z)\in F[Z]$.
+Die Ableitung ist
+\[
+f
+=
+Dg
+=
+Da(\vartheta)
+=
+\]
+Die Ableitung des Polynoms $a$ in $\vartheta$ mit Koeffizienten
+in $F$ ist
+\begin{align*}
+Da(\vartheta)
+&=
+\sum_{k=0}^m Da_k\vartheta^k
++
+\sum_{k=1}^m ka_k\vartheta^{k-1} D\vartheta
+\\
+&=
+\sum_{k=0}^{m-1}
+\bigl(
+Da_k
++
+(k+1)a_{k+1}
+D\vartheta
+\bigr)
+\vartheta^k
++
+Da_m\vartheta^m.
+\end{align*}
+Darin ist $D\vartheta$ die Ableitung von $\vartheta$, die nach
+Satz~\ref{buch:intalg:liouville:polynome:satz:algebraisch}
+eine rationale Funktion $\vartheta$ mit Koeffzienten in $F$ ist.
+Es folgt, dass $Dg$ eine rationale Funktion von $\vartheta$ mit
+Koeffizienten in $F$ ist, die Ihrerseits wieder als Polynom
+geschrieben werden kann.
+
+Das muss jetzt noch gezeigt werden, dass aus $f=Dg$ folgt,
+dass $a(\vartheta)$ nicht von $\vartheta$ abhängt.
+
+TODO
+\end{proof}
 
 %
 % Beweis im allgemeinen Fall
 %
 \subsection{Beweis im allgemeinen Fall
 \label{buch:intalg:liouville:subsection:allgemein}}
+Der allgemeine Fall handelt von mehr als nur einer Erweiterung.
+Gegeben ist wieder ein Funktionenkörper $F$ mit einer Derivation und
+$f\in F$.
+Der Konstantenkörper von $F$ wird wieder mit $K$ bezeichnet.
+Um eine elementare Stammfunktion $g$ zu konstruieren, müssen mehrere
+Funktionen $\vartheta_1,\dots,\vartheta_N$ hinzugefügt werden.
+Dies geschieht mit einer Kette
+\begin{equation}
+\begin{tikzcd}[column sep=0pt]
+f \arrow[d,tail] &
+	& &
+	& &
+	& &
+	& &
+	& g \arrow[d,tail]
+\\
+F & \subset
+	& F(\vartheta_1) \arrow[d,equal] & \subset
+	& F(\vartheta_1,\vartheta_2) \arrow[d,equal] & \subset
+	& \dots & \subset
+	& F(\vartheta_1,\dots,\vartheta_{N-1}) \arrow[d,equal] & \subset
+	& F(\vartheta_1,\dots,\vartheta_N) \arrow[d,equal]
+\\
+  &
+	& F_1 & \subset 
+	& F_2 & \subset 
+	& \dots & \subset
+	& F_{N-1} & \subset 
+	& F_N
+\end{tikzcd}
+\label{buch:intalg:liouvill:allg:eqn:cd}
+\end{equation}
+von Körpererweiterungen.
+Das Prinzip von Liouville besagt dann, dass $g$ allein in der Form
+\begin{align*}
+g
+&=
+v_0 + \sum_i c_i\log v_i
+\intertext{mit Ableitung}
+f
+&=
+Dv_0 + \sum_i c_i\frac{Dv_i}{v_i}
+\end{align*}
+mit $v_i\in F$ und $c_i\in K$.
+Die Form von $g$ in $F_N$ ist als sehr speziell.
+
+Die in
+Abschnitt~\ref{buch:intalg:liouville:subsection:spezialfaelle}
+bewiesenen Spezialfälle 
+besagen, dass im Fall einer einzigen Körpererweiterung $F\subset F_1$
+eine Funktion $f$ mit Stammfunktion $g\in F_1$ in der Form
+\[
+f = Dv_0 + c_1 \frac{Dv_1}{v_1}
+\qquad\text{oder}\qquad
+g = v_0 + c_1\log v_1
+\]
+geschrieben werden kann.
+
+\begin{definition}
+Ist $g\in G$ eine Stammfunktion von $f\in F$, dann heisst
+\[
+g = v_0 + \sum_i c_i\log v_i \quad \text{mit } v_k \in F, c_i \in K
+\]
+eine Liouville-Form von $g$ bezüglich $F\subset G$.
+\end{definition}
+
+Die Spezialfälle von
+Abschnitt~\ref{buch:intalg:liouville:subsection:spezialfaelle}
+besagen also, dass die Stammfunktion $g$ einer Funktion $f\in F$ nur
+dann in $F(\vartheta)$ sein kann, wenn $g$ eine Liouville-Form
+bezüglich $F\subset F(\vartheta)$ hat.
+\begin{center}
+\includegraphics{chapters/070-intalg/images/lf0.pdf}
+\end{center}
+Die Spezialfälle von 
+Abschnitt~\ref{buch:intalg:liouville:subsection:spezialfaelle}
+lassen sich auf auf die Erweiterung
+$F_{N-1}\subset F_N = F_{N-1}(\vartheta_N)$ anwenden, die sich
+als
+\begin{center}
+\includegraphics{chapters/070-intalg/images/lfN.pdf}
+\end{center}
+visualisieren lassen.
+
+Was wir aber erreichen möchten, ist in Abbildung
+\input{chapters/070-intalg/fig/lf.tex}%
+\ref{buch:intalg:liouville:fig:lf} dargestellt.
+Zunächst gibt es blaue Elemente
+${\color{blue}c_i}\in K$ und
+${\color{blue}v_0},{\color{blue}v_i}\in F_{N-1}$, die eine
+Liouville-Form für $g$ ergeben.
+Diese muss jetzt zunächst in eine Liouville-Form mit den grünen
+Elementen
+${\color{darkgreen}c_i}\in K$ und
+${\color{darkgreen}v_0},{\color{darkgreen}v_i}\in F_{N-2}$ 
+bezüglich $F_{N-2}\subset F$ umgewandelt werden.
+Durch Wiederholung dieses Prozesses kann man die roten Elemente
+${\color{darkred}c_i}\in K$ und
+${\color{darkred}v_0},{\color{darkred}v_i}\in F_{N-2}$ 
+einer Liouville-Form von $g$ bezüglich $F\subset F_N$ bekommen,
+was das Prinzip von Liouville beweist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,68 @@
+%
+% tikztemplate.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\fill[color=blue!10] (0.3,2.7) rectangle (12.4,3.3);
+\fill[color=darkgreen!10] (0.3,1.7) rectangle (12.4,2.3);
+\fill[color=darkred!10] (0.3,-0.3) rectangle (12.4,0.3);
+
+\draw (0,-1)       rectangle (12.5,5);
+\draw (0.05,-0.95) rectangle (9.5,4.95);
+\draw (0.1,-0.9)   rectangle (7,4.9);
+\draw (0.15,-0.85) rectangle (3.5,4.85);
+\draw (0.2,-0.8)   rectangle (1.0,4.8);
+
+\node at (0.6,4.8) [below] {$K\mathstrut$};
+\node at (12.5,4.8) [below left] {$F_N=F_{N-1}(\vartheta_N)\mathstrut$};
+\node at (9.5,4.8) [below left] {$F_{N-1}\mathstrut$};
+\node at (7,4.8) [below left] {$F_{N-2}\mathstrut$};
+\node at (3.5,4.8) [below left] {$F\mathstrut$};
+
+
+\node[color=blue]      at (0.6,3) {$c_i$};
+\node[color=darkgreen] at (0.6,2) {$c_i$};
+\node[color=darkred]   at (0.6,0) {$c_i$};
+
+\node[color=blue]      at (8.5,3) {$v_0,v_i$};
+\node[color=darkgreen] at (6.0,2) {$v_0,v_i$};
+\node[color=darkred]   at (2.5,0) {$v_0,v_i$};
+
+\node at (11.0,4) {$g\mathstrut$};
+\node at (3,4) {$f \mathstrut$};
+\node at (11.0,3) {${\color{blue}v_0}+\sum_i {\color{blue}c_i}\log {\color{blue}v_i}\mathstrut$};
+\node at (11.0,2) {${\color{darkgreen}v_0}+\sum_i {\color{darkgreen}c_i}\log {\color{darkgreen}v_i}\mathstrut$};
+\node at (11.0,0) {${\color{darkred}v_0}+\sum_i {\color{darkred}c_i}\log {\color{darkred}v_i}\mathstrut$};
+
+\draw[double,line width=0.5pt, shorten >= 0.2cm,shorten <= 0.2cm]
+	(11,4) -- (11,3);
+\draw[double,line width=0.5pt, shorten >= 0.2cm,shorten <= 0.2cm]
+	(11,3) -- (11,2);
+\draw[double,line width=0.5pt, shorten >= 0.2cm,shorten <= 0.2cm]
+	(11,2) -- (11,1);
+\fill ($(11,1)+(0,0.1)$) circle[radius=0.5pt];
+\fill ($(11,1)+(0,0)$) circle[radius=0.5pt];
+\fill ($(11,1)+(0,-0.1)$) circle[radius=0.5pt];
+\draw[double,line width=0.5pt, shorten >= 0.2cm,shorten <= 0.2cm]
+	(11,1) -- (11,0);
+
+\draw[->,line width=0.5pt] (10.7,4) -- (3.3,4);
+\draw[line width=0.5pt] (10.7,3.93) -- ++(0,0.14);
+\node at (5,4) [above] {$D\mathstrut$};
+
+\end{tikzpicture}
+\end{document}
+
