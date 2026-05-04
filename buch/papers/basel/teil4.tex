@@ -6,7 +6,7 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Ein Moderner Beweis}
+\section{Ein moderner Beweis}
 \label{basel:section:moderner-beweis}
 
 Betrachtet wird die Funktion $x \mapsto x^2$ auf $[-\pi, \pi)$.
@@ -57,9 +57,25 @@ $F_0$ bis $F_3$.}
 Das nullte Fourierpolynom dieser Funktion ist nicht besonders, denn es handelt sich
 lediglich um eine konstante Funktion.
 Anhand der Beobachtung dieser Polynome wird deutlich, dass die Näherung immer
-besser wird, wenn man die verschiedenen Polynomfunktionen betrachtet. Da die
-Ausgangsfunktion jedoch nicht durchgehend differenzierbar ist, sind unendlich
-viele Fourierpolynome erforderlich.
+besser wird, wenn man höhere Fourierpolynome $F_n$ betrachtet.
+Dabei ist jedoch zu präzisieren, dass die Aussage \glqq unendlich viele Fourierpolynome
+sind erforderlich\grqq{} nicht ganz korrekt formuliert ist:
+Selbst glatte Funktionen $f \in C^\infty([-\pi,\pi])$ besitzen eine Fourierreihe
+und lassen sich nicht durch ein endliches trigonometrisches Polynom exakt darstellen,
+sofern sie nicht selbst bereits von dieser Form sind.
+Polynome allein reichen also grundsätzlich nicht aus -- es ist stets die volle
+Fourierreihe
+\[
+f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty} \bigl(a_k \cos(kx) + b_k \sin(kx)\bigr)
+\]
+erforderlich.
+Die Differenzierbarkeit der Funktion beeinflusst dabei die \emph{Konvergenzgeschwindigkeit}:
+Je glatter $f$ ist, desto schneller fallen die Fourierkoeffizienten ab, und
+desto weniger Terme werden benötigt, um eine gute Näherung zu erzielen.
+Für $f(x) = x^2$ hingegen hat die periodische Fortsetzung an den Randpunkten
+$\pm\pi$ einen Sprung in der Ableitung, weshalb die Konvergenz vergleichsweise
+langsam ist -- man sieht dies auch daran, dass in den Abbildungen selbst $F_3$
+noch spürbar von der Ausgangsfunktion abweicht.
 In dieser Hinsicht ist als Grundlage des Beweises das Theorem heranzuziehen,
 das besagt, dass es zu punktweiser Konvergenz kommen wird, weil die Funktion
 stetig ist.

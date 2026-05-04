@@ -1,25 +1,84 @@
 %
-% einleitung.tex -- Beispiel-File für die Einleitung
+% teil0.tex -- Einleitendes Kapitel: Algebra trifft Geometrie
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+\section{Algebra trifft Geometrie
+\label{komplex:section:einleitung}}
+Komplexe Zahlen verbinden zwei Welten, die in der Schulmathematik
+oft getrennt unterrichtet werden:
+die Algebra mit ihren Symbolmanipulationen
+und die elementare Geometrie der Konstruktionen mit Zirkel und Lineal.
+Der vorliegende Text zeigt am Beispiel des Satzes von Napoleon,
+wie sich diese Verbindung zu einem schlagkräftigen Werkzeug ausbauen lässt.
+Die folgenden Unterabschnitte motivieren das Thema historisch
+und geben einen Überblick über den Aufbau der Arbeit.
+
 %
-% !TEX root = ../../buch.tex
-% !TEX encoding = UTF-8
+% Motivation und historischer Kontext
 %
-\section{Teil 0\label{konstruktion:section:teil0}}
-\kopfrechts{Teil 0}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua \cite{konstruktion:bibtex}.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-dolor sit amet.
+\subsection{Motivation und historischer Kontext
+\label{komplex:subsection:motivation}}
+Die komplexen Zahlen sind aus einem rein algebraischen Bedürfnis heraus
+entstanden.
+Die Lösungsformeln für Gleichungen dritten Grades, die Cardano in der
+\emph{Ars Magna} von 1545 veröffentlichte,
+lieferten in bestimmten Fällen Wurzeln aus negativen Zahlen,
+obwohl die Endergebnisse reell waren.
+Bombelli erkannte wenige Jahrzehnte später,
+dass sich mit diesen scheinbar unsinnigen Ausdrücken konsistent rechnen lässt,
+sofern man eine zusätzliche Grösse $i$ mit der Eigenschaft $i^2 = -1$ zulässt.
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.  Stet clita
-kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-amet.
+Die geometrische Deutung der komplexen Zahlen als Punkte einer Ebene
+wurde erst zwei Jahrhunderte später von Wessel, Argand und schliesslich
+Gauss systematisch ausgearbeitet.
+Mit dieser Deutung verbinden komplexe Zahlen zwei Welten:
+die Algebra, in der man mit Symbolen rechnet,
+und die elementare Geometrie, die mit Zirkel und Lineal Figuren konstruiert.
+Eine Drehung in der Ebene wird in der einen Welt durch eine Abbildung
+mit Sinus und Kosinus beschrieben,
+in der anderen Welt durch eine Multiplikation mit einer einzigen
+komplexen Zahl.
+Die zweite Beschreibung ist nicht nur kompakter,
+sondern lässt sich auch direkt mit Methoden der linearen Algebra
+weiterverarbeiten.
 
+Diese doppelte Lesart liefert ein mächtiges Werkzeug für geometrische
+Probleme.
+Aussagen über Strecken, Winkel und Symmetrien lassen sich in algebraische
+Identitäten übersetzen, die man mechanisch nachprüfen kann.
+Umgekehrt erhalten algebraische Manipulationen eine anschauliche
+Bedeutung, die das Verständnis stützt und Plausibilitätskontrollen
+ermöglicht.
 
+%
+% Ziel und Aufbau der Arbeit
+%
+\subsection{Ziel und Aufbau der Arbeit
+\label{komplex:subsection:ziel-aufbau}}
+Die vorliegende Arbeit zeigt am Beispiel klassischer Konstruktionen,
+wie sich elementargeometrische Sätze mit komplexen Zahlen behandeln lassen.
+Im Zentrum steht der \emph{Satz von Napoleon}:
+Errichtet man über den Seiten eines beliebigen Dreiecks gleichseitige
+Dreiecke nach aussen,
+dann bilden deren Schwerpunkte selbst wieder ein gleichseitiges Dreieck.
+Dieser Satz dient als Leitbeispiel,
+an dem alle eingeführten Werkzeuge zusammenspielen:
+Polardarstellung, Drehung, Schwerpunktformel und algebraische Identitäten
+in $\mathbb{C}$.
+
+Der Aufbau folgt dem natürlichen Lernweg.
+Abschnitt~\ref{komplex:section:zahlenebene} fasst die algebraische und
+geometrische Darstellung komplexer Zahlen zusammen
+und legt damit das Vokabular fest.
+Abschnitt~\ref{komplex:section:polar} widmet sich der Polarform und der
+Drehung, die für die spätere Konstruktion zentral ist.
+Abschnitt~\ref{komplex:section:objekte} zeigt,
+wie sich Geraden und Kreise als Niveaumengen einfacher komplexer Ausdrücke
+beschreiben lassen.
+Abschnitt~\ref{komplex:section:gleichseitig} entwickelt die Konstruktion
+gleichseitiger Dreiecke und etabliert damit den Baustein,
+aus dem Abschnitt~\ref{komplex:section:napoleon} das Napoleon-Dreieck
+zusammensetzt.
+In Abschnitt~\ref{komplex:section:beweis} folgt der vollständige
+algebraische Beweis des Satzes.
+Abschnitt~\ref{komplex:section:rueckblick} fasst zusammen und skizziert
+weiterführende Themen.
