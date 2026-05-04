@@ -1,0 +1,148 @@
+%
+% teil4.tex -- Konstruktion gleichseitiger Dreiecke
+%
+\section{Konstruktion gleichseitiger Dreiecke
+\label{komplex:section:gleichseitig}}
+Das gleichseitige Dreieck ist die einfachste nicht-triviale Figur,
+deren Konstruktion sich mit der Drehformel \eqref{komplex:eq:drehung-allg}
+elegant beschreiben lässt.
+Da das Napoleon-Dreieck aus drei gleichseitigen Dreiecken aufgebaut ist,
+bildet diese Konstruktion den zentralen Baustein für alles Folgende.
+Die Unterabschnitte behandeln den Drehfaktor für $60^\circ$,
+die Konstruktion eines dritten Eckpunkts aus zwei gegebenen,
+die Schwerpunktformel und schliesslich ein numerisches Beispiel.
+
+%
+% Drehfaktor fuer sechzig Grad
+%
+\subsection{Drehfaktor für sechzig Grad
+\label{komplex:subsection:drehfaktor-60}}
+Die Drehung um $60^\circ$ gegen den Uhrzeigersinn entspricht der
+Multiplikation mit dem Drehfaktor
+\begin{equation}
+d
+=
+\cos(60^\circ) + i \sin(60^\circ)
+=
+\frac{1}{2} + \frac{\sqrt{3}}{2} \, i ,
+\label{komplex:eq:d60}
+\end{equation}
+und entsprechend gehört zur Drehung um $-60^\circ$ der konjugierte
+Drehfaktor $\overline{d} = \tfrac{1}{2} - \tfrac{\sqrt{3}}{2} \, i$.
+Beide erfüllen die bemerkenswerte Identität
+\begin{equation}
+d^2 - d + 1 = 0 ,
+\qquad
+\text{bzw.}
+\qquad
+d^2 = d - 1 ,
+\label{komplex:eq:d-identitaet}
+\end{equation}
+denn $\tfrac{1}{2} \pm \tfrac{\sqrt{3}}{2} \, i$ sind die Nullstellen des
+Polynoms $x^2 - x + 1$.
+Die Identität \eqref{komplex:eq:d-identitaet} wird im Beweis des Satzes
+von Napoleon (Abschnitt~\ref{komplex:section:beweis}) eine zentrale Rolle
+spielen, weil sie es erlaubt, höhere Potenzen von $d$ auf lineare
+Ausdrücke zu reduzieren.
+
+%
+% Konstruktion eines gleichseitigen Dreiecks aus zwei Punkten
+%
+\subsection{Konstruktion eines gleichseitigen Dreiecks aus zwei Punkten
+\label{komplex:subsection:dreieck-konstruktion}}
+Gegeben seien zwei Punkte $A = z_1$ und $B = z_2$ der Ebene.
+Gesucht ist der dritte Punkt $C$, sodass das Dreieck $ABC$ gleichseitig
+wird, wobei $C$ auf einer fest gewählten Seite der Geraden $AB$ liegt.
+Die Konstruktion ist in Abbildung~\ref{komplex:figure:dreieck-konstruktion}
+dargestellt.
+
+\input{papers/konstruktion/dreieck-konstruktion.tex}
+
+Die Konstruktion gelingt mit der Drehformel
+\eqref{komplex:eq:drehung-allg}:
+Man dreht $B$ um den Punkt $A$ um den Winkel $60^\circ$.
+Mit dem Drehfaktor $d$ aus \eqref{komplex:eq:d60} ergibt das
+\begin{equation}
+C
+=
+A + d \cdot (B - A)
+=
+z_1 + d \cdot (z_2 - z_1) .
+\label{komplex:eq:dreieck}
+\end{equation}
+Per Konstruktion ist die Strecke $AC$ genauso lang wie $AB$ ---
+die Multiplikation mit $d$ ändert nur den Winkel, nicht den Betrag ---
+und der Winkel zwischen $AB$ und $AC$ beträgt $60^\circ$.
+Damit liegen alle drei Innenwinkel des Dreiecks bei $60^\circ$,
+das Dreieck ist also gleichseitig.
+
+Wählt man stattdessen die Drehung um $-60^\circ$, also den konjugierten
+Drehfaktor $\overline{d}$, so erhält man den dritten Punkt auf der
+gegenüberliegenden Seite der Geraden $AB$.
+Welcher der beiden Drehfaktoren der ``aussen liegende'' ist,
+hängt von der Orientierung der Ausgangskonfiguration ab und wird in
+Abschnitt~\ref{komplex:subsection:algebraisch-napoleon} diskutiert.
+
+%
+% Schwerpunkt und Symmetrieeigenschaften
+%
+\subsection{Schwerpunkt und Symmetrieeigenschaften
+\label{komplex:subsection:schwerpunkt}}
+Der Schwerpunkt eines Dreiecks mit Eckpunkten $z_1, z_2, z_3$
+liegt im arithmetischen Mittel der Eckpunkte:
+\begin{equation}
+S
+=
+\frac{z_1 + z_2 + z_3}{3} .
+\label{komplex:eq:schwerpunkt}
+\end{equation}
+Diese Formel ist die direkte Übertragung der gewichteten Mittelung aus der
+Vektorgeometrie.
+Für ein gleichseitiges Dreieck fällt der Schwerpunkt mit dem
+Umkreismittelpunkt und dem Inkreismittelpunkt zusammen ---
+eine Folge der Drehsymmetrie um $120^\circ$.
+
+%
+% Numerisches Beispiel
+%
+\subsection{Numerisches Beispiel
+\label{komplex:subsection:numerisches-beispiel}}
+Zur Illustration der Formel \eqref{komplex:eq:dreieck}
+seien die Punkte $A = 1 + i$ und $B = 3 + i$ gewählt.
+Mit dem Drehfaktor $d = \tfrac{1}{2} + \tfrac{\sqrt{3}}{2} \, i$
+ergibt sich für den dritten Eckpunkt
+\begin{equation}
+C
+=
+(1 + i) + \biggl( \frac{1}{2} + \frac{\sqrt{3}}{2} \, i \biggr) \cdot
+( (3 + i) - (1 + i) )
+=
+2 + ( 1 + \sqrt{3} ) \, i ,
+\label{komplex:eq:beispiel-c}
+\end{equation}
+also der Punkt mit den Koordinaten $(2, 1 + \sqrt{3})$.
+Eine kurze Rechnung bestätigt die Gleichseitigkeit:
+\begin{align*}
+|A - B|
+&=
+|{-2}|
+=
+2 ,
+\\
+|A - C|
+&=
+|{-1} - \sqrt{3} \, i|
+=
+\sqrt{1 + 3}
+=
+2 ,
+\\
+|B - C|
+&=
+|1 - \sqrt{3} \, i|
+=
+\sqrt{1 + 3}
+=
+2 .
+\end{align*}
+Damit ist die Konstruktion an einem konkreten Beispiel verifiziert.

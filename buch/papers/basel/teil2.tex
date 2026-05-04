@@ -11,9 +11,15 @@
  
 Um die Konvergenz bestimmen zu können, braucht man die Ungleichung
 \[
+    \frac{1}{n^2} < \frac{1}{n(n-1)}.
+\]
+Diese gilt weil $n^2 > n(n-1)$ für alle $n \geq 2$, denn
+$n^2 = n \cdot n$ und $n(n-1) = n^2 - n,$
+ist $n^2$ um genau $n$ grösser als $n(n-1)$ ist. Kehrt man die Nenner um, dreht sich die Ungleichung:
+\[
     \frac{1}{n^2} < \frac{1}{n(n-1)},
 \]
-die für alle natürlichen Zahlen $n > 1$ gilt.
+welche für alle natürlichen Zahlen $n > 1$ gilt.
 Daraus folgt die Ungleichung für Reihen
 \[
     \sum_{n=2}^{\infty} \frac{1}{n^2}
@@ -32,8 +38,8 @@ Zur Berechnung schaut man sich die $m$-te Partialsumme an,
     =
     \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} + \cdots + \frac{1}{m(m+1)},
 \]
-und schreibt jeden Summanden als Differenz zweier Brüche.
-So erhält man die folgende \emph{Teleskopsumme}
+und schreibt jeden Summanden als Differenz zweier Brüche,
+so erhält man die \emph{Teleskopsumme}
 \begin{align*}
     \left(1 - \frac{1}{2}\right)
     + \left(\frac{1}{2} - \frac{1}{3}\right)
@@ -52,4 +58,20 @@ Lässt man $m$ gegen unendlich gehen, geht diese Differenz gegen eins,
     1 - \frac{1}{m+1} \xrightarrow{m \to \infty} 1.
 \]
 Anhand des sogenannten \emph{Majorantenkriteriums} weiss man also, dass die Reihe des Basel-Problems konvergiert.
-Ebenfalls weiss man jetzt, dass die Summe der Reihe nicht grösser als zwei sein kann.
+
+Zusätzlich liefert diese Analyse ein bemerkenswertes Resultat über den Wert der Reihe selbst.
+Da die Reihe des Basel-Problems durch die Teleskopsumme nach oben beschränkt ist,
+\[
+    \sum_{n=1}^{\infty} \frac{1}{n^2}
+    =
+    1 + \sum_{n=2}^{\infty} \frac{1}{n^2}
+    \leq
+    1 + \sum_{n=2}^{\infty} \frac{1}{n(n-1)}
+    =
+    1 + 1
+    =
+    2,
+\]
+weiss man also, dass die Summe der Reihe des Basel-Problems strikt kleiner als zwei sein muss.
+Der erste Summand $1$ kommt dabei direkt aus dem Term $n=1$, und die restliche Summe ist durch
+den Grenzwert der Teleskopsumme, nämlich $1$, nach oben beschränkt.
