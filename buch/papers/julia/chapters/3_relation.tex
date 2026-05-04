@@ -3,3 +3,47 @@
 % TODO
 %% In Quelle julia:ähnlichkeit_mandelbrot zeigen Figure 1 (M) und Figure 2 (J) die Ähnlichkeit von Mandelbrot und Julia
 %% https://en.wikipedia.org/wiki/Julia_set#Examples ist ein Beispiel wenn man Julia-Mengen nebeneinander legt, bekommt man irgendwann die Mandelbrot-Menge
+
+Zwischen der Mandelbrot-Menge sowie den Julia- bzw. Fatou-Mengen bestehen mehrere, teils überraschende, Zusammenhänge.
+In diesem Abschnitt werden drei solche Zusammenhänge näher betrachtet.
+
+\subsection{Form der Julia-Mengen}
+Anhand der Position in der Mandelbrot-Menge, lässt sich eine Aussage über die Form bzw. das Aussehen der zugehörigen Julia-Menge treffen.
+Dafür werden stets Funktionen der Art $f_c(z) = z^2 + c$ betrachtet.
+
+Setzt man zunächst $c = 0$, befindet man sich in der Abbildung \ref{fig:mandelbrot_julia_1} beim weissen Punkt in der Mandelbrot-Menge links.
+Rechts daneben ist die Julia-Menge der Funktion $f_c(z) = z^2 + 0$ dargestellt, wobei es sich bekanntlich um den Rand des Einheitskreises handelt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_julia_1.png}
+    \caption{Mandelbrot-Menge bei $c=0$ und zugehörige Julia-Menge}
+    \label{fig:mandelbrot_julia_1}
+\end{figure}
+
+Lässt man nun $c$ entlang der imaginären Achse ansteigen, erhält man die Folge von Bildern in der Abbildung \ref{fig:mandelbrot_julia_2-5}.
+Links ist jeweils die aktuelle Position des Punktes $c$ dargestellt und rechts die Julia-Menge der Funktion $f_c$ --- parametrisiert mit dem aktuellen $c$.
+
+\begin{figure}
+    \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mandelbrot_julia_2.png}
+    \\[\smallskipamount]
+    \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mandelbrot_julia_3.png}
+    \\[\smallskipamount]
+    \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mandelbrot_julia_4.png}
+    \\[\smallskipamount]
+    \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mandelbrot_julia_5.png}
+
+    \caption{Mandelbrot-Menge bei $c \in \{\,0.1i,\, 0.4i,\, 0.6i,\, 0.65i\,\}$ und zugehörige Julia-Mengen}
+    \label{fig:mandelbrot_julia_2-5}
+\end{figure}
+
+Mit steigendem $c$ verformt sich die Julia-Menge zusehends und beim Übergang von $c=0.6i$ zu $c=0.65i$ zerfällt sie.
+Grund dafür ist, dass $c=0.6i$ noch in der Mandelbrot-Menge $M$ liegt, während $c=0.65i$ bereits ausserhalb ist.
+Es stellt sich heraus, dass die Julia-Menge \emph{zusammenhängend} ist, für alle $c \in M$ und \emph{nicht zusammenhängend} für alle $c \not\in M$.
+
+
+\subsection{Ähnlichkeit der Mandelbrot- und Julia-Menge}
+
+
+\subsection{Mosaik der Mandelbrot-Menge}
+

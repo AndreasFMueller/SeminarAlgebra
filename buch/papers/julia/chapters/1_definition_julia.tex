@@ -184,7 +184,8 @@ Periodische Punkte sind also:
 \end{itemize}
 
 Bei der zweiten Lösung handelt es sich um Einheitswurzeln des Grades $2^n - 1$, d.h. komplexe Zahlen, welche durch Potenzieren irgendwann $1$ ergeben.
-Für $n \to \infty$ gibt es unendlich viele Einheitswurzeln dieses Grades, was bedeutet, dass $f$ unendlich viele periodische Punkte hat.
+Oder anders formuliert, um Wurzeln dieses Polynoms $2^n - 1$-ten Grades.
+Für $n \to \infty$ gibt es unendlich viele Einheitswurzeln, was bedeutet, dass $f$ unendlich viele periodische Punkte hat.
 
 Weiter sind diese Einheitswurzeln $z_e$ auch abstossend.
 Um dies zu zeigen, berechnet man
@@ -199,9 +200,7 @@ und weil $\lambda > 1$, handelt es sich um \emph{abstossende} periodische Punkte
 
 Zudem liegen Einheitswurzeln stets auf dem Einheitskreis, d.h. $|z_e| = 1$.
 Wäre dies nicht der Fall, würde der Betrag durch das Potenzieren verschwinden, bzw. ansteigen und somit würde $z_e^{2^n - 1} = 1$ nicht mehr gelten.
-Daraus geht hervor, dass diese Einheitswurzeln auch zur Julia-Menge der Funktion $f$ gehören müssen.
-
-Addiert man nämlich ein $\varepsilon$ mit $0 < |\varepsilon| << 1$ zu $z_e$, ist der Betrag entweder kleiner oder grösser als $1$.
+Addiert man ein $\varepsilon$ mit $0 < |\varepsilon| << 1$ zu $z_e$, ist der Betrag entweder kleiner oder grösser als $1$.
 Wiederholtes Anwenden von $f$ wird nun entweder gegen $0$ oder gegen $\infty$ gehen.
 Ohne $\varepsilon$ bewirkt $f$, dass das Argument sich um den Einheitskreis dreht und periodisch zu $1$ zurückkehrt.
 
@@ -214,16 +213,21 @@ Zum Beispiel gehört der Punkt $z_0 = e^{2\pi i\sqrt{2}}$ zur Julia-Menge der Fu
 Durch $n$-maliges Anwenden wird $f$ zu $f^n(z) = z^{2^n} = r^{2^n} e^{2\pi i(2^n \varphi)}$.
 Setzt man den Punkt $z_0$ ein, d.h. setzt $\sqrt{2}$ für $\varphi$ ein, müsste
 \begin{equation*}
-    2^n \sqrt{2} = \sqrt{2}
+    2^n \sqrt{2} \equiv \sqrt{2} \mod{2\pi}
 \end{equation*}
 für ein $n$ gelten, damit $z_0$ periodisch ist.
 Dies ist aber nur für $n = 0$ der Fall, was bedeutet dass $z_0$ nicht periodisch ist.
 
-Nimmt man $z_0$ als Startwert für eine Folge und verändert diesen leicht, d.h. verwendet $\sqrt{2} + \varepsilon$ für $\varphi$ im Exponenten, erhält man eine ganz andere Folge.
-Nach $n$-maligem Anwenden erhält man $2^n \sqrt{2} + 2^n \varepsilon$ anstatt $2^n \sqrt{2}$, die Folge verhält sich chaotisch.
-Dieser Punkt gehört daher zur Julia-Menge von $f$.
+Nimmt man $z_0$ als Startwert für eine Folge und verändert diesen leicht, so ist
+\begin{equation*}
+    |z_0 + \varepsilon| \ne 1,
+\end{equation*}
+während $|z_0| = 1$ ist.
+Wendet man nun wiederholt $f$ auf den veränderten Punkt an, so wird der Betrag entweder verschwinden oder wachsen.
+Ist $|z_0 + \varepsilon| < 1$, wird der Betrag gegen $0$ gehen, andernfalls gegen $\infty$.
+Diese Folge verhält sich also chaotisch und daher gehört $z_0$ zur Julia-Menge von $f$.
 
-Verwendet man für die gleiche Funktion $0.5$ als Startwert und verändert diesen leicht, so erhält man $f^n(0.5 + \varepsilon) = (0.5 + \varepsilon)^{2^n}$, was gegen $0$ konvergiert.
+Verwendet man für die gleiche Funktion jedoch $0.5$ als Startwert und verändert diesen leicht, so erhält man $f^n(0.5 + \varepsilon) = (0.5 + \varepsilon)^{2^n}$, was gegen $0$ konvergiert.
 Die Folge für den unveränderten Startwert konvergiert ebenfalls gegen $0$, was bedeutet, dass dieser Punkt zur Fatou-Menge von $f$ gehört.
 
 Nicht-periodische Punkte können sich also auch unterschiedlich verhalten und gehören daher entweder zur Julia-Menge oder zur Fatou-Menge.
@@ -235,7 +239,7 @@ Wie im Abschnitt \ref{sec:beobachtungen} gezeigt, scheint es, dass eine Definiti
     \item sowie \emph{indifferente} periodische Punkte und nicht-periodische Punkte berücksichtigen muss.
 \end{itemize}
 
-Betrachtet man erneut die Funktion $f(z) = z^2$, so ist bereits bekannt, dass alle \emph{abstossenden} periodischen und Fixpunkte in der Julia-Menge enthalten sind.
+Betrachtet man erneut die Funktion $f(z) = z^2$, so ist bereits bekannt, dass alle \emph{abstossenden} Punkte in der Julia-Menge enthalten sind.
 Alle diese Punkte liegen auf dem Einheitskreis und wie im Abschnitt \ref{sec:nicht_fix_periodisch} beschrieben, gibt es unendlich viele davon.
 
 Diese \emph{abstossenden} Punkte sind jedoch nicht deckungsgleich mit dem Einheitskreis, es gibt ``Lücken'' auf dem Einheitskreis, welche nicht zu dieser Punktemenge gehören (siehe \ref{sec:nicht_periodisch} für ein Beispiel).
@@ -245,6 +249,7 @@ Obwohl die ``Lückenpunkte'' selber nicht periodisch sind, verhalten sie sich gl
 Entwickelt man die Folge \eqref{julia_folge} ausgehend von einem ``Lückenpunkt'' $z_l$ und entwickelt dann eine zweite Folge ausgehend von $z_l + \varepsilon$, erhält man ebenfalls zwei komplett andere Folgen.
 Für den Startwert $z_l$ führt wiederholtes Anwenden von $f$ auch dazu, dass sich das Argument um den Einheitskreis dreht, jedoch nie mehr zu $1$ zurückkehrt.
 Für $z_l + \varepsilon$ geht wiederholtes Anwenden gegen $0$, wenn $\varepsilon$ negativ ist und gegen $\infty$, wenn $\varepsilon$ positiv ist.
+Diese ``Lückenpunkte'' gehören somit auch zur Julia-Menge.
 
 Was die \emph{indifferenten} periodischen Punkte angeht, so hat die Funktion $f$ keine davon.
 Allgemein verhalten sich diese jedoch auch \emph{abstossend} wenn sie in einer solchen ``Lücke'' liegen.
@@ -261,9 +266,9 @@ bzw. allgemeiner
 Dabei bezieht sich \emph{Abschluss} auf den topologischen Abschluss \cite{julia:abschluss}, dies bewirkt, dass die ``Lückenpunkte'' auch in $J_f$ enthalten sind.
 
 \subsection{Definition Fatou-Mengen}
-Die Definition der Fatou-Mengen lässt sich ebenfalls aus dem obigen Beispiel $f(z) = z^2$ herleiten.
-Wie bereits beschrieben, gehören alle Startwerte auf dem Rand des Einheitskreises zur Julia-Menge.
-Für alle anderen Startwerte, d.h. $|z| \neq 1$, erhält man, durch leichtes Verändern, mehr oder weniger die gleichen Folgen.
+Die Definition der Fatou-Mengen ergibt sich unmittelbar aus der Definition der Julia-Mengen.
+Im vorherigen Beispiel bestand die Julia-Menge aus dem Rand des Einheitskreises, was bedeutet, dass der Rest der komplexen Ebene die Fatou-Menge darstellt.
+
 Folglich lässt sich die Fatou-Menge als
 \begin{equation*}
     F_f = \left\{z \in \overline{\mathbb{C}}\:\mid\:|z| \neq 1\right\}
