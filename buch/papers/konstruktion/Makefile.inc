@@ -4,14 +4,22 @@
 # (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
 dependencies-konstruktion =						\
+<<<<<<< HEAD
+	papers/konstruktion/packages.tex					\
+=======
+>>>>>>> d24118e16549c16b2326ae59558616e00d19b291
 	papers/konstruktion/main.tex					\
 	papers/konstruktion/references.bib				\
 	papers/konstruktion/teil0.tex					\
 	papers/konstruktion/teil1.tex					\
 	papers/konstruktion/teil2.tex					\
+<<<<<<< HEAD
+	papers/konstruktion/teil3.tex
+=======
 	papers/konstruktion/teil3.tex					\
 	papers/konstruktion/teil4.tex					\
 	papers/konstruktion/teil5.tex					\
 	papers/konstruktion/teil6.tex					\
 	papers/konstruktion/teil7.tex
+>>>>>>> d24118e16549c16b2326ae59558616e00d19b291
 

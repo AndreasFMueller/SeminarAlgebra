@@ -1,7 +1,7 @@
 %
-% teil3.tex -- Punkte, Linien und Kreise in der Gaussschen Ebene
+% teil3.tex -- Punkte, Linien und Kreise in der gaussschen Ebene
 %
-\section{Punkte, Linien und Kreise in der Gaussschen Ebene
+\section{Punkte, Linien und Kreise in der gaussschen Ebene
 \label{komplex:section:objekte}}
 Bevor die Konstruktion gleichseitiger Dreiecke entwickelt werden kann,
 ist es nützlich zu sehen,
@@ -55,9 +55,25 @@ Punkten $z$, die zu beiden den gleichen Abstand haben:
 |z - z_2| .
 \label{komplex:eq:mittelsenkrechte}
 \end{equation}
-Ausquadrieren und die Identität $|w|^2 = w \cdot \overline{w}$
-liefern eine lineare Gleichung in $z$ und $\overline{z}$,
-die genau die Mittelsenkrechte beschreibt.
+Quadrieren wir beide Seiten und nutzen die Identität
+$|w|^2 = w \cdot \overline{w}$, so wird daraus
+\[
+(z - z_1)(\overline{z} - \overline{z_1})
+=
+(z - z_2)(\overline{z} - \overline{z_2}) .
+\]
+Ausmultiplizieren liefert auf beiden Seiten den Term $z \overline{z}$,
+der sich kürzt; die übrigen Terme ordnen wir nach $z$ und $\overline{z}$
+und erhalten
+\begin{equation}
+(\overline{z_2} - \overline{z_1}) \, z
++ (z_2 - z_1) \, \overline{z}
+=
+|z_2|^2 - |z_1|^2 .
+\label{komplex:eq:mittelsenkrechte-linear}
+\end{equation}
+Das ist eine lineare Gleichung in $z$ und $\overline{z}$, die genau die
+Mittelsenkrechte beschreibt.
 
 %
 % Kreise als Niveaumengen des Betrags
