@@ -6,16 +6,16 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Geometrisch Physikalischer Beweis}
+\section{Geometrisch physikalischer Beweis}
 \label{basel:section:geometrisch-physikalischer-beweis}
 
 Als erstes braucht man den Inversen Satz des Pythagoras, bei diesem Satz geht es
 um den Kehrwert der Kathetenlängen.
 
-\subsection{Der traverse Satz des Pythagoras}
+\subsection{Der inverse Satz des Pythagoras}
 \label{basel:subsection:traverser-pythagoras}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, thick]
 \coordinate (A) at (0,0);
@@ -34,20 +34,68 @@ um den Kehrwert der Kathetenlängen.
 und Höhe $h$ auf die Hypotenuse.}
 \end{figure}
 
-\begin{description}
-\item[Schritt 1: Fläche des Dreiecks.]
+\subsubsection{Schritt 1: Fläche des Dreiecks}
 Das Produkt der Kathetenlängen $ab$ entspricht der Fläche eines Rechtecks,
 das genau doppelt so gross ist wie das Dreieck.
 
-\item[Schritt 2: Höhe auf die Hypotenuse.]
+%\needspace{8\baselineskip}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, thick]
+\coordinate (A) at (0,0);
+\coordinate (B) at (4.5,0);
+\coordinate (C) at (0,3.0);
+% Rechteck gestrichelt
+\draw[dashed] (0,0) rectangle (4.5,3.0);
+% Dreieck (ausgefüllt grau)
+\fill[gray!20] (A) -- (B) -- (C) -- cycle;
+\draw (A) -- (B) -- (C) -- cycle;
+% Rechter Winkel bei A
+\draw (0.25,0) -- (0.25,0.25) -- (0,0.25);
+% Seiten-Labels weit genug weg von den Linien
+\node[left=8pt]  at (0, 1.5)  {$b$};
+\node[below=8pt] at (2.25, 0) {$a$};
+% Flächen-Labels in freie Bereiche
+\node at (3.2, 2.2) {\small Rechteck $= ab$};
+\node at (0.9, 0.7) {\small $\triangle = \dfrac{ab}{2}$};
+\end{tikzpicture}
+\caption{Schritt 1: Das Dreieck (grau) hat den halben Flächeninhalt
+des Rechtecks mit den Seiten $a$ und $b$.}
+\end{figure}
+
+\subsubsection{Schritt 2: Höhe auf die Hypotenuse}
 Die Höhe $h$ wird auf die Hypotenuse $c$ gefällt.
 Auch dieser Ausdruck verdoppelt die Dreiecksfläche, woraus folgt:
 \[
 ab = ch.
 \]
 
-\item[Schritt 3: Summe der quadratischen Kehrwerte.]
-Nun wird die Summe der Quadrate der Kehrwerte der Kathetenlängen berechnet:
+%\needspace{8\baselineskip}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, thick]
+\coordinate (A) at (0,0);
+\coordinate (B) at (5,0);
+\coordinate (C) at (1.8, 2.8);
+\coordinate (H) at (1.8, 0);
+\draw (A) -- (B) -- (C) -- cycle;
+\draw[dashed] (C) -- (H);
+% Rechter Winkel bei H
+\draw (H) ++(0.18,0) -- ++(0,0.18) -- ++(-0.18,0);
+% Seiten-Labels klar ausserhalb
+\node[left=6pt]        at (0.9, 1.4)   {$b$};
+\node[right=6pt]       at (3.4, 1.4)   {$a$};
+\node[below=8pt]       at (2.5, 0)     {$c$};
+\node[right=6pt]       at (1.8, 1.4)   {$h$};
+% Gleichung unterhalb des Dreiecks, klar getrennt
+\node[below=18pt] at (2.5, 0) {$\dfrac{1}{2}\,c\,h \;=\; \dfrac{1}{2}\,a\,b$};
+\end{tikzpicture}
+\caption{Schritt 2: Die Höhe $h$ auf die Hypotenuse $c$ ergibt dieselbe
+Dreiecksfläche wie das Produkt der Katheten: $ch = ab$.}
+\end{figure}
+
+\subsubsection{Schritt 3: Kehrwerte der Katheten}
+Nun wird die Summe der quadratischen Kehrwerte der Katheten berechnet:
 \[
 \frac{1}{a^2} + \frac{1}{b^2}
 =
@@ -59,13 +107,66 @@ Nun wird die Summe der Quadrate der Kehrwerte der Kathetenlängen berechnet:
 \]
 Die Summe der quadratischen Kehrwerte der Katheten ist also gleich dem
 quadratischen Kehrwert der Höhe auf die Hypotenuse.
-\end{description}
 
+%\needspace{10\baselineskip}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, thick]
+\coordinate (A) at (0,0);
+\coordinate (B) at (5,0);
+\coordinate (C) at (1.8, 2.8);
+\coordinate (H) at (1.8, 0);
+\draw (A) -- (B) -- (C) -- cycle;
+\draw[dashed] (C) -- (H);
+% Rechter Winkel bei H
+\draw (H) ++(0.18,0) -- ++(0,0.18) -- ++(-0.18,0);
+% Seiten-Labels klar ausserhalb der Linien
+\node[left=6pt]  at (0.9, 1.4)  {$b$};
+\node[right=6pt] at (3.4, 1.4)  {$a$};
+\node[below=8pt] at (2.5, 0)    {$c$};
+\node[right=6pt] at (1.8, 1.4)  {$h$};
+% Kehrwert-Labels mit farbigen Boxen, weit von den Seiten weg
+\node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
+    at (-1.1, 0.9) {$\dfrac{1}{b^2}$};
+\node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
+    at (5.8, 0.9)  {$\dfrac{1}{a^2}$};
+\node[red,  fill=red!8,  rounded corners=2pt, inner sep=3pt]
+    at (1.8, -1.1) {$\dfrac{1}{h^2}$};
+% Pfeile von den Labels zu den Seiten
+\draw[->, blue, thin] (-0.7, 0.9) -- (-0.05, 1.0);
+\draw[->, blue, thin] (5.45, 0.9) -- (4.5,   1.1);
+\draw[->, red,  thin] (1.8, -0.75) -- (1.8, -0.22);
+% Ergebnisformel oben, klar oberhalb des Dreiecks
+\node[above=10pt] at (2.5, 2.8)
+    {$\dfrac{1}{a^2}+\dfrac{1}{b^2}=\dfrac{1}{h^2}$};
+\end{tikzpicture}
+\caption{Schritt 3: Die quadratischen Kehrwerte der Katheten $\frac{1}{a^2}$
+und $\frac{1}{b^2}$ (blau) addieren sich zum quadratischen Kehrwert
+der Höhe $\frac{1}{h^2}$ (rot).}
+\end{figure}
+
+\clearpage
 \subsection{Der Konstruktionsprozess}
 \label{basel:subsection:konstruktionsprozess}
 
-\begin{description}
-\item[Schritt 1: Ausgangskreis $k_0$.]
+{\sloppy
+Der Beweis benutzt den physikalischen Begriff der \emph{Intensität}:
+Stellt man sich eine Lichtquelle am Punkt $P$ vor, so empfängt
+ein Beobachter am Punkt $Z$ eine Helligkeit, die mit dem
+Quadrat des Abstands abnimmt:
+\[
+I(P) \;=\; \frac{1}{|PZ|^2}.
+\]
+Dies ist das bekannte Abstandsquadratgesetz der Optik.
+Die Intensität ist also der quadratische Kehrwert des Abstands von $P$ zu $Z$.
+Die zentrale Idee des Beweises ist, dass sich bei jedem Konstruktionsschritt
+alle folgenden Intensitäten auf neue Punkte übertragen,
+die Gesamtsumme also stets erhalten bleibt.
+Am Ende lässt sich diese erhaltene Gesamtintensität mit der gesuchten Reihe
+gleichsetzen.
+}
+
+\subsubsection{Schritt 1: Ausgangskreis $k_0$}
 Man startet mit einem Kreis $k_0$ um den Mittelpunkt $M_0$, der den Umfang~$2$ hat.
 Auf dem Kreis liegt unten der Punkt $Z$, genau gegenüber oben der Punkt $M_1$.
 Der Durchmesser ergibt sich aus dem Umfang:
@@ -74,7 +175,7 @@ U = 2 = \pi d
 \implies
 d = \frac{2}{\pi} = |M_1 Z|.
 \]
-Alle Intensitäten werden bezüglich des Punktes $Z$ berechnet;
+Alle folgenden Intensitäten werden bezüglich des Punktes $Z$ berechnet;
 $Z$ taucht daher im Index nicht auf.
 Die Intensität von $M_1$ beträgt
 \[
@@ -88,9 +189,8 @@ I(M_1)
 =
 \frac{\pi^2}{4}.
 \]
-\end{description}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, thick]
 % Kreis k0: Mittelpunkt M0, Radius 1.8
@@ -112,14 +212,12 @@ I(M_1)
 oberem Punkt $M_1$ und unterem Punkt $Z$.}
 \end{figure}
 
-\begin{description}
-\item[Schritt 2: Erster Konstruktionskreis $k_1$.]
+\subsubsection{Schritt 2: Erster Konstruktionskreis $k_1$}
 Es wird ein weiterer Kreis $k_1$ um $M_1$ mit Radius $|M_1 Z|$ gezeichnet.
 Durch $M_1$ legt man eine Senkrechte zu $\overline{ZM_1}$, wodurch die
 Punkte $P_{1,1}$ und $P_{1,2}$ entstehen.
-\end{description}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, thick]
 % k0: Mittelpunkt M0=(0,0), Radius r0=1.0
@@ -154,8 +252,7 @@ $P_{1,1}$ und $P_{1,2}$. Bogenlängen: $P_{1,1}P_{1,2} = 2$, $P_{1,2}Z = 1$,
 $ZP_{1,1} = 1$.}
 \end{figure}
 
-\begin{description}
-\item[Schritt 3: Intensitätsverteilung auf $k_1$.]
+\subsubsection{Schritt 3: Intensitäten auf $k_1$}
 Aus $P_{1,1}$, $P_{1,2}$ und $Z$ entsteht nach dem Satz des Thales ein
 rechtwinkliges Dreieck mit rechtem Winkel bei $Z$.
 $M_1$ ist der Höhenfusspunkt in diesem Dreieck, weshalb sich die Intensität
@@ -164,13 +261,13 @@ von $M_1$ gleichmässig auf $P_{1,1}$ und $P_{1,2}$ verteilt:
 I(M_1) = \frac{\pi^2}{4} = I(P_{1,1}) + I(P_{1,2}).
 \]
 
-\item[Schritt 4: Zweiter Konstruktionskreis $k_2$.]
+\subsubsection{Schritt 4: Zweiter Konstruktionskreis $k_2$}
 Um $M_2$ wird ein Kreis $k_2$ mit Radius $|M_2 Z|$ gezeichnet.
 Die Gerade durch $M_2$ und $P_{1,1}$ schneidet $k_2$ in den Punkten
 $P_{2,1}$ und $P_{2,3}$; die Gerade durch $M_2$ und $P_{1,2}$ liefert
 entsprechend $P_{2,2}$ und $P_{2,4}$.
 
-\item[Schritt 5: Intensitätsverteilung auf $k_2$.]
+\subsubsection{Schritt 5: Intensitäten auf $k_2$}
 Das Dreieck $P_{2,1}P_{2,3}Z$ ist nach dem Satz des Thales rechtwinklig
 bei $Z$, und $P_{1,1}$ ist der Höhenfusspunkt.
 Damit gilt:
@@ -188,34 +285,18 @@ I(P_{2,1}) + I(P_{2,2}) + I(P_{2,3}) + I(P_{2,4})
 \frac{\pi^2}{4}.
 \]
 Da $k_2$ doppelt so gross ist wie $k_1$ (Umfang~$8$), liegen die Punkte
-äquidistant mit Bogenlängen:
+äquidistant. Die Bogenlängen betragen:
 \[
-ZP_{2,1} = 1,\quad
-P_{2,1}P_{2,2} = 2,\quad
-P_{2,2}P_{2,3} = 2,\quad
-P_{2,3}P_{2,4} = 2,\quad
-P_{2,4}Z = 1.
+\widehat{ZP_{2,1}} = 1,\quad
+\widehat{P_{2,1}P_{2,2}} = 2,\quad
+\widehat{P_{2,2}P_{2,3}} = 2,\quad
+\widehat{P_{2,3}P_{2,4}} = 2,\quad
+\widehat{P_{2,4}Z} = 1.
 \]
-\end{description}
 
-% ===== FIGUR 1 (Abbildung 10.10) =====
-% Geometrie exakt nach Referenzbild 1:
-% - Z unten auf vertikaler Achse
-% - k2 grosser Kreis, Mittelpunkt M2 auf Diaglonanlenschnittpunkt (oben-rechts von Mitte)
-% - k1 kleiner Kreis innen
-% - k0 kleinster Kreis
-% - 4 Geraden durch M2: horizontal, vertikal, 2 Diagonalen
-% - P2,3 oben-links auf k2 (auf Diagonale)
-% - P2,2 oben-rechts auf k2 (auf Diagonale) 
-% - P2,1 unten-rechts auf k2 (auf Diagonale)
-% - P2,4 unten-links auf k2 (auf Diagonale, nahe Z)
-% - M2 = Mittelpunkt k2, liegt auf horizontaler Achse rechts von Mitte
-% - P1,1 rechts auf horizontaler Linie (auf k1)
-% - P1,2 links auf horizontaler Linie (auf k1)
+% 
 %
-% ROTE LINIEN (Bild 1): Z->P2,3->M2->P1,1->Z  (ein Viereck)
-%
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, thick]
 \def\r{0.82}
@@ -265,8 +346,7 @@ $P_{2,1}$, $P_{2,2}$, $P_{2,3}$, $P_{2,4}$.}
 
 
 
-\begin{description}
-\item[Schritt 6: Dritter Konstruktionskreis $k_3$ und Invarianten.]
+\subsubsection{Schritt 6: Dritter Konstruktionskreis $k_3$ und Invarianten}
 Um $M_3$ wird ein Kreis $k_3$ mit Radius $|M_3 Z|$ gezeichnet.
 Als Beispiel: das Dreieck $P_{3,2}P_{3,6}Z$ ist nach dem Satz des Thales
 rechtwinklig bei $Z$, und $P_{2,2}$ ist der zugehörige Höhenfusspunkt.
@@ -279,26 +359,10 @@ Dabei bleiben bei jedem Schritt zwei Grössen konstant:
         $\dfrac{\pi^2}{4}$.
   \item Die Punkte liegen äquidistant mit konstanter Bogenlänge~$2$.
 \end{itemize}
-\end{description}
 
-% ===== FIGUR 2 (Abbildung 10.11) =====
-% Geometrie exakt nach Referenzbild 2:
-% k3 grosser Kreis, Mittelpunkt M3=(0,8r), Radius 8r
-% 8 Punkte P3,x gleichmässig verteilt:
-%   P3,8 = unten = Z (270 Grad)
-%   P3,1 = unten-rechts (315 Grad)
-%   P3,2 = rechts (0 Grad)
-%   P3,3 = oben-rechts (45 Grad)
-%   P3,4 = oben (90 Grad)
-%   P3,5 = oben-links (135 Grad)
-%   P3,6 = links (180 Grad)
-%   P3,7 = unten-links (225 Grad)
+% 
 %
-% ROTE LINIEN (Bild 2):
-%   Viereck 1: Z -> P3,6 -> M3 -> P2,2 -> Z
-%   Viereck 2: Z -> P2,3 -> M3 -> P3,2 -> Z
-%
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, thick]
 \def\r{0.42}
@@ -368,10 +432,11 @@ Dabei bleiben bei jedem Schritt zwei Grössen konstant:
 \end{figure}
 
 
+\clearpage
 \subsection{Der Grenzübergang}
 \label{basel:subsection:grenzuebergang}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, scale=0.7]
 % Zahlengerade von -4 bis 10 mit Pfeil
@@ -407,14 +472,13 @@ im Abstand $1, 3, 5, 7, \ldots$ von $Z$.
 \label{basel:figure:gerade}}
 \end{figure}
  
-\begin{description}
-\item[Schritt 7: Übergang zur Geraden.]
+\subsubsection{Schritt 7: Übergang zur Geraden}
 Im Grenzübergang $n \to \infty$ wächst der Kreis $k_n$ ins Unendliche und
 wird zu einer Geraden durch $Z$ (Abbildung~\ref{basel:figure:gerade}).
 Da die Bogenlängen konstant $1, 2, 2, \ldots$ betragen, liegen die Punkte
 auf dieser Geraden im Abstand $1, 3, 5, 7, \ldots$ zu beiden Seiten von $Z$.
 
-\item[Schritt 8: Gesamtintensität und Symmetrie.]
+\subsubsection{Schritt 8: Gesamtintensität und Symmetrie}
 Die Summe aller Intensitäten bleibt auch im Grenzwert erhalten:
 \[
     \bigl( I(P_1) + I(P_2) + I(P_3) + \cdots \bigr)
@@ -428,7 +492,7 @@ Wegen der Symmetrie der Konstruktion gilt für jede Seite:
     I(P_1) + I(P_2) + I(P_3) + \cdots = \frac{\pi^2}{8}.
 \]
 
-\item[Schritt 9: Explizite Reihe für ungerade Zahlen.]
+\subsubsection{Schritt 9: Explizite Reihe für ungerade Zahlen}
 Da die Punkte im Abstand $1, 3, 5, 7, \ldots$ von $Z$ liegen und die
 Intensität mit dem Quadrat des Abstands abnimmt, ergibt sich:
 \[
@@ -439,7 +503,7 @@ S_u
 \frac{\pi^2}{8}.
 \]
 
-\item[Schritt 10: Vollständige Reihe und Ergebnis.]
+\subsubsection{Schritt 10: Vollständige Reihe und Ergebnis}
 Die vollständige Reihe $S$ setzt sich aus dem Anteil der ungeraden Zahlen
 $S_u$ und dem Anteil der geraden Zahlen $S_g$ zusammen:
 \[
@@ -478,4 +542,3 @@ S = \frac{\pi^2}{6}.
 \label{basel:equation:geometrie-ergebnis}
 \end{equation}
 
-\end{description}
