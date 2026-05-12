@@ -9,21 +9,24 @@
 \usepackage{txfonts}
 \usepackage{pgfplots}
 \usepackage{csvsimple}
-\usetikzlibrary{arrows,intersections,math}
+\usetikzlibrary{arrows,intersections,math,calc}
 \begin{document}
 \def\skala{1}
 \begin{tikzpicture}[>=latex,thick,scale=\skala]
 
+\pgfmathparse{2.5+2*2/2.5}
+\xdef\b{\pgfmathresult}
+
 \coordinate (A) at (0,0);
-\coordinate (B) at (4,0);
+\coordinate (B) at (\b,0);
 \coordinate (C) at (2.5,2);
 \coordinate (H) at (2.5,0);
 \draw (A) -- (B) -- (C) -- cycle;
 \draw[dashed] (C) -- (H);
-\node at (1.0, 1.2) {$b$};
-\node at (3.6, 1.2) {$a$};
-\node at (2.0,-0.3) {$c$};
-\node at (2.85, 0.9) {$h$};
+\node at ($0.5*(A)+0.5*(B)$) [above left] {$b$};
+\node at ($0.5*(B)+0.5*(C)$) [above right] {$a$};
+\node at ($0.5*(A)+0.5*(B)$) [below] {$c$};
+\node at ($0.5*(H)+0.5*(C)$) [right] {$h$};
 \draw (H) ++(0.15,0) -- ++(0,0.15) -- ++(-0.15,0);
 
 \end{tikzpicture}
