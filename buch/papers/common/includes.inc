@@ -6,7 +6,6 @@ include papers/jordan/Makefile.inc
 include papers/joukowski/Makefile.inc
 include papers/julia/Makefile.inc
 include papers/kepler/Makefile.inc
-include papers/laplace/Makefile.inc
 include papers/produkt/Makefile.inc
 include papers/qa/Makefile.inc
 include papers/weyl/Makefile.inc
@@ -33,7 +32,6 @@ TEXFILES = \
 	$(dependencies-joukowski) \
 	$(dependencies-julia) \
 	$(dependencies-kepler) \
-	$(dependencies-laplace) \
 	$(dependencies-produkt) \
 	$(dependencies-qa) \
 	$(dependencies-weyl) \
