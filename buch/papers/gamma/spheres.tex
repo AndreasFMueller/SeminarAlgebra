@@ -136,11 +136,13 @@ wie in \eqref{gamma-eq:pythagoras-3d}.
 
 Nun können wir das Volumen einer Kugel herleiten, indem wir Halbkreise entsprechender 
 Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}). 
-Dabei integrieren wir jetzt entlang der Achse $x$ und der Achse $y$ wobei für ein 
-bestimmtes $x$ die möglichen $y$-Werte gemäss Ungleichung 
-\eqref{gamma-eq:pythagoras-y} eingeschränkt sind und für ein bestimmtes $x$ und $y$ dann
-der maximale Wert für $z$ gemäss Ungleichung \eqref{gamma-eq:pythagoras-3d} genommen wird. 
-Dies ist in \eqref{gamma-eq:sphere-volume} zu sehen.
+Dabei integrieren wir entlang der $x$-Achse und innerhalb iterativ entlang der $y$-Achse. 
+Eine formelle Begründung für diese iterative angehensweise ist der Satz von Fubini.
+
+Für ein bestimmtes $x$ sind die möglichen $y$-Werte gemäss Ungleichung 
+\eqref{gamma-eq:pythagoras-y} eingeschränkt und für ein bestimmtes $x$ und $y$ wird dann
+der maximale Wert für $z$ gemäss Ungleichung \eqref{gamma-eq:pythagoras-3d} genommen. 
+Dies ist in \eqref{gamma-eq:sphere-volume} zu sehen. 
 
 Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(r)$
 zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie in 
@@ -159,10 +161,8 @@ zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie i
 Wir haben etwas interessantes getan, nämlich haben wir unsere Berechnung für zwei Dimensionen 
 verwendet, um das Volumen in drei Dimensionen zu berechnen. 
 
-TODO Satz von Fubini 
-
 Auf diese Weise lässt sich also das Volumen auf beliebige Dimensionen $> 2$ erweitern, und zwar 
-mit der Gleichung \ref{gamma-eq:n-sphere-volume}.
+mit \eqref{gamma-eq:n-sphere-volume}.
 
 \begin{equation}
 \label{gamma-eq:n-sphere-volume}
