@@ -18,7 +18,7 @@ was eine Herleitung der Kreisscheibenfläche per Integral möglich
 macht \eqref{gamma-eq:area}. Für eine grafische Darstellung dieser 
 Intuition siehe Abb. \ref{gamma-fig:ring-integration}.
 
-\begin{wrapfigure}{r}{0.25\textwidth}
+\begin{wrapfigure}[15]{r}{0.25\textwidth}
     \centering
     \begin{tikzpicture}
         \foreach \r in {0.2, 0.4, 0.6, 0.8, 1.0} {
@@ -53,7 +53,7 @@ und für jedes $x$ den jeweils höchsten $y$-Wert integrieren
 \eqref{gamma-eq:area-pythagoras}. Die Intuition dahinter wird
 in Abb. \ref{gamma-fig:rect-integration} dargestellt.
 
-\begin{wrapfigure}{r}{0.25\textwidth}
+\begin{wrapfigure}[15]{r}{0.25\textwidth}
     \centering
     \begin{tikzpicture}
         \def\r{1}
@@ -95,19 +95,7 @@ wie in \eqref{gamma-eq:pythagoras-3d}.
     \end{split}
 \end{equation}
 
-Nun können wir das Volumen einer Kugel herleiten, indem wir Halbkreise entsprechender 
-Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}). 
-Dabei integrieren wir jetzt entlang der Achse $x$ und der Achse $y$ wobei für ein 
-bestimmtes $x$ die möglichen $y$-Werte gemäss Ungleichung 
-\eqref{gamma-eq:pythagoras-y} eingeschränkt sind und für ein bestimmtes $x$ und $y$ dann
-der maximale Wert für $z$ gemäss Ungleichung \eqref{gamma-eq:pythagoras-3d} genommen wird. 
-Dies ist in \eqref{gamma-eq:sphere-volume} zu sehen.
-
-Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(r)$
-zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie in 
-\eqref{gamma-eq:composed-sphere-volume}.
-
-\begin{wrapfigure}{r}{0.25\textwidth}
+\begin{wrapfigure}[15]{r}{0.25\textwidth}
     \centering
     \tdplotsetmaincoords{70}{25}
     \begin{tikzpicture}[tdplot_main_coords]
@@ -146,6 +134,18 @@ zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie i
     \label{gamma-fig:semicircle-integration}
 \end{wrapfigure}
 
+Nun können wir das Volumen einer Kugel herleiten, indem wir Halbkreise entsprechender 
+Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}). 
+Dabei integrieren wir jetzt entlang der Achse $x$ und der Achse $y$ wobei für ein 
+bestimmtes $x$ die möglichen $y$-Werte gemäss Ungleichung 
+\eqref{gamma-eq:pythagoras-y} eingeschränkt sind und für ein bestimmtes $x$ und $y$ dann
+der maximale Wert für $z$ gemäss Ungleichung \eqref{gamma-eq:pythagoras-3d} genommen wird. 
+Dies ist in \eqref{gamma-eq:sphere-volume} zu sehen.
+
+Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(r)$
+zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie in 
+\eqref{gamma-eq:composed-sphere-volume}.
+
 \begin{equation}
 \label{gamma-eq:sphere-volume}
     V(r) = 2 \int_{-r}^{r} \int_{-\sqrt{r^2-x^2}}^{\sqrt{r^2-x^2}} \sqrt{r^2-x^2-y^2} \,dy \,dx
@@ -159,7 +159,7 @@ zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie i
 Wir haben etwas interessantes getan, nämlich haben wir unsere Berechnung für zwei Dimensionen 
 verwendet, um das Volumen in drei Dimensionen zu berechnen. 
 
-TODO Satz von Foubini 
+TODO Satz von Fubini 
 
 Auf diese Weise lässt sich also das Volumen auf beliebige Dimensionen $> 2$ erweitern, und zwar 
 mit der Gleichung \ref{gamma-eq:n-sphere-volume}.
