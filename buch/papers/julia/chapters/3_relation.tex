@@ -8,6 +8,7 @@ Zwischen der Mandelbrot-Menge sowie den Julia- bzw. Fatou-Mengen bestehen mehrer
 In diesem Abschnitt werden drei solche Zusammenhänge näher betrachtet.
 
 \subsection{Form der Julia-Mengen}
+\label{sec:julia_connected}
 Anhand der Position in der Mandelbrot-Menge, lässt sich eine Aussage über die Form bzw. das Aussehen der zugehörigen Julia-Menge treffen.
 Dafür werden stets Funktionen der Art $f_c(z) = z^2 + c$ betrachtet.
 
@@ -39,6 +40,8 @@ Links ist jeweils die aktuelle Position des Punktes $c$ dargestellt und rechts d
 
 Mit änderndem $c$ verformt sich die Julia-Menge zusehends und beim Übergang von $c=0.6i$ zu $c=0.65i$ zerfällt sie.
 Grund dafür ist, dass $c=0.6i$ noch in der Mandelbrot-Menge $M$ liegt, während $c=0.65i$ bereits ausserhalb ist.
+Bei den Bildern in Abbildung \ref{fig:mandelbrot_julia_2-5} ist die Mandelbrot-Menge schwarz dargestellt, alle eingefärbten Punkte gehören nicht mehr dazu.
+
 Es stellt sich heraus, dass die Julia-Menge \emph{zusammenhängend} ist, für alle $c \in M$ und \emph{nicht zusammenhängend} für alle $c \not\in M$.
 
 
@@ -62,7 +65,8 @@ Hierfür werden stets Funktionen der Art $f_c(z) = z^2 + c$ betrachtet.
     Macht man das gleiche mit der Julia-Menge der Funktion $f = z^2\, +\, 0.3626697754647427\, +\, 0.6450273437137847i$ ergeben sich die Bilder in Abbildung \ref{fig:julia_zoom}.
 
     \begin{figure}
-        \includegraphics[width=0.95\textwidth]{papers/julia/imgs/julia_zoom.png}
+        \centering
+        \includegraphics[width=0.75\textwidth]{papers/julia/imgs/julia_zoom.png}
 
         \caption{Julia-Menge von $f(z) = z^2 + 0.3626697754647427 + 0.6450273437137847i$}
         \label{fig:julia_zoom}
@@ -76,7 +80,7 @@ Wie Kawahira und Kisaka gezeigt haben \cite{julia:ähnlichkeit_mandelbrot}, pass
     Ein Parameter $c$ wird als \emph{parabolisch} bezeichnet, wenn die Funktion $f_c$ einen periodischen Punkt besitzt, dessen Multiplikator $\lambda$ \eqref{lambda_multiplicator} eine Einheitswurzel (siehe \ref{sec:nicht_fix_periodisch}) ist.
 \end{definition}
 \begin{beispiel}
-    Ein bekanntes Beispiel ist der Parameter $c = \frac{1}{4}$.
+    Ein Beispiel ist der Parameter $c = \frac{1}{4}$.
     Die Funktion $f(z) = z^2 + \frac{1}{4}$ besitzt einen Fixpunkt bei $z_0 = \frac{1}{2}$, denn $f(z_0) = \left(\frac{1}{2}\right)^2 + \frac{1}{4} = z_0$.
     Weiter ist $\lambda = \left(f\right)^\prime(z_0) = 2 z_0 = 1$, wobei es sich um eine Einheitswurzel handelt.
 \end{beispiel}
