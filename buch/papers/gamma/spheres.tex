@@ -162,10 +162,10 @@ Wir haben etwas interessantes getan, nämlich haben wir unsere Berechnung für z
 verwendet, um das Volumen in drei Dimensionen zu berechnen. 
 
 Auf diese Weise lässt sich also das Volumen auf beliebige Dimensionen $> 2$ erweitern, und zwar 
-mit \eqref{gamma-eq:n-sphere-volume}.
+mit \eqref{gamma-eq:n-sphere-volume-recursive}.
 
 \begin{equation}
-\label{gamma-eq:n-sphere-volume}
+\label{gamma-eq:n-sphere-volume-recursive}
     V_{n+1}(r) = \int_{-r}^{r} V_n\left(\sqrt{r^2-x^2}\right) \,dx
 \end{equation}
 
@@ -191,3 +191,19 @@ entspricht, siehe \eqref{gamma-eq:const-structure-induction}.
 
 Wir sehen, dass $C_n$ ein Faktor von $C_{n+1}$ ist. Die mit dem Volumen assoziierte Konstante 
 scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen.
+
+Tatsächlich wird in der Berechnung des Volumens einer Kugel die Fakultät 
+verwendet \eqref{gamma-eq:n-sphere-volume-even}. Diese Definition ist allerdings  
+nur mit geraden Dimensionen möglich, weil die Fakultät nur auf Ganzzahlen definiert ist.
+Mit der $\Gamma$-Funktion lässt sich diese Formel auf beliebige Dimensionen
+anwenden (auch auf nicht ganzzahlige): \eqref{gamma-eq:n-sphere-volume}. 
+
+\begin{equation}
+\label{gamma-eq:n-sphere-volume-even}
+    V_n(r) = \frac{2 \pi^{n/2}}{(\frac{n}{2})!}  r^n
+\end{equation}
+
+\begin{equation}
+\label{gamma-eq:n-sphere-volume}
+    V_n(r) = \frac{2 \pi^{n/2}}{\Gamma(\frac{n}{2} + 1)}  r^n
+\end{equation}
