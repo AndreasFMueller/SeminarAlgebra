@@ -6,38 +6,70 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 2 
-\label{produkt:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
+\section{Der Weierstraß-Produktsatz}
+\rhead{Weierstraß-Produktsatz}
 
-\subsection{De finibus bonorum et malorum
-\label{produkt:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+\subsection{Elementarfaktoren}
 
+Das zentrale technische Hilfsmittel sind die Weierstraß-Elementarfaktoren.
+Für $p = 0, 1, 2, \ldots$ definiert man:
+\begin{equation}
+E_0(z) = 1 - z,
+\qquad
+E_p(z) = (1-z) \cdot \exp\!\left(z + \frac{z^2}{2} + \cdots + \frac{z^p}{p}\right)
+\quad \text{für } p \ge 1.
+\end{equation}
+Der Exponentialterm ist so konstruiert, dass er die Divergenz des Faktors $(1-z)$
+für wachsende Argumente kompensiert.
+Genauer gilt die Abschätzung
+\begin{equation}
+|1 - E_p(z)| \le |z|^{p+1}
+\quad \text{für } |z| \le 1.
+\end{equation}
+Diese Ungleichung ist der Schlüssel für den Konvergenzbeweis des Produktsatzes;
+für einen vollständigen Beweis sei auf \cite{produkt:conway}
+oder \cite{produkt:steinShakarchi} verwiesen.
 
+\subsection{Formulierung des Satzes}
+
+Weierstraß bewies den folgenden fundamentalen Satz \cite{produkt:steinShakarchi}:
+
+\begin{satz}[Weierstraß, 1876]
+Sei $f$ eine ganze Funktion mit einer Nullstelle der Ordnung $m \ge 0$ bei $z = 0$
+und weiteren Nullstellen $a_1, a_2, \ldots$ (mit Vielfachheiten,
+nach wachsendem Betrag geordnet).
+Dann existiert eine ganze Funktion $g(z)$ und nicht-negative ganze Zahlen $p_n$ mit
+\begin{equation}
+f(z)
+=
+z^m \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} E_{p_n}\!\left(\frac{z}{a_n}\right).
+\end{equation}
+Das Produkt konvergiert gleichmäßig auf Kompakta.
+Für ganze Funktionen endlicher Ordnung $\varrho$ genügt die konstante Wahl
+$p_n = \lfloor \varrho \rfloor$.
+\end{satz}
+
+\subsection{Rückkehr zum Sinus}
+
+Die Sinusfunktion $\sin(\pi z)$ ist eine ganze Funktion der Ordnung $\varrho = 1$,
+da $|\sin(\pi z)| \le e^{\pi|z|}$ und die Nullstellen $a_n = \pm n$ linear wachsen.
+Man wählt daher $p_n = 1$, also $E_1(z) = (1-z)e^z$.
+Wegen der Symmetrie $\sin(\pi(-z)) = -\sin(\pi z)$ heben sich die Exponentialterme
+der Paare $+n$ und $-n$ gegenseitig auf -- denn $e^{z/n} \cdot e^{-z/n} = 1$ --,
+und man erhält:
+\begin{equation}
+\sin(\pi z)
+=
+\pi z \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} \left(1 - \frac{z^2}{n^2}\right).
+\end{equation}
+Der Hadamard-Faktorisierungssatz -- eine Schärfung des Weierstraß-Satzes
+für Funktionen endlicher Ordnung -- impliziert, dass $g(z)$ ein Polynom vom Grad
+höchstens $\lfloor \varrho \rfloor = 1$ sein muss, also $g(z) = Az + B$.
+Aus $\sin(\pi z)/(\pi z) \to 1$ für $z \to 0$ folgt $B = 0$,
+und die Symmetrie, dass $\sin(\pi z)$ ungerade ist, ergibt $A = 0$.
+Damit gilt Eulers Formel rigoros:
+\begin{equation}
+\sin(\pi z)
+=
+\pi z \cdot \prod_{n=1}^{\infty} \left(1 - \frac{z^2}{n^2}\right).
+\end{equation}
