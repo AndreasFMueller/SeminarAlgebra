@@ -9,35 +9,29 @@
 \section{Inversion 
 \label{moebius:section:teil2}}
 \kopfrechts{Inversion}
-\subsection*{Inversion in der komplexen Ebene}
+\subsection{Inversion in der komplexen Ebene}
 
 Bei der Inversion wird jeder Punkt \( z \) auf seinen Kehrwert \( \frac{1}{z} \) abgebildet.
-
 Schreibt man \( z \) in Polarform,
 \[
 z = r e^{i\varphi},
 \]
-so ergibt sich:
+so ergibt sich
 \[
 \frac{1}{z} = \frac{1}{r} e^{-i\varphi}.
 \]
-
-\textbf{Dabei gilt:}
-
+\emph{Dabei gilt:}
 \begin{itemize}
-	\item Der Betrag wird invertiert: \( r \rightarrow \frac{1}{r} \)  
-	\item Der Winkel wird gespiegelt: \( \varphi \rightarrow -\varphi \)
+	\item Der Betrag wird invertiert: \( r \rightarrow \frac{1}{r} \).  
+	\item Der Winkel wird gespiegelt: \( \varphi \rightarrow -\varphi \).
 \end{itemize}
-
-\textbf{Das bedeutet geometrisch:}
+\emph{Das bedeutet geometrisch:}
 \begin{itemize}
-	\item Punkte nahe bei \(0\) werden weit nach außen abgebildet  
-	\item Große Abstände werden klein  
-	\item Kreise können sich stark verformen (werden zu anderen Kreisen oder Geraden)  
-	\item Der Winkel wird an der reellen Achse gespiegelt
+	\item Punkte nahe bei \(0\) werden weit nach außen abgebildet. 
+	\item Große Abstände werden klein.
+	\item Kreise können sich stark verformen (werden zu anderen Kreisen oder Geraden).
+	\item Der Winkel wird an der reellen Achse gespiegelt.
 \end{itemize}
-
-
 Die folgende Tabelle zeigt, wie sich Kreise und Geraden unter der Inversion verhalten, insbesondere abhängig davon, ob der Punkt \(0\) enthalten ist.
 
 
@@ -58,49 +52,40 @@ Die folgende Tabelle zeigt, wie sich Kreise und Geraden unter der Inversion verh
 		\hline
 	\end{tabular}
 \end{table}
-
-
-
+\begin{satz}
 Kreise, welche den Punkt \(0\) enthalten, werden unter der Inversion auf Geraden abgebildet.
-
-\textbf{Beweis:}
-
-Wir betrachten die allgemeine Kreisgleichung mit Mittelpunkt \(1\) und Radius \(1\):
+\end{satz}
+\begin{proof}
+Wir betrachten die allgemeine Kreisgleichung mit Mittelpunkt \(1\) und Radius \(1\)
 \[
 |z - 1| = 1.
 \]
-
 Sei die Inversion gegeben durch
 \[
 w = \frac{1}{z}
 \quad \Leftrightarrow \quad
 z = \frac{1}{w}.
 \]
-
 Einsetzen von \( z = \frac{1}{w} \) ergibt:
 \[
 \left|\frac{1}{w} - 1\right| = 1.
 \]
-
 Nun umformen:
 \[
 \left|\frac{1 - w}{w}\right| = 1.
 \]
-
 Mit den Eigenschaften des Betrags:
 \[
 \frac{|1 - w|}{|w|} = 1.
 \]
-
 Multiplikation mit \( |w| \) ergibt:
 \[
 |1 - w| = |w|.
 \]
-
 Dies beschreibt eine Gerade, da alle Punkte \( w \) den gleichen Abstand zu den Punkten \(0\) und \(1\) haben.
+\end{proof}
 
-
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	
 	\includegraphics[width=0.6\textwidth]{papers/moebius/bild1.pdf}
