@@ -3,7 +3,9 @@
 %
 \section{Konstruktion gleichseitiger Dreiecke
 \label{komplex:section:gleichseitig}}
+\kopfrechts{Konstruktion gleichseitiger Dreiecke}
 Das gleichseitige Dreieck ist die einfachste nicht-triviale Figur,
+\index{Dreieck, gleichseitig}%
 deren Konstruktion sich mit der Drehformel \eqref{komplex:eq:drehung-allg}
 elegant beschreiben lässt.
 Da das Napoleon-Dreieck aus drei gleichseitigen Dreiecken aufgebaut ist,
@@ -15,7 +17,7 @@ die Schwerpunktformel und schliesslich ein numerisches Beispiel.
 %
 % Drehfaktor fuer sechzig Grad
 %
-\subsection{Drehfaktor für sechzig Grad
+\subsection{Drehfaktor für 60°
 \label{komplex:subsection:drehfaktor-60}}
 Die Drehung um $60^\circ$ gegen den Uhrzeigersinn entspricht der
 Multiplikation mit dem Drehfaktor
@@ -24,11 +26,11 @@ d
 =
 \cos(60^\circ) + i \sin(60^\circ)
 =
-\frac{1}{2} + \frac{\sqrt{3}}{2} \, i ,
+\frac{1}{2} + \frac{\!\sqrt{3}}{2} \, i ,
 \label{komplex:eq:d60}
 \end{equation}
 und entsprechend gehört zur Drehung um $-60^\circ$ der konjugierte
-Drehfaktor $\overline{d} = \tfrac{1}{2} - \tfrac{\sqrt{3}}{2} \, i$.
+Drehfaktor $\overline{d} = \tfrac{1}{2} - \tfrac{\!\sqrt{3}}{2} \, i$.
 Beide erfüllen die bemerkenswerte Identität
 \begin{equation}
 d^2 - d + 1 = 0 ,
@@ -38,7 +40,7 @@ d^2 - d + 1 = 0 ,
 d^2 = d - 1 ,
 \label{komplex:eq:d-identitaet}
 \end{equation}
-denn $\tfrac{1}{2} \pm \tfrac{\sqrt{3}}{2} \, i$ sind die Nullstellen des
+denn $\tfrac{1}{2} \pm \tfrac{\!\sqrt{3}}{2} \, i$ sind die Nullstellen des
 Polynoms $x^2 - x + 1$.
 Die Identität \eqref{komplex:eq:d-identitaet} wird im Beweis des Satzes
 von Napoleon (Abschnitt~\ref{komplex:section:beweis}) eine zentrale Rolle
@@ -56,7 +58,7 @@ wird, wobei $C$ auf einer fest gewählten Seite der Geraden $AB$ liegt.
 Die Konstruktion ist in Abbildung~\ref{komplex:figure:dreieck-konstruktion}
 dargestellt.
 
-\input{papers/konstruktion/dreieck-konstruktion.tex}
+\input{papers/konstruktion/fig/dreieck-konstruktion.tex}
 
 Die Konstruktion gelingt mit der Drehformel
 \eqref{komplex:eq:drehung-allg}:
@@ -89,7 +91,10 @@ Abschnitt~\ref{komplex:subsection:algebraisch-napoleon} diskutiert.
 \subsection{Schwerpunkt und Symmetrieeigenschaften
 \label{komplex:subsection:schwerpunkt}}
 Der Schwerpunkt eines Dreiecks mit Eckpunkten $z_1, z_2, z_3$
+\index{Schwerpunkt}%
 liegt im arithmetischen Mittel der Eckpunkte:
+\index{arithmetisches Mittel}%
+\index{Mittel, arithmetisch}%
 \begin{equation}
 S
 =
@@ -98,8 +103,11 @@ S
 \end{equation}
 Diese Formel ist die direkte Übertragung der gewichteten Mittelung aus der
 Vektorgeometrie.
+\index{Vektorgeometrie}%
 Für ein gleichseitiges Dreieck fällt der Schwerpunkt mit dem
 Umkreismittelpunkt und dem Inkreismittelpunkt zusammen ---
+\index{Umkreismittelpunkt}%
+\index{Inkreismittelpunkt}%
 eine Folge der Drehsymmetrie um $120^\circ$.
 
 %
@@ -109,18 +117,18 @@ eine Folge der Drehsymmetrie um $120^\circ$.
 \label{komplex:subsection:numerisches-beispiel}}
 Zur Illustration der Formel \eqref{komplex:eq:dreieck}
 seien die Punkte $A = 1 + i$ und $B = 3 + i$ gewählt.
-Mit dem Drehfaktor $d = \tfrac{1}{2} + \tfrac{\sqrt{3}}{2} \, i$
+Mit dem Drehfaktor $d = \tfrac{1}{2} + \tfrac{\!\sqrt{3}}{2} \, i$
 ergibt sich für den dritten Eckpunkt
 \begin{equation}
 C
 =
-(1 + i) + \biggl( \frac{1}{2} + \frac{\sqrt{3}}{2} \, i \biggr) \cdot
+(1 + i) + \biggl( \frac{1}{2} + \frac{\!\sqrt{3}}{2} \, i \biggr) \cdot
 ( (3 + i) - (1 + i) )
 =
-2 + ( 1 + \sqrt{3} ) \, i ,
+2 + ( 1 + \!\sqrt{3} ) \, i ,
 \label{komplex:eq:beispiel-c}
 \end{equation}
-also der Punkt mit den Koordinaten $(2, 1 + \sqrt{3})$.
+also der Punkt mit den Koordinaten $(2, 1 + \!\sqrt{3})$.
 Eine kurze Rechnung bestätigt die Gleichseitigkeit:
 \begin{align*}
 |A - B|
@@ -131,17 +139,17 @@ Eine kurze Rechnung bestätigt die Gleichseitigkeit:
 \\
 |A - C|
 &=
-|{-1} - \sqrt{3} \, i|
+|{-1} - \!\sqrt{3} \, i|
 =
-\sqrt{1 + 3}
+\!\sqrt{1 + 3}
 =
 2 ,
 \\
 |B - C|
 &=
-|1 - \sqrt{3} \, i|
+|1 - \!\sqrt{3} \, i|
 =
-\sqrt{1 + 3}
+\!\sqrt{1 + 3}
 =
 2 .
 \end{align*}
