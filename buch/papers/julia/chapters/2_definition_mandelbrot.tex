@@ -2,20 +2,83 @@
 \label{sec:mandelbrot}
 
 Die Mandelbrot-Menge entsteht aus einer ähnlichen Überlegung wie die Julia- und Fatou-Mengen.
-Auch hier werden Funktionen wiederholt auf Punkte angewendet, jedoch werden nur eine bestimmte Art von Funktionen, sowie ein Punkt betrachtet.
+Auch hier werden Funktionen wiederholt auf Punkte angewendet, jedoch werden nur eine bestimmte Art von Funktionen sowie ein Punkt betrachtet.
 Konkret werden quadratische Funktionen der Art
 \begin{equation*}
     f_c(z) = z^2 + c,
 \end{equation*}
 sowie der Punkt $z = 0$ untersucht.
 
+Auch hier erhält man eine Folge von Werten
+\begin{equation*}
+    z_0 \mapsto z_1 \mapsto z_2 \mapsto z_3 \mapsto \ldots\, ,
+\end{equation*}
+bzw.
+\begin{equation*}
+    0 \mapsto c \mapsto c^2 + c \mapsto c^4 + 2c^3 + c^2 + c \mapsto \ldots\, .
+\end{equation*}
+
 Nun lässt sich die Mandelbrot-Menge als
 \begin{equation*}
-    M \coloneqq \left\{c \in \overline{\mathbb{C}}\:\mid\:f_c^n(0) \not\to \infty,\:\text{wenn}\:n \to \infty \right\},
+    M \coloneqq \left\{c \in \overline{\mathbb{C}}\:\mid\:f_c^n(0) \not\to \infty,\:\text{wenn}\:n \to \infty \right\}
 \end{equation*}
 definieren.
 Das heisst, die Mandelbrot-Menge ist die Menge der Parameter $c$, für welche die Rekursion $z_{n+1}=z_{n}^{2} + c$ beschränkt bleibt, wenn man $z_0 = 0$ wählt.
 
+Die Mandelbrot-Menge ist in der Abbildung \ref{fig:mandelbrot_definition} dargestellt, wie diese Visualisierung entsteht ist im Abschnitt \ref{sec:visualisierung_mandel} beschrieben.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{papers/julia/imgs/mandelbrot2.png}
+
+    \caption{Mandelbrot-Menge}
+    \label{fig:mandelbrot_definition}
+\end{figure}
+
 Anhand dieser Definition wird der grundliegende Unterschied zwischen Julia- und Fatou-Mengen, sowie der Mandelbrot-Menge klar.
 Die Julia- und Fatou-Mengen sind im Zustandsraum der Dynamik, sie sind Teilmengen der $z$-Ebene.
 Bei der Mandelbrot-Menge findet die Dynamik zwar auch in der $z$-Ebene statt, jedoch existiert die Mandelbrot-Menge im Parameterraum, bzw. der $c$-Ebene.
+
+Die Mandelbrot-Menge liegt vollständig innerhalb eines Kreises mit Radius $2$, jedoch gehört nicht der gesamte Kreisinhalt zur Mandelbrot-Menge.
+Möchte man untersuchen, ob ein bestimmter Parameter $c_i$ zur Mandelbrot-Menge gehört, ist $|z_n| < 2$ für alle $n$ eine \emph{notwendige}, jedoch \emph{nicht ausreichende} Bedingung.
+
+\subsection{Generalisierungen}
+Die Mandelbrot-Menge lässt sich auf verschiedene Arten generalisieren.
+In diesem Abschnitt werden einige davon beschrieben.
+
+\subsubsection{Multibrot-Mengen}
+Multibrot-Mengen entstehen, wenn man statt einer quadratischen Funktion, Polynome eines arbiträren Grades betrachtet
+\begin{equation*}
+    f_c(z) = z^d + c.
+\end{equation*}
+Beispiele davon sind in Abbildung \ref{fig:multibrot_mengen} dargestellt.
+Dies kann weiter generalisiert werden, indem negative und rationale Zahlen als Exponent $d$ erlaubt werden.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{papers/julia/imgs/multibrot.png}
+
+    \caption{Multibrot-Mengen für Polynome der Grade $2$, $3$, $4$ und $5$}
+    \label{fig:multibrot_mengen}
+\end{figure}
+
+\subsubsection{Höhere Dimensionen}
+Statt den komplexen Zahlen kann auch mit \emph{Quaternionen} gearbeitet werden, diese sind die vierdimensionale Erweiterung der komplexen Zahlen.
+Ein Quaternion wird als $q = a + bi + cj + dk$ notiert, mit $i^2 = j^2 = k^2 = ijk = -1$ und $i \ne j \ne k$.
+
+Die vierdimensionale Mandelbrot-Menge kann dann in eine dreidimensionale Struktur projiziert werden, was jedoch relativ uninteressant ist, da es sich lediglich um die Mandelbrot-Menge, rotiert um die reelle Achse handelt \cite{julia:quaternionen}.
+
+\subsubsection{Nicht-analytische Funktionen}
+Statt holomorphen Funktionen können auch nicht-holomorphe bzw. nicht-analytische Funktionen verwendet werden.
+
+Ein bekanntes Beispiel ist das Tricorn-Fraktal, dabei wird die Rekursion
+\begin{equation*}
+    z_{n+1} = \overline{z_n}^2 + c
+\end{equation*}
+verwendet.
+Bevor $z_n$ quadriert wird, wird die komplexe Konjugation berechnet.
+
+Ein weiteres Beispiel ist das Burning-Ship-Fraktal, welches durch die Rekursion
+\begin{equation*}
+    z_{n+1} = \left(|\text{Re}(z_n)| + i\,|\text{Im}(z_n)|\right)^2 + c
+\end{equation*}
+entsteht.
+Anders als bei der Mandelbrot-Menge werden hier die Beträge des Real- und Imaginärteils berechnet, bevor quadriert wird.
