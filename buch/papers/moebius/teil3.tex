@@ -14,8 +14,9 @@
 Möbius-Transformationen können als Kombination einfacher Transformationen wie Translation, Skalierung und Inversion dargestellt werden.
 
 \begin{beispiel}
+Als Beispiel für eine Möbius-Transformation betrachten wir die Abbildung
 \[
-f(z) = \frac{2z + 3}{z + 1}
+f(z) = \frac{2z + 3}{z + 1}.
 \]
 Wir schreiben \( z \) in der Form:
 \[
@@ -25,7 +26,7 @@ Einsetzen ergibt:
 \[
 f(z) = \frac{2(x + i) + 3}{(x + i) + 1},
 \]
-wobei wir zum Rechnen (z) nehmen anstatt (x+1).
+wobei wir zum Rechnen $z$ nehmen anstatt $x+i$.
 Nun formen wir den Zähler um:
 \[
 f(z) = \frac{2(z + 1) + 1}{z + 1}.
@@ -35,31 +36,25 @@ Aufteilen des Bruchs:
 f(z) = \frac{2(z + 1)}{z + 1} + \frac{1}{z + 1}.
 \]
 Kürzen ergibt:
-\[
-f(z) = 2 + \frac{1}{z + 1}.
-\]
-\emph{Interpretation:}
-Die Möbius-Transformation
-\[
-f(z) = 2 + \frac{1}{z + 1}.
-\]
-wird nun schrittweise zerlegt:
+\begin{equation}
+	f(z) = 2 + \frac{1}{z + 1}.
+\end{equation}
+Die Formel (24.1) kann als Schrittweise zerlegung der Möbius Transformation interpretiert werden.
+Der erste Schritt ist die Translation
 \[
 z_1 = z + 1.
 \]
-Dabei erfolgt eine Verschiebung der komplexen Ebene um \(1\) nach rechts
+Dabei erfolgt eine Verschiebung der komplexen Ebene um \(1\) nach rechts.
+Der zweite Schritt ist die Inversion
 \[
 z_2 = \frac{1}{z_1}.
 \]
-Hier wird eine Inversion durchgeführt. Punkte nahe beim Ursprung werden nach außen abgebildet und umgekehrt
+Punkte nahe beim Ursprung werden nach außen abgebildet und umgekehrt.
+Abschliessend erfolgt eine weitere Verschiebung um \(2\) nach rechts
 \[
 f(z) = 2 + z_2.
 \]
-Abschließend erfolgt eine weitere Verschiebung um \(2\) nach rechts.
-Somit ergibt sich insgesamt die Transformation
-\[
-f(z) = \frac{2z + 3}{z + 1}.
-\]
+Somit ergibt sich insgesamt die Transformation von Formel (24.1).
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{papers/moebius/bild6.pdf}

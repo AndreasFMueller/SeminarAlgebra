@@ -14,9 +14,11 @@ Eine Möbius Transformation kann man als Kombinationen von einfachen Transformat
 Es gibt drei Arten von diesen Transformationen.
 
 \subsubsection{Die Translation}
+Eine Translation wird durch die Abbildung
 \[
-z \mapsto z + b.
+z \mapsto z + b
 \]
+beschrieben.
 Sie verschiebt jeden Punkt der komplexen Ebene um die komplexe Zahl b.
 
 \begin{figure}
@@ -26,11 +28,12 @@ Sie verschiebt jeden Punkt der komplexen Ebene um die komplexe Zahl b.
 \end{figure}
 
 
-\subsubsection{Die Skalierung und Rotation}
-
+\subsubsection{Drehstreckung}
+Die Drehstreckung wird durch die Abbildung
 \[
-z \mapsto az.
+z \mapsto az
 \]
+beschrieben.
 Diese Transformation beschreibt eine Streckung und gleichzeitig eine Rotation der komplexen Ebene um den Ursprung.
 \begin{figure}
 	\centering
@@ -39,13 +42,13 @@ Diese Transformation beschreibt eine Streckung und gleichzeitig eine Rotation de
 \end{figure}
 Für die Rotation wird für $a = e^{i\varphi}$ eingesetzt.
 
-
 \subsubsection{Die Inversion}
-
+Die Inversion wird durch die Abbildung
 \[
-z \mapsto \frac{1}{z}.
+z \mapsto \frac{1}{z}
 \]
-Die Inversion bildet jeden Punkt der komplexen Ebene auf seinen Kehrwert ab und ist verantwortlich für die charakteristische Abbildung von Geraden auf Kreise und umgekehrt.
+beschrieben.
+Sie bildet jeden Punkt der komplexen Ebene auf seinen Kehrwert ab und ist verantwortlich für die charakteristische Abbildung von Geraden auf Kreise und umgekehrt.
 
 \begin{figure}
 	\centering
@@ -54,12 +57,12 @@ Die Inversion bildet jeden Punkt der komplexen Ebene auf seinen Kehrwert ab und 
 \end{figure}
 
 
-\subsubsection{Die Allgemeine Form einer Möbius Transformation}
+\subsubsection{Die allgemeine Form einer Möbius Transformation}
 
 \[
 f(z) = \frac{a z + b}{c z + d}, \quad a,b,c,d \in \mathbb{C}, \; ad - bc \neq 0
 \]
-kann als Verkettung von Translation, Skalierung/Rotation und Inversion verstanden werden.
+kann als Verkettung von Translation, Drehstreckung und Inversion verstanden werden.
 \[ad - bc \neq 0\]
 Dies ist notwendig, da die Transformation sonst degeneriert. Für \(ad - bc = 0\) wäre die Abbildung nicht mehr invertierbar und würde die gesamte Ebene auf eine konstante oder eindimensionale Menge abbilden.
 Möbius-Transformationen sind bijektiv.

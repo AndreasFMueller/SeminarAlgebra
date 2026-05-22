@@ -17,6 +17,44 @@ Für zwei Punkte existieren unendlich viele Möbius-Transformationen, die diese 
 Eine Möbius-Transformation besitzt zwar vier Parameter \( a, b, c, d \), jedoch nur drei Freiheitsgrade, da eine gemeinsame Skalierung dieser Parameter die Transformation nicht verändert.
 
 \begin{proof}
+Gegeben seien die Punkte
+\[
+A = z_1, \quad B = z_2, \quad C = z_3
+\]
+und die Bildpunkte
+\[
+A' = w_1, \quad B' = w_2, \quad C' = w_3.
+\]
+Die Möbius-Transformation hat die Form
+\[
+f(z) = \frac{az + b}{cz + d}.
+\]
+Wir bestimmen nun die Koeffizienten aus den Abbildungsbedingungen.
+\\
+1. Bedingung: \( A = z_1 \mapsto A' = w_1 \)
+\[
+w_1 = \frac{a z_1 + b}{c z_1 + d}
+\quad \Rightarrow \quad
+w_1(c z_1 + d) = a z_1 + b
+\]
+2. Bedingung: \( B = z_2 \mapsto B' = w_2 \)
+\[
+w_2 = \frac{a z_2 + b}{c z_2 + d}
+\quad \Rightarrow \quad
+w_2(c z_2 + d) = a z_2 + b
+\]
+3. Bedingung: \( C = z_3 \mapsto C' = w_3 \)
+\[
+w_3 = \frac{a z_3 + b}{c z_3 + d}
+\quad \Rightarrow \quad
+w_3(c z_3 + d) = a z_3 + b
+\]
+Damit erhält man ein lineares Gleichungssystem in \(a,b,c,d\) (bis auf Skalierung).
+Da eine Möbius-Transformation nur drei Freiheitsgrade besitzt, ist dieses System eindeutig lösbar (bis auf einen gemeinsamen Skalarfaktor).
+Somit ist die Möbius-Transformation durch die drei Punktabbildungen eindeutig bestimmt.
+\end{proof}
+
+\begin{beispiel}
 Gegeben seien die Punkte:
 \[
 A = 0, \quad B = 1, \quad C = i
@@ -115,7 +153,7 @@ Einsetzen der Punkte liefert:
 \end{align}
 Damit wird gezeigt, dass die gewählte Möbius-Transformation die drei Punkte korrekt auf die gegebenen Bildpunkte abbildet.
 Die drei Freiheitsgrade einer Möbius-Transformation entsprechen genau den drei frei wählbaren Punktabbildungen. Dadurch ist eine Möbius-Transformation durch drei Punktpaare eindeutig bestimmt.
-\end{proof}
+\end{beispiel}
 
 \begin{figure}
 	\centering
