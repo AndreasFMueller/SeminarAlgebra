@@ -3,6 +3,7 @@
 %
 \section{Komplexe Zahlen als Punkte der Ebene
 \label{komplex:section:zahlenebene}}
+\kopfrechts{Komplexe Zahlen als Punkte der Ebene}
 Der gesamte folgende Aufbau ruht auf einer einzigen Identifikation:
 Eine komplexe Zahl wird gleichzeitig als algebraisches Objekt
 mit Real- und Imaginärteil und als Punkt einer Ebene gelesen.
@@ -14,9 +15,9 @@ und führen anschliessend Addition, Multiplikation, Betrag und Konjugation
 ein.
 
 %
-% Algebraische Form und Gausssche Zahlenebene
+% Algebraische Form und gausssche Zahlenebene
 %
-\subsection{Algebraische Form und Gausssche Zahlenebene
+\subsection{Algebraische Form und gausssche Zahlenebene
 \label{komplex:subsection:algebraisch}}
 Eine komplexe Zahl ist ein Ausdruck der Form
 \begin{equation}
@@ -28,13 +29,17 @@ a + bi
 mit reellen Zahlen $a$ und $b$.
 Die Grösse $i$ erfüllt definitionsgemäss $i^2 = -1$
 und wird als \emph{imaginäre Einheit} bezeichnet.
+\index{imaginare Einheit@imaginäre Einheit}%
 Die reelle Zahl $a$ heisst \emph{Realteil} und wird mit $\Re(z)$ bezeichnet,
+\index{Realteil}%
 $b$ heisst \emph{Imaginärteil} und wird mit $\Im(z)$ bezeichnet.
+\index{Imaginarteil@Imaginärteil}
 Die Menge aller komplexen Zahlen wird mit $\mathbb{C}$ bezeichnet.
 
 Identifiziert man $z = a + bi$ mit dem Punkt $(a, b)$ der reellen Ebene,
 so ist $\mathbb{C}$ als Menge mit $\mathbb{R}^2$ identisch.
-Diese Identifikation heisst \emph{Gausssche Zahlenebene}.
+Diese Identifikation heisst \emph{gausssche Zahlenebene}.
+\index{Zahlenebene, gausssche}%
 Die reelle Achse trägt die Zahlen mit $\Im(z) = 0$,
 die imaginäre Achse die Zahlen mit $\Re(z) = 0$.
 Was $\mathbb{C}$ von $\mathbb{R}^2$ unterscheidet,
@@ -64,6 +69,7 @@ so ergibt sich $z_1 + z_2$ durch Aneinanderfügen dieser Pfeile nach dem
 Parallelogrammgesetz.
 Insbesondere ist die Abbildung $z \mapsto z + w$ für ein festes $w$
 eine \emph{Translation} der Ebene um den Vektor $w$.
+\index{Translation}%
 Translationen sind die einfachsten Transformationen,
 die in dieser Arbeit auftreten.
 
@@ -96,6 +102,7 @@ Multiplikation mit $i$ bildet $a + bi$ auf $-b + ai$ ab,
 was geometrisch einer Drehung um $90^\circ$ gegen den Uhrzeigersinn
 entspricht.
 Die volle geometrische Deutung der Multiplikation als \emph{Drehstreckung}
+\index{Drehstreckung}%
 wird in Abschnitt~\ref{komplex:subsection:rotation} abgeleitet.
 
 %
@@ -107,11 +114,12 @@ Der \emph{Betrag} einer komplexen Zahl ist definiert als
 \begin{equation}
 |z|
 =
-\sqrt{a^2 + b^2}
+\!\sqrt{a^2 + b^2}
 \label{komplex:eq:betrag}
 \end{equation}
 und entspricht dem euklidischen Abstand des Punktes $z$ vom Ursprung.
 Die \emph{konjugiert komplexe} Zahl ist $\overline{z} = a - bi$;
+\index{konjugiert komplex}%
 sie ergibt sich durch Spiegelung an der reellen Achse.
 Aus der Definition folgt unmittelbar
 \begin{equation}
@@ -124,7 +132,7 @@ a^2 + b^2
 \end{equation}
 was später in Beweisen wiederholt verwendet wird.
 
-Der Abstand zweier Punkte $z_1$ und $z_2$ der Gaussschen Ebene ist gerade
+Der Abstand zweier Punkte $z_1$ und $z_2$ der gaussschen Ebene ist gerade
 $|z_1 - z_2|$.
 Damit lassen sich geometrische Bedingungen wie ``der Punkt $z$ hat von zwei
 festen Punkten denselben Abstand'' sofort als algebraische Gleichungen

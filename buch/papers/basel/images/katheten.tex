@@ -1,0 +1,49 @@
+%
+% katheten.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (5,0);
+\pgfmathparse{sqrt((5-1.8)*1.8)}
+\xdef\h{\pgfmathresult}
+\coordinate (C) at (1.8, \h);
+\coordinate (H) at (1.8, 0);
+\draw (A) -- (B) -- (C) -- cycle;
+\draw[dashed] (C) -- (H);
+% Rechter Winkel bei H
+\draw (H) ++(0.18,0) -- ++(0,0.18) -- ++(-0.18,0);
+% Seiten-Labels klar ausserhalb der Linien
+\node[left=6pt]  at ($0.5*(A)+0.5*(C)$) [above left] {$b$};
+\node[right=6pt] at ($0.5*(B)+0.5*(C)$) [above right] {$a$};
+\node[below=8pt] at ($0.5*(A)+0.5*(B)$) [below]   {$c$};
+\node[right=6pt] at ($0.5*(H)+0.5*(C)$) [right] {$h$};
+% Kehrwert-Labels mit farbigen Boxen, weit von den Seiten weg
+\node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
+    at (-1.1, 0.9) {$\dfrac{1}{b^2}$};
+\node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
+    at (5.8, 0.9)  {$\dfrac{1}{a^2}$};
+\node[red,  fill=red!8,  rounded corners=2pt, inner sep=3pt]
+    at (1.8, -1.1) {$\dfrac{1}{h^2}$};
+% Pfeile von den Labels zu den Seiten
+\draw[->, blue, thin] (-0.7, 0.9) -- (-0.05, 1.0);
+\draw[->, blue, thin] (5.45, 0.9) -- (4.5,   1.1);
+\draw[->, red,  thin] (1.8, -0.75) -- (1.8, -0.22);
+% Ergebnisformel oben, klar oberhalb des Dreiecks
+\node[above=10pt] at ($0.5*(A)+0.5*(B)+(0,\h)$) [above]
+    {$\dfrac{1}{a^2}+\dfrac{1}{b^2}=\dfrac{1}{h^2}$};
+
+\end{tikzpicture}
+\end{document}
+
