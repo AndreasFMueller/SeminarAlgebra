@@ -15,21 +15,9 @@ um den Kehrwert der Kathetenlängen.
 \subsection{Der inverse Satz des Pythagoras}
 \label{basel:subsection:traverser-pythagoras}
 
-\begin{figure}[H]
+\begin{figure}
 \centering
-\begin{tikzpicture}[>=latex, thick]
-\coordinate (A) at (0,0);
-\coordinate (B) at (4,0);
-\coordinate (C) at (2.5,2);
-\coordinate (H) at (2.5,0);
-\draw (A) -- (B) -- (C) -- cycle;
-\draw[dashed] (C) -- (H);
-\node at (1.0, 1.2) {$b$};
-\node at (3.6, 1.2) {$a$};
-\node at (2.0,-0.3) {$c$};
-\node at (2.85, 0.9) {$h$};
-\draw (H) ++(0.15,0) -- ++(0,0.15) -- ++(-0.15,0);
-\end{tikzpicture}
+\includegraphics{papers/basel/images/rechtwinklig.pdf}
 \caption{Rechtwinkliges Dreieck mit Katheten $a$, $b$, Hypotenuse $c$
 und Höhe $h$ auf die Hypotenuse.}
 \end{figure}
@@ -39,7 +27,7 @@ Das Produkt der Kathetenlängen $ab$ entspricht der Fläche eines Rechtecks,
 das genau doppelt so gross ist wie das Dreieck.
 
 %\needspace{8\baselineskip}
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{tikzpicture}[>=latex, thick]
 \coordinate (A) at (0,0);
@@ -71,25 +59,9 @@ ab = ch.
 \]
 
 %\needspace{8\baselineskip}
-\begin{figure}[H]
+\begin{figure}
 \centering
-\begin{tikzpicture}[>=latex, thick]
-\coordinate (A) at (0,0);
-\coordinate (B) at (5,0);
-\coordinate (C) at (1.8, 2.8);
-\coordinate (H) at (1.8, 0);
-\draw (A) -- (B) -- (C) -- cycle;
-\draw[dashed] (C) -- (H);
-% Rechter Winkel bei H
-\draw (H) ++(0.18,0) -- ++(0,0.18) -- ++(-0.18,0);
-% Seiten-Labels klar ausserhalb
-\node[left=6pt]        at (0.9, 1.4)   {$b$};
-\node[right=6pt]       at (3.4, 1.4)   {$a$};
-\node[below=8pt]       at (2.5, 0)     {$c$};
-\node[right=6pt]       at (1.8, 1.4)   {$h$};
-% Gleichung unterhalb des Dreiecks, klar getrennt
-\node[below=18pt] at (2.5, 0) {$\dfrac{1}{2}\,c\,h \;=\; \dfrac{1}{2}\,a\,b$};
-\end{tikzpicture}
+\includegraphics{papers/basel/images/hoehe.pdf}
 \caption{Schritt 2: Die Höhe $h$ auf die Hypotenuse $c$ ergibt dieselbe
 Dreiecksfläche wie das Produkt der Katheten: $ch = ab$.}
 \end{figure}
@@ -109,37 +81,9 @@ Die Summe der quadratischen Kehrwerte der Katheten ist also gleich dem
 quadratischen Kehrwert der Höhe auf die Hypotenuse.
 
 %\needspace{10\baselineskip}
-\begin{figure}[H]
+\begin{figure}
 \centering
-\begin{tikzpicture}[>=latex, thick]
-\coordinate (A) at (0,0);
-\coordinate (B) at (5,0);
-\coordinate (C) at (1.8, 2.8);
-\coordinate (H) at (1.8, 0);
-\draw (A) -- (B) -- (C) -- cycle;
-\draw[dashed] (C) -- (H);
-% Rechter Winkel bei H
-\draw (H) ++(0.18,0) -- ++(0,0.18) -- ++(-0.18,0);
-% Seiten-Labels klar ausserhalb der Linien
-\node[left=6pt]  at (0.9, 1.4)  {$b$};
-\node[right=6pt] at (3.4, 1.4)  {$a$};
-\node[below=8pt] at (2.5, 0)    {$c$};
-\node[right=6pt] at (1.8, 1.4)  {$h$};
-% Kehrwert-Labels mit farbigen Boxen, weit von den Seiten weg
-\node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
-    at (-1.1, 0.9) {$\dfrac{1}{b^2}$};
-\node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
-    at (5.8, 0.9)  {$\dfrac{1}{a^2}$};
-\node[red,  fill=red!8,  rounded corners=2pt, inner sep=3pt]
-    at (1.8, -1.1) {$\dfrac{1}{h^2}$};
-% Pfeile von den Labels zu den Seiten
-\draw[->, blue, thin] (-0.7, 0.9) -- (-0.05, 1.0);
-\draw[->, blue, thin] (5.45, 0.9) -- (4.5,   1.1);
-\draw[->, red,  thin] (1.8, -0.75) -- (1.8, -0.22);
-% Ergebnisformel oben, klar oberhalb des Dreiecks
-\node[above=10pt] at (2.5, 2.8)
-    {$\dfrac{1}{a^2}+\dfrac{1}{b^2}=\dfrac{1}{h^2}$};
-\end{tikzpicture}
+\includegraphics{papers/basel/images/katheten.pdf}
 \caption{Schritt 3: Die quadratischen Kehrwerte der Katheten $\frac{1}{a^2}$
 und $\frac{1}{b^2}$ (blau) addieren sich zum quadratischen Kehrwert
 der Höhe $\frac{1}{h^2}$ (rot).}
@@ -159,9 +103,12 @@ I(P) \;=\; \frac{1}{|PZ|^2}.
 \]
 Dies ist das bekannte Abstandsquadratgesetz der Optik.
 Die Intensität ist also der quadratische Kehrwert des Abstands von $P$ zu $Z$.
-Die zentrale Idee des Beweises ist, dass sich bei jedem Konstruktionsschritt
-alle folgenden Intensitäten auf neue Punkte übertragen,
-die Gesamtsumme also stets erhalten bleibt.
+Die zentrale Idee des Beweises ist, dass bei jedem Konstruktionsschritt
+jede Lichtquelle durch zwei neue Lichtquellen ersetzt wird, die dieselbe
+Eigenintensität (Helligkeit als Quelle) besitzen wie die ursprüngliche.
+Da die neuen Quellen weiter von $Z$ entfernt sind, ist die in $Z$
+wahrgenommene Intensität jeder einzelnen geringer, aber die in $Z$
+wahrgenommene Gesamtintensität bleibt stets erhalten.
 Am Ende lässt sich diese erhaltene Gesamtintensität mit der gesuchten Reihe
 gleichsetzen.
 }
@@ -190,7 +137,7 @@ I(M_1)
 \frac{\pi^2}{4}.
 \]
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{tikzpicture}[>=latex, thick]
 % Kreis k0: Mittelpunkt M0, Radius 1.8
@@ -217,7 +164,7 @@ Es wird ein weiterer Kreis $k_1$ um $M_1$ mit Radius $|M_1 Z|$ gezeichnet.
 Durch $M_1$ legt man eine Senkrechte zu $\overline{ZM_1}$, wodurch die
 Punkte $P_{1,1}$ und $P_{1,2}$ entstehen.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{tikzpicture}[>=latex, thick]
 % k0: Mittelpunkt M0=(0,0), Radius r0=1.0
@@ -255,8 +202,14 @@ $ZP_{1,1} = 1$.}
 \subsubsection{Schritt 3: Intensitäten auf $k_1$}
 Aus $P_{1,1}$, $P_{1,2}$ und $Z$ entsteht nach dem Satz des Thales ein
 rechtwinkliges Dreieck mit rechtem Winkel bei $Z$.
-$M_1$ ist der Höhenfusspunkt in diesem Dreieck, weshalb sich die Intensität
-von $M_1$ gleichmässig auf $P_{1,1}$ und $P_{1,2}$ verteilt:
+$M_1$ ist der Höhenfusspunkt in diesem Dreieck.
+Die einzelne Lichtquelle bei $M_1$ wird nun durch zwei Lichtquellen
+bei $P_{1,1}$ und $P_{1,2}$ ersetzt, die jeweils dieselbe Eigenintensität
+(d.\,h. dieselbe Helligkeit als Lichtquelle) besitzen wie die ursprüngliche
+Quelle bei $M_1$.
+Da $P_{1,1}$ und $P_{1,2}$ weiter von $Z$ entfernt sind als $M_1$, empfängt $Z$
+von jeder dieser Quellen weniger Licht. Die in $Z$ wahrgenommene Gesamtintensität
+bleibt jedoch nach dem inversen Satz des Pythagoras erhalten:
 \[
 I(M_1) = \frac{\pi^2}{4} = I(P_{1,1}) + I(P_{1,2}).
 \]
@@ -270,11 +223,19 @@ entsprechend $P_{2,2}$ und $P_{2,4}$.
 \subsubsection{Schritt 5: Intensitäten auf $k_2$}
 Das Dreieck $P_{2,1}P_{2,3}Z$ ist nach dem Satz des Thales rechtwinklig
 bei $Z$, und $P_{1,1}$ ist der Höhenfusspunkt.
-Damit gilt:
+Die Lichtquelle bei $P_{1,1}$ wird durch zwei Lichtquellen bei $P_{2,1}$
+und $P_{2,3}$ ersetzt, die dieselbe Eigenintensität besitzen wie die
+ursprüngliche Quelle bei $P_{1,1}$.
+Da $P_{2,1}$ und $P_{2,3}$ weiter von $Z$ entfernt sind als $P_{1,1}$,
+ist die in $Z$ wahrgenommene Intensität jeder einzelnen neuen Quelle geringer.
+Die in $Z$ wahrgenommene Gesamtintensität bleibt jedoch erhalten:
 \[
 I(P_{1,1}) = I(P_{2,1}) + I(P_{2,3}).
 \]
-Analog ist $P_{1,2}$ der Höhenfusspunkt im Dreieck $P_{2,2}P_{2,4}Z$, sodass
+Analog wird die Lichtquelle bei $P_{1,2}$ durch zwei Lichtquellen
+bei $P_{2,2}$ und $P_{2,4}$ ersetzt, die dieselbe Eigenintensität besitzen
+wie die ursprüngliche Quelle bei $P_{1,2}$, wobei $P_{1,2}$ der Höhenfusspunkt im
+Dreieck $P_{2,2}P_{2,4}Z$ ist:
 $I(P_{1,2}) = I(P_{2,2}) + I(P_{2,4})$.
 Insgesamt bleibt die Gesamtintensität erhalten:
 \[
@@ -296,7 +257,7 @@ Da $k_2$ doppelt so gross ist wie $k_1$ (Umfang~$8$), liegen die Punkte
 
 % 
 %
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{tikzpicture}[>=latex, thick]
 \def\r{0.82}
@@ -350,9 +311,13 @@ $P_{2,1}$, $P_{2,2}$, $P_{2,3}$, $P_{2,4}$.}
 Um $M_3$ wird ein Kreis $k_3$ mit Radius $|M_3 Z|$ gezeichnet.
 Als Beispiel: das Dreieck $P_{3,2}P_{3,6}Z$ ist nach dem Satz des Thales
 rechtwinklig bei $Z$, und $P_{2,2}$ ist der zugehörige Höhenfusspunkt.
-Die Intensität von $P_{2,2}$ verteilt sich damit auf $P_{3,2}$ und $P_{3,6}$.
-Dasselbe gilt für jeden Punkt auf $k_2$ -- alle Intensitäten werden auf $k_3$
-übertragen.
+Die Lichtquelle bei $P_{2,2}$ wird durch zwei Lichtquellen bei $P_{3,2}$
+und $P_{3,6}$ ersetzt, die dieselbe Eigenintensität besitzen wie die
+ursprüngliche Quelle bei $P_{2,2}$. Da diese weiter von $Z$ entfernt sind,
+ist die in $Z$ wahrgenommene Intensität jeder einzelnen neuen Quelle geringer.
+Die in $Z$ wahrgenommene Gesamtintensität bleibt jedoch erhalten.
+Dasselbe gilt für jeden Punkt auf $k_2$, sodass alle Lichtquellen durch
+Lichtquellen gleicher Eigenintensität auf $k_3$ ersetzt werden.
 Dabei bleiben bei jedem Schritt zwei Grössen konstant:
 \begin{itemize}
   \item Die Summe aller Intensitäten auf dem jeweiligen Kreis beträgt stets
@@ -362,7 +327,7 @@ Dabei bleiben bei jedem Schritt zwei Grössen konstant:
 
 % 
 %
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{tikzpicture}[>=latex, thick]
 \def\r{0.42}
@@ -436,7 +401,7 @@ Dabei bleiben bei jedem Schritt zwei Grössen konstant:
 \subsection{Der Grenzübergang}
 \label{basel:subsection:grenzuebergang}
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{tikzpicture}[>=latex, scale=0.7]
 % Zahlengerade von -4 bis 10 mit Pfeil
@@ -526,7 +491,7 @@ S_g
 =
 \frac{1}{4} S.
 \]
-Einsetzen liefert:
+Einsetzen liefert
 \[
 S
 =
@@ -534,7 +499,7 @@ S
 \implies
 \frac{3}{4} S = \frac{\pi^2}{8}
 \implies
-S = \frac{\pi^2}{8} \cdot \frac{4}{3},
+S = \frac{\pi^2}{8} \cdot \frac{4}{3}
 \]
 und damit das gesuchte Ergebnis:
 \begin{equation}
