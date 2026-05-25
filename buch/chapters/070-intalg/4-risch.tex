@@ -53,6 +53,7 @@ Die folgende Darstellung des Algorithmus stützt sich weitgehend auf
 \subsubsection{Rothstein-Trager für logarithmische Erweiterungen}
 
 \begin{beispiel}
+\label{buch:intalg:risch:bsp:1/logx}
 Hat die Funktion
 \[
 f(x)
@@ -497,14 +498,28 @@ von $p_1$ bestimmt werden, sie ist
 =
 \int 1
 =
-x + b_1
-=
-d_1 + b_1.
+x + 0\cdot\vartheta
+\quad
+\Rightarrow
+\quad
+\left\{
+\quad
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+b_2 &=& \displaystyle -\frac{c_1}{2} \\
+d_1 &=& x
+\end{array}
+\quad
+\right\}
+\quad
+\Rightarrow
+\quad
+q_1 = x + b_1
 \]
 Da darin $\vartheta$ nicht vorkommt, folgt $c_1=0$ und daher $b_2=0$.
 Die Integrationskonstante $b_1$ wird im nächsten Schritt bestimmt.
 \item Fall $k=0$:
-Es muss die Stammfunktion von $p_0-d_1$ aus
+Es muss die Stammfunktion von $p_0-d_1\,Du/u$ aus
 \[
 q_0
 =
@@ -537,10 +552,76 @@ q_0 + q_1\vartheta + q_2\vartheta^2
 x\log x - x + b_0
 \]
 ablesen.
+Tatsächlich ist die Ableitung davon
+\[
+\frac{d}{dx}\bigl( x\log x - x + b_0\bigr)
+=
+\log x + x \frac 1x - 1
+=
+\log x.
+\]
 Wie erwartet kann die Integrationskonstante $b_0$ nicht bestimmt werden.
 \end{beispiel}
 
 \begin{beispiel}
+Hat der Integrand $\log\log x$ eine elementare Stammfunktion?
+Für diese Aufgabe muss der Körper der rationalen Funktionen zweimal
+logarithmisch erweitert werden, zunächst um $\vartheta_1=\log x$ und
+dann im zweiten Schritt um $\vartheta_2 = \vartheta =\log u = \log\log x$.
+Gesucht ist jetzt das Integral des Polynoms
+$p(\vartheta) = 1\cdot\vartheta + 0$
+mit $p_1=1$ und $p_0=0$.
+\begin{itemize}
+\item Fall $k=2$:
+$q_2$ muss eine Konstante $b_2$ sein, deren Wert im
+nächsten Schritt bestimmt wird.
+\item Fall $k=1$:
+Die Stammfunktion $p_1$ ist
+\[
+\int p_1
+=
+\int 1
+=
+x + 0\cdot \vartheta
+\quad
+\Rightarrow
+\quad
+\left\{
+\quad
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+b_2 &=& \displaystyle -\frac{c_1}{2} \\
+d_1 &=& x
+\end{array}
+\quad
+\right\}
+\quad
+\Rightarrow
+\quad
+q_1 = x + b_1
+\]
+Wie früher folgt $c_1=0$ und $b_2=0$.
+Die Integrationskonstante $b_1$ wird im nächsten Schritt bestimmt.
+\item Fall $k=0$: Es ist die Stammfunktion von $p_0-d_1 \, Du/u$ zu bestimmen:
+\[
+q_0
+=
+\int\biggl(p_0-d_1\frac{Du}u\biggr)
+=
+\int\biggl(0-x \frac{D\log x}{\log x}\biggr)
+=
+-\int x \frac{1/x}{\log x}
+=
+-
+\int 
+\frac{1}{\log x}.
+\]
+Dieses Integral ist nach
+Beispiel~\ref{buch:intalg:risch:bsp:1/logx}
+nicht elementar und daher kann auch das Integral von $\log\log x$ nicht
+elementar sein.
+\qedhere
+\end{itemize}
 \end{beispiel}
 
 %
@@ -552,6 +633,8 @@ Wie erwartet kann die Integrationskonstante $b_0$ nicht bestimmt werden.
 \subsubsection{Hermite-Methode}
 
 \subsubsection{Rothstein-Trager für exponentielle Erweiterungen}
+
+\subsubsection{Erweiterte Polynome}
 
 \subsubsection{Der polynomielle Teil und die Risch-Differentialgleichung}
 
