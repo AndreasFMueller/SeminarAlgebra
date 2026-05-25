@@ -17,31 +17,37 @@ Rechts daneben ist die Julia-Menge der Funktion $f_c(z) = z^2 + 0$ dargestellt, 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.85\textwidth]{papers/julia/imgs/mandelbrot_julia_1.png}
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_julia_1.png}
     \caption{Mandelbrot-Menge bei $c=0$ und zugehörige Julia-Menge}
     \label{fig:mandelbrot_julia_1}
 \end{figure}
 
-Verschiebt man nun $c$ entlang der imaginären Achse, erhält man die Folge von Bildern in der Abbildung \ref{fig:mandelbrot_julia_2-5}.
+Verschiebt man nun $c$ entlang der imaginären Achse, erhält man die Folge von Bildern in den Abbildungen \ref{fig:mandelbrot_julia_2-4} und \ref{fig:mandelbrot_julia_5}.
 Links ist jeweils die aktuelle Position des Punktes $c$ dargestellt und rechts die Julia-Menge der Funktion $f_c$ --- parametrisiert mit dem aktuellen $c$.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.85\textwidth]{papers/julia/imgs/mandelbrot_julia_2.png}
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_julia_2.png}
     \\[\smallskipamount]
-    \includegraphics[width=0.85\textwidth]{papers/julia/imgs/mandelbrot_julia_3.png}
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_julia_3.png}
     \\[\smallskipamount]
-    \includegraphics[width=0.85\textwidth]{papers/julia/imgs/mandelbrot_julia_4.png}
-    \\[\smallskipamount]
-    \includegraphics[width=0.85\textwidth]{papers/julia/imgs/mandelbrot_julia_5.png}
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_julia_4.png}
 
-    \caption{Mandelbrot-Menge bei $c \in \{\,0.1i,\, 0.4i,\, 0.6i,\, 0.65i\,\}$ und zugehörige Julia-Mengen}
-    \label{fig:mandelbrot_julia_2-5}
+    \caption{Mandelbrot-Menge bei $c \in \{\,0.1i,\, 0.4i,\, 0.6i\,\}$ und zugehörige Julia-Mengen}
+    \label{fig:mandelbrot_julia_2-4}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_julia_5.png}
+
+    \caption{Mandelbrot-Menge bei $c = 0.65i$, ausserhalb von $M$ und zugehörige Julia-Menge}
+    \label{fig:mandelbrot_julia_5}
 \end{figure}
 
 Mit änderndem $c$ verformt sich die Julia-Menge zusehends und beim Übergang von $c=0.6i$ zu $c=0.65i$ zerfällt sie.
 Grund dafür ist, dass $c=0.6i$ noch in der Mandelbrot-Menge $M$ liegt, während $c=0.65i$ bereits ausserhalb ist.
-Bei den Bildern in Abbildung \ref{fig:mandelbrot_julia_2-5} ist die Mandelbrot-Menge schwarz dargestellt, alle eingefärbten Punkte gehören nicht mehr dazu.
+In den Abbildungen \ref{fig:mandelbrot_julia_2-4} und \ref{fig:mandelbrot_julia_5} ist die Mandelbrot-Menge schwarz dargestellt, alle eingefärbten Punkte gehören nicht mehr dazu.
 
 Es stellt sich heraus, dass die Julia-Menge \emph{zusammenhängend} ist, für alle $c \in M$ und \emph{nicht zusammenhängend} für alle $c \not\in M$.
 
@@ -50,7 +56,7 @@ Es stellt sich heraus, dass die Julia-Menge \emph{zusammenhängend} ist, für al
 In der Vergangenheit wurde mehrfach beobachtet, dass Strukturen in der Mandelbrot-Menge ganzen Julia-Mengen ähneln.
 Wie sich ergab, tritt für gewisse Arten von Parametern $c$ ein interessantes Phänomen auf.
 
-Es soll an Funktionen der Art $f_c(z) = z^2 + c$ illustriert werden.
+Dies soll an Funktionen der Art $f_c(z) = z^2 + c$ illustriert werden.
 
 \begin{beispiel}
     Nachfolgend wird der Punkt \[c_1 = 0.3626697754647427\, +\, 0.6450273437137847i\] betrachtet.
@@ -58,9 +64,9 @@ Es soll an Funktionen der Art $f_c(z) = z^2 + c$ illustriert werden.
 
     \begin{figure}
         \centering
-        \includegraphics[width=0.75\textwidth]{papers/julia/imgs/mandelbrot_zoom.png}
+        \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_zoom.png}
 
-        \caption{Mandelbrot-Menge bei $c_1 = 0.3626697754647427 + 0.6450273437137847i$}
+        \caption{Zoom der Mandelbrot-Menge bei $c_1 = 0.3626697754647427 + 0.6450273437137847i$, vgl. mit Abbildung \ref{fig:julia_zoom} (2)}
         \label{fig:mandelbrot_zoom}
     \end{figure}
 
@@ -68,9 +74,9 @@ Es soll an Funktionen der Art $f_c(z) = z^2 + c$ illustriert werden.
 
     \begin{figure}
         \centering
-        \includegraphics[width=0.55\textwidth]{papers/julia/imgs/julia_zoom.png}
+        \includegraphics[width=0.65\textwidth]{papers/julia/imgs/julia_zoom.png}
 
-        \caption{Julia-Menge von $f(z) = z^2 + 0.3626697754647427 + 0.6450273437137847i$}
+        \caption{Julia-Menge von $f(z) = z^2 + 0.3626697754647427 + 0.6450273437137847i$, vgl. mit Abbildung \ref{fig:mandelbrot_zoom} (6)}
         \label{fig:julia_zoom}
     \end{figure}
 
@@ -97,7 +103,7 @@ Dies ist dargestellt in Abbildung \ref{fig:preperiodic}.
     \centering
     \includegraphics[width=0.6\textwidth]{papers/julia/imgs/preperiodic.png}
 
-    \caption{Ein präperiodischer Zyklus}
+    \caption{Ein Zyklus ausgehend von einem präperiodischen Startwert}
     \label{fig:preperiodic}
 \end{figure}
 
@@ -118,7 +124,7 @@ Dazu legt man ein Gitter über die Mandelbrot-Menge und wählt einen Gitterpunkt
     \centering
     \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mosaik1.png}
 
-    \caption{Punkt in der Mandelbrot-Menge}
+    \caption{Gitterpunkt $-0.47 + 0.45i$ in der Mandelbrot-Menge}
     \label{fig:mosaik1}
 \end{figure}
 
@@ -133,7 +139,7 @@ Anschliessend wird sie verkleinert, dies ist in Abbildung \ref{fig:mosaik2-4} da
     \\[\smallskipamount]
     \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mosaik4.png}
 
-    \caption{Julia-Menge der Funktion $f(z) = z^2 - 0.47 + 0.45i$}
+    \caption{Kleiner werdende Julia-Menge der Funktion $f(z) = z^2 - 0.47 + 0.45i$ am Punkt $-0.47 + 0.45i$}
     \label{fig:mosaik2-4}
 \end{figure}
 
@@ -143,7 +149,7 @@ Nun wird dieser Vorgang für sämtliche Gitterpunkte wiederholt, wodurch Abbildu
     \centering
     \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mosaik5.png}
 
-    \caption{Mosaik der Mandelbrot-Menge}
+    \caption{Mosaik der Mandelbrot-Menge bestehend aus $100$ mal $100$ Julia-Mengen}
     \label{fig:mosaik5}
 \end{figure}
 
