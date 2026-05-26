@@ -35,19 +35,19 @@ Wir bestimmen nun die Koeffizienten aus den Abbildungsbedingungen.
 \[
 w_1 = \frac{a z_1 + b}{c z_1 + d}
 \quad \Rightarrow \quad
-w_1(c z_1 + d) = a z_1 + b
+w_1(c z_1 + d) = a z_1 + b.
 \]
 2. Bedingung: \( B = z_2 \mapsto B' = w_2 \)
 \[
 w_2 = \frac{a z_2 + b}{c z_2 + d}
 \quad \Rightarrow \quad
-w_2(c z_2 + d) = a z_2 + b
+w_2(c z_2 + d) = a z_2 + b.
 \]
 3. Bedingung: \( C = z_3 \mapsto C' = w_3 \)
 \[
 w_3 = \frac{a z_3 + b}{c z_3 + d}
 \quad \Rightarrow \quad
-w_3(c z_3 + d) = a z_3 + b
+w_3(c z_3 + d) = a z_3 + b.
 \]
 Damit erhält man ein lineares Gleichungssystem in \(a,b,c,d\) (bis auf Skalierung).
 Da eine Möbius-Transformation nur drei Freiheitsgrade besitzt, ist dieses System eindeutig lösbar (bis auf einen gemeinsamen Skalarfaktor).
@@ -55,15 +55,15 @@ Somit ist die Möbius-Transformation durch die drei Punktabbildungen eindeutig b
 \end{proof}
 
 \begin{beispiel}
-Gegeben seien die Punkte:
+Gegeben seien die Punkte
 \[
 A = 0, \quad B = 1, \quad C = i
 \]
-und die Bildpunkte:
+und die Bildpunkte
 \[
 A' = 1 + i, \quad B' = 0, \quad C' = i.
 \]
-Die Möbius-Transformation hat die Form:
+Die Möbius-Transformation hat die Form
 \[
 f(z) = \frac{az + b}{cz + d}.
 \]
@@ -72,7 +72,7 @@ Wir bestimmen nun die Koeffizienten aus den Abbildungsbedingungen.
 \[
 1+i = \frac{b}{d}
 \quad \Rightarrow \quad
-b = (1+i)d
+b = (1+i)d.
 \]
 2. Bedingung:  \( B = 1 \mapsto B' = 0 \)
 \[
@@ -80,69 +80,63 @@ b = (1+i)d
 \quad \Rightarrow \quad
 a + b = 0
 \quad \Rightarrow \quad
-a = -b = -(1+i)d
+a = -b = -(1+i)d.
 \]
 3. Bedingung:  \( C = i \mapsto C' = i \)
 \[
-i = \frac{ai + b}{ci + d}
+i = \frac{ai + b}{ci + d}.
 \]
-Einsetzen von \( a \) und \( b \):
+Durch das Einsetzen von \( a \) und \( b \) erhalten wir
 \[
-i = \frac{-(1+i)di + (1+i)d}{ci + d}
+i = \frac{-(1+i)di + (1+i)d}{ci + d}.
 \]
-Faktorisieren von \( d \):
+Danach erfolgt die Faktorisieren von \( d \)
 \[
-i = \frac{d\left(-(1+i)i + (1+i)\right)}{ci + d}
+i = \frac{d\left(-(1+i)i + (1+i)\right)}{ci + d}.
 \]
-Zähler vereinfachen:
+Der Zähler muss vereinfachen werden
 \[
 -(1+i)i = -(i + i^2) = -(i - 1) = 1 - i
 \]
 \[
-(1 - i) + (1 + i) = 2
+(1 - i) + (1 + i) = 2.
 \]
-Damit:
+Somit bekommt man
 \[
-i = \frac{2d}{ci + d}
+i = \frac{2d}{ci + d}.
 \]
-Gleichung umformen:
+Als nächstes muss man die Gleichung umformen
 \[
 i(ci + d) = 2d
 \]
 \[
-ic^2 + id = 2d
+c^2i + id = 2d.
 \]
-Mit \( i^2 = -1 \):
+Mithilfe von \( i^2 = -1 \) bekommen wir
 \[
-- c + id = 2d
+- c + id = 2d.
 \]
-Trennung nach Real- und Imaginärteil:
-Reell:
+Diese Gleichung enthält keine zusätzliche unabhängige Bedingung mehr.
+Sie ist bereits durch die ersten beiden Abbildungsbedingungen impliziert und liefert keine neue Einschränkung für \(c\) und \(d\).
+Damit bleibt \(d \neq 0\) als Skalierungsfreiheit erhalten, und die dritte Bedingung ist redundant.
+Mit dem ausgewählten Parameter  \( d = 1 \) bekommt man
 \[
-- c = 2d \quad \Rightarrow \quad c = -2d
+a = -(1+i), \quad b = 1+i, \quad c = -2, \quad d = 1.
 \]
-Imaginär:
-\[
-id = 0 \quad \Rightarrow \quad d \neq 0 \text{ (Skalierungsfreiheit)}
-\]
-Parameterwahl:  \( d = 1 \)
-\[
-a = -(1+i), \quad b = 1+i, \quad c = -2, \quad d = 1
-\]
-Damit ergibt sich die Möbius-Transformation:
+Damit ergibt sich die Möbius-Transformation
 \[
 f(z) = \frac{-(1+i)z + (1+i)}{-2z + 1}.
 \]
-Alternativ gekürzt:
+Alternativ gekürzt erhält man
 \[
 f(z) = \frac{(1+i)(1 - z)}{1 - 2z}.
 \]
 \emph{Überprüfung:}
-Wir betrachten die konkrete Darstellung:
+Wir betrachten die konkrete Darstellung
 \[
 f(z)=\frac{(1+i)z + 1}{z + (1-i)}.
 \]
-Einsetzen der Punkte liefert:
+Einsetzen der Punkte liefert
 \begin{align}
 	f(0) &= \frac{1}{1-i} = 1+i = A' \\
 	f(1) &= \frac{(1+i)+1}{1+(1-i)} = \frac{2+i}{2-i} = 0 = B' \\
