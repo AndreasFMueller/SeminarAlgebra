@@ -632,11 +632,179 @@ elementar sein.
 
 \subsubsection{Hermite-Methode}
 
-\subsubsection{Rothstein-Trager für exponentielle Erweiterungen}
-
 \subsubsection{Erweiterte Polynome}
 
+\subsubsection{Rothstein-Trager für exponentielle Erweiterungen}
+
 \subsubsection{Der polynomielle Teil und die Risch-Differentialgleichung}
+Der polynomielle Teil des Integranden $f\in F(\vartheta)$ ist eine 
+erweitertes Polynom der Form
+\[
+p(\vartheta)
+=
+\sum_{i=-k}^l
+p_i\vartheta^i,
+\]
+dessen Stammfunktion jetzt analog zum logarithmischen Fall durch
+Koeffizientenvergleich ermittelt werden soll.
+
+Die Ableitung eines Monoms ist
+\[
+D(a\vartheta^n) 
+=
+(Da)\vartheta^n + an\vartheta^{n-1}D\vartheta
+=
+(Da)\vartheta^n + an\vartheta^{n-1}\vartheta Du
+=
+(Da + naDu)\vartheta^n,
+\]
+also wieder ein Monom mit dem gleichen Exponenten.
+Die Ableitung reduziert im Gegensatz zum logarithmischen Fall den
+Grad nicht.
+Man darf daher erwarten, dass die Stammfunktion wieder ein erweitertes
+Polynom
+\[
+q(\vartheta)
+=
+\sum_{i=-k}^l q_i\vartheta^i
+\]
+ist.
+
+Um die Koeffizienten des Polynoms zu finden, leiten wir $q(\vartheta)$
+ab und führen Koeffizientenvergleich in
+\[
+p(\vartheta)
+=
+\sum_{i=-k}^l p_i\vartheta^i
+=
+Dq\vartheta
+=
+\sum_{i=-k}^l
+(Dq_i + iq_i Du)\vartheta^i
+\]
+durch.
+Es ergeben sich die Differentialgleichungen
+\begin{equation}
+Dq_i + iDu\cdot q_i = p_i
+\label{buch:intalg:risch:exponentiell:eqn:rischdgl}
+\end{equation}
+für $i =-k,\dots, l$.
+Gesucht sind Lösungen $q_i\in F$.
+Falls es keine solche Lösung gibt, hat $p(\vartheta)$ keine elementare
+Stammfunktion.
+
+Auf den ersten Blick scheint es, dass die Differentialgleichung
+\eqref{buch:intalg:risch:exponentiell:eqn:rischdgl}
+das Integrationsproblem in eine Differentialgleichungsproblem
+umwandelt.
+Die Bestimmung einer Stammfunktion ist ein Spezialfall der Lösung
+einer Differentialgleichung, man könnte also meinen, dass das
+ursprüngliche Problem durch ein schwierigeres Problem ersetzt worden
+ist.
+Zudem sagen doch die bekannten Sätze aus der Theorie der gewöhnlichen
+Differentialgleichungen, dass die Lösung mindestens lokal existiert
+und eindeutig ist.
+Es geht aber nicht darum, eine beliebige Lösungsfunktion zu finden,
+sondern diese Funktion muss in $F$ sein.
+Der Satz von Picard-Lindelöf als Beispiel eines Existenz- und
+Eindeutigkeitssatzes für gewöhnliche Differentialgleichungen
+kann dazu nichts aussagen.
+Daher wurden auch gänzlich andere Lösungen zur Lösung dieser
+Differentialgleichung entwickelt.
+
+\begin{definition}
+Sei $F$ ein differentieller Funktionenkörper und $f,g\in F$.
+Das Problem, eine Lösung $y\in F$ der Differentialgleichung
+\[
+Dy + f\, y = g
+\]
+zu finden, heisst die \emph{Risch-Differentialgleichung}.
+\end{definition}
+
+\begin{beispiel}
+Hat die Wahrscheinlichkeitsdichte $e^{-x^2/2}$ eine elementare
+Stammfunktion?
+Der Integrand ist in der Erweiterung $F(\vartheta)=\mathbb{Q}(x,\vartheta)$
+von $F=\mathbb{Q}(x)$ um die Exponentialfunktion $\vartheta = e^{-x^2/2}$
+von $u=-x^2/2$.
+Gesucht ist die Stammfunktion des polynomiellen Teils
+$p(\vartheta)=p_1\vartheta^1$.
+Sie muss die Form $q_1\vartheta$ haben.
+Die Risch-Differentialgleichung ist
+\[
+Dq_1 + Du\, q_1 = p_1
+\quad\Rightarrow\quad
+Dq_1 - x q_1 = 1.
+\]
+Die Lösung muss eine rationale Funktion $q_1\in\mathbb{Q}(x)$ sein.
+Wir schreiben die rationale Funktion als gekürzten Bruch
+\begin{equation}
+q_1(x) = \frac{a(x)}{b(x)}
+\label{buch:intalg:risch:exponentiell:bsp:eqn:qex2}
+\end{equation}
+von Polynomen $a,b\in \mathbb{Q}[x]$, $b(x)$ soll ausserdem normiert sein.
+Einsetzen in die Differentialgleichung liefert
+\begin{align}
+\frac{a'(x)b(x)-a(x)b(x)}{b(x)^2} - x\frac{a(x)}{b(x)} &= 1.
+\notag
+\intertext{Multiplizieren mit dem Nenner $b(x)^2$ führt auf die
+Polynomgleichung}
+a'(x)b(x) - a(x)b'(x) -x a(x)b(x) &= b(x)^2.
+\label{buch:intalg:risch:exponentiell:eqn:qex2poly}
+\end{align}
+Das Polynom $b(x)$ ist ein Teiler des ersten und des letzten Terms auf
+der linken Seite.
+Ausserdem teilt es die rechte Seite.
+Daher muss es auch den mittleren Term $a(x)b'(x)$ teilen.
+Es kann aber keine gemeinsamen Faktoren mit $a(x)$ haben, da angenommen
+wurde, dass der Bruch \eqref{buch:intalg:risch:exponentiell:bsp:eqn:qex2}
+gekürzt ist.
+Es folgt, dass $b(x)$ die Ableitung $b'(x)$ teilt, was nur möglich ist,
+wenn $b'(x)=0$ ist.
+Das Polynom $b(x)$ ist also nur ein Konstante $b_0$.
+Da $b(x)$ ausserdem normiert ist, muss $b_0=1$ sein.
+
+Die Polynomgleichung \eqref{buch:intalg:risch:exponentiell:eqn:qex2poly}
+wird jetzt zu
+\begin{equation}
+a'(x) - x a(x) = 1.
+\label{buch:intalg:risch:exponentiell:bsp:eqn:qex2:adgl}
+\end{equation}
+Schreibt man die Koeffizienten des Polynoms als $a_k$, wird die
+Gleichung
+\eqref{buch:intalg:risch:exponentiell:bsp:eqn:qex2:adgl}
+zu
+\begin{align*}
+\sum_{k=0}^n ka_kx^{k-1} -x \sum_{k=0}^n a_kx^k &= 1
+\\
+\sum_{k=1}^n ka_kx^{k-1} - \sum_{k=0}^n a_kx^{k+1} &= 1
+\\
+\sum_{i=0}^{n-1} (i+1)a_{i+1}x^i - \sum_{i=1}^{n+1} a_{i-1} x^i &= 1
+\\
+a_1 + \sum_{i=1}^{n-1} \bigl((i+1)a_{i+1}-a_{i-1}\bigr) x^i
++ a_{n-1}x^n + a_{n}x^{n+1} &= 1
+\end{align*}
+Durch Koeffizientenvergleich liest man die Gleichungen
+\begin{align}
+a_1 &= 1 \notag \\
+(i+1)a_{i+1} -a_{i-1} &= 0 &&\Rightarrow& a_{i-1} &= (i+1)a_{i+1}&&1\le i\le n-1
+\label{buch:intalg:risch:exponentiell:bsp:exp2:rekursion}
+\\
+a_{n-1} &= 0 \notag \\
+a_n &= 0 \notag
+\end{align}
+für die Koeffizienten $a_k$ ab.
+
+Anwendung der Gleichung
+\eqref{buch:intalg:risch:exponentiell:bsp:exp2:rekursion} auf
+die letzten beiden Bedingungen erlaubt zu schliessen, dass alle
+Koeffizienten verschwinden müssen, auch $a_0$.
+Dies steht im Widerspruch zur ersten Gleichung $a_1=1$.
+Der Widerspruch zeigt, dass die Lösung der Differentialgleichung
+keine rationale Funktion sein kann und dass somit auch $e^{-x^2/2}$ keine
+elementare Stammfunktion haben kann.
+\end{beispiel}
+
 
 %
 % Risch-Algorithmus für algebraische Erweiterungen
