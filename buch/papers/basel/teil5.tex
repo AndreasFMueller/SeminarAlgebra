@@ -6,50 +6,24 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Geometrisch physikalischer Beweis}
-\label{basel:section:geometrisch-physikalischer-beweis}
+\section{Geometrisch-physikalischer Beweis
+\label{basel:section:geometrisch-physikalischer-beweis}}
+\kopfrechts{Geometrisch-physikalischer Beweis}
 
 Als erstes braucht man den Inversen Satz des Pythagoras, bei diesem Satz geht es
 um den Kehrwert der Kathetenlängen.
 
 \subsection{Der inverse Satz des Pythagoras}
 \label{basel:subsection:traverser-pythagoras}
+\index{Pythagoras!inverser Satz des}%
 
-\begin{figure}
-\centering
-\includegraphics{papers/basel/images/rechtwinklig.pdf}
-\caption{Rechtwinkliges Dreieck mit Katheten $a$, $b$, Hypotenuse $c$
-und Höhe $h$ auf die Hypotenuse.}
-\end{figure}
+\input{papers/basel/fig/rechtwinklig.tex}
 
 \subsubsection{Schritt 1: Fläche des Dreiecks}
 Das Produkt der Kathetenlängen $ab$ entspricht der Fläche eines Rechtecks,
 das genau doppelt so gross ist wie das Dreieck.
 
-%\needspace{8\baselineskip}
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex, thick]
-\coordinate (A) at (0,0);
-\coordinate (B) at (4.5,0);
-\coordinate (C) at (0,3.0);
-% Rechteck gestrichelt
-\draw[dashed] (0,0) rectangle (4.5,3.0);
-% Dreieck (ausgefüllt grau)
-\fill[gray!20] (A) -- (B) -- (C) -- cycle;
-\draw (A) -- (B) -- (C) -- cycle;
-% Rechter Winkel bei A
-\draw (0.25,0) -- (0.25,0.25) -- (0,0.25);
-% Seiten-Labels weit genug weg von den Linien
-\node[left=8pt]  at (0, 1.5)  {$b$};
-\node[below=8pt] at (2.25, 0) {$a$};
-% Flächen-Labels in freie Bereiche
-\node at (3.2, 2.2) {\small Rechteck $= ab$};
-\node at (0.9, 0.7) {\small $\triangle = \dfrac{ab}{2}$};
-\end{tikzpicture}
-\caption{Schritt 1: Das Dreieck (grau) hat den halben Flächeninhalt
-des Rechtecks mit den Seiten $a$ und $b$.}
-\end{figure}
+\input{papers/basel/fig/rechteck.tex}
 
 \subsubsection{Schritt 2: Höhe auf die Hypotenuse}
 Die Höhe $h$ wird auf die Hypotenuse $c$ gefällt.
@@ -58,13 +32,7 @@ Auch dieser Ausdruck verdoppelt die Dreiecksfläche, woraus folgt:
 ab = ch.
 \]
 
-%\needspace{8\baselineskip}
-\begin{figure}
-\centering
-\includegraphics{papers/basel/images/hoehe.pdf}
-\caption{Schritt 2: Die Höhe $h$ auf die Hypotenuse $c$ ergibt dieselbe
-Dreiecksfläche wie das Produkt der Katheten: $ch = ab$.}
-\end{figure}
+\input{papers/basel/fig/hoehe.tex}
 
 \subsubsection{Schritt 3: Kehrwerte der Katheten}
 Nun wird die Summe der quadratischen Kehrwerte der Katheten berechnet:
@@ -80,21 +48,14 @@ Nun wird die Summe der quadratischen Kehrwerte der Katheten berechnet:
 Die Summe der quadratischen Kehrwerte der Katheten ist also gleich dem
 quadratischen Kehrwert der Höhe auf die Hypotenuse \cite{basel:Wikipedia2}.
 
-%\needspace{10\baselineskip}
-\begin{figure}
-\centering
-\includegraphics{papers/basel/images/katheten.pdf}
-\caption{Schritt 3: Die quadratischen Kehrwerte der Katheten $\frac{1}{a^2}$
-und $\frac{1}{b^2}$ (blau) addieren sich zum quadratischen Kehrwert
-der Höhe $\frac{1}{h^2}$ (rot).}
-\end{figure}
+\input{papers/basel/fig/katheten.tex}
 
-\clearpage
 \subsection{Der Konstruktionsprozess}
 \label{basel:subsection:konstruktionsprozess}
 
 {\sloppy
 Der Beweis benutzt den physikalischen Begriff der \emph{Intensität}:
+\index{Intensitat@Intensität}%
 Stellt man sich eine Lichtquelle am Punkt $P$ vor, so empfängt
 ein Beobachter am Punkt $Z$ eine Helligkeit, die mit dem
 Quadrat des Abstands abnimmt:
@@ -132,72 +93,19 @@ I(M_1)
 =
 \frac{1}{d^2}
 =
-\frac{1}{\left(\dfrac{2}{\pi}\right)^2}
+\frac{1}{\biggl(\dfrac{2}{\pi}\biggr)^2}
 =
 \frac{\pi^2}{4}.
 \]
 
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex, thick]
-% Kreis k0: Mittelpunkt M0, Radius 1.8
-\def\R{1.8}
-\coordinate (M0) at (0, 0);
-\coordinate (M1) at (0, \R);
-\coordinate (Z)  at (0,-\R);
-% Kreis
-\draw (M0) circle (\R);
-% Vertikale Linie M1--Z
-\draw (M1) -- (Z);
-% Punkte – Labels mit weissem Hintergrund damit Linie nicht durchscheint
-\fill (M0) circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$M_0$};
-\fill (M1) circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$M_1$};
-\fill (Z)  circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$Z$};
-% Bogenlängen entfernt
-\end{tikzpicture}
-\caption{Ausgangskreis $k_0$ mit Umfang 2, Mittelpunkt $M_0$,
-oberem Punkt $M_1$ und unterem Punkt $Z$.}
-\end{figure}
+\input{papers/basel/fig/ausgangskreis.tex}
 
 \subsubsection{Schritt 2: Erster Konstruktionskreis $k_1$}
 Es wird ein weiterer Kreis $k_1$ um $M_1$ mit Radius $|M_1 Z|$ gezeichnet.
 Durch $M_1$ legt man eine Senkrechte zu $\overline{ZM_1}$, wodurch die
 Punkte $P_{1,1}$ und $P_{1,2}$ entstehen.
 
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex, thick]
-% k0: Mittelpunkt M0=(0,0), Radius r0=1.0
-% k1: Mittelpunkt M1=(0,1.0), Radius r1=2.0
-% Z=(0,-1.0), P1,1=(2.0,1.0), P1,2=(-2.0,1.0)
-\def\rz{1.0}  % Radius k0
-\def\ro{2.0}  % Radius k1
-\coordinate (M0)  at (0,    0);
-\coordinate (M1)  at (0,  \rz);
-\coordinate (Z)   at (0, -\rz);
-\coordinate (P11) at ( \ro, \rz);
-\coordinate (P12) at (-\ro, \rz);
-% Kreise
-\draw (M0) circle (\rz);
-\draw (M1) circle (\ro);
-% Horizontale Linie durch M1 (Senkrechte zu ZM1)
-\draw[thin] (P12) -- (P11);
-% Linien von Z zu P1,1 und P1,2
-\draw (Z) -- (P11);
-\draw (Z) -- (P12);
-% Punkte – Labels mit weissem Hintergrund, kollisionsfrei
-\fill (M0)  circle (2pt) node[right=6pt, fill=white, inner sep=1pt, font=\small] {$M_0$};
-\fill (M1)  circle (2pt) node[right=6pt, fill=white, inner sep=1pt, font=\small] {$M_1$};
-\fill (Z)   circle (2pt) node[below right=4pt, fill=white, inner sep=1pt, font=\small] {$Z$};
-\fill (P11) circle (2pt) node[above right=6pt, fill=white, inner sep=1pt, font=\small] {$P_{1,1}$};
-\fill (P12) circle (2pt) node[above left=6pt,  fill=white, inner sep=1pt, font=\small] {$P_{1,2}$};
-% k1-Label mit weissem Hintergrund
-\node[font=\small, fill=white, inner sep=1pt] at (-2.6, 2.8) {$k_1$};
-\end{tikzpicture}
-\caption{Erster Konstruktionsschritt: Kreis $k_1$ um $M_1$ mit den Punkten
-$P_{1,1}$ und $P_{1,2}$. Bogenlängen: $P_{1,1}P_{1,2} = 2$, $P_{1,2}Z = 1$,
-$ZP_{1,1} = 1$.}
-\end{figure}
+\input{papers/basel/fig/k1.tex}
 
 \subsubsection{Schritt 3: Intensitäten auf $k_1$}
 Aus $P_{1,1}$, $P_{1,2}$ und $Z$ entsteht nach dem Satz des Thales ein
@@ -257,55 +165,7 @@ Da $k_2$ doppelt so gross ist wie $k_1$ (Umfang~$8$), liegen die Punkte
 
 % 
 %
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex, thick]
-\def\r{0.82}
-\coordinate (Z)   at (0,0);
-\coordinate (M0)  at (0,{\r});
-\coordinate (M1)  at (0,{2*\r});
-\coordinate (M2)  at (0,{4*\r});
-% P1 Punkte (senkrecht zu ZM1 durch M1)
-\coordinate (P11) at ({2*\r},{2*\r});
-\coordinate (P12) at ({-2*\r},{2*\r});
-% P2 Punkte (auf Diagonalen von M2, Radius 4r)
-% 2.828 = 4*0.7071 = 4/sqrt2
-\coordinate (P21) at ({2.828*\r},{1.172*\r});   % 315 Grad, unten-rechts
-\coordinate (P22) at ({2.828*\r},{6.828*\r});   % 45 Grad, oben-rechts
-\coordinate (P23) at ({-2.828*\r},{6.828*\r});  % 135 Grad, oben-links
-\coordinate (P24) at ({-2.828*\r},{1.172*\r});  % 225 Grad, unten-links
-% Kreise
-\draw (M0) circle ({\r});
-\draw (M1) circle ({2*\r});
-\draw (M2) circle ({4*\r});
-% Geraden durch M2
-\draw[thin] (0,{-0.6}) -- (0,{8*\r+0.6});
-\draw[thin] ({-4*\r-0.6},{4*\r}) -- ({4*\r+0.6},{4*\r});
-\draw[thin] ({-2.828*\r-0.55},{6.828*\r+0.55}) -- ({2.828*\r+0.55},{1.172*\r-0.55});
-\draw[thin] ({2.828*\r+0.55},{6.828*\r+0.55}) -- ({-2.828*\r-0.55},{1.172*\r-0.55});
-% ROTE LINIEN: Dreieck 1: P2,3 -- P2,1 -- Z; Dreieck 2: Z -- P1,1 -- P2,1
-\draw[red, thick] (P23) -- (P21) -- (Z) -- cycle;
-\draw[red, thick] (Z) -- (P11) -- (P21) -- cycle;
-% Punkte – Labels mit weissem Hintergrund, kollisionsfrei
-\fill (Z)   circle (1.5pt) node[below left=4pt,  fill=white, inner sep=1pt, font=\small] {$Z$};
-\fill (M0)  circle (1.5pt) node[right=6pt,       fill=white, inner sep=1pt, font=\small] {$M_0$};
-\fill (M1)  circle (1.5pt) node[right=6pt,       fill=white, inner sep=1pt, font=\small] {$M_1$};
-\fill (M2)  circle (1.5pt) node[right=6pt,       fill=white, inner sep=1pt, font=\small] {$M_2$};
-\fill (P11) circle (1.5pt) node[above right=6pt, fill=white, inner sep=1pt, font=\small] {$P_{1,1}$};
-\fill (P12) circle (1.5pt) node[above left=6pt,  fill=white, inner sep=1pt, font=\small] {$P_{1,2}$};
-\fill (P21) circle (1.5pt) node[below right=6pt, fill=white, inner sep=1pt, font=\small] {$P_{2,1}$};
-\fill (P22) circle (1.5pt) node[above right=6pt, fill=white, inner sep=1pt, font=\small] {$P_{2,2}$};
-\fill (P23) circle (1.5pt) node[above left=6pt,  fill=white, inner sep=1pt, font=\small] {$P_{2,3}$};
-\fill (P24) circle (1.5pt) node[below left=6pt,  fill=white, inner sep=1pt, font=\small] {$P_{2,4}$};
-% k-Labels mit weissem Hintergrund
-\node[font=\small, fill=white, inner sep=1pt] at ({-4*\r-0.5},{6.5*\r}) {$k_2$};
-\node[font=\small, fill=white, inner sep=1pt] at ({-2.2*\r},{2.0*\r}) {$k_1$};
-\end{tikzpicture}
-\caption{Zweiter Konstruktionsschritt: Kreis $k_2$ mit den Punkten
-$P_{2,1}$, $P_{2,2}$, $P_{2,3}$, $P_{2,4}$.}
-\end{figure}
-
-
+\input{papers/basel/fig/k2.tex}
 
 \subsubsection{Schritt 6: Dritter Konstruktionskreis $k_3$ und Invarianten}
 Um $M_3$ wird ein Kreis $k_3$ mit Radius $|M_3 Z|$ gezeichnet.
@@ -327,115 +187,12 @@ Dabei bleiben bei jedem Schritt zwei Grössen konstant:
 
 % 
 %
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex, thick]
-\def\r{0.42}
-\coordinate (Z)   at (0,0);
-\coordinate (M0)  at (0,{\r});
-\coordinate (M1)  at (0,{2*\r});
-\coordinate (M2)  at (0,{4*\r});
-\coordinate (M3)  at (0,{8*\r});
-% P2 Punkte (auf Diagonalen von M2)
-\coordinate (P21) at ({2.828*\r},{1.172*\r});
-\coordinate (P22) at ({4*\r},{4*\r});   % Schnittpunkt Diagonale P3,1-P3,6 mit k2
-\coordinate (P23) at ({-2.828*\r},{6.828*\r});
-\coordinate (P24) at ({-2.828*\r},{1.172*\r});
-% P1 Punkte
-\coordinate (P11) at ({2*\r},{2*\r});
-\coordinate (P12) at ({-2*\r},{2*\r});
-% P3 Punkte auf k3 (M3=(0,8r), Radius=8r)
-% Nummerierung gemäss Bild: P3,6=oben-links(135 Grad)
-\coordinate (P31) at ({8*\r*cos(-45)}, {8*\r+8*\r*sin(-45)});  % 315 unten-rechts
-\coordinate (P32) at ({8*\r},           {8*\r});                 % 0 rechts
-\coordinate (P33) at ({8*\r*cos(45)},  {8*\r+8*\r*sin(45)});   % 45 oben-rechts
-\coordinate (P34) at (0,               {16*\r});                 % 90 oben
-\coordinate (P35) at ({-8*\r},          {8*\r});                 % 180 links
-\coordinate (P36) at ({8*\r*cos(135)}, {8*\r+8*\r*sin(135)});  % 135 oben-links = P3,6 gemäss Bild
-\coordinate (P37) at ({8*\r*cos(225)}, {8*\r+8*\r*sin(225)});  % 225 unten-links
-% Kreise
-\draw[thin,gray] (M0) circle ({\r});
-\draw[thin,gray] (M1) circle ({2*\r});
-\draw[thin,gray] (M2) circle ({4*\r});
-\draw (M3) circle ({8*\r});
-% Geraden durch M3
-\draw[thin,gray] (0,{-0.5}) -- (0,{16*\r+0.5});
-\draw[thin,gray] ({-8*\r-0.5},{8*\r}) -- ({8*\r+0.5},{8*\r});
-\draw[thin,gray] ({8*\r*cos(135)-0.45},{8*\r+8*\r*sin(135)+0.45}) -- ({8*\r*cos(-45)+0.45},{8*\r+8*\r*sin(-45)-0.45});
-\draw[thin,gray] ({8*\r*cos(45)+0.45},{8*\r+8*\r*sin(45)+0.45}) -- ({8*\r*cos(225)-0.45},{8*\r+8*\r*sin(225)-0.45});
-% ROTE LINIEN: Dreieck 1: P3,6 -- P3,1 -- Z; Dreieck 2: P2,2 -- P3,1 -- Z
-\draw[red, thick] (P36) -- (P31) -- (Z) -- cycle;
-\draw[red, thick] (P22) -- (P31) -- (Z) -- cycle;
-% P3 Punkte
-\fill (P31) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{3,1}$};
-\fill (P32) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{3,2}$};
-\fill (P33) circle (1.5pt) node[above right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{3,3}$};
-\fill (P34) circle (1.5pt) node[right=6pt,       fill=white, inner sep=1pt, font=\tiny] {$P_{3,4}$};
-\fill (P35) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{3,5}$};
-\fill (P36) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{3,6}$};
-\fill (P37) circle (1.5pt) node[left=6pt,        fill=white, inner sep=1pt, font=\tiny] {$P_{3,7}$};
-% P2 Punkte
-\fill (P21) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{2,1}$};
-\fill (P22) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{2,2}$};
-\fill (P23) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{2,3}$};
-\fill (P24) circle (1.5pt) node[below left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{2,4}$};
-% P1 Punkte
-\fill (P11) circle (1.5pt) node[above right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{1,1}$};
-\fill (P12) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{1,2}$};
-% Mittelpunkte – alle auf y-Achse → nach rechts mit weissem Hintergrund
-\fill (M0) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\tiny]  {$M_0$};
-\fill (M1) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\tiny]  {$M_1$};
-\fill (M2) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\tiny]  {$M_2$};
-\fill (M3) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\small] {$M_3$};
-\fill (Z)  circle (1.5pt) node[below left=5pt, fill=white, inner sep=1pt, font=\small] {$Z$};
-% k-Labels mit weissem Hintergrund
-\node[font=\small, fill=white, inner sep=1pt] at ({-9.5*\r},{14*\r}) {$k_3$};
-\node[font=\tiny,  fill=white, inner sep=1pt] at ({-5*\r},{ 6.5*\r}) {$k_2$};
-\end{tikzpicture}
-\caption{Dritter Konstruktionsschritt: Kreis $k_3$ mit acht
-äquidistanten Punkten.}
-\end{figure}
+\input{papers/basel/fig/k3.tex}
 
-
-\clearpage
 \subsection{Der Grenzübergang}
 \label{basel:subsection:grenzuebergang}
 
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex, scale=0.7]
-% Zahlengerade von -4 bis 10 mit Pfeil
-\draw[->] (-4.7, 0) -- (10.5, 0);
-% Teilstriche fuer alle ganzen Zahlen von -4 bis 10
-\foreach \x in {-4,-3,...,10} {
-    \draw (\x, 0.08) -- (\x, -0.08);
-    \node[above=3pt, font=\scriptsize] at (\x, 0) {$\x$};
-}
-% Z bei 0
-\fill (0, 0) circle (2pt);
-\node[above=10pt, font=\small] at (0, 0) {$Z$};
-% P-Punkte links
-\fill (-1, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_{-1}$};
-\fill (-3, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_{-2}$};
-% P-Punkte rechts
-\fill (1, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_1$};
-\fill (3, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_2$};
-\fill (5, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_3$};
-\fill (7, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_4$};
-\fill (9, 0) circle (2pt)
-    node[below=6pt, fill=white, inner sep=1pt, font=\small] {$P_5$};
-\end{tikzpicture}
-\caption{Grenzübergang: Der Kreis $k_n$ wird zur Zahlengeraden durch $Z = 0$.
-Die Punkte $P_k$ liegen bei den ungeraden Zahlen $\ldots, -3, -1, 1, 3, 5, \ldots$
-im Abstand $1, 3, 5, 7, \ldots$ von $Z$.
-\label{basel:figure:gerade}}
-\end{figure}
+\input{papers/basel/fig/zahlengerade.tex}
  
 \subsubsection{Schritt 7: Übergang zur Geraden}
 Im Grenzübergang $n \to \infty$ wächst der Kreis $k_n$ ins Unendliche und
@@ -485,9 +242,9 @@ S_g
 \frac{1}{2^2} + \frac{1}{4^2} + \frac{1}{6^2} + \cdots
 =
 \frac{1}{4}
-\!\left(
+\!\biggl(
 \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \cdots
-\right)
+\biggr)
 =
 \frac{1}{4} S.
 \]
@@ -502,10 +259,10 @@ S
 S = \frac{\pi^2}{8} \cdot \frac{4}{3}
 \]
 und damit das gesuchte Ergebnis:
-\begin{equation}
+\begin{equation*}
 S = \frac{\pi^2}{6}.
-\label{basel:equation:geometrie-ergebnis}
-\end{equation}
+%\label{basel:equation:geometrie-ergebnis}
+\end{equation*}
 
 In dem YouTube-Video \textit{Why is pi here? And why is it squared? A geometric answer 
 to the Basel problem} von 3Blue1Brown \cite{Basel:YouTube2} wird dieser Beweis ebenfalls 
