@@ -3,6 +3,23 @@
 %
 % (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 %
+\documentclass{beamer}
+
+% Graphics
+\usepackage{graphicx}
+
+% TikZ / PGF
+\usepackage{tikz}
+\usetikzlibrary{calc} % useful for coordinate calculations (safe to include)
+
+% Math
+\usepackage{amsmath}
+
+% (optional but recommended for nicer fonts)
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
 \bgroup
 \def\l{3}
 \pgfmathparse{\l/50}
@@ -51,7 +68,7 @@
 	\achsen{black}
 	\begin{scope}
 		\clip (-\l,-\l) rectangle (\l,\l);
-		\node at (-0.59,-0.32) {\includegraphics[width=11.2cm]{../slides/1/mandelbrot.jpg}};
+		\node at (-0.59,-0.32) {\includegraphics[width=11.2cm]{vorlesungen/slides/1/mandelbrot.jpg}};
 		\achsen{white}
 	\end{scope}
 	\uncover<2->{
@@ -66,42 +83,42 @@
 
 \begin{scope}[xshift=3.4cm]
 	\only<4>{
-		\node at (0,0) {\includegraphics[width=6cm]{../slides/1/einzelne_julia_menge.png}};
+		\node at (0,0) {\includegraphics[width=6cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<5>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=5.0cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=5.0cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<6>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=4.0cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=4.0cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<7>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=3.0cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=3.0cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<8>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=2.0cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=2.0cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<9>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=1.0cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=1.0cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<10>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=0.5cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=0.5cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 	}
 	\only<11>{
 		\node at \punkt{-0.47}{0.45}
-		{\includegraphics[width=0.2cm]{../slides/1/einzelne_julia_menge.png}};
+		{\includegraphics[width=0.2cm]{vorlesungen/slides/1/einzelne_julia_menge.png}};
 		
 	}
 	\uncover<5->{
 		\achsen{black}
 	}
 	\uncover<12>{
-		\node at (0,0) {\includegraphics[width=6cm]{../slides/1/julia_mosaik_scaled.jpg}};
+		\node at (0,0) {\includegraphics[width=6cm]{vorlesungen/slides/1/julia_mosaik_scaled.jpg}};
 		\begin{scope}
 			\clip (-\l,-\l) rectangle (\l,\l);
 			\achsen{white}
@@ -138,3 +155,4 @@
 \end{center}
 \end{frame}
 \egroup
+\end{document}
