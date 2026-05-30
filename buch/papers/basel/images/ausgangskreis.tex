@@ -1,0 +1,37 @@
+%
+% ausgangskreis.tex -- Ausgangskreis
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+% Kreis k0: Mittelpunkt M0, Radius 1.8
+\def\R{1.8}
+\pgfmathparse{1.4*\R}
+\xdef\R{\pgfmathresult}
+\coordinate (M0) at (0, 0);
+\coordinate (M1) at (0, \R);
+\coordinate (Z)  at (0,-\R);
+% Kreis
+\draw (M0) circle (\R);
+% Vertikale Linie M1--Z
+\draw (M1) -- (Z);
+% Punkte – Labels mit weissem Hintergrund damit Linie nicht durchscheint
+\fill (M0) circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$M_0$};
+\fill (M1) circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$M_1$};
+\fill (Z)  circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$Z$};
+
+\node[fill=white, inner sep=1pt] at (-1.86, 2.14) {$k_0$};
+
+\end{tikzpicture}
+\end{document}
+
