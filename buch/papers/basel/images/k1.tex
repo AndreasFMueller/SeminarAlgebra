@@ -1,0 +1,47 @@
+%
+% k1.tex -- Kreis k1
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+% k0: Mittelpunkt M0=(0,0), Radius r0=1.0
+% k1: Mittelpunkt M1=(0,1.0), Radius r1=2.0
+% Z=(0,-1.0), P1,1=(2.0,1.0), P1,2=(-2.0,1.0)
+\def\rz{1.4}  % Radius k0
+\pgfmathparse{2*\rz}
+\def\ro{\pgfmathresult}  % Radius k1
+\coordinate (M0)  at (0,    0);
+\coordinate (M1)  at (0,  \rz);
+\coordinate (Z)   at (0, -\rz);
+\coordinate (P11) at ( \ro, \rz);
+\coordinate (P12) at (-\ro, \rz);
+% Kreise
+\draw (M0) circle (\rz);
+\draw (M1) circle (\ro);
+% Horizontale Linie durch M1 (Senkrechte zu ZM1)
+\draw[thin] (P12) -- (P11);
+% Linien von Z zu P1,1 und P1,2
+\draw (Z) -- (P11);
+\draw (Z) -- (P12);
+% Punkte – Labels mit weissem Hintergrund, kollisionsfrei
+\fill (M0)  circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$M_0$};
+\fill (M1)  circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$M_1$};
+\fill (Z)   circle (2pt) node[below=4pt, fill=white, inner sep=1pt] {$Z$};
+\fill (P11) circle (2pt) node[right=6pt, fill=white, inner sep=1pt] {$P_{1,1}\mathstrut$};
+\fill (P12) circle (2pt) node[left=6pt,  fill=white, inner sep=1pt] {$P_{1,2}\mathstrut$};
+% k1-Label mit weissem Hintergrund
+\node[fill=white, inner sep=1pt] at (-2.6, 3.0) {$k_1$};
+
+\end{tikzpicture}
+\end{document}
+

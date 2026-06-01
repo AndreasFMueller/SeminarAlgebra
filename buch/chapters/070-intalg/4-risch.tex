@@ -6,3 +6,815 @@
 \section{Der Risch-Algorithmus
 \label{buch:intalg:section:risch}}
 \kopfrechts{Der Risch-Algorithmus}%
+Das Liouville-Prinzip erklärt, wie ein Funktion aussehen muss, wenn sie
+eine elementare Stammfunktion haben soll.
+Für sich allein genommen reicht es nicht, für eine beliebige elementare
+Funktion zu entscheiden, ob sie auch ein elementare Stammfunktion hat.
+Dazu sind weitere Überlegungen nötig, die in diesem Kapitel dargestellt
+werden sollen.
+Das Ziel ist ein Entscheidungsalgorithmus, der ausgehend von einer
+elementaren Funktion als Integranden schrittweise eine Stammfunktion
+konstruiert.
+Falls ein Schritt sich als nicht durchführbar erweist, bedeutet dies,
+dass keine elementare Stammfunktion existiert.
+
+Der Risch-Algorithmus entstand aus den Ansätzen, die Richard Henry Risch
+in den Sechzigerjahren entwickelte \cite{buch:risch}.
+Er beginnt mit einer Verallgemeinerung der Methode von Hermite zur
+Behandlung des rationalen Teils.
+Die besonders erfolgreiche Methode von Rothstein-Trager zur Bestimmung
+der Koeffizienten $c_i$ und der Funktionen $v_i$ kam in den Siebzigerjahren
+dazu.
+Die folgende Darstellung des Algorithmus stützt sich weitgehend auf 
+\cite{buch:algorithms}.
+
+%
+% Übersicht über den Algorithmus
+%
+\subsection{Übersicht über den Algorithmus
+\label{buch:intalg:risch:uebersicht}}
+
+\subsubsection{Die Aufgabenstellung}
+
+\subsubsection{Der polynomielle und der rationale Teil}
+
+\subsubsection{Rekursion}
+
+%
+% Risch-Algorithmus für logarithmische Erweiterungen
+%
+\subsection{Risch-Algorithmus für logarithmische Erweiterungen
+\label{buch:intalg:risch:logarithmisch}}
+
+\subsubsection{Hermite-Methode}
+
+\subsubsection{Teilbarkeit von $b'(\vartheta)$ und $Db(\vartheta)$}
+
+\subsubsection{Rothstein-Trager für logarithmische Erweiterungen}
+
+\begin{beispiel}
+\label{buch:intalg:risch:bsp:1/logx}
+Hat die Funktion
+\[
+f(x)
+=
+\frac{1}{\log x}
+\]
+eine elementare Stammfunktion?
+Der Integrand liegt in der logarithmischen Erweiterung
+$F(\vartheta) = \mathbb{Q}(x,\log x)$ von $F=\mathbb{Q}(x)$
+um das logarithmische Element $\vartheta=\log x$.
+$f(x)$ hat nur rationalen Teil
+\[
+f(x)
+=
+\frac{1}{\vartheta}
+\qquad
+\Rightarrow
+\qquad
+\begin{cases}
+a(\vartheta) &= 1 \\
+b(\vartheta) &= \vartheta.
+\end{cases}
+\]
+Dies ist bereits die Ausgangsform für die Methode von Rothstein-Trager,
+die verlangt, dass die Werte von $z$ bestimmt werden müssen, für die
+die beiden Polynome
+\[
+a(\vartheta) - z\cdot Db(\vartheta)
+1 - z\,D\vartheta
+=
+1- z\frac{1}{x}
+\qquad\text{und}\qquad
+b(\vartheta)=\vartheta
+\]
+gemeinsame Teiler haben.
+Da das linke Polynom Grad 0 hat, kann es nur dann ein Polynom vom Grad
+mindestens $1$ als Teiler haben, wenn es verschwindet.
+Die Bedinungung für gemeinsame Teiler ist daher
+\[
+1-z\frac{1}{x} = 0 
+\qquad\Rightarrow\qquad
+z=x,
+\]
+insbesondere ist $z$ nicht konstant.
+Es folgt, dass $f$ kein elementare Stammfunktion hat.
+\end{beispiel}
+
+Im Beispiel wurde bewiesen, dass $1/\log x$ keine elementare Stammfunktion
+hat.
+Die Funktion hat aber einige Bedeutung in der analytischen Zahlentheorie,
+da sie ein Approximation für die Primzahlzählfunktion 
+\[
+\pi(x)
+=
+\bigl|
+\{ p \mid \text{$p$ ist prim und $p\le x$} \}
+\bigr|
+\]
+ist.
+Es bleibt daher nichts anderes übrig, als eine neue spezielle Funktion
+dafür zu definieren.
+
+\begin{definition}[Integrallogarithmus]
+Die Stammfunktion
+\[
+\operatorname{li}(x)
+=
+\int_0^x
+\frac{1}{\log t}
+\,dt
+\]
+heisst der \emph{Integrallogarithmus}.
+\end{definition}
+
+\begin{beispiel}
+Hat die Funktion $1/x\log x \in \mathbb{Q}(x,\log x)$ eine elementare
+Stammfunktion?
+Mit $\vartheta=\log x$ ist die Stammfunktion des rationalen Teils
+\begin{equation}
+\frac{1}{x\vartheta}
+=
+\frac{1/x}{\vartheta}
+=
+\frac{a(\vartheta)}{b(\vartheta)}
+\qquad\Rightarrow\qquad
+\begin{cases}
+a(\vartheta) &= 1/x\\
+b(\vartheta) &= \vartheta
+\end{cases}
+\label{buch:intalg:risch:eqn:1xlogx}
+\end{equation}
+nach der Methode von Rothstein-Trager zu bestimmen.
+Dazu müssen gemeinsame Teiler von
+\[
+a(\vartheta) - z\cdot Db(\vartheta)
+=
+\frac{1}{x} - zD\vartheta
+=
+\frac{1}{x} - z\frac{1}{x}
+\qquad\text{und}\qquad
+b(\vartheta)=\vartheta
+\]
+bestimmt werden.
+Da das linke Polynom Grad 0 hat, kann es nur dann nichttriviale
+Teiler vom Grad mindestens 1 geben, wenn es verschwindet, wenn also
+\[
+\frac{1}{x} - z\frac{1}{x}
+=
+0
+\qquad\Rightarrow\qquad
+\frac{1-z}{x}
+=
+0
+\qquad\Rightarrow\qquad
+c=z=1.
+\]
+Der gemeinsame Teiler ist $v=\vartheta=\log x$.
+Nach der Methode von Rothstein-Trager ist daher
+\[
+f(x)
+=
+1\frac{Dv}{v}
+=
+\frac{1}{x \vartheta}
+\qquad\Rightarrow\qquad
+\int f
+=
+\log v
+=
+\log \vartheta
+=
+\log\log x,
+\]
+ein elementare Stammfunktion des Integranden $f$.
+
+
+Die Wahl $a(\vartheta)=1/x$ in \eqref{buch:intalg:risch:eqn:1xlogx}
+wird dadurch festgelegt, dass $b(\vartheta)$ ein normiertes Polynom
+sein.
+Der Faktor $x$ im Nenner von \eqref{buch:intalg:risch:eqn:1xlogx}
+kann daher nicht Teil des Polynoms $b(\vartheta)$ sein, sondern muss
+in $a(\vartheta)$ integriert werden.
+\end{beispiel}
+
+%
+% Der polynomielle Teil für logarithmische Erweiterungen
+%
+\subsubsection{Der polynomielle Teil für logarithmische Erweiterungen}
+Wir betrachten wieder die Situation einer logarithmischen Erweiterung
+$F(\vartheta)\supset F$ um ein logarithmisches Element $\vartheta =\log u$
+mit Konstantenkörper $K$.
+Wir versuchen die Stammfunktion des polynomiellen Teils in $F(\vartheta)$
+zu bestimmen, den wir als
+\begin{equation}
+p(\vartheta)
+=
+p_0 + p_1\vartheta + \dots + p_{l-1}\vartheta^{l-1} + p_l\vartheta^l
+\in
+F[\vartheta]
+\label{buch:intalg:risch:eqn:logpolyintegrand}
+\end{equation}
+schreiben.
+Für ein Polynom in der unabhängigen Variablen $x$ ist die Stammfunktion
+trivialerweise elementar, da 
+\[
+\int p_kx^k \,dx = \frac{p_k}{k+1}z^{k+1} + C
+\]
+ist.
+Dies funktioniert jedoch nur für konstante Koeffizienten.
+In der vorliegenden allgemeinen Situation
+\eqref{buch:intalg:risch:eqn:logpolyintegrand}
+erwarten wir eine wesentlich kompliziertere Lösung.
+
+Falls $p(\vartheta)$ eine elementare Stammfunktion hat, dann muss 
+sie nach dem Liouville-Prinzip die Form
+\begin{align}
+\int p(\vartheta)
+&=
+v_0(\vartheta) + \sum_{i=1}^n c_i\log v_i(\vartheta)
+\notag
+\intertext{mit $v_i(\vartheta) \in F(\vartheta)$ und $c_i\in K$ haben.
+Wie früher darf man annehmen, das die $v_i(\vartheta)$ teilerfremde
+quadratfreie Polynome sind.
+In der abgeleiteten Form ist}
+p(\vartheta)
+&=
+Dv_0(\vartheta)
++
+\sum_{i=1}^n c_i \frac{Dv_i(\vartheta)}{v_i(\vartheta)}
+\notag
+\intertext{Auf der linken Seite dieser Gleichung steht ein Polynom,
+auf der rechten Seite kommen die Nenner $v_i(\vartheta)$ vor.
+Da sie teilerfremd sind, können sich die Brüche nicht wegheben, in den
+Termen der Summe darf also $\vartheta$ gar nicht vorkommen.
+Es bleibt daher die Form}
+p(\vartheta)
+&=
+Dq(\vartheta) + \sum_{i=1}^n c_i \frac{Dv_i}{v_i}
+\notag
+\\
+&=
+D(q_{l+1}\vartheta^{l+1} + q_l\vartheta^l + \dots + q_2\vartheta^2
++ q_1\vartheta) + Dq_0 + \sum_{i=1}^n c_i\frac{Dv_i}{v_i}
+\label{buch:intalg:risch:logarithmisch:eqn:pDq}
+\end{align}
+mit $v_i\in F$, $c_i\in K$ und $q\in F[\vartheta]$.
+Die Aufgabe ist, das Polynom $q(\vartheta)$ zu bestimmen.
+
+Der Koeffizient $q_0$ für sich alleine interessiert nicht wirklich,
+da für die gesuchte Stammfunktion nur die Kombination
+\[
+\bar{q}_0
+=
+q_0 + \sum_{i=1}^n c_i\log v_i
+\]
+benötigt wird.
+
+Zur Bestimmung der Koeffizienten $q_k$ und $\bar{q}_0$ vergleichen wir
+Koeffizienten in 
+\eqref{buch:intalg:risch:logarithmisch:eqn:pDq}.
+Es ergeben sich die Gleichungen
+\begin{align*}
+0   &= Dq_{l+1}
+	&&\Rightarrow
+	& Dq_{l+1} &= 0
+\\[-4pt]
+p_l &= Dq_l + q_{l+1}(l+1) \frac{Du}{u}
+	&&\Rightarrow
+	& Dq_l     &= p_l - (l+1)q_{l+1}\frac{Du}{u}
+\\[-9pt]
+    &\phantom{n}\vdots 
+	&&           &
+	&\phantom{n}\vdots
+\\[-9pt]
+p_k &= Dq_k + q_{k+1}(k+1) \frac{Du}{u}
+	&&\Rightarrow
+	& Dq_k     &= p_k - (k+1)q_{k+1}\frac{Du}{u}
+\\[-9pt]
+    &\phantom{n}\vdots        
+	&&
+	&          &\phantom{n}\vdots
+\\[-9pt]
+p_1 &= Dq_1 + 2q_2 \frac{Du}{u}
+	&&\Rightarrow
+	& Dq_1     &= p_1 - 2q_2 \frac{Du}{u}
+\\[-0pt]
+p_0 &= D\bar{q}_0 + q_1 \frac{Du}{u}
+	&&\Rightarrow& D\bar{q}_0 &= p_1 - q_1 \frac{Du}{u}
+\end{align*}
+Die rechten Seiten zeigen, dass alle Koeffizieten von $q(\vartheta)$
+als Lösung eines Integrationsproblems im kleineren Körper $F$ gefunden
+werden müssen.
+Jedes dieser einzelnen Integrationsproblem muss eine elementare
+Lösung in $F(\vartheta)$ haben.
+Die Lösung des Integrationsproblems für $d_k$ ist aber immer nur bis auf
+eine Integrationskonstante $b_k$ bestimmt.
+
+Für die erste Gleichung folgt, dass $q_{l+1}$ eine Konstante sein muss,
+die mit $b_{l+1}$ bezeichnet wird.
+Da $q_{l+1}$ auch in der Gleichung für für $q_l$ auftritt, kann
+letztere zur Bestimmung von $b_{l+1}$ herangezogen werden.
+
+Die Gleichung für $q_l$ wird mit der Lösung für $q_{l+1}$ zu
+\[
+Dq_l
+=
+p_l-(l+1)b_{l+1}\frac{Du}{u}.
+\]
+Die Lösung muss eine elementare Funktion sein, nach dem Prinzip von Liouville
+muss
+\[
+q_l
+=
+d_l + c_l\vartheta + b_l
+\]
+mit $d_l\in F$ und $c_l,b_l\in K$ sein.
+Durch Ableiten und Vergleich mit der Gleichung für $Dq_l$ schilessen wir,
+dass
+\[
+p_l - (l+1)b_{l+1}\frac{Du}{u} 
+=
+Dq_l 
+=
+Dd_l + c_l\frac{Du}{u}
+\qquad\Rightarrow\qquad
+\left\{
+\;
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+\displaystyle d_l     &=& \displaystyle \int p_l \\[9pt]
+\displaystyle b_{l+1} &=& \displaystyle -\frac{c_{l}}{l+1}.
+\end{array}
+\right.
+\]
+sein muss.
+Damit ist jetzt auch die Integrationskonstante $b_{l+1}$ bestimmt.
+
+Nehmen wir an, dass die Koeffizienten bis $q_{k+1} = d_{k+1}+b_{k+1}$
+bereits bestimmt sind.
+Nur die Integrationskonstante $b_{k+1}$ ist noch zu bestimmen.
+Die Bestimmungsgleichung
+\begin{align*}
+Dq_k &= p_k - (k+1) q_{k+1} \frac{Du}{u}
+\intertext{wird damit zu}
+Dq_k
+&=
+p_k
+-
+(k+1) d_{k+1} \frac{Du}{u}
+-
+(k+1) b_{k+1} \frac{Du}{u}.
+\intertext{Der letzte Term kann ist sofort integrierbar, wir können
+daher die Terme so sortieren, dass}
+p_k
+-
+(k+1) d_{k+1} \frac{Du}{u}
+&=
+Dq_k
++
+(k+1) b_{k+1} \frac{Du}{u}.
+\end{align*}
+Die linke Seite muss also eine elementare Stammfunktion haben,
+die nach dem Prinzip von Liouville wieder in der Form $d_k + c_k\vartheta$
+geschrieben werden kann.
+Durch Ableiten und Termvergleich können wir wieder
+\[
+\left.
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+d_k
+&=&
+\displaystyle
+\int\biggl(
+p_k
+-
+(k+1) d_{k+1} \frac{Du}{u}
+\biggr)
+\\[9pt]
+b_{k+1}
+&=&
+\displaystyle
+-
+\frac{c_k}{k+1}
+\end{array}
+\;
+\right\}
+\quad\Rightarrow\quad
+q_k = d_k + b_k
+\]
+schliessen.
+Dieser Schritt kann für kleiner werdende $k$ wiederholt werden bis
+$q_1=d_1+b_1$ bsetimmt ist, wobei die Integrationskonstante $b_1$ noch
+zu finden ist.
+
+\input{chapters/070-intalg/fig/polylog.tex}%
+
+Die Bestimmungsgleichung für $\bar{q}_0$ ist
+\[
+D\bar{q}_0
+=
+p_0 - q_1\frac{Du}{u}
+=
+p_0 - d_1\frac{Du}{u} - c_1\frac{Du}{u}
+\quad\Rightarrow\quad
+D\bar{q}_0
+-
+c_1\frac{Du}{u}
+=
+p_0 - d_1\frac{Du}{u}.
+\]
+Um $\bar{q}_0$ zu bestimmen, muss eine Stammfunktion gefunden werden.
+Dazu muss wieder das Integrationsproblem für den Integranden ganz rechts
+gelöst werden.
+Im Gegensatz zu den früheren Schritten darf die Stammfunktion
+\[
+\int
+\biggl(
+p_0 - d_1\frac{Du}{u}
+\biggr)
+=
+d_0
+=
+v_0 + \sum_{i=1}^m \bar{c}_i \log v_i, \qquad \bar{c}_i\in K
+\]
+aber auch andere Logarithmen als $\vartheta$ enthalten, solange
+sie Logarithmen von Elemente von $F$ sind.
+Einer der Logarithmen darf $\vartheta$ sein, sei dies der erste.
+Aus der Konstanten $\bar{c_1}$ lässt sich dann auch auch
+\(
+b_1 = -\bar{c}_1
+\)
+bestimmen.
+Dadurch ist $\bar{q}_0=d_0$ jetzt bis auf eine Konstante $b_0$ bestimmt,
+die nicht weiter bestimmt werden kann.
+
+Der Gang der Berechnung ist in
+Abbildung~\ref{buch:intalg:risch:logarithmisch:fig:polylog} 
+schematisch dargestellt.
+Im Schritt zur Bestimmung von $q_k$ wird zunächst aus dem bekannten
+Koeffizienten $p_k$ und der Stammfunktion $d_{k-1}$ aus dem vorangegangenen
+Schritt der Integrand gebildet.
+Seine Stammfunktion liefert $d_k$ und die Konsante $c_k$.
+Die Integrationskonstante $b_{k-1}$ im vorangegangenen Schritt ist
+durch $c_k$ bestimmt.
+Schliesslich kann $q_k = d_k+b_k$ gefunden werden.
+Nur die letzte Integrationskonstante $b_0$ kann nicht bestimmt werden.
+
+\begin{beispiel}
+Man finde die Stammfunktion von $f(x) = \log x$.
+Der Integrand ist das Polynom
+\[
+f(x)=\vartheta
+=
+1\cdot\vartheta + 0
+=
+p_1\vartheta + p_0
+\qquad\Rightarrow\qquad
+\begin{cases}
+p_1 &= 1\\
+p_0 &= 0.
+\end{cases}
+\]
+in der Erweiterung
+$F(\vartheta)=\mathbb{Q}(x,\vartheta)$ von $F=\mathbb{Q}(x)$ um das
+logarithmische Element $\vartheta=\log x$.
+Es muss also ein Polynom
+\[
+q(\vartheta)
+=
+q_2\vartheta^2 + q_1\vartheta + \bar{q}_0
+\]
+vom Grad 2 gefunden werden.
+\begin{itemize}
+\item Fall $k=2$:
+$q_2$ muss eine Konstante $b_2$ sein, deren Wert im
+nächsten Schritt bestimmt wird.
+\item Fall $k=1$:
+Zur Bestimmung von $q_1$ muss zunächst die Stammfunktion
+von $p_1$ bestimmt werden, sie ist
+\[
+\int p_1
+=
+\int 1
+=
+x + 0\cdot\vartheta
+\quad
+\Rightarrow
+\quad
+\left\{
+\quad
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+b_2 &=& \displaystyle -\frac{c_1}{2} \\
+d_1 &=& x
+\end{array}
+\quad
+\right\}
+\quad
+\Rightarrow
+\quad
+q_1 = x + b_1
+\]
+Da darin $\vartheta$ nicht vorkommt, folgt $c_1=0$ und daher $b_2=0$.
+Die Integrationskonstante $b_1$ wird im nächsten Schritt bestimmt.
+\item Fall $k=0$:
+Es muss die Stammfunktion von $p_0-d_1\,Du/u$ aus
+\[
+q_0
+=
+\int\biggl(p_0-d_1\frac{Du}u\biggr)
+=
+\int\biggl(0-x\frac{1}{x}\biggr)
+=
+-
+\int 1
+=
+-x
++
+b_0
+=
+d_0+b_0
+\]
+bestimmt werden.
+Auch hier kann man schliessen, dass $b_1=0$ ist.
+\end{itemize}
+Aus den drei Fällen lässt sich jetzt die Stammfunktion
+\[
+\int p(\vartheta)
+=
+q(\vartheta)
+=
+q_0 + q_1\vartheta + q_2\vartheta^2
+=
+-x+b_0 + z\vartheta
+=
+x\log x - x + b_0
+\]
+ablesen.
+Tatsächlich ist die Ableitung davon
+\[
+\frac{d}{dx}\bigl( x\log x - x + b_0\bigr)
+=
+\log x + x \frac 1x - 1
+=
+\log x.
+\]
+Wie erwartet kann die Integrationskonstante $b_0$ nicht bestimmt werden.
+\end{beispiel}
+
+\begin{beispiel}
+Hat der Integrand $\log\log x$ eine elementare Stammfunktion?
+Für diese Aufgabe muss der Körper der rationalen Funktionen zweimal
+logarithmisch erweitert werden, zunächst um $\vartheta_1=\log x$ und
+dann im zweiten Schritt um $\vartheta_2 = \vartheta =\log u = \log\log x$.
+Gesucht ist jetzt das Integral des Polynoms
+$p(\vartheta) = 1\cdot\vartheta + 0$
+mit $p_1=1$ und $p_0=0$.
+\begin{itemize}
+\item Fall $k=2$:
+$q_2$ muss eine Konstante $b_2$ sein, deren Wert im
+nächsten Schritt bestimmt wird.
+\item Fall $k=1$:
+Die Stammfunktion $p_1$ ist
+\[
+\int p_1
+=
+\int 1
+=
+x + 0\cdot \vartheta
+\quad
+\Rightarrow
+\quad
+\left\{
+\quad
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+b_2 &=& \displaystyle -\frac{c_1}{2} \\
+d_1 &=& x
+\end{array}
+\quad
+\right\}
+\quad
+\Rightarrow
+\quad
+q_1 = x + b_1
+\]
+Wie früher folgt $c_1=0$ und $b_2=0$.
+Die Integrationskonstante $b_1$ wird im nächsten Schritt bestimmt.
+\item Fall $k=0$: Es ist die Stammfunktion von $p_0-d_1 \, Du/u$ zu bestimmen:
+\[
+q_0
+=
+\int\biggl(p_0-d_1\frac{Du}u\biggr)
+=
+\int\biggl(0-x \frac{D\log x}{\log x}\biggr)
+=
+-\int x \frac{1/x}{\log x}
+=
+-
+\int 
+\frac{1}{\log x}.
+\]
+Dieses Integral ist nach
+Beispiel~\ref{buch:intalg:risch:bsp:1/logx}
+nicht elementar und daher kann auch das Integral von $\log\log x$ nicht
+elementar sein.
+\qedhere
+\end{itemize}
+\end{beispiel}
+
+%
+% Risch-Algorithmus für exponentielle Erweiterungen
+%
+\subsection{Risch-Algorithmus für exponentielle Erweiterungen
+\label{buch:intalg:risch:exponentiell}}
+
+\subsubsection{Hermite-Methode}
+
+\subsubsection{Erweiterte Polynome}
+
+\subsubsection{Rothstein-Trager für exponentielle Erweiterungen}
+
+\subsubsection{Der polynomielle Teil und die Risch-Differentialgleichung}
+Der polynomielle Teil des Integranden $f\in F(\vartheta)$ ist eine 
+erweitertes Polynom der Form
+\[
+p(\vartheta)
+=
+\sum_{i=-k}^l
+p_i\vartheta^i,
+\]
+dessen Stammfunktion jetzt analog zum logarithmischen Fall durch
+Koeffizientenvergleich ermittelt werden soll.
+
+Die Ableitung eines Monoms ist
+\[
+D(a\vartheta^n) 
+=
+(Da)\vartheta^n + an\vartheta^{n-1}D\vartheta
+=
+(Da)\vartheta^n + an\vartheta^{n-1}\vartheta Du
+=
+(Da + naDu)\vartheta^n,
+\]
+also wieder ein Monom mit dem gleichen Exponenten.
+Die Ableitung reduziert im Gegensatz zum logarithmischen Fall den
+Grad nicht.
+Man darf daher erwarten, dass die Stammfunktion wieder ein erweitertes
+Polynom
+\[
+q(\vartheta)
+=
+\sum_{i=-k}^l q_i\vartheta^i
+\]
+ist.
+
+Um die Koeffizienten des Polynoms zu finden, leiten wir $q(\vartheta)$
+ab und führen Koeffizientenvergleich in
+\[
+p(\vartheta)
+=
+\sum_{i=-k}^l p_i\vartheta^i
+=
+Dq\vartheta
+=
+\sum_{i=-k}^l
+(Dq_i + iq_i Du)\vartheta^i
+\]
+durch.
+Es ergeben sich die Differentialgleichungen
+\begin{equation}
+Dq_i + iDu\cdot q_i = p_i
+\label{buch:intalg:risch:exponentiell:eqn:rischdgl}
+\end{equation}
+für $i =-k,\dots, l$.
+Gesucht sind Lösungen $q_i\in F$.
+Falls es keine solche Lösung gibt, hat $p(\vartheta)$ keine elementare
+Stammfunktion.
+
+Auf den ersten Blick scheint es, dass die Differentialgleichung
+\eqref{buch:intalg:risch:exponentiell:eqn:rischdgl}
+das Integrationsproblem in eine Differentialgleichungsproblem
+umwandelt.
+Die Bestimmung einer Stammfunktion ist ein Spezialfall der Lösung
+einer Differentialgleichung, man könnte also meinen, dass das
+ursprüngliche Problem durch ein schwierigeres Problem ersetzt worden
+ist.
+Zudem sagen doch die bekannten Sätze aus der Theorie der gewöhnlichen
+Differentialgleichungen, dass die Lösung mindestens lokal existiert
+und eindeutig ist.
+Es geht aber nicht darum, eine beliebige Lösungsfunktion zu finden,
+sondern diese Funktion muss in $F$ sein.
+Der Satz von Picard-Lindelöf als Beispiel eines Existenz- und
+Eindeutigkeitssatzes für gewöhnliche Differentialgleichungen
+kann dazu nichts aussagen.
+Daher wurden auch gänzlich andere Lösungen zur Lösung dieser
+Differentialgleichung entwickelt.
+
+\begin{definition}
+Sei $F$ ein differentieller Funktionenkörper und $f,g\in F$.
+Das Problem, eine Lösung $y\in F$ der Differentialgleichung
+\[
+Dy + f\, y = g
+\]
+zu finden, heisst die \emph{Risch-Differentialgleichung}.
+\end{definition}
+
+\begin{beispiel}
+Hat die Wahrscheinlichkeitsdichte $e^{-x^2/2}$ eine elementare
+Stammfunktion?
+Der Integrand ist in der Erweiterung $F(\vartheta)=\mathbb{Q}(x,\vartheta)$
+von $F=\mathbb{Q}(x)$ um die Exponentialfunktion $\vartheta = e^{-x^2/2}$
+von $u=-x^2/2$.
+Gesucht ist die Stammfunktion des polynomiellen Teils
+$p(\vartheta)=p_1\vartheta^1$.
+Sie muss die Form $q_1\vartheta$ haben.
+Die Risch-Differentialgleichung ist
+\[
+Dq_1 + Du\, q_1 = p_1
+\quad\Rightarrow\quad
+Dq_1 - x q_1 = 1.
+\]
+Die Lösung muss eine rationale Funktion $q_1\in\mathbb{Q}(x)$ sein.
+Wir schreiben die rationale Funktion als gekürzten Bruch
+\begin{equation}
+q_1(x) = \frac{a(x)}{b(x)}
+\label{buch:intalg:risch:exponentiell:bsp:eqn:qex2}
+\end{equation}
+von Polynomen $a,b\in \mathbb{Q}[x]$, $b(x)$ soll ausserdem normiert sein.
+Einsetzen in die Differentialgleichung liefert
+\begin{align}
+\frac{a'(x)b(x)-a(x)b(x)}{b(x)^2} - x\frac{a(x)}{b(x)} &= 1.
+\notag
+\intertext{Multiplizieren mit dem Nenner $b(x)^2$ führt auf die
+Polynomgleichung}
+a'(x)b(x) - a(x)b'(x) -x a(x)b(x) &= b(x)^2.
+\label{buch:intalg:risch:exponentiell:eqn:qex2poly}
+\end{align}
+Das Polynom $b(x)$ ist ein Teiler des ersten und des letzten Terms auf
+der linken Seite.
+Ausserdem teilt es die rechte Seite.
+Daher muss es auch den mittleren Term $a(x)b'(x)$ teilen.
+Es kann aber keine gemeinsamen Faktoren mit $a(x)$ haben, da angenommen
+wurde, dass der Bruch \eqref{buch:intalg:risch:exponentiell:bsp:eqn:qex2}
+gekürzt ist.
+Es folgt, dass $b(x)$ die Ableitung $b'(x)$ teilt, was nur möglich ist,
+wenn $b'(x)=0$ ist.
+Das Polynom $b(x)$ ist also nur ein Konstante $b_0$.
+Da $b(x)$ ausserdem normiert ist, muss $b_0=1$ sein.
+
+Die Polynomgleichung \eqref{buch:intalg:risch:exponentiell:eqn:qex2poly}
+wird jetzt zu
+\begin{equation}
+a'(x) - x a(x) = 1.
+\label{buch:intalg:risch:exponentiell:bsp:eqn:qex2:adgl}
+\end{equation}
+Schreibt man die Koeffizienten des Polynoms als $a_k$, wird die
+Gleichung
+\eqref{buch:intalg:risch:exponentiell:bsp:eqn:qex2:adgl}
+zu
+\begin{align*}
+\sum_{k=0}^n ka_kx^{k-1} -x \sum_{k=0}^n a_kx^k &= 1
+\\
+\sum_{k=1}^n ka_kx^{k-1} - \sum_{k=0}^n a_kx^{k+1} &= 1
+\\
+\sum_{i=0}^{n-1} (i+1)a_{i+1}x^i - \sum_{i=1}^{n+1} a_{i-1} x^i &= 1
+\\
+a_1 + \sum_{i=1}^{n-1} \bigl((i+1)a_{i+1}-a_{i-1}\bigr) x^i
++ a_{n-1}x^n + a_{n}x^{n+1} &= 1
+\end{align*}
+Durch Koeffizientenvergleich liest man die Gleichungen
+\begin{align}
+a_1 &= 1 \notag \\
+(i+1)a_{i+1} -a_{i-1} &= 0 &&\Rightarrow& a_{i-1} &= (i+1)a_{i+1}&&1\le i\le n-1
+\label{buch:intalg:risch:exponentiell:bsp:exp2:rekursion}
+\\
+a_{n-1} &= 0 \notag \\
+a_n &= 0 \notag
+\end{align}
+für die Koeffizienten $a_k$ ab.
+
+Anwendung der Gleichung
+\eqref{buch:intalg:risch:exponentiell:bsp:exp2:rekursion} auf
+die letzten beiden Bedingungen erlaubt zu schliessen, dass alle
+Koeffizienten verschwinden müssen, auch $a_0$.
+Dies steht im Widerspruch zur ersten Gleichung $a_1=1$.
+Der Widerspruch zeigt, dass die Lösung der Differentialgleichung
+keine rationale Funktion sein kann und dass somit auch $e^{-x^2/2}$ keine
+elementare Stammfunktion haben kann.
+\end{beispiel}
+
+
+%
+% Risch-Algorithmus für algebraische Erweiterungen
+%
+\subsection{Risch-Algorithmus für algebraische Erweiterungen
+\label{buch:intalg:risch:algebraisch}}
+
+
+
+
+
+
+

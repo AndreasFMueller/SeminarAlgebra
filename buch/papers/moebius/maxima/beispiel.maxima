@@ -1,0 +1,32 @@
+/*
+ * beispiel.maxima -- Nachrechnen des Bespiels 23.3
+ *
+ * (c) 2026 Prof Dr Andreas Müller
+ */
+
+A: 0;
+B: 1;
+C: %i;
+
+Ap: 1 + %i;
+Bp: 0;
+Cp: %i;
+
+f(z) := (a*z+b)/(c*z+d);
+
+f(A);
+f(B);
+f(C);
+
+solve( [ f(A) - Ap, f(B) - Bp, f(C) - Cp ], [ a, b, c, d]);
+
+b: 1+%i;
+a: -b;
+c: %i-2;
+d: 1;
+
+ratsimp(f(z));
+
+ratsimp(f(A));
+ratsimp(f(B));
+ratsimp(f(C));
