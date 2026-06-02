@@ -9,6 +9,79 @@
 \section{Der Weierstraß-Produktsatz}
 \rhead{Weierstraß-Produktsatz}
 
+\subsection{Das Problem: Unendliche Produkte und ihre Konvergenz}
+
+Bei einem Polynom bestimmen die Nullstellen $a_1, \ldots, a_n$ das Polynom bis
+auf einen konstanten Vorfaktor eindeutig:
+\[
+p(z) = c \cdot (z - a_1)(z - a_2) \cdots (z - a_n).
+\]
+Für holomorphe Funktionen mit unendlich vielen Nullstellen stellt sich die Frage,
+ob sich eine solche Darstellung als unendliches Produkt verallgemeinern lässt.
+Dabei tauchen zwei grundlegende Schwierigkeiten auf.
+
+\paragraph{Normierung der Faktoren.}
+Statt der Faktoren $(z - a_n)$ verwendet man zweckmäßigerweise Faktoren der Form
+$\bigl(1 - z/a_n\bigr)$.
+Der Unterschied ist mehr als kosmetisch: Beim Vorfaktor $c$ eines Polynoms
+steckt die Information über den Betrag und die Phase bei einem festen Punkt;
+bei einem unendlichen Produkt würde ein schlecht normierter Faktor zu einem
+divergenten Gesamtvorfaktor führen.
+Die Wahl $\bigl(1 - z/a_n\bigr)$ normiert jeden Faktor so, dass er bei $z = 0$
+den Wert $1$ annimmt, was die Konvergenzanalyse entscheidend vereinfacht.
+
+\paragraph{Unbestimmtheit durch ganze Funktionen.}
+Bei Polynomen bestimmen die Nullstellen das Polynom \emph{bis auf einen
+konstanten Faktor} $c \in \mathbb{C}^*$, also bis auf $e^b$ mit $b \in \mathbb{C}$.
+Bei holomorphen Funktionen ist die Situation komplizierter: Die Nullstellen
+bestimmen die Funktion nur bis auf einen Faktor $e^{g(z)}$, wobei $g$ selbst
+eine beliebige ganze Funktion sein kann, nicht nur eine Konstante.
+Der Exponent $g(z)$ ist gewissermaßen die "transzendente Freiheit", die über
+die algebraische Information der Nullstellenmenge hinausgeht.
+
+\paragraph{Konvergenz des unendlichen Produkts.}
+Das Produkt $\prod_n (1 - z/a_n)$ konvergiert genau dann, wenn die Summe
+$\sum_n z/a_n$ konvergiert. Diesen Zusammenhang sieht man am einfachsten durch
+Logarithmieren: Der Logarithmus eines Produkts ist die Summe der Logarithmen,
+und für kleine $x$ gilt $\log(1 - x) \approx -x$. Genauer:
+\[
+\log(1 - x) = -\Bigl(x + \frac{x^2}{2} + \frac{x^3}{3} + \cdots\Bigr).
+\]
+Mit $x = z/a_n$ ergibt sich also, dass die Konvergenz des Produkts im Wesentlichen
+von der Konvergenz der Reihe $\sum_n 1/a_n$ abhängt.
+
+Dies ist jedoch keineswegs garantiert. Wählt man zum Beispiel $a_n = n$,
+so divergiert $\sum_n 1/n$ als harmonische Reihe, das naive Produkt
+$\prod_n (1 - z/n)$ konvergiert also nicht.
+
+\paragraph{Weierstraß-Faktoren als Lösung.}
+Die Idee zur Behebung dieses Konvergenzproblems ist elegant: Man betrachtet
+den störenden ersten Term $x$ in der Reihenentwicklung von $\log(1-x)$ und
+addiert ihn wieder hinzu:
+\[
+\log(1 - x) + x = -\Bigl(\frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots\Bigr).
+\]
+Für kleines $x$ ist $x^2/2$ viel kleiner als $x$, sodass die entsprechende Summe
+$\sum_n (z/a_n)^2/2$ deutlich bessere Chancen hat zu konvergieren.
+Indem man die Exponentialfunktion nimmt, bedeutet dies: Man ersetzt den Faktor
+$(1 - x)$ durch den modifizierten Faktor $(1-x)\,e^{x}$. Gerade das ist der
+\emph{Weierstraß-Faktor} $E_1(x) = (1-x)\,e^{x}$.
+
+Reicht dies immer noch nicht aus wenn also auch die $x^2/2$-Terme zu langsam
+abklingen, so substrahiert man noch einen weiteren Term aus dem Logarithmus:
+\[
+\log(1-x) + x + \frac{x^2}{2}
+= -\Bigl(\frac{x^3}{3} + \frac{x^4}{4} + \cdots\Bigr).
+\]
+Der führende Term ist jetzt $x^3/3$, was die Konvergenz nochmals verbessert.
+Exponenzieren ergibt den Faktor $E_2(x) = (1-x)\,e^{x + x^2/2}$.
+
+Allgemein: Muss man $p$ störende Terme aus dem Logarithmus eliminieren, so
+erhält man den Weierstraß-Faktor $E_p(x)$.
+Die Ordnung $\varrho$ einer ganzen Funktion bestimmt dabei, wie schnell die
+Nullstellen wachsen, und daraus ergibt sich die notwendige Wahl von $p$.
+Man wählt typischerweise $p_n = \lfloor\varrho\rfloor$ für alle $n$.
+
 \subsection{Elementarfaktoren}
 
 Das zentrale technische Hilfsmittel sind die Weierstraß-Elementarfaktoren.
@@ -19,8 +92,9 @@ E_0(z) = 1 - z,
 E_p(z) = (1-z) \cdot \exp\!\left(z + \frac{z^2}{2} + \cdots + \frac{z^p}{p}\right)
 \quad \text{für } p \ge 1.
 \end{equation}
-Der Exponentialterm ist so konstruiert, dass er die Divergenz des Faktors $(1-z)$
-für wachsende Argumente kompensiert.
+Der Exponentialterm ist so konstruiert, dass er genau die ersten $p$ Terme
+in der Laurentreihe von $\log(1-z)$ kompensiert und damit die Divergenz
+des Faktors $(1-z)$ für wachsende Argumente unterdrückt.
 Genauer gilt die Abschätzung
 \begin{equation}
 |1 - E_p(z)| \le |z|^{p+1}
@@ -55,15 +129,15 @@ Die Sinusfunktion $\sin(\pi z)$ ist eine ganze Funktion der Ordnung $\varrho = 1
 da $|\sin(\pi z)| \le e^{\pi|z|}$ und die Nullstellen $a_n = \pm n$ linear wachsen.
 Man wählt daher $p_n = 1$, also $E_1(z) = (1-z)e^z$.
 Wegen der Symmetrie $\sin(\pi(-z)) = -\sin(\pi z)$ heben sich die Exponentialterme
-der Paare $+n$ und $-n$ gegenseitig auf -- denn $e^{z/n} \cdot e^{-z/n} = 1$ --,
-und man erhält:
+der Paare $+n$ und $-n$ gegenseitig auf.
+Dies weil $e^{z/n} \cdot e^{-z/n} = 1$ und so erhält man:
 \begin{equation}
 \sin(\pi z)
 =
 \pi z \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} \left(1 - \frac{z^2}{n^2}\right).
 \end{equation}
-Der Hadamard-Faktorisierungssatz -- eine Schärfung des Weierstraß-Satzes
-für Funktionen endlicher Ordnung -- impliziert, dass $g(z)$ ein Polynom vom Grad
+Eine Schärfung des Weierstraß-Satzes genannt Hadamard-Faktorisierungssatz existiert.
+Dieser ist für Funktionen endlicher Ordnung definiert und impliziert, dass $g(z)$ ein Polynom vom Grad
 höchstens $\lfloor \varrho \rfloor = 1$ sein muss, also $g(z) = Az + B$.
 Aus $\sin(\pi z)/(\pi z) \to 1$ für $z \to 0$ folgt $B = 0$,
 und die Symmetrie, dass $\sin(\pi z)$ ungerade ist, ergibt $A = 0$.

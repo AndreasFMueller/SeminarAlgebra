@@ -11,6 +11,8 @@
 
 \subsection{Definition und erste Eigenschaften}
 
+Dieser Abschnitt ist wiederum eine vereinfachte Betrachtung, 
+für eine detaillierte Analyse siehe Kapitel \ref{chapter:gamma}.
 Die Gamma-Funktion ist die natürliche Verallgemeinerung der Fakultät
 auf komplexe Argumente.
 Für $\operatorname{Re}(z) > 0$ ist sie durch das Integral
@@ -26,7 +28,7 @@ die eine meromorphe Fortsetzung auf ganz $\mathbb{C}$ erlaubt.
 Die Gamma-Funktion hat keine Nullstellen, besitzt aber einfache Pole
 bei $z = 0, -1, -2, \ldots$
 
-Dieser Umstand -- keine Nullstellen, aber Pole -- ist entscheidend:
+Dieser Umstand ist entscheidend:
 Man schreibt die Produktdarstellung nicht für $\Gamma(z)$ selbst,
 sondern für $1/\Gamma(z)$, die eine ganze Funktion ist.
 Dies ist ein häufiger Fallstrick beim ersten Studium der Gamma-Funktion.
@@ -56,26 +58,26 @@ als natürliche Normierungsgröße.
 \subsection{Die Reflexionsformel}
 
 Die eleganteste Verbindung zwischen der Gamma-Funktion und dem Sinus
-liefert die \textbf{Reflexionsformel von Euler}:
+liefert die \emph{Reflexionsformel von Euler}:
 \begin{equation}
 \Gamma(z) \cdot \Gamma(1-z)
 =
 \frac{\pi}{\sin(\pi z)}.
 \end{equation}
 Diese Formel lässt sich mit den Produktdarstellungen beider Seiten rigoros beweisen.
-Die Beweisstruktur lässt sich in drei Schritte gliedern:
+Der Beweis lässt sich in drei Schritte gliedern:
 Erstens betrachtet man $f(z) = \Gamma(z) \cdot \Gamma(1-z) \cdot \sin(\pi z)$
 und zeigt, dass $f$ nach Multiplikation eine ganze Funktion ist.
 Zweitens ergibt die Wachstumsanalyse (mithilfe der Stirlingschen Formel
-oder der Produktdarstellungen), dass $f$ beschränkt und damit nach dem
+oder der Produktdarstellung), dass $f$ beschränkt und damit nach dem
 Satz von Liouville konstant ist.
 Drittens bestimmt die Normierungsbedingung bei $z = 1/2$ die Konstante zu $\pi$,
 woraus die Formel folgt.
 
 Die Reflexionsformel ist mehr als eine Kuriosität.
 Sie zeigt, dass die Produktdarstellung des Sinus und die Produktdarstellung
-von $1/\Gamma$ zwei Seiten derselben Münze sind --
-beide sind Manifestationen des Weierstraß-Produktsatzes auf denselben
+von $1/\Gamma(z)$ zwei Seiten derselben Münze sind,
+denn beide sind Manifestationen des Weierstraß-Produktsatzes auf denselben
 Gebieten der komplexen Ebene.
 Als spezieller Fall liefert $z = 1/2$ die schöne Identität:
 \begin{equation}
@@ -88,7 +90,7 @@ Als spezieller Fall liefert $z = 1/2$ die schöne Identität:
 \subsection{Mathematische Einordnung}
 
 Der Weierstraß-Produktsatz zeigt, dass die Nullstellenstruktur eine ganze Funktion
-fast vollständig bestimmt -- der verbleibende Freiheitsgrad ist allein der
+fast vollständig bestimmt, der verbleibende Freiheitsgrad ist allein der
 nullstellenfreie Faktor $e^{g(z)}$.
 Das ist das präzise analytische Analogon zur algebraischen Aussage,
 dass ein Polynom durch seine Nullstellen und seinen Leitkoeffizienten
@@ -97,8 +99,8 @@ eindeutig festgelegt ist.
 Für ganze Funktionen endlicher Ordnung schärft der Hadamard-Faktorisierungssatz
 dieses Bild weiter:
 $g(z)$ ist dann ein Polynom vom Grad höchstens $\lfloor \varrho \rfloor$.
-In den beiden wichtigsten Beispielen dieser Arbeit --
-$\sin(\pi z)$ und $1/\Gamma(z)$ -- ist $\varrho = 1$,
+In den beiden wichtigsten Beispielen dieser Arbeit
+$\sin(\pi z)$ und $1/\Gamma(z)$ ist $\varrho = 1$,
 sodass $g$ linear ist und durch Normierungsbedingungen vollständig bestimmt wird.
 
 \subsection{Praktische Anwendungen}
@@ -106,27 +108,26 @@ sodass $g$ linear ist und durch Normierungsbedingungen vollständig bestimmt wir
 Die hier entwickelte Theorie mag abstrakt wirken, hat aber weitreichende
 Konsequenzen in Wissenschaft und Technik.
 
-\textbf{Signalverarbeitung und Regelungstechnik.}
+\subsubsection{Signalverarbeitung und Regelungstechnik.}
 Ein lineares Filter wird vollständig durch seine Übertragungsfunktion beschrieben,
 die ihrerseits eine rationale Funktion ist und durch ihre Pole und Nullstellen
 (bis auf einen konstanten Faktor) vollständig bestimmt wird.
-Das Entwerfen von Filtern -- Tief-, Hoch-, Bandpassfilter -- ist direkt das Platzieren
+Das Entwerfen von Filtern wie beispielsweise Tief-, Hoch-, Bandpassfilter ist direkt das Platzieren
 von Nullstellen und Polen in der komplexen Ebene,
 genau in der Tradition von Eulers Produktansatz.
 Die Stabilität eines Regelkreises hängt davon ab, ob alle Pole in der linken
-Halbebene liegen -- eine Nullstellenbedingung im Sinne dieser Arbeit.
+Halbebene liegen, also eine Nullstellenbedingung im Sinne dieser Arbeit.
 
-\textbf{Zahlentheorie und die Riemannsche Vermutung.}
+\subsubsection{Zahlentheorie und die Riemannsche Vermutung.}
 Die Riemannsche Zeta-Funktion $\zeta(s)$ besitzt eine Hadamard-Produktdarstellung
 über ihre sogenannten nichttrivialen Nullstellen.
-Die Riemannsche Vermutung -- eines der großen offenen Probleme der Mathematik --
-ist im Kern eine Aussage darüber, wo diese Nullstellen liegen.
+Die Riemannsche Vermutung ist im Kern eine Aussage darüber, wo diese Nullstellen liegen.
 Ihr Beweis oder ihre Widerlegung würde tiefe Aussagen über die Verteilung
 der Primzahlen liefern.
 Ohne die Theorie der ganzen Funktionen und ihren Produktsatz wäre das Problem
 nicht einmal präzise formulierbar.
 
-\textbf{Quantenfeldtheorie und Regularisierung.}
+\subsubsection{Quantenfeldtheorie und Regularisierung.}
 In der theoretischen Physik treten formal divergente unendliche Produkte auf,
 etwa bei der Berechnung von Vakuumenergien.
 Techniken wie die Zeta-Funktionen-Regularisierung und die dimensionale Regularisierung
@@ -136,7 +137,7 @@ Das bekannte Resultat $1 + 2 + 3 + \cdots = -1/12$ im Sinne der
 Zeta-Regularisierung ist ein anschauliches, wenn auch vereinfachendes Beispiel
 für diese Technik.
 
-\textbf{Spezielle Funktionen in der Mathematik.}
+\subsubsection{Spezielle Funktionen in der Mathematik.}
 Die Gamma-Funktion selbst ist unverzichtbar in der Statistik
 (Gamma-Verteilung, Beta-Funktion), in der Kombinatorik
 (verallgemeinerte Binomialkoeffizienten) und in der Lösungstheorie
@@ -144,8 +145,8 @@ gewöhnlicher Differentialgleichungen (Bessel-Funktionen,
 hypergeometrische Funktionen).
 All diese Anwendungen bauen implizit auf ihrer Produktstruktur auf.
 
-Der in dieser Arbeit entwickelte Gedankengang --
+Der in dieser Arbeit entwickelte Gedankengang
 von der elementaren Polynomfaktorisierung über Eulers kühnen heuristischen Schritt
-bis zur rigorosen Weierstraß-Theorie --
+bis zur rigorosen Weierstraß-Theorie 
 illustriert exemplarisch, wie mathematische Intuition und strenge Analysis
 zusammenwirken und wie abstrakte Theorie zu konkreten Anwendungen führt.
