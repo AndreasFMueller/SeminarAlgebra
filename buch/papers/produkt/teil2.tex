@@ -20,7 +20,7 @@ Für holomorphe Funktionen mit unendlich vielen Nullstellen stellt sich die Frag
 ob sich eine solche Darstellung als unendliches Produkt verallgemeinern lässt.
 Dabei tauchen zwei grundlegende Schwierigkeiten auf.
 
-\paragraph{Normierung der Faktoren.}
+\subsection{Normierung der Faktoren.}
 Statt der Faktoren $(z - a_n)$ verwendet man zweckmäßigerweise Faktoren der Form
 $\bigl(1 - z/a_n\bigr)$.
 Der Unterschied ist mehr als kosmetisch: Beim Vorfaktor $c$ eines Polynoms
@@ -30,16 +30,16 @@ divergenten Gesamtvorfaktor führen.
 Die Wahl $\bigl(1 - z/a_n\bigr)$ normiert jeden Faktor so, dass er bei $z = 0$
 den Wert $1$ annimmt, was die Konvergenzanalyse entscheidend vereinfacht.
 
-\paragraph{Unbestimmtheit durch ganze Funktionen.}
+\subsection{Unbestimmtheit durch ganze Funktionen.}
 Bei Polynomen bestimmen die Nullstellen das Polynom \emph{bis auf einen
 konstanten Faktor} $c \in \mathbb{C}^*$, also bis auf $e^b$ mit $b \in \mathbb{C}$.
 Bei holomorphen Funktionen ist die Situation komplizierter: Die Nullstellen
 bestimmen die Funktion nur bis auf einen Faktor $e^{g(z)}$, wobei $g$ selbst
 eine beliebige ganze Funktion sein kann, nicht nur eine Konstante.
-Der Exponent $g(z)$ ist gewissermaßen die "transzendente Freiheit", die über
+Der Exponent $g(z)$ ist gewissermaßen die ``transzendente Freiheit'', die über
 die algebraische Information der Nullstellenmenge hinausgeht.
 
-\paragraph{Konvergenz des unendlichen Produkts.}
+\subsection{Konvergenz des unendlichen Produkts.}
 Das Produkt $\prod_n (1 - z/a_n)$ konvergiert genau dann, wenn die Summe
 $\sum_n z/a_n$ konvergiert. Diesen Zusammenhang sieht man am einfachsten durch
 Logarithmieren: Der Logarithmus eines Produkts ist die Summe der Logarithmen,
@@ -54,7 +54,7 @@ Dies ist jedoch keineswegs garantiert. Wählt man zum Beispiel $a_n = n$,
 so divergiert $\sum_n 1/n$ als harmonische Reihe, das naive Produkt
 $\prod_n (1 - z/n)$ konvergiert also nicht.
 
-\paragraph{Weierstraß-Faktoren als Lösung.}
+\subsection{Weierstraß-Faktoren als Lösung.}
 Die Idee zur Behebung dieses Konvergenzproblems ist elegant: Man betrachtet
 den störenden ersten Term $x$ in der Reihenentwicklung von $\log(1-x)$ und
 addiert ihn wieder hinzu:
@@ -80,11 +80,10 @@ Allgemein: Muss man $p$ störende Terme aus dem Logarithmus eliminieren, so
 erhält man den Weierstraß-Faktor $E_p(x)$.
 Die Ordnung $\varrho$ einer ganzen Funktion bestimmt dabei, wie schnell die
 Nullstellen wachsen, und daraus ergibt sich die notwendige Wahl von $p$.
-Man wählt typischerweise $p_n = \lfloor\varrho\rfloor$ für alle $n$.
 
-\subsection{Elementarfaktoren}
+\subsection{Elementarfaktoren und Konvergenz}
 
-Das zentrale technische Hilfsmittel sind die Weierstraß-Elementarfaktoren.
+Das zentrale technische Hilfsmittel sind also die Weierstraß-Elementarfaktoren.
 Für $p = 0, 1, 2, \ldots$ definiert man:
 \begin{equation}
 E_0(z) = 1 - z,
@@ -136,6 +135,7 @@ Dies weil $e^{z/n} \cdot e^{-z/n} = 1$ und so erhält man:
 =
 \pi z \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} \left(1 - \frac{z^2}{n^2}\right).
 \end{equation}
+
 Eine Schärfung des Weierstraß-Satzes genannt Hadamard-Faktorisierungssatz existiert.
 Dieser ist für Funktionen endlicher Ordnung definiert und impliziert, dass $g(z)$ ein Polynom vom Grad
 höchstens $\lfloor \varrho \rfloor = 1$ sein muss, also $g(z) = Az + B$.
