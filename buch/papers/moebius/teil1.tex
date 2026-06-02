@@ -6,12 +6,13 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Allgemeiner Aufbau einer Mödius Transformation
+\section{Allgemeiner Aufbau einer Möbius Transformation
 \label{moebius:section:teil1}}
-\kopfrechts{Allgemeiner Aufbau einer Mödius Transformation}
+\kopfrechts{Allgemeiner Aufbau einer Möbius Transformation}
 
 Eine Möbius Transformation kann man als Kombinationen von einfachen Transformationen verstehen.
 Es gibt drei Arten von diesen Transformationen.
+\index{Mobius-Transformation@Möbius-Transformation}%
 
 \subsubsection{Die Translation}
 Eine Translation wird durch die Abbildung
@@ -26,6 +27,7 @@ Sie verschiebt jeden Punkt der komplexen Ebene um die komplexe Zahl b.
 	\includegraphics[width=1\textwidth]{papers/moebius/bild5.pdf}
 	\caption{Verschiebung des Imaginärteils (erstellt mit GeoGebra)}
 \end{figure}
+\index{GeoGebra}%
 
 
 \subsubsection{Drehstreckung}
@@ -35,6 +37,7 @@ z \mapsto az
 \]
 beschrieben.
 Diese Transformation beschreibt eine Streckung und gleichzeitig eine Rotation der komplexen Ebene um den Ursprung.
+\index{Rotation}%
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{papers/moebius/bild3.pdf}
@@ -44,6 +47,7 @@ Für die Rotation wird für $a = e^{i\varphi}$ eingesetzt.
 
 \subsubsection{Die Inversion}
 Die Inversion wird durch die Abbildung
+\index{Inversion}%
 \[
 z \mapsto \frac{1}{z}
 \]
@@ -57,7 +61,7 @@ Sie bildet jeden Punkt der komplexen Ebene auf seinen Kehrwert ab und ist verant
 \end{figure}
 
 
-\subsubsection{Die allgemeine Form einer Möbius Transformation}
+\subsubsection{Die allgemeine Form einer Möbius-Transformation}
 
 \[
 f(z) = \frac{a z + b}{c z + d}, \quad a,b,c,d \in \mathbb{C}, \; ad - bc \neq 0
@@ -69,6 +73,8 @@ Möbius-Transformationen sind bijektiv.
 Das bedeutet, dass sie sowohl injektiv als auch surjektiv sind:
 \begin{itemize}
 	\item Eine Funktion ist \emph{injektiv}, wenn verschiedene Punkte der Definitionsmenge auf verschiedene Punkte abgebildet werden.
+\index{injektiv}%
 	\item Eine Funktion ist \emph{surjektiv}, wenn jeder Punkt der Zielmenge von mindestens einem Punkt der Definitionsmenge getroffen wird.
+\index{surjektiv}%
 \end{itemize}
-Damit ist jede Möbius-Transformation umkehrbar, d.\,h. es existiert eine inverse Möbius-Transformation.
+Damit ist jede Möbius-Transformation umkehrbar, d.\,h.~es existiert eine inverse Möbius-Transformation.
