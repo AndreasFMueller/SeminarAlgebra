@@ -20,7 +20,7 @@ Für holomorphe Funktionen mit unendlich vielen Nullstellen stellt sich die Frag
 ob sich eine solche Darstellung als unendliches Produkt verallgemeinern lässt.
 Dabei tauchen zwei grundlegende Schwierigkeiten auf.
 
-\subsection{Normierung der Faktoren.}
+\subsubsection{Normierung der Faktoren}
 Statt der Faktoren $(z - a_n)$ verwendet man zweckmäßigerweise Faktoren der Form
 $\bigl(1 - z/a_n\bigr)$.
 Der Unterschied ist mehr als kosmetisch: Beim Vorfaktor $c$ eines Polynoms
@@ -30,7 +30,7 @@ divergenten Gesamtvorfaktor führen.
 Die Wahl $\bigl(1 - z/a_n\bigr)$ normiert jeden Faktor so, dass er bei $z = 0$
 den Wert $1$ annimmt, was die Konvergenzanalyse entscheidend vereinfacht.
 
-\subsection{Unbestimmtheit durch ganze Funktionen.}
+\subsubsection{Unbestimmtheit durch ganze Funktionen}
 Bei Polynomen bestimmen die Nullstellen das Polynom \emph{bis auf einen
 konstanten Faktor} $c \in \mathbb{C}^*$, also bis auf $e^b$ mit $b \in \mathbb{C}$.
 Bei holomorphen Funktionen ist die Situation komplizierter: Die Nullstellen
@@ -39,7 +39,7 @@ eine beliebige ganze Funktion sein kann, nicht nur eine Konstante.
 Der Exponent $g(z)$ ist gewissermaßen die ``transzendente Freiheit'', die über
 die algebraische Information der Nullstellenmenge hinausgeht.
 
-\subsection{Konvergenz des unendlichen Produkts.}
+\subsubsection{Konvergenz des unendlichen Produkts}
 Das Produkt $\prod_n (1 - z/a_n)$ konvergiert genau dann, wenn die Summe
 $\sum_n z/a_n$ konvergiert. Diesen Zusammenhang sieht man am einfachsten durch
 Logarithmieren: Der Logarithmus eines Produkts ist die Summe der Logarithmen,
@@ -54,7 +54,7 @@ Dies ist jedoch keineswegs garantiert. Wählt man zum Beispiel $a_n = n$,
 so divergiert $\sum_n 1/n$ als harmonische Reihe, das naive Produkt
 $\prod_n (1 - z/n)$ konvergiert also nicht.
 
-\subsection{Weierstraß-Faktoren als Lösung.}
+\subsubsection{Weierstraß-Faktoren als Lösung}
 Die Idee zur Behebung dieses Konvergenzproblems ist elegant: Man betrachtet
 den störenden ersten Term $x$ in der Reihenentwicklung von $\log(1-x)$ und
 addiert ihn wieder hinzu:
