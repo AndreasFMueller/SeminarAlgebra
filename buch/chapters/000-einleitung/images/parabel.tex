@@ -1,0 +1,69 @@
+%
+% parabel.tex -- Exhaustion der Parabel
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\skala{6}
+\def\n{5}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\foreach \i in {1,...,\n}{
+	\pgfmathparse{\i/\n}
+	\xdef\x{\pgfmathresult}
+	\fill[color=blue!10]
+		({\x-1/\n},{(\x-1/\n)*(\x-1/\n)})
+		--
+		({\x},{\x*\x})
+		--
+		({\x},1)
+		--
+		++({-1/\n},0)
+		-- cycle;
+	\draw[color=blue,line width=0.4pt]
+		({\x-1/\n},{(\x-1/\n)*(\x-1/\n)})
+		--
+		({\x},{\x*\x});
+	\node[color=blue] at
+		({\x-0.5/\n},{0.5+0.25*((\x-1/\n)*(\x-1/\n)+\x*\x)}) {$F_\i$};
+}
+
+\foreach \i in {0,...,\n}{
+	\pgfmathparse{\i/\n}
+	\xdef\x{\pgfmathresult}
+	\draw[color=blue,line width=0.4pt] ({\x},{\x*\x}) -- (\x,1);
+	\draw ({\i/\n},{-0.05/\skala}) -- ++(0,{0.1/\skala});
+}
+\draw[color=blue,line width=0.4pt] (0,1) -- (1,1);
+
+\pgfmathparse{\n-1}
+\xdef\N{\pgfmathresult}
+\foreach \i in {1,...,\N}{
+	\node at ({\i/\n},{-0.05/\skala}) [below] {$\frac{\i}{\n}$};
+}
+\node at (0,{-0.05/\skala}) [below] {$0$};
+\node at (1,{-0.05/\skala}) [below] {$1$};
+
+
+\draw[color=darkred,line width=1.2pt] plot[domain=0:1,smooth] ({\x},{\x*\x});
+
+\foreach \i in {0,...,\n}{
+	\pgfmathparse{\i/\n}
+	\xdef\x{\pgfmathresult}
+	\fill[color=blue] ({\x},{\x*\x}) circle[radius={0.05/\skala}];
+}
+
+\draw[->] (-0.01,0) -- (1.05,0) coordinate[label={$x$}];
+\draw[->] (0,-0.01) -- (0,1.05) coordinate[label={$y$}];
+
+\end{tikzpicture}
+\end{document}
+
