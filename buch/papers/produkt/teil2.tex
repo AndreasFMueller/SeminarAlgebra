@@ -7,7 +7,7 @@
 % !TEX encoding = UTF-8
 %
 \section{Der Weierstraß-Produktsatz}
-\rhead{Weierstraß-Produktsatz}
+\kopfrechts{Der Weierstraß-Produktsatz}
 
 \subsection{Das Problem: Unendliche Produkte und ihre Konvergenz}
 
@@ -45,7 +45,9 @@ $\sum_n z/a_n$ konvergiert. Diesen Zusammenhang sieht man am einfachsten durch
 Logarithmieren: Der Logarithmus eines Produkts ist die Summe der Logarithmen,
 und für kleine $x$ gilt $\log(1 - x) \approx -x$. Genauer:
 \[
-\log(1 - x) = -\Bigl(x + \frac{x^2}{2} + \frac{x^3}{3} + \cdots\Bigr).
+\log(1 - x)
+=
+-\biggl(x + \frac{x^2}{2} + \frac{x^3}{3} + \cdots\biggr).
 \]
 Mit $x = z/a_n$ ergibt sich also, dass die Konvergenz des Produkts im Wesentlichen
 von der Konvergenz der Reihe $\sum_n 1/a_n$ abhängt.
@@ -59,7 +61,9 @@ Die Idee zur Behebung dieses Konvergenzproblems ist elegant: Man betrachtet
 den störenden ersten Term $x$ in der Reihenentwicklung von $\log(1-x)$ und
 addiert ihn wieder hinzu:
 \[
-\log(1 - x) + x = -\Bigl(\frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots\Bigr).
+\log(1 - x) + x
+=
+-\biggl(\frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots\biggr).
 \]
 Für kleines $x$ ist $x^2/2$ viel kleiner als $x$, sodass die entsprechende Summe
 $\sum_n (z/a_n)^2/2$ deutlich bessere Chancen hat zu konvergieren.
@@ -71,13 +75,17 @@ Reicht dies immer noch nicht aus wenn also auch die $x^2/2$-Terme zu langsam
 abklingen, so substrahiert man noch einen weiteren Term aus dem Logarithmus:
 \[
 \log(1-x) + x + \frac{x^2}{2}
-= -\Bigl(\frac{x^3}{3} + \frac{x^4}{4} + \cdots\Bigr).
+=
+-\biggl(\frac{x^3}{3} + \frac{x^4}{4} + \cdots\biggr).
 \]
 Der führende Term ist jetzt $x^3/3$, was die Konvergenz nochmals verbessert.
 Exponenzieren ergibt den Faktor $E_2(x) = (1-x)\,e^{x + x^2/2}$.
 
 Allgemein: Muss man $p$ störende Terme aus dem Logarithmus eliminieren, so
-erhält man den Weierstraß-Faktor $E_p(x)$.
+erhält man den \emph{Weierstraß-Faktor} $E_p(x)$.
+\index{Weierstrass-Faktor@Weierstraß-Faktor}%
+\index{Elementarfaktor}%
+\index{Ep(x)@$E_p(x)$}%
 Die Ordnung $\varrho$ einer ganzen Funktion bestimmt dabei, wie schnell die
 Nullstellen wachsen, und daraus ergibt sich die notwendige Wahl von $p$.
 
@@ -88,11 +96,14 @@ Für $p = 0, 1, 2, \ldots$ definiert man:
 \begin{equation}
 E_0(z) = 1 - z,
 \qquad
-E_p(z) = (1-z) \cdot \exp\!\left(z + \frac{z^2}{2} + \cdots + \frac{z^p}{p}\right)
+E_p(z)
+=
+(1-z) \cdot \exp\!\biggl(z + \frac{z^2}{2} + \cdots + \frac{z^p}{p}\biggr)
 \quad \text{für } p \ge 1.
 \end{equation}
 Der Exponentialterm ist so konstruiert, dass er genau die ersten $p$ Terme
-in der Laurentreihe von $\log(1-z)$ kompensiert und damit die Divergenz
+in der Laurent-Reihe von $\log(1-z)$ kompensiert und damit die Divergenz
+\index{Laurent-Reihe}%
 des Faktors $(1-z)$ für wachsende Argumente unterdrückt.
 Genauer gilt die Abschätzung
 \begin{equation}
@@ -108,6 +119,7 @@ oder \cite{produkt:steinShakarchi} verwiesen.
 Weierstraß bewies den folgenden fundamentalen Satz \cite{produkt:steinShakarchi}:
 
 \begin{satz}[Weierstraß, 1876]
+\index{Faktorisierungssatz!von Weierstraß}%
 Sei $f$ eine ganze Funktion mit einer Nullstelle der Ordnung $m \ge 0$ bei $z = 0$
 und weiteren Nullstellen $a_1, a_2, \ldots$ (mit Vielfachheiten,
 nach wachsendem Betrag geordnet).
@@ -115,7 +127,8 @@ Dann existiert eine ganze Funktion $g(z)$ und nicht-negative ganze Zahlen $p_n$ 
 \begin{equation}
 f(z)
 =
-z^m \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} E_{p_n}\!\left(\frac{z}{a_n}\right).
+z^m \cdot e^{g(z)} \cdot
+\prod_{n=1}^{\infty} E_{p_n}\!\biggl(\frac{z}{a_n}\biggr).
 \end{equation}
 Das Produkt konvergiert gleichmäßig auf Kompakta.
 Für ganze Funktionen endlicher Ordnung $\varrho$ genügt die konstante Wahl
@@ -133,10 +146,12 @@ Dies weil $e^{z/n} \cdot e^{-z/n} = 1$ und so erhält man:
 \begin{equation}
 \sin(\pi z)
 =
-\pi z \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} \left(1 - \frac{z^2}{n^2}\right).
+\pi z \cdot e^{g(z)} \cdot \prod_{n=1}^{\infty} \biggl(1 - \frac{z^2}{n^2}\biggr).
 \end{equation}
 
 Eine Schärfung des Weierstraß-Satzes genannt Hadamard-Faktorisierungssatz existiert.
+\index{Hadamard}%
+\index{Faktorisierungssatz!von Hadamard}%
 Dieser ist für Funktionen endlicher Ordnung definiert und impliziert, dass $g(z)$ ein Polynom vom Grad
 höchstens $\lfloor \varrho \rfloor = 1$ sein muss, also $g(z) = Az + B$.
 Aus $\sin(\pi z)/(\pi z) \to 1$ für $z \to 0$ folgt $B = 0$,
@@ -145,5 +160,5 @@ Damit gilt Eulers Formel rigoros:
 \begin{equation}
 \sin(\pi z)
 =
-\pi z \cdot \prod_{n=1}^{\infty} \left(1 - \frac{z^2}{n^2}\right).
+\pi z \cdot \prod_{n=1}^{\infty} \biggl(1 - \frac{z^2}{n^2}\biggr).
 \end{equation}

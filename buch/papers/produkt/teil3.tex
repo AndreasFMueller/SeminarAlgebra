@@ -7,13 +7,14 @@
 % !TEX encoding = UTF-8
 %
 \section{Die Gamma-Funktion und ihre Produktdarstellung}
-\rhead{Gamma-Funktion}
+\kopfrechts{Die Gamma-Funktion und ihre Produktdarstellung}
 
 \subsection{Definition und erste Eigenschaften}
 
 Dieser Abschnitt ist wiederum eine vereinfachte Betrachtung, 
 für eine detaillierte Analyse siehe Kapitel \ref{chapter:gamma}.
 Die Gamma-Funktion ist die natürliche Verallgemeinerung der Fakultät
+\index{Gamma-Funktion}%
 auf komplexe Argumente.
 Für $\operatorname{Re}(z) > 0$ ist sie durch das Integral
 \begin{equation}
@@ -21,6 +22,7 @@ Für $\operatorname{Re}(z) > 0$ ist sie durch das Integral
 =
 \int_0^{\infty} t^{z-1} e^{-t} \, dt
 \end{equation}
+\index{G(z)@$\Gamma(z)$}%
 definiert.
 Es gilt $\Gamma(n+1) = n!$ für natürliche Zahlen $n$,
 sowie die Funktionalgleichung $\Gamma(z+1) = z\,\Gamma(z)$,
@@ -43,9 +45,11 @@ Mit den Elementarfaktoren $E_1(z) = (1-z)e^z$ ergibt sich die Formel
 \begin{equation}
 \frac{1}{\Gamma(z)}
 =
-z \cdot e^{\gamma z} \cdot \prod_{n=1}^{\infty} \left(1 + \frac{z}{n}\right) e^{-z/n},
+z \cdot e^{\gamma z} \cdot
+\prod_{n=1}^{\infty} \biggl(1 + \frac{z}{n}\biggr) e^{-z/n},
 \end{equation}
 wobei $\gamma \approx 0{,}5772$ die Euler-Mascheroni-Konstante ist.
+\index{Euler-Mascheroni-Konstante}%
 Diese Konstante tritt als der Koeffizient in $g(z) = \gamma z$ auf,
 der aus dem Hadamard-Satz und der Normierungsbedingung $\Gamma(1) = 1$ bestimmt wird.
 
@@ -59,6 +63,7 @@ als natürliche Normierungsgröße.
 
 Die eleganteste Verbindung zwischen der Gamma-Funktion und dem Sinus
 liefert die \emph{Reflexionsformel von Euler}:
+\index{Reflexionsformel!für $\Gamma(z)$}%
 \begin{equation}
 \Gamma(z) \cdot \Gamma(1-z)
 =
@@ -81,11 +86,11 @@ denn beide sind Manifestationen des Weierstraß-Produktsatzes auf denselben
 Gebieten der komplexen Ebene.
 Als spezieller Fall liefert $z = 1/2$ die schöne Identität:
 \begin{equation}
-\Gamma\!\left(\tfrac{1}{2}\right) = \sqrt{\pi}.
+\Gamma\!\biggl(\frac{1}{2}\biggr) = \sqrt{\pi}.
 \end{equation}
 
 \section{Fazit und Ausblick}
-\rhead{Fazit}
+\kopfrechts{Fazit und Ausblick}
 
 \subsection{Mathematische Einordnung}
 
@@ -108,18 +113,25 @@ sodass $g$ linear ist und durch Normierungsbedingungen vollständig bestimmt wir
 Die hier entwickelte Theorie mag abstrakt wirken, hat aber weitreichende
 Konsequenzen in Wissenschaft und Technik.
 
-\subsubsection{Signalverarbeitung und Regelungstechnik.}
+\subsubsection{Signalverarbeitung und Regelungstechnik}
 Ein lineares Filter wird vollständig durch seine Übertragungsfunktion beschrieben,
 die ihrerseits eine rationale Funktion ist und durch ihre Pole und Nullstellen
 (bis auf einen konstanten Faktor) vollständig bestimmt wird.
 Das Entwerfen von Filtern wie beispielsweise Tief-, Hoch-, Bandpassfilter ist direkt das Platzieren
+\index{Tiefpassfilter}%
+\index{Hochpassfilter}%
+\index{Bandpassfilter}%
 von Nullstellen und Polen in der komplexen Ebene,
 genau in der Tradition von Eulers Produktansatz.
 Die Stabilität eines Regelkreises hängt davon ab, ob alle Pole in der linken
 Halbebene liegen, also eine Nullstellenbedingung im Sinne dieser Arbeit.
+\index{Regelkreis}%
+\index{Stabilitat@Stabilität}%
 
-\subsubsection{Zahlentheorie und die riemannsche Vermutung.}
-Die Riemannsche Zeta-Funktion $\zeta(s)$ besitzt eine Hadamard-Produktdarstellung
+\subsubsection{Zahlentheorie und die riemannsche Vermutung}
+Die riemannsche Zeta-Funktion $\zeta(s)$ besitzt eine Hadamard-Produktdarstellung
+\index{Zeta-Funktion, riemannsch}%
+\index{zeta(s)@$\zeta(s)$}%
 über ihre sogenannten nichttrivialen Nullstellen.
 Die Riemannsche Vermutung ist im Kern eine Aussage darüber, wo diese Nullstellen liegen.
 Ihr Beweis oder ihre Widerlegung würde tiefe Aussagen über die Verteilung
@@ -128,17 +140,19 @@ Ohne die Theorie der ganzen Funktionen und ihren Produktsatz wäre das Problem
 nicht einmal präzise formulierbar.
 Für eine detaillierte Ausführung zu diesem Thema siehe Kapitel \ref{chapter:zeta}
 
-\subsubsection{Quantenfeldtheorie und Regularisierung.}
+\subsubsection{Quantenfeldtheorie und Regularisierung}
 In der theoretischen Physik treten formal divergente unendliche Produkte auf,
 etwa bei der Berechnung von Vakuumenergien.
+\index{Vakuumenergie}%
 Techniken wie die Zeta-Funktionen-Regularisierung und die dimensionale Regularisierung
+\index{dimensionale Regularisierung}%
 lassen sich als kontrollierte Manipulationen des nullstellenfreien Faktors $e^{g(z)}$
 im Weierstraß-Produkt verstehen.
 Das bekannte Resultat $1 + 2 + 3 + \cdots = -1/12$ im Sinne der
 Zeta-Regularisierung ist ein anschauliches, wenn auch vereinfachendes Beispiel
 für diese Technik.
 
-\subsubsection{Spezielle Funktionen in der Mathematik.}
+\subsubsection{Spezielle Funktionen in der Mathematik}
 Die Gamma-Funktion selbst ist unverzichtbar in der Statistik
 (Gamma-Verteilung, Beta-Funktion), in der Kombinatorik
 (verallgemeinerte Binomialkoeffizienten) und in der Lösungstheorie

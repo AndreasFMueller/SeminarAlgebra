@@ -7,7 +7,7 @@
 % !TEX encoding = UTF-8
 %
 \section{Eulers Produktdarstellung des Sinus}
-\rhead{Euler und das Basler Problem}
+\kopfrechts{Eulers Produktdarstellung des Sinus}
 
 \subsection{Der Ansatz}
 
@@ -18,7 +18,7 @@ Sein Ansatz hatte die Form
 \begin{equation}
 \sin(x)
 =
-x \cdot \prod_{n=1}^{\infty} \left(1 - \frac{x^2}{n^2 \pi^2}\right).
+x \cdot \prod_{n=1}^{\infty} \biggl(1 - \frac{x^2}{n^2 \pi^2}\biggr).
 \end{equation}
 Jeder Faktor $(1 - x^2/n^2\pi^2)$ hat genau die Nullstellen $x = \pm n\pi$.
 Der Vorfaktor $x$ erzeugt die Nullstelle bei $x = 0$.
@@ -32,6 +32,7 @@ Einen strengen Beweis lieferte er nicht, dieser wurde erst durch Weierstraß erb
 \subsection{Das Basel-Problem}
 
 Dieser Abschnitt behandelt das Basel-Problem nur oberflächlich.
+\index{Basel-Problem}%
 Für eine detaillierte Analyse siehe Kapitel \ref{chapter:basel}.
 Ein bemerkenswertes Nebenresultat ergibt sich durch Koeffizientenvergleich.
 Die Taylorreihe des Sinus liefert den Koeffizienten von $x^3$ als $-1/6$.
@@ -46,6 +47,7 @@ Gleichsetzen liefert das berühmte Resultat:
 \end{equation}
 Dieses, als Basel-Problem bekannte Resultat, war seit Jahrzehnten offen
 und hatte namhafte Mathematiker wie die Bernoullis beschäftigt.
+\index{Bernoulli}%
 Der Schritt ist analog zur endlichen Situation:
 Multipliziert man $(1+a_1)(1+a_2)\cdots$ aus, so liefert jeder Faktor genau
 einen linearen Beitrag $a_i$;
@@ -57,20 +59,21 @@ dass Eulers Herleitung zwar nicht rigoros war, aber den richtigen Weg wies,
 der später durch die Weierstraß-Theorie vollständig gerechtfertigt werden sollte.
 
 \section{Das Problem der Konvergenz}
-\rhead{Konvergenz}
+\kopfrechts{Das Problem der Konvergenz}
 
 Eulers Vorgehen war kühn, aber mathematisch nicht gesichert.
 Zwei wesentliche Fragen bleiben offen.
 
 \begin{enumerate}
-\item \textit{Konvergiert das unendliche Produkt
+\item \emph{Konvergiert das unendliche Produkt
 $\prod(1 - x^2/n^2\pi^2)$ überhaupt?}
+\index{Konvergenz}%
 Im vorliegenden Fall lässt sich dies bejahen, da $\sum 1/n^2$ konvergiert.
 Im Allgemeinen konvergiert ein unendliches Produkt $\prod(1+a_n)$ unter
 geeigneten Bedingungen (etwa wenn $\sum |a_n|$ konvergiert) gegen einen Wert $\neq 0$;
 die einfache Äquivalenz zur Konvergenz von $\sum a_n$ gilt nur in dieser Einschränkung.
 
-\item \textit{Folgt aus gleichen Nullstellen auch Gleichheit der Funktionen?}
+\item \emph{Folgt aus gleichen Nullstellen auch Gleichheit der Funktionen?}
 Besitzen zwei ganze Funktionen dieselben Nullstellen (inklusive ihrer Vielfachheiten),
 so ist ihr Quotient eine nullstellenfreie ganze Funktion.
 Nach den Sätzen der Funktionentheorie lässt sich eine solche stets in der Form
