@@ -1,0 +1,144 @@
+%
+% epsilon.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Das moderne Fundament}
+Die Entwicklung der Analysis im 17.~und 18.~Jahrhundert fand ohne
+sorgfältig gerechtfertigte Grundlagen statt.
+
+
+\subsection{Der Funktionsbegriff}
+Nicht einmal der Begriff einer stetigen Funktion war in rein mathematischen
+Begriffen definiert.
+Fourier verstand darunter etwas, was sich ohne mit einem Bleistift ohne
+Absetzen in einem Zug zeichnen lässt.
+Für ihn war auch eine Rechteckfunktion von dieser Art, da sich die
+Sprünge durch vertikale Segmente in einem Zug zeichnen lassen.
+
+\subsection{Konvergenz und Grenzwert}
+
+\subsection{Integral}
+Für stetige Funktionen spielt es nicht so eine grosse Rolle, wie man 
+das Integral definiert.
+Cauchy hat zum Beispiel das Integrationsintervall in Teilintervalle 
+aufgeteilt und daraus Rechtecke gebildet, dereh Höhe durch den Funktionswert
+am Ende des Teilintervalls gegeben ist.
+Für die damals üblichen Standards der Strenge der Beweisführung hat
+das ausgereicht.
+Später hat sich gezeigt, dass diese Definition für die betrachteten
+Funktionen tatsächlich äquivalent zu ausgefeilteren Definition des
+Integrals waren.
+
+Die Fourier-Koeffizienten werden mit Hilfe der Fourier-Integrale
+berechnet.
+Für die Anwendung der Fourier-Theorie auf nicht stetige Funktionen
+wurde die Antwort auf die Frage dringen, welche Funktionen ein
+wohldefiniertes Integral haben.
+Dies war die Motivation für Bernhard Riemann, eine Definition 
+zu formulieren und streng zu beweisen, dass eine ausreichen grosse
+Klasse von Funktionen integrierbar im Sinne seiner Definition sind.
+Das Riemann-Integral ist sehr intuitiv verständlich und wird daher
+noch heute im Analysisunterricht eingesetzt.
+
+Das Riemann-Integral hat allerdings eine Reihe von Defiziten.
+Zum Beispiel gibt es Funktionen, denen man intuitiv einen Integralwert
+zuweisen kann, die aber nach der riemannschen Definition nicht integrierbar
+sind.
+Dazu gehört die Dirichlet-Funktion
+\[
+D
+\colon
+\mathbb{R}\to\mathbb{R}
+:
+x\mapsto\begin{cases}
+1&\qquad x\in\mathbb{Q}\\
+0&\qquad \text{sonst,}
+\end{cases}
+\]
+welches nur in abzählbar vielen Punkten von 0 verschieden ist und dem
+man daher den Integralwert $0$ zuteilen möchte.
+
+Besonders für die Anwendung, für die das Riemann-Integral definiert worden
+ist, nämlich für die Fourier-Theorie, ist von Bedeutung, dass das
+Integral sich mit Grenzwerten von Funktionenfolgen gut verträgt.
+Auch hier zeigt sich, dass es konvergente Funktionenfolgen gibt, deren
+Integrale nicht konvergieren.
+
+Der Fundamentalsatz der Infinitesimalrechnung ist das Resultat,
+dass das Integral ein inverse Operation zur Ableitung einer
+Funktion liefert.
+Für das riemannsche Integral ist diese Aussage nicht automatisch
+war, es sind zusätzliche Anforderungen an den Integranden notwendig.
+Man würde sich wünschen, dass alle Integrale stetiger Funktionen
+differenzierbar sind und als Ableitung den Integranden ergeben.
+
+Im 19.~Jahrhundert wurden verschiedene Ansätze versucht, um den 
+riemannschen Integralbegriff zu verfeinern, die sich jedoch alle als
+äquivalent zur ursprünglichen Definition erwiesen und damit auch
+deren Defizite teilte.
+
+Erst die Konstruktion von Henri Lebesgue hat diese Problem überwunden.
+Dazu war jedoch die etwas schwerfällige Entwicklung einer Masstheorie
+für Teilmengen des Definitionsbereichs der zu integrierenden Funktionen
+notwendig.
+Dies verbessert die Verträglichkeit mit Grenzwerten und vergrössert
+die Klasse der Funktionen, für die der Hauptsatz gilt.
+Diese Form der Integrationstheorie ist die Basis mächtiger Erweiterungen,
+die die Basis der modernen Wahrscheinlichkeitstheorie bilden.
+
+Andere moderne Verfeinerungen wie das Henstock-Kurzweil-Integral
+finden einen interessanten Mittelweg.
+Durch minimale Erweiterungen der riemannschen Konstruktion kann ein
+Integral von reellen Funktionen auf $\mathbb{R}$ definiert werden,
+welches die guten Eigenschaften des Lebesgue-Integrals auf ein noch
+grössere Klasse von Funktionen ausdehnt und auch den Hauptsatz zu
+einer Selbstverständlichkeit macht.
+
+%
+% Nichtstandard-Analysis
+%
+\subsection{Nichtstandard-Analysis}
+Die Entwicklungen des 19.~Jahrhunders haben die Analysis auf eine
+solide Grundlage gestellt, sie aber auch der intuitiven Rechnung
+beraubt, die Eulers oft nicht rigorosen Rechnungen so gut
+verständlich gemacht haben.
+Die Strenge der $\varepsilon$-$\delta$-Technik hat der Analysis die
+unendlich kleinen Grössen ausgetrieben, die dafür nötig waren.
+Die Nichtstandard-Analysis gibt der Theorie solche Elemente
+zurück.
+
+Besonders leicht zugänglich ist die \emph{Internal Set Theory},
+die ein Modell der reellen Zahlen mit einem zusätzlichen Prädikat
+$\operatorname{st}(x)$ ist.
+Das Prädikat ist wahr für die vertrauten reellen Zahlen.
+In $\mathbb{R}$ gibt es aber auch positive Elemente $h\in\mathbb{R}$, 
+die kleiner sind als alle Standardelemente:
+\[
+0<h<r\qquad\forall r\in\mathbb{R}_+(\operatorname{st}(r)).
+\]
+Solche Elemente sind aus Sicht der standardreellen Zahlen vernachlässigbar
+klein, sie werden auch als unendlich klein oder infinitesimal bezeichnet.
+Man kann aber damit wie gewohnt rechnen und erhält damit die Möglichkeit,
+die Ableitung wieder rein algebraisch zu finden.
+Die Ableitung einer Funktion $f(x)$ ist diejenige reelle Zahl $f'(x)$,
+die sich vom Differenzenquotienten mit Differenz $h$ nur um eine 
+unendlich kleine Zahl unterscheiden:
+\[
+\biggl|
+f'(x)
+-
+\frac{f(x+h)-f(x)}{h}
+\biggr|
+<
+r
+\qquad\forall r\in\mathbb{R}_+(\operatorname{st}(r)).
+\]
+Damit ist die Intuition der Algebra in die Analysis zurückgekehrt.
+
+Die Nichtstandard-Analysis führt nicht zu neuen Ergebnissen in der
+Analysis.
+Das sogenannte Transferprinzip besagt nämlich, dass sich für jedes Resultat,
+dass mit der Nichtstandard-Analysis gefunden worden ist, auch ein
+klassischer Beweis angeben lässt.
+
