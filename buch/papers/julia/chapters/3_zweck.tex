@@ -1,42 +1,42 @@
 \section{Anwendungen und Zweck}
-\label{zweck}
+\label{julia:zweck}
 
 Die Definitionen für die Julia- und Fatou-Mengen sowie die Mandelbrot-Menge basieren auf interessanten Überlegungen, doch der grundlegende Zweck kann mitunter etwas in den Hintergrund geraten.
-Am Anfang des Kapitels wurde mit der Gleichung \eqref{beispielgleichung} und dem Newton-Algorithmus die Überlegung der Funktionen-Iteration motiviert.
-Die Iterationsformel \eqref{newton_alg} dieser Gleichung hat zwei Komponenten: die Variable $x_n$ beim Schritt $n$ und den Parameter $a$.
+Am Anfang des Kapitels wurde mit der Gleichung \eqref{julia:beispielgleichung} und dem Newton-Algorithmus die Überlegung der Funktionen-Iteration motiviert.
+Die Iterationsformel \eqref{julia:newton_alg} dieser Gleichung hat zwei Komponenten: die Variable $x_n$ beim Schritt $n$ und den Parameter $a$.
 Beide Komponenten lassen sich direkt mit der entwickelten Theorie in Verbindung bringen.
 
 \subsection{Die Variable und die Julia-Mengen}
-Für einen fixen Parameterwert $a$ hat die Gleichung \eqref{beispielgleichung} zwei analytische Lösungen: $\sqrt{-a}$ und $-\sqrt{-a}$.
-Weiter ergibt sich aus der Iterationsformel \eqref{newton_alg} die Funktion
+Für einen fixen Parameterwert $a$ hat die Gleichung \eqref{julia:beispielgleichung} zwei analytische Lösungen: $\!\sqrt{-a}$ und $-\!\sqrt{-a}$.
+Weiter ergibt sich aus der Iterationsformel \eqref{julia:newton_alg} die Funktion
 \begin{equation*}
     g(x_n) = x_n - \frac{x_n^2 + a}{2x_n} = \frac{x_n^2 - a}{2x_n}.
 \end{equation*}
 Bei diesen analytischen Lösungen handelt es sich, aus Sicht der Julia-Menge, um Fixpunkte, denn
 \begin{equation*}
-    g(\sqrt{-a}) = \sqrt{-a} \qquad \text{und} \qquad g(-\sqrt{-a}) = -\sqrt{-a}.
+    g(\!\sqrt{-a}) = \!\sqrt{-a} \qquad \text{und} \qquad g(-\!\sqrt{-a}) = -\!\sqrt{-a}.
 \end{equation*}
 
-Möchte man wissen, um welche Art von Fixpunkten es sich handelt müssen die Werte des Multiplikators \eqref{lambda_multiplicator} für die beiden analytischen Lösungen berechnet werden.
+Möchte man wissen, um welche Art von Fixpunkten es sich handelt, müssen die Werte des Multiplikators \eqref{julia:lambda_multiplicator} für die beiden analytischen Lösungen berechnet werden.
 Dazu benötigt man die Ableitung
 \begin{equation*}
-    \left(g^n\right)^\prime(x_0) = \prod_{k=0}^{n-1} g^\prime\left(g^k(x_0)\right) = g^\prime(x_0) \cdot g^\prime(g(x_0)) \cdot g^\prime(g(g(x_0))) \cdot \ldots\,,
+    \left(g^n\right)^\prime(x_0) = \prod_{k=0}^{n-1} g^\prime\left(g^k(x_0)\right) = g^\prime(x_0) \cdot g^\prime(g(x_0)) \cdot g^\prime(g(g(x_0))) \cdot \ldots
 \end{equation*}
 und muss diese für die beiden analytischen Lösungen auswerten.
-Interessant ist der Faktor $g^\prime(x_0)$, denn sowohl $g^\prime(\sqrt{-a})$ als auch $g^\prime(-\sqrt{-a})$ sind gleich $0$, wodurch die gesamten Produkte und somit die Multiplikatoren zu $0$ werden.
-Gemäss der Definition \ref{lambda_defs} sind daher beide analytischen Lösungen \emph{stark anziehende Fixpunkte}.
+Interessant ist der Faktor $g^\prime(x_0)$, denn sowohl $g^\prime(\!\sqrt{-a})$ als auch $g^\prime(-\!\sqrt{-a})$ sind gleich $0$, wodurch die gesamten Produkte und somit die Multiplikatoren zu $0$ werden.
+Gemäss der Definition \ref{julia:lambda_defs} sind daher beide analytischen Lösungen \emph{stark anziehende Fixpunkte}.
 
 Die komplexe Ebene (oder hier die reellen Zahlen) ist demzufolge in \emph{Einzugsgebiete} unterteilt:
 \begin{itemize}
-    \item Punkte, für die die Iteration von $g$ zu $\sqrt{-a}$ konvergiert
-    \item Punkte, für die die Iteration von $g$ zu $-\sqrt{-a}$ konvergiert
+    \item Punkte, für die die Iteration von $g$ zu $\!\sqrt{-a}$ konvergiert
+    \item Punkte, für die die Iteration von $g$ zu $-\!\sqrt{-a}$ konvergiert
     \item Punkte, für die die Iteration von $g$ sich anders verhält (z.B. $x = 0$ führt zu Division durch $0$)
 \end{itemize}
 Die Julia-Menge der Funktion $g$ entspricht genau dem Rand, der diese \emph{Einzugsgebiete} trennt.
 Wählt man einen Punkt auf dem Rand und variiert diesen leicht, fällt man je nach Art der Änderung in unterschiedliche \emph{Einzugsgebiete}.
 Diese Randpunkte verhalten sich also wieder chaotisch.
 
-Möchte man nun die Gleichung \eqref{beispielgleichung} mit der Newton-Iterationsformel \eqref{newton_alg} lösen, benötigt man einen Startwert $x_0$.
+Möchte man nun die Gleichung \eqref{julia:beispielgleichung} mit der Newton-Iterationsformel \eqref{julia:newton_alg} lösen, benötigt man einen Startwert $x_0$.
 Aus Analysis I ist bekannt, dass der Startwert ``genügend nahe'' bei einer Lösung der Gleichung liegen muss.
 Berechnet man nun die Julia-Menge der Funktion $g$, findet man so die \emph{Einzugsgebiete} der Lösungen und kann damit quantifizieren, was ``genügend nahe'' bedeutet.
 
@@ -47,7 +47,7 @@ Man untersucht nun das Verhalten der Funktion
     g(x_0)_a = \frac{x_0^2 - a}{2x_0}
 \end{equation*}
 für verschiedene Werte von $a$.
-Dies ist analog zur Definition der Mandelbrot-Menge in Abschnitt \ref{sec:mandelbrot} mit dem Unterschied, dass nicht die quadratische Funktion untersucht wird.
+Dies ist analog zur Definition der Mandelbrot-Menge in Abschnitt \ref{julia:sec:mandelbrot} mit dem Unterschied, dass nicht die quadratische Funktion untersucht wird.
 
 Findet man alle Parameterwerte, für die die Rekursion von $g$ beschränkt bleibt, erhält man zwar nicht die klassische Mandelbrot-Menge, aber trotzdem etwas was die gleichen Eigenschaften besitzt.
-Hiermit kann also untersucht werden, wie sich verschiedene Parameterwerte $a$ auf das Lösen der Gleichung \eqref{beispielgleichung} mit der Newton-Iterationsformel \eqref{newton_alg} auswirken.
+Hiermit kann also untersucht werden, wie sich verschiedene Parameterwerte $a$ auf das Lösen der Gleichung \eqref{julia:beispielgleichung} mit der Newton-Iterationsformel \eqref{julia:newton_alg} auswirken.

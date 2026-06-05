@@ -19,17 +19,17 @@ Das Interesse an dieser Idee lässt sich beispielsweise mit numerischen Methoden
 Dieser kann zur Lösung der Gleichung
 \begin{equation}
     x^2 + a = 0
-    \label{beispielgleichung}
+    \label{julia:beispielgleichung}
 \end{equation}
 herangezogen werden.
 Die Iterationsformel lautet
 \begin{equation}
     x_{n + 1} = x_n - \frac{f(x_n)}{f^\prime(x_n)} = x_n - \frac{x_n^2 + a}{2x_n} = g(x_n).
-    \label{newton_alg}
+    \label{julia:newton_alg}
 \end{equation}
 Was sich hinter dieser Formel verbirgt, ist nichts weiter als eine Komposition von einer Funktion $g$ mit sich selbst --- man erhält den nächsten Wert $x_{n + 1}$, indem man die Funktion $g$ auf den aktuellen Wert $x_n$ anwendet.
 
-Wird nun der Startwert $x_0$ genügend nahe an der exakten Lösung von der Gleichung \eqref{beispielgleichung} gewählt, wird die Iterationsfolge $x_n$ gegen die Lösung konvergieren.
+Wird nun der Startwert $x_0$ genügend nahe an der exakten Lösung von der Gleichung \eqref{julia:beispielgleichung} gewählt, wird die Iterationsfolge $x_n$ gegen die Lösung konvergieren.
 Anders sieht es aus, wenn der Startwert weit weg von der exakten Lösung gewählt wird.
 Zudem besitzt diese Gleichung einen Parameter $a$.
 Ist $a = 1$, so erreicht der Newton-Algorithmus in den reellen Zahlen gar keine Konvergenz.
@@ -38,10 +38,10 @@ Die Iteration der Funktion $g$ kann sich also, basierend auf verschiedenen Umst�
 Für das genaue Verständnis der Folge $x_0,\, x_1,\, x_2,\, \ldots$, welche durch die Iteration von $g$ entsteht, müssen also Hilfsmittel entwickelt werden.
 Dies führt schlussendlich zu den Julia-Mengen und den Fatou-Mengen, welche das Komplement der Julia-Mengen sind, sowie der Mandelbrot-Menge.
 
-In den Abschnitten \ref{sec:julia} und \ref{sec:mandelbrot} werden zunächst Julia- und Fatou-Mengen sowie die Mandelbrot-Menge definiert.
-Anschliessend wird im Abschnitt \ref{zweck} die Frage nach dem Verhalten der Newton-Iterationsfolge \eqref{newton_alg} beantwortet.
-Weiter werden verschiedene Zusammenhänge zwischen all diesen Mengen im Abschnitt \ref{sec:relation} untersucht.
-Abschliessend wird im Abschnitt \ref{sec:visualisierung} beschrieben, wie man diese Mengen darstellen kann.
+In den Abschnitten \eqref{julia:sec:julia} und \eqref{julia:sec:mandelbrot} werden zunächst Julia- und Fatou-Mengen sowie die Mandelbrot-Menge definiert.
+Anschliessend wird im Abschnitt \eqref{julia:zweck} die Frage nach dem Verhalten der Newton-Iterationsfolge \eqref{julia:newton_alg} beantwortet.
+Weiter werden verschiedene Zusammenhänge zwischen all diesen Mengen im Abschnitt \eqref{julia:sec:relation} untersucht.
+Abschliessend wird im Abschnitt \eqref{julia:sec:visualisierung} beschrieben, wie man diese Mengen darstellen kann.
 
 \input{papers/julia/chapters/1_definition_julia.tex}
 \input{papers/julia/chapters/2_definition_mandelbrot.tex}

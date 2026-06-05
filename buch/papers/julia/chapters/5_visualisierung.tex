@@ -1,5 +1,5 @@
 \section{Visualisierung der Mengen}
-\label{sec:visualisierung}
+\label{julia:sec:visualisierung}
 In den vorherigen Abschnitten wurden Bilder von der Mandelbrot-Menge sowie der Julia- und Fatou-Mengen gezeigt.
 Nachfolgend wird beschrieben wie diese Mengen visualisiert werden.
 Bei diesen Visualisierungen handelt es sich um \emph{Fraktale}, was bedeutet dass, unabhängig vom Vergrösserungsfaktor, stets neue Details und Strukturen erscheinen.
@@ -18,8 +18,8 @@ Diese Strukturen sind häufig selbstähnlich, heisst sie sind eingebettet in gr�
 \end{aufgabe}
 Zu beachten ist, dass $n$ in der Theorie gegen unendlich geht, in der Praxis ist dies natürlich nicht möglich, je nach Rechenleistung muss ein genügend grosser Wert für $n$ gewählt werden.
 
-Je nach gewählter Funktion und Farbschema können so sehr eindrückliche Bilder erstellt werden, wie zum Beispiel in Abbildung \ref{fig:bsp_julia}.
-Interessant wird es besonders dann, wenn die Julia-Menge \emph{nicht zusammenhängend} ist (siehe Abschnitt \ref{sec:julia_connected}).
+Je nach gewählter Funktion und Farbschema können so sehr eindrückliche Bilder erstellt werden, wie zum Beispiel in Abbildung \ref{julia:fig:bsp_julia}.
+Interessant wird es besonders dann, wenn die Julia-Menge \emph{nicht zusammenhängend} ist (siehe Abschnitt \ref{julia:sec:julia_connected}).
 In diesem Fall besteht die Julia-Menge häufig nur aus einzelnen Punkten, während die übrigen Punkte zur Fatou-Menge gehören.
 
 \begin{figure}
@@ -27,11 +27,11 @@ In diesem Fall besteht die Julia-Menge häufig nur aus einzelnen Punkten, währe
     \includegraphics[width=0.95\textwidth]{papers/julia/imgs/julia3.jpg}
 
     \caption{Beispiel einer Julia-Menge der Funktion $f(z) = z^2 + c$ für einen Parameter $c$ nahe des Randes der Mandelbrot-Menge}
-    \label{fig:bsp_julia}
+    \label{julia:fig:bsp_julia}
 \end{figure}
 
 \subsection{Visualisierung der Mandelbrot-Menge}
-\label{sec:visualisierung_mandel}
+\label{julia:sec:visualisierung_mandel}
 
 \begin{aufgabe}
     Visualisierung der Mandelbrot-Menge
@@ -45,12 +45,12 @@ In diesem Fall besteht die Julia-Menge häufig nur aus einzelnen Punkten, währe
 Der Ablauf ist im wesentlichen gleich wie bei den Julia- und Fatou-Mengen, der grosse Unterschied liegt darin, dass hier der Parameterraum bzw. die $c$-Ebene abgebildet wird.
 Auch hier gilt in der Theorie $n \to \infty$, es muss wieder ein genügend grosser Wert für $n$ gewählt werden.
 
-Je nach Farbschema führt auch dies zu sehr eindrücklichen Bildern, wie zum Beispiel Abbildung \ref{fig:bsp_mandelbrot}.
+Je nach Farbschema führt auch dies zu sehr eindrücklichen Bildern, wie zum Beispiel Abbildung \ref{julia:fig:bsp_mandelbrot}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.95\textwidth]{papers/julia/imgs/mandelbrot1.jpg}
 
     \caption{Herausgezoomtes und leicht rotiertes Beispiel der Mandelbrot-Menge}
-    \label{fig:bsp_mandelbrot}
+    \label{julia:fig:bsp_mandelbrot}
 \end{figure}
