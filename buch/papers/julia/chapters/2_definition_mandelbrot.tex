@@ -26,13 +26,21 @@ definieren.
 Das heisst, die Mandelbrot-Menge ist die Menge der Parameter $c$, für welche die Rekursion $z_{n+1}=z_{n}^{2} + c$ beschränkt bleibt, wenn man $z_0 = 0$ wählt.
 Die Mandelbrot-Menge ist in der Abbildung \ref{julia:fig:mandelbrot_definition} dargestellt.
 Wie diese Visualisierung entsteht, ist im Abschnitt \ref{julia:sec:visualisierung_mandel} beschrieben.
+Zudem wird im Abschnitt \ref{julia:aufbau_mandel} diskutiert, was es mit den Bezeichnungen der Regionen auf sich hat.
+
 \begin{figure}
     \centering
-    \includegraphics[width=0.85\textwidth]{papers/julia/imgs/mandelbrot2.png}
-
-    \caption{Die Mandelbrot-Menge}
+    \begin{tikzpicture}
+    \node at (-2, 0) {\includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot2.png}};
+    \node[color=white] {Kardioide};
+    \node[color=white] at (-3.25, 0) {\footnotesize Periode-2 Knospe};
+    \node[color=white] at (0.3, 3.1) {\scriptsize Periode-3 Knospe};
+    \node[color=white] at (0.3, -3.1) {\scriptsize Periode-3 Knospe};
+    \end{tikzpicture}
+    \caption{Die Mandelbrot-Menge (für die Bezeichnungen siehe Abschnitt \ref{julia:aufbau_mandel})}
     \label{julia:fig:mandelbrot_definition}
 \end{figure}
+
 
 Anhand obiger Definition wird der grundliegende Unterschied zwischen Julia- und Fatou-Mengen sowie der Mandelbrot-Menge klar.
 Die Julia- und Fatou-Mengen sind im Zustandsraum der Dynamik, sie sind Teilmengen der $z$-Ebene.
@@ -42,32 +50,35 @@ Die Mandelbrot-Menge liegt vollständig innerhalb eines Kreises mit Radius $2$, 
 Möchte man untersuchen, ob ein bestimmter Parameter $c_i$ zur Mandelbrot-Menge gehört, ist $|z_n| < 2$ für alle $n$ eine \emph{notwendige}, jedoch \emph{nicht hinreichende} Bedingung.
 
 \subsection{Aufbau der Mandelbrot-Menge}
-Betrachtet man die Mandelbrot-Menge \ref{julia:fig:mandelbrot_definition} erneut, so wird klar dass diese aus mehreren Komponenten besteht.
+\label{julia:aufbau_mandel}
+Betrachtet man erneut die Abbildung \ref{julia:fig:mandelbrot_definition} der Mandelbrot-Menge, so wird klar dass diese aus mehreren Komponenten besteht.
 In Verbindung mit der Überlegung, welche die Julia-Mengen motivierte, lässt sich so ein interessanter Umstand beobachten.
 
-So gibt es zum Beispiel die sogenannte Kardioide, welche die herzförmige und grösste Region der Mandelbrot-Menge ist.
-Für jeden Parameter $c$ in der Kardioide, besitzt die zugehörige Funktion $f_c$ einen \emph{anziehenden} Fixpunkt $z_0$ (siehe Abschnitt \ref{julia:arten_periodische_punkte}), so dass
+So gibt es zum Beispiel die sogenannte \emph{Kardioide}, welche die herzförmige und grösste Region der Mandelbrot-Menge ist.
+Für jeden Parameter $c$ in der \emph{Kardioide}, besitzt die zugehörige Funktion $f_c$ einen \emph{anziehenden} Fixpunkt $z_0$ (siehe Abschnitt \ref{julia:arten_periodische_punkte}), so dass
 \begin{equation*}
     f_c(z_0) = z_0
 \end{equation*}
 gilt.
-Anstatt als Fixpunkt könnte man diesen Punkt auch periodisch, mit einer Periode von $1$ nennen.
+Anstatt als Fixpunkt könnte man den Punkt $z_0$ auch periodisch mit einer Periode von $1$ nennen.
+Man beachte, dass $z_0$ nicht unbedingt gleich $0$ sein muss, die Funktionen $f_c$ werden hier aus Perspektive der Julia-Mengen betrachtet.
 
-Angrenzend an die Kardioide liegen mehrere kreisförmige Knospen, die grösste davon befindet sich links der Kardioide.
+Angrenzend an die Kardioide liegen mehrere kreisförmige Knospen, die grösste davon befindet sich links der Kardioide und wird als \emph{Periode-2 Knospe} bezeichnet.
 Innerhalb dieser Knospe gilt für jeden Parameter $c$, dass die zugehörige Funktion $f_c$ einen \emph{anziehenden} periodischen Punkt $z_0$ besitzt, von dem eine Folge mit Periode $2$ ausgeht.
 Für jede dieser Funktionen gibt es also einen Startwert, von dem sich eine Folge
 \begin{equation*}
     z_0 \mapsto z_1 \mapsto z_0 \mapsto z_1 \ldots
 \end{equation*}
 entwickelt.
-Aufgrund der Periodizität bezeichnet man diese Region als Periode-2 Knospe.
+Aufgrund der Periodizität ergibt sich der Name dieser Region: \emph{Periode-2 Knospe}.
 
-Die kleineren kreisförmigen Knospen verhalten sich ähnlich, es gibt
+Die kleineren kreisförmigen Knospen verhalten sich ähnlich, so gibt es
 \begin{itemize}
-    \item Periode-3 Knospen,
-    \item Periode-4 Knospen,
+    \item \emph{Periode-3 Knospen} (oberhalb und unterhalb der Kardioide),
+    \item \emph{Periode-4 Knospen},
     \item und so weiter.
 \end{itemize}
+Grundsätzlich wird, mit sinkender Knospengrösse, die Periode grösser.
 Man kann also jede Region der Mandelbrot-Menge mit einer Periode bezeichnen.
 Die Kardioide besitzt die Periode $1$, die grösste kreisförmige Knospe eine Periode von $2$ und so weiter.
 Die unterschiedlichen Regionen sind also nicht nur dekorativ, sondern korrespondieren zu unterschiedlichen Arten von nicht-chaotischem, periodischem Verhalten.
