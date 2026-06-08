@@ -6,17 +6,81 @@
 \section{Das moderne Fundament}
 Die Entwicklung der Analysis im 17.~und 18.~Jahrhundert fand ohne
 sorgfältig gerechtfertigte Grundlagen statt.
+Erst im 19.~Jahrhundert war der durch aufgetretene Mehrdeutigkeiten
+oder sogar Widersprüche entstandene Leidensdruck gross genug, dass
+die Analysis auf ein tragfähiges Fundament solider Definitionen
+gestellt wurde.
 
+\subsection{Der Funktionsbegriff
+\label{buch:einleitung:fundament:subsection:funktionsbegriff}}
+Nicht einmal der Begriff einer stetigen Funktion war präzis definiert.
+In seiner \emph{Introductio ad analysin infinitorum}
+\cite{buch:introductio1,buch:introductio2} beginnt er mit der
+Vorstellung, dass Funktionen durch einen ``analytischen'' Ausdruck
+aus Variablen und Konstanten gegeben sein.
+In dieser Vorstellung ist es auch natürlich, mehrfache Werte 
+wie zum Beispiel bei $\pm\!\sqrt{x}$ für $x>0$ zuzulassen.
+Später, in seinen \emph{Institutions calculi differentialis}
+\cite{buch:institutiones} verwendet er dagegen eine allgemeinere
+Definition, die aber eher noch unklarer ist.
+Er sagte, eine Funktion sei eine Grösse, die sich ändere, wenn sich die
+Variablen, von denen sie abhängt, ändern.
+Es ist auch nicht klar, ab er dabei wirklich davon ausging, dass es
 
-\subsection{Der Funktionsbegriff}
-Nicht einmal der Begriff einer stetigen Funktion war in rein mathematischen
-Begriffen definiert.
-Fourier verstand darunter etwas, was sich ohne mit einem Bleistift ohne
-Absetzen in einem Zug zeichnen lässt.
-Für ihn war auch eine Rechteckfunktion von dieser Art, da sich die
-Sprünge durch vertikale Segmente in einem Zug zeichnen lassen.
+Fourier verstand unter einre Funktion etwas, was sich durch eine
+\index{Fourier, Joseph}%
+trigonometrische Reihe ausdrücken liess.
+\index{trigonometrische Reihe}%
+\index{Reihe, trigonometrisch}%
+Er postulierte, dass \emph{jede} Funktion durch eine solche Reihe
+dargestellt werden kann.
+Für viele dieser Funktionen ist es aber nicht mehr möglich, einen
+``analytischen'' Ausdruck dafür anzugeben.
+Die Entdeckung Fouriers machte erst klar, dass zwischen der von der
+Funktion gegebenen Zuordnung von Funktionswerten zu Argumentwerten
+und der Darstellung dieser Zuordnung als ``analytischer'' Ausdruck
+zu unterscheiden ist.
 
+Auch Cauchy, der viel zur Formalisierung der Analysis beigetragen hat,
+\index{Cauchy, Augustin-Louis}%
+betrachtete Funktionen im Wesentlichen gleichbedeutend mit
+``analytischen'' Ausdrücken. 
+Das moderne Konzept einer eindeutigen Zuordnung eines Funktionswertes
+$f(x)$ zu jedem Wert $x$ des Definitionsbereichs taucht explizit
+erst bei Dirichlet 1837 auf.
+Er schreibt sogar explizit, dass es nicht nötig sei für eine Funktion
+in diesem Sinne, dass sie durch mathematische Operationen ausgedrückt
+werden können.
+
+%
+% Konvergenz und Grenzwert
+%
 \subsection{Konvergenz und Grenzwert}
+Das Konzept eines Grenzwertes hat lange Geschichte.
+\index{Grenzwert}%
+Schon die in Abschnitt~\ref{buch:einleitung:frueh:subsection:vorlaeufer}
+dargestellte Exhaustionsmethode ging von einem intuitiven Verständnis
+dafür aus, dass eine Approximation immer genauer werden kann.
+\index{Approximation}%
+Newton formulierte einen Grenzwert als eine Grösse, zu der der Abstand
+\index{Newton, Isaac}%
+kleiner als jede gegebene Vorgabe werden kann.
+
+Die moderne Definition der Stetigkeit geht auf Bernard Bolzano
+\index{Stetigkeit}%
+zurück.
+\index{Bolzano, Bernard}%
+Sie postuliert, dass ein Funktion im Punkt $x_0$ stetig ist, wenn
+es für jedes $\varepsilon>0$ ein $\delta >0$ gibt, so dass
+\[
+|f(x)-f(x_0)|<\varepsilon
+\qquad\text{falls}\qquad
+|x-x_0|<\delta.
+\]
+Sein Werk bleib jedoch kaum beachtet.
+Cauchy formalisierte den Begriff des Grenzwertes mit dieser Technik,
+\index{Cauchy, Augustin-Louis}%
+die heute gemeinhin $(\varepsilon,\delta)$-Definition genannt wird.
 
 \subsection{Integral}
 Für stetige Funktionen spielt es nicht so eine grosse Rolle, wie man 
@@ -36,9 +100,11 @@ Für die Anwendung der Fourier-Theorie auf nicht stetige Funktionen
 wurde die Antwort auf die Frage dringen, welche Funktionen ein
 wohldefiniertes Integral haben.
 Dies war die Motivation für Bernhard Riemann, eine Definition 
+\index{Riemann, Bernhard}%
 zu formulieren und streng zu beweisen, dass eine ausreichen grosse
 Klasse von Funktionen integrierbar im Sinne seiner Definition sind.
 Das Riemann-Integral ist sehr intuitiv verständlich und wird daher
+\index{Riemann-Integral}%
 noch heute im Analysisunterricht eingesetzt.
 
 Das Riemann-Integral hat allerdings eine Reihe von Defiziten.
@@ -46,6 +112,7 @@ Zum Beispiel gibt es Funktionen, denen man intuitiv einen Integralwert
 zuweisen kann, die aber nach der riemannschen Definition nicht integrierbar
 sind.
 Dazu gehört die Dirichlet-Funktion
+\index{Dirichlet-Funktion}%
 \[
 D
 \colon
@@ -79,7 +146,9 @@ riemannschen Integralbegriff zu verfeinern, die sich jedoch alle als
 deren Defizite teilte.
 
 Erst die Konstruktion von Henri Lebesgue hat diese Problem überwunden.
+\index{Lebesgue, Henri}%
 Dazu war jedoch die etwas schwerfällige Entwicklung einer Masstheorie
+\index{Masstheorie}%
 für Teilmengen des Definitionsbereichs der zu integrierenden Funktionen
 notwendig.
 Dies verbessert die Verträglichkeit mit Grenzwerten und vergrössert
@@ -91,6 +160,7 @@ Andere moderne Verfeinerungen wie das Henstock-Kurzweil-Integral
 finden einen interessanten Mittelweg.
 Durch minimale Erweiterungen der riemannschen Konstruktion kann ein
 Integral von reellen Funktionen auf $\mathbb{R}$ definiert werden,
+\index{R@$\mathbb{R}$}%
 welches die guten Eigenschaften des Lebesgue-Integrals auf ein noch
 grössere Klasse von Funktionen ausdehnt und auch den Hauptsatz zu
 einer Selbstverständlichkeit macht.
@@ -106,9 +176,11 @@ verständlich gemacht haben.
 Die Strenge der $\varepsilon$-$\delta$-Technik hat der Analysis die
 unendlich kleinen Grössen ausgetrieben, die dafür nötig waren.
 Die Nichtstandard-Analysis gibt der Theorie solche Elemente
+\index{Nichtstandard-Analysis}%
 zurück.
 
 Besonders leicht zugänglich ist die \emph{Internal Set Theory},
+\index{internal set theory}%
 die ein Modell der reellen Zahlen mit einem zusätzlichen Prädikat
 $\operatorname{st}(x)$ ist.
 Das Prädikat ist wahr für die vertrauten reellen Zahlen.
@@ -123,6 +195,7 @@ Man kann aber damit wie gewohnt rechnen und erhält damit die Möglichkeit,
 die Ableitung wieder rein algebraisch zu finden.
 Die Ableitung einer Funktion $f(x)$ ist diejenige reelle Zahl $f'(x)$,
 die sich vom Differenzenquotienten mit Differenz $h$ nur um eine 
+\index{Differenzenquotient}%
 unendlich kleine Zahl unterscheiden:
 \[
 \biggl|
@@ -139,6 +212,7 @@ Damit ist die Intuition der Algebra in die Analysis zurückgekehrt.
 Die Nichtstandard-Analysis führt nicht zu neuen Ergebnissen in der
 Analysis.
 Das sogenannte Transferprinzip besagt nämlich, dass sich für jedes Resultat,
+\index{Transferprinzip}%
 dass mit der Nichtstandard-Analysis gefunden worden ist, auch ein
 klassischer Beweis angeben lässt.
 

@@ -4,9 +4,346 @@
 % (c) 2026 Prof Dr Andreas Müller
 %
 \section{Computeralgebra und die Renaissance der Algebra}
+\kopfrechts{Computeralgebra und die Renaissance der Algebra}
+Die auf präzisen Grundlagen aufbauende Analysis des 19.~und des
+frühen 20.~Jahrhunderts hat nichts an den Rechenregeln geändert,
+die für die Berechnung von Ableitungen und Integralen von Funktionen
+verwendet werden.
+\index{Computeralgebra}%
+Dies ist Ausdruck des in
+Abschnitt~\ref{buch:einleitung:fundament:subsection:funktionsbegriff}
+angesprochenen veränderten Verständnisses einer Funktion als
+Zuordnung statt als ``analytischer'' Ausdruck.
 
+%
+% Das Problem der Integration in geschlossener Form
+%
 \subsection{Das Problem der Integration in geschlossener Form}
+Die Suche nach Antworten auf die Frage, welche Funktionen auch
+eine ``analytische'' Darstellung haben, blieb auch im 19.~Jahrhundert
+aktiv.
+Dabei ist zunächst eine Definition des bisher immer in Anführungszeichen
+gesetzten Begriffs des ``analytischen'' Ausdrucks nötig.
+Es ist klar, dass dazu mindestens Polynome und rationale Funktionen
+einer Variablen gehören sollen.
+Für diese Funktionen sind vollständige Methoden zur Berechnung von
+Ableitungen und Stammfunktionen vor.
+Bei letzteren treten aber unvermeidlich Logartihmusfunktionen auf.
+\index{Logarithmusfunktion}%
 
+Schon im Altertum wurden viele weitere Funktionen entdeckt, welche auch
+für den Aufbau von ``analytischen'' Ausdrücken zugelassen werden sollten.
+Dazu gehören zunächst die Wurzelfunktionen, auch Radikale genannt.
+\index{Wurzelfunktion}%
+\index{Radikal}%
+Sie können als Lösungen von Polynomgleichungen definiert werden.
+Solche Funktionen heissen auch algebraisch.
+\index{algebraische Funktion}%
+Ein bedeutende Entdeckung durch Abel und Galois im 19.~Jahrhundert
+\index{Abel, Niels Hendrik}%
+\index{Galois, Evariste@Galois, Évariste}%
+besagt, dass sich die Nullstellen von Polynomen mindestens fünften
+Grades im allgemeinen nicht durch Radikale darstellen lassen.
+Die Menge der algebraischen Funktionen ist also bereits grösser als
+die Klasse der Wurzelausdrücke.
+\index{Wurzelausdruck}%
+Im Sinne einer einheitlichen algebraischen Theorie darf man erlauben,
+alle algebraischen Funktionen zur Kathegorie der ``analytischen'' Ausdrücke
+zu schlagen.
+
+Gestattet man die Verwendung algebraischer Ausdrücke, kann man auch
+das Auftreten komplexer Funktionen nicht mehr verhindern, denn die
+das Polynom $p(x) = x^2 + z^2$ definiert zum Beispiel über die Gleichung
+$p(x)=0$ die algebraische Funktionen $\sqrt{-z^2}=\pm iz$.
+Damit wird klar, dass die komplexe Analysis der richtige Ort ist, diese
+Frage weiter zu untersuchen.
+Aus diesem Grund werden komplexe Zahlen und komplexe Funktionen im
+Kapitel~\ref{chapter:komplex} und ihre Ableitungen im
+Kapitel~\ref{chapter:holomoprh} studiert.
+Es stellt sich heraus, dass Differenzierbarkeit eine sehr starke
+Einschränkung ist.
+
+Ebenfalls zu den ältesten Kandidationfunktionen gehörten die
+trigonometrischen Funktionen, die für die sphärische und
+ebene Geometrie schon früh verwendet wurden.
+\index{Geometrie, sphärische}%
+\index{trigonometrische Funktion}%
+Die eulersche Beobachtung $e^{ix}=\cos x + i\sin x$ bringt 
+eine bedeutende Vereinfachung in diesen Zoo von neuen Funktionen.
+Sie zeigt nämlich, dass sich alle diese Funktionen allein durch
+die komplexe Exponentialfunktion $e^z$ beschreiben lassen.
+\index{Exponentialfunktion}%
+Auch die Umkehrfunktionen und die hyperbolischen Funktionen mit
+\index{hyperbolische Funktionen}%
+ihren Umkehrfunktionen lassen sich als Ausdrücke in $e^z$ und $\log z$
+schreiben.
+
+Die Exponential- und die Logarithmusfunktion sind jedoch nicht willkürlich.
+Sie können beide durch ihr Verhalten unter Ableitung charakterisiert
+werden, gilt doch
+\begin{align}
+\frac{d}{dx}e^{f(x)} &= e^{f(x)}\frac{df}{dx}(x)
+&&\text{und}&
+\frac{d}{dx}\log f(x) &= \frac{1}{f(x)}\frac{df}{dx}(x).
+\label{buch:einleitung:cas:eqn:explog}
+\end{align}
+So wie algebraische Gleichungen Wurzeln von beliebigen rationalen
+Funktionen zu definieren erlauben, könnnen die Eigenschaften
+\eqref{buch:einleitung:cas:eqn:explog}
+Exponential- und Logarithmusfunktionen beliebiger anderer Funktionen
+$f(x)$ charakterisieren.
+
+Schliesslich soll mit solchen Ausdrücken beliebig gerechnet werden
+können.
+Dies lässt sich algebraisch dadurch formulieren, dass die Menge der
+zulässigen Funktionen einen Körper bilden soll.
+\index{Körper}%
+Dieser Körper enthält mindestens die rationalen Zahlen $\mathbb{Q}$,
+\index{rationale Zahl}%
+vielleicht noch weitere Konstanten wie $\pi$ oder $\gamma$ oder algebraische
+Elemente wie $\!\sqrt{2}$ oder $\!\sqrt{\pi}$.
+\index{pi@$\pi$}%
+\index{gamma@$\gamma$}%
+\index{2@$\sqrt{2}$}%
+Er enthält aber auch die unabhängige Variable $x$, nach der abgeleitet
+werden kann.
+Ausserdem ist auf ihm die Differentiation als algebraische Operation
+definiert, die den gewohnten Rechengesetzen der Ableitung genügt.
+
+Zusammenfassend kann man also sagen, dass als Klasse von ``analytischen''
+Ausdrücken, die die Theorie erfassen soll, alles verwendet werden kann,
+was aus dem Grundkörper $\mathbb{Q}$ durch Körpererweiterung um
+\index{Q@$\mathbb{Q}$}%
+weitere Konstanten, algebraische Funktionen und Exponential- oder
+Logarithmusfunktionen werden kann.
+Solche Funktionen heissen \emph{elementare} Funktionen und werden
+\index{elementare Funktion}%
+im Abschnitt~\ref{buch:intalg:section:elementar} eingeführt.
+
+Mit den elementaren Funktionen lässt sich jetzt das Integrationsproblem
+exakt formulieren.
+
+\begin{aufgabe}
+Zu einer elementaren Funktion $f(x)$ finde eine elementare Stammfunktion
+$g(x)$ oder beweise, dass keine elementare Stammfunktion existiert.
+\end{aufgabe}
+
+Die Entscheidung, dass eine Funktion $f(x)$ keine elementare
+Stammfunktion hat, bedeutet auch, dass es sinnvoll ist, das unbestimmte
+Integral als ``neue'' Funktion zu definieren.
+So wurde die Stammfunktion von $e^{-x^2}$, welche nicht elementar ist,
+als die Fehlerfunktion definiert.
+Der Beweis, dass $e^{-x^2}$ nicht elementar ist, wird in
+Abschnitt~\ref{buch:intalg:section:risch} mit Hilfe des Risch-Algorithmus
+gegeben.
+Auch die elliptischen Integrale, die in der Arbeit von Baris Catan 
+in Kapitel~\ref{chapter:elliptisch} eingeführt werden, sind nicht
+elementare Stammfunktionen elementarer Funktionen.
+
+%
+% Das Liouville-Prinzip
+%
 \subsection{Das Liouville-Prinzip}
+Eine erste systematische Untersuchung des Problems der Integration
+in geschlossener Form stammt von Joseph Liouville.
+Einige seiner Resultate waren aber schon früher bekannt.
+Liouville fand eine vollständige Charakterisierung der elementaren
+\index{Liouville, Joseph}%
+Funktionen, die auch eine elementare Stammfunktion haben.
+Hat man bereits einen Körper von Funktionen konstruiert, in dem sich
+der Integrand befindet, dann haben genau diejenigen Funktionen eine
+elementare Stammfunktion, die die Form
+\begin{align*}
+f(x)
+&=
+v'_0(x)
++
+\sum_{i=1}^n c_i \frac{v_i'(x)}{v_i(x)}
+\intertext{haben, wobei $c_i$ Konstanten sind und $v_0(x)$ und $v_i(x)$
+Funktionen im konstruierten Körper sind.
+Die Stammfunktion hat dann die Form}
+\int f(x)\,dx
+&=
+v_0(x)
++
+\sum_{i=1}^c c_i\log v_i(x)
+\end{align*}
+haben.
+\index{Liouville-Prinzip}%
+Wenn ein Integrand eine elementare Stammfunktion hat, dann muss
+Sie eine Linearkombination von den bereits konstruierten Funktionen
+sowie möglicherweise von neuen Logarithmusfunktionen sein.
 
+%
+% Computeralgebra und der Algorithmus von Risch
+%
 \subsection{Computeralgebra und der Algorithmus von Risch}
+Mit der Entwicklung ausreichend leistungsfähiger Computer in der zweiten
+Hälfte des 20.~Jahrhunderts eröffnete sich die Möglichkeit, eine
+Stammfunktion in geschlossener Form zu finden.
+Das Liouville-Prinzip macht zwar eine Aussage über die Existenz einer
+Stammfunktion in geschlossener Form, um diese zu finden, ist jedoch
+mehr nötig.
+Es muss ein Algorithmus formuliert werden, der zu einer elementaren
+Funktion entweder die elementare Stammfunktion findet, falls sie
+existiert, oder anderen Fall einen Beweis für ihre Nichtexistenz
+konstruiert.
+Ein solcher Algorithmus ist heute unter dem Namen Risch-Algorithmus
+bekannt.
+Er wird in Abschnitt~\ref{buch:intalg:section:risch} dargestellt.
+
+Der Risch-Algorithmus hat nichts mehr mit der Analysis zu tun, die
+Cauchy oder Weierstrass entwickelt haben.
+\index{Risch-Algorithmus}%
+Er beschreibt eine rein algebraische Vorgehensweise, um die Stammfunktion
+zu finden.
+Die bei numerischen Rechnung mit dem Computer allgegenwärtigen
+Gleitkommazahlen kommen nur vor, wenn der Benutzer so wagemutig ist,
+\index{Gleitkommazahl}%
+solche in der Problemstellung explizit vorzugeben.
+$\varepsilon$ und $\delta$ sind in dieser Welt abwesend und die
+\index{epsilon@$\varepsilon$}%
+\index{delta@$\delta$}%
+die gefundenen Resultate sind nicht nur Annäherungen,
+sondern exakt.
+
+%
+% Erweiterte Methoden
+%
+\subsection{Erweiterte Methoden}
+Der Risch-Algorithmus in seiner Grundform ist limitiert auf elementare
+Funktionen, also auf Funktionen, die sich mit Exponentialfunktionen,
+Logarithmen und Wurzelfunktionen aus rationalen Funktionen konstruieren
+lassen.
+
+Der Risch-Algorithmus arbeitet rekursiv.
+Er zerlegt ein Integral in einzelne Summanden, die einfacher auszuwerten
+sind und die auf die einzelnen Terme in der vom Liouville-Prinzip vorgegebenen
+Linearkombination führen.
+Ein solcher rekursiver Aufruf des Risch-Algorithmus kann zu einem
+Integral führen, welches nicht als elementare Funktion geschrieben
+werden kann.
+Der Algorithmus muss sich damit aber nicht begnügen.
+Viele berühmte Funktionen haben keine elementare Stammfunktion, zum
+Beispiel
+\begin{equation}
+\frac{\sin x}{x},
+\quad
+\frac{1}{\log x},
+\quad
+e^{-x^2/2}
+\quad\text{oder}
+\quad
+\frac{1}{\sqrt{(1-x^2)(1-k^2x^2)}}.
+\label{buch:einleitung:cas:eqn:integranden}
+\end{equation}
+Es wurden daher neue spezielle Funktionen als Stammfunktionen dieser
+Integranden definiert.
+Der \emph{Integralsinus} ist die Stammfunktion
+\index{Integralsinus}%
+\begin{align*}
+\operatorname{Si}(x)
+&=
+\int_0^x \frac{\sin t}{t}\,dt,
+\intertext{der \emph{Integrallogarithmus} ist
+\index{Integrallogarithmus}}
+\operatorname{li}(x)
+&=
+\int_0^x \frac{dt}{\log t},
+\intertext{die \emph{Fehlerfunktion} ist
+\index{Fehlerfunktion}}
+\operatorname{erf}(x)
+&=
+\frac{2}{\!\sqrt{\pi}} 
+\int_0^x e^{-t^2}\,dt.
+\intertext{Der letzte Integrand in \eqref{buch:einleitung:cas:eqn:integranden}
+führt auf das unvollständige elliptische Integral}
+F_J(x;k)
+&=
+\int_0^x \frac{dt}{\!\sqrt{(1-t^2)(1-k^2t^2)}}
+\end{align*}
+\index{elliptisches Integral}%
+\index{Integral, elliptisch}%
+erster Art in Jacobi-Form.
+Moderne Computeralgebrasysteme verstehen diese Integrale und sind damit
+in der Lage, auch solche Integrale auszuwerten
+und gegebenenfalls in Stammfunktionen auch mit solchen wohlbekannten
+speziellen Funktionen darzustellen.
+
+Eine weitere, in diesem Buch nicht weiter untersuchte Möglichkeit ist,
+Funktionen als hypergeometrische Funktionen zu schreiben.
+\index{hypergeometrische Funktion}%
+\index{Funktion!hypergeometrisch}%
+Diese sind durch eine Potenzreihe
+\[
+f(z)
+=
+\sum_{k=0}^\infty \frac{a_k}{k!}z^k
+\]
+definiert, deren aufeinanderfolgende Koeffizienten $a_k$ und $a_{k+1}$
+Quotienten haben, die eine rationale Funktion von $k$ sind.
+Für solche Funktionen ist ebenfalls eine reichhaltige Theorie 
+verfügbar, die zum Beispiel in \cite{buch:seminarspeziellefunktionen}
+entwickelt wird.
+Die Ableitung oder Stammfunktion einer solchen hypergeometrischen Funktion
+ist wiederum eine hypergeometrische Funktion.
+Wenn es gelingt, einen Integranden als eine hypergeometrische Funktion
+zu identifizieren, dann kann auf diesem Weg auch ein Ausdruck der
+Stammfunktion als hypergeometrische Funktion gefunden werden.
+
+Die hypergeometrischen Funktionen sind zwar nicht so gut bekannt wie
+die elementaren Funktionen, aber viele von Ihnen werden in
+Programmbibliotheken für das wissenschaftliche Rechnen in hoher Qualität
+implementiert.
+Die Darstellung der Stammfunktion als hypergeometrische Funktion
+ermöglicht daher, für die numerische Berechnung numerische
+Integrationsalgorithmen vermeiden, die fast immer von minderer
+Genauigkeit sind.
+
+%
+% Algebra und Analysis
+%
+\subsection{Algebra und Analysis}
+Die historische Entwicklung zeigt also, wie sich aus dem erst vor
+allem für die symbolische Rechnung entwickelten Kalkül durch
+Präzisierung der Grundlagen zunächst die moderne Analsysis mit
+ihre $\varepsilon$-$\delta$-Technik entwickelt hat.
+Die algebraischen Aspekte der Operationen des Differenzierens
+und Integrierens rückten dabei immer mehr in den Hintergrund und
+wurden durch numerische Methoden ersetzt, die die Errungenschaften
+der modernen rechnergestützten Wissenschaften ermöglich haben.
+
+In der komplexen Analysis des 19.~Jahrhunderts, wie sie von Cauchy
+\index{Analysis!komplexe}%
+\index{komplexe Analysis}%
+und anderen entwickelt wurde, war aber auch algebraische Struktur
+angelegt, mit der Liouville seine Ideen zur Integrierbarkeit
+elementarer Funktionen entwickeln konnte.
+Lange Zeit trat diese aber in den Hintergrund, weil sich 
+Wetterprognosen, Strömungssimulationen oder schwarze Löcher nicht
+an die Einschränkungen halten, nur elementare Funktionen zu verwenden.
+
+Moderne Computer haben der Algebra wieder den Platz eingeräumt, den
+sie verdient.
+Heute kann jeder Computer-Hobbyist mit einem Raspberry Pi für wenig
+\index{Raspberry Pi}%
+Geld einen Computer erstehen, auf dem ihm in Form der von Wolfram
+Research für diese Platform gratis zur Verfügung gestellten Software
+\emph{Mathematica} eine vollständige Implementation
+\index{Mathematica}%
+des Risch-Algorithmus zur Verfügung steht und im die symbolische Berechnung
+der kompliziertesten Integrale ermöglicht, sofern eine solche mit den
+bekannten Algorithmen möglich ist.
+
+In diesem Buch wird daher zunächst die komplexe Analysis mit besonderem
+Fokus auf die algebraischen Eigenschaften der Ableitung entwickelt.
+In Kapitel~\ref{chapter:ratint} wird dann das Problem der Integration
+rationaler Funktionen als algebraisches Problem adressiert und damit
+die Grundlage für das Verständnis des Problems der Integration in
+geschlossener Form gelegt.
+Kapitel~\ref{chapter:intalg} zeigt dann, wie die algebraische
+Struktur mit dem Risch-Algorithmus einen praktisch umsetzbaren
+Integrationsalgorithmus liefern kann.
+
+
+

@@ -4,7 +4,114 @@
 % (c) 2026 Prof Dr Andreas Müller
 %
 \section{Der Differentialkalkül}
+Zur Zeit der Entstehung der Infinitesimalrechnung war die numerische
+Berechnung meistens eine zu aufwendige Option.
+An erster Stelle stand wann immer möglich die algebraische Rechnung.
+Erst nach allen möglichen algebraischen Vereinfachungen war daran zu
+denkten, konkrete Zahlenwerte einzusetzen und numerische Resultate
+zu vergleichen.
+Die Infinitesimalrechnung entstand daher zuerst primär als ein Kalkül,
+was sich auch in dem im englischsprachigen Raum üblichen Namen
+\emph{Calculus} widerspiegelt.
 
+%
+% Eulers Einführung in die Analysis
+%
 \subsection{Eulers Einführung in die Analysis}
+Das Buch \emph{Introduction at analysin infinitorum}
+\cite{buch:introductio1,buch:introductio2}
+beginnt Leonhard Euler, den Leser in die Ideen der Inifinitesimalrechnung
+einzuführen.
+Es behandelt alle Aspekte der Infinitesimalrechnung, die ohne das
+Konzept der Ableitung eingführt werden können.
 
+Erst in seinen späteren Werk \cite{buch:institutiones}
+\emph{Instituiones calculi differentialis} behandelt er die Ableitung
+und das Integral.
+
+Eulers Werk ist typische für die im 18. Jahrhunder vorherrschende
+Betrachtungsweise der Infinitesimalrechnung.
+
+%
+% Die Rechenregeln der klassischen Infinitesimalrechnung
+%
 \subsection{Die Rechenregeln der klassischen Infinitesimalrechnung}
+
+\begin{align}
+\frac{d}{dx}(f(x)\pm g(x))
+&=
+\frac{d}{dx}f(x)
+\pm
+\frac{d}{dx}g(x)
+\label{buch:einleitung:kalkuel:eqn:lin1}
+\\
+\frac{d}{dx}(\alpha f(x))
+&=
+\alpha \frac{d}{dx}f(x)
+\label{buch:einleitung:kalkuel:eqn:lin2}
+\\
+\frac{d}{dx}\bigl(f(x)g(x)\bigr)
+&=
+\biggl(\frac{d}{dx}f(x)\biggr)
+g(x)
++
+f(x)
+\biggl(\frac{d}{dx}g(x)\biggr)
+\label{buch:einleitung:kalkuel:eqn:prod}
+\\
+\frac{d}{dx}c&=0\qquad\text{wenn $c$ eine Konstante ist}
+\label{buch:einleitung:kalkuel:eqn:const}
+\\
+\frac{d}{dx}x&=1
+\label{buch:einleitung:kalkuel:eqn:var}
+\end{align}
+Die Ableitung des reziproken $1/f(x)$ lässt sich daraus und aus
+der Eigenschaft $f(x)\cdot 1/f(x)=1$ mit der Produktregel gewinnen,
+ebenso die Quotientenregel.
+
+In der klassischen Entwicklung der Infinitesimalrechnung werden diese
+Regeln aus einre Definition der Ableitung als Grenzewert von
+Differenzenquotienten gewonnen.
+Man kann sich aber auch auf den Standpunkt stellen, dass diese Regeln
+einen speziellen Operator auf allen Funktionen einer geeignet definierten
+Funktionenmenge charakterisieren.
+Die Funktionenmenge muss alle arithmetischen Operationen gestatten,
+man muss also Funktionen addieren, subtrahieren, multiplizieren und
+dividieren können.
+Funktionen können mit Konstanten multipliziert werden.
+Es muss möglich sein, Gleichungen mit Funktionsausdrücken aufzulösen.
+Diese Eigenschaften lassen sich zusammenfassen in die Aussage, dass
+die Funktionen ein Algebra über einem Zahlenkörper bilden müssen, wobei
+man meistens von den reellen Zahlen als Zahlenkörper ausgeht.
+
+Die Ableitung in einem Zahlenkörper ist dann ein Operator $D$, der auf
+Funktionen wirkt.
+Die beiden Regeln
+\eqref{buch:einleitung:kalkuel:eqn:lin1}
+und
+\eqref{buch:einleitung:kalkuel:eqn:lin2}
+erhalten die Form
+\begin{align*}
+ D(f+g) &= Df + Dg\\
+ D(\alpha f) &\alpha Df,
+\intertext{die besagt, dass $D$ ein linearer Operator ist.
+Aus der Produktregel \eqref{buch:einleitung:kalkuel:eqn:prod}
+wird}
+D(fg) &= (Df)g+f(Dg).
+\intertext{Diese Eigenschaft von $D$ heisst auch \emph{Derivation}.
+Schliesslich identifiziert
+\eqref{buch:einleitung:kalkuel:eqn:const}
+die Konstanten und
+\eqref{buch:einleitung:kalkuel:eqn:var}
+wird zu}
+Dx&=1,
+\end{align*}
+was charakterisiert die unabhängige Variable $x$, nach der der Operator
+$D$ ableitet.
+Die Vorgabe eines linearen Operators auf einer Algebra über den
+rationalen Zahlen mit obigen Eigenschaften ist alles, was man braucht, um 
+die Rechnungen der Infinitesimalrechnung durchführen zu können.
+Sie entpuppt sich somit als hauptsächlich algebraischer Kalkül.
+
+
+
