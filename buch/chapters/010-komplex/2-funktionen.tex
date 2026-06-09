@@ -222,6 +222,7 @@ u(x,y) = x^2-y^2
 v(x,y) = 2xy
 \]
 beschrieben wird.
+\index{Hyperbel}%
 Die Kurven $u(x,y)=u_0$ sind Hyperbeln mit den Geraden $y=\pm x$, sie
 können mit den Funktionen
 \[
@@ -309,6 +310,7 @@ Grenzwertes definieren.
 Wir beginnen damit, Grenzwerte für komplexe Zahlenfolgen zu definieren.
 
 \begin{definition}[Grenzwert]
+\index{Grenzwert}%
 Sei $(z_n)_{n\in\mathbb{N}}$ eine Folge komplexer Zahlen.
 Sie heisst eine \emph{Cauchy-Folge}, wenn für jedes $\varepsilon>0$ ein
 $N\in\mathbb{N}$ existiert derart, dass $|z_n-z_m|< \varepsilon$ 
@@ -329,7 +331,7 @@ Wegen
 sind auch die Folgen $(\operatorname{Re}z_n)_{n\in\mathbb{N}}$
 und $(\operatorname{Im}z_n)_{n\in\mathbb{N}}$ Cauchy-Folgen
 von reellen Zahlen.
-Da $\mathbb{R}$ als Verfollständigung definiert worden war, haben
+Da $\mathbb{R}$ als Vervollständigung definiert worden war, haben
 die beiden Folgen Grenzwerte in $\mathbb{R}$, die wir mit
 \begin{equation}
 \lim_{n\to\infty}\operatorname{Re}z_n = x
@@ -423,6 +425,7 @@ Wenn der Grenzwert existiert, dann gilt
 \]
 
 \begin{definition}[Stetigkeit]
+\index{Stetigkeit}%
 Eine komplexe Funktion $f\colon U\to\mathbb{C}$ heisst
 \emph{stetig im Punkt} $z_0\in U$, wenn für jedes $\varepsilon >0$
 ein $\delta>0$ existiert derart, dass $|f(z)-f(z_0)|<\varepsilon$
@@ -487,6 +490,7 @@ ergeben.
 % Potenzen
 %
 \subsubsection{Potenzen}
+\index{Potenz}%
 Die ganzzahlige Potenzfunktion
 \[
 f_n
@@ -496,6 +500,7 @@ f_n
 z\mapsto z^n
 \]
 mit $n\in\mathbb{N}$ kann man mit Hilfe das binomische Satzes
+\index{binomischer Satz}%
 als
 \begin{align*}
 z^n &= u(x,y) + iv(x,y)
@@ -520,6 +525,7 @@ x^{2l} y^{n-2l}
 x^{2l+1} y^{n-2l-1}.
 \end{align*}
 Noch einfacher ist jedoch die Beschreibung in Polarform.
+\index{Polarform}%
 Die $n$-te Potenz ist
 \[
 z^n
@@ -723,6 +729,7 @@ So eine Lösung wird eine Lösung durch Radikale genannt.
 Eine ähnliche Formel, eine Lösung durch Radikale ist auch für
 die kubische Gleichung und für die Gleichung vierten Grades bekannt.
 Niels Henrik Abel hat aber 1824 bewiesen, dass es im Allgemeinen
+\index{Abel, Niels Henrik}%
 nicht möglich ist, eine Lösung einer Polynomgleichung durch
 Radikale anzugeben, wenn der Grad grösser als $4$ ist.
 
@@ -738,6 +745,7 @@ mit einer einfachen Formel ausgedrückt werden kann.
 
 \begin{definition}[algebraische Funktion]
 Eine Funktion $f(z)$ heisst \emph{algebraisch} über einem Körper
+\index{algebraische Funktion}%
 $F$ von komplexen Funktionen, wenn es ein Polynom $p\in F[X]$
 der Form
 \[
@@ -780,6 +788,7 @@ Potenzreihe definieren, wie man sie auch in der reellen Analysis
 verwendet.
 
 \begin{definition}[Potenzreihe]
+\index{Potenzreihe}%
 Eine \emph{Potenzreihe im Punkt $z_0\in\mathbb{C}$} ist eine Reihe der
 Form
 \begin{equation}
@@ -796,6 +805,8 @@ reellen Analysis über die Konvergenz der Partialsummenfolge
 definiert.
 
 \begin{definition}[Partialsumme, Konvergenz]
+\index{Partialsumme}%
+\index{Partialsummenfolge}%
 Die \emph{Partialsummenfolge} einer Potenzreihe ist die Folge
 \[
 s_n(z)
@@ -897,6 +908,7 @@ Der maximale Betrag des Argumentes $z-z_0$, für den eine Potenzreihe
 konvergiert, ist als Konvergenzradius bekannt.
 
 \begin{definition}[Konvergenzradius]
+\index{Konvergenzradius}%
 Der \emph{Konvergenzradius} der Potenzreihe
 \eqref{buch:komplex:funktionen:eqn:potenzreihe}
 \[
@@ -984,6 +996,7 @@ Mit dem Quotientenkriterium muss der Grenzwert
 der Konvergenzradius ist also unendlich.
 
 Dies zeigt sich auch in der Cauchy-Hadamard-Formel:
+\index{Cauchy-Hadamard-Formel}%
 \[
 \limsup_{n\to\infty}
 \!\sqrt[n]{|a_n|}

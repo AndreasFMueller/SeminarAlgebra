@@ -13,8 +13,10 @@ x^2 + q = px
 x^2 - px + q = 0
 \label{buch:komplex:zahlen:eqn:qeq}
 \end{equation}
+\index{quadratische Gleichung}%
 war bereits in babylonischer Zeit etwa 2000 BC bekannt.
 Auf Keilschrifttafeln aus der dritten Dynastie von Ur findet man den
+\index{Keilschrifttafel}%
 folgenden Algorithus:
 \begin{enumerate}
 \item Berechne die Hälfte von $p$: $\displaystyle\frac{p}{2}$.
@@ -69,6 +71,7 @@ x
 3.
 \end{align*}
 Die moderne Lösungsformel liefert dagegen die zwei Lösungen
+\index{Losungsformel@Lösungsformel}%
 \begin{align*}
 x_\pm
 &=
@@ -106,6 +109,7 @@ auch wenn die zweite Lösung nicht vom Algorithmus gefunden werden kann.
 
 In Schritt~4 wird verlangt, dass die Quadratwurzel mithilfe einer
 Tabelle von Quadratzahlen gefunden werden muss.
+\index{Quadratwurzel}%
 Es können also nur Lösungen gefunden werden, für die die Quadratwurzel
 im Schritt~4 eine in babylonischer Zeit bekannte Zahl ergab, also
 im kompliziertesten Fall ein Bruch oder, wie wir heute sagen würden,
@@ -162,7 +166,8 @@ Gleichungen gelöst werden können.
 \subsection{Erweiterungen von $\mathbb{Q}$}
 Schon im Altertum war bekannt, dass die Quadratwurzel $\!\sqrt{2}$ von 
 $2$ nicht rational ist.
-Diese Entdeckung, die normalerweise den Pythatgoreern zugeschrieben wird,
+Diese Entdeckung, die normalerweise den Pythatgoräern zugeschrieben wird,
+\index{Pythatgoraer@Pythagoräer}%
 widersprach der verbreiteten Ansicht, dass sich alle Zahlen durch
 Brüche ausdrücken lassen.
 In diesem Abschnitt werden zwei Konstruktionen betrachtet, mit denen
@@ -179,8 +184,12 @@ Jede ganze Zahl, deren Primfaktorzerlegung einen Primfaktor in ungerader
 Anzahl enthält, hat eine irrationale Quadratwurzel.
 Auch für viele kubische Wurzeln, die eulersche Zahl $e$ oder die
 Kreiszahl $\pi$ lassen sich gute Approximationen durch Brüche geben.
+\index{Kreiszahl}%
+\index{pi@$\pi$}%
 Leonhard Euler hat beretis 1737 bewiesen, dass $e$ irrational ist.
+\index{Euler, Leonhard}%
 Für $\pi$ ist dies erst Johann Heinrich Lambert 1761 gelungen.
+\index{Lambert, Johann Heinrich}%
 Diese Beispiele deuten darauf hin, dass es eine grosse Menge von
 Zahlen gibt, die beliebig genau durch Brüche approximiert werden
 können, aber trotzdem keine Brüche sind.
@@ -262,6 +271,7 @@ Periodische Dezimalbrüche konvergieren gegen rationale Zahlen im Sinne
 der folgenden Definition.
 
 \begin{definition}[konvergente Folge]
+\index{konvergente Folge}%
 Eine Cauchy-Folge $(a_n)_{n\in\mathbb{N}}$ konvergiert gegen $a\in\mathbb{Q}$,
 auch geschrieben als
 \[
@@ -320,7 +330,9 @@ besteht also aus Cauchy-Folgen von rationalen Zahlen, wobei jedoch
 äquivalente Folgen die gleiche Zahl repräsentieren.
 
 \begin{definition}[Äquivalenzklassen]
+\index{Aquivalenzklasse@Äquivalenzklasse}%
 Eine \emph{Äquivalenzklasse} $X$ der Äquivalenzrelation $\sim$ von
+\index{Aquivalenzrelation@Äquivalenzrelation}%
 Cauchy-Folgen ist eine Menge von äquivalenten Cauchy-Folgen.
 \end{definition}
 
@@ -369,6 +381,7 @@ Abbildung~\ref{buch:komplex:zahlen:table:gold}, zweite Spalte).
 
 Approximationsfolgen für die Nullstellen einer Funktion $f(x)$ können
 zum Beispiel durch das Newton-Verfahren gefunden werden.
+\index{Newton-Verfahren}%
 Dazu wählt man eine Anfangsschätzung $x_0$ und bildet dann die 
 Folge
 \[
@@ -404,6 +417,7 @@ Die Vervollständigung der der rationalen Zahlen zu den reellen
 Zahlen stellt sicher, dass jede Cauchy-Folge einen Grenzwert hat.
 Sie führt aber zu einem neuen Problem, welches ein Hindernis für
 Computeralgebrasysteme wird.
+\index{Computeralgebra}%
 Da reelle Zahlen nur durch ihre Approximationen definiert sind,
 lässt sich damit grundsätzlich nur dann exakt rechnen, wenn auch
 noch eine alternative Charakterisierung zur Verfügung steht.
@@ -457,6 +471,7 @@ a^2 - 2 b^2,
 \]
 daher heisst $a-b\alpha$ auch das zu $a+b\alpha$ \emph{konjugierte}
 Element.
+\index{konjugiert}%
 Durch Erweitern mit $(c-d\alpha)$ kann man sogar den Kehrwert
 \begin{align*}
 \frac{1}{c+d\alpha}
@@ -718,6 +733,7 @@ tatsächlich ist
 \]
 In $\mathbb{Q}(\alpha)$ kann man jetzt auch das Polynom $x^3-2$ 
 faktorisieren, indem man durch den Faktor $(x-\alpha)$ dividiert.
+\index{Polynomdivision}%
 Die Polynomdivision ergibt
 \[
 \renewcommand{\arraycolsep}{2.5pt}
@@ -855,10 +871,14 @@ wenn es nicht algebraisch ist.
 Die Zahlen $\pi$ und $e$ sind beide transzendent.
 Der Nachweis, dass eine Zahl transzendent ist, ist oft schwierig.
 Schon 1844 hat Jospeh Liouville vermutet, dass $e$ transzendent 
+\index{Liouville, Joseph}%
 ist, der Nachweis ist aber Charles Hermite erst 1873 gelungen
 \cite{buch:hermitebeweis}.
+\index{Hermite, Charles}%
 Für $\pi$ ist der Beweis deutlich anspruchsvoller.
 Nach einem Satz von Lindemann und Weierstrass
+\index{Lindemann, Charles}%
+\index{Weierstrass, Karl}%
 \cite{buch:lindemann-weierstrass} sind für verschiedene
 algebraische Zahlen $\alpha_1,\dots,\alpha_n$
 die Zahlen $e^{\alpha_1},\dots,e^{\alpha_n}$ linear unabhängig
@@ -868,6 +888,8 @@ Wäre auch $\pi$ eine algebraische Zahl, dann wäre auch $i\pi$ algebraisch.
 Nach dem Satz von Lindemann-Weierstrass müssten dann $e^0=1$ und
 $e^{i\pi}=-1$ über den algebraischen Zahlen linear unabhängig sein,
 was sie wegen der eulerschen Identität
+\index{eulersche Identität}%
+\index{Identität, eulersch}%
 \[
 e^{i\pi}+1=0
 \]
@@ -899,6 +921,8 @@ Die Menge
 \]
 der ganzzahligen Reste bei Division durch $p$
 heisst der \emph{endlich Körper} der Ordnung $p$.
+\index{endlicher Körper}%
+\index{Körper, endlich}%
 \index{Fp@$\mathbb{F}_p$}%
 \end{definition}
 
@@ -1034,6 +1058,7 @@ können.
 \end{beispiel}
 
 Die Adjunktion einer Nullstelle eines irreduziblen Polynoms 
+\index{Adjunktion}%
 aus $\mathbb{F}_p[x]$ zu $\mathbb{F}_p$ erzeugt also wieder
 die Menge 
 \[
@@ -1068,6 +1093,7 @@ und schreibt daher unabhängig vom Minimalpolynom
 $\mathbb{F}_p(\alpha)=\mathbb{F}_{p^n}$.
 Die endlichen Körper spielen eine bedeutende Rolle in der Kryptographie.
 Zum Beispiel verwendet die Spezifikation des AES-Algorithmus die 
+\index{AES-Algorithmus}%
 Arithmetik in einem Körper $\mathbb{F}_{2^8}$ mit $2^8$ Elementen,
 die im Code als Bytes dargestellt werden.
 
@@ -1088,6 +1114,7 @@ Es entsteht die Menge der ganzen gaussschen Zahlen gemäss der
 folgenden Definition.
 
 \begin{definition}[ganze gausssche Zahlen]
+\index{ganze gausssche Zahlen}%
 Die Elemente
 \[
 \mathbb{Z}[i]
@@ -1197,6 +1224,7 @@ Die zugehörige Struktur ist die einer Gruppe.
 
 \begin{definition}[Gruppe]
 Eine \emph{Gruppe} ist eine Menge $G$ mit einer zweistelligen Operation
+\index{Gruppe}%
 \[
 \cdot
 :
@@ -1324,6 +1352,7 @@ nur eine Operation tragen, sondern zusätzlich zur Addition oft auch
 eine Multiplikation.
 
 \begin{definition}[Ring]
+\index{Ring}%
 Ein \emph{Ring} ist eine Menge $R$ mit zwei Operationen,
 der Addition $+$ und der Multiplikation $\cdot$, mit den folgenden
 Eigeschaften:
@@ -1423,12 +1452,15 @@ auch jedes von $0$ verschiedene Element ein multiplikatives Inverses hat.
 Eine solche Menge heisst ein Körper.
 
 \begin{definition}[Körper]
+\index{Körper}%
 Ein Körper $K$ ist ein Ring mit Eins derart, dass $K^*$ eine abelsche
 Gruppe bezüglich der Multiplikation ist.
 \end{definition}
 
 \begin{beispiel}
 Die Menge $\mathbb{Q}$ der rationalen Zahlen ist ein Körper.
+\index{Q@$\mathbb{Q}$}%
+\index{rationale Zahlen}%
 \end{beispiel}
 
 \begin{beispiel}
@@ -2118,6 +2150,8 @@ Das charakteristische Polynom ist also bis auf ein Vorzeichen das
 ursprüngliche Polynom $a\in K[x]$.
 
 Der Satz von Cayley-Hamilton \cite[Satz 13.23]{buch:linalg} besagt, dass 
+\index{Cayley-Hamilton, Satz von}%
+\index{Satz!von Cayley-Hamilton}%
 jede Matrix Nullstelle ihres charakteristischen Polynoms ist, dass also
 $\chi_X(X)=0$ ist.
 Es flogt daher aus \eqref{buch:komplex:zahlen:eqn:charmin},
@@ -2251,6 +2285,7 @@ in der gaussschen Zahlenebene darstellt.
 \subsubsection{Quaternionen}
 Die Matrix $J$ ist nicht die einzige Matrix mit der Eigenschaft
 $J^2=-I$.
+\index{Quaternionen}%
 Lässt man komplexe Einträge in den Matrizen zu, haben auch die
 Matrizen
 \begin{align*}
@@ -2347,12 +2382,16 @@ i& 0
 \end{pmatrix*}
 \end{align*}
 heissen die \emph{Pauli-Matrizen}.
+\index{Pauli-Matrix}%
 \end{definition}
 
 Die Pauli-Matrizen spielen eine wichtige Rolle in der Beschreibung des
 Spins in der Quantenmechanik.
+\index{Quantenmechanik}%
+\index{Spin}%
 Sie können auch verwendet werden, um die Gruppe $\operatorname{SU}(2)$ 
 der spezielle unitären Matrizen zu beschreiben.
+\index{unitär}%
 
 Schreiben wir
 \begin{align}
@@ -2591,8 +2630,11 @@ Algebra mit den Rechenregeln
 die William Rowan Hamilton im Jahr 1843 entdeckt hat.
 Sie heisst die Algebra der \emph{Quaternionen}.
 Hamilton sollen die algebraischen Regeln
+\index{Hamilton, William Rowan}%
 \eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
 während eines Spaziergangs über die Broom-Bridge in Dublin
+\index{Dublin}%
+\index{Broom-Bridge}%
 eingefallen sein und er soll sie spontan in einen Stein
 geritzt haben, woran die in Abbildung~\ref{buch:komplex:fig:hamilton}
 abgebildete, an der Broom-Bridge angebrachte Plakette erinnert.
