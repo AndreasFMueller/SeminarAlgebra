@@ -1,5 +1,5 @@
 %
-% kalkuel.tex
+% 2-kalkuel.tex
 %
 % (c) 2026 Prof Dr Andreas Müller
 %
@@ -23,24 +23,34 @@ Das Buch \emph{Introduction at analysin infinitorum}
 \cite{buch:introductio1,buch:introductio2}
 beginnt Leonhard Euler, den Leser in die Ideen der Inifinitesimalrechnung
 einzuführen.
+\index{Euler, Leonhard}%
 Es behandelt alle Aspekte der Infinitesimalrechnung, die ohne das
 Konzept der Ableitung eingführt werden können.
 Es behandelt im ersten Band Funktionen einer und mehrere Variablen,
-die trigonometrischen Funktionen, Reihen, Faktorzerlegungen,
+die trigonometrischen Funktionen, Reihen, Produktdarstellungen,
+\index{trigonometrische Funktion}%
+\index{Reihe}%
+\index{Produktdarstellung}%
 Kettenbrüche und Anwendungen dieser Themen.
+\index{Kettenbruch}%
 Man findet darin auch die Formel $e^{i\varphi}=\cos\varphi+i\sin\varphi$.
 Im zweiten Band \cite{buch:introductio2} behandelt er sowohl 
 algebraisch definierte Kurven wie auch Graphen transzendenter
+\index{Kurve}%
+\index{Graph}%
 Funktionen.
 
 Erst in seinen späteren Werk \cite{buch:institutiones}
 \emph{Institutiones calculi differentialis} behandelt er die Ableitung
 und das Integral.
 Anwendungen die wie Bestimmung von Extrema oder Differentialgleichungen
+\index{Extrema}%
 werden darin ausführlich mit vielen Besipielen durchgerechnet.
 Das Integralzeichen, wie es Leibniz eingeführt hat, kommt jedoch im
+\index{Integralzeichen}%
 ganzen Buch nicht vor.
 Bei der Lösung von Differentialgleichungen er sich wieder der algebraischen
+\index{Differentialgleichung}%
 Regeln für die Ableitung, ohne je einen formellen Integralkalkül
 entwickelt zu haben.
 
@@ -83,7 +93,8 @@ g(x)
 f(x)
 \biggl(\frac{d}{dx}g(x)\biggr).
 \label{buch:einleitung:kalkuel:eqn:prod}
-\intertext{Ein Regel, die Konstanten charakterisiert:}
+\intertext{\index{linear}\index{Produktregel}%
+Ein Regel, die Konstanten charakterisiert:}
 \frac{d}{dx}c&=0\qquad\text{wenn $c$ eine Konstante ist.}
 \label{buch:einleitung:kalkuel:eqn:const}
 \intertext{Eine Regel, die die unabhängige Variable auszeichnet:}
@@ -91,6 +102,7 @@ f(x)
 \label{buch:einleitung:kalkuel:eqn:var}
 \intertext{Die Ableitung des Reziproken $1/f(x)$ lässt sich daraus und aus
 der Eigenschaft $f(x)\cdot 1/f(x)=1$ mit der Produktregel gewinnen,
+\index{Quotientenregel}%
 ebenso die Quotientenregel}
 \frac{d}{dx} \frac{f(x)}{g(x)}
 &=
@@ -98,11 +110,14 @@ ebenso die Quotientenregel}
 \intertext{Dazu kommt noch die Kettenregel}
 \frac{d}{dx} f(g(x))&=\frac{df}{dx}(g(x))\frac{dg}{dx}(x),
 \end{align}
+\index{Kettenregel}%
 die für zusammengesetzte Funktionen nützlich ist.
+\index{Zusammensetzung}
 
 In der klassischen Entwicklung der Infinitesimalrechnung werden diese
 Regeln aus einer Definition der Ableitung als Grenzewert von
 Differenzenquotienten gewonnen.
+\index{Differenzenquotient}%
 Man kann sich aber auch auf den Standpunkt stellen, dass diese Regeln
 einen speziellen Operator auf allen Funktionen einer geeignet definierten
 Funktionenmenge charakterisieren.
@@ -122,15 +137,18 @@ Sie enthält einen Teilkörper $K\subset F$ von Konstanten, der mindestens
 die rationalen Zahlen enthält $\mathbb{Q}\subset F$.
 $K$ heisst auch der Konstantenkörper.
 Meistens geht man von den reellen Zahlen $\mathbb{R}$ als Zahlenkörper aus.
+\index{Konstantenkorper@Konstantenkörper}%
 \item
 $F$ ist eine Algebra über dem Konstantenkörper $K$.
 Da $K\subset F$ ist, ist dies automatisch erfüllt.
 Es ist aber nützlich, diese Eigenschaft explizit zu erwähnen, weil die
 Definition einer Derivation nur die Algebrastruktur braucht.
+\index{Deriviation}%
 \end{itemize}
 Man beachte, dass diese Struktur das Konzept der Ableitung noch nicht
 definiert.
 Der Funktionenkörper ist im Wesentlichen der Schauplatz von Eulers
+\index{Funktionenkorper@Funktionenkörper}%
 \emph{Introduction}
 \cite{buch:introductio1,buch:introductio2}.
 
@@ -143,11 +161,14 @@ Die beiden Regeln \eqref{buch:einleitung:kalkuel:eqn:lin1} und
  D(\alpha f) &= \alpha Df
 \intertext{für $f,g\in F$ und $\alpha\in K$, die besagt,
 dass $D$ ein linearer Operator ist.
+\index{linearer Operator}%
 Aus der Produktregel \eqref{buch:einleitung:kalkuel:eqn:prod}
+\index{Produktregel}%
 wird}
 D(fg) &= (Df)g+f(Dg)
 \intertext{für $f,g\in F$.
 Diese Eigenschaft von $D$ heisst auch \emph{Derivation}.
+\index{Derivation}%
 Schliesslich identifiziert
 \eqref{buch:einleitung:kalkuel:eqn:const}
 die Konstanten und
@@ -163,6 +184,7 @@ die Rechnungen der Infinitesimalrechnung durchführen zu können.
 Sie entpuppt sich somit als hauptsächlich algebraischer Kalkül.
 
 Im algebraischen Kalkül spielt die Kettenregel kein Rolle, da in einem
+\index{Kettenregel}%
 Funktionenkörper das Konzept der Zusammensetzung von Funktionen gar
 nicht definiert ist.
 Dies beschränkt die Möglichkeiten, Ableitungen in diesem Körper zu berechnen,
