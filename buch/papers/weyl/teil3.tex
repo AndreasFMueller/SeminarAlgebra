@@ -7,7 +7,7 @@
 %
 \section{Hybrid mit dem Newton-Verfahren und Einordnung%
 \label{weyl:section:hybrid}}
-\rhead{Hybrid mit Newton-Verfahren}
+\kopfrechts{Hybrid mit Newton-Verfahren}
 Der Quadtree-Algorithmus ist global und zuverlässig, aber langsam. Pro Iteration
 verdoppelt sich die Genauigkeit lediglich um ein Bit.
 Das Newton-Verfahren ist hingegen lokal sehr schnell. In der Nähe einer einfachen
@@ -19,7 +19,7 @@ Es liegt nahe, beide Verfahren zu kombinieren und so von beiden Stärken zu prof
 \label{weyl:subsection:uebergabe}}
 Sobald ein Quadtree-Quadrat $D_i$ mit $N(D_i) = 1$ klein genug ist, liegt seine
 Mitte $\hat z$ in unmittelbarer Nähe der einzigen Nullstelle in diesem Quadrat.
-''Klein genug'' bedeutet dabei, dass $\hat z$ im Einzugsgebiet des Newton-Verfahrens
+``Klein genug'' bedeutet dabei, dass $\hat z$ im Einzugsgebiet des Newton-Verfahrens
 für genau diese Nullstelle liegt. Sind die Nullstellen ausreichend weit voneinander
 getrennt, genügt dafür schon eine sehr moderate Genauigkeit des Quadtree.
 Ab diesem Punkt schalten wir um auf die Newton-Iteration
@@ -38,8 +38,14 @@ z_0
 \label{weyl:eq:newton}
 \end{equation}
 die quadratisch gegen die Nullstelle konvergiert.
-Aus dem Startwert $\hat z$, der bereits einige Stellen Genauigkeit hat, werden so in
+Aus dem Startwert $\hat z$, der bereits einige Stellen Genauigkeit hat, wird so in
 wenigen Schritten Maschinenpräzision erreicht.
+Ein praktischer Test, ob das Quadrat klein genug war, besteht darin, die ersten
+Newton-Iterierten zu beobachten.
+Bleiben sie im aktiven Quadrat $D_i$, spricht das dafür, dass der Startwert im
+richtigen Einzugsgebiet liegt.
+Verlässt die Folge das Quadrat oder springt sie stark, verfeinert man $D_i$ weiter
+und versucht die Übergabe erst mit einem kleineren Quadrat erneut.
 
 \input{papers/weyl/fig/hybrid.tex}
 
@@ -51,7 +57,7 @@ letzten Metern.
 \subsection{Stärken und Schwächen%
 \label{weyl:subsection:einordnung}}
 Welche Eigenschaften zeichnen das Verfahren aus?
-Wir fassen zusammen, was wir gewonnen haben und was es ''kostet''.
+Wir fassen zusammen, was wir gewonnen haben und was es ``kostet''.
 
 \subsubsection*{Stärken}
 Der Quadtree-Algorithmus ist \emph{global zuverlässig}.
@@ -61,7 +67,7 @@ Er erfordert, anders als beim reinen Newton-Verfahren, \emph{keine Startwerte}.
 So muss man nicht raten, wo die Nullstellen liegen.
 Die Anzahl der Nullstellen in einem Gebiet ist von Anfang an bekannt, da sie das
 \emph{Argumentprinzip} als Nebenprodukt liefert.
-Mehrfache Nullstellen werden zwanglos behandelt indem das Verfahren sie
+Mehrfache Nullstellen werden zwanglos behandelt, indem das Verfahren sie
 automatisch erkennt durch $N(D_i) \geq 2$.
 
 \subsubsection*{Schwächen}
@@ -69,18 +75,18 @@ Die Konvergenz ist nur \emph{linear} (jede Iteration halbiert den Fehler), nicht
 quadratisch wie bei Newton.
 Alleine angewendet wäre Weyls Algorithmus zu langsam für hohe Genauigkeitsanforderungen.
 Erst die Kombination mit Newton macht ihn praxistauglich.
-Jede Iteration kostet zudem $4$ Wegintegrale pro Elternquadrat, welche nicht ganz
+Jede Iteration kostet zudem vier Wegintegrale pro Elternquadrat, welche nicht ganz
 billig sind, vor allem wenn das Polynom hohen Grad hat oder das Gebiet viele Quadrate
 enthält.
 
 \subsubsection*{Komplexität}
 Bei einer geforderten Genauigkeit $\varepsilon$ braucht der Quadtree
-$\mathcal{O}(\log(r/\varepsilon))$ Verfeinerungsstufen.
-Pro Stufe sind höchstens $\mathcal{O}(n)$ Quadrate aktiv (da nur Quadrate mit
+$O(\log(r/\varepsilon))$ Verfeinerungsstufen.
+Pro Stufe sind höchstens $O(n)$ Quadrate aktiv (da nur Quadrate mit
 Nullstellen überleben) und in jedem Quadrat kostet die numerische Auswertung des
-Wegintegrals $\mathcal{O}(n)$ Funktionsauswertungen.
+Wegintegrals $O(n)$ Funktionsauswertungen.
 Insgesamt landet man so bei einer Komplexität in der Grössenordnung
-$\mathcal{O}\bigl(n^2 \log(r/\varepsilon)\bigr)$ Polynomauswertungen für die
+$O\bigl(n^2 \log(r/\varepsilon)\bigr)$ Polynomauswertungen für die
 Quadtree-Phase. Hinzu kommen wenige Newton-Schritte pro Nullstelle für die
 Feinkonvergenz.
 Detaillierte Schranken und Varianten sind in \cite{weyl:pan1998} diskutiert.
@@ -99,8 +105,8 @@ und bessere Komplexitätsschranken
 
 In heutigen Standard-Solvern für komplexe Polynomnullstellen werden zwar meist
 matrixbasierte Verfahren wie die Eigenwertberechnung der Begleitmatrix mit dem
-$\mathit{QR}$-Algorithmus eingesetzt. Das Grundprinzip von Weyls Algorithmus -- Gebiete
-unterteilen und mit dem Argumentprinzip auf Nullstellen testen -- lebt jedoch in
+$\mathit{QR}$-Algorithmus eingesetzt. Das Grundprinzip von Weyls Algorithmus --- Gebiete
+unterteilen und mit dem Argumentprinzip auf Nullstellen testen --- lebt jedoch in
 modernen \emph{Inclusion-Test}-Methoden weiter, etwa in den Arbeiten zu
 zuverlässigen Polynomwurzel-Solvern.
 Weyls Quadtree ist damit nicht nur historisch interessant, sondern ein Vorbild für

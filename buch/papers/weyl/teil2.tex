@@ -10,13 +10,13 @@
 %
 \section{Der Quadtree-Algorithmus%
 \label{weyl:section:algorithmus}}
-\rhead{Der Quadtree-Algorithmus}
+\kopfrechts{Der Quadtree-Algorithmus}
 Mit dem Wegintegral aus Satz~\ref{weyl:satz:nullstellen-zaehlen} können wir nun das
 Bisektionsprinzip in die komplexe Ebene übertragen.
 Statt eindimensionale Intervalle zu halbieren, vierteln wir zweidimensionale Quadrate und 
 statt eines Vorzeichenwechsels prüfen wir das Wegintegral.
 Da bei jedem Schritt aus einem Quadrat vier kleinere werden, entsteht eine Baumstruktur,
-in der jeder Knoten bis zu vier Kinder hat -- daher der Name \emph{Quadtree}.
+in der jeder Knoten bis zu vier Kinder hat --- daher der Name \emph{Quadtree}.
 
 \subsection{Das Startquadrat%
 \label{weyl:subsection:startquadrat}}
@@ -30,10 +30,10 @@ D
 ,
 \]
 das gross genug gewählt ist, um alle Nullstellen von $f$ zu enthalten.
-Aus der Theorie der Polynome ist bekannt, dass für jede Nullstelle $z_k$ von
+Aus der Theorie der Polynome ist bekannt, dass für jede Nullstelle $\alpha_k$ von
 $f(z) = a_n z^n + \dots + a_0$ die Abschätzung
 \[
-|z_k|
+|\alpha_k|
 \leq
 \sum_{j=0}^{n-1}
 \frac{|a_j|}{|a_n|}
@@ -47,8 +47,8 @@ r
 \label{weyl:eq:startradius}
 \end{equation}
 ein zulässiger Wert.
-Zur Kontrolle berechnen wir das Wegintegral
-$N(D) = \tfrac{1}{2\pi i} \oint_{\partial D} f'/f\, dz$ über das Startquadrat. Das
+Zur Kontrolle berechnen wir gemäss \eqref{weyl:eq:nullstellen-zaehlen} das
+Wegintegral über das Startquadrat. Das
 Resultat muss $N(D) = n$ ergeben, denn alle $n$ Nullstellen liegen drin.
 Stimmt diese Probe nicht, hat sich entweder bei der numerischen Integration ein Fehler
 eingeschlichen oder eine Nullstelle liegt zufällig auf dem Rand. In beiden Fällen
@@ -89,6 +89,14 @@ N(D)
 \label{weyl:eq:probe}
 \end{equation}
 Diese Identität ist ein willkommener Selbsttest jeder Iteration.
+Schlägt der Test fehl, sollte man in diesem Schritt noch kein Teilquadrat verwerfen.
+Zunächst wird das Integral mit feinerer Quadratur oder höherer Rechengenauigkeit erneut
+ausgewertet, denn kleine numerische Fehler können die ganzzahligen Werte verfälschen.
+Bleibt die Probe falsch oder treten nichtganzzahlige Werte auf, liegt meist eine Nullstelle
+auf dem Rand eines Teilquadrats oder sehr nahe daran.
+Dann verschiebt man die Teilungslinien beziehungsweise das ganze Gitter um einen kleinen
+Betrag und wiederholt das Zählen, bis die Summe wieder mit der Nullstellenzahl des
+Elternquadrats übereinstimmt.
 
 \subsubsection*{Verwerfen}
 Teilquadrate mit $N(D_i) = 0$ enthalten keine Nullstelle und werden aus der weiteren
@@ -96,7 +104,7 @@ Betrachtung entfernt.
 Alle anderen Teilquadrate werden in einer Liste der aktiven Quadrate gesammelt und
 in der nächsten Iteration ihrerseits geviertelt.
 Da das Polynom $n$ Nullstellen besitzt, sind höchstens $n$ Teilquadrate gleichzeitig
-"voll", sodass die Liste aktiver Quadrate nicht beliebig wächst.
+``voll'', sodass die Liste aktiver Quadrate nicht beliebig wächst.
 
 Abbildung~\ref{weyl:fig:quadtree} zeigt das Zusammenspiel der drei Schritte an einem
 Beispielpolynom mit acht Nullstellen.
@@ -110,6 +118,28 @@ ist, also bis für jedes aktive Quadrat $N(D_i) = 1$ gilt und die Kantenlänge u
 vorgegebene Schranke $\varepsilon > 0$ gefallen ist.
 An diesem Punkt liefert der Quadtree für jede Nullstelle einen kleinen rechteckigen
 Suchbereich, dessen Mittelpunkt eine gute Näherung darstellt.
+Die Schranke $\varepsilon$ wählt man nach der gewünschten Genauigkeit.
+Soll der Quadtree selbst die Nullstelle bis auf einen Fehler $\eta$ lokalisieren,
+nimmt man zum Beispiel $\varepsilon \leq \sqrt{2}\eta$, denn der Mittelpunkt eines
+Quadrats der Kantenlänge $\varepsilon$ ist höchstens $\varepsilon/\sqrt{2}$ von
+jedem Punkt im Quadrat entfernt.
+Wenn der Quadtree nur einen Startwert für das Newton-Verfahren liefern soll, darf
+$\varepsilon$ deutlich grösser sein.
+In diesem Fall verfeinert man weiter, falls Newton nicht rasch konvergiert oder in
+ein anderes Einzugsgebiet zu laufen scheint.
+
+Eine kleine Optimierung ist möglich, sobald für ein aktives Quadrat bereits
+$N(D)=1$ bekannt ist, seine Kantenlänge aber noch grösser als $\varepsilon$ ist.
+Teilt man dieses Quadrat erneut in vier Kinderquadrate, kann nur eines dieser
+Kinder eine Nullstelle enthalten, sofern keine Nullstelle auf einer Teilungslinie
+liegt.
+Man berechnet die Werte der Kinder dann der Reihe nach und hört auf, sobald ein
+Kind mit Wert $1$ gefunden wurde.
+Die übrigen Kinder müssen in diesem regulären Fall den Wert $0$ haben und können
+verworfen werden.
+Findet man kein solches Kind oder treten nichtganzzahlige Werte auf, verwendet man
+wieder den vollständigen Selbsttest \eqref{weyl:eq:probe} und verschiebt gegebenenfalls
+das Gitter leicht.
 
 Wie viele Iterationen sind nötig?
 Die Kantenlänge halbiert sich pro Schritt, die Genauigkeit verdoppelt sich also
@@ -152,10 +182,14 @@ Listing~\ref{weyl:alg:quadtree} fasst den Algorithmus zusammen.
 \end{algorithmic}
 \end{algorithm}
 
-Die einzige nicht-triviale Operation ist die Auswertung des Wegintegrals, die nach
-Belieben numerisch (z.\,B. mit der Mittelpunktregel oder einem adaptiven Verfahren) oder
-algebraisch (über euklidische Polynomdivision, vgl. Sturm-Folgen) durchgeführt werden
-kann \cite{weyl:eisermann}.
+Die einzige nicht-triviale Operation ist die Auswertung des Wegintegrals.
+In der hier verwendeten Variante geschieht das numerisch, zum Beispiel mit der
+Mittelpunktregel oder mit einem adaptiven Verfahren.
+Die Begründung dafür liefert das Argumentprinzip aus der komplexen Analysis
+\cite{weyl:eisermann}.
+Es gibt auch algebraische Varianten.
+Dabei führt man die Zählung mit euklidischer Polynomdivision auf Sturm-Folgen
+beziehungsweise Cauchy-Indizes zurück \cite{weyl:stoer-bulirsch}.
 Da der Integrand $f'/f$ rational ist und das Resultat eine ganze Zahl sein muss, genügt
 schon eine moderate numerische Genauigkeit. Ein Fehler kleiner als $\tfrac{1}{2}$
 identifiziert die korrekte ganze Zahl eindeutig.
@@ -174,10 +208,10 @@ mit Ableitung $f'(z) = 3z^2 - 2$.
 Die exakten Nullstellen lassen sich noch mit der Formel von Cardano berechnen und
 lauten näherungsweise
 \[
-z_1 \approx -1{,}7693
+\alpha_1 \approx -1{,}7693
 ,
 \qquad
-z_{2,3} \approx 0{,}8846 \pm 0{,}5897\,i
+\alpha_{2,3} \approx 0{,}8846 \pm 0{,}5897\,i
 .
 \]
 Wir tun aber so, als kennen wir sie nicht, und lassen den Algorithmus arbeiten.
@@ -196,30 +230,26 @@ r
 ,
 \]
 also $D_0 = [-4, 4] \times [-4, 4]$ als Startquadrat.
-Die numerische Auswertung von $\frac{1}{2\pi i} \oint_{\partial D_0} f'/f \, dz$
-mittels Mittelpunktregel auf jeder Seite ergibt den Wert $3$, in Übereinstimmung
+Die numerische Auswertung von $N(D_0)$ mittels Mittelpunktregel auf jeder Seite
+ergibt den Wert $3$, in Übereinstimmung
 mit dem Grad des Polynoms.
 
 \subsubsection*{Erste Iteration}
 Vierteln von $D_0$ liefert die vier Teilquadrate
-\[
-D_1 = [-4, 0] \times [\,0, 4\,]
-,
-\quad
-D_2 = [\,0, 4\,] \times [\,0, 4\,]
-,
-\quad
-D_3 = [-4, 0] \times [-4, 0]
-,
-\quad
-D_4 = [\,0, 4\,] \times [-4, 0]
-.
-\]
+\begin{align*}
+D_1 &= [-4, 0] \times [0, 4],
+&
+D_2 &= [0, 4] \times [0, 4],
+\\
+D_3 &= [-4, 0] \times [-4, 0],
+&
+D_4 &= [0, 4] \times [-4, 0].
+\end{align*}
 Die Auswertung der Wegintegrale liefert allerdings nichtganzzahlige Werte:
 $N(D_1) \approx 0{,}5 - 1{,}01\,i$ und $N(D_3) \approx 0{,}5 + 1{,}01\,i$.
 Das ist kein Rechenfehler, sondern die Symptomatik des in
 Abschnitt~\ref{weyl:subsection:mehrfache} angesprochenen Sonderfalls. Die reelle
-Nullstelle $z_1 \approx -1{,}7693$ liegt exakt auf dem Rand $y = 0$ zwischen $D_1$
+Nullstelle $\alpha_1 \approx -1{,}7693$ liegt exakt auf dem Rand $y = 0$ zwischen $D_1$
 und $D_3$.
 Wir verschieben das Gitter um einen kleinen Betrag $\delta = 10^{-2}$ und teilen
 stattdessen bei der waagerechten Linie $y = \delta$.
@@ -230,9 +260,9 @@ Mit dieser Korrektur ergibt die erste Iteration
 Teilquadrat & $N$ \\
 \midrule
 $D_1' = [-4, 0] \times [\delta, 4]$ & $0$ \\
-$D_2' = [\,0, 4\,] \times [\delta, 4]$ & $1$ \\
+$D_2' = [0, 4] \times [\delta, 4]$ & $1$ \\
 $D_3' = [-4, 0] \times [-4, \delta]$ & $1$ \\
-$D_4' = [\,0, 4\,] \times [-4, \delta]$ & $1$ \\
+$D_4' = [0, 4] \times [-4, \delta]$ & $1$ \\
 \midrule
 Summe & $3$ \\
 \bottomrule
@@ -242,7 +272,7 @@ Die Probe stimmt, und $D_1'$ wird als nullstellenfrei verworfen.
 Schon nach einer Iteration sind die drei Nullstellen voneinander getrennt.
 
 \subsubsection*{Weitere Iterationen}
-Wir konzentrieren uns auf $D_2'$, das die Nullstelle $z_2 \approx 0{,}8846 + 0{,}5897\,i$
+Wir konzentrieren uns auf $D_2'$, das die Nullstelle $\alpha_2 \approx 0{,}8846 + 0{,}5897\,i$
 enthält.
 Vierteln liefert vier Teilquadrate, von denen drei leer sind und nur das
 Quadrat $[0, 2] \times [\delta, 2{,}005]$ den Wert $N = 1$ liefert.
@@ -262,11 +292,13 @@ z_k
 \frac{z_k^3 - 2 z_k + 2}{3 z_k^2 - 2}
 ,
 \]
-so erhalten wir
+Dabei bezeichnet $z_k$ den $k$-ten Newton-Iterierten; die Zielnullstelle ist
+$\alpha_2$.
+Damit erhalten wir
 \begin{center}
 \begin{tabular}{rll}
 \toprule
-$k$ & $z_k$ & $|z_k - z_2|$ \\
+$k$ & $z_k$ & $|z_k - \alpha_2|$ \\
 \midrule
 $0$ & $1{,}0000 + 1{,}0000\,i$ & $4{,}3 \cdot 10^{-1}$ \\
 $1$ & $0{,}9000 + 0{,}7000\,i$ & $1{,}1 \cdot 10^{-1}$ \\
@@ -280,7 +312,11 @@ $5$ & $0{,}8846461771 + 0{,}5897428050\,i$ & $< 10^{-10}$ \\
 Die quadratische Konvergenz ist gut zu erkennen. Die Anzahl korrekter Nachkommastellen
 verdoppelt sich von Schritt zu Schritt und nach fünf Iterationen ist die
 Maschinengenauigkeit nahezu erreicht.
-Für $z_3 = \overline{z_2}$ und $z_1$ verläuft das Verfahren analog mit jeweils
+Zugleich bleiben alle aufgeführten Iterierten im übergebenen Quadrat
+$[0, 2] \times [\delta, 2{,}005]$.
+Das ist ein einfacher nachträglicher Test dafür, dass das Quadrat für die Übergabe
+an Newton klein genug gewählt wurde.
+Für $\alpha_3 = \overline{\alpha_2}$ und $\alpha_1$ verläuft das Verfahren analog mit jeweils
 eigenem Startquadrat.
 
 Dieses kleine Beispiel illustriert die Hauptpunkte des Algorithmus auf engem Raum.
