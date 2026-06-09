@@ -124,6 +124,7 @@ Mit den elementaren Funktionen lässt sich jetzt das Integrationsproblem
 exakt formulieren.
 
 \begin{aufgabe}
+\label{buch:einleitung:cas:aufgabe}
 Zu einer elementaren Funktion $f(x)$ finde eine elementare Stammfunktion
 $g(x)$ oder beweise, dass keine elementare Stammfunktion existiert.
 \end{aufgabe}
@@ -139,6 +140,33 @@ gegeben.
 Auch die elliptischen Integrale, die in der Arbeit von Baris Catan 
 in Kapitel~\ref{chapter:elliptisch} eingeführt werden, sind nicht
 elementare Stammfunktionen elementarer Funktionen.
+
+Ein Funktionenkörper mit einer Derivation kennt das Konzept der
+Zusammensetzung von Funktionen nicht und kann daher auch nicht
+sinnvoll eine Kettenregel formulieren.
+Die Definitionen \eqref{buch:einleitung:cas:eqn:explog} für
+Exponential- und Logarithmusfunktionen führen die Kettenregel
+durch die Hintertür wieder ein.
+Etwas Ähnliches passiert auch für die Wurzelfunktion, die durch
+$w(x)^2-f(x)=0$ definiert ist.
+Die Lösung dieser Gleichung ist $w(x)=\!\sqrt{f(x)}$.
+Für die Ableitung von $w(x)$ wird die Kettenregel nicht benötigt, 
+da man sie durch Ableiten der definierenden Gleichung finden kann:
+\[
+0
+=
+\frac{d}{dx}(w(x)^2-f(x))
+=
+2w(x)\frac{dw}{dx}(x) - \frac{df}{dx}(x)
+\qquad\Rightarrow\qquad
+\frac{dw}{dx}(x) = \frac{1}{2w(x)}\frac{df}{dx}(x).
+\]
+Dies ist die Kettenregel für die Quadratwurzelfunktion.
+Für einen Funktionenkörper aus elementaren Funktionen sind damit
+alle nötigen Versionen der Kettenregel automatisch erfüllt, die
+Kettenregel wie auch das Konzept der Zusammensetzung von Funktionen
+sind daher für die Lösung der Aufgabe~\ref{buch:einleitung:cas:aufgabe}
+entbehrlich.
 
 %
 % Das Liouville-Prinzip

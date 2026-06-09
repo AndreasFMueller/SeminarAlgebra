@@ -4,6 +4,7 @@
 % (c) 2026 Prof Dr Andreas Müller
 %
 \section{Der Differentialkalkül}
+\kopfrechts{Der Differentialkalkül}
 Zur Zeit der Entstehung der Infinitesimalrechnung war die numerische
 Berechnung meistens eine zu aufwendige Option.
 An erster Stelle stand wann immer möglich die algebraische Rechnung.
@@ -24,19 +25,43 @@ beginnt Leonhard Euler, den Leser in die Ideen der Inifinitesimalrechnung
 einzuführen.
 Es behandelt alle Aspekte der Infinitesimalrechnung, die ohne das
 Konzept der Ableitung eingführt werden können.
+Es behandelt im ersten Band Funktionen einer und mehrere Variablen,
+die trigonometrischen Funktionen, Reihen, Faktorzerlegungen,
+Kettenbrüche und Anwendungen dieser Themen.
+Man findet darin auch die Formel $e^{i\varphi}=\cos\varphi+i\sin\varphi$.
+Im zweiten Band \cite{buch:introductio2} behandelt er sowohl 
+algebraisch definierte Kurven wie auch Graphen transzendenter
+Funktionen.
 
 Erst in seinen späteren Werk \cite{buch:institutiones}
-\emph{Instituiones calculi differentialis} behandelt er die Ableitung
+\emph{Institutiones calculi differentialis} behandelt er die Ableitung
 und das Integral.
+Anwendungen die wie Bestimmung von Extrema oder Differentialgleichungen
+werden darin ausführlich mit vielen Besipielen durchgerechnet.
+Das Integralzeichen, wie es Leibniz eingeführt hat, kommt jedoch im
+ganzen Buch nicht vor.
+Bei der Lösung von Differentialgleichungen er sich wieder der algebraischen
+Regeln für die Ableitung, ohne je einen formellen Integralkalkül
+entwickelt zu haben.
 
-Eulers Werk ist typische für die im 18. Jahrhunder vorherrschende
+Eulers Werk ist typische für die im 18.~Jahrhundert vorherrschende
 Betrachtungsweise der Infinitesimalrechnung.
+Das Problem der Definition einer Funktion und der Begriffe Grenzwert
+und Ableitung werden eher intuitiv behandelt.
+Mit den ``unendlich kleinen'' Grössen $dx$ und $dy$ wird nach den
+üblichen Regeln der Algebra gerechnet, eine Konstruktion eines Integrals
+wird nicht durchgeführt. 
+Sogar Differentialgleichungen sind nicht Gleichungen zwischen Ableitungen
+einer gesuchten Funktion, sondern tatsächlich Gleichungen zwischen
+den differentialen $dx$, $dy$, $d^2y$ und $dx^2$.
 
 %
 % Die Rechenregeln der klassischen Infinitesimalrechnung
 %
 \subsection{Die Rechenregeln der klassischen Infinitesimalrechnung}
-
+Für die praktische Arbeit mit Ableitungen im Stile Eulers genügt es,
+die folgenden Regeln zu kennen.
+Regeln für Funktionen:
 \begin{align}
 \frac{d}{dx}(f(x)\pm g(x))
 &=
@@ -56,21 +81,27 @@ Betrachtungsweise der Infinitesimalrechnung.
 g(x)
 +
 f(x)
-\biggl(\frac{d}{dx}g(x)\biggr)
+\biggl(\frac{d}{dx}g(x)\biggr).
 \label{buch:einleitung:kalkuel:eqn:prod}
-\\
-\frac{d}{dx}c&=0\qquad\text{wenn $c$ eine Konstante ist}
+\intertext{Ein Regel, die Konstanten charakterisiert:}
+\frac{d}{dx}c&=0\qquad\text{wenn $c$ eine Konstante ist.}
 \label{buch:einleitung:kalkuel:eqn:const}
-\\
-\frac{d}{dx}x&=1
+\intertext{Eine Regel, die die unabhängige Variable auszeichnet:}
+\frac{d}{dx}x&=1.
 \label{buch:einleitung:kalkuel:eqn:var}
-\end{align}
-Die Ableitung des reziproken $1/f(x)$ lässt sich daraus und aus
+\intertext{Die Ableitung des Reziproken $1/f(x)$ lässt sich daraus und aus
 der Eigenschaft $f(x)\cdot 1/f(x)=1$ mit der Produktregel gewinnen,
-ebenso die Quotientenregel.
+ebenso die Quotientenregel}
+\frac{d}{dx} \frac{f(x)}{g(x)}
+&=
+\frac{\frac{df}{dx}(x)g(x) - f(x)\frac{dg}{dx}(x)}{g(x)^2}.
+\intertext{Dazu kommt noch die Kettenregel}
+\frac{d}{dx} f(g(x))&=\frac{df}{dx}(g(x))\frac{dg}{dx}(x),
+\end{align}
+die für zusammengesetzte Funktionen nützlich ist.
 
 In der klassischen Entwicklung der Infinitesimalrechnung werden diese
-Regeln aus einre Definition der Ableitung als Grenzewert von
+Regeln aus einer Definition der Ableitung als Grenzewert von
 Differenzenquotienten gewonnen.
 Man kann sich aber auch auf den Standpunkt stellen, dass diese Regeln
 einen speziellen Operator auf allen Funktionen einer geeignet definierten
@@ -81,24 +112,42 @@ dividieren können.
 Funktionen können mit Konstanten multipliziert werden.
 Es muss möglich sein, Gleichungen mit Funktionsausdrücken aufzulösen.
 Diese Eigenschaften lassen sich zusammenfassen in die Aussage, dass
-die Funktionen ein Algebra über einem Zahlenkörper bilden müssen, wobei
-man meistens von den reellen Zahlen als Zahlenkörper ausgeht.
+die Menge $F$ der Funktionen folgende Eigenschaften hat:
+\begin{itemize}
+\item
+$F$ ist ein Körper, d.~h.~alle vier Grundoperationen sind immer ausführbar
+ausser die Division durch die Konstanten $0$.
+\item
+Sie enthält einen Teilkörper $K\subset F$ von Konstanten, der mindestens
+die rationalen Zahlen enthält $\mathbb{Q}\subset F$.
+$K$ heisst auch der Konstantenkörper.
+Meistens geht man von den reellen Zahlen $\mathbb{R}$ als Zahlenkörper aus.
+\item
+$F$ ist eine Algebra über dem Konstantenkörper $K$.
+Da $K\subset F$ ist, ist dies automatisch erfüllt.
+Es ist aber nützlich, diese Eigenschaft explizit zu erwähnen, weil die
+Definition einer Derivation nur die Algebrastruktur braucht.
+\end{itemize}
+Man beachte, dass diese Struktur das Konzept der Ableitung noch nicht
+definiert.
+Der Funktionenkörper ist im Wesentlichen der Schauplatz von Eulers
+\emph{Introduction}
+\cite{buch:introductio1,buch:introductio2}.
 
-Die Ableitung in einem Zahlenkörper ist dann ein Operator $D$, der auf
-Funktionen wirkt.
-Die beiden Regeln
-\eqref{buch:einleitung:kalkuel:eqn:lin1}
-und
-\eqref{buch:einleitung:kalkuel:eqn:lin2}
-erhalten die Form
+Die Ableitung ist ein zusätzlicher Operator $D$, der auf Funktionen in
+$F$ wirkt.
+Die beiden Regeln \eqref{buch:einleitung:kalkuel:eqn:lin1} und
+\eqref{buch:einleitung:kalkuel:eqn:lin2} bekommen die Form
 \begin{align*}
  D(f+g) &= Df + Dg\\
- D(\alpha f) &\alpha Df,
-\intertext{die besagt, dass $D$ ein linearer Operator ist.
+ D(\alpha f) &= \alpha Df
+\intertext{für $f,g\in F$ und $\alpha\in K$, die besagt,
+dass $D$ ein linearer Operator ist.
 Aus der Produktregel \eqref{buch:einleitung:kalkuel:eqn:prod}
 wird}
-D(fg) &= (Df)g+f(Dg).
-\intertext{Diese Eigenschaft von $D$ heisst auch \emph{Derivation}.
+D(fg) &= (Df)g+f(Dg)
+\intertext{für $f,g\in F$.
+Diese Eigenschaft von $D$ heisst auch \emph{Derivation}.
 Schliesslich identifiziert
 \eqref{buch:einleitung:kalkuel:eqn:const}
 die Konstanten und
@@ -106,12 +155,16 @@ die Konstanten und
 wird zu}
 Dx&=1,
 \end{align*}
-was charakterisiert die unabhängige Variable $x$, nach der der Operator
+was die unabhängige Variable $x$ charakterisiert, nach der der Operator
 $D$ ableitet.
 Die Vorgabe eines linearen Operators auf einer Algebra über den
 rationalen Zahlen mit obigen Eigenschaften ist alles, was man braucht, um 
 die Rechnungen der Infinitesimalrechnung durchführen zu können.
 Sie entpuppt sich somit als hauptsächlich algebraischer Kalkül.
 
-
+Im algebraischen Kalkül spielt die Kettenregel kein Rolle, da in einem
+Funktionenkörper das Konzept der Zusammensetzung von Funktionen gar
+nicht definiert ist.
+Dies beschränkt die Möglichkeiten, Ableitungen in diesem Körper zu berechnen,
+jedoch nicht.
 
