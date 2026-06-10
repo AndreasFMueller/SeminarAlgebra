@@ -10,7 +10,7 @@
 %
 \section{Einleitung%
 \label{weyl:section:einleitung}}
-\rhead{Einleitung}
+\kopfrechts{Einleitung}
 Der Fundamentalsatz der Algebra sichert uns zu, dass jedes komplexe Polynom
 \[
 f(z)
@@ -36,6 +36,7 @@ Es konvergiert in der Nähe einer Nullstelle quadratisch und damit sehr schnell,
 einen empfindlichen Schwachpunkt: man muss einen ausreichend guten Startwert kennen.
 Wählt man den Startwert ungeschickt, kann das Verfahren divergieren, in einen Zyklus
 geraten oder gegen eine andere als die gesuchte Nullstelle konvergieren.
+Im Abschnitt 15.3 des Kapitels über Julia-Mengen wird diese Schwachstelle genauer erläutert (\label{julia:zweck}).
 Bei einem Polynom vom Grad $n$ mit $n$ verschiedenen Nullstellen reicht es zudem nicht,
 nur \emph{eine} Nullstelle zu finden, man möchte sie alle bestimmen und zwar
 zuverlässig.
@@ -56,7 +57,7 @@ In Abbildung~\ref{weyl:fig:bisektion} ist das Prinzip skizziert.
 Möchte man diese Idee in die komplexe Ebene übertragen, stösst man sofort auf ein
 Problem: in $\mathbb{C}$ gibt es kein Vorzeichen.
 Der Zwischenwertsatz greift nicht, denn ein komplexer Funktionswert hat keine zwei
-''Seiten'', zwischen denen ein Wechsel stattfinden könnte.
+``Seiten'', zwischen denen ein Wechsel stattfinden könnte.
 Wir brauchen also einen Ersatz: einen Test, der uns für ein zweidimensionales Gebiet
 $D \subseteq \mathbb{C}$ verrät, ob darin Nullstellen liegen und im Idealfall
 gleich auch wie viele.

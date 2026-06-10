@@ -11,7 +11,7 @@
 %
 \section{Mathematische Werkzeuge%
 \label{weyl:section:grundlagen}}
-\rhead{Mathematische Werkzeuge}
+\kopfrechts{Mathematische Werkzeuge}
 Weyls Algorithmus stützt sich auf drei eng verwandte Resultate aus der komplexen
 Analysis: den \emph{Cauchy-Integralsatz}, die \emph{Cauchy-Integralformel}
 und das daraus abgeleitete \emph{Argumentprinzip}.
@@ -25,14 +25,14 @@ wie diese Sätze im Algorithmus zusammenwirken und das Zählen von Nullstellen
 Sei $D \subseteq \mathbb{C}$ ein kompaktes Gebiet mit stückweise glattem,
 positiv orientiertem Rand $\partial D$ und sei $g\colon D \to \mathbb{C}$ eine
 holomorphe Funktion auf einer offenen Umgebung von $D$.
-Cauchy-Integralsatz besagt dann
+Der Cauchy-Integralsatz besagt dann
 \begin{equation}
 \oint_{\partial D} g(z)\, dz
 =
 0
 \label{weyl:eq:cauchy-integralsatz}
 \end{equation}
-und seine geringfügige Verallgemeinerung -- die Cauchy-Integralformel -- liefert
+und seine geringfügige Verallgemeinerung --- die Cauchy-Integralformel --- liefert
 für einen Punkt $z_0$ im Inneren von $D$
 \begin{equation}
 g(z_0)
@@ -47,42 +47,42 @@ g(z_0)
 Die zweite Formel wird uns gleich besonders nützlich sein, da sie zeigt, dass
 $\oint \frac{1}{z - z_0} dz = 2\pi i$ ist, wenn der Weg $z_0$ einmal positiv umläuft, und
 $0$, wenn $z_0$ ausserhalb liegt.
-Das Wegintegral ''spürt'' also einzelne Singularitäten der Form $\frac{1}{z - z_0}$
+Das Wegintegral ``spürt'' also einzelne Singularitäten der Form $\frac{1}{z - z_0}$
 auf, wobei genau diese Eigenschaft der Schlüssel zum Algorithmus ist.
 
 \subsection{Die Kernidee: Faktorisieren macht Nullstellen zu Polen%
 \label{weyl:subsection:kernidee}}
-Sei nun $f$ ein Polynom vom Grad $n$ mit den Nullstellen $z_1, \dots, z_n \in \mathbb{C}$
+Sei nun $f$ ein Polynom vom Grad $n$ mit den Nullstellen $\alpha_1, \dots, \alpha_n \in \mathbb{C}$
 (mit Vielfachheit aufgeführt).
 Nach dem Fundamentalsatz der Algebra dürfen wir schreiben
 \begin{equation}
 f(z)
 =
-a_n (z - z_1)(z - z_2) \cdots (z - z_n)
+a_n (z - \alpha_1)(z - \alpha_2) \cdots (z - \alpha_n)
 .
 \label{weyl:eq:faktorisierung}
 \end{equation}
 Die entscheidende Beobachtung ist nun die folgende: bildet man die
 \emph{logarithmische Ableitung} von $f$, also den Quotienten
 $f'(z)/f(z)$, so verwandeln sich die Nullstellen von $f$ in Polstellen vom Typ
-$1/(z - z_k)$, die das Wegintegral nach Gleichung~\eqref{weyl:eq:cauchy-integralformel}
+$1/(z - \alpha_k)$, die das Wegintegral nach Gleichung~\eqref{weyl:eq:cauchy-integralformel}
 gerade erkennt.
 Konkret folgt aus \eqref{weyl:eq:faktorisierung} mit der Produktregel
 \begin{equation}
 \frac{f'(z)}{f(z)}
 =
-\frac{1}{z - z_1}
+\frac{1}{z - \alpha_1}
 +
-\frac{1}{z - z_2}
+\frac{1}{z - \alpha_2}
 +
 \dots
 +
-\frac{1}{z - z_n}
+\frac{1}{z - \alpha_n}
 .
 \label{weyl:eq:logarithmische-ableitung}
 \end{equation}
-Jeder Summand $1/(z - z_k)$ trägt zum Wegintegral $\oint_{\partial D} f'/f \, dz$ den
-Wert $2\pi i$ bei, falls $z_k$ im Inneren von $D$ liegt und $0$ sonst.
+Jeder Summand $1/(z - \alpha_k)$ trägt zum Wegintegral $\oint_{\partial D} f'/f \, dz$ den
+Wert $2\pi i$ bei, falls $\alpha_k$ im Inneren von $D$ liegt und $0$ sonst.
 Liegt keine Nullstelle auf dem Rand $\partial D$, so summieren sich diese Beiträge auf
 $2\pi i \cdot N(D)$, wobei $N(D)$ die Anzahl der Nullstellen von $f$ im Inneren von
 $D$ bezeichnet.
@@ -118,15 +118,18 @@ polynomielle Variante.
 Die Formel \eqref{weyl:eq:nullstellen-zaehlen} ist auf den ersten Blick erstaunlich.
 Sie liefert die Anzahl der Nullstellen, ohne dass wir auch nur eine einzige davon kennen
 müssten.
-Sie übersetzt eine \emph{algebraische} Information (wie viele Nullstellen liegen in
-$D$?) in eine \emph{analytische} Grösse (ein Wegintegral), die wir berechnen können,
-und das, obwohl die rechte Seite ausschliesslich auf dem \emph{Rand} $\partial D$
-ausgewertet wird.
+Die Frage, wie viele Nullstellen in $D$ liegen, ist algebraischer Natur.
+Die Antwort erhalten wir aber durch eine analytische Grösse, nämlich durch ein
+Wegintegral, das sich berechnen lässt.
+Besonders bemerkenswert ist dabei, dass dieses Integral nur auf dem
+\emph{Rand} $\partial D$ ausgewertet wird.
+Damit zeigt sich im Kleinen genau jenes Zusammenspiel von Algebra und Analysis,
+das zu den Leitmotiven dieses Buches gehört.
 
 \subsection{Geometrische Anschauung: das Argument dreht sich%
 \label{weyl:subsection:argument}}
 Hinter der Formel steckt eine schöne geometrische Anschauung, die auch den Namen
-''Argumentprinzip'' erklärt.
+``Argumentprinzip'' erklärt.
 Mit der Identität $f'/f = (\log f)'$ können wir das Integral umschreiben als
 \begin{equation}
 \frac{1}{2\pi i}

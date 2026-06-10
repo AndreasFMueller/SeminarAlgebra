@@ -16,14 +16,15 @@
     % Achsen
     \draw[->,gray] (-1.7,0) -- (1.9,0) node[right,black]{\small$\Re z$};
     \draw[->,gray] (0,-1.7) -- (0,1.9) node[above,black]{\small$\Im z$};
-    % Gebiet D (Quadrat)
-    \draw[blue!60!black,line width=1pt,fill=blue!10] (-1.3,-1.3) rectangle (1.3,1.3);
+    % Gebiet D mit abgerundeten Ecken
+    \draw[blue!60!black,line width=1pt,fill=blue!10,rounded corners=7pt]
+      (-1.3,-1.3) rectangle (1.3,1.3);
     \node[blue!60!black] at (-1.0,1.05) {\small $D$};
     % Eine Nullstelle
     \fill[red] (0.3,0.4) circle (2pt);
-    \node[red] at (0.6,0.4) {\small $z_1$};
+    \node[red] at (0.6,0.4) {\small $\alpha_1$};
     % Pfeil entlang Rand
-    \draw[->,thick] (1.3,0) -- (1.3,0.5);
+    \draw[->,thick,blue!60!black] (1.3,0.05) -- (1.3,0.55);
     \node at (0,-2.0) {\small $D$ enthält $1$ Nullstelle};
   \end{scope}
   % Pfeil zwischen Urbild und Bild (etwas tiefer, Label leicht nach oben geschoben)
@@ -50,12 +51,13 @@
   \begin{scope}[xshift=0cm]
     \draw[->,gray] (-1.7,0) -- (1.9,0) node[right,black]{\small$\Re z$};
     \draw[->,gray] (0,-1.7) -- (0,1.9) node[above,black]{\small$\Im z$};
-    \draw[blue!60!black,line width=1pt,fill=blue!10] (-1.3,-1.3) rectangle (1.3,1.3);
+    \draw[blue!60!black,line width=1pt,fill=blue!10,rounded corners=7pt]
+      (-1.3,-1.3) rectangle (1.3,1.3);
     \node[blue!60!black] at (-1.0,1.05) {\small $D$};
     \fill[red] (-0.5,0.5) circle (2pt);
     \fill[red] (0.6,0.3) circle (2pt);
     \fill[red] (0.1,-0.5) circle (2pt);
-    \draw[->,thick] (1.3,0) -- (1.3,0.5);
+    \draw[->,thick,blue!60!black] (1.3,0.05) -- (1.3,0.55);
     \node at (0,-2.0) {\small $D$ enthält $3$ Nullstellen};
   \end{scope}
   \draw[->,thick,gray!70] (2.2,-0.8) -- (3.4,-0.8) node[midway,above,yshift=2pt]{\small $f$};
