@@ -30,23 +30,24 @@ D
 ,
 \]
 das gross genug gewählt ist, um alle Nullstellen von $f$ zu enthalten.
-Aus der Theorie der Polynome ist bekannt, dass für jede Nullstelle $\alpha_k$ von
-$f(z) = a_n z^n + \dots + a_0$ die Abschätzung
-\[
-|\alpha_k|
-\leq
-\sum_{j=0}^{n-1}
-\frac{|a_j|}{|a_n|}
-\]
-gilt, und damit ist
+Im Beweis des Fundamentalsatzes der Algebra wurde in
+\eqref{buch:analytisch:ganz:fundamental:proof:r} bereits gezeigt, wie gross $r$
+sein muss, damit ausserhalb des Kreises $|z| < r$ keine Nullstelle mehr liegen kann.
+Für ein Polynom
+$f(z) = a_n z^n + \dots + a_0$ genügt es, $r$ so zu wählen, dass
 \begin{equation}
 r
-=
-\sum_{j=0}^{n-1}
-\frac{|a_j|}{|a_n|}
+\geq
+\max
+\left\{
+\sqrt[n-k]{(n+1)\left|\frac{a_k}{a_n}\right|}
+\;\middle|\;
+0 \leq k \leq n-1
+\right\}
 \label{weyl:eq:startradius}
 \end{equation}
-ein zulässiger Wert.
+gilt.
+Jeder grössere Wert ist ebenfalls zulässig.
 Zur Kontrolle berechnen wir gemäss \eqref{weyl:eq:nullstellen-zaehlen} das
 Wegintegral über das Startquadrat. Das
 Resultat muss $N(D) = n$ ergeben, denn alle $n$ Nullstellen liegen drin.
@@ -208,28 +209,38 @@ mit Ableitung $f'(z) = 3z^2 - 2$.
 Die exakten Nullstellen lassen sich noch mit der Formel von Cardano berechnen und
 lauten näherungsweise
 \[
-\alpha_1 \approx -1{,}7693
+\alpha_1 \approx -1{.}7693
 ,
 \qquad
-\alpha_{2,3} \approx 0{,}8846 \pm 0{,}5897\,i
+\alpha_{2,3} \approx 0{.}8846 \pm 0{.}5897\,i
 .
 \]
 Wir tun aber so, als kennen wir sie nicht, und lassen den Algorithmus arbeiten.
+Als Genauigkeit wählen wir in diesem Beispiel $\varepsilon = 10^{-6}$.
+Mit dem Startradius $r=4$ wären nach der Abschätzung
+$m \approx \log_2(2r/\varepsilon)$ rund $23$ Quadtree-Verfeinerungen nötig, um alle
+Nullstellen allein durch den Quadtree bis auf diese Kantenlänge zu lokalisieren.
+Für die Kombination mit Newton werden wir jedoch deutlich früher übergeben.
 
 \subsubsection*{Startquadrat}
 Mit den Koeffizienten $a_0 = 2$, $a_1 = -2$, $a_2 = 0$, $a_3 = 1$ liefert die Formel
 \eqref{weyl:eq:startradius}
 \[
-r
+\max
+\left\{
+\sqrt[3]{4\cdot 2},
+\sqrt{4\cdot 2},
+0
+\right\}
 =
-\frac{|a_0| + |a_1| + |a_2|}{|a_3|}
-=
-\frac{2 + 2 + 0}{1}
-=
-4
+\sqrt{8}
+<
+3
 ,
 \]
-also $D_0 = [-4, 4] \times [-4, 4]$ als Startquadrat.
+also wäre bereits $r=3$ zulässig.
+Wir wählen für das Beispiel den etwas grösseren Radius $r=4$ und damit
+$D_0 = [-4, 4] \times [-4, 4]$ als Startquadrat.
 Die numerische Auswertung von $N(D_0)$ mittels Mittelpunktregel auf jeder Seite
 ergibt den Wert $3$, in Übereinstimmung
 mit dem Grad des Polynoms.
@@ -245,11 +256,11 @@ D_3 &= [-4, 0] \times [-4, 0],
 &
 D_4 &= [0, 4] \times [-4, 0].
 \end{align*}
-Die Auswertung der Wegintegrale liefert allerdings nichtganzzahlige Werte:
-$N(D_1) \approx 0{,}5 - 1{,}01\,i$ und $N(D_3) \approx 0{,}5 + 1{,}01\,i$.
+Die Auswertung der Wegintegrale liefert allerdings nicht ganzzahlige Werte:
+$N(D_1) \approx 0{.}5 - 1{.}01\,i$ und $N(D_3) \approx 0{.}5 + 1{.}01\,i$.
 Das ist kein Rechenfehler, sondern die Symptomatik des in
 Abschnitt~\ref{weyl:subsection:mehrfache} angesprochenen Sonderfalls. Die reelle
-Nullstelle $\alpha_1 \approx -1{,}7693$ liegt exakt auf dem Rand $y = 0$ zwischen $D_1$
+Nullstelle $\alpha_1 \approx -1{.}7693$ liegt exakt auf dem Rand $y = 0$ zwischen $D_1$
 und $D_3$.
 Wir verschieben das Gitter um einen kleinen Betrag $\delta = 10^{-2}$ und teilen
 stattdessen bei der waagerechten Linie $y = \delta$.
@@ -272,14 +283,16 @@ Die Probe stimmt, und $D_1'$ wird als nullstellenfrei verworfen.
 Schon nach einer Iteration sind die drei Nullstellen voneinander getrennt.
 
 \subsubsection*{Weitere Iterationen}
-Wir konzentrieren uns auf $D_2'$, das die Nullstelle $\alpha_2 \approx 0{,}8846 + 0{,}5897\,i$
+Wir konzentrieren uns auf $D_2'$, das die Nullstelle $\alpha_2 \approx 0{.}8846 + 0{.}5897\,i$
 enthält.
 Vierteln liefert vier Teilquadrate, von denen drei leer sind und nur das
-Quadrat $[0, 2] \times [\delta, 2{,}005]$ den Wert $N = 1$ liefert.
+Quadrat $[0, 2] \times [\delta, 2{.}005]$ den Wert $N = 1$ liefert.
 Eine weitere Vierteln-Runde isoliert die Nullstelle im Quadrat
-$[0, 1] \times [\delta, 1{,}008]$ mit Kantenlänge $\approx 1$.
-Wir setzen das Verfahren noch so lange fort, bis die Kantenlänge unter $\varepsilon$
-fällt, und übergeben dann den Mittelpunkt an das Newton-Verfahren.
+$[0, 1] \times [\delta, 1{.}008]$ mit Kantenlänge $\approx 1$.
+Würde man ausschliesslich den Quadtree verwenden, müsste man nun bis zur Kantenlänge
+$\varepsilon = 10^{-6}$ weiterteilen.
+Für die Hybrid-Variante übergeben wir stattdessen schon nach wenigen Schritten den
+Mittelpunkt an das Newton-Verfahren.
 
 \subsubsection*{Übergabe an Newton}
 Brechen wir bereits nach der ersten Vierteln-Runde innerhalb von $D_2'$ ab und
@@ -294,18 +307,19 @@ z_k
 \]
 Dabei bezeichnet $z_k$ den $k$-ten Newton-Iterierten; die Zielnullstelle ist
 $\alpha_2$.
-Damit erhalten wir
+Damit erhalten wir die folgende Tabelle, in der die Anfangsziffern unterstrichen sind,
+die bereits mit der Zielnullstelle übereinstimmen.
 \begin{center}
 \begin{tabular}{rll}
 \toprule
 $k$ & $z_k$ & $|z_k - \alpha_2|$ \\
 \midrule
-$0$ & $1{,}0000 + 1{,}0000\,i$ & $4{,}3 \cdot 10^{-1}$ \\
-$1$ & $0{,}9000 + 0{,}7000\,i$ & $1{,}1 \cdot 10^{-1}$ \\
-$2$ & $0{,}8837 + 0{,}6003\,i$ & $1{,}1 \cdot 10^{-2}$ \\
-$3$ & $0{,}8846 + 0{,}5898\,i$ & $1{,}1 \cdot 10^{-4}$ \\
-$4$ & $0{,}8846461653 + 0{,}5897428062\,i$ & $1{,}2 \cdot 10^{-8}$ \\
-$5$ & $0{,}8846461771 + 0{,}5897428050\,i$ & $< 10^{-10}$ \\
+$0$ & $1{.}0000 + 1{.}0000\,i$ & $4{.}3 \cdot 10^{-1}$ \\
+$1$ & $0{.}9000 + 0{.}7000\,i$ & $1{.}1 \cdot 10^{-1}$ \\
+$2$ & $\underline{0{.}88}37 + 0{.}6003\,i$ & $1{.}1 \cdot 10^{-2}$ \\
+$3$ & $\underline{0{.}8846} + \underline{0{.}589}8\,i$ & $1{.}1 \cdot 10^{-4}$ \\
+$4$ & $\underline{0{.}8846461}653 + \underline{0{.}58974280}62\,i$ & $1{.}2 \cdot 10^{-8}$ \\
+$5$ & $\underline{0{.}8846461771} + \underline{0{.}5897428050}\,i$ & $< 10^{-10}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -313,7 +327,7 @@ Die quadratische Konvergenz ist gut zu erkennen. Die Anzahl korrekter Nachkommas
 verdoppelt sich von Schritt zu Schritt und nach fünf Iterationen ist die
 Maschinengenauigkeit nahezu erreicht.
 Zugleich bleiben alle aufgeführten Iterierten im übergebenen Quadrat
-$[0, 2] \times [\delta, 2{,}005]$.
+$[0, 2] \times [\delta, 2{.}005]$.
 Das ist ein einfacher nachträglicher Test dafür, dass das Quadrat für die Übergabe
 an Newton klein genug gewählt wurde.
 Für $\alpha_3 = \overline{\alpha_2}$ und $\alpha_1$ verläuft das Verfahren analog mit jeweils
@@ -334,6 +348,13 @@ zusammenfallend betrachten kann.
 Liegt eine echte mehrfache Nullstelle vor, terminiert das Verfahren erst wenn die
 Kantenlänge unter $\varepsilon$ fällt. Das Quadrat mit $N(D_i) = k > 1$ wird dann mit
 dem Hinweis {$k$-fache Nullstelle} ausgegeben.
+Das gewöhnliche Newton-Verfahren hilft in diesem Fall nicht im gleichen Mass wie
+bei einfachen Nullstellen. An einer mehrfachen Nullstelle verschwindet auch die
+Ableitung, und die quadratische Konvergenz geht verloren. Selbst bei einem guten
+Startwert konvergiert die Newton-Iteration dann im Allgemeinen nur linear. Deshalb
+bleibt die Bisektion bis zur vorgeschriebenen Genauigkeit die robuste Variante.
+Ein modifiziertes Newton-Verfahren wäre erst dann naheliegend, wenn die
+Vielfachheit der Nullstelle bereits bekannt ist.
 
 Liegt zufällig eine Nullstelle exakt auf dem Rand $\partial D_i$ eines Quadrats, so ist
 das Integral nicht wohldefiniert.
