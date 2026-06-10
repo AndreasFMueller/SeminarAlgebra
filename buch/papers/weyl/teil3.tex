@@ -53,6 +53,15 @@ Abbildung~\ref{weyl:fig:hybrid} skizziert das Zusammenspiel:
 Der Quadtree übernimmt die globale Lokalisation und garantiert, dass jede Nullstelle
 gefunden wird. Das Newton-Verfahren übernimmt die schnelle Feinkonvergenz auf den
 letzten Metern.
+Natürlich kann man alle Nullstellen auch anders suchen. Hat man eine Nullstelle
+$\alpha$ numerisch gefunden, kann man den Faktor $(z-\alpha)$ abspalten und im
+deflationierten Polynom weiterrechnen. Der Nachteil ist, dass der numerische Fehler
+von $\alpha$ in die Koeffizienten des neuen Polynoms eingeht und dadurch die
+Genauigkeit der später gefundenen Nullstellen beeinträchtigen kann.
+Beim Weyl-Algorithmus tritt dieses Problem nicht auf, weil die Nullstellen in
+verschiedenen Quadraten \emph{unabhängig} voneinander lokalisiert werden. Sobald der
+Baum mehrere aktive Quadrate enthält, können diese Teilprobleme sogar parallel
+bearbeitet werden.
 
 \subsection{Stärken und Schwächen%
 \label{weyl:subsection:einordnung}}
