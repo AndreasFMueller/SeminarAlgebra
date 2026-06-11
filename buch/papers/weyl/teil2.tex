@@ -20,6 +20,7 @@ in der jeder Knoten bis zu vier Kinder hat --- daher der Name \emph{Quadtree}.
 
 \subsection{Das Startquadrat%
 \label{weyl:subsection:startquadrat}}
+\index{Startquadrat}%
 Wir beginnen mit einem Quadrat
 \[
 D
@@ -90,6 +91,7 @@ N(D)
 \label{weyl:eq:probe}
 \end{equation}
 Diese Identität ist ein willkommener Selbsttest jeder Iteration.
+\index{Selbsttest}%
 Schlägt der Test fehl, sollte man in diesem Schritt noch kein Teilquadrat verwerfen.
 Zunächst wird das Integral mit feinerer Quadratur oder höherer Rechengenauigkeit erneut
 ausgewertet, denn kleine numerische Fehler können die ganzzahligen Werte verfälschen.
@@ -151,6 +153,7 @@ Für eine Genauigkeit von $10^{-6}$ bei Startradius $r = 10$ sind das rund $24$ 
 
 \subsection{Pseudocode%
 \label{weyl:subsection:pseudocode}}
+\index{Pseudocode}%
 Stellen wir die Schritte als kompakten Pseudocode zusammen.
 Listing~\ref{weyl:alg:quadtree} fasst den Algorithmus zusammen.
 
@@ -207,12 +210,13 @@ z^3 - 2z + 2
 \end{equation}
 mit Ableitung $f'(z) = 3z^2 - 2$.
 Die exakten Nullstellen lassen sich noch mit der Formel von Cardano berechnen und
+\index{Cardano, Gerolamo}%
 lauten näherungsweise
 \[
-\alpha_1 \approx -1{.}7693
+\alpha_1 \approx -1.7693
 ,
 \qquad
-\alpha_{2,3} \approx 0{.}8846 \pm 0{.}5897\,i
+\alpha_{2,3} \approx 0.8846 \pm 0.5897\,i
 .
 \]
 Wir tun aber so, als kennen wir sie nicht, und lassen den Algorithmus arbeiten.
@@ -257,10 +261,10 @@ D_3 &= [-4, 0] \times [-4, 0],
 D_4 &= [0, 4] \times [-4, 0].
 \end{align*}
 Die Auswertung der Wegintegrale liefert allerdings nicht ganzzahlige Werte:
-$N(D_1) \approx 0{.}5 - 1{.}01\,i$ und $N(D_3) \approx 0{.}5 + 1{.}01\,i$.
+$N(D_1) \approx 0.5 - 1.01\,i$ und $N(D_3) \approx 0.5 + 1.01\,i$.
 Das ist kein Rechenfehler, sondern die Symptomatik des in
 Abschnitt~\ref{weyl:subsection:mehrfache} angesprochenen Sonderfalls. Die reelle
-Nullstelle $\alpha_1 \approx -1{.}7693$ liegt exakt auf dem Rand $y = 0$ zwischen $D_1$
+Nullstelle $\alpha_1 \approx -1.7693$ liegt exakt auf dem Rand $y = 0$ zwischen $D_1$
 und $D_3$.
 Wir verschieben das Gitter um einen kleinen Betrag $\delta = 10^{-2}$ und teilen
 stattdessen bei der waagerechten Linie $y = \delta$.
@@ -283,12 +287,12 @@ Die Probe stimmt, und $D_1'$ wird als nullstellenfrei verworfen.
 Schon nach einer Iteration sind die drei Nullstellen voneinander getrennt.
 
 \subsubsection*{Weitere Iterationen}
-Wir konzentrieren uns auf $D_2'$, das die Nullstelle $\alpha_2 \approx 0{.}8846 + 0{.}5897\,i$
+Wir konzentrieren uns auf $D_2'$, das die Nullstelle $\alpha_2 \approx 0.8846 + 0.5897\,i$
 enthält.
 Vierteln liefert vier Teilquadrate, von denen drei leer sind und nur das
-Quadrat $[0, 2] \times [\delta, 2{.}005]$ den Wert $N = 1$ liefert.
+Quadrat $[0, 2] \times [\delta, 2.005]$ den Wert $N = 1$ liefert.
 Eine weitere Vierteln-Runde isoliert die Nullstelle im Quadrat
-$[0, 1] \times [\delta, 1{.}008]$ mit Kantenlänge $\approx 1$.
+$[0, 1] \times [\delta, 1.008]$ mit Kantenlänge $\approx 1$.
 Würde man ausschliesslich den Quadtree verwenden, müsste man nun bis zur Kantenlänge
 $\varepsilon = 10^{-6}$ weiterteilen.
 Für die Hybrid-Variante übergeben wir stattdessen schon nach wenigen Schritten den
@@ -310,16 +314,16 @@ $\alpha_2$.
 Damit erhalten wir die folgende Tabelle, in der die Anfangsziffern unterstrichen sind,
 die bereits mit der Zielnullstelle übereinstimmen.
 \begin{center}
-\begin{tabular}{rll}
+\begin{tabular}{>{$}r<{$}>{$}l<{$}>{$}r<{$}}
 \toprule
-$k$ & $z_k$ & $|z_k - \alpha_2|$ \\
+k & z_k                                                                        & |z_k - \alpha_2|\phantom{0}  \\
 \midrule
-$0$ & $1{.}0000 + 1{.}0000\,i$ & $4{.}3 \cdot 10^{-1}$ \\
-$1$ & $0{.}9000 + 0{.}7000\,i$ & $1{.}1 \cdot 10^{-1}$ \\
-$2$ & $\underline{0{.}88}37 + 0{.}6003\,i$ & $1{.}1 \cdot 10^{-2}$ \\
-$3$ & $\underline{0{.}8846} + \underline{0{.}589}8\,i$ & $1{.}1 \cdot 10^{-4}$ \\
-$4$ & $\underline{0{.}8846461}653 + \underline{0{.}58974280}62\,i$ & $1{.}2 \cdot 10^{-8}$ \\
-$5$ & $\underline{0{.}8846461771} + \underline{0{.}5897428050}\,i$ & $< 10^{-10}$ \\
+0 & 1.0000\phantom{000000} + 1.0000\,i\phantom{000000}                         & 4.3 \cdot 10^{-1\phantom{0}} \\
+1 & 0.9000\phantom{000000} + 0.7000\,i\phantom{000000}                         & 1.1 \cdot 10^{-1\phantom{0}} \\
+2 & 0.\underline{88}37\phantom{000000} + 0.6003\,i\phantom{000000}             & 1.1 \cdot 10^{-2\phantom{0}} \\
+3 & 0.\underline{8846}\phantom{000000} + 0.\underline{589}8\,i\phantom{000000} & 1.1 \cdot 10^{-4\phantom{0}} \\
+4 & 0.\underline{8846461}653 + 0.\underline{58974280}62\,i                     & 1.2 \cdot 10^{-8\phantom{0}} \\
+5 & 0.\underline{8846461771} + 0.\underline{5897428050}\,i                     & < 10^{-10}                   \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -327,7 +331,7 @@ Die quadratische Konvergenz ist gut zu erkennen. Die Anzahl korrekter Nachkommas
 verdoppelt sich von Schritt zu Schritt und nach fünf Iterationen ist die
 Maschinengenauigkeit nahezu erreicht.
 Zugleich bleiben alle aufgeführten Iterierten im übergebenen Quadrat
-$[0, 2] \times [\delta, 2{.}005]$.
+$[0, 2] \times [\delta, 2.005]$.
 Das ist ein einfacher nachträglicher Test dafür, dass das Quadrat für die Übergabe
 an Newton klein genug gewählt wurde.
 Für $\alpha_3 = \overline{\alpha_2}$ und $\alpha_1$ verläuft das Verfahren analog mit jeweils
@@ -345,12 +349,14 @@ in ein Quadrat, so bleibt $N(D_i) \geq 2$, auch wenn das Quadrat schon klein ist
 Der Algorithmus erkennt das automatisch und teilt weiter, bis sich die Nullstellen
 trennen oder das Quadrat so klein wird, dass man die Nullstellen als praktisch
 zusammenfallend betrachten kann.
+\index{Nullstelle!mehrfache}%
 Liegt eine echte mehrfache Nullstelle vor, terminiert das Verfahren erst wenn die
 Kantenlänge unter $\varepsilon$ fällt. Das Quadrat mit $N(D_i) = k > 1$ wird dann mit
 dem Hinweis {$k$-fache Nullstelle} ausgegeben.
 Das gewöhnliche Newton-Verfahren hilft in diesem Fall nicht im gleichen Mass wie
 bei einfachen Nullstellen. An einer mehrfachen Nullstelle verschwindet auch die
 Ableitung, und die quadratische Konvergenz geht verloren. Selbst bei einem guten
+\index{Konvergenz!linear}%
 Startwert konvergiert die Newton-Iteration dann im Allgemeinen nur linear. Deshalb
 bleibt die Bisektion bis zur vorgeschriebenen Genauigkeit die robuste Variante.
 Ein modifiziertes Newton-Verfahren wäre erst dann naheliegend, wenn die

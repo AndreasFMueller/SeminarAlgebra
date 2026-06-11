@@ -26,6 +26,7 @@ Sei $D \subseteq \mathbb{C}$ ein kompaktes Gebiet mit stückweise glattem,
 positiv orientiertem Rand $\partial D$ und sei $g\colon D \to \mathbb{C}$ eine
 holomorphe Funktion auf einer offenen Umgebung von $D$.
 Der Cauchy-Integralsatz besagt dann
+\index{Cauchy-Integralsatz}%
 \begin{equation}
 \oint_{\partial D} g(z)\, dz
 =
@@ -33,6 +34,7 @@ Der Cauchy-Integralsatz besagt dann
 \label{weyl:eq:cauchy-integralsatz}
 \end{equation}
 und seine geringfügige Verallgemeinerung --- die Cauchy-Integralformel --- liefert
+\index{Cauchy-Integralformel}%
 für einen Punkt $z_0$ im Inneren von $D$
 \begin{equation}
 g(z_0)
@@ -55,6 +57,7 @@ auf, wobei genau diese Eigenschaft der Schlüssel zum Algorithmus ist.
 Sei nun $f$ ein Polynom vom Grad $n$ mit den Nullstellen $\alpha_1, \dots, \alpha_n \in \mathbb{C}$
 (mit Vielfachheit aufgeführt).
 Nach dem Fundamentalsatz der Algebra dürfen wir schreiben
+\index{Fundamentalsatz der Algebra}%
 \begin{equation}
 f(z)
 =
@@ -64,10 +67,12 @@ a_n (z - \alpha_1)(z - \alpha_2) \cdots (z - \alpha_n)
 \end{equation}
 Die entscheidende Beobachtung ist nun die folgende: bildet man die
 \emph{logarithmische Ableitung} von $f$, also den Quotienten
+\index{logarithmische Ableitung}%
 $f'(z)/f(z)$, so verwandeln sich die Nullstellen von $f$ in Polstellen vom Typ
 $1/(z - \alpha_k)$, die das Wegintegral nach Gleichung~\eqref{weyl:eq:cauchy-integralformel}
 gerade erkennt.
 Konkret folgt aus \eqref{weyl:eq:faktorisierung} mit der Produktregel
+\index{Produktregel}%
 \begin{equation}
 \frac{f'(z)}{f(z)}
 =
@@ -86,6 +91,7 @@ Wert $2\pi i$ bei, falls $\alpha_k$ im Inneren von $D$ liegt und $0$ sonst.
 Liegt keine Nullstelle auf dem Rand $\partial D$, so summieren sich diese Beiträge auf
 $2\pi i \cdot N(D)$, wobei $N(D)$ die Anzahl der Nullstellen von $f$ im Inneren von
 $D$ bezeichnet.
+\index{N(D)@$N(D)$}%
 Nach Division durch $2\pi i$ erhalten wir das zentrale Resultat, auf dem Weyls
 Algorithmus aufbaut.
 
@@ -123,6 +129,7 @@ Die Antwort erhalten wir aber durch eine analytische Grösse, nämlich durch ein
 Wegintegral, das sich berechnen lässt.
 Besonders bemerkenswert ist dabei, dass dieses Integral nur auf dem
 \emph{Rand} $\partial D$ ausgewertet wird.
+\index{Rand}%
 Damit zeigt sich im Kleinen genau jenes Zusammenspiel von Algebra und Analysis,
 das zu den Leitmotiven dieses Buches gehört.
 
@@ -130,6 +137,7 @@ das zu den Leitmotiven dieses Buches gehört.
 \label{weyl:subsection:argument}}
 Hinter der Formel steckt eine schöne geometrische Anschauung, die auch den Namen
 ``Argumentprinzip'' erklärt.
+\index{Argumentprinzip}%
 Mit der Identität $f'/f = (\log f)'$ können wir das Integral umschreiben als
 \begin{equation}
 \frac{1}{2\pi i}
@@ -163,6 +171,7 @@ würde die Bildkurve durch den Ursprung gehen und ihre Drehzahl wäre nicht wohl
 
 \subsection{Vom Wegintegral zum Nullstellentest%
 \label{weyl:subsection:zusammenfassung-grundlagen}}
+\index{Nullstellentest}%
 Mit Satz~\ref{weyl:satz:nullstellen-zaehlen} haben wir genau den Test gewonnen, der uns für die
 komplexe Bisektion gefehlt hat: Für ein geeignetes Gebiet $D \subseteq \mathbb{C}$
 können wir die Anzahl der darin enthaltenen Nullstellen durch ein Wegintegral
@@ -172,3 +181,4 @@ Ableitung $f'/f$ ist die Brücke zwischen Polynom und Wegintegral: sie verwandel
 verborgenen Nullstellen in sichtbare Polstellen, deren Beiträge das Integral zählen
 kann.
 Damit liegen alle Bausteine für den eigentlichen Algorithmus bereit.
+
