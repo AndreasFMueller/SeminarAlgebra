@@ -39,7 +39,7 @@
 \begin{scope}[xshift=0cm]
   % Stadium-Labels
   \node[stagelabel] at (1.75,4.0) {Schritt 1};
-  \node[sublabel] at (1.75,3.55) {Startquadrat};
+  \node[sublabel] at (1.75,3.55) {Startquadrat\strut};
   \begin{scope}[yshift=-0.25cm]
   % Grosses Quadrat
   \draw[stage1] (0,0) rectangle (3.5,3.5);
@@ -49,16 +49,16 @@
   \node[count] at (1.75,1.75) {$N = 8$};
   \end{scope}
   % Unter-Beschriftung
-  \node[sublabel] at (1.75,-0.65) {alle $8$ Nullstellen drin};
+  \node[sublabel] at (1.75,-0.65) {alle $8$ Nullstellen drin\strut};
 \end{scope}
 %
 % Pfeil 1
 \draw[->,thick,gray!60!black] (3.8,1.5) -- (4.7,1.5);
 %
 % ============ STADIUM 2: Vierteln und Zählen ============
-\begin{scope}[xshift=5cm]
+\begin{scope}[xshift=4.9cm]
   \node[stagelabel] at (1.75,4.0) {Schritt 2};
-  \node[sublabel] at (1.75,3.55) {vierteln und zählen};
+  \node[sublabel] at (1.75,3.55) {vierteln und zählen\strut};
   \begin{scope}[yshift=-0.25cm]
   % 4 Quadrate (oben links: 4, oben rechts: 3, unten links: 1, unten rechts: 0)
   \draw[stage2] (0,1.75)    rectangle (1.75,3.5);   % oben links
@@ -74,16 +74,16 @@
   \node[count] at (2.625,0.875) {$0$};
   \end{scope}
   % Unter-Beschriftung
-  \node[sublabel] at (1.75,-0.65) {Integral zählt jede Zelle};
+  \node[sublabel] at (1.75,-0.65) {Integral zählt jede Zelle\strut};
 \end{scope}
 %
 % Pfeil 2
-\draw[->,thick,gray!60!black] (8.8,1.5) -- (9.7,1.5);
+\draw[->,thick,gray!60!black] (8.7,1.5) -- (9.6,1.5);
 %
 % ============ STADIUM 3: Verfeinern, leere weg ============
-\begin{scope}[xshift=10cm]
+\begin{scope}[xshift=9.8cm]
   \node[stagelabel] at (1.75,4.0) {Schritt 3};
-  \node[sublabel] at (1.75,3.55) {leere weg, weiter teilen};
+  \node[sublabel] at (1.75,3.55) {leere weg, weiter teilen\strut};
   \begin{scope}[yshift=-0.25cm]
   % Oben links (war 4): 4 kleinere Quadrate mit 1 2 1 0
   \draw[stage3] (0,1.75)        rectangle (0.875,2.625);
@@ -116,10 +116,10 @@
   \draw[discarded] (1.75,0) rectangle (3.5,1.75);
   % Nullstellen zum Nachzählen
   \weylquadtreezeros
-  \node[sublabel,opacity=0.6] at (2.625,0.875) {verworfen};
+  \node[sublabel,opacity=0.6] at (2.625,0.875) {verworfen\strut};
   \end{scope}
   % Unter-Beschriftung
-  \node[sublabel] at (1.75,-0.65) {leere Zellen aus, wiederholen};
+  \node[sublabel] at (1.75,-0.65) {leere Zellen aus, wiederholen\strut};
 \end{scope}
 %
 
