@@ -33,24 +33,579 @@ Die folgende Darstellung des Algorithmus stützt sich weitgehend auf
 %
 \subsection{Übersicht über den Algorithmus
 \label{buch:intalg:risch:uebersicht}}
+Bevor wir die notwendigerweise unterschiedlichen Vorgehensweisen 
+für logarithmische, exponentielle und algebraische Erweiterungen
+im Detail betrachten, wollen wir in diesem Abschnitt die für alle
+Fälle gemeinsame prinzipielle Vorgehensweise
+des Algorithmus skizzieren.
 
+%
+% Die Aufgabenstellung
+%
 \subsubsection{Die Aufgabenstellung}
+Es ist ein Algorithmus zu entwickeln, der zu einer elementaren Funktion
+eine elementare Stammfunktion findet, sofern eine solche existiert.
+Falls keine elementare Stammfunktion existiert, soll der Algorithmus
+einen Beweis für diese Tatsache konstruieren.
+Um dieses Ziel zu erreichen, muss zunächst klargestellt werden, welche
+Funktionen als Integranden in Frage kommen sollen.
 
+Zu den Funktionen, die als Stammfunktionen zugelassen werden sollen,
+sollen mindestens alle rationalen Funktionen mit rationalen Koeffizienten
+gehören.
+Wir gehen also von einem Funktionenkörper aus, der eine Erweiterung
+von $\mathbb{Q}$ um ein transzendentes Element $x$ ist, welches die
+Eigenschaft $Dx=1$ hat.
+Dieser Körper wird auch mit $\mathbb{Q}(x)$ bezeichnet.
+
+Ein typisches Computeralgebrasystem wird noch weitere Konstanten
+als Koeffizienten der rationalen Funktionen zulassen, zum Beispiel
+Naturkonstanten wie $g$ oder $c$, denen man zwar auch einen numerischen
+Wert zuordnen kann, aber man interessiert sich durchaus auch dafür, 
+wie solche Konstanten in die Stammfunktion eingehen können.
+Solche Konstanten können als transzendente Erweiterungen des Körpers
+$\mathbb{Q}$ angesehen werden, die zusätzlich die Eigenschaft haben,
+dass ihre Ableitung verschwindet.
+Weiter ist es möglich, dass zusätzliche mathematische Konstanten
+benötigt werden.
+Diese können sowohl transzendente Erweiterungen sein wie $\pi$, $e$,
+$\zeta(2)=\pi^2/6$ oder $\zeta(3)$, oder sie können algebraisch sein wie
+$\!\sqrt{2}$ oder $\sqrt[3]{7}$.
+Die algebraische Abhängigkeit dieser Konstanten untereinander wird
+nicht weiter untersucht und hat auch keinen Einfluss das Integrationsproblem.
+
+Innerhalb des Konstantenkörpers kann es durchaus passieren, dass eine
+transzendente Konstante in einer algebraischen Erweiterung von
+$\mathbb{Q}$ liegt.
+Dies passiert zum Beispiel für die transzendente Konstate $\pi$,
+$\mathbb{Q}\subset \mathbb{Q}(\pi)$ ist eine transzendente Erweiterung.
+Sie enthält auch $\zeta(2) = \pi^2/6$.
+Andererseits ist $\mathbb{Q}(\zeta(2)) \subset \mathbb{Q}(\zeta(2),\pi)$
+eine algebraische Erweiterung, da $\pi$ eine Nullstelle des Polynoms
+\[
+p(X)
+=
+X^2 - 6\zeta(2)
+=
+X^2 - \pi^2
+\qquad
+\Rightarrow
+\qquad
+p(\pi)=0
+\]
+ist.
+Während $\mathbb{Q}(\pi)$ auch $\zeta(2)$ bereits enthält, braucht
+es eine algebraische Erweiterung von $\mathbb{Q}(\zeta(2))$, um $\pi$
+zu finden.
+Im Folgenden nehmen wir an, dass alle nötigen Konstanten von Anfang
+an dem Körper $\mathbb{Q}$ hinzugefügt worden sind und den Konstantenkörper
+$K$ bilden.
+
+Es ist auch denkbar, dass während der Bestimmung der Stammfunktion weitere
+Konstanten benötig werden. 
+Zum Beispiel kann es nötig sein, ein Polynom zu faktorisieren.
+Die dabei gefundenen Nullstellen sind algebraische Konstanten über
+dem Körper $K$.
+Dazu gehört insbesondere auch das Element $i$ mit $i^2=-1$, welches
+zum Beispiel für die Konstruktion der trigonometrischen Funktionen
+benötigt wird.
+Auch diese Konstanten sollen von Anfang an in $K$ enthalten sein, so
+dass es später nicht mehr nötig ist, den Körper zu erweitern.
+
+Die Konstruktion des differentiellen Funktionenkörpers beginnt daher
+mit dem trans\-zen\-den\-ten Element $x$ und dem Körper $F=K(x)$ der rationalen
+Funktionen in $x$ mit Koeffizienten in $K$.
+Diesem Körper werden jetzt weiter drei Arten von Funktionen hinzugefügt:
+\begin{itemize}
+\item
+Logarithmische Erweiterungen: Dies sind Funktionen $\vartheta=\log u$,
+die durch die Eigenschaft $D\vartheta= Du/u$ bis auf einen Konstanten
+definiert sind.
+\item
+Exponentielle Erweiterungen: Dies sind FUnktionen $\vartheta=e^u$,
+die durch die Eigenschaft $D\vartheta = \vartheta\cdot Du$ bis auf einen
+skalaren Faktor definiert sind.
+\item
+Algebraische Elemente: Dies sind Funktionen $\vartheta$, die eine algebraische
+Gleichung
+\[
+a_n\vartheta^n + a_{n-1}\vartheta^{n-1} + \dots + a_1\vartheta + a_0 = 0
+\]
+erfüllen.
+\end{itemize}
+Um einen zulässigen Integranden oder eine Stammfunktion zu konstruieren,
+kann es notwendig sein, mehrere solche Erweiterungen hinzufügen, die auch
+von verschiedener Art sein können.
+Wir haben also mit einer Folge von Erweiterungen
+\[
+F
+\subset
+\underbrace{
+F(\vartheta_1)
+}_{\displaystyle = F_1}
+\subset
+\underbrace{
+F(\vartheta_1,\vartheta_2)
+}_{\displaystyle = F_2}
+\subset
+\dots
+\subset
+\underbrace{
+F(\vartheta_1,\vartheta_2,\dots,\vartheta_n)
+}_{\displaystyle=F_n}
+\]
+zu tun.
+Insbesondere ist auch
+\[
+F_n = F_{n-1}(\vartheta_n)=F(\vartheta_1,\dots,\vartheta_{n-1})(\vartheta_n).
+\]
+Dieser Aufbau des Funktionenkörpers durch wiederholte Adjunktion von 
+logarithmischen, exponentiellen oder algebraischen Elementen war auch
+bereits der Rahmen, in dem das Liouville-Prinzip formuliert und im
+Abschnitt~\ref{buch:intalg:liouville:subsection:allgemein}
+bewiesen wurde.
+
+Mit den Differentialkörpern $F_k$ kann jetzt die Aufgabenstellung 
+genauer formuliert werden.
+Zu einer Funktion $f\in F_n$ soll der Algorithmus eine Stammfunktion
+$g\in F_n$ finden, also eine Funktion $Dg=f$.
+Falls keine solche Funktion existiert, soll er einen Beweis dafür
+konstruieren.
+
+%
+% Der polynomielle und der rationale Teil
+%
 \subsubsection{Der polynomielle und der rationale Teil}
+Wir betrachten eine Funktion $f\in F_n = F_{n-1}(\vartheta_n)$ und
+versuchen die Frage zu beantworten, ob $f$ eine Stammfunktion in
+$F_n$ hat.
+Dies bedeutet, dass $f$ als eine rationale Funktion der Form
+\begin{equation}
+f
+= 
+\frac{p(\vartheta_n)}{q(\vartheta_n)},
+\qquad
+p(\vartheta_n), q(\vartheta_n)\in F_{n-1}[\vartheta_n]
+\label{buch:intalg:risch:uebersicht:eqn:integrand}
+\end{equation}
+geschrieben werden kann.
+Im Gegensatz zur Situation in Kapitel~\ref{chapter:ratint}, wo rationale
+Funktionen mit konstanten Koeffizienten untersucht wurden, haben
+die Polynome $p(\vartheta_n)$ und $q(\vartheta_n)$ Koeffizienten
+in $F_{n-1}$, sind also selbst Funktionen.
 
+Auf die Polynome im Integranden
+\eqref{buch:intalg:risch:uebersicht:eqn:integrand}
+kann der Polynomdivisionsalgorithmus angewendet werden, was auf die
+Zerlegung
+\[
+\frac{p(\vartheta_n)}{q(\vartheta_n)}
+=
+s(\vartheta_n)
++
+\frac{r(\vartheta_n)}{q(\vartheta_n)},
+\qquad
+s(\vartheta_n), q(\vartheta_n) \in F_{n-1}[\vartheta_n],
+\]
+führt.
+Das Polynom $r(\vartheta_n)$ hat Grad
+$\deg r(\vartheta_n) < \deg q(\vartheta_n)$.
+Wir nennen $s(\vartheta_n)$ den polynomiellen Teil und den Bruch
+den rationalen Teil.
+
+Das gesuchte Integral kann jetzt in die zwei Integrale
+\[
+\int f
+=
+\int
+\frac{p(\vartheta_n)}{q(\vartheta_n)}
+=
+\underbrace{
+\int s(\vartheta_n)
+}_{\displaystyle\text{polynomieller Teil\strut}}
++
+\underbrace{
+\int
+\smash{\frac{r(\vartheta_n)}{q(\vartheta_n)}}.
+}_{\displaystyle\text{rationaler Teil\strut}}
+\]
+zerlegt werden.
+Im Falle rationaler Funktionen war der polynomielle Teil sehr einfach
+auszuführen, da $\int z^n=z^{n+1}/(n+1)$.
+Im vorliegenden, allgemeineren Fall wird eine neue Methode nötig.
+Schon das einfache Polynom $s(\vartheta_n) = \vartheta_n$ führt auf
+das nichttriviale Integral $\int s(\vartheta_n) = \int\vartheta_n$.
+Wegen der sehr unterschiedlichen Eigenschaften der verschiedenen Arten
+von Erweiterungen wird dies jeweils unterschiedliche Vorgehensweisen
+erfordern, die in den nachfolgenen Abschnitten für jede Erweiterung
+separat entwickelt werden müssen.
+Die in Kapitel~\ref{chapter:ratint} mit einer Randbemerkung erledigte
+Behandlung des polynomiellen Teils muss daher nochmals neu aufgerollt
+werden und wird zu zusätzlichen Einschränkungen für die Existenz
+einer Stammfunktion führen.
+
+Für den rationalen Teil können wir ebenfalls versuchen, die
+bereits bekannten Techniken anzuwenden.
+Wir können eine quadratfreie Faktorisierung des Nenners $q(\vartheta_n)$
+in Faktoren $b_k(\vartheta_n)\in F_{n-1}[\vartheta_n]$ vornehmen und
+damit den Bruch in Partialbrüche aufteilen.
+Weiter können wir die Methode von Hermite die Partialbrüche 
+anwenden und damit den Nennerexponenten auf $1$ reduzieren.
+Schliesslich können wir die Methode von Rothstein-Trager anwenden,
+um die Koeffizienten $c_i$ und die Funktion $v_i\in F_{n-1}$ für
+die Liouville-Darstellung der Stammfunktion zu finden.
+Dabei wird sich allerdings eine neue Einschränkung ergeben, die darauf
+beruht, dass die $c_i$, die die Methode von Rothstein-Trager findet,
+Konstanten sein müssen.
+Da die Koeffizienten der Zähler- und Nennerpolynome nicht konstant sein
+müssen, könnten sich auch nicht konstante $c_i$ ergeben, was dann
+beweist, dass die Stammfunktion nicht existieren kann.
+
+Der Integrationsalgorithmus in $F_n$ folgt also ziemlich genau die
+Vorgehensweise des Integrationsalgorithmus in $K(z)$.
+Um die Notation zu vereinfachen, ist es daher angebracht, $F=F_{n-1}$
+und $\vartheta=\vartheta_{n}$ zu setzen.
+Zu $f\in F(\vartheta)=F_{n-1}(\vartheta_n)=F_n$ ist dann eine Stammfunktion
+in $F(\vartheta)$ gesucht.
+Im Gegensatz zur Situation in Kapitel~\ref{chapter:ratint} ist es
+aber möglich, dass die Stammfunktion tatsächlich existiert.
+
+%
+% Die Methode von Hermite
+%
+\subsubsection{Die Methode von Hermite}
+Die Methode von Hermite verwendet eine quadratfreie Faktorisierung 
+\[
+q(\vartheta)
+=
+b_1(\vartheta) b_2(\vartheta)^2 \cdots b_m(\vartheta)^m,
+\]
+in der jeder Faktor $b_k(\vartheta)$ quadratfrei ist.
+Zu dieser Faktorisierung gibt es immer eine Partialbruchzerlegung
+\begin{equation}
+\frac{r(\vartheta)}{q(\vartheta)}
+=
+\sum_{i=1}^m \sum_{k=1}^i \frac{a_{ik}(\vartheta)}{b_i(\vartheta)^k}
+\end{equation}
+mit $a_{ik}(\vartheta)\in F[\vartheta]$ und
+$\deg a_{ik}(\vartheta)<\deg b_i(\vartheta)$.
+Das Integral des rationalen Teils ist damit
+\begin{equation}
+\int
+\frac{r(\vartheta)}{q(\vartheta)}
+=
+\sum_{i=1}^m \sum_{k=1}^i
+\int \frac{a_{ik}(\vartheta)}{b_i(\vartheta)^k}.
+\end{equation}
+Es ist also nötig, Integrale der Form
+\begin{equation}
+\int \frac{a(\vartheta)}{b(\vartheta)^k}
+\qquad
+a(\vartheta), b(\vartheta)\in F[\vartheta]
+\label{buch:intalg:risch:eqn:ratpart}
+\end{equation}
+zu bestimmen, mit dem quadratfreien Nennerpolynom
+$b(\vartheta)$ mit $\deg a(\vartheta) < \deg b(\vartheta)$.
+Die Methode von Hermite versucht, die
+Integrale~\eqref{buch:intalg:risch:eqn:ratpart}
+zu vereinfachen.
+
+Da $b(\vartheta)$ quadratfrei ist, sind $b(\vartheta)$ und $Db(\vartheta)$
+in den meisten Fällen teilerfremd.
+Die Fälle von Faktoren $\vartheta$ des Nennerpolynoms, in denen dies nicht
+zutrifft, hängen von der Art der Erweiterung $\vartheta$ ab und werden
+später separat diskutiert.
+Teilerfremdheit bedeutet, dass es Polynome $s(\vartheta)$ und $t(\vartheta)$
+gibt mit
+\[
+a(\vartheta)
+=
+s(\vartheta) b(\vartheta)
++
+t(\vartheta) Db(\vartheta).
+\]
+Damit wird das Integral zu
+\begin{align*}
+\int
+\frac{a(\vartheta)}{b(\vartheta)^k}
+&=
+\int
+\frac{s(\vartheta)}{b(\vartheta)^{k-1}}
++
+\int t(\vartheta)\frac{Db(\vartheta)}{b(\vartheta)^k}
+\intertext{und mit partieller Integration wird daraus}
+&=
+\int
+\frac{s(\vartheta)-Dt(\vartheta)/(k-1)}{b(\vartheta)^{k-1}}
++
+\frac{t(\vartheta)/(k-1)}{b(\vartheta)^{k-1}}.
+\end{align*}
+Der Zähler des ersten Integrals hat möglicherweise grösseren Grad
+als $b(\vartheta)$.
+Die Polynomdivision macht daraus einen zusätzlichen Beitrag zum polynomiellen
+Teil.
+Es bleibt das Problem, Integrale der Form~\eqref{buch:intalg:risch:eqn:ratpart}
+zu bestimmen $k-1$ anstelle von $k$.
+
+Durch wiederholte Anwendung dieser Methode ist das Problem damit reduziert
+auf Integrale der Form
+\[
+\int\frac{a(\vartheta)}{b(\vartheta)},
+\qquad
+a(\vartheta), b(\vartheta) \in F[\vartheta],
+\]
+wobei $b(\vartheta)$ quadratfrei ist.
+
+%
+% b(\vartheta) und Db(\vartheta)
+%
+\subsubsection{$b(\vartheta)$ und $Db(\vartheta)$}
+Der entscheidende Schritt für die Durchführbarkeit der Methode von Hermite 
+war die Garantie, dass
+\[
+a(\vartheta)
+=
+s(\vartheta) b(\vartheta)
++
+t(\vartheta) Db(\vartheta)
+\]
+geschrieben werden kann.
+Falls $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind, dann gilt
+dies nach dem erweiterten euklidischen Algorithmus tatsächlich.
+Für ein quadratfreies Polynom in $u(z)\in K[z]$ wissen wir auch bereits,
+dass $u(z)$ und die Ableitung $u'(z)$ teilerfremd sind.
+Bei der Ableitung $Db(\vartheta)$ werden aber nicht nur die Potenzen
+$\vartheta^k$ abgeleitet, sondern auch die Koeffizienten des Polynoms.
+Wir führen zur Unterscheidung die Notation des \emph{abgeleiteten Polynoms}
+gemäss der folgenden Definition ein.
+
+\begin{definition}[Abgeleitetes Polynom]
+\label{buch:intalg:risch:definition:abgeleitetespolynom}
+Sei $b(\vartheta)\in F[\vartheta]$ ein Polynom vom Grad $n$ mit
+Koeffizienten $b_k$ in $F$.
+Es kann in der
+\[
+b(\vartheta)
+=
+b_0 + b_1\vartheta + \dots + b_{m-1}\vartheta^{m-1} + b_m\vartheta^m
+=
+\sum_{k=0}^m b_k\vartheta^k.
+\]
+Das \emph{abgeleitete Polynom} von $b(\vartheta)$ ist
+\[
+b'(\vartheta)
+=
+b_1 + 2b_2\vartheta + \dots + (m-1)b_{m-1}\vartheta^{m-2} + mb_m\vartheta^{m-1}
+=
+\sum_{k=1}^m kb_k\vartheta^k.
+\]
+Die Koeffizienten des abgeleiteten Polynoms werden nicht abgeleitet.
+\end{definition}
+
+Man beachte, dass $Db(\vartheta)$ und $b'(\vartheta)$ verschieden sind.
+Mit der Notation der
+Definition~\ref{buch:intalg:risch:definition:abgeleitetespolynom}
+gilt
+\begin{align*}
+Db(\vartheta)
+&=
+\sum_{k=0}^m
+D(b_k\vartheta^k)
+\\
+&=
+\sum_{k=0}^m
+\Bigl(
+Db_k\vartheta^k
++
+b_kk D\vartheta\cdot \vartheta^{k-1}
+\Bigr)
+\\
+&=
+\sum_{k=1}^m (Db_k)\vartheta^k
++
+b'(\vartheta) D\vartheta.
+\end{align*}
+Da $D\vartheta$ auf der rechten Seite vorkommt, ist zunächst nicht einmal
+klar, dass die rechte Seite auch wieder ein Polynom in $\vartheta$ mit
+Koeffizienten in $F$ ist.
+Dies muss später für jede Art von Erweiterung einzeln nachgeprüft werden.
+
+Aus der Quadratfreiheit von $b(\vartheta)$ als Polynom in $F[\vartheta]$
+folgt nur, dass $b(\vartheta)$ und $b'(\vartheta)$ teilerfremd sind.
+Damit die Methode von Hermite durchführbar wird, muss also untersucht
+werden, ob aus der Teilerfreiheit von $b(\vartheta)$ und $b'(\vartheta)$
+auch folgt, dass $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind.
+
+%
+% Die Methode von Rothstein-Trager
+%
+\subsubsection{Die Methode von Rothstein-Trager}
+
+%
+% Rekursion
+%
 \subsubsection{Rekursion}
+Die Skizze des Algorithmus im vorangegangenen Abschnitt hat gezeigt,
+dass die Erweiterung der Vorgehensweise von Kapitel~\ref{chapter:ratint}
+Hindernisse für die Existenz einer Stammfunktion finden wird.
+Die Tatsache, dass die Methode von Rothstein-Trager Konstanten
+finden muss, obwohl die Koeffizienten der beteiligten Polynome
+nichtkonstante Funktionen sein können.
+
+Der polynomielle Teil wird weitere Hindernisse zutage fördern.
+Ob die Stammfunktion des polynomiellen Teils existiert, hängt von
+den Koeffizienten von $s(\vartheta)$ ab.
+
 
 %
 % Risch-Algorithmus für logarithmische Erweiterungen
 %
 \subsection{Risch-Algorithmus für logarithmische Erweiterungen
 \label{buch:intalg:risch:logarithmisch}}
+Im vorangegangenen Abschnitt wurde die Vorgehensweise des Algorithmus
+skizziert.
+Einzelne Punkte blieben dabei offen, zum Beispiel hing die Durchführbarkeit
+der Methode von Hermite davon ab, ob $b(\vartheta)$ und $Db(\vartheta)$
+teilerfremd sind.
+Das Integral des polynomiellen Teils blieb völlig offen.
+In diesem Abschnitt sollen diese Lücken für den Fall einer logarithmischen
+Erweiterung geschlossen werden.
+Im folgenden ist $\vartheta=\log u$ also ein Logarithmus.
+Also gilt $D\vartheta = Du/u$.
 
+%
+% Hermite-Methode
+%
 \subsubsection{Hermite-Methode}
+Für eine logarithmische Erweiterung ist $D\vartheta=Du/u$.
+Für ein Polynom $b(\vartheta)$ folgt dann
+\begin{align*}
+Db(\vartheta)
+&=
+\sum_{k=0}^m
+Db_k\vartheta^k
++
+\sum_{k=0}^m
+b_k k
+\frac{Du}{u}
+\vartheta^{k-1}.
+\end{align*}
+Wegen $Du\in F$ sind die Koeffizienten $Db_k$ und $kb_kDu/u\in F$,
+$Db(\vartheta)$ ist also wieder ein Polynom in $F[\vartheta]$ vom
+gleichen Grad wie $b(\vartheta)$.
+Die Polynome $Db(\vartheta)$ und $b'(\vartheta)$ unterscheiden sich
+damit deutlich.
+Trotzdem zeigt das nachfolgende Lemma, dass für eine logarithmische 
+Erweiterung $Db(\vartheta)$ und $b(\vartheta)$
+teilerfremd sind, wenn $b(\vartheta)$ und $b'(\vartheta)$ teilerfremd sind.
 
-\subsubsection{Teilbarkeit von $b'(\vartheta)$ und $Db(\vartheta)$}
+\begin{lemma}
+\label{buch:intalg:risch:log:lemma:bDb}
+Sei $b(\vartheta)$ ein normiertes, quadratfreies Polynom mit
+$b(\vartheta)$ und $b'(\vartheta)$ teilerfremd als Polynome in $F[\vartheta]$,
+dann sind auch $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd.
+\end{lemma}
 
+\begin{proof}
+Da es in diesem Lemma nicht um einen Teil des Algorithmus geht, sondern
+um eine Teilbarkeitseigenschaft der Polynome, dürfen wir für den Beweis
+nach dem Fundamentalsatz der Algebra annehmen, dass wir eine Faktorisierung
+\begin{equation}
+b(\vartheta)
+=
+\prod_{i=1}^m (\vartheta-\beta_i)
+\label{buch:ointalg:risch:log:eqn:bfaktorisierung}
+\end{equation}
+in Linearfaktoren kennen.
+Ihre Ableitung ist
+\begin{align}
+Db(\vartheta)
+&=
+\sum_{k=1}^m D(\vartheta-\beta_k)\prod_{i\ne k} (\vartheta-\beta_i)
+\notag
+\\
+&=
+\sum_{k=1}^m \biggl(\frac{Du}{u}-D\beta_k\biggr)
+\prod_{i\ne k} (\vartheta-\beta_i).
+\label{buch:intalg:risch:log:eqn:Dbfaktorisierung}
+\end{align}
+Weil $b(\vartheta)$ und $b'(\vartheta)$ teilerfremd sind, dürfen wir
+davon ausgehen, dass die $\beta_i$ alle verschieden sind, sie sind alle
+einfache Nullstellen.
+
+Wir müssen zeigen, dass auch $b(\vartheta)$ und $Db(\vartheta)$ keinen
+nichtrivialen gemeinsamen Teiler haben können.
+Ein gemeinsamer Linearfaktor von $b(\vartheta)$ und $Db(\vartheta)$
+muss einer der Faktoren von \eqref{buch:ointalg:risch:log:eqn:bfaktorisierung}
+sein, sei $\vartheta-b_j$ dieser Faktor.
+$\vartheta-b_j$ kommt in jedem Term auf der rechten Seite von
+\eqref{buch:intalg:risch:log:eqn:Dbfaktorisierung} ausser möglicherweise
+im Term $k=j$ vor.
+Er teilt daher jeden Term ausser möglicherweise $k=j$.
+Da $\vartheta-\beta_j$ ein Teiler der ganzen Gleichung sein muss,
+im Produktfaktor für $k=j$ aber nicht vorkommt,
+muss $\vartheta-\beta_j$ auch den Faktor $Du/u-D\beta_j$ teilen.
+In $Du/u-D\beta_j$ kommt $\vartheta$ nicht vor, es ist ein Polynom vom
+Grad $0$, welches von einem Polynom $\vartheta-\beta_j$ vom Grad 1
+geteilt wird.
+Dies ist nur möglich, wenn
+\[
+D(\vartheta-\beta_j) = 0
+\qquad\Rightarrow\qquad
+\vartheta-\beta_j = c,\; c\in K
+\qquad\Rightarrow\qquad
+\vartheta = \beta_j+ c \in F
+\]
+ist.
+Dies widerspricht der Tatsache, dass $\vartheta$ eine transzendente
+Erweiterung von $F$ ist.
+\end{proof}
+
+Lemma~\ref{buch:intalg:risch:log:lemma:bDb} zeigt, dass die Methode
+von Hermite uneingeschränkt durchführbar ist.
+
+%
+% Rothstein-Trager für logarithmische Erweiterungen
+%
 \subsubsection{Rothstein-Trager für logarithmische Erweiterungen}
+Die Methode von Rothstein-Trager bestimmt die Stammfunktion 
+\[
+\int\frac{a(\vartheta)}{b(\vartheta)}
+\qquad a(\vartheta), b(\vartheta)\in F[\vartheta],\quad
+\deg a(\vartheta)<\deg b(\vartheta)
+\]
+und quadratfreiem $b(\vartheta)$.
+Sie besagt, dass die in der Liouville-Form vorkommenden Konstanten
+für die Stammfunktion $c_i$ so sein müssen, dass
+\[
+a(\vartheta) - z\cdot Db(\vartheta)
+\qquad
+\text{und}
+\qquad
+b(\vartheta)
+\]
+teilerfremd sind.
+Da die Polynome Koeffizienten im Funktionenkörper $F$ haben, sind die
+$c_i$ a priori ebenfalls in $F$ oder in einer algebraischen Erweiterung
+von $K$.
+Nach dem Prinzip von Liouville muss aber $c_i$ in $K$ liegen.
+Gibt es Lösungen, die nicht konstant sind, dann gibt es auch keine
+elementare Stammfunktion.
+
+Sind die $c_i$ gefunden, können die zugehörigen Funktionen $v_i$ als
+\[
+v_i
+=
+\operatorname{ggT}(a(\vartheta) - c_i\cdot Db(\vartheta), b(\vartheta) )
+\]
+gefunden werden.
+
+Nachfolgend wird an zwei Beispielen gezeigt, wie die Stammfunktion mit
+der Methode von Rothstein-Trager gefunden werden kann.
+Die Beispiele sind einfach genug, dass man Teilbarkeit ad hoc untersuchen
+kann.
+Eine systematischere Vorgehensweise verwendet die Resultante und wird
+in Kapitel~\ref{chapter:resultante} dargestellt.
 
 \begin{beispiel}
 \label{buch:intalg:risch:bsp:1/logx}
@@ -188,7 +743,6 @@ f(x)
 \log\log x,
 \]
 ein elementare Stammfunktion des Integranden $f$.
-
 
 Die Wahl $a(\vartheta)=1/x$ in \eqref{buch:intalg:risch:eqn:1xlogx}
 wird dadurch festgelegt, dass $b(\vartheta)$ ein normiertes Polynom
@@ -629,13 +1183,472 @@ elementar sein.
 %
 \subsection{Risch-Algorithmus für exponentielle Erweiterungen
 \label{buch:intalg:risch:exponentiell}}
+Abschnitt~\ref{buch:intalg:risch:logarithmisch} hat für den Fall einer
+logarithmischen Erweiterung die Lücken in der allgemeinen Beschreibung
+des Algorithmus in Abschnitt~\ref{buch:intalg:risch:uebersicht} gefüllt.
+In diesem Abschnitt soll das Gleiche für eine exponentielle Erweiterung
+getan werden.
+Sei im Folgenden also $\vartheta=e^u$ ein Logarithmus eines Elements
+$u\in F$.
+Sie ist charakterisiert durch $D\vartheta = \vartheta\cdot Du$.
 
-\subsubsection{Hermite-Methode}
+%
+% Die Methode von Hermite
+%
+\subsubsection{Die Methode von Hermite}
+In der Methode von Hermite wird benötigt, dass $b(\vartheta)$ und
+$Db(\vartheta)$ teilerfremd sind.
+Da $b(\vartheta)$ quadratfrei ist, sind $b(\vartheta)$ und $b'(\vartheta)$
+teilerfremd.
 
+\begin{lemma}
+\label{buch:intalg:risch:exp:lemma:bDb}
+Sei $b(\vartheta)\in F[\vartheta]$ ein quadratfreies Polynom.
+Dann sind $b(\vartheta)$ und $Db(\vartheta)$ genau dann teilerfremd,
+wenn $\vartheta$ kein Teiler von $b(\vartheta)$ ist.
+\end{lemma}
+
+\begin{proof}
+Wie im Beweis von Lemma~\ref{buch:intalg:risch:log:lemma:bDb} verwenden
+wir eine Faktorisierung
+\[
+b(\vartheta) = \prod_{i=1}^m (\vartheta-\beta_i)
+\]
+mit der Ableitung
+\[
+Db(\vartheta)
+=
+\sum_{k=1}^m D(\vartheta-\beta_i)\prod_{i\ne k} (\vartheta-\beta_i).
+\]
+Sei wieder $\vartheta-b_j$ ein gemeinsamer Teiler von $b(\vartheta)$
+und $Db(\vartheta)$.
+Dann folgt wie im Beweis von Lemma~\ref{buch:intalg:risch:log:lemma:bDb},
+dass $\vartheta-b_j$ ein Teiler von $D(\vartheta-b_j)$ sein muss.
+Nach dem Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch} ist
+$(\vartheta-b_j)\mid (D\vartheta-Db_j)$ genau dann, wenn der Teiler ein
+Monom ist, wenn also $b_j=0$ und damit $\vartheta$ ein Teiler von
+$b(\vartheta)$ ist.
+\end{proof}
+
+Das Lemma zeigt also, dass die Teilerfremdheit von $b(\vartheta)$ und
+$Db(\vartheta)$ genau dann folgt, wenn $b(\vartheta)$ nicht durch
+$\vartheta$ teilbar ist.
+Schliesst man Faktoren $\vartheta$ im Nenner aus, kann die Methode von
+Hermite durchgeführt werden und die Stammfunktion kann mit der Methode
+von Rothstein-Trager gefunden werden.
+
+%
+% Erweiterte Polynome
+%
 \subsubsection{Erweiterte Polynome}
+Die Diskussion der Methode von Hermite für exponentielle Erweiterungen
+hat gezeigt, dass der Faktor $\vartheta$ im Nenner separat behandelt
+werden muss.
+Ein Faktor $\vartheta$ ist aber sehr leicht am Verschwinden des
+Terms vom Grad 0 in einem Polynom erkennbar, so dass die Faktoren $\vartheta$
+in der Faktorisierung
+\[
+q(\vartheta)
+=
+\vartheta^l \cdot b_1(\vartheta) b_2(\vartheta)^2 \cdots b_m(\vartheta)^m
+\]
+des Nenners als separate Faktoren behandelt werden können.
+Die Faktoren $b_k(\vartheta)$ sind quadratfrei und nicht durch $\vartheta$
+teilbar.
 
+Die Partialbruchzerlegung von $r(\vartheta)/q(\vartheta)$ hat dann die
+Form
+\begin{align}
+\frac{r(\vartheta)}{b(\vartheta)}
+&=
+\sum_{i=1}^l \frac{a_i}{\vartheta^i}
++
+\sum_{i=1}^m
+\sum_{k=1}^{\deg b_i(\vartheta)}
+\frac{a_{ik}(\vartheta)}{b_i(\vartheta)^k}
+\label{buch:intalg:risch:exp:eqn:partbruch}
+\end{align}
+mit $a_i\in F$ und $a_{ik}\in F[\vartheta]$.
+Die zweite Summe enthält nur Terme, die den Faktor $\vartheta$ im 
+Nenner nicht enthalten und daher mit der Methode von Hermite
+reduziert werden können.
+
+Die erste Summe in \eqref{buch:intalg:risch:exp:eqn:partbruch}
+kann nicht mit der Methode von Hermite reduziert werden.
+Im Fall rationaler Funktionen wären die Terme $1/z^i$ mindestens
+für $i\ne 1$ auch sehr einfach mit der Stammfunktion
+\[
+\int \frac{1}{z^i}
+=
+\int z^{-i}
+=
+\frac{1}{-i+1}
+z^{-i+1}
+=
+\frac{1}{(1-i)z^{i-1}}
+\]
+zu finden, die ein Erweiterung der Regel für Potenzen ist.
+Man könnte die Terme $a_i/\vartheta^i$ daher zum polynomiellen
+Teil schlagen.
+Wir definieren dazu verallgemeinerte Polynome wie folgt.
+
+\begin{definition}[verallgemeinertes Polynom]
+Ein \emph{verallgemeinertes Polynom} in $\vartheta$ mit Koeffizienten
+\index{verallgemeinertes Polynom}%
+\index{Polynom!verallgemeinert}%
+in $F$ ist eine Summe der Form
+\[
+p(\vartheta)
+=
+\sum_{i=-k}^l p_i\vartheta^i.
+\]
+Verallgemeinerte Polynome werden auch \emph{Laurent-Polynome} genannt.
+\index{Laurent-Polynom}%
+\end{definition}
+
+Die später zu entwickelnde Methode für den polynomiellen Teil muss also
+nicht nur mit Polynomen, sondern mit verallgemeinerten Polynomen umgehen
+können.
+
+%
+% Rothstein-Trager für exponentielle Erweiterungen
+%
 \subsubsection{Rothstein-Trager für exponentielle Erweiterungen}
 
+\begin{satz}[Rothstein-Trager]
+Seien
+\[
+f = \frac{a(\vartheta)}{b(\vartheta)},
+\qquad
+a(\vartheta),b(\vartheta)\in F[\vartheta],\quad
+\deg a(\vartheta)<b(\vartheta)
+\]
+und $b(\vartheta)$ quadratfrei, normiert und $\vartheta$ teilt $b(\vartheta)$
+nicht.
+Dann gilt:
+\begin{enumerate}
+\item $f$ hat eine elementare Stammfunktion genau dann, wenn die $z$,
+für die 
+\begin{equation}
+a(\vartheta)-z\cdot Db(\vartheta)
+\qquad\text{und}\qquad
+b(\vartheta)
+\label{buch:intalg:risch:exp:eqn:rtggt}
+\end{equation}
+einen nichttrivialen gemeinsamen Teiler haben, Konstanten $c_i \in K$ sind.
+\item Die Stammfunktion ist in diesem Fall
+\[
+\int f
+=
+g
++
+\sum_{i=1}^n c_i \log v_i(\vartheta),
+\]
+wobei $v_i(\vartheta)$ der zu $c_i$ gehörige grösste gemeinsame Teiler
+der Polynome~\eqref{buch:intalg:risch:exp:eqn:rtggt} und
+\begin{equation}
+g = -\biggl(\sum_{i=1}^n c_i\deg v_i \biggr) u
+\label{buch:intalg:risch:exp:eqn:g}
+\end{equation}
+ist.
+\end{enumerate}
+\end{satz}
+
+\begin{beispiel}
+\label{buch:intalg:risch:exp:bsp:1/ex+1}
+Man finde eine Stammfunktion der Funktion
+\[
+f
+=
+\frac{1}{e^x+1}
+=
+\frac{1}{\vartheta + 1},
+\]
+wobei $\vartheta=e^x$ eine exponentielle Erweiterung ist.
+\medskip
+
+\noindent
+Der Nenner $b(\vartheta) = \vartheta+1$ ist nicht durch $\vartheta$ teilbar,
+somit ist die Methode von Rothstein-Trager anwendbar.
+Wegen $a(\vartheta)=1$ muss $z$ so bestimmt werden, dass
+\[
+a(\vartheta) - z\cdot Db(\vartheta)
+=
+1- z \cdot D\vartheta
+=
+1- z\cdot \vartheta Du
+=
+1-z\cdot \vartheta 
+\qquad\text{und}\qquad
+b(\vartheta) = \vartheta+1
+\]
+einen gemeinsamen Teiler haben.
+Beide Polynome sind vom Grad 1, ein gemeinsamer Teiler ist also nur
+möglich, wenn die Polynome Vielfache voneinander sind.
+Dies ist der Fall, wenn $z=c_1=-1$ ist.
+Der grösste gemeinsame Teiler ist rtggtdann $v_i=\vartheta+1$.
+
+Die Funktion $g$ in \eqref{buch:intalg:risch:exp:eqn:g}
+ist
+\[
+g
+=
+-\biggl(\sum_{i=1}^n c_i\deg v_i \biggr) u
+=
+- c_1 \deg v_1 u
+=
+x.
+\]
+Es folgt, dass
+\begin{equation}
+\int\frac{1}{e^x+1}
+=
+g+
+c_1\log v_i
++
+c_0
+=
+x
+-\log (e^x+1)
++
+c_0.
+\label{buch:intalg:risch:exp:eqn:intf}
+\end{equation}
+Tatsächlich ist die Ableitung der rechten Seite
+\[
+D
+\bigl(
+x
+-\log (e^x+1)
++
+c_0
+\bigr)
+=
+1
+-D\log(e^x+1)
+=
+1
+-\frac{D(e^x+1)}{e^x+1}
+=
+\frac{e^x+1-e^x}{e^x+1}
+=
+\frac{1}{e^x+1},
+\]
+was die Korrektheit der Stammfunktion
+\eqref{buch:intalg:risch:exp:eqn:intf}
+bestätigt.
+\end{beispiel}
+
+\begin{beispiel}
+\label{buch:intalg:risch:exp:bsp:x/ex+1}
+Man finde eine Stammfunktion von 
+\begin{equation}
+f = \frac{x}{e^x+1} = \frac{x}{\vartheta+1}
+\label{buch:intalg:risch:exp:eqn:x/ex+1}
+\end{equation}
+wobei $\vartheta$ die exponentielle Erweiterung mit $\vartheta=e^x$.
+\medskip
+
+\noindent
+Wie in Beispiel~\ref{buch:intalg:risch:exp:bsp:1/ex+1} ist
+$b(\vartheta)=\vartheta+1$ quadratfrei, normiert und nicht durch $\vartheta$
+teilbar, die Methode von Rothstein-Trager ist daher anwendbar.
+Gesucht sind diejenigen $z$, für die
+\[
+a(\vartheta) - z\cdot Db(\vartheta)
+=
+x- z \cdot D\vartheta
+=
+x- z\cdot \vartheta Du
+=
+x-z\cdot \vartheta 
+\qquad\text{und}\qquad
+b(\vartheta) = \vartheta+1
+\]
+einen gemeinsamen Teiler haben.
+Wieder ist dies nur möglich, wenn das linke Polynom ein Vielfaches
+des rechten Polynoms ist.
+Dies ist genau für $z=c_1=-x$ sein, dann ist
+\[
+a(\vartheta) - z\cdot Db(\vartheta)
+=
+x+x \vartheta 
+=
+x(\vartheta+1)
+\]
+ist.
+Da $c_i=x$ nicht konstant ist, kann es keine elementare Stammfunktion
+geben.
+\end{beispiel}
+
+Da der Integrand~\eqref{buch:intalg:risch:exp:eqn:x/ex+1} keine
+elementare Stammfunktion hat, ist die Definition einer neuen
+speziellen Funktion angebracht, mit der die Stammfunktion ausgedrückt
+werden kann.
+
+\begin{definition}
+Der \emph{Dilogarithmus} ist die Funktion
+\[
+\operatorname{Li}_2(z)
+=
+\sum_{k=1}^\infty \frac{z^k}{k^2}
+\]
+für $|z|<1$.
+\index{Dilogarithmus}%
+\end{definition}
+
+Die Ableitung des Dilogarithmus ist
+\[
+\frac{d}{dz}
+\operatorname{Li}_2(z)
+=
+\sum_{k=1}^\infty \frac{z^{k-1}}{k}
+=
+\frac{1}{z}
+\sum_{k=1}^\infty \frac{z^k}{k}
+=
+-
+\frac{ \log(1-z) }{z},
+\]
+wobei der letzte Schritt aus der Potenzreihenentwicklung
+\[
+\log(1+z) = -\sum_{k=1}^\infty (-1)^k\frac{z^k}{k}
+\qquad\Rightarrow\qquad
+-\log(1-z) = \sum_{k=1}^\infty \frac{z^k}{k}
+\]
+des Logarithmus folgt, die durch gliedweise Integration der geometrischen
+Reihe
+\begin{align*}
+\frac{1}{1+z}
+&=
+\sum_{k=0}^\infty (-1)^kz^k
+\\
+\Rightarrow\qquad
+\int\frac{dz}{1+z}
+=
+\log(1+z)
+&=
+\sum_{k=0}^\infty (-1)^{k+1}z^{k+1}
+=
+\sum_{k=1}^\infty (-1)^k z^k
+\end{align*}
+gefunden werden kann.
+
+Damit kann jetzt die Stammfunktion von $f(x)=x/(e^x+1)$ bestimmt werden.
+Mathematica findet die Funktion
+\index{Mathematica}%
+\[
+F(x) =
+-x\log(1+e^{-x})
++
+\operatorname{Li}_2(-e^{-x}).
+\]
+Die Ableitung davon ist
+\begin{align*}
+\frac{d}{dx}F(x)
+&=
+-\log(1+e^{-x})
+-x\frac{1}{1+e^{-x}}\frac{d}{dx}(e^{-x})
+ + \frac{d}{dx}\operatorname{Li}_2(-e^{-x})
+\\
+&=
+-\log(1+e^{-x})
+-x\frac{1}{1+e^{-x}}\frac{d}{dx}(e^{-x})
+-
+\frac{\log(1+e^{-x})}{-e^{-x}}
+\frac{d}{dx}(-e^{-x})
+\\
+&=
+-
+\log(1+e^{-x})
++
+x\frac{1}{1+e^{-x}}e^{-x}
++
+\frac{\log(1+e^{-x})}{e^{-x}}
+e^{-x}
+\\
+&=
+x\frac{e^{-x}}{1+e^{-x}}.
+\intertext{Erweitern mit $e^x$ ergibt}
+&=
+%x\frac{1}{e^x+1}
+%=
+\frac{x}{e^x+1}.
+\end{align*}
+Damit ist gezeigt, dass $F(x)$ tatsächlich die Stammfunktion von $f(x)$
+ist.
+
+Das Computeralgebrasystem Maxima findet eine auf den ersten Blick gänzlich
+andere Stammfunktion, nämlich
+\begin{align}
+G(x)
+&=
+\frac{x^2}2 - x \log(e^x+1) - \operatorname{Li}_2(-e^{-x})
+\notag
+\intertext{Die Ableitung ist}
+\frac{d}{dx}G(x)
+&=
+x-\log(e^x+1) - \frac{xe^x}{e^x+1} 
+-
+\frac{d}{dx}\operatorname{Li}_2(-e^{-x})
+\notag
+\\
+&=
+\frac{x(e^x+1)-xe^x}{e^x+1} 
+-
+\log(e^x+1)
++
+\frac{\log(1+e^{-x})}{-e^{-x}}\frac{d}{dx}(-e^{-x})
+\notag
+\\
+&=
+\frac{x}{e^x+1} 
+-
+\log(e^x+1)
++
+\frac{\log(1+e^{-x})}{-e^{-x}}
+e^{-x}
+\notag
+\\
+&=
+\frac{x}{e^x+1} 
+-
+\log(e^x+1)
+-
+\log(1+e^{-x}).
+\label{buch:intalg:risch:exp:maximaabl}
+\intertext{Schreiben wir $1+e^{-x}=e^{-x}(e^x+1)$, wird
+\eqref{buch:intalg:risch:exp:maximaabl} zu}
+&=
+\frac{x}{e^x+1} 
+-
+\log(e^x+1)
+-
+\log(e^{-x}\cdot (e^x + 1))
+\notag
+\\
+&=
+\frac{x}{e^x+1} 
+-
+\log(e^x+1)
+-
+x
++
+\log(e^x+1)
+\notag
+\\
+&=
+\frac{x}{e^x+1}
+%=
+%\frac{xe^x+x-xe^x}{e^x+1}
+=
+\frac{x}{e^x+1}.
+\end{align}
+Auch diese Form der Stammfunktion ist also korrekt.
+
+%
+% Der polynomielle Teil und die Risch-Differentialgleichung
+%
 \subsubsection{Der polynomielle Teil und die Risch-Differentialgleichung}
 Der polynomielle Teil des Integranden $f\in F(\vartheta)$ ist eine 
 erweitertes Polynom der Form
