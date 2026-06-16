@@ -63,6 +63,7 @@ daher die vier verschiedene reelle Ableitungen
 \lim_{h\to0} \frac{v(x,y+h)-v(x,y)}{h}.
 \end{align*}
 Zusammen bilden diese Ableitungen die Jacobi-Matrix
+\index{Jacobi-Matrix}%
 \[
 Jf(x,y)
 =
@@ -91,6 +92,7 @@ um eine komplexe Ableitung zu definieren.
 Die Ableitung kann aber auch als eine lineare Approximation
 der Funktion betrachtet werden.
 Für eine Funktion einer Variablen ist die Taylor-Reihe
+\index{Taylor-Reihe}%
 \[
 f(x+h)
 =
@@ -126,6 +128,7 @@ f(x) + f'(x) \cdot h
 \label{buch:holomorph:holomorph:1dersatz}
 \end{equation}
 die geeignete \emph{lineare Ersatzfunktion}.
+\index{lineare Ersatzfunktion}%
 
 Die Taylor-Reihe der als Abbildung $\mathbb{R}^2\to\mathbb{R}^2$
 betrachteten komplexen Funktion $f$ ist bis zu Termen erster Ordnung
@@ -179,11 +182,13 @@ komplexe Ableitung von $f'(z)$.
 \begin{definition}[komplexe Ableitung]
 Sei $f(z)$ eine komplexe Funktion.
 Die \emph{komplexe Ableitung} $f'(z)$ von $f$ im Punkt
+\index{komplexe Ableitung}%
 $z\in\mathbb{C}$ ist die komplexe Zahl, für die $f(z) + f'(z) \Delta z$
 die lineare Ersatzfunktion $f(z+\Delta z)$ ist.
 \end{definition}
 
 \begin{definition}[holomorphe Funktion]
+\index{holomorph}%
 Eine komplexe Funktion $f\colon U\to\mathbb{C}$ heisst \emph{holomorph},
 wenn sie in $U$ eine komplexe Ableitung besitzt.
 \end{definition}
@@ -489,6 +494,7 @@ zur Verfügung, aber die Idee der Stammfunktion lässt sich leicht auf
 komplexe Funktionen übertragen.
 
 \begin{definition}[Stammfunktion]
+\index{Stammfunktion}%
 Eine \emph{Stammfunktion} einer stetigen komplexen Funktion $f(z)$
 ist eine holomorphe Funktion $F(z)$ derart, dass $F'(z) = f(z)$.
 \end{definition}
@@ -541,6 +547,7 @@ Dies führt auf die folgende, leicht zirkuläre Definition.
 
 \begin{definition}[Konstante]
 Eine \emph{Konstante} in einem Funktionenkörper ist ein Element $c\in K$
+\index{Konstante}%
 mit der Eigenschaft $c'=0$.
 \end{definition}
 
@@ -560,6 +567,7 @@ In der reellen Analysis gilt der folgende aus der Anschauung plausible
 Mittelwertsatz
 
 \begin{satz}[Mittelwertsatz]
+\index{Mittelwertsatz}%
 Ist $f\colon I \to \mathbb{R}$ eine stetig differenzierbare Funktion auf
 dem Intervall $I=[a,b]$, dann gibt es ein $\xi \in I$ derart, dass
 \[
@@ -583,6 +591,7 @@ mehrerer Variablen, braucht dazu aber das Konzept der Norm einer
 linearen Abbildung.
 
 \begin{definition}[Norm]
+\index{Norm}%
 Sei $A\colon \mathbb{R}^n\to\mathbb{R}^m$ eine lineare Abbildung.
 Die \emph{Norm} von $A$ ist
 \[
@@ -597,6 +606,7 @@ Vektoren $x$ auf der Einheitskugel in $\mathbb{R}^n$ annimmt.
 Der Mittelwertsatz lautet damit jetzt wie folgt.
 
 \begin{satz}[Mittelwertsatz]
+\index{Mittelwertsatz}%
 Sei $U\subset \mathbb{R}^n$ ein Gebiet in $\mathbb{R}^n$ und seien
 $x_0\in U$ und $x_0+t\in U$ zwei Punkte in $U$ derart, dass auch
 die Verbindungsstrecke in $U$ enthalten ist.
@@ -737,6 +747,7 @@ gegeben.
 
 \begin{beispiel}
 Die Kubikwurzel einer komplexen Zahl ist algebraisch mit dem Minimalpolynom
+\index{Kubikwurzel}%
 $a(X)=X^3-z$.
 Nach dem Satz~\ref{buch:holomorph:holomorph:satz:holoalg} ist eine
 Kubikwurzel holomorph und und nach der Formel
@@ -841,6 +852,7 @@ partiellen Differentialgleichungen
 \label{buch:holomorph:holomorph:eqn:cr}
 \end{align}
 Sie heissen die \emph{Cauchy-Riemann-Differentialgleichungen}.
+\index{Cauchy-Riemann-Differentialgleichungen}%
 \end{satz}
 
 %
@@ -848,6 +860,7 @@ Sie heissen die \emph{Cauchy-Riemann-Differentialgleichungen}.
 %
 \subsubsection{Harmonische Funktionen}
 Der Laplace-Operator einer Funktion $u(x_1,\dots,x_n)$ von $n$
+\index{Laplace-Operator}%
 reellen Variablen ist definiert als
 \[
 \Delta u
@@ -869,7 +882,7 @@ Vakuum die Laplace-Gleichung
 \Delta u = 4\pi \varrho.
 \]
 Entsprechend häufig ist man in den Anwendungen mit der Frage konfrontiert,
-ob eine Funktion $u$ eine Lösung der homogoenen Differentialgleichung
+ob eine Funktion $u$ eine Lösung der homogenen Differentialgleichung
 $\Delta u=0$ ist.
 
 \begin{definition}[harmonische Funktion]
@@ -1815,6 +1828,7 @@ Satz~\ref{buch:holomorph:holomorph:satz:potenzreihe-ableitung}.
 %
 \subsubsection{Die Ableitung der Exponentialfunktion}
 Die Exponentialfunktion ist als
+\index{Exponentialfunktion}%
 \begin{equation}
 e^z
 =
@@ -1926,6 +1940,7 @@ Die Taylorreihe von $Z(z)$ ist also die konstante Funktion $Z(z)=1$.
 Die Exponentialfunktion ist durch die Exponentialreihe definiert.
 
 \begin{satz}[Die eulersche Formel]
+\index{eulersche Formel}%
 \label{buch:holomorph:holomorph:satz:eulerformel}
 Für $t\in\mathbb{R}$ gilt
 \begin{equation}
@@ -2076,6 +2091,8 @@ Daraus kann man ablesen, dass $e^a = r$ oder $a = \log r = \log |z|$
 ist und $b = \varphi = \operatorname{arg}z$.
 
 \begin{definition}[natürlicher Logarithmus]
+\index{Logarithmus!natürlich}%
+\index{naturlicher Logarithmus@natürlicher Logarithmus}%
 Der natürlich Logarithmus einer komplexen Zahl ist
 \[
 \log z
