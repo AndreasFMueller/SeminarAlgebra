@@ -440,6 +440,161 @@ auch folgt, dass $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind.
 % Die Methode von Rothstein-Trager
 %
 \subsubsection{Die Methode von Rothstein-Trager}
+Die Methode von Rothstein-Trager von
+Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
+bestimmt die Stammfunktion einer rationalen Funktion mit quadratfreiem
+Nenner und einem Zähler kleineren Grades und integriert damit den
+rationalen Teil eines rationalen Integranden.
+Die Methode soll jetzt auf Funktionen 
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+\qquad \text{mit}\quad \left\{
+\begin{array}{l}
+a(\vartheta),b(\vartheta)\in F(\vartheta),\\
+\text{$a(\vartheta)$ und $b(\vartheta)$ teilerfremd,}\\
+\text{$b(\vartheta)$ quadratfrei,}\\
+\deg a(\vartheta) < \deg b(\vartheta)\\
+\end{array}
+\right.
+\label{buch:intalg:risch:eqn:a(theta)/b(theta)}
+\end{equation}
+ausgedehnt werden.
+Möglicherweise müssen die zulässigen Nenner $b(\vartheta)$ weiter
+eingeschränkt werden.
+Zum Beispiel wird sich herausstellen, dass für den rationalen Teil eines
+Integrals nur Nenner $b(\vartheta)$ zulässig sind, die nicht durch
+$\vartheta$ teilbar sind.
+Wir sagen, dass \eqref{buch:intalg:risch:eqn:a(theta)/b(theta)}
+ein \emph{rationaler Teil} für die Körpererweiterung $F\subset F(\vartheta)$
+ist, wenn $b(\vartheta)$ ein zulässiger Nenner ist.
+
+Nach dem Liouville-Prinzip muss die Stammfunktion, falls sie elementar ist,
+die Form
+\[
+\int
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_k c_k\log v_k(\vartheta)
+\]
+haben.
+Für den Integranden muss entsprechend gelten, dass
+\[
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+Dv_0(\vartheta)
++
+\sum_k c_k\frac{D v_k(\vartheta)}{v_k(\vartheta)}
+\]
+ist.
+Darin sind die $c_k$ Konstanten und $v_k(\vartheta)\in F(\vartheta)$.
+Die Methode von Rothstein-Trager findet die $c_k$ und die $v_k(\vartheta)$.
+
+Falls mehrere der Koeffizienten $c_k$ gleich sind, dann können wir 
+die zugehörigen Funktionen $v_k$ zusammenfassen.
+Zu gegebenem $c$ schreiben wir daher
+\[
+v(\vartheta) = \prod_{c_k=c} v_k(\vartheta).
+\]
+Dann ist
+\begin{align*}
+c \log v(\vartheta)
+&=
+c
+\log\biggl(\prod_{c_k=c} v_k(\vartheta)\biggr)
+=
+\sum_{c_k=c} c_k \log v_k(\vartheta)
+\intertext{mit der Ableitung}
+c \frac{Dv(\vartheta)}{v(\vartheta)}
+&=
+D(c\log v(\vartheta))
+=
+\sum_{c_k=c} c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}.
+\end{align*}
+Man darf also immer annehmen, dass die $c_k$ in der Liouville-Form der
+Stammfunktion alle verschieden sind.
+
+Um die Methode von Rothstein-Trager auf die vorliegende Situation
+zu übertragen, übersetzen wir das Resultat des
+Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}.
+Gesucht sind die verschiedenen Elemente $c_k$, für die 
+\[
+a(\vartheta) - c_k \cdot Db(\vartheta)
+\qquad\text{und}\qquad
+b(\vartheta)
+\]
+einen nichttrivialen gemeinsamen Teiler in $F[\vartheta]$ haben und
+wir schreiben
+\[
+v_k(\vartheta)
+=
+\operatorname{ggT}(a(\vartheta)-c_k\cdot Db(\vartheta), b(\vartheta))
+\in
+F[\vartheta]
+\]
+für den grössten gemeinsamen Teiler.
+Wir vermuten dann, die Summe der $c_k\log v_k(\vartheta)$ die
+Stammfunktion
+\[
+\int
+\frac{a(\vartheta)}{b(\vartheta)}
+\overset{?}{=}
+\sum_{k} c_k \log v_k(\vartheta)
+\]
+ist oder
+\[
+\frac{a(\vartheta)}{b(\vartheta)}
+\overset{?}{=}
+\sum_{k} D\biggl(c_k \log v_k(\vartheta)\biggr)
+=
+\sum_{k}\biggl(
+Dc_k \log v_k(\vartheta)
++
+c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}
+\biggr).
+\]
+Wenn dies tatsächlich die Stammfunktion in der Form sein soll, die
+das Liouville-Prinzip verspricht, dann dürfen die Logarithmus-Terme
+nicht vorkommen, d.~h.~es muss $Dc_k=0$ sein oder $c_k$ ist konstant.
+
+\begin{satz}[Rothstein-Trager]
+Gegeben ist eine logarithmische oder exponentielle Körpererweiterung
+$F\subset F(\vartheta)$ und ein rationaler Teil wie in 
+\eqref{buch:intalg:risch:eqn:a(theta)/b(theta)}.
+\begin{enumerate}
+\item Die Stammfunktion von $a(\vartheta)/b(\vartheta)$ ist elementar
+genau dann, wenn die einzigen Elemente $c\in F$, für die
+\[
+a(\vartheta)-c\cdot Db(\vartheta)
+\qquad\text{und}\qquad
+b(\vartheta)
+\]
+einen nichttrivialen gemeinsamen Teiler haben, Konstanten sind.
+\item
+Falls die Stammfunktion $a(\vartheta)/b(\vartheta)$ elementar ist,
+dann gilt
+\[
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_{i=1}^m c_i \frac{Dv_i(\vartheta)}{v_i(\vartheta)},
+\]
+wobei die $c_i$ die verschiedenen Konstanten sind, für die
+$a(\vartheta) - c\cdot Db(\vartheta)$ und $b(\vartheta)$
+einen nichttrivialen gemeinsamen Teiler haben und
+\[
+v_i(\vartheta)
+=
+\operatorname{ggT}(
+a(\vartheta) - c\cdot Db(\vartheta), b(\vartheta)
+).
+\]
+\end{enumerate}
+\end{satz}
+
+
 
 %
 % Rekursion
