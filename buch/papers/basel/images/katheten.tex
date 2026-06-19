@@ -20,25 +20,29 @@
 \xdef\h{\pgfmathresult}
 \coordinate (C) at (1.8, \h);
 \coordinate (H) at (1.8, 0);
+\fill[color=gray!20] (A) -- (B) -- (C) -- cycle;
+\node[color=white,scale=1.4] at ($0.5*(A)+0.5*(B)+(0,0.6)$) {$F$};
 \draw (A) -- (B) -- (C) -- cycle;
 \draw[dashed] (C) -- (H);
 % Rechter Winkel bei H
 \draw (H) ++(0.18,0) -- ++(0,0.18) -- ++(-0.18,0);
 % Seiten-Labels klar ausserhalb der Linien
-\node[left=6pt]  at ($0.5*(A)+0.5*(C)$) [above left] {$b$};
-\node[right=6pt] at ($0.5*(B)+0.5*(C)$) [above right] {$a$};
-\node[below=8pt] at ($0.5*(A)+0.5*(B)$) [below]   {$c$};
-\node[right=6pt] at ($0.5*(H)+0.5*(C)$) [right] {$h$};
+\node  at ($0.5*(A)+0.5*(C)+(-0.2,0.2)$) {$b\mathstrut$};
+\node at ($0.5*(B)+0.5*(C)+(0.2,0.2)$) {$a\mathstrut$};
+\node at ($0.5*(A)+0.5*(B)$) [below] {$c\mathstrut$};
+\node at ($0.4*(H)+0.6*(C)$) [right] {$h\mathstrut$};
 % Kehrwert-Labels mit farbigen Boxen, weit von den Seiten weg
 \node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
-    at (-1.1, 0.9) {$\dfrac{1}{b^2}$};
+	at ($0.5*(B)+0.5*(C)+(1.1,0.2)$) [right]
+	{$\dfrac{1}{a^2}=\dfrac{b^2}{4F^2}$};
 \node[blue, fill=blue!8, rounded corners=2pt, inner sep=3pt]
-    at (5.8, 0.9)  {$\dfrac{1}{a^2}$};
+	at ($0.5*(A)+0.5*(C)+(-1.1,0.2)$) [left]
+	{$\dfrac{1}{b^2}=\dfrac{a^2}{4F^2}$};
 \node[red,  fill=red!8,  rounded corners=2pt, inner sep=3pt]
-    at (1.8, -1.1) {$\dfrac{1}{h^2}$};
+	at (1.8, -1.1) {$\dfrac{1}{h^2}=\dfrac{c^2}{4F^2}$};
 % Pfeile von den Labels zu den Seiten
-\draw[->, blue, thin] (-0.7, 0.9) -- (-0.05, 1.0);
-\draw[->, blue, thin] (5.45, 0.9) -- (4.5,   1.1);
+\draw[->, blue, thin] ($0.5*(B)+0.5*(C)+(1.0,0.2)$) -- ++(-0.6,0);
+\draw[->, blue, thin] ($0.5*(A)+0.5*(C)+(-1.0,0.2)$) -- ++(0.6,0);
 \draw[->, red,  thin] (1.8, -0.75) -- (1.8, -0.22);
 % Ergebnisformel oben, klar oberhalb des Dreiecks
 \node[above=10pt] at ($0.5*(A)+0.5*(B)+(0,\h)$) [above]
