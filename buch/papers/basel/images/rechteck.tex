@@ -20,16 +20,16 @@
 % Rechteck gestrichelt
 \draw[dashed] (0,0) rectangle (4.5,3.0);
 % Dreieck (ausgefüllt grau)
-\fill[gray!20] (A) -- (B) -- (C) -- cycle;
+\fill[gray!40] (A) -- (B) -- (C) -- cycle;
 \draw (A) -- (B) -- (C) -- cycle;
 % Rechter Winkel bei A
 \draw (0.25,0) -- (0.25,0.25) -- (0,0.25);
 % Seiten-Labels weit genug weg von den Linien
-\node[left=8pt]  at (0, 1.5)  {$b$};
-\node[below=8pt] at (2.25, 0) {$a$};
+\node at (0, 1.5) [left] {$b\mathstrut$};
+\node at (2.25, 0) [below] {$a\mathstrut$};
 % Flächen-Labels in freie Bereiche
-\node at (3.2, 2.2) {\small Rechteck $= ab$};
-\node at (0.9, 0.7) {\small $\triangle = \dfrac{ab}{2}$};
+\node at (3.2, 2.2) {Rechteck $= ab$};
+\node at (0.9, 0.7) {$\triangle = \dfrac{ab}{2}$};
 
 \end{tikzpicture}
 \end{document}
