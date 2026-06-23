@@ -13,5 +13,8 @@ CHAPTERFILES += 							\
 	chapters/070-intalg/uebungsaufgaben/702.tex			\
 	chapters/070-intalg/uebungsaufgaben/703.tex			\
 	chapters/070-intalg/uebungsaufgaben/704.tex			\
+	chapters/070-intalg/uebungsaufgaben/705.tex			\
+	chapters/070-intalg/uebungsaufgaben/706.tex			\
+	chapters/070-intalg/uebungsaufgaben/707.tex			\
 	chapters/070-intalg/chapter.tex
 
