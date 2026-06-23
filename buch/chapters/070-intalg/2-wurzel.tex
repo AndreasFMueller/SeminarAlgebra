@@ -11,7 +11,7 @@ für beliebige rationale Funktionen zu finden.
 Der Formalismus von Abschnitt~\ref{buch:intalg:section:elementar} zeigt,
 dass die Stammfunktion immer ein elementare Funktion ist.
 In diesem Abschnitt soll untersucht werden, was sich ändert, wenn man den
-Körper $\mathbb{Q}(z)$ der rationalen Funktionen algebraisch um die
+Körper $\mathbb{Q}(x)$ der rationalen Funktionen algebraisch um die
 Quadratwurzel 
 \[
 \vartheta = \!\sqrt{ax^2+bx+c}
@@ -24,11 +24,11 @@ Stammfunktion hat.
 %
 % Der Funktionekörper
 %
-\subsection{Der Funktionenkörper $\mathbb{Q}(z,\vartheta)$
+\subsection{Der Funktionenkörper $\mathbb{Q}(x,\vartheta)$
 \label{buch:intalg:wurzel:subsection:koerper}}
 Der Körper $\mathbb{Q}(z,\vartheta)$ besteht aus den Funktionen
 \[
-f(z)
+f(x)
 =
 \frac{
 \tilde{p}_0 + \tilde{p}_1\vartheta + \tilde{p}_2\vartheta^2
@@ -38,12 +38,12 @@ f(z)
 + \ldots + \tilde{q}_m\vartheta^m
 }
 \]
-mit $p_k\in\mathbb{Q}(z)$, $k=1,\dots,n$, und $q_k\in\mathbb{Q}(z)$,
+mit $p_k\in\mathbb{Q}(x)$, $k=1,\dots,n$, und $q_k\in\mathbb{Q}(x)$,
 $k=1,\dots,m$.
 Da $\vartheta$ eine algebraisches Element über $\mathbb{Q}$ ist, welches
 die Identität
 \[
-\vartheta^2 = az^2 +bz +c
+\vartheta^2 = ax^2 +bx +c
 \]
 mit $a,b,c\in\mathbb{Q}$ erfüllt, können die höheren Potenzen
 $\vartheta^{2l}$ und $\vartheta^{2l+1}$ durch Potenzen des Radikanden
@@ -51,15 +51,15 @@ ersetze werden:
 \begin{align*}
 \vartheta^{2l}
 &=
-(az^2 + bz + c)^l
+(ax^2 + bx + c)^l
 &&\text{und}&
 \vartheta^{2l+1}
 &=
-(az^2 + bz + c)^l \vartheta.
+(ax^2 + bx + c)^l \vartheta.
 \end{align*}
-Es ist daher möglich, die Funktion $f(z)$ in der einfacheren Form
+Es ist daher möglich, die Funktion $f(x)$ in der einfacheren Form
 \begin{equation}
-f(z)
+f(x)
 =
 \frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
 \label{buch:algint:wurzel:eqn:funktion}
@@ -69,20 +69,20 @@ Gesucht ist also eine Stammfunktion von
 \[
 f
 \in
-\mathbb{Q}(z,\vartheta)
+\mathbb{Q}(x,\vartheta)
 =
 \biggl\{
 \frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
 \;
 \bigg|
 \;
-p_k,q_k\in\mathbb{Q}(z), k=0,1
+p_k,q_k\in\mathbb{Q}(x), k=0,1
 \biggr\}
 \]
 als elementare Funktion.
 Da schon die Stammfunktionen von rationalen Funktionen nicht unbedingt
 rational sein müssen, kann man nicht erwarten, dass eine Stammfunktion
-einer Funktion in $\mathbb{Q}(z,\vartheta)$ in diesem Körper liegen wird.
+einer Funktion in $\mathbb{Q}(x,\vartheta)$ in diesem Körper liegen wird.
 Es werden also Erweiterungen des Körpers um weitere Funktionen nötig sein,
 um das Problem lösen zu können.
 
@@ -114,15 +114,15 @@ q_0^2-q_1^2\vartheta^2
 \\
 &=
 \frac{
-p_0q_0+p_1q_1(az^2+bz+c)
+p_0q_0+p_1q_1(ax^2+bx+c)
 }{
-q_0^2-q_1^2(az^2+bz+c)
+q_0^2-q_1^2(ax^2+bx+c)
 }
 +
 \frac{
 p_0q_1+p_1q_0
 }{
-q_0^2-q_1^2(az^2+bz+c)
+q_0^2-q_1^2(ax^2+bx+c)
 }
 \vartheta
 \notag
@@ -134,26 +134,26 @@ p + q\vartheta
 erweitert.
 Daraus liest man ab, dass der Funktionenkörper sogar als
 \[
-\mathbb{Q}(z,\vartheta)
+\mathbb{Q}(x,\vartheta)
 =
 \{
 p+q\vartheta
 \mid
-p,q\in\mathbb{Q}(z)
+p,q\in\mathbb{Q}(x)
 \}
 \]
 geschrieben werden kann.
 
-Die Relation $\vartheta^2-(az^2+bz+c)=0$ für das algebraische Element
+Die Relation $\vartheta^2-(ax^2+bx+c)=0$ für das algebraische Element
 $\vartheta$ bedeutet auch, dass
 \[
 \vartheta
 =
-\frac{az^2+bz+c}{\vartheta}
+\frac{ax^2+bx+c}{\vartheta}
 \]
 und damit, dass der Funktionenkörper auch aus Linearkombinationen
 \begin{equation}
-\mathbb{Q}(z,\vartheta)
+\mathbb{Q}(x,\vartheta)
 =
 \biggl\{
 p+q\frac{1}{\vartheta}
@@ -162,7 +162,7 @@ p,q\in\mathbb{Q}
 \biggr\}
 \label{buch:intalg:wurzel:eqn:linkombthetainverse}
 \end{equation}
-von $1$ und $1/\vartheta$ mit Koeffizienten in $\mathbb{Q}(z)$ erzeugen.
+von $1$ und $1/\vartheta$ mit Koeffizienten in $\mathbb{Q}(x)$ erzeugen.
 
 %
 % Das Integrationsproblem
@@ -171,29 +171,29 @@ von $1$ und $1/\vartheta$ mit Koeffizienten in $\mathbb{Q}(z)$ erzeugen.
 \label{buch:intalg:wurzel:subsection:integration}}
 Die in Abschnitt~\ref{buch:intalg:wurzel:subsection:rationalisierung}
 erfolgte Rationalisierung zeigt, dass eine rationale Funktion der Form
-$R(z,\vartheta)$ immer in die Form \eqref{buch:intalg:wurzel:eqn:linkombtheta}
+$R(x,\vartheta)$ immer in die Form \eqref{buch:intalg:wurzel:eqn:linkombtheta}
 oder \eqref{buch:intalg:wurzel:eqn:linkombthetainverse} gebracht
 werden kann.
 Es müssen also nur noch Integrale der Form
 \begin{equation*}
 \int
-p(z)+q(z)\vartheta
-\,dz
+p(x)+q(x)\vartheta
+\,dx
 \qquad\text{oder}\qquad
 \int
-p(z)+q(z)\frac{1}{\vartheta}
-\,dz
+p(x)+q(x)\frac{1}{\vartheta}
+\,dx
 \end{equation*}
-gelöst werden, wobei $p$ und $q$ rationale Funktionen in $\mathbb{Q}(z)$
+gelöst werden, wobei $p$ und $q$ rationale Funktionen in $\mathbb{Q}(x)$
 sind.
 Das Integral über den ersten Summanden ist das Integral einer rationalen
 Funktion und kann daher mit der Methode von Kapitel~\ref{chapter:ratint}
 integriert werden.
 Es bleibt daher nur noch Integrale der Form
 \begin{equation}
-\int q(z)\,\vartheta\,dz
+\int q(x)\,\vartheta\,dx
 \qquad\text{oder}\qquad
-\int \frac{q(z)}{\vartheta}\,dz
+\int \frac{q(x)}{\vartheta}\,dx
 \label{buch:intalg:wurzel:eqn:integrand}
 \end{equation}
 zu bestimmen.
@@ -205,11 +205,11 @@ Um den Grund zu verstehen, betrachten wir die Ableitung
 \begin{align*}
 \vartheta^2
 &=
-az^2+bz+c
+ax^2+bx+c
 \\
 2\vartheta\vartheta'
 &=
-2az + b
+2ax + b
 \intertext{und drücken $\vartheta'$ durch $\vartheta$ als}
 \vartheta'
 &=
@@ -225,19 +225,19 @@ aus.
 Man kann also $1/\vartheta$ durch die Ableitung $\vartheta'$ ersetzen,
 was die Möglichkeit der partiellen Integration eröffnet.
 
-Die rationale Funktion $q(z)$ im rechten Integral von
+Die rationale Funktion $q(x)$ im rechten Integral von
 \eqref{buch:intalg:wurzel:eqn:integrand} ist ein Bruch von Polynomen
-von $z$.
+von $x$.
 Durch Dividieren mit Rest lässt es sich schreiben als Summe
 \begin{equation}
-q(z)
+q(x)
 =
-\varphi(z)
+\varphi(x)
 +
-w(z)
+w(x)
 \qquad
-\varphi(z)\in\mathbb{Q}[z],
-w(z)\in\mathbb{Q}(z)
+\varphi(x)\in\mathbb{Q}[x],
+w(x)\in\mathbb{Q}(x)
 \label{buch:intalg:wurzel:eqn:summe}
 \end{equation}
 eines Polynoms und einer vollständig gekürzten rationalen Funktion,
@@ -253,9 +253,9 @@ lässt sich auf ein Integral nur von $1/\vartheta$ reduzieren,
 wie der folgende Satz zeigt.
 
 \begin{satz}
-Sei $\varphi\in\mathbb{Q}[z]$ ein Polynom mit rationalen Koeffizienten
-und $\vartheta=\!\sqrt{az^2+bz+c}$.
-Dann gibt es ein Polynom $\psi\in\mathbb{Q}[z]$ mit 
+Sei $\varphi\in\mathbb{Q}[x]$ ein Polynom mit rationalen Koeffizienten
+und $\vartheta=\!\sqrt{ax^2+bx+c}$.
+Dann gibt es ein Polynom $\psi\in\mathbb{Q}[x]$ mit 
 \begin{equation}
 \int\frac{\varphi}{\vartheta}
 =
@@ -281,9 +281,9 @@ Die Ableitung von $\vartheta$ ist
 \[
 \vartheta'
 =
-\frac{2az+b}{2\vartheta}
+\frac{2ax+b}{2\vartheta}
 =
-\frac{az+b/2}{\vartheta}.
+\frac{ax+b/2}{\vartheta}.
 \]
 Eingesetzt in 
 \eqref{buch:intalg:wurzel:eqn:polytheta'} und mit $\vartheta$ multipliziert
@@ -291,20 +291,20 @@ erhält man die Gleichung
 \begin{align*}
 \varphi
 &=
-\psi'\vartheta^2 + \psi (az+b/2) + A
+\psi'\vartheta^2 + \psi (ax+b/2) + A
 \\
 \varphi
 &=
-\psi' (az^2+bz+c) + \psi (az+b/2) + A
+\psi' (ax^2+bx+c) + \psi (ax+b/2) + A
 \end{align*}
 Um diese Differentialgleichung für die Funktion $\psi$ zu lösen, verwenden
 wir Ansätze der Form
 \[
 \renewcommand{\arraycolsep}{1pt}
 \begin{array}{rcrcrcrcrcccrcr}
-\varphi&=& \varphi_mz^m &+& \varphi_{m-1}z^{m-1} &+&   \varphi_{m-2}z^{m-2} &+&   \varphi_{m-3}z^{m-3} &+& \ldots &+& \varphi_1 z &+& \varphi_0\phantom{.}\\
-\psi   &=&              & &    \psi_{m-1}z^{m-1} &+&      \psi_{m-2}z^{m-2} &+&      \psi_{m-3}z^{m-3} &+& \ldots &+&    \psi_1 z &+&    \psi_1\phantom{.}\\
-\psi'  &=&              & &                      & & (m-1)\psi_{m-1}z^{m-2} &+& (m-2)\psi_{m-2}z^{m-3} &+& \ldots &+&   2\psi_2 z &+&    \psi_1.
+\varphi&=& \varphi_mx^m &+& \varphi_{m-1}x^{m-1} &+&   \varphi_{m-2}x^{m-2} &+&   \varphi_{m-3}x^{m-3} &+& \ldots &+& \varphi_1 x &+& \varphi_0\phantom{.}\\
+\psi   &=&              & &    \psi_{m-1}x^{m-1} &+&      \psi_{m-2}x^{m-2} &+&      \psi_{m-3}x^{m-3} &+& \ldots &+&    \psi_1 x &+&    \psi_1\phantom{.}\\
+\psi'  &=&              & &                      & & (m-1)\psi_{m-1}x^{m-2} &+& (m-2)\psi_{m-2}x^{m-3} &+& \ldots &+&   2\psi_2 x &+&    \psi_1.
 \end{array}
 \]
 Durch Ausmultiplizieren und Koeffizientenvergleich entstehen die Gleichungen
@@ -414,7 +414,7 @@ berechnet.
 \subsection{Partialbruchzerlegung des gebrochenen Teils}
 Es bleibt jetzt also noch das Integral der Form
 \[
-\int \frac{w(z)}{\vartheta}\,dz
+\int \frac{w(x)}{\vartheta}\,dx
 \]
 zu berechnen.
 
@@ -429,7 +429,7 @@ Durch Nachrechnen der Ableitung von
 =
 \frac{1}{\!\sqrt{a}}
 \log\Bigl(
-2az + b - 2\!\sqrt{a} \vartheta
+2ax + b - 2\!\sqrt{a} \vartheta
 \Bigr)
 \]
 bekommt man
@@ -438,26 +438,26 @@ bekommt man
 &=
 -\frac{1}{\!\sqrt{a}}
 \cdot
-\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
 \cdot
 (2a - 2\!\sqrt{a}\vartheta')
 \\
 &=
 -\frac{1}{\!\sqrt{a}}
 \cdot
-\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
 \cdot
 \biggl(
-2a -2\!\sqrt{a}\frac{2az+b}{2\vartheta}
+2a -2\!\sqrt{a}\frac{2ax+b}{2\vartheta}
 \biggr)
 \\
 &=
 -\frac{1}{\!\sqrt{a}}
 \cdot
-\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
 \cdot
 \frac{
-4a\vartheta -2\!\sqrt{a}(2az+b)
+4a\vartheta -2\!\sqrt{a}(2ax+b)
 }{
 2\vartheta
 }
@@ -465,14 +465,14 @@ bekommt man
 &=
 -\frac{1}{\!\sqrt{a}}
 \cdot
-\frac{1}{2az+b-2\!\sqrt{a}\vartheta}
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
 \cdot
 \frac{
 2\!\sqrt{a}\cdot
 \bigl(
 \!\sqrt{a}\vartheta
 -
-2az-b
+2ax-b
 \bigr)
 }{
 2\vartheta
@@ -482,7 +482,7 @@ bekommt man
 \end{align*}
 Die Funktion $\Theta$ ist also eine Stammfunktion von $1/\vartheta$.
 Sie liegt in einem Erweiterungskörper, dem die Konstante $\!\sqrt{a}$
-und der Logarithmus $\log(2az+b-2\!\sqrt{a}\vartheta)$ hinzugefügt
+und der Logarithmus $\log(2ax+b-2\!\sqrt{a}\vartheta)$ hinzugefügt
 werden ist.
 Damit der Logarithmus hinzugefügt werden kann, muss auch noch $b$
 hinzugefügt werden.
@@ -490,7 +490,7 @@ Somit ist
 \[
 \Theta
 \in
-\mathbb{Q}\bigl(z,\theta,\!\sqrt{a},b,\log(\!\sqrt{a}\vartheta-2az-b)\bigr)
+\mathbb{Q}\bigl(x,\theta,\!\sqrt{a},b,\log(\!\sqrt{a}\vartheta-2ax-b)\bigr)
 \]
 eine elementare Stammfunktion von $1/\vartheta$.
 

@@ -301,7 +301,9 @@ Es ist also nötig, Integrale der Form
 \begin{equation}
 \int \frac{a(\vartheta)}{b(\vartheta)^k}
 \qquad
+\text{mit $
 a(\vartheta), b(\vartheta)\in F[\vartheta]
+$}
 \label{buch:intalg:risch:eqn:ratpart}
 \end{equation}
 zu bestimmen, mit dem quadratfreien Nennerpolynom
@@ -437,22 +439,22 @@ werden, ob aus der Teilerfreiheit von $b(\vartheta)$ und $b'(\vartheta)$
 auch folgt, dass $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind.
 
 %
-% Die Methode von Rothstein-Trager
+% Standardform der Stammfunktion
 %
-\subsubsection{Die Methode von Rothstein-Trager}
+\subsubsection{Standardform der Stammfunktion}
 Die Methode von Rothstein-Trager von
 Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
 bestimmt die Stammfunktion einer rationalen Funktion mit quadratfreiem
 Nenner und einem Zähler kleineren Grades und integriert damit den
 rationalen Teil eines rationalen Integranden.
-Die Methode soll jetzt auf Funktionen 
+Die Methode soll auf Funktionen 
 \begin{equation}
 \frac{a(\vartheta)}{b(\vartheta)}
 \qquad \text{mit}\quad \left\{
 \begin{array}{l}
-a(\vartheta),b(\vartheta)\in F(\vartheta),\\
+a(\vartheta),b(\vartheta)\in F[\vartheta],\\
 \text{$a(\vartheta)$ und $b(\vartheta)$ teilerfremd,}\\
-\text{$b(\vartheta)$ quadratfrei,}\\
+\text{$b(\vartheta)$ quadratfrei und normiert,}\\
 \deg a(\vartheta) < \deg b(\vartheta)\\
 \end{array}
 \right.
@@ -470,26 +472,94 @@ ist, wenn $b(\vartheta)$ ein zulässiger Nenner ist.
 
 Nach dem Liouville-Prinzip muss die Stammfunktion, falls sie elementar ist,
 die Form
-\[
+\begin{equation}
 \int
 \frac{a(\vartheta)}{b(\vartheta)}
 =
 v_0(\vartheta)
 +
 \sum_k c_k\log v_k(\vartheta)
-\]
+\label{buch:intalg:risch:rt:eqn:liouvilleint}
+\end{equation}
 haben.
 Für den Integranden muss entsprechend gelten, dass
-\[
+\begin{equation}
 \frac{a(\vartheta)}{b(\vartheta)}
 =
 Dv_0(\vartheta)
 +
 \sum_k c_k\frac{D v_k(\vartheta)}{v_k(\vartheta)}
-\]
+\label{buch:intalg:risch:rt:eqn:liouvillediff}
+\end{equation}
 ist.
 Darin sind die $c_k$ Konstanten und $v_k(\vartheta)\in F(\vartheta)$.
 Die Methode von Rothstein-Trager findet die $c_k$ und die $v_k(\vartheta)$.
+
+Die Darstellung
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+der Stammfunktion ist nicht die einzig mögliche.
+Auch bei der Integration rationaler Funktionen waren Umformungen
+verwendet worden, um der Stammfunktion genau die Form zu geben,
+die die Methode von Rothstein-Trager später fand.
+Im Folgenden sollen ähnliche Vereinheitlichungen für die Darstellung
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+vorgenommen werden.
+
+In der Darstellung \eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+der Stammfunktion sind die $v_k(\vartheta) \in F(\vartheta)$ rationale
+Funktionen von $\vartheta$.
+Im Beweis des
+Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
+über die Stammfunktion rationaler Funktionen
+wurde das Wissen aus der Methode von Bernoulli verwendet, dass sich die
+$v_k$ auch als normierte Polynome gewählt werden können.
+Dies trifft aber auch im vorliegenden Fall zu.
+Ist nämlich die $v_k(\vartheta)$
+als Brüche
+\[
+v_k(\vartheta)
+=
+\frac{z_k(\vartheta)}{w_k(\vartheta)}
+\]
+von Zähler $z_k(\vartheta)$ und Nenner $w_k(\vartheta)$
+mit $z_k(\vartheta), w_k(\vartheta)\in F[\vartheta]$, dann können
+wir \eqref{buch:intalg:risch:rt:eqn:liouvilleint} in der Form
+\begin{equation*}
+\int
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_k c_k\log v_k(\vartheta)
+=
+v_0(\vartheta)
++
+\sum_k c_k\log z_k(\vartheta)
+-
+\sum_k c_k\log w_k(\vartheta)
+\end{equation*}
+schreiben.
+Die Argumente der Logarithmen sind jetzt sogar Polynome $\vartheta$.
+Dies zeigt, dass man annehmen darf, dass in
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+$v_k(\vartheta)\in F[\vartheta]$ gilt.
+
+Wir möchten zeigen, dass man annehmen darf, dass $v_k(\vartheta)$
+normiert ist.
+Dazu schreiben wir
+$v_k(\vartheta) = v_{\deg v_0(\vartheta)} \bar{v}_k(\vartheta)$, worin
+$\bar{v}_k(\vartheta)$ ein normiertes Polynom ist.
+Dann ist
+\[
+c_k\log v_k(\vartheta)
+=
+c_k\log v_{\deg v_k(\vartheta)}
++
+c_k\log \bar{v}_k(\vartheta).
+\]
+Indem wir den Ausdruck $c_k\log v_{\deg v_k(\vartheta)}\in F$ zu
+$v_0(\vartheta)$ hinzufügen, können wir annehmen, das $v_k(\vartheta)$
+\emph{normiert} ist.
 
 Falls mehrere der Koeffizienten $c_k$ gleich sind, dann können wir 
 die zugehörigen Funktionen $v_k$ zusammenfassen.
@@ -513,8 +583,157 @@ D(c\log v(\vartheta))
 \sum_{c_k=c} c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}.
 \end{align*}
 Man darf also immer annehmen, dass die $c_k$ in der Liouville-Form der
-Stammfunktion alle verschieden sind.
+Stammfunktion alle \emph{verschieden} sind.
 
+Falls zwei Polynome $v_k(\vartheta)$ und $v_l(\vartheta)$ einen nichttrivialen
+gemeinsamen Faktor haben, dann können wir mit
+$g(\vartheta)=\operatorname{ggT}(v_k(\vartheta),v_l(\vartheta))$
+\[
+v_k(\vartheta) = w_k(\vartheta) g(\vartheta)
+\qquad\text{und}\qquad
+v_l(\vartheta) = w_l(\vartheta) g(\vartheta)
+\]
+schreiben.
+Es gilt dann
+\[
+c_i\log v_i(\vartheta) + c_j\log v_j(\vartheta)
+=
+c_i\log w_i(\vartheta) + c_j \log w_j(\vartheta) + (c_i+c_j)\log g(\vartheta).
+\]
+Die Argumente der Logarithmen auf der rechten Seite haben keine 
+gemeinsamen Faktoren.
+Man darf also annehmen, dass die $v_k(\vartheta)$ \emph{teilerfremd} sind.
+
+Falls $v_k(\vartheta)$ mehrfache Faktoren hat, können diese wie folgt
+eliminiert werden.
+In der quadratfreien Faktorisierung
+\[
+v_k(\vartheta) = p_0 p_1(\vartheta) p_2(\vartheta)^2 \dots p_l(\vartheta)^l
+\]
+von $v_k(\vartheta)$ sind alle Faktoren $p_i(\vartheta)\in F[\vartheta]$
+quadratfrei.
+Der Logarithmus ist
+\[
+\log v_k(\vartheta)
+=
+\log p_0
++
+\log p_1(\vartheta)
++
+2 \log p_2(\vartheta)
++
+\dots
++
+l\log p_l(\vartheta)
+\]
+ein Summe mit lauter quadratfreien Argumenten des Logarithmus.
+Man darf also annehmen, dass die $v_k(\vartheta)$ sogar \emph{quadratfrei} sind.
+
+Der Term $v_0(\vartheta)$ kam in der Methode von Rothstein-Trager für
+rationale Funktionen nicht vor, da diese nur den logarithmischen Teil
+geliefert hat.
+Im vorliegenden Fall ist die Sachlage etwas komplizierter.
+Sie wird geklärt durch die folgenden zwei Lemmata, sie später
+in den Abschnitten~\ref{buch:intalg:risch:logarithmisch}
+und \ref{buch:intalg:risch:exponentiell}
+für logarithmische bzw.~exponentielle Erweiterungen bewiesen.
+
+\begin{lemma}
+\label{buch:intalg:risch:lemma:v0log}
+Ist $\vartheta$ eine logarithmische Körpererweiterung von $F$, dann ist
+in der Stammfunktion 
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+eines rationalen Teils immer $v_0(\vartheta)=0$.
+\end{lemma}
+
+\begin{lemma}
+\label{buch:intalg:risch:lemma:v0exp}
+Ist $\vartheta$ eine exponentielle Körpererweiterung von $F$ mit
+$D\vartheta = \vartheta Du$, dann ist in der Stammfunktion 
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+eines rationalen Teils immer $v_0(\vartheta)\in F$.
+\end{lemma}
+
+Mit diesen zwei Lemmata ausgerüstet können wir jetzt wieder zeigen,
+dass die $v_k(\vartheta)$ so gewählt werden können, dass $b(\vartheta)$
+das Produkt der $v_k(\vartheta)$ ist.
+Zu diesem Zweck nehmen wir an, dass
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0 + \sum_{i=1}^m c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)},
+\label{buch:intalg:risch:uebersicht:eqn:stammfunktion}
+\end{equation}
+und
+verwenden wir die Notation
+\[
+u_k(\vartheta)
+=
+\prod_{\scriptstyle i=1\atop\scriptstyle i\ne k} v_i(\vartheta)
+\qquad\text{und}\qquad
+v(\vartheta)
+=
+\prod_{i=1} v_i(\vartheta).
+\]
+Wir wollen zeigen, dass $b(\vartheta)=v(\vartheta)$.
+
+Wir multiplizieren \eqref{buch:intalg:risch:uebersicht:eqn:stammfunktion}
+mit $b(\vartheta)$ und $v(\vartheta)$ und erhalten
+\[
+a(\vartheta) v(\vartheta)
+=
+v_0 b(\vartheta) \prod_{i=1}^m v_i(\vartheta)
++
+\sum_{i=1}^m Dv_i(\vartheta) u_i(\vartheta) b(\vartheta).
+\]
+$b(\vartheta)$ teilt jeden Term auf der rechten Seite, ist aber teilerfremd
+zu $a(\vartheta)$, also muss $b(\vartheta)\mid a(\vartheta)$ teilen.
+Andererseits teilt $v_k(\vartheta)$ die linke Seite, den ersten Term
+auf der rechten Seite und alle Terme der Summe ausser dem Term mit $i=k$.
+Daher muss $v_k(\vartheta)$ auch letzteren Term
+\[
+c_k Dv_k(\vartheta) u_k(\vartheta) b(\vartheta)
+\]
+teilen.
+
+Für logarithmische Erweiterungen folgt jetzt bereits aus der Quadratfreiheit
+von $v_k(\vartheta)$, dass $v_k(\vartheta) \mid b(\vartheta)$.
+Für exponentielle Erweiterungen könnte $v_k(\vartheta)$ auch ein
+Teiler von $Dv_k(\vartheta)$ sein.
+Dann müsste aber $v_k(\vartheta)$ ein Monom sein, was nicht zulässig
+ist, weil der Faktor $\vartheta$ von $b(\vartheta)$ für exponentielle
+Erweiterungen ausgeschlossen wurde.
+Da jeder Faktor $v_k(\vartheta)$ ein Teiler ist, gilt auch
+$v(\vartheta)\mid b(\vartheta)$.
+Da sowohl $b(\vartheta)$ wie auch $v(\vartheta)$ normiert sind, folgt
+$b(\vartheta) = v(\vartheta)$.
+
+Wir fassen die gefundenen Standardisierungen der Stammfunktion im folgenden
+Satz zusammen.
+
+\begin{satz}[Standardform]
+\label{buch:intalg:risch:satz:standardform}
+Sei $\vartheta$ eine logarithmische oder exponentielle Erweiterung.
+Falls der rationale Teil $a(\vartheta)/b(\vartheta)$ eine elementare
+Stammfunktion hat, dann gibt es $v_0\in F$ und normierte, quadratfreie,
+paarweise teilerfremde Polynome $v_k(\vartheta)\in F[\vartheta]$ mit
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0 + \sum_{k=1}^m \frac{Dv_k(\vartheta)}{v_k(\vartheta)}
+\qquad\text{und}\qquad
+b(\vartheta)
+=
+\prod_{k=1}^m v_k(\vartheta).
+\label{buch:intalg:risch:satz:eqn:standardform}
+\end{equation}
+Für eine logarithmische Erweiterung ist $v_0=0$.
+\end{satz}
+
+%
+% Die Methode von Rothstein-Trager
+%
+\subsubsection{Die Methode von Rothstein-Trager}
 Um die Methode von Rothstein-Trager auf die vorliegende Situation
 zu übertragen, übersetzen wir das Resultat des
 Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}.
@@ -534,7 +753,7 @@ v_k(\vartheta)
 F[\vartheta]
 \]
 für den grössten gemeinsamen Teiler.
-Wir vermuten dann, die Summe der $c_k\log v_k(\vartheta)$ die
+Wir vermuten dann, dass die Summe der $c_k\log v_k(\vartheta)$ die
 Stammfunktion
 \[
 \int
@@ -556,61 +775,143 @@ c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}
 \]
 Wenn dies tatsächlich die Stammfunktion in der Form sein soll, die
 das Liouville-Prinzip verspricht, dann dürfen die Logarithmus-Terme
-nicht vorkommen, d.~h.~es muss $Dc_k=0$ sein oder $c_k$ ist konstant.
+nicht vorkommen, d.~h.~es muss $Dc_k=0$ sein oder $c_k$ muss konstant
+sein.
 
 \begin{satz}[Rothstein-Trager]
+\label{buch:intalg:risch:satz:rothstein-trager-allgemein}
 Gegeben ist eine logarithmische oder exponentielle Körpererweiterung
 $F\subset F(\vartheta)$ und ein rationaler Teil wie in 
 \eqref{buch:intalg:risch:eqn:a(theta)/b(theta)}.
 \begin{enumerate}
-\item Die Stammfunktion von $a(\vartheta)/b(\vartheta)$ ist elementar
-genau dann, wenn die einzigen Elemente $c\in F$, für die
+\item Wenn die Stammfunktion von $a(\vartheta)/b(\vartheta)$ elementar ist,
+dann sind die einzigen Elemente $c\in F$, für die
 \[
 a(\vartheta)-c\cdot Db(\vartheta)
 \qquad\text{und}\qquad
 b(\vartheta)
 \]
-einen nichttrivialen gemeinsamen Teiler haben, Konstanten sind.
+einen nichttrivialen gemeinsamen Teiler haben, Konstanten.
 \item
-Falls die Stammfunktion $a(\vartheta)/b(\vartheta)$ elementar ist,
-dann gilt
-\[
-\frac{a(\vartheta)}{b(\vartheta)}
-=
-v_0(\vartheta)
-+
-\sum_{i=1}^m c_i \frac{Dv_i(\vartheta)}{v_i(\vartheta)},
-\]
-wobei die $c_i$ die verschiedenen Konstanten sind, für die
-$a(\vartheta) - c\cdot Db(\vartheta)$ und $b(\vartheta)$
-einen nichttrivialen gemeinsamen Teiler haben und
-\[
-v_i(\vartheta)
+Falls die einzigen Elemente $c\in F$, für die 
+$a(\vartheta)-c\cdot Db(\vartheta)$
+und
+$b(\vartheta)$
+einen nichttrivialen gemeinsamen Teiler in $F[\vartheta]$ haben,
+Konstanten sind, dann sind die Polynome
+\begin{equation}
+v_k(\vartheta)
 =
 \operatorname{ggT}(
-a(\vartheta) - c\cdot Db(\vartheta), b(\vartheta)
+a(\vartheta) - c_k\cdot Db(\vartheta), b(\vartheta)
 ).
+\label{buch:intalg:risch:rothsteintrager:eqn:vk}
+\end{equation}
+teilerfremd und haben das Produkt
+\[
+b(\vartheta) = \prod_{k=1}^m v_k(\vartheta).
 \]
 \end{enumerate}
 \end{satz}
 
+Man beachte, dass dieser Satz noch nicht die ganze Aussage des
+Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager} auf den
+Fall einer Erweiterung $F\subset F(\vartheta)$ verallgemeinert.
+Es fehlt noch die Aussage, dass sich aus den Elementen $v_k(\vartheta)$
+und Konstanten $c_k$ tatsächlich die Stammfunktion konstruieren lässt.
+Im Fall einer exponentiellen Erweiterung ist auch $v_0$ noch nicht definiert.
+Der Beweis dieser Aussagen ist jedoch von der Art der Erweiterung abhängig
+und wird daher später für jede Art von Erweiterung separat nachgeholt.
+
+\begin{proof}
+Wir orientieren uns für den Beweis an der Vorgehensweise im Beweis von
+Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager} über die
+Methode von Rothstein-Trager für rationale Funktionen.
+
+Falls die Stammfunktion elementar ist, dann hat sie nach 
+Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+die Form
+\[
+\int \frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_{k=1}^m c_k\log v_k(\vartheta)
+\]
+mit $v_0(\vartheta)\in F(\vartheta)$ und $v_k(\vartheta)\in F[\vartheta]$.
+Nach Lemma~\ref{buch:intalg:risch:lemma:v0log} und
+\ref{buch:intalg:risch:lemma:v0exp}
+muss $v_0(\vartheta)=0$ bzw.~$v_0(\vartheta)\in F$ sein.
+
+Seien jetzt die $c_k$ die einzigen Elemente $c\in F$, für die
+$a(\vartheta)-c\cdot Db(\vartheta)$ und $b(\vartheta)$ einen nichttrivialen
+gemeinsamen Teiler in $F[\vartheta]$ haben, und $v_k(\vartheta)$ wie in
+\eqref{buch:intalg:risch:rothsteintrager:eqn:vk} definiert.
+
+Ist $w=\operatorname{ggT}(v_i(\vartheta),v_j(\vartheta))$ mit $i\ne j$, dann
+ist 
+\begin{align*}
+w&\mid (a(\vartheta)-c_i\cdot Db(\vartheta))\\
+w&\mid (a(\vartheta)-c_j\cdot Db(\vartheta))\\
+w&\mid \phantom{(}b(\vartheta).\phantom{)}
+\end{align*}
+Folglich ist $w$ auch ein Teiler von $(c_i-c_j) Db(\vartheta)\ne 0$.
+Da $b(\vartheta)$ quadratfrei ist, können $b(\vartheta)$ und $Db(\vartheta)$
+keinen gemeinsamen Teiler haben, also muss $w=1$ sein.
+Die Polynome $v_k(\vartheta)$ sind also teilerfremd.
+
+Wir betrachten jetzt das Produkt
+\[
+r(\vartheta) = \prod_{k=1}^m v_k(\vartheta).
+\]
+Da $v_k(\vartheta)\mid b(\vartheta)$ ist, gibt es ein Polynom $s(\vartheta)$
+derart, dass
+\begin{equation}
+b(\vartheta) = r(\vartheta) s(\vartheta).
+\label{buch:intalg:risch:rt:eqn:b=rs}
+\end{equation}
+Wir wollen zeigen, dass $s(\vartheta)=1$ ist.
+Falls der Grad $\deg s(\vartheta)>0$ ist, suchen wir Elemente $z_0$, für
+die 
+$a(\vartheta) - z\cdot Db(\vartheta)$ und $s(\vartheta)$ einen nichttrivialen
+gemeinsamen Teiler $t(\vartheta)$ haben.
+Ein solcher Teiler müsste auch ein Teiler von $b(\vartheta)$ sein.
+Die einzigen Zahlen $z$, für die dies möglich ist, müssten die Zahlen
+$c_k$ sein, $z_0$ ist als eines der $c_k$.
+Dann ist aber $t(\vartheta)$ ein Teiler von $v_k(\vartheta)$ und von
+$s(\vartheta)$, er kommt also im Produkt 
+\eqref{buch:intalg:risch:rt:eqn:b=rs}
+zweimal vor, im Widerspruch zur Tatsache, dass $b(\vartheta)$ quadratfrei
+ist.
+Der Widerspruch zeigt, dass $\deg s(\vartheta)=0$ ist und dass
+$b(\vartheta)=r(\vartheta)$.
+\end{proof}
+
+Die von Satz~\ref{buch:intalg:risch:satz:rothstein-trager-allgemein}
+formulierte Bedingung zur Bestimmung der Koeffizienten ist noch nicht
+optimal.
+Die Durchführung des euklidischen Algorithmus liefert aber tatsächlich
+algebraische Gleichungen zur Bestimmung von $c_k$, wie spätere Beispiele
+zeigen werden.
+In Kapitel~\ref{chapter:resultate} wird mit der Resultanten ausserdem
+ein elegantes algebraisches Werkzeug zur Bestimmung der Koeffizienten
+angegeben.
 
 
 %
-% Rekursion
+% Hindernisse zur Existenz einer elementaren Stammfunktion
 %
-\subsubsection{Rekursion}
+\subsubsection{Hindernisse zur Existenz einer elementaren Stammfunktion}
 Die Skizze des Algorithmus im vorangegangenen Abschnitt hat gezeigt,
 dass die Erweiterung der Vorgehensweise von Kapitel~\ref{chapter:ratint}
 Hindernisse für die Existenz einer Stammfunktion finden wird.
-Die Tatsache, dass die Methode von Rothstein-Trager Konstanten
+Die Forderung, dass die Methode von Rothstein-Trager Konstanten
 finden muss, obwohl die Koeffizienten der beteiligten Polynome
-nichtkonstante Funktionen sein können.
+nichtkonstante Funktionen sein können, ist ein solches Hindernis.
 
 Der polynomielle Teil wird weitere Hindernisse zutage fördern.
 Ob die Stammfunktion des polynomiellen Teils existiert, hängt von
 den Koeffizienten von $s(\vartheta)$ ab.
-
 
 %
 % Risch-Algorithmus für logarithmische Erweiterungen
@@ -720,40 +1021,164 @@ Lemma~\ref{buch:intalg:risch:log:lemma:bDb} zeigt, dass die Methode
 von Hermite uneingeschränkt durchführbar ist.
 
 %
+% Der Beweis von Lemma 8.26
+%
+\subsubsection{Der Beweis von Lemma~\ref{buch:intalg:risch:lemma:v0log}}
+\begin{proof}[Beweis von von Lemma~\ref{buch:intalg:risch:lemma:v0log}]
+Wegen $v_0(\vartheta)\in F(\vartheta)$
+dürfen wir annehmen, dass
+\[
+v_0(\vartheta)
+=
+\frac{p(\vartheta)}{q(\vartheta)}
+\]
+mit teilerfremden Polynomen $p(\vartheta),q(\vartheta)\in F[\vartheta]$
+und $q(\vartheta)$ normiert.
+Für eine logarithmische Ableitung ist nach
+Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch}
+die Ableitung eines Polynoms in $F[\vartheta]$ wieder ein Polynom
+in $F[\vartheta]$ und die Ableitung eines normierten Polynoms ist
+von kleinerem Grad:
+$\deg Dq(\vartheta)<\deg q(\vartheta)$.
+Die Ableitung von $v_0(\vartheta)$ ist dann
+\[
+Dv_0(\vartheta)
+=
+\frac{
+Dp(\vartheta)\cdot q(\vartheta) - p(\vartheta)\cdot Dq(\vartheta)
+}{
+q(\vartheta)^2
+}
+=
+\frac{ Dp(\vartheta) }{ q(\vartheta) }
+-
+\frac{p(\vartheta)}{q(\vartheta)}\cdot\frac{Dq(\vartheta)}{q(\vartheta)}
+\]
+Selbst wenn $Dq(\vartheta)$ und $q(\vartheta)$ einen gemeinsamen Faktor haben,
+bleibt immer noch ein Faktor vom Grad mindestens 1 im Nenner, der gegen
+den Zähler $Dq(\vartheta)$ nicht gekürzt werden kann und daher im Nenner
+des zweiten Terms zweimal vorkommt.
+Somit ist der Nenner des zweiten Terms nicht quadratfrei.
+Da aber alle anderen Terme in
+\eqref{buch:intalg:risch:rt:eqn:liouvillediff}
+quadratfreien Nenner haben, muss auch $Dv_0(\vartheta)$ quadratfreien
+Nenner haben, es folgt $q(\vartheta)=1$.
+
+Sei jetzt also $\deg p(\vartheta)\ge 1$.
+Der Grad der Ableitung ist dann
+$\deg Dv_0(\vartheta) = \deg Dp(\vartheta) \ge 0$.
+Macht man alle Terme in 
+\eqref{buch:intalg:risch:rt:eqn:liouvillediff}
+gleichnamig, entsteht im Zähler der rechten Seite wegen dem Summanden
+$v_0(\vartheta)$ ein Zähler vom Grad, der mindestens so gross ist
+wie der Nennergrad.
+Auf der linken Seite ist der Zählergrad aber nach Voraussetzung 
+kleiner als der Nennergrad.
+Dieser Widerspruch zeigt, dass $v_0(\vartheta)=0$ sein muss.
+\end{proof}
+
+%
 % Rothstein-Trager für logarithmische Erweiterungen
 %
 \subsubsection{Rothstein-Trager für logarithmische Erweiterungen}
-Die Methode von Rothstein-Trager bestimmt die Stammfunktion 
+Die Methode von Rothstein-Trager bestimmt die Stammfunktion eines
+rationalen Teils $a(\vartheta)/b(\vartheta)$ aus den Elemente
+$c_k$ und $v_k(\vartheta)$, die in
+Satz~\ref{buch:intalg:risch:satz:rothstein-trager-allgemein}
+definiert worden sind.
+In der Tat wurde im Beweis jenes Satzes auch schon fast alles
+bewiesen, was der folgende Satz besagt.
+
+\begin{satz}[Rothstein-Trager]
+\label{buch:intalg:risch:satz:rothstein-trager-logarithmisch}
+Sei $F\subset F(\vartheta)$ eine logarithmische Erweiterung und 
 \[
-\int\frac{a(\vartheta)}{b(\vartheta)}
-\qquad a(\vartheta), b(\vartheta)\in F[\vartheta],\quad
-\deg a(\vartheta)<\deg b(\vartheta)
+f = \frac{a(\vartheta)}{b(\vartheta)}
 \]
-und quadratfreiem $b(\vartheta)$.
-Sie besagt, dass die in der Liouville-Form vorkommenden Konstanten
-für die Stammfunktion $c_i$ so sein müssen, dass
+ein rationaler Teil.
+Dann gilt:
+\begin{enumerate}
+\item
+$f$ hat eine elementare Stammfunktion genau dann, wenn die 
+Elemente $c\in F$, für die 
 \[
-a(\vartheta) - z\cdot Db(\vartheta)
-\qquad
-\text{und}
-\qquad
+a(\vartheta) - c \cdot Db(\vartheta)
+\qquad\text{und}\qquad
 b(\vartheta)
 \]
-teilerfremd sind.
-Da die Polynome Koeffizienten im Funktionenkörper $F$ haben, sind die
-$c_i$ a priori ebenfalls in $F$ oder in einer algebraischen Erweiterung
-von $K$.
-Nach dem Prinzip von Liouville muss aber $c_i$ in $K$ liegen.
-Gibt es Lösungen, die nicht konstant sind, dann gibt es auch keine
-elementare Stammfunktion.
-
-Sind die $c_i$ gefunden, können die zugehörigen Funktionen $v_i$ als
-\[
-v_i
+einen nichttrivialen gemeinsamen Teiler haben, Konstanten $c_k\in K$,
+$k=1,\dots,m$ sind.
+\item
+Hat $f$ eine elementare Stammfunktion, dann ist sie
+\begin{equation}
+\int f
 =
-\operatorname{ggT}(a(\vartheta) - c_i\cdot Db(\vartheta), b(\vartheta) )
+\int \frac{a(\vartheta)}{b(\vartheta)}
+=
+\sum_{k=1}^m c_i \log v_k(\vartheta).
+\label{buch:intalg:risch:satz:rtlog:summe}
+\end{equation}
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+Die einzige, im Beweis von
+Satz~\ref{buch:intalg:risch:satz:rothstein-trager-allgemein}
+noch nicht bewiesen Aussage ist, dass die Summe
+\eqref{buch:intalg:risch:satz:rtlog:summe}
+die Stammfunktion ist.
+Wir schreiben daher
+\[
+\bar{a}(\vartheta)
+=
+\sum_{k=1}^m b(\vartheta) c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}
+=
+\sum_{k=1}^m c_k Dv_k(\vartheta) u_k(\vartheta)
+\qquad\text{mit}\qquad
+u_k(\vartheta) = \frac{b(\vartheta)}{v_k(\vartheta)}
+=
+\prod_{\scriptstyle i=1 \atop\scriptstyle i\ne k}^m v_i(\vartheta)
 \]
-gefunden werden.
+Die gesuchte Aussage ist dann äquivalent dazu, dass
+$a(\vartheta)=\bar{a}(\vartheta)$ ist.
+Für alle $k$ gilt
+\[
+\bar{a}(\vartheta) - c_k Db(\vartheta)
+=
+\sum_{i=1}^m (c_i-c_k)Dv_i(\vartheta)u_i(\vartheta).
+\]
+Der Summand $i=k$ verschwindet auf der rechten Seite, alle
+anderen Summanden haben $v_k(\vartheta)$ als Teiler, da
+$v_k(\vartheta)\mid u_i(\vartheta)$ für $i\ne k$.
+Somit ist $v_k(\vartheta)$ ein gemeinsamer Teiler von
+$\bar{a}(\vartheta)-c_kDb(\vartheta)$ und $b(\vartheta)$.
+
+Nach Definition von $v_k(\vartheta)$ ist $v_k(\vartheta)$ auch ein
+Teiler von $a(\vartheta)-c_kDb(\vartheta)$.
+Aus
+\begin{align*}
+v_k(\vartheta)&\mid (\bar{a}(\vartheta)-c_kDb(\vartheta))\\
+v_k(\vartheta)&\mid (a(\vartheta)-c_kDb(\vartheta))
+\end{align*}
+folgt aber auch, dass $v_k(\vartheta)\mid (\bar{a}(\vartheta)-a(\vartheta))$
+ist.
+Da die $v_k(\vartheta)$ teilerfremd sind ist auch deren Produkt $b(\vartheta)$
+ein Teiler von $\bar{a}(\vartheta)-a(\vartheta)$.
+
+Nach Voraussetzung ist $\deg a(\vartheta)<\deg b(\vartheta)$.
+Da $\vartheta$ ein Logarithmus ist, ist nach
+Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch}
+auch
+$\deg Dv_k(\vartheta) < \deg v_k(\vartheta)$ und
+$\deg b(\vartheta) < \deg b(\vartheta)$ (an dieser Stelle wird
+gebraucht, dass die Erweiterung $\vartheta$ logarithmisch ist).
+Somit ist auch $\deg \bar{a}(\vartheta) < \deg b(\vartheta)$ und daher
+auch $\deg (\bar{a}(\vartheta)-a(\vartheta)) < \deg b(\vartheta)$.
+$b(\vartheta)$ kann aber nur Teiler eines Polynoms kleineren Grades sein,
+wenn dieses Polynom das Nullpolynom ist.
+Somit ist $\bar{a}(\vartheta)=a(\vartheta)$ und damit ist der
+Satz beweisen.
+\end{proof}
 
 Nachfolgend wird an zwei Beispielen gezeigt, wie die Stammfunktion mit
 der Methode von Rothstein-Trager gefunden werden kann.
@@ -1459,24 +1884,225 @@ p(\vartheta)
 \]
 Verallgemeinerte Polynome werden auch \emph{Laurent-Polynome} genannt.
 \index{Laurent-Polynom}%
+Das Paar $(l,k)=\deg p(\vartheta)$ heisst der \emph{Grad} des verallgemeinerten
+Polynoms.
 \end{definition}
 
 Die später zu entwickelnde Methode für den polynomiellen Teil muss also
 nicht nur mit Polynomen, sondern mit verallgemeinerten Polynomen umgehen
 können.
 
+\begin{lemma}
+\label{buch:intalg:risch:lemma:verallgabl}
+Die Ableitung eines verallgemeinerten Polynoms $p(\vartheta)$ ist
+wieder ein verallgemeinertes Polynom x den gleichen Graden.
+\end{lemma}
+
+\begin{proof}
+Wir berechnen zunächst die Ableitung
+\begin{align}
+Dp(\vartheta)
+&=
+\sum_{i=-k}^l Dp_i\vartheta^i
++
+\sum_{i=-k}^l p_i i \vartheta^{i-1} \vartheta Du
+\notag
+\\
+&=
+\sum_{i=-k}^l Dp_i\vartheta^i
++
+\sum_{i=-k}^l p_i i \vartheta^i Du
+\notag
+\\
+&=
+\sum_{i=-k}^l (Dp_i + ip_i Du ) \vartheta^i
+\label{buch:intalg:risch:lemma:eqn:verallgabl}
+\end{align}
+Wegen $Dp_i+ip_iDu\in F$ ist 
+\eqref{buch:intalg:risch:lemma:eqn:verallgabl}
+ein verallgemeinertes Polynom.
+
+Für den höchsten Koeffizienten $Dp_l +lp_lDu$ folgt wie im Beweis
+von Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell},
+dass dieser nicht verschwinden kann.
+
+Wäre $\bar{p}_{-k}=Dp_{-k} -k p_k Du=0$, dann wäre auch
+\[
+D(p_{-k}\vartheta^{-k})
+=
+\bar{p}_{-k}\vartheta^n
+=
+0,
+\]
+insbesondere müsste $p_{-k}\vartheta^{-k}=c$ eine Konstante sein.
+Dann wäre aber auch
+\[
+c\vartheta^k - p_{-k}=0,
+\]
+und somit wäre $\vartheta$ ein algebraisches Element, im Widerspruch
+dazu, dass $\vartheta$ transzendent ist.
+Der Widerspruch zeigt, dass auch der negative Grad gleich ist.
+\end{proof}
+
+%
+% Der Beweis von Lemma 8.27
+%
+\subsubsection{Der Beweis von Lemma~\ref{buch:intalg:risch:lemma:v0exp}}
+
+\begin{proof}[Beweis von Lemma~\ref{buch:intalg:risch:lemma:v0exp}]
+Wegen $v_0(\vartheta)=F(\vartheta)$ dürfen wir annehmen, dass
+\[
+v_0(\vartheta) = \frac{p(\vartheta)}{q(\vartheta)}
+\]
+mit teilerfremden Polynomen $p(\vartheta),q(\vartheta)\in F[\vartheta]$
+und $q(\vartheta)$ normiert.
+Die Ableitung ist
+\begin{equation}
+Dv_0(\vartheta)
+=
+\frac{Dp(\vartheta)}{q(\vartheta)}
+-
+\frac{p(\vartheta)\cdot Dq(\vartheta)}{q(\vartheta)^2}.
+\label{buch:intalg:risch:lemma827:Dv0}
+\end{equation}
+Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell} sind
+$Dp(\vartheta)$ und $Dq(\vartheta)$ wieder Polynome vom gleichen Grad.
+Da die linke Seite von \eqref{buch:intalg:risch:rt:eqn:liouvillediff}
+und die Terme $Dv_k(\vartheta)/v_k(\vartheta)$
+einen quadratfreien Nenner haben, muss auch der Nennen von
+\eqref{buch:intalg:risch:lemma827:Dv0} quadratfrei sein.
+Im Gegensatz zur Argumentation im Beweis von
+Lemma~\ref{buch:intalg:risch:lemma:v0log} kann das bei einer
+exponentiellen Erweiterung auch dadurch erreicht werden, dass
+$q(\vartheta)\mid Dq(\vartheta)$, dann folgt nach
+Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell} aber,
+dass $q(\vartheta)=\vartheta^n$ ist.
+Wir schliessen daher, dass
+\[
+v_0(\vartheta)
+=
+\sum_{i=-s}^t p_i\vartheta^i
+\]
+ein verallgemeinertes Polynom ist und müssen nur noch zeigen, dass $s=t=0$ ist.
+
+Die Ableitung eines verallgemeinerten Polynoms ist nach
+Lemma~\label{buch:intalg:risch:lemma:verallgabl}
+wieder ein verallgemeinertes Polynome mit dem gleichen Grad, in
+Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+wurde dafür die Notation
+\[
+Dv_0(\vartheta)
+=
+\sum_{i=-s}^t \bar{p}_i\vartheta^i
+\]
+verwendet.
+
+Da weder in der linken Seite von \eqref{buch:intalg:risch:lemma827:Dv0}
+noch in den Termen $Dv_k(\vartheta)/v_k(\vartheta)$ der Nenner $\vartheta$
+vorkommt, darf er auch in $Dv_0(\vartheta)$ nicht vorkommen.
+Es folgt $s=0$.
+
+Bringt man die rechte Seite von \eqref{buch:intalg:risch:lemma827:Dv0}
+auf einen gemeinsamen Nenner, muss der Grad des Zählers kleiner sein als
+der Grad des Nenners, weil dies auf der linken Seite der Fall ist.
+Alle Terme $Dv_k(\vartheta)/v_k(\vartheta)$ haben gleichen Zähler- und
+Nennergrad.
+Die genannte Bedingung kann also nur erfüllt werden, wenn $t=0$ ist.
+\end{proof}
+
 %
 % Rothstein-Trager für exponentielle Erweiterungen
 %
 \subsubsection{Rothstein-Trager für exponentielle Erweiterungen}
+Der Satz~\ref{buch:intalg:risch:satz:rothstein-trager-logarithmisch}
+von Rothstein-Trager für logarithmische Erweiterungen hat im Beweis
+wesentlich zwei früher bewiesene Eigenschaften verwendet.
+Einerseits war bereits bekannt, dass der Term $v_0$ in der
+Stammfunktion verschwindet.
+Ausserdem wurde verwendet, dass Ableiten den Grad eines normierten
+Polynoms immer verkleinert.
+Beider Voraussetzungen sind nicht mehr gegeben.
+Trotzdem werden wir unten einen analogen Satz für exponentielle
+Erweiterungen beweisen.
+
+Die Ableitung eines normierten Polynoms 
+\begin{align*}
+p(\vartheta)
+&=
+p_0 + p_1\vartheta + p_2\vartheta^2 + \ldots + p_{n-1}\vartheta^{n-1} + \vartheta^n
+\intertext{ist}
+Dp(\vartheta)
+&=
+Dp_0 + (Dp_1+ p_1Du)\vartheta + (Dp_2+2p_2Du)\vartheta^2 + \ldots
+\\
+&\qquad
++ (Dp_{n-1}+(n-1)p_{n-1}Du)\vartheta^{n-1} + nDu \vartheta^n.
+\end{align*}
+Der Term höchsten Grades ist $(\deg p(\vartheta))Du$.
+Genau dieser Term verhindert, dass der Grad des Zählers abnimmt, was im
+Beweis von Satz~\ref{buch:intalg:risch:satz:rothstein-trager-logarithmisch}
+zum Beweis von $\bar{a}(\vartheta)=a(\vartheta)$ verwendet worden war.
+
+\begin{definition}[Führender Term eines Polynoms]
+Sei $p(\vartheta)\in F[\vartheta]$ ein Polynom vom Grad $n$ mit Koeffizienten
+$p_i$, $i=1,\dots,n$,
+dann heisst
+\[
+l(p(\vartheta))
+=
+p_n\vartheta^n
+=
+p_{\deg p(\vartheta)} \vartheta^{\deg p(\vartheta)}
+\]
+der \emph{führende Term}.
+\index{fuhrender Term@führender Term}
+\end{definition}
+
+Für zwei beliebige Polynome $p(\vartheta),q(\vartheta)\in F[\vartheta]$ gilt
+$l(p(\vartheta)q(\vartheta)) = l(p(\vartheta)) l(q(\vartheta))$.
+Für die Polynome $v_k(\vartheta)$ folgen die Formeln
+\begin{align*}
+l(b(\vartheta))
+&=
+\prod_{i=1}^m l(v_i(\vartheta)),
+&
+l(u_k(\vartheta))
+&=
+\prod_{\scriptstyle i=1\atop\scriptstyle i\ne k} l(v_i(\vartheta))
+&&\text{und}&
+l(v_k(\vartheta)) l(u_k(\vartheta)) &= l(b(\vartheta)).
+\end{align*}
+Da die Polynome $v_k(\vartheta)$ und $b(\vartheta)$ normiert sind,
+ist $l(v_k(\vartheta)) = \vartheta^{\deg v_k(\vartheta)}$ und
+$l(b(\vartheta))=\vartheta^{\deg b(\vartheta)}$.
+Für eine exponentielle Erweiterung und ein normiertes Polynome ist zudem
+\begin{equation}
+l(Dp(\vartheta))) = \deg p(\vartheta) l(p(\vartheta)) Du.
+\end{equation}
+
+Wir wissen bereits, dass die Stammfunktion die Form
+\eqref{buch:intalg:risch:satz:eqn:standardform}
+haben muss, müssen aber den Term $v_0$ noch bestimmen.
+Die Brüche $Dv_k(\vartheta)/v_k(\vartheta)$ enthalten als
+Term höchsten Grades
+$l(Dv_k(\vartheta))=(\deg v_k(\vartheta))Du \vartheta^{\deg v_k(\vartheta)}$
+im Zähler.
+Wir können versuchen, diese Terme zum Verschwinden zu bringen, indem wir 
+sie mithilfe des Terms $v_0$ wieder subtrahieren.
+Dazu muss $v_0$ den Teil
+\[
+g = -\biggl(\sum_{i=1}^m c_i\deg v_i(\vartheta)\biggr) u
+\]
+enthalten.
 
 \begin{satz}[Rothstein-Trager]
+\label{buch:intalg:risch:satz:rothstein-trager-exponentiell}
 Seien
 \[
 f = \frac{a(\vartheta)}{b(\vartheta)},
 \qquad
 a(\vartheta),b(\vartheta)\in F[\vartheta],\quad
-\deg a(\vartheta)<b(\vartheta)
+\deg a(\vartheta)<\deg b(\vartheta)
 \]
 und $b(\vartheta)$ quadratfrei, normiert und $\vartheta$ teilt $b(\vartheta)$
 nicht.
@@ -1502,12 +2128,91 @@ g
 wobei $v_i(\vartheta)$ der zu $c_i$ gehörige grösste gemeinsame Teiler
 der Polynome~\eqref{buch:intalg:risch:exp:eqn:rtggt} und
 \begin{equation}
-g = -\biggl(\sum_{i=1}^n c_i\deg v_i \biggr) u
+g = -\biggl(\sum_{i=1}^n c_i\deg v_i(\vartheta) \biggr) u
+\quad\text{mit Ableitung}\quad
+Dg = -\biggl(\sum_{i=1}^n c_i\deg v_i(\vartheta) \biggr) Du
 \label{buch:intalg:risch:exp:eqn:g}
 \end{equation}
 ist.
 \end{enumerate}
 \end{satz}
+
+\begin{proof}
+Wie im Beweis von
+Satz~\ref{buch:intalg:risch:satz:rothstein-trager-logarithmisch}
+setzen wir
+\begin{equation}
+\bar{a}(\vartheta)
+=
+g b(\vartheta)
++
+\sum_{i=1}^m c_i b(\vartheta) \frac{Dv_i(\vartheta)}{v_i(\vartheta)}
+=
+-g b(\vartheta)
++
+\sum_{i=1}^m c_i Dv_i(\vartheta) u_i(\vartheta)
+\label{buch:intalg:risch:exp:rt:eqn:abar}
+\end{equation}
+und zeigen wieder, dass $\bar{a}(\vartheta)=a(\vartheta)$.
+
+Für jedes $k$ ist
+\begin{align*}
+\bar{a}(\vartheta)
+-
+c_k Db(\vartheta)
+=
+gb(\vartheta)
++
+\sum_{\scriptstyle i=1\atop\scriptstyle i\ne k}^m
+(c_i-c_k) Dv_i(\vartheta) u_i(\vartheta).
+\end{align*}
+Auf der rechten Seite verschwindet der Summand mit $i=k$.
+$v_k(\vartheta)$ teilt $b(\vartheta)$ und jeden Faktor $u_i(\vartheta)$
+für $i\ne k$.
+Somit teilt 
+\begin{align*}
+v_k(\vartheta) &\mid (\bar{a}(\vartheta)-c_k Db(\vartheta)) \\
+v_k(\vartheta) &\mid (     a (\vartheta)-c_k Db(\vartheta))
+\intertext{und daher auch}
+v_k(\vartheta) &\mid (\bar{a}(\vartheta)-a(\vartheta)).
+\intertext{Weil die $v_k(\vartheta)$ teilerfremd sind folgt auch}
+b(\vartheta) &\mid (\bar{a}(\vartheta)-a(\vartheta)).
+\end{align*}
+
+Der Term höchsten Grades in $c_i Dv_i(\vartheta) u_i(\vartheta)$ ist
+\begin{align*}
+l(c_i Dv_i(\vartheta) u_i(\vartheta))
+&=
+c_i l(Dv_i(\vartheta)) l(u_i(\vartheta))
+\\
+&=
+c_i \deg v_i(\vartheta) l(v_i(\vartheta)) Du l(u_i(\vartheta))
+\\
+&=
+c_i \deg v_i(\vartheta) l(b(\vartheta)) Du.
+\end{align*}
+Alle Summanden in \eqref{buch:intalg:risch:exp:rt:eqn:abar} haben
+den gleichen Grad.
+Die Terme in der Summe in haben daher zusammen den führenden Term
+\[
+l\biggl(
+\sum_{i=1}^m c_i Dv_i(\vartheta) u_i(\vartheta)
+\biggr)
+=
+\sum_{i=1}^m c_i\deg v_i(\vartheta) l(b(\vartheta)) Du
+=
+-l(gb(\vartheta))
+=
+-g\vartheta^{\deg b(\vartheta)}.
+\]
+Der führend Term fällt daher in $\bar{a}(\vartheta)$ weg und es folgt
+$\deg \bar{a}(\vartheta) < \deg b(\vartheta)$.
+
+Wir haben gezeigt, dass $b(\vartheta)$ Teiler des Polynoms
+$\bar{a}(\vartheta)-a(\vartheta)$ kleineren Grades ist, somit
+muss $\bar{a}(\vartheta)-a(\vartheta)=0$ sein.
+Damit ist beweisen, dass $\bar{a}(\vartheta)=a(\vartheta)$ ist.
+\end{proof}
 
 \begin{beispiel}
 \label{buch:intalg:risch:exp:bsp:1/ex+1}
@@ -1979,6 +2684,89 @@ elementare Stammfunktion haben kann.
 %
 \subsection{Risch-Algorithmus für algebraische Erweiterungen
 \label{buch:intalg:risch:algebraisch}}
+Die Methoden, die für logarithmische und exponentielle Erweiterungen
+konstruiert wurden, lassen sich nicht direkt auf algebraische
+Erweiterungen übertragen.
+Dies deutet sich bereits im Beweis des Liouville-Prinzips für algebraische
+Erweiterungen an.
+Dort wurde zum Beispiel das Konzept der konjugierten Elemente und andere
+rein algebraische Eigenschaften verwendet.
+
+Die bisher in Abschnitt~\ref{buch:intalg:section:risch} verwendeten
+Methoden basieren wesentlich darauf, dass sich Polynome in $\vartheta$
+auf eindeutige Art faktorisieren lassen.
+Der euklidische Algorithmus für alle Argumente zentral.
+Für eine algebraische Erweiterung gilt dies nicht mehr.
+
+Abschnitt~\ref{buch:intalg:section:wurzel} hat aber gezeigt, dass
+ein ähnliche Vorgehensweise denkbar ist, um ein Stammfunktion
+einer Funktion in $K(x,y)$ zu finden, wobei $y$ ein über $K(x)$
+algebraisches Element ist.
+Im einfachsten Fall erfüllt $y$ die Gleichung
+\[
+y^n - h(x) = 0
+\]
+mit $h(x) \in K(x)$, $y$ ist also eine $n$-te Wurzel einer rationalen
+Funktion.
+
+Ein Beispiel sind die in Kapitel~\ref{chapter:elliptisch} diskutierten
+\emph{elliptischen Integrale}
+\index{elliptisches Integral}%
+\[
+f(x) = \int_0^x R(t,\!\sqrt{P(t)})\,dt
+\]
+in denen $p(t)$ ein Polynom vom Grad 3 oder 4 ist.
+Der Fall eines Polynoms vom Grad 2 wurde bereits im
+Abschnitt~\ref{buch:intalg:section:wurzel} behandelt.
+
+Zunächst muss man eine gute ``Standarddarstellung'' für eine Funktion
+$f\in K(x,y)$ finden.
+Bei transzendenten Erweiterungen war die Darstellung als gekürzter Bruch
+von Polynomen in $\vartheta$ eindeutig, dies gilt für algebraische
+Funktionen nicht mehr.
+Man wird also zusätzliche Forderungen an Zähler und Nenner aufstellen
+müssen, um eine eindeutige Darstellung zu bekommen.
+
+Für die elliptischen Integrale kann man zum Beispiel zeigen, dass sich
+jedes elliptische Integral auf die grundlegenden Integrale
+\begin{align*}
+\text{1.~Art}&&
+F(x;k)
+&=
+\int_0^{\sin x} \frac{dt}{\!\sqrt{(1-t^2)(1-k^2t^2}}
+\\
+\text{2.~Art:}&&
+E(x;k)
+&=
+\int_0^{\sin x} \frac{\!\sqrt{1-k^2t^2}}{\!\sqrt{1-t^2}}\,dt
+\\
+\text{3.~Art:}&&
+\Pi(n,x;k)
+&=
+\int_0^{\sin x}\frac{dt}{(1-nt^2)\!\sqrt{(1-t^2)}\!\sqrt{1-k^2t^2}}
+\end{align*}
+zurückführen lässt.
+
+Des weiteren muss ein Reduktionsverfahren ähnlich dem Verfahren von
+Hermite gefunden werden, welches Integrale von rationalen Funktionen
+in $K(x,y)$ auf solche von Brüchen mit besonders einfachen Nennern
+reduziert.
+Die Schwierigkeit dabei ist, dass der euklidische Algorithmus, der
+in der Methode von Hermite von zentraler Bedeutung war, nicht mehr
+zur Verfügung steht.
+
+Schliesslich müssen die Koeffizienten der logarithmischen Terme
+in der Liouville-Form eines Integrals gefunden werden.
+Dazu ist ein Prinzip ähnlich der Methode von Rothstein-Trager
+nötig.
+Die dazu notwendigen Methoden basieren auf der Idee eines Divisors
+aus der algebraischen Geometrie.
+Damit würden wir aber den Bereich der Analysis auf so grundlegende
+Weise, dass wir uns mit einem Verweis auf die Literatur begnügen.
+\cite{buch:algorithms} enthält eine kurze Skizze der Problem, die 
+zu lösen sind und enhält weitere Verweise auf die relevante
+Spezialliteratur.
+
 
 
 

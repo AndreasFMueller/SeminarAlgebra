@@ -9,5 +9,9 @@ CHAPTERFILES += 							\
 	chapters/070-intalg/2-wurzel.tex				\
 	chapters/070-intalg/3-liouville.tex				\
 	chapters/070-intalg/4-risch.tex					\
+	chapters/070-intalg/uebungsaufgaben/701.tex			\
+	chapters/070-intalg/uebungsaufgaben/702.tex			\
+	chapters/070-intalg/uebungsaufgaben/703.tex			\
+	chapters/070-intalg/uebungsaufgaben/704.tex			\
 	chapters/070-intalg/chapter.tex
 
