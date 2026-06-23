@@ -2678,6 +2678,101 @@ keine rationale Funktion sein kann und dass somit auch $e^{-x^2/2}$ keine
 elementare Stammfunktion haben kann.
 \end{beispiel}
 
+%
+% Anwendung: Integration der trigonometrischen Funktionen
+%
+\subsubsection{Anwendung: Integration der trigonometrischen Funktionen}
+Die trigonemetrischen Funktion $\cos x$ und $\sin x$ liegen in der
+exponentiellen Erweiterung $\mathbb{Q}(i,x,\vartheta)$ mit
+$\vartheta=e^{ix}$.
+Wie in Abschnitt \ref{buch:intalg:section:elementar} gezeigt wurde,
+ist
+\begin{align*}
+\cos x
+&=
+\frac{\vartheta+1/\vartheta}{2}
+=
+\frac{\vartheta^2+ 1}{\vartheta}
+=
+\frac12\vartheta + \frac{1/2}{\vartheta}
+\\
+\sin x
+&=
+\frac{1}{2i}\vartheta
+-
+\frac{1/2i}{\vartheta}.
+\end{align*}
+Man beachte, dass beide Ausdrücke verallgemeinerte Polynome sind.
+Zur Bestimmung der Stammfunktion von $\cos x$ sind also die
+Risch-Differentialgleichungen
+für das Polynom mit den Koeffiziente $p_1=\frac12$ und $p_{-1}=\frac12$
+zu lösen:
+\begin{align*}
+Dq_{\pm 1} \pm i q_{\pm 1} = \frac12
+\end{align*}
+hat die konstante Lösung $q_{\pm 1} = \pm\frac{1}{2i}$.
+Die Stammfunktion ist daher
+\[
+\int\cos x
+=
+q_1\vartheta + q_{-1}\frac{1}{\vartheta}
+=
+\frac{1}{2i}\biggl(\vartheta-\frac1{\vartheta}\biggr)
+=
+\sin x.
+\]
+Analog findet man auch die Stammfunktion von $\sin x$.
+Der Algorithmus reproduziert also die bekannten Integrationsformeln für
+die grundlegenden trigonometrischen Funktionen.
+
+Für die Tangensfunktion gilt
+\[
+\tan x
+=
+-i
+\frac{\vartheta-1/\vartheta}{\vartheta+1/\vartheta}
+=
+-i
+\frac{\vartheta^2-1}{\vartheta^2+1}
+=
+-i
++\frac{2i}{\vartheta^2+1}.
+\]
+Auf den letzten Bruch kann die Methode von Rothstein-Trager angewendet
+werden.
+Es müssen gemeinsame Teiler von
+\[
+2i - ic\cdot 2\vartheta^2
+=
+2i(1-c\vartheta^2)
+\qquad\text{und}\qquad
+\vartheta^2+1
+\]
+gefunden werden.
+Ein nichttrivialer gemeinsamer Teiler existiert für $c=-1$ und der grösste
+gemeinsame Teiler ist $\vartheta^2+1$.
+Somit ist
+\[
+\int \frac{2i}{\vartheta^2+1} = -\log(\vartheta^2+1)
+\]
+Es folgt, dass
+\[
+\int \tan x
+=
+-ix
+-
+\log(e^{2ix} + 1)
+=
+\log(e^{-ix})
+-
+\log(e^{2ix}+1)
+=
+\log\frac{e^{-ix}}{e^{2ix}+1}
+=
+\log\frac{1}{e^{ix}+e^{-ix}},
+\]
+was bis auf eine Konstante mit $\log(\sec(x))$ übereinstimmt.
+
 
 %
 % Risch-Algorithmus für algebraische Erweiterungen
