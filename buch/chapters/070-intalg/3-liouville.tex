@@ -774,8 +774,7 @@ f
 =
 Dg
 =
-Da(\vartheta)
-=
+Da(\vartheta).
 \]
 Die Ableitung des Polynoms $a$ in $\vartheta$ mit Koeffizienten
 in $F$ ist
@@ -800,15 +799,48 @@ Da_m\vartheta^m.
 \end{align*}
 Darin ist $D\vartheta$ die Ableitung von $\vartheta$, die nach
 Satz~\ref{buch:intalg:liouville:polynome:satz:algebraisch}
-eine rationale Funktion $\vartheta$ mit Koeffzienten in $F$ ist.
+eine rationale Funktion von $\vartheta$ mit Koeffzienten in $F$ ist.
 Es folgt, dass $Dg$ eine rationale Funktion von $\vartheta$ mit
-Koeffizienten in $F$ ist, die Ihrerseits wieder als Polynom
+Koeffizienten in $F$ ist, die ihrerseits wieder als Polynom
 geschrieben werden kann.
 
 Das muss jetzt noch gezeigt werden, dass aus $f=Dg$ folgt,
 dass $a(\vartheta)$ nicht von $\vartheta$ abhängt.
-
-TODO
+$\vartheta$ ist nicht die einzige Lösung von $p(\vartheta)=0$, wir schreiben
+$\vartheta=\vartheta_1$ und $\vartheta_2,\dots,\vartheta_m$ für die
+$m=\deg p$ weiteren Lösungen der Gleichung.
+Es gilt also
+\begin{align}
+f
+&=
+Da(\vartheta_k),\qquad k=1,\dots,m.
+\notag
+\intertext{Die Summe all dieser Gleichungen ist}
+m\cdot f
+&=
+\sum_{k=1}^m Da(\vartheta_k).
+\notag
+\intertext{Es folgt}
+f
+&=
+\frac{1}{m}
+\sum_{k=1}^m Da(\vartheta_k)
+=
+Dh
+\qquad\text{mit } h=\frac{1}{m} \sum_{k=1}^m a(\vartheta_k)
+\label{buch:intalg:liouville:alg:eqn:symmetrisch}
+\end{align}
+$h$ ist eine symmetrische Funktion in
+$\vartheta_1,\dots,\vartheta_m$, nach dem Hauptsatz über symmetrische
+Funktionen lassen sich die Koeffizienten von $h$ nach dem Fundamentalsatz
+\ref{buch:komplex:fundamental:satz:fundamentalpolynom} über symmetrische
+Polynome durch die elementarsymmetrischen Funktionen von
+$\vartheta_1,\dots,\vartheta_m$ ausdrücken.
+Diese sind jedoch Koeffzienten des Minimalpolynoms von $\vartheta$,
+die alle in $F$ liegen.
+Somit hängt die rechte Seite von
+\eqref{buch:intalg:liouville:alg:eqn:symmetrisch}
+nicht von $\vartheta$ ab.
 \end{proof}
 
 %

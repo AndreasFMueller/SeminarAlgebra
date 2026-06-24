@@ -1759,6 +1759,156 @@ elementar sein.
 \end{beispiel}
 
 %
+% Anwendung: Der Satz von Hardy-Littlewood
+%
+\subsubsection{Anwendung: Der Satz von Littlewood-Hardy}
+Warum ist
+\begin{align}
+\int \frac{\log x}{x}\,dx
+&=
+\frac12\log(x)^2+C,
+\label{buch:intalg:risch:littlewood-hardy:bsp1}
+\intertext{während}
+\int \frac{\log x}{x+1}\,dx
+&=
+\log(x)\log(x+1) + \operatorname{Li}_2(-x)+C
+\label{buch:intalg:risch:littlewood-hardy:bsp2}
+\end{align}
+keine elementare Stammfunktion hat?
+Mit der für den polynomiellen Teil einer logarithmischen Erweiterung
+entwickelten Methode lässt sich diese Frage für allgemeinere
+Integrale der Form
+\[
+\int f(x)\log x \,dx
+\qquad\text{mit } f(x)\in K(x)
+\]
+entscheiden.
+Offensichtlich geht es hier um die logarithmische Erweiterung
+$\vartheta=\log x $ von $K(x)$.
+Der Integrand $f(x)\log(x)$ ist der Fall eines polynomiellen Teils
+für das Polynom $p(\vartheta) = f(x)\vartheta$ mit $p_1=f(x)$.
+Wenn eine elementare Stammfunktion existiert, dann hat sie die
+Form eines Polynoms
+$q(\vartheta) = q_2\vartheta^2 + q_1\vartheta + q_0\in F[\vartheta]$
+vom Grad $\le 2$.
+Wir berechnen die Koeffizienten $q_k$:
+\begin{itemize}
+\item
+Fall $k=2$: 
+$q_2$ muss eine Konstante $b_2$ sein, deren Wert im nächsten Schritt
+bestimmt wird.
+
+\item
+Fall $k=1$:
+Für $q_1$ muss die Stammfunktion von $p_1$ bestimmt werden.
+Nach dem Liouville-Prinzip muss sie die Form
+\begin{align}
+\int f(x)\,dx
+&=
+v_0(x) + \sum_{i=1}^n c_i\log v_k(x)
+\notag
+\intertext{haben.
+Damit die Methode für den polynomiellen Teil aufgeht, darf in der Summe
+nur ein einziger Logarithmus $\log x $ vorkommen, also}
+&=
+v_0(x) + c_1\log x
+\label{buch:intalg:risch:littlewood-hardy:eqn:condition}
+\end{align}
+mit $v_1(x)=\log x=\vartheta$.
+Es folgt $b_2=-\frac12c_1$ und $d_1=v_0(x)$ und $q_1 = v_0(x) + b_1$.
+Die Integrationskonstante $b_1$ wird im nächsten Schritt bestimmt.
+
+Die in
+\eqref{buch:intalg:risch:littlewood-hardy:eqn:condition}
+bedeutet nach Ableitung, dass
+\[
+f(x) = v_0'(x) + \frac{c_1}{x}
+=
+g'(x) + \frac{C}{x}
+\]
+mit einer rationalen Funktion $g(x)$.
+
+\item
+Fall $k=0$: Es muss die Stammfunktion von $p_0-d_1\,Du/u$ ermittelt
+werden, die die Form
+\[
+\int p_0 - d_1\frac{Du}{u}
+=
+-
+\int v_0(x) \frac{1}{x}
+=
+d_0 + c_0\vartheta
+\]
+haben muss.
+Da $v_0(x)/x$ eine rationale Funktion ist, existiert diese Stammfunktion
+in der Form
+\begin{equation}
+\int v_0(x)\frac1x\,dx
+=
+u_0(x) + \sum_{i=1}^m \tilde{c}_k \log \tilde{u}_k(x).
+\label{buch:intalg:risch:littlewood-hardy:eqn:q0}
+\end{equation}
+Es folgt $d_0=u_0(x)$.
+Falls eine der Funktion $\tilde{u}_k(x)=x$ ist, kann der zugehörige
+Koeffizient $\tilde{c}_k$ als $c_0$ verwendet und bestimmt damit $b_1$.
+
+Da das Integral~\eqref{buch:intalg:risch:littlewood-hardy:eqn:q0} immer
+ausführbar ist, auferlegt der Fall $k=0$ keine zusätzlichen Hindernisse
+für die Existenz einer elementaren Stammfunktion.
+\end{itemize}
+
+Die Existenz einer elementaren Stammfunktion lässt sich also für Integranden
+der Form $f(x)\log x$ immer entscheiden.
+Wir fassen die Erkenntnisse der Methode im folgenden Satz zusammen.
+
+\begin{satz}[Littlewood-Hardy]
+Für eine rationale Funktion $f(x)\in K(x)$ hat der Integrand $f(x)\log x$
+genau dann eine elementare Stammfunktion, wenn es eine rationale Funktion
+$g(x)\in\mathbb K(x)$ gibt derart, dass
+\[
+f(x) = g'(x) + \frac{C}{x}.
+\]
+\end{satz}
+
+\begin{beispiel}
+Das Integral \eqref{buch:intalg:risch:littlewood-hardy:bsp1} ist
+der Fall $f(x)=1/x$, es muss also untersucht werden, ob es eine rationale
+Funktion $g(x)$ und eine Konstante $C$ gibt mit
+\[
+f(x) = \frac{1}{x} = g'(x) + \frac{C}{x}.
+\]
+$g(x)=0$ und $C=1$ ist eine offensichtliche Lösung, also ist die Stammfunktion
+von $\log(x)/x$ elementar.
+Tatsächlich ist
+\[
+\int\frac{\log x}{x}\,dx
+=
+\frac{\log(x)^2}{2}
++ C.
+\qedhere
+\]
+\end{beispiel}
+
+\begin{beispiel}
+Das Integral \eqref{buch:intalg:risch:littlewood-hardy:bsp2} ist
+der Fall $f(x)=1/(x+1)$, es muss also untersucht werden, ob es eine rationale
+Funktion $g(x)$ und eine Konstante $C$ gibt mit
+\[
+f(x) = \frac{1}{x+1} = g'(x) + \frac{C}{x}.
+\]
+Aufgelöst nach $g'(x)$ ist dies
+\[
+g'(x) = \frac{1}{x+1} - \frac{C}{x}
+\quad\Rightarrow\quad
+g(x)
+=
+\log(x+1) -C\log x + D.
+\]
+Da $g(x)$ keine rationale Funktion ist, kann das Integral von $f(x)$ 
+nicht elementar sein.
+\end{beispiel}
+
+%
 % Risch-Algorithmus für exponentielle Erweiterungen
 %
 \subsection{Risch-Algorithmus für exponentielle Erweiterungen
@@ -2597,8 +2747,8 @@ zu finden, heisst die \emph{Risch-Differentialgleichung}.
 \begin{beispiel}
 Hat die Wahrscheinlichkeitsdichte $e^{-x^2/2}$ eine elementare
 Stammfunktion?
-Der Integrand ist in der Erweiterung $F(\vartheta)=\mathbb{Q}(x,\vartheta)$
-von $F=\mathbb{Q}(x)$ um die Exponentialfunktion $\vartheta = e^{-x^2/2}$
+Der Integrand ist in der Erweiterung $F(\vartheta)=K(x,\vartheta)$
+von $F=K(x)$ um die Exponentialfunktion $\vartheta = e^{-x^2/2}$
 von $u=-x^2/2$.
 Gesucht ist die Stammfunktion des polynomiellen Teils
 $p(\vartheta)=p_1\vartheta^1$.
@@ -2609,13 +2759,13 @@ Dq_1 + Du\, q_1 = p_1
 \quad\Rightarrow\quad
 Dq_1 - x q_1 = 1.
 \]
-Die Lösung muss eine rationale Funktion $q_1\in\mathbb{Q}(x)$ sein.
+Die Lösung muss eine rationale Funktion $q_1\in K(x)$ sein.
 Wir schreiben die rationale Funktion als gekürzten Bruch
 \begin{equation}
 q_1(x) = \frac{a(x)}{b(x)}
 \label{buch:intalg:risch:exponentiell:bsp:eqn:qex2}
 \end{equation}
-von Polynomen $a,b\in \mathbb{Q}[x]$, $b(x)$ soll ausserdem normiert sein.
+von Polynomen $a,b\in K[x]$, $b(x)$ soll ausserdem normiert sein.
 Einsetzen in die Differentialgleichung liefert
 \begin{align}
 \frac{a'(x)b(x)-a(x)b(x)}{b(x)^2} - x\frac{a(x)}{b(x)} &= 1.
