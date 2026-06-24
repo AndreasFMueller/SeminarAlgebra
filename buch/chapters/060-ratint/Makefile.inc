@@ -11,5 +11,6 @@ CHAPTERFILES += 							\
 	chapters/060-ratint/4-rothsteintrager.tex			\
 	chapters/060-ratint/uebungsaufgaben/601.tex			\
 	chapters/060-ratint/uebungsaufgaben/602.tex			\
+	chapters/060-ratint/uebungsaufgaben/603.tex			\
 	chapters/060-ratint/chapter.tex
 
