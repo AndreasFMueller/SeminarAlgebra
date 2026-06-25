@@ -603,7 +603,7 @@ m(x)
 x^n + m_{n-1}x^{n-1} + \dots + m_1x + m_0.
 \]
 Die Menge
-\[
+\begin{equation}
 \mathbb{Q}(\alpha)
 =
 \{
@@ -611,7 +611,8 @@ a_0 + a_1\alpha + \dots + a_{n-1}\alpha^{n-1}
 \mid
 a_k\in\mathbb{Q}\text{ mit } 0\le k<n
 \}
-\]
+\label{buch:komplex:zahlen:def:eqn:Qa}
+\end{equation}
 heisst die \emph{Erweiterung} von $\mathbb{Q}$ um $\alpha$.
 \end{definition}
 
@@ -859,6 +860,187 @@ Approximationen zurückgegriffen werden muss.
 Die algebraische Definition ist daher die Methode der
 Wahl für ein Computeralgebrasystem.
 
+%
+% Division im Erweiterungskörper
+%
+\subsubsection{Division im Erweiterungskörper}
+Die Konstruktion von $\alpha^{-1}$ in einem algebraischen Erweiterungskörper
+$\mathbb{Q}(\alpha)$ erklärt nicht, wie man durch ein allgemeines
+Element wie in \eqref{buch:komplex:zahlen:def:eqn:Qa} dividiert.
+Dazu muss man die multiplikative Inverse
+\[
+(a_0+a_1\alpha + \dots + a_{n-1}\alpha^{n-1})^{-1}
+=
+b_0+b_1\alpha + \dots + b_{n-1}\alpha^{n-1}
+\]
+bestimmen können.
+Multiplizieren wir das Produkt
+\[
+(a_0+a_1\alpha + \dots + a_{n-1}\alpha^{n-1})
+(b_0+b_1\alpha + \dots + b_{n-1}\alpha^{n-1})
+=
+1
+\]
+aus und ersetzen wir wiederholt Potenzen $\alpha^n$ durch
+$-m_0-m_1\alpha-\dots-m_{n-1}\alpha^{n-1}$, entsteht ein
+Gleichungssystem für die Koeffizienten $b_k$.
+Die Formulierung und Lösung dieses Gleichungssystems ist jedoch
+in Matrizenschreibweise deutlich einfacher, wir verschieben daher
+die allgemeine Berechnung der multiplikativen Inversen auf
+Abschnitt~\ref{buch:komplex:subsection:matrixschreibweise}.
+
+\begin{beispiel}
+Wir betrachten die Körpererweiterung $\mathbb{Q}(\alpha)$, wobei
+$\alpha$ das Minimalpolynom $m(X) = X^2+X+1$ hat.
+Um die multiplikative Inverse von $a+b\alpha$ zu bestimmen,
+suchen wir $x+y\alpha$ derart, dass
+\begin{align*}
+(a+b\alpha)(x+y\alpha)&=1
+\\
+ax + (bx+ay)\alpha + by\alpha^2 &= 1.
+\intertext{Darin ersetzen wir $\alpha^2=-\alpha-1$ und erhalten}
+ax + (bx+ay)\alpha - by(1+\alpha) &= 1 \\
+(ax-by) + (bx+(a-b)y)\alpha &= 1
+\end{align*}
+Daraus lesen wir das Gleichungssystem
+\[
+\left.
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcr}
+ax &-&     by &=& 1 \\
+bx &+& (a-b)y &=& 0
+\end{array}
+\quad\right\}
+\qquad\text{mit der Lösung}\qquad
+\begin{pmatrix}x\\y\end{pmatrix}
+=
+\frac{1}{b^2+ab-a^2}
+\begin{pmatrix}
+b-a\\b
+\end{pmatrix}
+\]
+ab.
+In der üblichen Schreibweise bedeutet dies, dass
+\[
+(a+b\alpha)^{-1}
+=
+\frac{(b-a)+b\alpha}{b^2+ab-a^2}
+\]
+die multiplikative Inverse ist.
+\end{beispiel}
+
+%
+% Die Reihenfolge der Erweiterungen
+%
+\subsubsection{Die Reihenfolge der Erweiterungen}
+Die Quadratwurzel $\!\sqrt{2}$ ist nicht in $\mathbb{Q}$, liegt aber in
+der algebraischen Erweiterung $\mathbb{Q}(\!\sqrt{2})$, die mithilfe des
+über $\mathbb{Q}$ irreduziblen Polynoms $m(x)=x^2-2\in\mathbb{Q}[x]$ 
+konstruiert werden kann.
+
+$\sqrt[4]{2}$ ist ein algebraisches Element über $\mathbb{Q}$, ist
+aber selbst nicht Teil dieses Körpers.
+Mithilfe des über $\mathbb{Q}$ irreduziblen Polynoms $m(x)=x^4-2$.
+kann man einen Körper $\mathbb{Q}(\sqrt[4]{2})$ konstruieren, welcher
+das Element enthält.
+
+Auch der Körper $\mathbb{Q}(\!\sqrt{2})$ enthält die vierte Wurzel
+$\sqrt[4]{2}$ nicht.
+Um einen Körper zu konstruieren, der auch $\sqrt[4]{2}$ enthält, muss
+$\mathbb{Q}(\!\sqrt{2})$ um die vierte Wurzel erweitert werden.
+Dazu wird das Minimalpolynom von $\sqrt[4]{2}$ benötigt, welches
+irreduzibel sein muss.
+Das bei der Konstruktion von $\mathbb{Q}(\sqrt[4]{2})$ verwendete
+Polynom $x^4-2$ ist jedoch nicht geeignet, da es über dem aktuelle
+Koeffizientenkörper $\mathbb{Q}(\!\sqrt{2})$ nicht irreduzibel ist,
+sondern die Faktorzerlegung
+\[
+x^4 - 2 = (x + \!\sqrt{2})(x - \!\sqrt{2})
+\]
+hat.
+Beide Faktoren haben Koeffizienten in $\mathbb{Q}(\!\sqrt{2})$,
+aber nicht alle Koeffizienten sind auch in $\mathbb{Q}$.
+Einen Körper, der auch $\sqrt[4]{2}$ enthält, kann man also durch
+Erweiterung von $\mathbb{Q}(\!\sqrt{2})$ mithilfe des Polynoms
+$x^2-\!\sqrt{2}$ erhalten.
+Man könnte diesen Körper als $\mathbb{Q}(\!\sqrt{2})(\sqrt[4]{2})$
+schreiben.
+
+Umgekehrt ist die Quadratwurzel $\!\sqrt{2}$ bereits in
+$\mathbb{Q}(\sqrt[4]{2})$, da $\!\sqrt{2}=(\sqrt[4]{2})^2$.
+Es ist also bereits $\!\sqrt{2}\in\mathbb{Q}(\sqrt[4]{2})$.
+Es folgt, dass $\mathbb{Q}(\!\sqrt{2})(\sqrt[4]{2})
+=
+\mathbb{Q}(\sqrt[4]{2})$.
+Die Erweiterung von $\mathbb{Q}$ erst um $\!\sqrt{2}$ 
+und dann um $\sqrt[4]{2}$ liefert zwei verschiedene Körper,
+während die Erweiterung um $\sqrt[4]{2}$ sofort den grossen
+Körper liefert.
+
+Anders sieht es bei der Erweiterung von $\mathbb{Q}$ um $\!\sqrt{2}$
+und $\!\sqrt{3}$ aus.
+Als Minimalpolynom von $\!\sqrt{3}$ kann $x^2-3$ verwendet werden,
+welches auch irreduzibel ist über $\mathbb{Q}(\!\sqrt{2})$.
+Die Erweiterung von $\mathbb{Q}(\!\sqrt{2})$ um $\!\sqrt{3}$
+liefert den Körper
+\begin{align*}
+\mathbb{Q}(\!\sqrt{2})(\!\sqrt{3})
+&=
+\Bigl\{
+a+b\!\sqrt{3}
+\;
+\Big|
+\;
+a,b\in\mathbb{Q}(\!\sqrt{2})
+\Bigr\}
+\\
+&=
+\Bigl\{
+a_0+a_1\!\sqrt{2}+a_2\!\sqrt{3}+a_3\!\sqrt{6}
+\;
+\Big|
+\;
+a_k\in\mathbb{Q}
+\Bigr\}.
+\end{align*}
+Die umgekehrte Reihenfolge führt auf
+\begin{align*}
+\mathbb{Q}(\!\sqrt{3})(\!\sqrt{2})
+&=
+\Bigl\{
+a+b\!\sqrt{2}
+\;
+\Big|
+\;
+a,b\in\mathbb{Q}(\!\sqrt{3})
+\Bigr\}
+\\
+&=
+\Bigl\{
+b_0+b_1\!\sqrt{3}+b_2\!\sqrt{2}+b_3\!\sqrt{6}
+\;
+\Big|
+\;
+b_k\in\mathbb{Q}
+\Bigr\}.
+\end{align*}
+Offensichtlich entsteht der gleiche Körper.
+Es kommt also nicht auf die Reihenfolge an und es ist zulässig,
+\[
+\mathbb{Q}(\!\sqrt{2})(\!\sqrt{3})
+=
+\mathbb{Q}(\!\sqrt{2},\!\sqrt{3})
+=
+\mathbb{Q}(\!\sqrt{3},\!\sqrt{2})
+=
+\mathbb{Q}(\!\sqrt{3})(\!\sqrt{2})
+\]
+zu schreiben.
+
+%
+% Transzendente Erweiterungen
+%
+\subsubsection{Transzendente Erweiterungen}
 Da die Menge aller rationalen Polynome abzählbar unendlich ist,
 kann es nur abzählbar viele über $\mathbb{Q}$ algebraische 
 Zahlen geben.
@@ -1660,118 +1842,12 @@ Für Zahlen mit reeller Quadratwurzel kann man dank der Ordnungsrelation
 in $\mathbb{R}$ die postive von der negativen Quadratwurzel unterschieden.
 Für komplexe Zahlen gibt es keine Vergleichsrelation
 
-%
-% Die Reihenfolge der Erweiterungen
-%
-\subsubsection{Die Reihenfolge der Erweiterungen}
-Die Quadratwurzel $\!\sqrt{2}$ ist nicht in $\mathbb{Q}$, liegt aber in
-der algebraischen Erweiterung $\mathbb{Q}(\!\sqrt{2})$, die mithilfe des
-über $\mathbb{Q}$ irreduziblen Polynoms $m(x)=x^2-2\in\mathbb{Q}[x]$ 
-konstruiert werden kann.
-
-$\sqrt[4]{2}$ ist ein algebraisches Element über $\mathbb{Q}$, ist
-aber selbst nicht Teil dieses Körpers.
-Mithilfe des über $\mathbb{Q}$ irreduziblen Polynoms $m(x)=x^4-2$.
-kann man einen Körper $\mathbb{Q}(\sqrt[4]{2})$ konstruieren, welcher
-das Element enthält.
-
-Auch der Körper $\mathbb{Q}(\!\sqrt{2})$ enthält die vierte Wurzel
-$\sqrt[4]{2}$ nicht.
-Um einen Körper zu konstruieren, der auch $\sqrt[4]{2}$ enthält, muss
-$\mathbb{Q}(\!\sqrt{2})$ um die vierte Wurzel erweitert werden.
-Dazu wird das Minimalpolynom von $\sqrt[4]{2}$ benötigt, welches
-irreduzibel sein muss.
-Das bei der Konstruktion von $\mathbb{Q}(\sqrt[4]{2})$ verwendete
-Polynom $x^4-2$ ist jedoch nicht geeignet, da es über dem aktuelle
-Koeffizientenkörper $\mathbb{Q}(\!\sqrt{2})$ nicht irreduzibel ist,
-sondern die Faktorzerlegung
-\[
-x^4 - 2 = (x + \!\sqrt{2})(x - \!\sqrt{2})
-\]
-hat.
-Beide Faktoren haben Koeffizienten in $\mathbb{Q}(\!\sqrt{2})$,
-aber nicht alle Koeffizienten sind auch in $\mathbb{Q}$.
-Einen Körper, der auch $\sqrt[4]{2}$ enthält, kann man also durch
-Erweiterung von $\mathbb{Q}(\!\sqrt{2})$ mithilfe des Polynoms
-$x^2-\!\sqrt{2}$ erhalten.
-Man könnte diesen Körper als $\mathbb{Q}(\!\sqrt{2})(\sqrt[4]{2})$
-schreiben.
-
-Umgekehrt ist die Quadratwurzel $\!\sqrt{2}$ bereits in
-$\mathbb{Q}(\sqrt[4]{2})$, da $\!\sqrt{2}=(\sqrt[4]{2})^2$.
-Es ist also bereits $\!\sqrt{2}\in\mathbb{Q}(\sqrt[4]{2})$.
-Es folgt, dass $\mathbb{Q}(\!\sqrt{2})(\sqrt[4]{2})
-=
-\mathbb{Q}(\sqrt[4]{2})$.
-Die Erweiterung von $\mathbb{Q}$ erst um $\!\sqrt{2}$ 
-und dann um $\sqrt[4]{2}$ liefert zwei verschiedene Körper,
-während die Erweiterung um $\sqrt[4]{2}$ sofort den grossen
-Körper liefert.
-
-Anders sieht es bei der Erweiterung von $\mathbb{Q}$ um $\!\sqrt{2}$
-und $\!\sqrt{3}$ aus.
-Als Minimalpolynom von $\!\sqrt{3}$ kann $x^2-3$ verwendet werden,
-welches auch irreduzibel ist über $\mathbb{Q}(\!\sqrt{2})$.
-Die Erweiterung von $\mathbb{Q}(\!\sqrt{2})$ um $\!\sqrt{3}$
-liefert den Körper
-\begin{align*}
-\mathbb{Q}(\!\sqrt{2})(\!\sqrt{3})
-&=
-\Bigl\{
-a+b\!\sqrt{3}
-\;
-\Big|
-\;
-a,b\in\mathbb{Q}(\!\sqrt{2})
-\Bigr\}
-\\
-&=
-\Bigl\{
-a_0+a_1\!\sqrt{2}+a_2\!\sqrt{3}+a_3\!\sqrt{6}
-\;
-\Big|
-\;
-a_k\in\mathbb{Q}
-\Bigr\}.
-\end{align*}
-Die umgekehrte Reihenfolge führt auf
-\begin{align*}
-\mathbb{Q}(\!\sqrt{3})(\!\sqrt{2})
-&=
-\Bigl\{
-a+b\!\sqrt{2}
-\;
-\Big|
-\;
-a,b\in\mathbb{Q}(\!\sqrt{3})
-\Bigr\}
-\\
-&=
-\Bigl\{
-b_0+b_1\!\sqrt{3}+b_2\!\sqrt{2}+b_3\!\sqrt{6}
-\;
-\Big|
-\;
-b_k\in\mathbb{Q}
-\Bigr\}.
-\end{align*}
-Offensichtlich entsteht der gleiche Körper.
-Es kommt also nicht auf die Reihenfolge an und es ist zulässig,
-\[
-\mathbb{Q}(\!\sqrt{2})(\!\sqrt{3})
-=
-\mathbb{Q}(\!\sqrt{2},\!\sqrt{3})
-=
-\mathbb{Q}(\!\sqrt{3},\!\sqrt{2})
-=
-\mathbb{Q}(\!\sqrt{3})(\!\sqrt{2})
-\]
-zu schreiben.
 
 %
 % Matrixschreibweise für komplexe Zahlen
 %
-\subsection{Matrixschreibweise für komplexe Zahlen}
+\subsection{Matrixschreibweise für komplexe Zahlen
+\label{buch:komplex:subsection:matrixschreibweise}}
 In der Konstruktion der Körpererweiterung $\mathbb{Q}(\alpha)$
 mit einer Nullstelle $\alpha$ des Minimalpolynoms $m\in\mathbb{Q}[x]$ 
 wurde nie die Frage gestellt, woher $\alpha$ eigentlich kommt.
@@ -2014,6 +2090,67 @@ Die Matrizenalgebra ist also viel grösser als zur Darstellung von
 Quadratwurzeln nötig ist, zu gross um eine Quadratwurzel eindeutig 
 festzulegen.
 
+%%
+%% Multiplikation mit $\alpha$ als Matrix
+%%
+%\subsubsection{Multiplikation mit $\alpha$ als Matrix}
+%Wir betrachten wieder eine algebraische Körpererweiterung $\mathbb{Q}(\alpha)$
+%mit Minimalpolynom $m(X) = m_0 + m_1X + \ldots + m_{n-1}X^{n-1} + X^n$.
+%Ein Element $x$ von $\mathbb{Q}(\alpha)$ schreiben wir als Spaltenvektor mit
+%den Einträgen $x_0,x_1,\dots,x_{n-1}$.
+%Die Multiplikation mit $\alpha$ ist eine lineare Operation und kann daher
+%als Matrixmultiplikation
+%\[
+%\alpha(x_0+x_1\alpha+\ldots+x_n\alpha^{n-1})
+%=
+%\underbrace{
+%\begin{pmatrix}
+%     0 &      0 &      0 & \dots  &      0 &   -m_0     \\
+%     1 &      0 &      0 & \dots  &      0 &   -m_1     \\
+%     0 &      1 &      0 & \dots  &      0 &   -m_2     \\[-2pt]
+%\vdots & \vdots & \vdots & \ddots & \vdots & \vdots     \\
+%     0 &      0 &      0 & \dots  &      0 &   -m_{n-2} \\
+%     0 &      0 &      0 & \dots  &      1 &   -m_{n-1}
+%\end{pmatrix}
+%}_{\displaystyle=\bm{\alpha}}
+%\begin{pmatrix}
+%x_0    \\
+%x_1    \\
+%x_2    \\
+%\vdots \\[-2pt]
+%x_{n-2}\\
+%x_{n-1}
+%\end{pmatrix}.
+%\]
+%Die letzte Spalte enhält das Produkt
+%\[
+%\alpha\cdot\alpha^{n-1}
+%=
+%-m_0-m_1\alpha-\ldots-m_{n-2}\alpha^{n-2}-m_{n-1}\alpha^{n-1}.
+%\]
+%Die Multiplikation mit $a=a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}$ wird
+%daher durch die Matrix
+%\[
+%A
+%=
+%a_0I+a_1\bm{\alpha} + a_2\bm{\alpha}^2 + \ldots + a_{n-1}\bm{\alpha}^{n-1}
+%\]
+%beschrieben.
+%Um die Inverse $A$ zu finden, muss man also das lineare Gleichungssystem
+%\(
+%Ax=e_1
+%\),
+%wobei $e_1$ der erste standardbasisvektor ist.
+%Man kann also das inverse Element von $a$ als
+%\[
+%a = A^{-1}e_1
+%\]
+%finden.
+
+%
+% Eine Matrix als Nullstelle des Minimalpolynoms
+%
+\subsubsection{Eine Matrix als Nullstelle des Minimalpolynoms}
 Es lässt sich aber trotzdem eine Matrix angeben, die als Lösung
 der Gleichung \eqref{buch:komplex:zahlen:eqn:pqgleichung} angesehen
 werden kann, nämlich

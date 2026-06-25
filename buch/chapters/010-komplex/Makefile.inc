@@ -11,5 +11,6 @@ CHAPTERFILES += 							\
 	chapters/010-komplex/4-fundamental.tex				\
 	chapters/010-komplex/fig/table-gold.tex				\
 	chapters/010-komplex/uebungsaufgaben/101.tex			\
+	chapters/010-komplex/uebungsaufgaben/102.tex			\
 	chapters/010-komplex/chapter.tex
 
