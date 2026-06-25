@@ -1,0 +1,168 @@
+Verwenden Sie die Methode von Rothstein-Trager, um die folgenden Integrale
+auszurechnen.
+\begin{teilaufgaben}
+\item $\displaystyle
+\int \frac{x+1}{x^2+1}\,dx$
+\item $\displaystyle
+\int \frac{x}{x^2+x+1}\,dx$
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Der Nenner $b(x)=x^2+1$ ist bereits quadratfrei und der Zähler $a(x)=x+1$
+hat kleineren Grad als der Nenner, die Methode von Rothstein-Trager ist
+ohne weitere Vorarbeit anwendbar.
+Es sind nichttriviale gemeinsame Teiler von
+\[
+a(x)-cb'(x)
+=x+1-c(2x)
+=1+(1-2c)x
+=
+(1-2c)\biggl(x+\frac{1}{1-2c}\biggr)
+\qquad\text{und}\qquad
+b(x)=x^2+1
+\]
+zu finden.
+Da $b(x)=(x+i)(x-i)$ sind solche Teiler zu finden für
+\[
+\frac{1}{1-2c}=\pm i
+\quad\Rightarrow\quad
+1-2c=\mp i
+\quad\Rightarrow\quad
+2c=1\pm i
+\quad\Rightarrow\quad
+c=\frac12\pm\frac{i}{2}
+\]
+und der zugehörige grösste gemeinsame Teiler ist $(x\pm i)$.
+Somit ist die Stammfunktion
+\begin{align*}
+\int \frac{x+1}{x^2+1}\,dx
+&=
+\biggl(\frac12+\frac{i}2\biggr)\log(x+i)
++
+\biggl(\frac12-\frac{i}2\biggr)\log(x-i)
+\\
+&=
+\frac12 \log((x+i)(x-i))
++
+\frac{i}2 \log\frac{x+i}{x-i}
+\\
+&=
+\frac12\log(x^2+1)
++\arctan x.
+\end{align*}
+\item
+Mit $a(x)=x$ und $b(x)=x^2+x+1$ sind gemeinsame Teiler von
+\[
+a(x)-cb'(x)
+=
+x-2cx-c
+=
+(1-2c)x-c
+\quad\text{und}\quad
+b(x)= x^2+x+1
+\]
+zu finden.
+Dazu führen wir den euklidischen Algorithmus für die Polynome $b_0(x)=x^2+x+1$
+und $b_1(x)=x-d$ durch, wobei $d=c/(1-2c)$.
+Division von $b_0(x)$ durch $b_1(x)$ ergibt
+\[
+b_0(x) = (x+d+1) b_1(x) + d^2 +d + 1
+\]
+Der grösste gemeinsame Teiler ist also $b_1(x)$, wenn der Rest
+$d^2+d+1$ verschwindet.
+Setzt man $d=c/(1-2c)$ für $d$ ein, erhält man die Bedingung
+\[
+\frac{c^2}{(1-2c)^2}+\frac{c}{1-2c}+1=0
+\quad\Rightarrow\quad
+\frac{3c^2-3c+1}{4c^2-4c+1}=0.
+\]
+Die möglichen Werte von $c$ sind daher
+\begin{align*}
+c_{1,2}
+&=
+\frac{3\pm\!\sqrt{9-4\cdot 3}}{2\cdot 3}
+=
+\frac{3\pm\!\sqrt{-3}}{6}
+=
+\frac{3\pm i\!\sqrt{3}}{6}
+\intertext{und die zugehörigen Werte von $d$}
+d_{1,2}
+&=
+\frac{c_{1,2}}{1-2c_{1,2}}
+=
+\frac{3\pm i \!\sqrt{3}}{6}
+\biggl(
+1-\frac{3\pm i\!\sqrt{3}}{3}
+\biggr)^{-1}
+=
+\frac{3\pm i \!\sqrt{3}}{6}
+\frac{3}{\mp i\!\sqrt{3}}
+=
+\pm
+i
+\frac{\!\sqrt{3}}{2}
+-\frac12.
+\end{align*}
+Damit kann man jetzt das Integral zusammensetzen:
+\begin{align*}
+\int \frac{x}{x^2+x+1}\,dx
+&=
+c_1\log v_1(x)
++
+c_2\log v_2(x)
+\\
+&=
+c_1\log (x-d_1)
++
+c_2\log (x-d_2)
+\\
+&=
+\frac{3+i\!\sqrt{3}}{6}\log \biggl(x+\frac12-i\frac{\!\sqrt{3}}2\biggr)
++
+\frac{3-i\!\sqrt{3}}{6}\log \biggl(x+\frac12+i\frac{\!\sqrt{3}}2\biggr).
+\intertext{Wir trennen Real- und Imaginärteil der Koeffizienten und erhalten}
+&=
+\frac12
+\log\biggl(
+\biggl(x+\frac12-i\frac{\!\sqrt{3}}{2}\biggr)
+\biggl(x+\frac12+i\frac{\!\sqrt{3}}{2}\biggr)
+\biggr)
++\frac{1}{\!\sqrt{3}}
+\frac{i}{2}
+\log
+\frac{
+x+\frac12+i\frac{\!\sqrt{3}}{2}
+}{
+x+\frac12-i\frac{\!\sqrt{3}}{2}
+}
+\\
+&=
+\frac12\log \biggl(\biggl(x+\frac12\biggr)^2+\frac34\biggr)
++
+\frac{1}{\!\sqrt{3}}
+\frac{i}{2}\log
+\frac{
+2x+1+i\!\sqrt{3}
+}{
+2x+1-i\!\sqrt{3}
+}
+\\
+&=
+\frac12\log \biggl(x^2+x+\frac14+\frac34\biggr)
++
+\frac{1}{\!\sqrt{3}}
+\frac{i}{2}\log
+\frac{
+(2x+1)/\!\sqrt{3}+i
+}{
+(2x+1)/\!\sqrt{3}-i
+}
+\\
+&=
+\frac12\log(x^2+x+1) -\frac{1}{\!\sqrt{3}}\arctan\frac{2x+1}{\!\sqrt{3}}.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
