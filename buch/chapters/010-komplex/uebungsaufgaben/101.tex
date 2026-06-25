@@ -1,0 +1,131 @@
+Das Polynom $m(X)=X^2-X-1\in\mathbb{Q}[X]$ ist irreduzibel und definiert damit
+ein algebraisches Element $\varphi$ über $\mathbb{Q}$.
+Führen Sie die folgenden Berechnungen im Körper $\mathbb{Q}(\varphi)$
+durch.
+\begin{teilaufgaben}
+\item Berechnen Sie $(2+\varphi)(3-2\varphi)$.
+\item Berechnen Sie $\varphi^{-1}$.
+\item Berechnen Sie $(3-2\varphi)^{-1}$.
+\item Berechnen Sie $(2+\varphi)/(3-2\varphi)$.
+\item Löst man die quadratische Gleichung, findet man zwei Lösungen
+\[
+\varphi_\pm
+=
+\frac{1\pm\!\sqrt{5}}2,
+\]
+die beide mögliche Werte für $\varphi$ sind und daher die gleichen
+algebraischen Eigenschaften haben.
+Prüfen Sie nach, dass $1/\varphi_\pm = -\varphi_\mp$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Ausmultiplizieren ergibt
+\begin{align*}
+(2+\varphi)(3-2\varphi)
+&=
+6-4\varphi+3\varphi-2\varphi^2
+=
+6-\varphi-2\varphi^2.
+\intertext{Das Quadrat von $\varphi$ kann dank der definierenden Gleichung
+für $\varphi$ durch $\varphi^2=\varphi+1$ ersetzt werden, was}
+&=
+6-\varphi-2(\varphi+1)
+=5-3\varphi
+\end{align*}
+ergibt.
+
+\item
+Wir multiplizieren die definierende Gleichung $\varphi^2-\varphi-1=0$
+mit $\varphi^{-1}$ und lösen nach $\varphi^{-1}$ auf:
+\[
+(\varphi^2-\varphi-1)\varphi^{-1}=0
+\quad\Rightarrow\quad
+\varphi-1-\varphi^{-1}=0
+\quad\Rightarrow\quad
+\varphi^{-1}=\varphi-1.
+\]
+
+\item 
+Gesucht ist $a+b\varphi$ mit
+\begin{align*}
+(3-2\varphi)(a+b\varphi)&=1.
+\intertext{Ausmultiplizieren ergibt}
+3a +(3b-2a)\varphi -2b\varphi^2&=1,
+\intertext{worin wir wieder $\varphi^2=\varphi+1$ ersetzen können und}
+3a +(3b-2a)\varphi -2b(\varphi+1)&=1\\
+(3a-2b) +(b-2a)\varphi &=1\\
+\end{align*}
+erhalten.
+Daraus lesen wir die Gleichungen
+\[
+\left.
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcr}
+ 3a &-& 2b &=& 1 \\
+-2a &+&  b &=& 0
+\end{array}
+\quad
+\right\}
+\qquad\text{mit den Lösungen}\qquad
+\left\{\quad
+\begin{aligned}
+a&=-1
+\\
+b&=-2
+\end{aligned}
+\right.
+\]
+ab.
+Es folgt $(3-2\varphi)^{-1}=-1-2\varphi$.
+Wir kontrollieren das Resultat durch Multiplikation
+\[
+(3-2\varphi)(-1-2\varphi)
+=
+-3+2\varphi-6\varphi + 4\varphi^2
+=
+-3-4\varphi+4(\varphi+1)
+=
+1.
+\]
+
+\item
+Wir multiplizieren mit der in Teilaufgabe c) gefundenen multiplikativen
+Inversen
+\begin{align*}
+\frac{2+\varphi}{3-2\varphi}
+&=
+(2+\varphi)(-1-2\varphi)
+=
+-2-\varphi-4\varphi-2\varphi^2
+=
+-2-5\varphi-2(\varphi+1)
+=
+-4-7\varphi.
+\end{align*}
+
+\item
+Durch Rationalisieren finden wir
+\begin{align*}
+\varphi_\pm^{-1}
+&=
+\frac{1}{\varphi_\pm}
+=
+\frac{2}{1\pm\!\sqrt{5}}
+=
+\frac{2}{1\pm\!\sqrt{5}}
+\frac{1\mp\!\sqrt{5}}{1\mp\!\sqrt{5}}
+=
+\frac{2(1\mp\!\sqrt{5})}{1-5}
+=
+-\frac{1\mp\!\sqrt{5}}{2}
+=
+-\varphi_\mp.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
