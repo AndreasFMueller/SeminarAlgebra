@@ -1,0 +1,111 @@
+%
+% 15-geometrisch.tex -- Geometrische Beschreibung der Rechenoperationen in C
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Geometrische Beschreibung der Rechenoperationen in $\mathbb{C}$}
+\input{chapters/010-komplex/fig/fig-gaussebene.tex}%
+Eine komplexe Zahl $z=a+bi$ kann sowohl als Vektor
+\[
+z = \begin{pmatrix}a\\b\end{pmatrix}
+\]
+in der gaussschen Zahlenebene der
+Abbildung~\ref{buch:komplex:zahlen:fig:gaussebene}
+als auch als $2\times 2$-Matrix beschrieben werden.
+Schreiben wir das Produkt $(a+bi)(c+di)$ in Matrix-Form als
+\begin{align*}
+(aI+bJ)(cI+dJ)
+&=
+\begin{pmatrix*}[r]
+a&-b\\
+b& a
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+c&-d\\
+d& c
+\end{pmatrix*}
+\intertext{und betrachten wir nur die erste Spalte des Resultats,
+finden wir das Produkt als Spaltenvektor}
+\begin{pmatrix*}
+ac-bd\\
+bc+ad
+\end{pmatrix*}
+&=
+\begin{pmatrix*}[r]
+a&-b\\
+b& a
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+c\\
+d
+\end{pmatrix*}
+\end{align*}
+Wie kann man dieses Produkt geometrisch in der gaussschen Zahlenebene
+beschreiben?
+
+Wir schreiben $r=\!\sqrt{a^2+b^2}$ und schreiben die Matrix von $a+bi$
+als
+\[
+aI+bJ
+=
+r
+\begin{pmatrix*}[r]
+a/r & -b/r \\
+b/r &  a/r
+\end{pmatrix*}.
+\]
+Für die Matrixelemente gilt
+\[
+\biggl(\frac{a}{r}\biggr)^2
++
+\biggl(\frac{b}{r}\biggr)^2
+=
+\frac{a^2}{r^2}
++
+\frac{b^2}{r^2}
+=
+\frac{a^2+b^2}{r^2}
+=
+1.
+\]
+Es gibt daher einen Winkel $\varphi$ derart, dass
+\[
+\cos\varphi = \frac{a}{r}
+\qquad\text{und}\qquad
+\sin\varphi = \frac{b}{r}.
+\]
+Damit wird die Matrix zu
+\[
+aI+bJ
+=
+r
+\begin{pmatrix*}[r]
+\cos\varphi & -\sin\varphi \\
+\sin\varphi &  \cos\varphi
+\end{pmatrix*}
+=
+r\,D_\varphi,
+\]
+wobei $D_\varphi$ die Drehung der Ebene um den Winkel $\varphi$ im
+Gegenuhrzeigersinn ist.
+Die Multiplikation mit der komplexen Zahl $a+bi$ dreht also einen
+Vektor in der gaussschen Zahlenebene um den Winkel $\varphi$ und
+strekt ihn anschliessend um $r=|a+bi|$.
+
+\begin{definition}[Polardarstellung komplexer Zahlen]
+Ist $z=a+bi$ eine komplexe Zahl, dann gibt es einen Winkel $\varphi$ derart,
+dass 
+\[
+z
+=
+a + bi
+=
+r(\cos\varphi + i\sin\varphi)
+\qquad\text{mit}\qquad
+r=|z|.
+\]
+Der Winkel $\varphi$ heisst das \emph{Argument} $\varphi=\operatorname{arg}z$
+der komplexen Zahl $z$.
+\index{Argument einer komplexen Zahl}%
+\end{definition}
+
