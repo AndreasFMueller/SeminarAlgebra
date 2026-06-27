@@ -22,6 +22,7 @@ die Eigenschaft, dass das Quadrat einer Zahl immer $\ge 0$ ist.
 
 So schreibt auch Leonhard Euler in seiner \emph{Vollständigen
 Anleitung zur Algebra}
+\index{Euler, Leonhard}%
 \cite[S.~61,  Abschnitt~144--145]{buch:euler-algebra}:
 \begin{quote}
 Daher bedeuten alle diese Ausdrücke $\!\sqrt{-1}$, $\!\sqrt{-2}$,
@@ -246,63 +247,6 @@ $A'$ ist also auch eine Quadratwurzel von $a$.
 Die Matrizenalgebra ist also viel grösser als zur Darstellung von
 Quadratwurzeln nötig ist, zu gross um eine Quadratwurzel eindeutig 
 festzulegen.
-
-%%
-%% Multiplikation mit $\alpha$ als Matrix
-%%
-%\subsubsection{Multiplikation mit $\alpha$ als Matrix}
-%Wir betrachten wieder eine algebraische Körpererweiterung $\mathbb{Q}(\alpha)$
-%mit Minimalpolynom $m(X) = m_0 + m_1X + \ldots + m_{n-1}X^{n-1} + X^n$.
-%Ein Element $x$ von $\mathbb{Q}(\alpha)$ schreiben wir als Spaltenvektor mit
-%den Einträgen $x_0,x_1,\dots,x_{n-1}$.
-%Die Multiplikation mit $\alpha$ ist eine lineare Operation und kann daher
-%als Matrixmultiplikation
-%\[
-%\alpha(x_0+x_1\alpha+\ldots+x_n\alpha^{n-1})
-%=
-%\underbrace{
-%\begin{pmatrix}
-%     0 &      0 &      0 & \dots  &      0 &   -m_0     \\
-%     1 &      0 &      0 & \dots  &      0 &   -m_1     \\
-%     0 &      1 &      0 & \dots  &      0 &   -m_2     \\[-2pt]
-%\vdots & \vdots & \vdots & \ddots & \vdots & \vdots     \\
-%     0 &      0 &      0 & \dots  &      0 &   -m_{n-2} \\
-%     0 &      0 &      0 & \dots  &      1 &   -m_{n-1}
-%\end{pmatrix}
-%}_{\displaystyle=\bm{\alpha}}
-%\begin{pmatrix}
-%x_0    \\
-%x_1    \\
-%x_2    \\
-%\vdots \\[-2pt]
-%x_{n-2}\\
-%x_{n-1}
-%\end{pmatrix}.
-%\]
-%Die letzte Spalte enhält das Produkt
-%\[
-%\alpha\cdot\alpha^{n-1}
-%=
-%-m_0-m_1\alpha-\ldots-m_{n-2}\alpha^{n-2}-m_{n-1}\alpha^{n-1}.
-%\]
-%Die Multiplikation mit $a=a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}$ wird
-%daher durch die Matrix
-%\[
-%A
-%=
-%a_0I+a_1\bm{\alpha} + a_2\bm{\alpha}^2 + \ldots + a_{n-1}\bm{\alpha}^{n-1}
-%\]
-%beschrieben.
-%Um die Inverse $A$ zu finden, muss man also das lineare Gleichungssystem
-%\(
-%Ax=e_1
-%\),
-%wobei $e_1$ der erste standardbasisvektor ist.
-%Man kann also das inverse Element von $a$ als
-%\[
-%a = A^{-1}e_1
-%\]
-%finden.
 
 %
 % Eine Matrix als Nullstelle des Minimalpolynoms

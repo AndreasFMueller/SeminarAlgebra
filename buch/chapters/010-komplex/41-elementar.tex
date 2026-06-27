@@ -158,9 +158,9 @@ X_1^3 + X_2^3
 &=
 \sigma_1(X_1,X_2)^3 - 3\sigma_1(X_1,X_2)\cdot \sigma_2(X_1,X_2).
 \intertext{Dasselbe gilt für symmetrische Polynome vom Grad 4:}
-X_1^2X_2^2
+X_1^2 X_2^2
 &=
-\sigma_1(X_1,X_2)^2
+\sigma_2(X_1,X_2)^2
 \\
 X_1^3X_2+X_1X_2^3
 &=
@@ -577,6 +577,7 @@ das Monom mit $e(m)=(a_n,\dots,a_1)$.
 
 \begin{definition}[umgekehrt lexikographische Ordnung]
 \label{buch:komplex:symmetrisch:def:ulexiko}
+\index{umgekehrt lexikographische Ordnung}%
 Die umgekehrt lexikographische Ordnung von $n$-Tupeln ist definiert durch
 \[
 (a_n,\dots,a_1) < (b_n,\dots,b_1)
@@ -597,7 +598,8 @@ Zwei Monome $m_1$ und $m_2$ gleichen Grades erfüllen $m_1 < m_2$, wenn
 $e(m_1) < e(m_2)$.
 \end{definition}
 
-Die lexikographische Ordnung der Tripel vom Grad 3 ist
+Die umgekehrt lexikographische Ordnung der Tripel vom Grad 3 ist
+\index{lexikographisch}%
 \begin{equation}
 \begin{aligned}
 (3,0,0)
@@ -649,6 +651,7 @@ wird auch ein \emph{maximales $n$-Tupel} genannt.
 \index{maximales n-Tupel@maximals $n$-Tupel}%
 
 \begin{definition}[Monomordnung]
+\index{Monomordnung}%
 Für zwei beliebige Monome $m_1$ und $m_2$ von möglicherweise verschiedenem
 Grad wird die Ordnung durch
 \[
@@ -760,12 +763,12 @@ Statt mit den Monomen zu rechnen, können wir mit den $n$-Tupeln rechnen:
 \left.
 \renewcommand{\arraycolsep}{2pt}
 \begin{array}{crcl}
- & (0,\dots,0,0,1) &\cdot& (a_1-a_2)\\
-+& (0,\dots,0,1,1) &\cdot& (a_2-a_3)\\
-+& (0,\dots,1,1,1) &\cdot& (a_3-a_4)\\
- &		&\vdots& \\
-+& (0,\dots,1,1,1) &\cdot& (a_{n-1}-a_n)\\
-+& (1,\dots,1,1,1) &\cdot& \phantom{(}a_n\\
+ & (0,\dots,0,0,1) &\cdot & (a_1-a_2)     \\
++& (0,\dots,0,1,1) &\cdot & (a_2-a_3)     \\
++& (0,\dots,1,1,1) &\cdot & (a_3-a_4)     \\[-2pt]
+ &		   &\vdots&               \\
++& (0,\dots,1,1,1) &\cdot & (a_{n-1}-a_n) \\
++& (1,\dots,1,1,1) &\cdot & \phantom{(}a_n\\
 \end{array}
 \right\}
 &=
@@ -773,12 +776,12 @@ Statt mit den Monomen zu rechnen, können wir mit den $n$-Tupeln rechnen:
 \renewcommand{\arraycolsep}{1pt}
 %\begin{array}{clccclclcll}
 \begin{array}{ccccccccccl}
- &(0       &,& \dots &,& 0       &,&       0         &,& a_1-a_2     &)\\
- &(0       &,& \dots &,& 0       &,& a_2-a_3         &,& a_2-a_3     &)\\
- &(0       &,& \dots &,& a_3-a_2 &,& a_3-a_4         &,& a_3-a_4     &)\\
- &\;\vdots & & \vdots& & \vdots  & & \vdots          & & \vdots      & \\
+ &(0       &,& \dots &,& 0           &,&       0     &,& a_1-a_2     &)\\
+ &(0       &,& \dots &,& 0           &,& a_2-a_3     &,& a_2-a_3     &)\\
+ &(0       &,& \dots &,& a_3-a_2     &,& a_3-a_4     &,& a_3-a_4     &)\\[-2pt]
+ &\;\vdots & & \vdots& & \vdots      & & \vdots      & & \vdots      & \\
  &(0       &,& \dots &,& a_{n-1}-a_n &,& a_{n-1}-a_n &,& a_{n-1}-a_n &)\\
- &(a_n     &,& \dots &,& a_n     &,& -a_n            &,& a_n         &)
+ &(a_n     &,& \dots &,& a_n         &,&  a_n        &,& a_n         &)
 \end{array}
 \right.
 \\
@@ -796,17 +799,17 @@ skizzierten Algorithmus ausformulieren.
 \begin{proof}[Beweis von Satz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}]
 Das Polynom $q$ wird iterativ durch den folgenden Algorithmus bestimmt:
 \begin{enumerate}
-\item Setze $q=0$
-\item Setze $a=e(\operatorname{LM}(p))$
-\item Ersetze $p$ durch
+\item Setze $q=0$.
+\item Setze $a=e(\operatorname{LM}(p))$.
+\item Ersetze $p$ und $q$ durch
 \begin{align*}
 p&\leftarrow
 p - \operatorname{LC}(p) 
-\sigma_1^{a_2-a_1}\sigma_2^{a_3-a_1}\cdots\sigma_{n-1}^{a_n-a_{n-1}}
+\sigma_1^{a_2-a_1}\sigma_2^{a_3-a_1}\cdots\sigma_{n-1}^{a_n-a_{n-1}},
 \\
 q&\leftarrow
 q+ \operatorname{LC}(p) 
-\sigma_1^{a_2-a_1}\sigma_2^{a_3-a_1}\cdots\sigma_{n-1}^{a_n-a_{n-1}}
+\sigma_1^{a_2-a_1}\sigma_2^{a_3-a_1}\cdots\sigma_{n-1}^{a_n-a_{n-1}}.
 \end{align*}
 \item Falls $p\ne 0$ weiter bei 2.
 \end{enumerate}

@@ -11,6 +11,7 @@ Die Matrixdarstellung eines algebraischen Elementes, die in diesem
 Abschnitt studiert werden soll, liefert so einen Algorithmus.
 Gleichzeitig wird damit aber auch ein Werkzeug bereitgestellt,
 welches beim Beweis des Liouville-Prinzips für algebraische Erweiterungen
+\index{Liouville-Prinzip}%
 im Abschnitt~\ref{buch:intalg:liouville:subsection:allgemein}
 als nützlich erweisen wird.
 
@@ -71,7 +72,7 @@ man die Matrix
 1           &\mapsto \alpha   \\
 \alpha      &\mapsto \alpha^2 \\
 \alpha^2    &\mapsto \alpha^3 \\
-\alpha^3    &\mapsto \alpha^4 \\[-2pt]
+\alpha^3    &\mapsto \alpha^4 \\[-3pt]
             &\phantom{n}\vdots\\
 \alpha^{n-1}&\mapsto -a_0-a_1\alpha-\dots-a_{n-1}\alpha^{n-1}
 \end{aligned}
@@ -156,6 +157,8 @@ Um die Inverse $x=a^{-1}$ zu finden, muss man also das lineare
 Gleichungssystem
 $ Ax=e_1 $ lösen, wobei $e_1$ der erste standardbasisvektor ist.
 Man kann also das multiplikative inverse Element von $a$ als
+\index{multiplikative Inverse}%
+\index{Inverse, multiplikativ}%
 \[
 x = A^{-1}e_1
 \]
@@ -165,9 +168,11 @@ finden.
 % Das charakteristische Polynom der Matrix A
 %
 \subsubsection{Das charakteristische Polynom der Matrix $\bm{\alpha}$}
-Das charakteristische Polynom von $\bm{\alpha}$ kann am einfachsten durch Entwicklung
-nach der letzten Spalte bestimmt werden.
+Das charakteristische Polynom von $\bm{\alpha}$ kann am einfachsten
+durch Entwicklung nach der letzten Spalte bestimmt werden.
+\index{Entwicklung}%
 Die Minordeterminante zum Element $-m_k$ mit $k<n-1$ ist
+\index{Minordeterminante}%
 \[
 \det \bm{\alpha}_{k+1,n}
 =
@@ -339,6 +344,8 @@ zuordnen.
 
 \begin{definition}[Spur und Determinante]
 Die \emph{Spur} des algebraischen Elements $\alpha$ ist die Spur der
+\index{Spur}%
+\index{Determinante}%
 Matrix $\bm{\alpha}$, die \emph{Determinante} von $\alpha$ ist die
 Determinante der Matrix $\bm{\alpha}$:
 \begin{equation}
@@ -401,6 +408,7 @@ sie haben also alle die gleiche Spur und Determinante, die ausserdem
 die Summe bzw.~das Produkt der Eigenwerte dieser Matrix ist.
 Das charakteristische Polynom der Matrix ist aber identisch mit dem
 Minimalpolynom, die $\alpha_i$ sind somit auch die Eigenwerte.
+\index{Eigenwert}%
 \end{proof}
 
 \begin{beispiel}
@@ -413,6 +421,7 @@ Sei $\alpha$ eine dieser Nullstellen, dann ist
 \operatorname{tr}\alpha = 0.
 \]
 Tatsächlich kann man mit \texttt{octave} die numerischen Werte
+\index{octave@\texttt{octave}}%
 \[
 \renewcommand{\arraycolsep}{2pt}
 \begin{array}{rclcl}

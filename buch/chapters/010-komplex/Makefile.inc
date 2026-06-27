@@ -17,6 +17,8 @@ CHAPTERFILES += 							\
 	chapters/010-komplex/22-polynome.tex				\
 	chapters/010-komplex/23-potenzreihen.tex			\
 	chapters/010-komplex/3-fundamental.tex				\
+	chapters/010-komplex/31-nullstellenc.tex			\
+	chapters/010-komplex/32-nullstellenq.tex			\
 	chapters/010-komplex/4-symmetrisch.tex				\
 	chapters/010-komplex/41-elementar.tex				\
 	chapters/010-komplex/42-matrix.tex				\
