@@ -7,7 +7,46 @@
 \label{buch:holomorph:section:geometrie}}
 \kopfrechts{Geometrische Eigenschaften holomorpher Funktionen}
 
-\subsection{Konforme Abbildungen}
+\input{chapters/020-holomorph/fig/fig-konform.tex}
 
-\subsection{Der Satz von Riemann}
+%
+% Konforme Abbildungen
+%
+\subsection{Konforme Abbildungen}
+Wir betrachten eine holomorphe Abbildung $f\colon U\to\mathbb{C}$ einer
+offenen Menge nach $\mathbb{C}$.
+Ein Punkt $z_0 \in U$ wird auf $f(z_0)\in\mathbb{C}$ abgebildet.
+Die Abbildung~\ref{buch:holomorph:fig:konform} zeigt eine solche Abbildung.
+Eine Gerade durch den Punkt $z_0$ kann durch die Richtung $d\in\mathbb{C}$
+mit $|d|=1$ geschrieben werden.
+Die Gerade besteht aus den Punkten $z_0+dt$ mit $t\in\mathbb{R}$.
+Die Bildkurven sind $t\mapsto f(z_0+dt)$.
+Die Tangente an die Bildkurve im Punkt $f(z_0)$ hat gemäss der
+Ableitung  die Richtung von
+\[
+f'(z_0) \cdot d.
+\]
+Da Multiplikation mit $f'(z_0)$ eine Drehstreckung beschreibt, werden
+Geraden durch $z_0$, die einen Winkel $\omega$ einschliessen, auf zwei
+Tangenten abgebildet, die ebenfalls den Winkel $\omega$ einschliessen.
+Folglich bleiben Winkel bei der Abbildung $f$ erhalten.
+Solche Abbildungen heissen \emph{konform}.
+\index{konform}%
+
+\begin{satz}
+Eine holomorphe Funktion $f\colon U\to\mathbb{C}$ beschreibt in jedem
+Punkt $z$, in dem $f'(z)\ne 0$ ist, eine konforme Abbildung.
+\end{satz}
+
+Die Gitterlinien stehen im Definitionsgebiet senkrecht aufeinander.
+Die rechten Winkel werden von $f$ auf rechte Winkel zwischen den
+Bildkurven der Gitterlinien abgebildet.
+Daher schneiden sich die Gitterlinien in
+Abbildung~\ref{buch:holomorph:fig:konform}
+orthogonal.
+
+%
+% Der Abbildungssatz von Riemann
+%
+\subsection{Der Abbildungssatz von Riemann}
 
