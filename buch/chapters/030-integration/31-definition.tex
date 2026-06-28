@@ -1,0 +1,94 @@
+%
+% 31-definition.tex -- Die Umlaufzahl eine Weges um einen Punkt
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Die Umlaufzahl eines Weges um einen Punkt}
+Offenbar ist es notwendig, die Zahl der Umläufe eines Weges $\gamma$
+im Gegenuhrzeigersinn um den Punkt $z_0$ etwas genauer zu fassen.
+\index{Umlauf}%
+Damit diese Zahl wohldefiniert ist, darf der Weg den Punkt $z_0$
+nicht treffen.
+Wir zeichnen vom Punkt $z_0$ aus einen Strahl $s$ in eine beliebige
+Richtung.
+Schneidet die Kurve diesen Strahl nicht, dann lässt sich die Kurve
+in der Menge  $\mathbb{C}\setminus s$ zu einem Punkt zusammeziehen,
+insbesondere umläuft die Kurve den Punkt $z_0$ gar nicht.
+Ein im Gegenurzeigersinn durchlaufener Kreis um den Punkt $z_0$
+\index{Gegenuhrzeigersinn}%
+\index{Uhrzeigersinn}%
+schneidet dagegen den Strahl genau einmal.
+Durchläuft man den Kreis mehrmals, wie in $t\mapsto t+re^{2\pi int}$,
+dann ist die Zahl der Schnittpunkte gerade $n$.
+Die Anzahl der Kreuzungspunkte des Strahls mit der Kurve scheint
+also an die Anzahl der Umläufe um den Punkt $z_0$ gekoppelt zu sein.
+Dies funktioniert sogar für negative $n$, wenn man die Umläufe im
+Uhrzeigersinn negativ zählt.
+
+Die Anzahl der Schnittpunkte kann aber sogar unendlich gross werden,
+wenn der Weg $\gamma$ ein Stück weit entlang eines Strahls verläuft.
+Es ist auch mögich, dass der Weg von einer Seite auf den Strahl trifft,
+\index{Strahl}%
+ihn dann aber gleich wieder auf die selbe Seite verlässt.
+In diesem Fall berührt der Weg den Strahl.
+Der Strahl muss also so gewählt werden, dass der Weg ihn in jedem
+Kreuzungspunkt mit einem positiven Schnittwinkel oder \emph{transversal}
+\index{transversal}%
+kreuzt.
+Damit dies festgestellt werden kann, muss der Weg $\gamma$ differenzierbar
+sein.
+Durch Drehung des Strahls um den Punkt $z_0$ kann man immer erreichen,
+dass der Weg den Strahl transversal schneidet.
+
+Sei jetzt also $s$ ein von $z_0$ ausgehender Strahl, der den Weg 
+$\gamma\colon I\to\mathbb{C}$ für die Punkte $t_i\in I$ schneidet.
+\input{chapters/030-integration/fig/fig-argument.tex}%
+Abbildung~\ref{buch:integration:fig:argument}
+zeigt links den Wege $\gamma$ in rot, rechts das Argument von
+$\gamma(t)-z_0$.
+Wir zählen einen Kreuzungspunkt positiv, wenn das Argument 
+\(
+\varphi(t)
+=
+\operatorname{arg} (\gamma(t) - z_0)
+\)
+an der Stelle $t_i$ wächst, und negativ, wenn es abnimmt.
+Wir setzen also
+\begin{equation}
+n_i
+=
+\begin{cases}
+\phantom{-}1&\qquad \text{falls $\dot{\varphi}_i > 0$} \\
+         - 1&\qquad \text{falls $\dot{\varphi}_i < 0$,} 
+\end{cases}
+\label{buch:integration:umlaufzahl:eqn:ni}
+\end{equation}
+wobei 
+\[
+v_i
+=
+\frac{d}{dt} \operatorname{arg}(\gamma(t)-z_0)\bigg|_{t=t_i}
+\]
+die Änderungsgeschwindigkeit des Arguments ist.
+Die Umlaufzahl des Weges $\gamma$ um den Punkt $z_0$ ist dann die
+Summe der $n_i$.
+
+\begin{definition}[Umlaufzahl]
+\label{buch:integration:definition:umlaufzahl}
+\index{Umlaufzahl}%
+Die \emph{Umlaufzahl} eines Weges $\gamma$ in der komplexen Ebene
+$\mathbb{C}$ ist die Anzahl
+\[
+\operatorname{ind}_\gamma(z_0)
+=
+\sum_i n_i
+\]
+mit den Summanden $n_i$ aus
+\eqref{buch:integration:umlaufzahl:eqn:ni}.
+\end{definition}
+
+In Abbildung~\ref{buch:integration:fig:argument} sind die Schnittpunkte
+des Arguments mit der Richtung $\varphi_0$ des Strahls als orange
+Punkte eingezeichnet.
+Schnittpunkte, in denen das Argument ansteigt, werden positiv gezählt.
+Schnittpunkte, in denen das Argument abnimmt, werden negativ gezählt.

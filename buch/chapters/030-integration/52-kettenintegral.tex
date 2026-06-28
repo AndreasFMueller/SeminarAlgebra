@@ -1,0 +1,173 @@
+%
+% 52-kettenintegral.tex -- Integral über Ketten
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Integral über Ketten}
+Damit das Wegintegral eine lineare Abbildung von Ketten wird, 
+muss das Wegintegral entlang einer Kette wird durch Linearkombination
+der einzelnen Integrale gebildet:
+
+\begin{definition}[Wegintegral einer Kette]
+Ist $c\in C_1$ eine Kette der Form
+\eqref{buch:integration:homologie:eqn:def:kette}
+und $f$ eine in $U$ holomorphe Funktion, dann ist das 
+\emph{Wegintegral entlang $C$} definiert durch
+\index{Wegintegral entlang einer Kette}%
+\index{Kettenintegral}%
+\begin{equation}
+\int_c f(z)\,dz
+=
+c_1
+\int_{\gamma_1}f(z)\,dz
++
+\ldots
++
+c_n
+\int_{\gamma_n}f(z)\,dz
+=
+\sum_{k=1}^n
+c_k \int_{\gamma_k} f(z)\,dz.
+\label{buch:integration:homologie:eqn:kettenintegral}
+\end{equation}
+\end{definition}
+
+Ist $F(z)$ eine Stammfunktion von $f(z)$, dann kann das Integral über
+die Komponenten $\gamma_k$ der Kette ausgerechnet werden und es
+gilt
+\[
+\int_c f(z)\,dz
+=
+\sum_{k=1}^n c_k \int_{\gamma_k}f(z)\,dz
+=
+\sum_{k=1}^n c_k
+\Bigl[F(z)\Bigr]_{\gamma_k(0)}^{\gamma_k(1)}
+=
+\sum_{k=1}^n c_k
+\bigl(
+F(\gamma_k(1)) - F(\gamma_k(0))
+\bigr)
+\]
+Die Klammer im letzten Term kann man interpretieren als die
+Auswertung der Funktion $F$ auf dem Rand des Wegstückes $\gamma_k$.
+Schreibt man dies rein formal als das Integral
+\[
+\int_{\partial\gamma_k} F(z)\,dz
+=
+\Bigl[
+F(z)
+\Bigr]_{\gamma_k(0)}^{\gamma_k(1)},
+\]
+dann kann man die Gleichung
+\eqref{buch:integration:homologie:eqn:kettenintegral}
+als
+\begin{equation}
+\int_{\partial c} F(z)\,dz
+=
+\int_c F'(z)\,dz
+\label{buch:integration:homologie:eqn:stokes0}
+\end{equation}
+schreiben.
+Diese Formel ist ein Beispiel für den allgemeinen Satz von Stokes
+\index{Satz von Stokes}%
+aus der Theorie der Differentialformen.
+\index{Differentialform}
+Er besagt, dass das Integral der Ableitung einer Differentialform
+über ein Gebiet ersetzt werden kann durch das Integral der Differentialform
+über den Rand.
+In der Schreibweise der Differentialformen wird dies für eine
+Differentialform $\omega$ und das Gebiet $S$ als
+\[
+\int_{\partial S}\omega
+=
+\int_S d\omega
+\]
+geschrieben, $d\omega$ ist die äussere Ableitung der Differentialform.
+Die Ähnlichkeit mit
+\eqref{buch:integration:homologie:eqn:stokes0}
+ist unverkennbar.
+
+%
+% Integral über Zyklen
+%
+\subsubsection{Integral über Zyklen}
+Ist $c$ ein Zyklus, dann lassen sich die Teilwege von $c$ zu einem
+geschlossenen Weg zusammen setzen, wie dies in
+Abbildung~\ref{buch:integration:homologie:fig:kettenzyklen}
+dargestellt ist.
+In diesem Fall ist es sinnvoll vom Integral über einen geschlossen
+Weg zu sprechen und
+\[
+\partial c = 0
+\qquad\Rightarrow\qquad
+\int_c f(z)\,dz
+=
+\oint_c f(z)\,dz
+\]
+zu schreiben.
+
+Abbildung~\ref{buch:integration:homologie:fig:paar}
+zeigt eine Situation einer Kette $C=\gamma_++\gamma_-$, deren
+Wegintegral
+\[
+\int_C f(z)\,dz
+=
+\int_{\gamma_+} f(z)\,dz
++
+\int_{\gamma_-} f(z)\,dz
+=
+\int_{\gamma} f(z)\,dz
+\]
+mit dem Wegintegral entlang der Kurve $\gamma$ übereinstimmt.
+Soweit es um Wegintegrale entlang einer Kette geht, gibt es 
+zwischen $\gamma$ und $C$ keinen Unterschied.
+
+Zwischen $\gamma$ und nur der Komponente $\gamma_+$ gibt es
+ein wesentlichen Unterschied.
+Die Funktion $f(z) = 1/(z-F_1)$ hat eine Polstelle im Punkt $F_1$.
+Die Wegintegrale sind
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma f(z)\,dz
+&=
+\\
+\frac{1}{2\pi i}
+\oint_\gamma \frac{1}{z-F_1}\,dz
+&=
+\\
+\operatorname{ind}_\gamma(F_1)
+&=
+1
+\\
+&\ne
+\frac{1}{2\pi i}
+\oint_{\gamma_+} f(z)\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma_+} \frac{1}{z-F_1}\,dz
+\\
+&=
+\operatorname{ind}_{\gamma_+}(F_1)
+\\
+&=
+0
+\end{align*}
+sind jedoch verschieden.
+Der Grund dafür ist, dass $\gamma$ und $\gamma_+$ den Punkt $F_1$
+nicht gleich oft umlaufen.
+Wir definieren daher ein Äquivalenzrelation von Ketten durch die
+Anzahl der Male, die sie Punkte ausserhalb von $U$ umlaufen.
+
+\begin{definition}[Umlaufzahl einer Kette]
+Die \emph{Umlaufzahl} einer Kette $C$ um einen Punkt $z_0$ ist
+\index{Umlaufzahl}%
+\[
+\operatorname{ind}_C(z_0)
+=
+\frac{1}{2\pi i}
+\int_C
+\frac{1}{z-z_0}
+\,dz.
+\]
+\end{definition}

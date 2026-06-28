@@ -3,18 +3,19 @@
 #
 # (c) 2025 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
-
-CHAPTERFILES += 							\
-	chapters/070-intalg/1-elementar.tex				\
-	chapters/070-intalg/2-wurzel.tex				\
-	chapters/070-intalg/3-liouville.tex				\
-	chapters/070-intalg/4-risch.tex					\
+AUFGABENFILES +=							\
 	chapters/070-intalg/uebungsaufgaben/701.tex			\
 	chapters/070-intalg/uebungsaufgaben/702.tex			\
 	chapters/070-intalg/uebungsaufgaben/703.tex			\
 	chapters/070-intalg/uebungsaufgaben/704.tex			\
 	chapters/070-intalg/uebungsaufgaben/705.tex			\
 	chapters/070-intalg/uebungsaufgaben/706.tex			\
-	chapters/070-intalg/uebungsaufgaben/707.tex			\
+	chapters/070-intalg/uebungsaufgaben/707.tex
+
+CHAPTERFILES += 							\
+	chapters/070-intalg/1-elementar.tex				\
+	chapters/070-intalg/2-wurzel.tex				\
+	chapters/070-intalg/3-liouville.tex				\
+	chapters/070-intalg/4-risch.tex					\
 	chapters/070-intalg/chapter.tex
 

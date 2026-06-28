@@ -1,0 +1,113 @@
+%
+% 53-homologie.tex -- Homologie von Ketten
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Homologie von Ketten
+\label{buch:integration:homologie:subsection:homologie}}
+Die Homotpieeigenschaft des Wegintegrals hat gezeigt, dass sich der
+Wert eines Wegintegrals einer holomorphen Funktion nicht ändert, wenn
+man den Weg stetig deformiert.
+Dies wurde zum Beispiel in Abbildung~\ref{buch:integration:fig:residuum}
+verwendet, um zu zeigen, dass der Weg $\gamma$ und der kleine Kreis
+um den Punkt $z_0$ zu den gleichen Werten der Wegintegrale führen.
+Diese Äquivalenz von Ketten, die zu gleichen Wegintegralen führen,
+verdient einen eigenen Namen.
+
+\begin{definition}[homolog]
+Die Ketten $c_1$ und $c_2$ heissen \emph{homolog} in $U$, in Zeichen
+$c_1\sim c_2$ oder $c_1\sim_{U}c_2$, wenn
+\index{homolog}%
+für jeden Punkt $a\in \mathbb{C}\setminus U$
+\[
+\operatorname{ind}_{c_1}(a)
+=
+\operatorname{ind}_{c_2}(a)
+\]
+gilt.
+\end{definition}
+
+Die Kette $\gamma_++\gamma_-$ ist also zu $\gamma$ homolog.
+Für homologe Ketten ist nicht nur die Umlaufzahl gleich, sondern
+jedes Integral.
+
+\begin{satz}
+Sind die Ketten $c_1$ und $c_2$ homolog, dann ist
+\[
+\int_{c_1} f(z)\,dz
+=
+\int_{c_2} f(z)\,dz.
+\]
+\end{satz}
+
+Wir betrachten jetzt einen später besonders nützlichen Spezialfall.
+\input{chapters/030-integration/fig/fig-merohomolog.tex}%
+In Abbildung~\ref{buch:integration:homologie:fig:merohomolog}
+ist ein Gebiet $U$ mit einer einfach geschlossenen Kurve
+$\gamma$ dargestellt.
+Das Komplement von $U$ im Inneren der Kurve $\gamma$ besteht
+aus den isolierten Punkten $z_k$.
+Jeder dieser Punkte kann so mit der Kurve $\gamma$ verbunden werden,
+dass sich die Verbindungen nicht schneiden.
+Ausserdem wird jeder von diesen Punkten von einem kleinen Kreis $\gamma_k$
+im Gegenuhrzeigersinn umlaufen.
+Aus $\gamma$, den im Uhrzeigersinn durchlaufenen Kreisen $-\gamma_k$
+und den Verbindungen zu $\gamma$ lässt sich ein neuer Weg zusammensetzen,
+der sich in $U$ zusammenziehen lässt.
+Das Wegintegral über den gesamten Weg verschwindet daher.
+Die Verbindungswege zur Kurve $\gamma$ werden dabei zweimal in
+entgegengesetzter Richtung durchlaufen und tragen daher nicht zum
+Wegintegral bei.
+Das Wegintegral einer in $U$ holomorphen Funktion über $\gamma$
+ist daher gleich der Summe der Wegintegrale der Funktion
+über die Kreise $\gamma_k$.
+
+\begin{satz}
+\label{buch:integration:homologie:satz:pfadpunkte}
+Ist $\gamma$ eine einfach geschlossene Kurve in $U$ und besteht das Komplement
+von $U$ im Inneren von $\gamma$ nur aus endlich vielen isolierten Punkten
+$z_k$, $1\le k\le n$, dann gibt es einen Radius $r$ derart, dass $\gamma$
+homolog zu einem Zyklus 
+\[
+c
+=
+\sum_{k=1}^n \gamma_k,
+\]
+wobei jedes $\gamma_k$ ein Kreis vom Radius $r$ um $z_k$ ist.
+\end{satz}
+
+\begin{proof}
+Es muss nur der Radius $r$ berechnet werden.
+Nimmt man
+\[
+r
+=
+\frac13
+\min \{ |z_k-z_l|\mid 1\le k,l\le n\},
+\]
+dann können sich die Kreise um die Punkte $z_k$ mit Radius $r$ nicht
+schneiden.
+Für jeden Punkt $z_k$ ist dann die Umlaufzahl 
+\[
+\operatorname{ind}_{\gamma_k}(z_l)
+=
+\delta_{kl}
+=
+\begin{cases}
+1&\qquad\text{für $k=l$}\\
+0&\qquad\text{für $k\ne l$.}
+\end{cases}
+\]
+Für den ganzen Zyklus $C$ gilt dann
+\[
+\operatorname{ind}_c(z_l)
+=
+\sum_{k=1}^n
+\delta_{kl}
+=
+1
+=
+\operatorname{ind}_\gamma(z_l).
+\]
+Dies zeigt, dass $\gamma$ und $c$ homolog sind.
+\end{proof}
