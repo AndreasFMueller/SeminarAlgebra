@@ -1,0 +1,42 @@
+%
+% 62-meromorph.tex -- Das Argumentprinzip für beliebige meromorphe Funktionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Das Argumentprinzip für beliebige meromorphe Funktionen}
+Der Satz~\ref{buch:analytisch:argument:satz:ordnung}
+liefert Information für eine einzelne isolierte Singularität.
+Wir möchten jetzt zeigen, dass sich die Schlussfolgerung auch
+verallgemeinern lässt auf einen Weg, der mehr als eine Null-
+oder Polstelle der Funktion $f$ umschliesst.
+
+\begin{satz}[Argumentprintzip für meromorphe Funktionen]
+\label{buch:analytisch:argument:satz:argument}
+\index{Argumentprinzip!meromorphe Funktionen}%
+Sei jetzt $f$ ein meromorphe Funktion und $\gamma$ ein einfach
+geschlossener Weg in $\mathbb{C}$, der keine Nullstellen oder Polstellen
+von $f$ trifft.
+Dann gilt
+\[
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f'(z)}{f(z)}
+\,dz
+=
+\sum_{\text{$a$ Singularität von $f$}}
+\omega(a;f),
+\]
+wobei die Summe über alle Null- oder Polstellen $a$ von $f$ 
+zu erstrecken ist.
+\end{satz}
+
+\begin{proof}
+Nach Satz~\ref{buch:integration:homologie:satz:pfadpunkte} ist das
+Wegintegral über $\gamma$ gleich gross wie die Summe der Integrale
+über kleine, im Gegenuhrzeigersinn durchlaufene Kreise um die einzelnen
+Singularitäten.
+Die Summanden haben nach
+Satz~\ref{buch:analytisch:argument:satz:ordnung}
+den Wert $\omega(a;f)$.
+Damit ist der Satz bewiesen.
+\end{proof}

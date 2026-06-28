@@ -1,0 +1,76 @@
+%
+% 12-geometrisch.tex -- Die geometrische Reihe
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Die geometrische Reihe}
+Die geometrische Reihe ist die Reihe
+\index{geometrische Reihe}%
+\[
+a+aq+aq^2 + \dots = \sum_{k=0}^\infty aq^k.
+\]
+Es ist wohlbekannt, dass diese Reihe für $q<1$ konvergent ist und
+die Summe
+\[
+\sum_{k=0}^n aq^k
+=
+a\frac{q^{n+1}-1}{q-1}
+\qquad\Rightarrow\qquad
+\sum_{k=0}^n aq^k
+=
+\lim_{n\to\infty}
+a\frac{q^{n+1}-1}{q-1}
+=
+a\frac{1}{1-q}.
+\]
+
+Für komplexe Zahlen $z\in\mathbb{C}$ mit $|z|<1$ definiert die
+geometrische Reihe die holomorphe Funktion
+\[
+\sum_{k=1} z^k
+=
+\frac{1}{1-z}
+=
+f(z).
+\]
+Der Konvergenzradius der Reihe ist $\varrho=1$.
+\index{Konvergenzradius}%
+Die Polstelle bei $z=1$ führt zu einer divergenten Potenzreihe.
+\index{Polstelle}%
+\index{divergent}%
+
+Die Funktion 
+\[
+z
+\mapsto
+\frac{1}{x-z\mathstrut}
+\]
+ist ebenfalls holomorph, wir möchten sie jetzt in eine im Punkt $a$
+zentrierte Potenzreihe entwickeln.
+Dazu verwenden wir die Identität
+\begin{equation}
+\frac{1}{x-z\mathstrut}
+=
+\frac{1}{(x-a)-(z-a)\mathstrut}
+=
+\frac{1}{\displaystyle(x-a)\biggl(1-\frac{z-a\mathstrut}{x-a\mathstrut}\biggr)}
+=
+\frac{1}{x-a}
+\cdot
+\frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}.
+\label{buch:analytisch:eqn:geometrisch1}
+\end{equation}
+Der letzte Faktor auf der rechten Seite lässt sich mit der geometrischen
+Reihe als Potenzreihe der Form
+\begin{equation}
+\frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}.
+=
+\sum_{k=0}^\infty \biggl(\frac{z-a\mathstrut}{x-a\mathstrut}\biggr)^k
+=
+\sum_{k=0}^\infty
+c_k
+(z-a)^k
+\qquad\text{mit $c_k=1/(x-a)^k$.}
+\label{buch:analytisch:eqn:geometrischintegriert}
+\end{equation}
+entwickeln.

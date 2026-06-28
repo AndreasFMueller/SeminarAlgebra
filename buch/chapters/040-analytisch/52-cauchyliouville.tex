@@ -1,0 +1,143 @@
+%
+% 52-cauchyliouville.tex -- Die Cauchy-Ungleichungen und der Satz von Liouville
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Die Cauchy-Ungleichungen und der Satz von Liouville
+\label{buch:analytisch:ganz:subsection:cauchy-ungleichung}}
+Die Cauchy-Integralformel für die Koeffizienten der Potenzreihenentwicklung
+einer Funktion schränkt ein, wie gross die Koeffizienten werden
+können.
+
+\begin{satz}[Cauchy-Ungleichung]
+\label{buch:analytisch:ganz:satz:cauchy-ungleichung}
+\index{Cauchy-Ungleichung}%
+Sei $f$ ein holomorphe Funktion, die auf einem offenen Gebiet definiert
+ist, welches die abgeschlossene Kreisscheibe vom Radius $r$ um den
+Nullpunkt enthält.
+Sei ausserdem $M$ so, dass $|f(z)| \le M$ für alle $z$ mit $|z|=r$.
+Dann gilt für die Koeffizienten $c_k$ der Potenzreihenentwicklung
+die \emph{Cauchy-Ungleichung}
+\begin{equation}
+|c_k| \le \frac{M}{r^k}
+\label{buch:analytisch:ganz:satz:cauchy-ungleichung}
+\end{equation}
+für alle $k\in\mathbb{R}$.
+\end{satz}
+
+\begin{proof}
+Sei $\gamma$ der Kreis vom Radius $r$ um den Nullpunkt.
+Aus der Formel
+\begin{align*}
+c_k
+&=
+\frac{1}{2\pi i} \oint_\gamma
+\frac{f(z)}{z^{k+1}}\,dz
+\intertext{folgt}
+|c_k|
+&=
+\biggl|
+\frac{1}{2\pi i} \oint_\gamma
+\frac{f(z)}{z^{k+1}}\,dz
+\biggr|
+\\
+&\le
+\frac{1}{2\pi}
+\int_0^1
+\frac{|f(\gamma(t))|}{|\gamma(t)|^{k+1}}
+\cdot
+|\dot{\gamma}(t)|
+\,dt
+\\
+&\le
+\frac{1}{2\pi}
+\cdot
+\frac{M}{r^{k+1}}
+\int_0^1
+|\dot{\gamma}(t)|
+\,dt.
+\intertext{Das verbleibende Integral berechnet die Länge des
+Weges $\gamma$.
+Da $\gamma$ ein Kreis vom Radius $r$ ist, ist der Wert des
+Integrals $2\pi r$.
+Somit wird die rechte Seite zu}
+&=
+\frac{1}{2\pi}
+\cdot
+\frac{M}{r^{k+1}}
+\cdot
+2\pi r
+=
+\frac{M}{r^k}.
+\end{align*}
+Dies ist die behauptete Ungleichung.
+\end{proof}
+
+\begin{satz}[Liouville]
+\label{buch:analytisch:ganz:satz:liouville}
+\index{Satz!von Liouville}%
+Sei $f(z)$ eine ganze Funktion und seien $a\in\mathbb{R}$ und
+$N\in\mathbb{N}$ Zahlen mit der Eigenschaft, dass
+\[
+|f(z)| \le a(1+|z|^N)
+\]
+für alle $z\in\mathbb{C}$, dann ist $f(z)$ ein Polynom vom Grad nicht
+grösser als $N$.
+\end{satz}
+
+\begin{proof}
+Die Vorqaussetzungen des Satzes sagen, dass die auf einem Kreis
+vom Radius $r$ die Ungleichung
+\begin{equation}
+|f(z)|
+\le
+a(1+r^N)
+\label{buch:analytisch:ganz:liouville:proof1}
+\end{equation}
+gilt.
+
+Der Konvergenzradius der Potenzreihe einer ganzen Funktion ist
+unendlich gross, insbesondere kann die cauchysche Ungleichung
+\eqref{buch:analytisch:ganz:satz:cauchy-ungleichung}
+für beliebig
+grosse Radien anwenden.
+Dabei ist für die Schranke $M$ die rechte Seite der Ungleichung
+\eqref{buch:analytisch:ganz:liouville:proof1}
+zu verwenden.
+Der Koeffizient vom Grad $n$ der Potenzreihe erfüllt damit
+\begin{align*}
+|c_n|
+&\le 
+\frac{M}{r^n}
+=
+a\frac{1+r^N}{r^n}.
+\end{align*}
+Wir betrachten den Fall $n>N$ und lassen $r\to\infty$ gehen.
+In
+\begin{align*}
+\lim_{r\to\infty}
+a\frac{1+r^N}{r^n}
+&=
+a
+\lim_{r\to\infty} \frac{1}{r^n}
++
+a
+\lim_{r\to\infty} \frac{1}{r^{n-N}}
+\intertext{verschwinden die Grenzwerte wegen $n-N>0$ auf der rechten
+Seite.
+Somit folgt}
+|c_n|
+&
+=0.
+\end{align*}
+Somit verschwinden alle Koeffizienten der Potenzreihe für $n>N$,
+die Potenzreihe ist daher nur ein Polynom vom Grad $N$.
+\end{proof}
+
+Ein wichtiger Spezialfall ist $N=0$, der oft bereits als der
+Satz von Liouville bekannt ist.
+
+\begin{korollar}[Liouville]
+Ist $f$ eine beschränkte ganze Funktion, dann ist $f$ konstant.
+\end{korollar}
+
