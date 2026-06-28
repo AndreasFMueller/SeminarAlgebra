@@ -16,12 +16,19 @@
 \def\skala{0.889}
 \def\dx{1}
 \def\dy{1}
+\def\zerolabel#1#2#3{
+	\fill[color=white,opacity=0.7] ({#1*\dx},{#2*\dy}) circle[radius=0.22];
+	\node at ({#1*\dx},{#2*\dy}) {$#3$};
+}
 \begin{tikzpicture}[>=latex,thick,scale=\skala]
 
 \draw[->] (-6.8,0) -- (7.0,0) coordinate[label={$\operatorname{Re}$}];
 \draw[->] (0,-6.8) -- (0,7.0) coordinate[label={right:$\operatorname{Im}$}];
 
 \fill[color=gray,opacity=0.5] (0,0) circle[radius=3];
+\draw[->] (0,0) -- (10:3);
+\node at (10:1.9) [above] {$r$};
+\fill (0,0) circle[radius=0.08];
 
 \begin{scope}
 \clip (-6.7,-6.7) rectangle (6.7,6.7);

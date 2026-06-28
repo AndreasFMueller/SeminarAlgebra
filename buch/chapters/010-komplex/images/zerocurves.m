@@ -89,8 +89,11 @@ writecurves(fn, "imag", imagcurves, "blue");
 
 p = points(0);
 for i = (1:degree)
+	z = p(i,1);
 	fprintf(fn, "\\def\\zero%c{\n", char(64 + i));
-	fprintf(fn, "\\draw[color=black] ({%.4f*\\dx},{%.4f*\\dy}) circle[radius=0.05];\n", real(p(i, 1)), imag(p(i,1)));
+	fprintf(fn, "\\fill[color=black] ({%.4f*\\dx},{%.4f*\\dy}) circle[radius=0.08];\n", real(z), imag(z));
+	w = z + 0.30 * z/abs(z);
+	fprintf(fn, "\\zerolabel{%.4f}{%.4f}{z_%d}\n", real(w), imag(w), i);
 	fprintf(fn, "}\n");
 end
 
