@@ -3,6 +3,9 @@
 #
 # (c) 2025 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
+AUFGABENFILES +=							\
+	chapters/010-komplex/uebungsaufgaben/101.tex			\
+	chapters/010-komplex/uebungsaufgaben/102.tex
 
 CHAPTERFILES += 							\
 	chapters/010-komplex/1-zahlen.tex				\
@@ -23,7 +26,5 @@ CHAPTERFILES += 							\
 	chapters/010-komplex/41-elementar.tex				\
 	chapters/010-komplex/42-matrix.tex				\
 	chapters/010-komplex/fig/table-gold.tex				\
-	chapters/010-komplex/uebungsaufgaben/101.tex			\
-	chapters/010-komplex/uebungsaufgaben/102.tex			\
 	chapters/010-komplex/chapter.tex
 
