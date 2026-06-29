@@ -1,0 +1,38 @@
+%
+% 11-problem.tex -- Problemstellung
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Problemstellung}
+Die von Bernoulli gelöste Aufgabe ist die Stammfunktion einer
+rationalen Funktion zu finden, für die ausserdem angenommen wird,
+dass eine Faktorisierung des Nenners in Linearfaktoren bekannt ist.
+Der Fundamentalsatz der Algebra garantiert, dass eine solche
+Faktorisierung immer exisiert, wenngleich er keine Methode
+bereitstellt, die Faktorisierung zu finden.
+
+\begin{aufgabe}
+Gegeben ist eine rationale Funktion $f\in \mathbb{C}(z)$ mit
+komplexen Koeffizienten.
+Finde eine Stammfunktion $F$.
+\end{aufgabe}
+
+Aufgrund seiner Annahmen kann Bernoulli annehmen, dass zur
+gegebenen rationale Funktion eine Partialbruchzerlegung 
+wie in Abschnitt~\ref{buch:analytisch:rational:subsection:partialbruch}
+gefunden werden kann.
+Der Integrand kann daher als Summe
+\begin{align*}
+f(z)
+=
+p(z)
++
+\sum_{k=1}^n\sum_{l=1}^{n_k}\frac{A_k^l}{(z-\alpha_k)^l}
+\end{align*}
+geschrieben werden, wobei $p(z)$ ein Polynom und $\alpha_k$ die Nullstellen
+des Nenners von $f(z)$ sind. 
+Um eine Stammfunktion zu finden, müssen Stammfunktionen der
+einzelnen Summanden gefunden werden.
+Der Polynomterm ist dabei das kleinste Problem, da die einzelnen
+Summanden $z^n$ die Stammfunktion $z^{n+1}/(n+1)$ haben.
+Etwas mehr Arbeit geben die Brüche.

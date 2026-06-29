@@ -1,0 +1,359 @@
+%
+% Der euklidische Algorithmus für Polynome
+%
+\subsection{Der euklidische Algorithmus für Polynome
+\label{buch:ratint:euklid:subsection:polynome}}
+Der euklidische Algorithmus funktioniert auch für Polynome.
+Dies ermöglicht, rationale Funktionen effizient zu kürzen.
+Später werden wir den erweiterten euklidischen Algorithmus
+auch verwenden, um die quadratfreie Faktorisierung und die 
+zugehörige Partialbruchzerlegung einer rationalen Funktion
+zu finden und um Integrale von rationalen Funktionen auf 
+einfachere Form zu reduzieren.
+
+%
+% Polynomdivision
+%
+\subsubsection{Polynomdivision}
+Auch für Polynome gibt es eine Division mit Rest.
+Zu zwei Polynomen $a(x)$ und $b(x)$ gibt es Polynome $q(x)$ und $r(x)$,
+für die
+\[
+a(x) = b(x)q(x)+r(x)
+\]
+gilt.
+Ausserdem muss der Grad des Restpolynoms $r(x)$ kleiner sein als
+der Grad von $b(x)$: $\deg r(x) < \deg b()$.
+
+\begin{beispiel}
+\label{buch:ratint:euklid:bsp:polynomdivision}
+Man berechen Quotient und Rest der Polynome
+\[
+a(x)
+=
+x^4+x^3-4x^2+x-6
+\qquad\text{und}\qquad
+b(x)
+=
+x^2+5x+6.
+\]
+\[
+\renewcommand{\arraycolsep}{1.2pt}
+\begin{array}{rcrcrcrcrcrcrcrcrcrcr}
+x^4&+&  x^3&-& 5x^2&+&  x&-& 6&:& x^2&+& 5x&+& 6 &=& x^2 &-& 4x&+& 9\\
+x^4&+& 5x^3&+& 6x^2& &   & &  & &    & &   & &   & &     & &   & &  \\
+\cline{1-5}
+   &-& 4x^3&-&11x^2&+&  x& &  & &    & &   & &   & &     & &   & &  \raisebox{4pt}{\mathstrut}\\
+   &-& 4x^3&-&20x^2&-&24x& &  & &    & &   & &   & &     & &   & &  \\
+\cline{2-7}
+   & &     & & 9x^2&+&25x&-& 6& &    & &   & &   & &     & &   & &  \raisebox{4pt}{\mathstrut}\\
+   & &     & & 9x^2&+&45x&+&54& &    & &   & &   & &     & &   & &  \\
+\cline{5-9}
+   & &     & &     &-&20x&-&60& &    & &   & &   & &     & &   & &  \raisebox{3pt}{\mathstrut}\\
+\cline{6-9}
+\end{array}
+\]
+Somit ist der Quotient $q(x)=x^2-4x+9$ und der Rest $r(x)=-20x-60$.
+\end{beispiel}
+
+Die Division von Polynomen ist die Basis des Algorithmus zur Bestimmung
+des grössten gemeinsamen Teilers.
+Es ist aber zu beachten, dass die Division einen Rest liefert,
+der nicht unbedingt ein normiertes Polynom ist.
+Es kann daher nötig sein, den Rest zu normieren.
+Im Beispiel ist der normierte Rest $x+3$.
+
+%
+% Gemeinsame Teiler für Polynome
+%
+\subsubsection{Gemeinsame Teiler für Polynome}
+Der euklidische Algorithmus für den grössten gemeinsamen Teiler
+funktioniert unverändert auch für Polynome.
+Der Polynomgrad des Restes nimmt dabei ständig ab, bis der Rest
+0 wird.
+
+\begin{beispiel}
+Man finde den grössten gemeinsamen Teiler der Polynome
+\[
+a(x)
+=
+x^4+x^3-5x^2+x-6
+\qquad\text{und}\qquad
+b(x)
+=
+x^2+5x+6.
+\]
+Dazu müssen die Quotienten und Reste berechnet werden, der
+erste wurde bereits im
+Beispiel~\ref{buch:ratint:euklid:bsp:polynomdivision}
+berechnet:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}l<{$}>{$}l<{$}|>{$}l<{$}>{$}l<{$}|}
+\hline
+ k & a_k              & b_k      & q_k                & r_k
+\raisebox{2.5pt}{\mathstrut}\\[1pt]
+\hline
+ 0 & x^4+x^3-5x^2+x-6 & x^2+5x+6 & x^2-4x+9           & -20x-60
+\raisebox{3pt}{\mathstrut}\\
+ 1 & x^2+5x+6         & -20x-60  & -\frac{1}{20}(x+2) &       0
+\\[2pt]
+\hline
+\end{tabular}
+\end{center}
+In der zweiten Zeile lässt sich ablesen, dass der Rest $=0$ ist,
+daher ist der grösste gemeinsame Teiler $-20x-60$.
+Dieses Polynom ist nicht normiert, da die Koeffizienten rational sind,
+kann man durch $-20$ teilen und erhält das normierte Polynom $x+3$.
+\end{beispiel}
+
+Das Beispiel zeigt auch, dass der gefundene grösste gemeinsame Teiler
+nicht ein normiertes Polynom ist.
+Da wir nur an Polynomen mit rationalen Koeffizienten interessiert
+sind, kann immer durch den Leitkoeffizient geteilt werden.
+Arbeitet man dagegen nur mit ganzzahligen Koeffizienten, wird im 
+Beispiel bereits der Schritt $k=2$ nicht mehr durchführbar.
+
+%
+% Der erweiterte euklidische Algorithmus für Polynome
+%
+\subsubsection{Der erweiterte euklidische Algorithmus für Polynome}
+Auch der erweiterte euklidische Algorithmus lässt sich übertragen.
+
+\begin{beispiel}
+Für die Polynome $a(x) = x^3+2x^2-x-2$ und $b(x)=x^2-x-2$
+finde man Polynome $s(x)$ und $t(x)$ mit
+$\operatorname{ggT}(a,b)=s(x)a(x)+t(x)b(x)$.
+\begin{center}
+\renewcommand{\arraycolsep}{1.2pt}
+\begin{tabular}{|>{$}r<{$}|>{$}l<{$}>{$}l<{$}|>{$}l<{$}>{$}l<{$}|>{$}l<{$}>{$}l<{$}|}
+\hline
+  k & a_k(x)        & b_k(x)  & q_k(x)       & r_k(x) & s_k(x) & t_k(x) \raisebox{2.5pt}{\mathstrut}\\[1pt]
+\hline
+ -1 &               &         &              &        &             1 &                0 \\
+ -2 &               &         &              &        &             0 &                1 \\
+  0 & x^3+2x^2-2x-2 & x^2-x-2 & x+3          & 4x + 4 &             1 &             -x-3 \\
+  1 & x^2-x-2       & 4x+4    & \frac14(x-2) & 0      & -\frac14(x-2) & \frac14(x^2+x-2) \\[2pt]
+\hline
+\end{tabular}
+\end{center}
+Tatsächlich können wir nachrechnen, dass
+\begin{align*}
+s_0(x)
+\cdot
+a(x)
++
+t_0(x)
+\cdot
+b(x)
+&=
+1
+\cdot
+(x^3+2x^2-x-2)
+-
+(x+3)
+\cdot
+(x^2-x-2)
+\\
+&=
+(x^3+2x^2-x-2)
+-
+(x^3+2x^2-5x-6)
+\\
+&=
+4x+4
+\\
+s_1(x)
+\cdot
+a(x)
++
+t_1(x)
+\cdot
+b(x)
+&=
+-
+\frac14(x-2)
+\cdot
+(x^3+2x^2-x-2)
++
+\frac14(x^2+x-2)
+\cdot
+(x^2-x-2)
+\\
+&=
+-
+\frac14(x^4-5x^2+4)
++
+\frac14(x^4-5x^2+4)
+\\
+&=0.
+\end{align*}
+Verlangt man ein normiertes Polynom für den grössten gemeinsamen Teiler,
+kann man die Koeffizienten in $\mathbb{Q}$ durch $4$ dividieren und 
+erhält $\operatorname{ggT}(a,b)=x+1$.
+Die Faktoren $s(x)$ und $t(x)$ müssen ebenfalls durch 4 geteilt werden
+und es gilt
+\[
+\frac14
+\cdot
+(x^3+2x^2-x-2)
+-\frac14(x+3)
+(x^2-x-2)
+=
+x+1.
+\]
+
+Den grössten gemeinsamen Teiler kann man auch mithilfe der Faktorisierung
+\begin{align*}
+a(x)
+&=
+(x-1){\color{darkred}(x+1)}(x+2)
+\\
+b(x)
+&=
+(x-2){\color{darkred}(x+1)}
+\end{align*}
+der Polynome finden.
+Der einzige gemeinsame Faktor ist $\operatorname{ggT}(a,b)={\color{darkred}x+1}$.
+Aus der Faktorisierung sind jedoch die Faktoren $s(x)$ unt $t(x)$
+nicht direkt ablesbar.
+\end{beispiel}
+
+%
+% Euklidische Ringe
+%
+\subsubsection{Euklidische Ringe}
+Der euklidische Algorithmus benötigt erst mal, dass es keine
+pathologischen Faktoren gibt, die ein Produkt auslöschen können.
+Solche pathologischen Fälle führen dazu, dass es nicht sinnvoll ist
+von einer eindeutigen Faktorisierung zu sprechen.
+
+\begin{definition}[Nullteiler, Integritätsbereich]
+Nullteiler \emph{Nullteiler} in einem Ring $R$ sind Zahlen
+$a,b\in R^*=R\setminus\{0\}$ mit $ab=0$.
+Ein Ring $R$ ohne Nullteiler heisst \emph{nullteilerfrei} oder ein
+\emph{Integritätsbereich}.
+\index{Nullteiler}%
+\index{nullteilerfrei}%
+\index{Integritatsbereich@Integritätsbereich}%
+\end{definition}
+
+Der euklidische Algorithmus für ganze Zahlen verwendet, dass der Rest
+bei der ganzzahligen Division kleiner als der Divisor ist.
+Polynome kann man nicht vergleichen.
+Der euklidische Algorithmus für Polynome braucht aber, dass der Grad
+des Restes kleiner wird als der Grad des Divisors.
+Der Algorithmus ist also auf eine allgemeinere Situation übertragbar,
+wenn ein Eigenschaft ähnlich dem Grad gefunden werden kann, die bei
+der Division kleiner wird.
+
+\begin{definition}[Euklidischer Ring]
+\label{buch:ratint:euklid:def:euklidischerring}
+Ein nullteilerfreier Ring  $R$ heisst ein \emph{euklidischer Ring},
+wenn es eine Funktion $d\colon R^*\to\mathbb{Z}$
+\begin{enumerate}
+\item $d(r) \ge 0$ für alle $r\in R^*$.
+\item $d(r)\le d(rs)$ für alle $r,s\in R^*$.
+\item Sind $a,b\in R^*$, dann gibt es $q,r$ mit $a=qb+r$ mit $r=0$ oder
+$d(r)<d(b)$.
+\end{enumerate}
+Die Funktion $d$ heisst auch die \emph{Gradfunktion} des euklidischen
+Rings.
+\index{Gradfunktion}%
+Die letzte Eigenschaft kann etwas vereinfacht werden, wenn man
+$d(0)=-\infty$ definiert.
+\end{definition}
+
+Für die ganzen Zahlen ist die $d\colon\mathbb{Z}^*\to\mathbb{Z}: a\to a$
+die Funktion, die die ganzen Zahlen zu einem euklidischen Ring macht.
+Für Polynome mit Koeffizienten in einem Körper ist es der Grad
+$\deg\colon K[X] \to \mathbb{Z} : p(X) \mapsto \deg p$.
+
+Ein weiteres interessantes Beispiel für einen euklidischen Ring ist
+der Ring der ganzen gaussschen Zahlen.
+
+\begin{beispiel}
+Wir betrachten die Menge
+\[
+\mathbb{Z}[i]
+=
+\{a+bi\mid a,b\in\mathbb{Z}\}\subset\mathbb{C}.
+\]
+Sie heisst der \emph{Ring der ganzen gaussschen Zahlen}.
+\index{gausssche Zahlen}%
+Als Teilmenge des Körpers der komplexen Zahlen ist $\mathbb{Z}[i]$
+sicher ein nullteilerfreier Ring.
+Als Gradfunktion kann das Betragsquadrat 
+\[
+d
+\colon
+\mathbb{Z}[i] \to \mathbb{Z}
+:
+(a+bi) \mapsto a^2+b^2
+\]
+verwendet werden.
+Es müssen die drei Eigenschaften der 
+Definition~\ref{buch:ratint:euklid:def:euklidischerring}
+verifizieren.
+\begin{enumerate}
+\item
+Für $a+bi\ne 0$ ist $d(a+bi)=a^2+b^2>0$.
+\item
+Für das Produkt gilt für $(a+bi)\ne 0$ ist $d(a+bi)\ge 1$
+\[
+d\bigl(
+(a+bi)(c+di)
+\bigr)
+=
+(a^2+b^2)(c^2+d^2)
+=
+d(a+bi)d(c+di)
+\ge
+d(c+di)
+\]
+für all $c+di\in \mathbb{Z}[i]$.
+\item
+Diese Eigenschaft wird am einfachsten auf die folgende geometrische
+Weise verständlich (Abbildung~\ref{buch:ratint:euklid:fig:ggz}).
+\input{chapters/060-ratint/fig/fig-ggz.tex}%
+Die Menge 
+\[
+b\mathbb{Z}[i]
+=
+\{ zb\mid z \in \mathbb{Z}[i] \}
+=
+\{ xb + iyb \mid x,y\in \mathbb{Z}
+\}
+\]
+bildet ein Gitter in der komplexen Zahlenebene.
+Da $b$ und $ib$ senkrecht aufeinander stehende Vektoren sind, 
+handelt es sich um ein quadratisches Gitter.
+Der Punkt $a$ muss in einem der Gitterquadrate liegen.
+Jede Ecke dieses Quadrats wird durch ein $q\in\mathbb{Z}[i]$
+beschrieben und kommt als das $q$ in der Eigenschaft~3 eines eukldischen
+Rings in Frage.
+Die zusätzliche Forderung $d(r)<d(b)$ bedeutet, dass der Punkt $a$
+näher als die Kantenlänge des Quadrates bei der ausgewählten Ecke
+sein muss.
+Da die offenen Kreisscheiben mit Radius $|b|$ die Quadratfläche 
+vollständig überdecken, muss es mindestens ein $q\in\mathbb{Z}[i]$
+(eine Ecke) geben,
+so dass $a-qb=r$ die Bedingung $d(r) < d(b)$ ($|r|<|b|$) erfüllt ist.
+\end{enumerate}
+Dies zeigt, dass die ganzen gaussschen Zahlen einen euklidischen
+Ring bilden.
+Es ist daher sinnvoll, vom grössten gemeinsamen Teiler ganzer
+gaussscher Zahlen zu sprechen und es ist möglich, diese mit dem
+euklidischen Algorithmus zu finden.
+\end{beispiel}
+
+Die ganzen gaussschen Zahlen können zum Beispiel dazu verwendet
+werden, dann folgenden fermatschen Zweiquadratesatz zu beweisen
+\cite[Satz 10.4]{buch:luneburg}.
+
+\begin{satz}[Fermat]
+Ist $p$ eine Primzahl mit $p\equiv 1\mod 4$, dann gibt es ganze
+Zahlen $a,b\in\mathbb{Z}$ mit $p=a^2+b^2$.
+\end{satz}
+
+
+

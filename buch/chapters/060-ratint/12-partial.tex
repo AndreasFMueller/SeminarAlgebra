@@ -1,0 +1,39 @@
+%
+% 12-partial.tex -- Stammfunktionen für Partialbrüche
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Stammfunktionen für Partialbrüche}
+Dank der Partialbruchzerlegung zerfällt in Summanden der Form
+\[
+\frac{A}{(z-\alpha)^l}
+=
+A(z-\alpha)^{-l}.
+\]
+Die Stammfunktion ist
+\[
+\int \frac{A}{(z-\alpha)^l} \,dz
+=
+\begin{cases}
+\displaystyle
+-\frac{A}{(l-1)(z-\alpha)^{l-1}}
+&\qquad\text{für $l>1$}
+\\[10pt]
+A\log(z-\alpha)
+&\qquad\text{für $l=1$.}
+\end{cases}
+\]
+Diese Stammfunktionen erlauben eine Stammfunktion für die
+Funktion $f(z)$ zu finden.
+Sie besteht aus zwei Teilen.
+Ein Teil hat die Form einer rationalen Funktion, die aus den
+Beiträgen des Polynoms $p(z)$ und den Beiträgen der
+Bruchterme $A_k^l/(z-\alpha_k)^l$ mit $l>1$ gelten.
+Dazu kommen als zweiter Teil die Funktionen
+\[
+\sum_{k=1}^n A_k^1\log(z-\alpha_k).
+\]
+Um eine Stammfunktion eines Integranden im Körper der rationalen Funktionen
+zu konstruieren, muss man den Funktionenkörper um Logarithmen der
+Linearfaktoren des Nenners erweitern.
+

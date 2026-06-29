@@ -1,0 +1,62 @@
+%
+% 14-prinzip.tex -- Die der Methode zugrunde liegenden Prinzipien
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Die der Methode zugrunde liegenden Prinzipien}
+Es wurde bereits früher festgehalten, dass die dargestellte Methode
+für ein Computeralgebrasystem nicht durchführbar ist, weil eine
+Methode zur Bestimmung der Faktorisierung des Nenners in Linearfaktoren
+oder quadratische reelle Faktoren fehlt.
+Es muss daher eine alternative Vorgehensweise gefunden werden,
+die mit einer leichter zu findenden Faktorisierung des Nenners
+arbeiten kann.
+Die Faktorisierung muss immer noch einige Eigenschaften erfüllen,
+damit die einzelnen Schritte verallgemeinert werden können.
+
+\begin{enumerate}
+\item
+Die Partialbruchzerlegung wurde dazu verwendet, die 
+rationale Funktion in Term mit speziell einfachen Nennern
+aufzuspalten.
+In jedem Term kamen höchstens Potenzen eines einzigen Faktors
+des Nenners vor.
+Wie in der Darstellung der Partialbruchzerlegung angedeutet
+wurde, müssen die Faktoren teilerfremd sein.
+\item
+Für den Reduktionsschritt von
+Satz~\ref{buch:ratint:bernoulli:satz:reduktion}
+wurde benötigt, dass sich jeder denkbare Zähler in der Form
+\[
+s(z) \cdot q(z) + t(z)\cdot q'(z)
+\]
+ausdrücken lässt, wobei $q(z)$ ein einzelner Faktor in der
+Nennerfaktorisierung ist.
+Dies ist genau dann möglich, wenn $q(z)$ und $q'(z)$ teilerfremd
+sind, also keine gemeinsame Nullstelle haben.
+Dies wieder ist gleichbedeutend damit, dass $q(z)$ nur einfache
+Nullstellen hat.
+\item
+Es wird ein Algorithmus benötigt, der die Polynom $s(z)$ und
+$t(z)$ auf effiziente Art und Weise finden kann.
+\item
+Es müssen Integrale der Form 
+\[
+\int \frac{p(z)}{q(z)}\,dz
+\]
+gefunden werden, wobei $p(z)$ ein beliebiges Polynom ist.
+\end{enumerate}
+
+Die Aufgabe von Punkt~3, das Finden einer Darstellung eines
+beliebigen Zahlerpolynoms Zwecks Reduktion des Exponenten im
+Nenner wird durch den euklidischen Algorithmus ermöglicht,
+der im Abschnitt~\ref{buch:ratint:section:euklid} dargestellt
+wird.
+
+Eine geeignete Faktorisierung, die immer gefunden werden kann,
+ist die sogenannte quadratfreie Faktorisierung, die in Abschnitt 
+\ref{buch:ratint:section:hermite}
+zusammen mit der Reduktion der Integrale von rationalen
+Funktionen mit Potenzen des Nennerfaktors vorgestellt wird.
+
+
