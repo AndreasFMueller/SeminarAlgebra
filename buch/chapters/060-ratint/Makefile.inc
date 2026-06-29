@@ -17,6 +17,8 @@ CHAPTERFILES += 							\
 	chapters/060-ratint/2-euklid.tex				\
 	chapters/060-ratint/21-euklidganz.tex				\
 	chapters/060-ratint/22-polynome.tex				\
+	chapters/060-ratint/23-euklidisch.tex				\
+	chapters/060-ratint/24-koeper.tex				\
 	chapters/060-ratint/3-hermite.tex				\
 	chapters/060-ratint/31-quadratfrei.tex				\
 	chapters/060-ratint/32-reduktion.tex				\

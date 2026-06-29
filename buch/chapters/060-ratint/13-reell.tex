@@ -245,202 +245,8 @@ des Nenners wird im nächsten Abschnitt bestimmt.
 % Stammfunktionen für quadratische Faktoren
 %
 \subsubsection{Stammfunktionen für quadratische Faktoren}
-Wir betrachten jetzt einen quadratischen Nenner der Form
-\[
-z^2 + \beta z + \gamma
-=
-(z-\alpha)(z-\bar{\alpha}),
-\]
-wobei $\beta = 2\operatorname{Re}\alpha$ und $\gamma=|\alpha|^2$ ist.
-
-Als erstes berechnen wir das Integral eines Terms, in dessen Nenner
-der quadratische Faktor einmal vorkommt, mit Hilfe der komplexen
-Partialbruchzerlegung, die die Form
-\begin{align*}
-\frac{Bz+C}{z^2+\beta z+\gamma}
-&=
-\frac{A_1}{z-\alpha}
-+
-\frac{A_2}{z-\bar{\alpha}}.
-\intertext{Durch Multiplizieren mit dem Nenner $(z-\alpha)(z-\bar{\alpha})$
-entsteht}
-Bz+C
-&=
-A_1(z-\bar{\alpha})
-+
-A_2(z-\alpha)
-=
-(A_1+A_2)z-(A_1\bar{\alpha}+A_2\alpha).
-\end{align*}
-Durch Koeffizientenvergleich entsteht das lineare Gleichungssystem
-\index{Koeffizientenvergleich}%
-\[
-\renewcommand{\arraycolsep}{2pt}
-\begin{array}{rcrcr}
-             A_1 &+&        A_2 &=&  B\\
-\bar{\alpha} A_1 &+& \alpha A_2 &=& -C\rlap{,}
-\end{array}
-\]
-Das Gleichungssystem ist am einfachsten mit der Carmerschen Regel
-zu lösen:
-\begin{align*}
-A_1
-&=
-\frac{
-\left|\,\begin{matrix*}[r]
-     B       &    1   \\
-    -C       & \alpha
-\end{matrix*}\,\right|
-}{
-\left|\,\begin{matrix*}[r]
-     1       &    1   \\
-\bar{\alpha} & \alpha
-\end{matrix*}\,\right|
-}
-=
-\frac{B\alpha+C}{2\operatorname{Im}\alpha}
-&
-A_2
-&=
-\frac{
-\left|\,\begin{matrix*}[r]
-     1       &    B   \\
-\bar{\alpha} &   -C  
-\end{matrix*}\,\right|
-}{
-\left|\,\begin{matrix*}[r]
-     1       &    1   \\
-\bar{\alpha} & \alpha
-\end{matrix*}\,\right|
-}
-=
--
-\frac{B\bar{\alpha}+C}{2\operatorname{Im}\alpha}.
-\end{align*}
-Wir wissen bereits, dass der Realteil von $\alpha$ durch
-$\operatorname{Re}\alpha=\frac12 \beta$ ausgedrückt werden kann.
-Wegen $\gamma=|\alpha|^2$ und $\beta=2\alpha$ kann man
-auch den Imaginärteil von $\alpha$ durch $\beta$ und $\gamma$ ausdrücken,
-es ist nämlich
-\begin{align*}
-(\operatorname{Im}\alpha)^2 &= |\alpha|^2 - (\operatorname{Re}\alpha)^2
-\\
-\operatorname{Im}\alpha &= \frac12\!\sqrt{4\gamma^2 - \beta^2}.
-\end{align*}
-Damit kann die Lösung auch
-\begin{align*}
-A_1
-&=
-\frac{B\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
-&&&
-A_2
-&=
--
-\frac{B\bar{\alpha} + C}{\!\sqrt{4\gamma^2-\beta^2}}
-\\
-&=
-\frac{B\operatorname{Re}\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
-+
-\frac{iB\operatorname{Im}\alpha}{2\operatorname{Im}\alpha}
-&&&
-&=
--
-\frac{B\operatorname{Re}\alpha + C}{\!\sqrt{4\gamma^2-\beta^2}}
-+
-\frac{iB\operatorname{Im}\alpha}{2\operatorname{Im}\alpha}
-\\
-&=
-\frac{B\beta + 2C}{2\!\sqrt{4\gamma^2-\beta^2}}
-+
-\frac{iB}2
-&&&
-&=
--
-\frac{B\beta + 2C}{2\!\sqrt{4\gamma^2-\beta^2}}
-+
-\frac{iB}2
-\end{align*}
-
-Die Partialbruchzerlegung ist also
-\[
-\frac{Bz+C}{(z-\alpha)(z-\bar{\alpha})}
-=
-\frac{1}{2\operatorname{Im}\alpha}
-\biggl(
-\frac{B\alpha +C}{z-\alpha}
--
-\frac{B\bar{\alpha} +C}{z-\bar{\alpha}}
-\biggr)
-\]
-
-
-In dieser Form kann die Stammfunktion jetzt mit Logarithmusfunktionen
-in der Form
-\begin{align*}
-\int
-\frac{Bz+C}{(z-\alpha)(z-\bar{\alpha})}
-\,dz
-&=
-\frac{1}{2\operatorname{Im}\alpha}
-\biggl(
-(B\alpha+C)
-\log(z-\alpha)
--
-(B\bar{\alpha}+C)
-\log(z-\bar{\alpha})
-\biggr)
-\\
-&=
-\frac{1}{2\operatorname{Im}\alpha}
-(B\operatorname{Re}\alpha+C)
-\log\frac{z-\alpha}{z-\bar{\alpha}}
-\\
-&\qquad
-+
-\frac{1}{2\operatorname{Im}\alpha}
-\biggl(
-iB\operatorname{Im}\alpha
-\log(z-\alpha)
-+
-iB\operatorname{Im}\alpha
-\log(z-\bar{\alpha})
-\biggr)
-\\
-&=
-\frac{1}{2\operatorname{Im}\alpha}
-(B\operatorname{Re}\alpha+C)
-\log\frac{z-\alpha}{z-\bar{\alpha}}
-+
-\frac{iB}{2}
-\log\bigl((z-\alpha)(z-\bar{\alpha})\bigr)
-)
-\\
-&=
-\frac{B\operatorname{Re}\alpha+C}{2\operatorname{Im}\alpha}
-\log
-\frac{z-\alpha}{z-\bar{\alpha}}
-+
-\frac{iB}2
-\log(z^2+\beta z+\gamma)
-\end{align*}
-dargestellt werden.
-
-%
-% Stammfunktion für Potenzen von quadratischen Nennern
-%
-\subsubsection{Stammfunktion für Potenzen von quadratischen Nennern}
-Die Berechnung des vorangegangenen Abschnitts hat gezeigt, wie rationale
-Funktionen mit rationalen Nennern integriert werden können.
-In der Partialbruchzerlegung treten aber auch noch Summanden mit
-Potenzen solcher Nenner auf.
-In diesem Abschnitt berechnen wir die Stammfunktionen dieser Terme.
-Dabei geht es vor allem um die Vorgehensweise und die dabei 
-ausgenützen Eigenschaften der Polynome, die wir später verallgemeinern
-werden, wenn allgemeinere Faktorisierungen des Nenners zur Konstruktion
-der Partialbruchzerlegung verwendet werden sollen.
-
-In diesem Abschnitt geht es also um die Stammfunktion einer rationalen
-Funktion der Form
+Möchte man das Integral nur im reellen berechnen, muss man auch 
+Partialbrüche der Form
 \begin{equation}
 f(z)
 =
@@ -448,187 +254,54 @@ f(z)
 \qquad\text{mit $m>1$.}
 \label{buch:ratint:bernoulli:eqn:quadrpotnenner}
 \end{equation}
-Wir schreiben auch $q(z) = z^2 +\beta z + \gamma$ und nehmen zudem
-an, dass $q(z)$ keine doppelten Nullstellen hat und dass $Az+B$
-kein Teiler von $q(z)$ ist.
+mit quadratischen Nennern berechnen.
+Dies ist mit wohlbekannten Methoden der klassischen Analysis 
+nötig, wir geben hier nur die Resultate an, die man zum Beispiel
+in \cite[section 2.1]{buch:bronstein} dargestellt finden kann.
 
-Zunächst beachten wir, dass der Fall $Az+B=q'(z)$ ein Spezialfall der Form 
-\eqref{buch:ratint:bernoulli:eqn:quadrpotnenner}
-des Integranden ist.
-Für diesen speziellen Zähler kann das Integral sofort ermittelt
-werden.
-
-\begin{satz}
-\label{buch:ratint:bernoulli:satz:einfacheintegrale}
-Unter den formulierten allgemeinen Voraussetzungen an $q(z)$ ist
-\begin{equation}
-\int
-\frac{q'(z)}{q(z)^m}\,dz
-=
-\begin{cases}
-\log q(z)                  &\qquad\text{für $m=1$}\\[5pt]
-\displaystyle
-\frac{1}{(1-m)q(z)^{m-1}}  &\qquad\text{für $m>1$.}
-\end{cases}
-\label{buch:ratint:bernoulli:eqn:einfacheintegrale}
-\end{equation}
-\end{satz}
-
-\begin{proof}
-Der Beweis erfolgt durch Nachrechnen der Ableitung
-auf der rechten Seite von \eqref{buch:ratint:bernoulli:eqn:einfacheintegrale}.
-Für den Fall $m=1$ rechnet man
+Für die Nennerpotenz $m=1$ findet man die Formel
 \begin{align*}
-\frac{d}{dz}\log q(z)
+\int 
+\frac{Bz+C}{z^2+\beta z+\gamma}
+\,dz
 &=
-\frac{1}{q(z)}\cdot q'(z)
-\intertext{nach der Kettenregel.
-Für $m>1$ gilt}
-\frac{d}{dz}\frac{1}{(1-m)q(z)^{m-1}}
-&=
-\frac{1}{1-m}
-\frac{d}{dz}
-q(z)^{1-m}
-=
-\frac{1}{1-m} (1-m)q(z)^{-m}\cdot q'(z)
-=
-\frac{q'(z)}{q(z)^m}.
+\frac{B}{2} \log( z^2+\beta z+\gamma )
++
+\frac{2C-\beta B}{\!\sqrt{4\gamma-\beta^2}}
+\arctan\frac{2z+\beta}{\!\sqrt{4\gamma-\beta^2}}.
 \end{align*}
-Damit ist der Satz bewiesen.
-\end{proof}
+Hier treten logarithmische Terme und ein Arkustangensterm auf.
+Die Arkustangensfunktion kann ebenfalls durch Logarithmusfunktionen
+in der Form $\arctan(z) =-\frac{i}2\log(z+i) +\frac{i}2\log(z-i)$
+ausgedrückt werden.
+Im vorliegenden Fall ist dies besonders naheliegend, weil die
+beiden Nullstellen des Nenner konjugiert komplex sind.
 
-Der Zähler $Az+B$ ist im Allgemeinen von $q'(z)$ verschieden,
-trotzdem gibt es eine Verbindung, die später ermöglichen wird,
-das Integral zu vereinfachen.
-
-\begin{satz}
-\label{buch:ratint:bernoulli:satz:euklidspezial}
-Unter den obigen allgemeinen Voraussetzungen gibt es eine Zahl
-$s\in\mathbb{R}$ und ein lineares Polynom $t(z)=uz+v\in\mathbb{R}[z]$
-derart, dass
-\begin{equation}
-s\cdot q(z) + t(z)\cdot q'(z) = Az+B.
-\label{buch:ratint:bernoulli:eqn:euklidspezial}
-\end{equation}
-\end{satz}
-
-\begin{proof}
-Man setzt die Polynome in die Gleichung
-\eqref{buch:ratint:bernoulli:eqn:euklidspezial}
-ein und erhält
+Höheren Nennerpotenzen $m>1$ können mit der folgenden Rekursionsformel
+reduziert werden:
 \begin{align*}
-s\cdot(z^2+\beta z+\gamma) + (uz+v)\cdot (2z+\beta) &=  Az+B
-\intertext{oder nach Ausmultiplizieren}
-sz^2 + \beta s z + \gamma s + 2uz^2 +(\beta u+2v)z +\beta v &= Az + B
-\intertext{oder zusammengefasst}
-(s+2u) z^2 + (\beta s + \beta u+2v)z +(\beta s + \beta v) &= Az + B.
-\end{align*}
-Durch Koeffizientenvergleich erhält man das lineare Gleichungssystem
-\[
-\renewcommand{\arraycolsep}{2pt}
-\begin{array}{rcrcrcr}
-       s&+&     2 u& &        &=& 0 \\
- \beta s&+& \beta u&+&     2 v&=& A \\
-\gamma s& &        &+& \beta v&=& B
-\end{array}
-\]
-mit der Determinanten
-\[
-\left|\,
-\begin{matrix*}[r]
-     1 &     2 &     0 \\
- \beta & \beta &     2 \\
-\gamma &     0 & \beta
-\end{matrix*}
-\,
-\right|
-=
-\beta^2 + 4\gamma - 2\beta^2
-=
--(\beta^2-4\gamma).
-\]
-Der Klammerausdruck ist die Diskriminante des quadratischen
-Polynoms $q(z)$.
-Sie ist von $0$ verschieden, da angenommen wurde, dass $q(z)$
-keine doppelten Nullstellen hat.
-Die Koeffizientenmatrix ist somit regulär und das Gleichungssystem
-hat eine eindeutig bestimmte Lösung, was den Satz beweist.
-\end{proof}
-
-
-\begin{satz}
-\label{buch:ratint:bernoulli:satz:reduktion}
-Unter den gegebenen allgemeinen Voraussetzungen lässt sich mit den
-Faktoren $s$ und $t(z)$ von
-Satz~\eqref{buch:ratint:bernoulli:satz:euklidspezial}
-das Integral durch ein Integral mit niedrigerem Exponenten $m$ ausdrücken,
-nämlich
-\begin{equation}
-\int
-\frac{Az+B}{q(z)^m}
-\,dz
-=
-\int
-\frac{s+t'(z)/(m-1)}{q(z)^{m-1}}
-\,dz
-+
-\frac{t(z)}{(1-m)q(z)^{m-1}}
-\label{buch:ratint:bernoulli:eqn:reduktion}
-\end{equation}
-\end{satz}
-
-\begin{proof}
-Setzt man die
-\eqref{buch:ratint:bernoulli:eqn:euklidspezial}
-in den Integranden ein, erhält man
-\begin{align*}
-\int
-\frac{Az+B}{q(z)^m}
+\int 
+\frac{Bz+C}{(z^2+\beta z+\gamma)^m}
 \,dz
 &=
-\int
-\frac{s\cdot q(z)}{q(z)^m}
-\,dz
-+
-\int
-\frac{t(z) \cdot q'(z)}{q(z)^m}
-\,dz.
-\intertext{Im ersten Integral kann ein Faktor $q(z)$ weggekürzt werden.
-Im zweiten Integral kann partielle Integration angewendet werden,
-wobei $q'(z)/q(z)^m$ der Faktor ist, der integriert wird und $t(z)$
-der Faktor, der abgeleitet wird.
-Für die Stammfunktion von $q'(z)/q(z)^m$ wird
-Satz~\eqref{buch:ratint:bernoulli:satz:einfacheintegrale}
-verwendet.
-So erhält man}
-&=
-\int
-\frac{s}{q(z)^{m-1}}
-\,dz
-+
-t(z)\cdot\frac{1}{(1-m)q(z)^{m-1}}
--
-\int
-\frac{t'(z)}{(1-m)q(z)^{m-1}}
-\,dz.
+\frac{
+(2C-\beta B)z+\beta C-2\gamma B
+}{
+(m-1)(4\gamma-\beta^2)(z^2+bz+c)^{m-1}
+}
 \\
-&=
-\int
-\frac{s+t'(z)/(m-1)}{q(z)^{m-1}}
-\,dz
+&\qquad
 +
-\frac{t(z)}{(1-m)q(z)^{m-1}}.
+\int \frac{
+(2m-3)(2C-\beta B)
+}{
+(m-1)(4\gamma-\beta^2)(z^2+\beta z+\gamma)^{m-1}
+}
+\,dz.
 \end{align*}
-Dies ist die behauptete Form des Integrals.
-\end{proof}
-
-Der letzte Satz zeigt, dass sich alle Integrale mit Nenner
-$q(z)^m$ mit $m>1$ immer auflösen lassen in eine rationale
-Funktion und ein Integral mit Nenner $q(z)^{m-1}$.
-Wiederholte Anwendung dieser Eigenschaft ermöglicht,
-das Integral soweit zu reduzieren, dass am Ende in Integral
-mit dem Nenner $q(z)$ übrig bleibt, wie es im vorangegangenen
-Abschnitt berechnet wurde.
+Die Rekursionsformel basiert im wesentlichen auf partieller Integration.
+Sie wird sich im Abschnitt~\ref{buch:ratint:section:hermite}
+als ein Spezialfall der Methode von Hermite herausstellen.
 
 %
 % Die allgemeine Form der Stammfunktion
@@ -657,12 +330,71 @@ sind rationale Terme der Form $t(z) / q(z)^m$ möglich, wobei $t(z)$
 ein lineares Polynom ist und $m$ nicht grösser sein kann als die
 Potenz, in der $q(z)$ im Nnner von $f(z)$ vorkommt.
 
-Ausserdem ist ein Term der Form
+Ausserdem sind Terme der Form
 \[
 \log q(z)
 =
 \log (z^2 +\beta z + \gamma)
 \]
+und
+\[
+\arctan l(z)
+=
+-\frac{i}{2}\log (\zeta+i)
++\frac{i}{2}\log (\zeta-i)
+\qquad\text{mit }
+\zeta=\frac{2z+\beta}{\!\sqrt{4\gamma-\beta^2}}
+\]
 möglich.
+Die Stammfunktion lässt sich also auch in diesem Fall durch
+rationale Funktionen und eine Linearkombination von drei Logarithmen
+ausdrücken.
+Dies ist in Übereinstimmung mit den Erkenntnissen des Liouville-Prinzips,
+welches in Abschnitt~\ref{buch:intalg:section:liouville} präsentiert wird.
 \end{enumerate}
+
+Die Methode von Bernoulli postuliert, dass die Argumente der
+Logarithmusfunktionen die Linearfaktoren der Nullstellen des
+quadratischen Nenners sind.
+Es ist nicht offensichtlich, dass die Argument $\zeta+i$ und $\zeta-i$
+tatsächlich solche Linearfaktoren sind.
+Wir multiplizieren die Faktoren daher aus und erhalten
+\begin{align*}
+(\zeta+i)(\zeta-i)
+&=
+\zeta^2+1
+\\
+&=
+\frac{4z^2+4z\beta+\beta^2}{4\gamma-\beta^2}
++
+1
+=
+\frac{4z^2+4z\beta+\beta^2+4\gamma-\beta^2}{4\gamma-\beta^2}
+=
+\frac{4z^2+4z\beta+4\gamma}{4\gamma-\beta^2}
+\\
+&=
+\frac{4}{4\gamma-\beta^2}
+(z^2+\beta z+\gamma).
+\end{align*}
+Die Faktoren $\zeta+i$ und $\zeta-i$ haben daher die gleichen
+Nullstellen wie das Polynom $q(z)=z^2+\beta z+\gamma$.
+Tatsächlich ist
+\begin{align*}
+0&=\zeta\pm i
+=
+\frac{2z+\beta\pm i\!\sqrt{4\gamma-\beta^2}}{\!\sqrt{4\gamma-\beta^2}}
+=
+\frac{2z+\beta\pm \!\sqrt{\beta^2 - 4\gamma}}{\!\sqrt{4\gamma-\beta^2}}
+&&\Rightarrow&
+z
+&=
+-\frac{\beta}2\mp \!\sqrt{\frac{\beta^2}{4}-\gamma}.
+\end{align*}
+Dies ist die Lösungsformel für die quadratische Gleichung
+$z^2+\beta z+\gamma=0$.
+
+
+
+
 

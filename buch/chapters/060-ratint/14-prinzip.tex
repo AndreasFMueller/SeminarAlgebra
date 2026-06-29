@@ -1,9 +1,10 @@
 %
-% 14-prinzip.tex -- Die der Methode zugrunde liegenden Prinzipien
+% 14-prinzip.tex -- Die der Methode zugrundeliegenden Prinzipien
 %
 % (c) 2026 Prof Dr Andreas Müller
 %
-\subsection{Die der Methode zugrunde liegenden Prinzipien}
+\subsection{Die der Methode zugrundeliegenden Prinzipien
+\label{buch:ratint:bernoulli:subsection:prinzip}}
 Es wurde bereits früher festgehalten, dass die dargestellte Methode
 für ein Computeralgebrasystem nicht durchführbar ist, weil eine
 Methode zur Bestimmung der Faktorisierung des Nenners in Linearfaktoren
@@ -26,37 +27,61 @@ des Nenners vor.
 Wie in der Darstellung der Partialbruchzerlegung angedeutet
 wurde, müssen die Faktoren teilerfremd sein.
 \item
-Für den Reduktionsschritt von
+Für den Reduktionsschritt von ist eine Rekursionsformel
+nötig, die den Exponenten im Nenner reduziert.
 \index{Reduktion}%
-Satz~\ref{buch:ratint:bernoulli:satz:reduktion}
-wurde benötigt, dass sich jeder denkbare Zähler in der Form
-\[
-s(z) \cdot q(z) + t(z)\cdot q'(z)
-\]
-ausdrücken lässt, wobei $q(z)$ ein einzelner Faktor in der
-Nennerfaktorisierung ist.
-Dies ist genau dann möglich, wenn $q(z)$ und $q'(z)$ teilerfremd
+Wie sich später zeigen wird, beruht sie darauf, dass der
+Zähler in der Form
+\begin{equation}
+p(z) = s(z) \cdot q(z) + t(z)\cdot q'(z)
+\label{buch:ratint:printzip:eqn:euklid}
+\end{equation}
+geschrieben werden kann.
+Das aus dem zweiten Summanden resultierende Integral kann
+dann durch partielle Integration
+\begin{align*}
+\int \frac{p(z)}{q(z)^m}\,dz
+&=
+\int \frac{s(z)}{q(z)^{m-1}}\,dz
++
+\int t(z)\cdot \frac{q'(z)}{q(z)^m} \,dz
+\\
+&=
+\int \frac{s(z)}{q(z)^{m-1}}\,dz
++
+\int t(z) \frac{d}{dz} \frac{1-m}{q(z)^{m-1}}\,dz
+\\
+&=
+\int \frac{s(z)}{q(z)^{m-1}}\,dz
++
+t(z)\frac{1-m}{q(z)^{m-1}}
+-
+\int \frac{(1-m)t'(z)}{q(z)^{m-1}}\,dz
+\end{align*}
+vereinfacht werden, was genau ein Rekursionsformel der verlangten
+Art ist.
+Die Zerlegung \eqref{buch:ratint:printzip:eqn:euklid}
+ist genau dann möglich, wenn $q(z)$ und $q'(z)$ teilerfremd
 sind, also keine gemeinsame Nullstelle haben.
 \index{teilerfremd}%
-Dies wieder ist gleichbedeutend damit, dass $q(z)$ nur einfache
-Nullstellen hat.
 \item
 Es wird ein Algorithmus benötigt, der die Polynom $s(z)$ und
 $t(z)$ auf effiziente Art und Weise finden kann.
+Um dies im Allgemeinen zu schaffen, müssen wir in
+Abschnitt~\ref{buch:ratint:section:euklid} den euklidischen Algorithmus
+genauer studieren.% und ihn in Abschnitt
+%Abschnitt~\ref{buch:ratint:section:hermite}
+%auf quadratfreie Nenner $q(z)$ anwenden.
 \item
 Es müssen Integrale der Form 
 \[
 \int \frac{p(z)}{q(z)}\,dz
 \]
-gefunden werden, wobei $p(z)$ ein beliebiges Polynom ist.
+gefunden werden, wobei $p(z)$ ein Polynom vom Grad $\deg p(z)<\deg q(z)$ ist.
+Die Methode von Rothstein-Trager von
+Abschnitt~\ref{buch:ratint:section:rothsteintrager}
+wird dies möglich machen.
 \end{enumerate}
-
-Die Aufgabe von Punkt~3, das Finden einer Darstellung eines
-beliebigen Zahlerpolynoms Zwecks Reduktion des Exponenten im
-Nenner wird durch den euklidischen Algorithmus ermöglicht,
-\index{euklidischer Algorithmus}%
-der im Abschnitt~\ref{buch:ratint:section:euklid} dargestellt
-wird.
 
 Eine geeignete Faktorisierung, die immer gefunden werden kann,
 ist die sogenannte quadratfreie Faktorisierung, die in Abschnitt 
