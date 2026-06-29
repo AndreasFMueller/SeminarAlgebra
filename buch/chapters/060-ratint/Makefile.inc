@@ -20,7 +20,6 @@ CHAPTERFILES += 							\
 	chapters/060-ratint/3-hermite.tex				\
 	chapters/060-ratint/31-quadratfrei.tex				\
 	chapters/060-ratint/32-reduktion.tex				\
-	chapters/060-ratint/33-horowitz.tex				\
 	chapters/060-ratint/4-rothsteintrager.tex			\
 	chapters/060-ratint/41-residuen.tex				\
 	chapters/060-ratint/42-rt.tex					\
