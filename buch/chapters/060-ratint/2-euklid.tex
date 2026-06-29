@@ -679,7 +679,32 @@ d(c+di)
 \]
 für all $c+di\in \mathbb{Z}[i]$.
 \item
-TODO
+Diese Eigenschaft wird am einfachsten auf die folgende geometrische
+Weise verständlich (Abbildung~\ref{buch:ratint:euklid:fig:ggz}).
+\input{chapters/060-ratint/fig/fig-ggz.tex}%
+Die Menge 
+\[
+b\mathbb{Z}[i]
+=
+\{ zb\mid z \in \mathbb{Z}[i] \}
+=
+\{ xb + iyb \mid x,y\in \mathbb{Z}
+\}
+\]
+bildet ein Gitter in der komplexen Zahlenebene.
+Da $b$ und $ib$ senkrecht aufeinander stehende Vektoren sind, 
+handelt es sich um ein quadratisches Gitter.
+Der Punkt $a$ muss in einem der Gitterquadrate liegen.
+Jede Ecke dieses Quadrats wird durch ein $q\in\mathbb{Z}[i]$
+beschrieben und kommt als das $q$ in der Eigenschaft~3 eines eukldischen
+Rings in Frage.
+Die zusätzliche Forderung $d(r)<d(b)$ bedeutet, dass der Punkt $a$
+näher als die Kantenlänge des Quadrates bei der ausgewählten Ecke
+sein muss.
+Da die offenen Kreisscheiben mit Radius $|b|$ die Quadratfläche 
+vollständig überdecken, muss es mindestens ein $q\in\mathbb{Z}[i]$
+(eine Ecke) geben,
+so dass $a-qb=r$ die Bedingung $d(r) < d(b)$ ($|r|<|b|$) erfüllt ist.
 \end{enumerate}
 Dies zeigt, dass die ganzen gaussschen Zahlen einen euklidischen
 Ring bilden.
@@ -688,7 +713,7 @@ gaussscher Zahlen zu sprechen und es ist möglich, diese mit dem
 euklidischen Algorithmus zu finden.
 \end{beispiel}
 
-Die ganzschen gaussschen Zahlen können zum Beispiel dazu verwendet
+Die ganzen gaussschen Zahlen können zum Beispiel dazu verwendet
 werden, dann folgenden fermatschen Zweiquadratesatz zu beweisen
 \cite[Satz 10.4]{buch:luneburg}.
 
