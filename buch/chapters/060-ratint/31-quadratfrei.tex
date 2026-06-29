@@ -73,7 +73,33 @@ dann ist dieser Faktor ein gemeinsamer Teiler von $q(z)$
 und $q'(z)$.
 
 \begin{beispiel}
-TODO
+Das Polynom 
+\begin{align*}
+p(z)
+&=
+z^3 - z^2 - z + 1
+&
+p(1)&=0
+\intertext{hat die Ableitung}
+p'(z)
+&=
+3z^2-2z-1
+&
+p'(1)
+&=
+0.
+\end{align*}
+Die beiden Polynome haben als die gemeinsame Nullstelle $z=1$, somit
+muss $(z-1)^2$ ein Faktor von $p(z)$ sein.
+Tatsächlich ergibt die Polynomdivision
+\[
+p(z) : (z-1)^2 = z+1,
+\]
+woraus sich die Faktorisierung
+\[
+p(z) = (z-1)^2(z+1)
+\]
+ergibt.
 \end{beispiel}
 
 %
