@@ -1,0 +1,76 @@
+%
+% Die Stammfunktion von 1/theta
+%
+\subsection{Die Stammfunktion von $1/\vartheta$
+\label{buch:intalg:wurzel:subsection:stammfunktiontheta}}
+Durch Nachrechnen der Ableitung von
+\[
+\Theta
+=
+\frac{1}{\!\sqrt{a}}
+\log\Bigl(
+2ax + b - 2\!\sqrt{a} \vartheta
+\Bigr)
+\]
+bekommt man
+\begin{align*}
+\Theta'
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
+\cdot
+(2a - 2\!\sqrt{a}\vartheta')
+\\
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
+\cdot
+\biggl(
+2a -2\!\sqrt{a}\frac{2ax+b}{2\vartheta}
+\biggr)
+\\
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
+\cdot
+\frac{
+4a\vartheta -2\!\sqrt{a}(2ax+b)
+}{
+2\vartheta
+}
+\\
+&=
+-\frac{1}{\!\sqrt{a}}
+\cdot
+\frac{1}{2ax+b-2\!\sqrt{a}\vartheta}
+\cdot
+\frac{
+2\!\sqrt{a}\cdot
+\bigl(
+\!\sqrt{a}\vartheta
+-
+2ax-b
+\bigr)
+}{
+2\vartheta
+}
+=
+\frac{1}{\vartheta},
+\end{align*}
+Die Funktion $\Theta$ ist also eine Stammfunktion von $1/\vartheta$.
+Sie liegt in einem Erweiterungskörper, dem die Konstante $\!\sqrt{a}$
+und der Logarithmus $\log(2ax+b-2\!\sqrt{a}\vartheta)$ hinzugefügt
+werden ist.
+Damit der Logarithmus hinzugefügt werden kann, muss auch noch $b$
+hinzugefügt werden.
+Somit ist
+\[
+\Theta
+\in
+\mathbb{Q}\bigl(x,\theta,\!\sqrt{a},b,\log(\!\sqrt{a}\vartheta-2ax-b)\bigr)
+\]
+eine elementare Stammfunktion von $1/\vartheta$.
+

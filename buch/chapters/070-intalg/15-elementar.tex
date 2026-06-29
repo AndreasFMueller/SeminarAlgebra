@@ -1,0 +1,43 @@
+%
+% Elementare Funktionen
+%
+\subsection{Elementare Funktionen und das Integrationsproblem}
+Der Prozess der Erweiterung des Differentialkörpers der 
+rationalen Funktionen $\mathbb{Q}(x)$ durch algebraische Elemente,
+Logarithen und Exponentialfunktionen reproduziert also die Vorgehensweise
+eines Mathematikers, der ein Integralproblem lösen will.
+Er beginnt mit der Konstruktion eines Funktionenkörpers, der den
+Integranden enthält.
+Dazu wird es notwendig sein, zusätzliche Konstanten wie Wurzeln,
+$\pi$, $i$ und andere oder Parameter hinzuzufügen.
+Ausserdem müssen möglicherweise wiederholt Exponentialfunktionen,
+Logarithmen und algebraische Funktionen hinzugefügt werden.
+Alle Funktionen, mit denen ein menschlicher Rechner arbeitet, sind
+auf diese Art konstruierbar.
+Dies rechtfertigt, diesen Funktionen einen eigenen Namen zu geben.
+
+\begin{definition}[Elementare Funktionen]
+Sei $D$ eine Derivation in $\mathbb{Q}(x)$ mit $Dx=1$.
+Eine Funktion $f(x)$ heisst \emph{elementar}, wenn $f$ in einer
+Erweiterung von $\mathbb{Q}(x)$ enthalten ist, die durch hinzufügen
+algebraischer Elemente, Logarithmen oder Exponentialfunktionen
+entsteht.
+\index{elementare Funktion}%
+\end{definition}
+
+Mit dem Begriff der elementaren Funktion lässt sich jetzt das
+Problem der Integration in geschlossener Form präzis formulieren.
+\index{geschlossene Form}%
+Ein menschlicher Rechner erwartet, dass er den Differentialkörper,
+in dem der Integrand gefunden werden kann, durch weitere Erweiterungen
+so vergrössern kann, dass sich auch die Stammfunktion darin finden
+lässt.
+Die Stammfunktion ist daher auch eine elementare Funktion.
+Das Problem der Integration in geschlossener Form ist daher das
+folgende.
+
+\begin{problem}[Integration in geschlossener Form]
+\index{Integration in geschlossener Form}%
+Gegebene eine elementare Funktion $f$ in einem Differentialkörper
+$F$, finde eine elementare Funktion $\vartheta$ mit $D\vartheta = f$.
+\end{problem}
