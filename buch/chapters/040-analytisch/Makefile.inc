@@ -26,8 +26,9 @@ CHAPTERFILES += 							\
 	chapters/040-analytisch/4-laurentreihen.tex			\
 	chapters/040-analytisch/41-ring.tex				\
 	chapters/040-analytisch/42-laurent.tex				\
-	chapters/040-analytisch/43-singulaer.tex			\
-	chapters/040-analytisch/44-meromorph.tex			\
+	chapters/040-analytisch/43-residuum.tex				\
+	chapters/040-analytisch/44-singulaer.tex			\
+	chapters/040-analytisch/45-meromorph.tex			\
 	chapters/040-analytisch/5-ganz.tex				\
 	chapters/040-analytisch/51-definition.tex			\
 	chapters/040-analytisch/52-cauchyliouville.tex			\
