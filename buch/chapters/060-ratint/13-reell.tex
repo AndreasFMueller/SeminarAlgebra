@@ -91,7 +91,7 @@ Die Nullstellen eines reellen Polynoms sind als entweder reell,
 oder wenn sie nicht reell sind, dann treten sie in Paaren von
 konjugiert komplexen Nullstellen auf.
 
-Ein paar von konjugiert komplexen Nullstellen führt auf den Faktor
+Ein Paar von konjugiert komplexen Nullstellen führt auf den Faktor
 \begin{align}
 (z-\alpha)(z-\bar{\alpha})
 &=
@@ -279,7 +279,7 @@ beiden Nullstellen des Nenner konjugiert komplex sind.
 
 Höheren Nennerpotenzen $m>1$ können mit der folgenden Rekursionsformel
 reduziert werden:
-\begin{align*}
+\begin{align}
 \int 
 \frac{Bz+C}{(z^2+\beta z+\gamma)^m}
 \,dz
@@ -289,6 +289,7 @@ reduziert werden:
 }{
 (m-1)(4\gamma-\beta^2)(z^2+bz+c)^{m-1}
 }
+\notag
 \\
 &\qquad
 +
@@ -298,7 +299,8 @@ reduziert werden:
 (m-1)(4\gamma-\beta^2)(z^2+\beta z+\gamma)^{m-1}
 }
 \,dz.
-\end{align*}
+\label{buch:ratint:reell:eqn:rekursion}
+\end{align}
 Die Rekursionsformel basiert im wesentlichen auf partieller Integration.
 Sie wird sich im Abschnitt~\ref{buch:ratint:section:hermite}
 als ein Spezialfall der Methode von Hermite herausstellen.
