@@ -60,7 +60,8 @@ Für jeden Parameter $c$ in der \emph{Kardioide}, besitzt die zugehörige Funkti
     f_c(z_0) = z_0
 \end{equation*}
 gilt.
-Anstatt als Fixpunkt könnte man den Punkt $z_0$ auch periodisch mit einer Periode von $1$ nennen.
+Da $z_0$ \emph{anziehend} ist, konvergieren Punkte in der Nähe von $z_0$ nach genügend vielen Iterationen zu $z_0$, man beobachtet also schlussendlich das selbe Verhalten.
+Anstatt als Fixpunkt könnte man den Punkt $z_0$ nun auch periodisch mit einer Periode von $1$ nennen.
 Man beachte, dass $z_0$ nicht unbedingt gleich $0$ sein muss, die Funktionen $f_c$ werden hier aus Perspektive der Julia-Mengen betrachtet.
 
 Angrenzend an die Kardioide liegen mehrere kreisförmige Knospen, die grösste davon befindet sich links der Kardioide und wird als \emph{Periode-2 Knospe} bezeichnet.
@@ -71,6 +72,7 @@ Für jede dieser Funktionen gibt es also einen Startwert, von dem sich eine Folg
 \end{equation*}
 entwickelt.
 Aufgrund der Periodizität ergibt sich der Name dieser Region: \emph{Periode-2 Knospe}.
+Auch hier ist $z_0$ \emph{anziehend}, Punkte in der Nähe von $z_0$ werden nach genügend vielen Iterationen von $f$ zu $z_0$ konvergieren und ab dann ergibt sich wieder diese Folge mit Periode 2.
 
 Die kleineren kreisförmigen Knospen verhalten sich ähnlich, so gibt es
 \begin{itemize}
@@ -80,8 +82,27 @@ Die kleineren kreisförmigen Knospen verhalten sich ähnlich, so gibt es
 \end{itemize}
 Grundsätzlich wird, mit sinkender Knospengrösse, die Periode grösser.
 Man kann also jede Region der Mandelbrot-Menge mit einer Periode bezeichnen.
-Die Kardioide besitzt die Periode $1$, die grösste kreisförmige Knospe eine Periode von $2$ und so weiter.
-Die unterschiedlichen Regionen sind also nicht nur dekorativ, sondern korrespondieren zu unterschiedlichen Arten von nicht-chaotischem, periodischem Verhalten.
+Beispiele für Punkte $c$ in verschiedenen Regionen sind in der Tabelle \ref{julia:beispiele_aussehen_mandel} dargestellt.
+In der letzten Spalte ist jeweils $z_0$ inklusive der Folge beschrieben, die sich ergibt wenn die Funktion $z^2 + c$ mit dem zugehörigen $c$ iteriert wird.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Wo} & \textbf{$c$} & \textbf{Periode} & \textbf{$z_0$ und ausgehende Folge}    \\
+        \hline
+        Kardioide   & $-0.5$       & $1$              & \makecell{$\frac{1\pm\sqrt{3}}{2}$ \\ $\frac{1\pm\sqrt{3}}{2}$ \\ $\ldots$} \\
+        \hline
+        2-Knospe    & $-1$         & $2$              & \makecell{$0$                      \\ $-1$                     \\ $0$      \\ $\ldots$} \\
+        \hline
+        3-Knospe& $-\frac{1}{4} + \frac{3}{4}i$ & $3$ & \makecell{$0.215751 + 0.056067i$ \\ $-0.2066 + 0.7742i$ \\ $-0.8067 + 0.4301i$ \\ $0.215751 + 0.056067i$ \\ $\ldots$} \\
+        \hline
+        4-Knospe    & $-1.3$       & $4$              & \makecell{$-1.2996224637398612$ \\ $0.3890185482572668$ \\ $-1.1486645691118087$ \\ $0.019430292332817123$ \\ $-1.2996224637398612$ \\ $\ldots$} \\
+        \hline
+    \end{tabular}
+    \caption{Beispielspunkte für den Aufbau der Mandelbrot-Menge}
+    \label{julia:beispiele_aussehen_mandel}
+\end{table}
 
 \subsection{Verallgemeinerungen}
 Die Mandelbrot-Menge lässt sich auf verschiedene Arten verallgemeinern.
