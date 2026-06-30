@@ -6,4 +6,30 @@ Es bleibt jetzt also noch das Integral der Form
 \[
 \int \frac{w(x)}{\vartheta}\,dx
 \]
-zu berechnen.
+für eine rationale Funktion $w(x)\in\mathbb{Q}(x)$ zu berechnen.
+Die rationale Funktion $w(x)$ hat eine Partialbruchzerlegung
+\begin{align*}
+w(z)
+&=
+\sum_{i=1}^n \sum_{k=1}^{n_i}\frac{A_{ki}}{(x-\xi_i)^k},
+\end{align*}
+wobei $\xi_i$ die Nullstellen des Nenners mit Vielfachheit $n_k$ sind.
+Das Integral wird dann zu
+\begin{align*}
+\int \frac{w(x)}{\vartheta}\,dx
+&=
+\sum_{i=1}^n \sum_{k=1}^{n_i}
+A_{ki}
+\int
+\frac{1}{(x-\xi_i)^k\vartheta}\,dx.
+\end{align*}
+Der gebrochene Teil kann also mit der Partialbruchzerlegung auf die
+Integrale 
+\begin{equation}
+\int\frac{1}{\vartheta}\,dx
+\qquad\text{und}\qquad
+\int\frac{1}{(x-\xi)^k\vartheta}\,dx
+\label{buch:intalg:wurzel:eqn:grundintegrale}
+\end{equation}
+zurückgeführt werden.
+

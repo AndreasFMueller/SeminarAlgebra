@@ -3,14 +3,257 @@
 %
 \subsection{Die Stammfunktion von $1/\vartheta$
 \label{buch:intalg:wurzel:subsection:stammfunktiontheta}}
+Die Stammfunktion von $1/\vartheta$,
+das erste Integral in 
+\eqref{buch:intalg:wurzel:eqn:grundintegrale},
+hängt davon ab, wie wieviele
+reelle Nullstellen der Radikand hat und ob $a$ positiv oder
+negativ ist.
+Die Anzahl der Nullstellen ist durch das Vorzeichen der Diskriminante
+$\Delta=b^2-4ac$ bestimmt.
+
+\subsubsection{Der Fall $b^2-4ac=0$}
+In diesem Fall hat der Radikand genau eine doppelte Nullstelle
+bei $-b/2a$.
+Für $a<0$ ist der Radikand nicht positiv, wir betrachten daher nur
+den Fall $a>0$.
+Die Substitution
+\begin{align*}
+x
+&=
+\frac{z}{\!\sqrt{a}}
+z-\frac{b}{2a}
+\qquad
+\text{mit}
+\qquad
+dx
+=
+\frac{1}{\!\sqrt{a}}
+dz
+\\
+z &= \!\sqrt{a}\biggl(x+\frac{b}{2a}\biggr)
+\intertext{verwandelt den Integranden in}
+ax^2+bx+c&=z^2
+\intertext{und damit das Integral in}
+\int\frac{1}{\vartheta}\,dx
+&=
+\int \frac{1}{\sqrt{z^2}} \frac{1}{\!\sqrt{a}}\,dz
+=
+\frac{1}{\!\sqrt{a}} \int\frac{1}{z}\,dz
+=
+\frac{1}{\!\sqrt{a}} \log z
+\\
+&=
+\frac{1}{\!\sqrt{a}} \log \!\sqrt{a}\biggl(x+\frac{b}{2a}\biggr)
+=
+\frac{1}{\!\sqrt{a}} \log(2ax+b)
++
+\frac{1}{\!\sqrt{a}} \log\frac{\sqrt{a}}{2a}
+\intertext{Da die Stammfunktion nur bis auf eine Konstante bestimmt ist,
+können wir den letzten Term in der Integrationskonstante absorbieren
+und}
+\int\frac{1}{\!\sqrt{ax^2+bx+c}}\,dx
+&=
+\frac{1}{\!\sqrt{a}} \log(2ax+b) + C
+\end{align*}
+schreiben.
+
+\subsubsection{Der Fall $b^2-4ac>0$}
+Für $b^2-4ac>0$ kann man durch die Substitution
+\begin{align*}
+x
+&=
+-\frac{b}{2a} + z\frac{\!\sqrt{b^2-4ac}}{2a}
+&&\text{und}&
+dx &= \frac{\!\sqrt{b^2-4ac}}{2a} \,dz
+\\
+z
+&=
+\frac{2a}{\!\sqrt{b^2-4ac}}\biggl(x+\frac{b}{2a}\biggr)
+=
+\frac{1}{\!\sqrt{b^2-4ac}} (2ax+b)
+\end{align*}
+den Radikanden in
+\[
+ax^2+bx+z
+=
+\frac{b^2-4ac}{4a}(1-z^2)
+\]
+umformen.
+Für $a>0$ ist also
+\begin{align*}
+\int \frac{1}{\vartheta}\,dx
+&=
+\int \!\sqrt{\frac{4a}{b^2-4ac}} \frac{1}{\!\sqrt{1-z^2}}
+\frac{\!\sqrt{b^2-4ac}}{2a} \,dz
+\\
+&=
+\frac{1}{\!\sqrt{a}}
+\int
+\frac{1}{\!\sqrt{1-z^2}}\,dz
+=
+\frac{1}{\!\sqrt{a}}
+\arcsin z
++C
+\\
+&=
+\frac{1}{\!\sqrt{a}}
+\arcsin
+\frac{2ax+b}{\!\sqrt{b^2-4ac}}
++ C.
+%
+\intertext{Für $a<0$ ist der Integrand}
+\vartheta
+&=
+\!\sqrt{\frac{b^2-4ac}{-4a}}
+\!\sqrt{z^2-1}
+\qquad\text{bzw.}\qquad
+\!\sqrt{z^2-1}
+=
+\sqrt{\frac{-4a}{b^2-4ac}}\vartheta
+\intertext{und damit das Integral}
+\int \frac{1}{\vartheta}\,dx
+&=
+\int \!\sqrt{\frac{-4a}{b^2-4ac}}\frac{1}{\!\sqrt{z^2-1}}
+\frac{\!\sqrt{b^2-4ac}}{2a} \,dz
+\\
+&=
+\frac{1}{\!\sqrt{-a}}
+\int\frac{1}{\!\sqrt{z^2-1}}\,dz
+=
+\frac{1}{\!\sqrt{-a}}
+\log(2\!\sqrt{z^2-1}+2z)
+\\
+&=
+\frac{1}{\!\sqrt{-a}}
+\log\biggl(
+2\!\sqrt{\frac{-4a}{b^2-4ac}}\vartheta
++\frac{2}{\!\sqrt{b^2-4ac}}(2ax+b)
+\biggr)
+\\
+&=
+\frac{1}{\!\sqrt{-a}}
+\log\bigl(
+2\!\sqrt{-a}\vartheta
++
+2ax+b
+\bigr)
++
+\frac{1}{\!\sqrt{-a}}
+\log\biggl(\frac{2}{\!\sqrt{b^2-4ac}}\biggr).
+\intertext{Der zweite Term ist eine Konstante, auf die es für die
+Stammfunktion nicht ankommt.
+Wir absorbieren ihn daher in der Integrationskonstanten und können
+schreiben}
+\int\frac{1}{\vartheta}\,dx
+&=
+\frac{1}{\!\sqrt{-a}}\log\bigl(2\sqrt{-a}\vartheta + 2ax+b\bigr)
++C.
+\end{align*}
+
+\subsubsection{Der Fall $b^2-4ac<0$}
+In diesem Fall hat der Radikand keine Nullstelle.
+Für $a<0$ ist der Radikand immer negativ, wir betrachten daher wieder
+nur den Fall $a>0$.
+Die Substitution
+\begin{align*}
+x&=-\frac{b}{2a}+z\frac{\!\sqrt{4ac-b^2}}{2a}
+\qquad\text{und}\qquad
+dx=\frac{4ac-b^2}{2a}\,dz
+\\
+z&=\frac{2a}{\!\sqrt{4ac-b^2}}\biggl(x+\frac{b}{2a}\biggr)
+\intertext{verwandelt den Radikanden in}
+ax^2+bx+c
+&=
+\frac{4ac-b^2}{4a}(z^2+1)
+\intertext{und damit das Integral}
+\int\frac{1}{\vartheta}\,dx
+&=
+\int
+\!\sqrt{\frac{4a}{4ac-b^2}}
+\frac{1}{ \!\sqrt{z^2+1}}
+\frac{\!\sqrt{4ac-b^2}}{2a}
+\,dz
+=
+\frac{1}{2\!\sqrt{a}}
+\int \frac{1}{\!\sqrt{z^2+1}}\,dz
+\\
+&=
+\frac{1}{\!\sqrt{a}}
+\operatorname{arsinh} z+C
+\\
+&=
+\frac{1}{\!\sqrt{a}}
+\operatorname{arsinh} 
+\frac{2a}{\!\sqrt{4ac-b^2}}\biggl(x+\frac{b}{2a}\biggr)+C
+=
+\frac{1}{\!\sqrt{a}}
+\operatorname{arsinh} 
+\frac{2ax+b}{\!\sqrt{4ac-b^2}}+C.
+\end{align*}
+
+%
+% Reelle Ausdrücke für die Stammfunktion von 1/vartheta
+%
+\subsubsection{Reelle Ausdrücke für die Stammfunktion von $1/\vartheta$}
+Wir fassen die fallweisen Rechnungen der vorangegangenen Abschnitt
+ein einem Satz zusammen.
+
+\begin{satz}
+\label{buch:intalg:wurzel:satz:1theta}
+Für $\vartheta = ax^2+bx+c$ mit reellen Koeffizienten $a,b,c\in\mathbb{R}$
+gilt
+\begin{equation}
+\int\frac{1}{\vartheta}\,dx
+=
+\begin{cases}
+\displaystyle
+\frac{1}{\!\sqrt{a}}
+\log(2ax+b)+C
+&\text{falls $b^2-4ac=0$ und $a>0$,}
+\\[10pt]
+\displaystyle
+\frac{1}{\!\sqrt{a}}
+\arcsin\frac{2ax+b}{\!\sqrt{b^2-4ac}}+C
+&\text{falls $b^2-4ac>0$ und $a>0$,}
+\\[10pt]
+\displaystyle
+\frac{1}{\!\sqrt{-a}}
+\log\bigl(2\!\sqrt{-a}\vartheta+2ax+b\bigr) + C
+&\text{falls $b^2-4ac>0$ und $a<0$,}
+\\[10pt]
+\displaystyle
+\frac{1}{\!\sqrt{a}}
+\operatorname{arsinh}\frac{2ax+b}{\!\sqrt{4ac-b^2}}+C
+&\text{falls $b^2-4ac<0$ und $a>0$.}
+\end{cases}
+\end{equation}
+\end{satz}
+
+
+%
+% Ein gemeinsamer Ausdruck für alle Fälle
+%
+\subsubsection{Ein gemeinsamer Ausdruck für alle Fälle}
+Die Fallunterscheidung von
+Satz~\ref{buch:intalg:wurzel:satz:1theta}
+ist vor allem deshalb notwendig, weil
+wir imaginäre Werte von $\!\sqrt{b^2-4ac}$ und $\!\sqrt{-a}$
+vermweiden möchten.
+Die Funktion $\arcsin$ und $\operatorname{arsinh}$ können aber
+wie in Abschnitt~\ref{buch:intalg:elementar:subsection:trigo}
+gezeigt auch nur durch Logarithmen ausgedrückt werden.
+Es sollte daher möglich sein, einen einzigen komplexen
+Ausdruck für eine Stammfunktion von $1/\vartheta$ zu finden.
+
 Durch Nachrechnen der Ableitung von
 \[
 \Theta
 =
 \frac{1}{\!\sqrt{a}}
-\log\Bigl(
+\log\bigl(
 2ax + b - 2\!\sqrt{a} \vartheta
-\Bigr)
+\bigr)
 \]
 bekommt man
 \begin{align*}

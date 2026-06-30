@@ -27,6 +27,8 @@ CHAPTERFILES += 							\
 	chapters/070-intalg/24-polynom.tex				\
 	chapters/070-intalg/25-partial.tex				\
 	chapters/070-intalg/26-1theta.tex				\
+	chapters/070-intalg/27-pol.tex					\
+	chapters/070-intalg/28-erfahrung.tex				\
 	chapters/070-intalg/3-liouville.tex				\
 	chapters/070-intalg/31-prinzip.tex				\
 	chapters/070-intalg/32-polynome.tex				\
