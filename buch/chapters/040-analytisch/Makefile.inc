@@ -13,29 +13,27 @@ CHAPTERFILES += 							\
 	chapters/040-analytisch/1-potenzreihen.tex			\
 	chapters/040-analytisch/11-polynome.tex				\
 	chapters/040-analytisch/12-geometrisch.tex			\
-	chapters/040-analytisch/13-integration.tex			\
-	chapters/040-analytisch/14-analytisch.tex			\
-	chapters/040-analytisch/15-reellanalytisch.tex			\
-	chapters/040-analytisch/2-rational.tex				\
-	chapters/040-analytisch/21-faktorisierung.tex			\
-	chapters/040-analytisch/22-partialbruchzerlegung.tex		\
-	chapters/040-analytisch/3-fortsetzung.tex			\
-	chapters/040-analytisch/31-definition.tex			\
-	chapters/040-analytisch/32-fortsetzung.tex			\
-	chapters/040-analytisch/33-ueberlagerungen.tex			\
-	chapters/040-analytisch/4-laurentreihen.tex			\
-	chapters/040-analytisch/41-ring.tex				\
-	chapters/040-analytisch/42-laurent.tex				\
-	chapters/040-analytisch/43-residuum.tex				\
-	chapters/040-analytisch/44-singulaer.tex			\
-	chapters/040-analytisch/45-meromorph.tex			\
-	chapters/040-analytisch/5-ganz.tex				\
-	chapters/040-analytisch/51-definition.tex			\
-	chapters/040-analytisch/52-cauchyliouville.tex			\
-	chapters/040-analytisch/53-fundamentalsatz.tex			\
-	chapters/040-analytisch/6-argument.tex				\
-	chapters/040-analytisch/61-integral.tex				\
-	chapters/040-analytisch/62-meromorph.tex			\
-	chapters/040-analytisch/63-verallgemeinert.tex			\
+	chapters/040-analytisch/13-rational.tex				\
+	chapters/040-analytisch/14-integration.tex			\
+	chapters/040-analytisch/15-analytisch.tex			\
+	chapters/040-analytisch/16-reellanalytisch.tex			\
+	chapters/040-analytisch/2-fortsetzung.tex			\
+	chapters/040-analytisch/21-definition.tex			\
+	chapters/040-analytisch/22-fortsetzung.tex			\
+	chapters/040-analytisch/23-ueberlagerung.tex			\
+	chapters/040-analytisch/3-laurentreihen.tex			\
+	chapters/040-analytisch/31-ring.tex				\
+	chapters/040-analytisch/32-laurent.tex				\
+	chapters/040-analytisch/33-residuum.tex				\
+	chapters/040-analytisch/34-singulaer.tex			\
+	chapters/040-analytisch/35-meromorph.tex			\
+	chapters/040-analytisch/4-ganz.tex				\
+	chapters/040-analytisch/41-definition.tex			\
+	chapters/040-analytisch/42-cauchyliouville.tex			\
+	chapters/040-analytisch/43-fundamentalsatz.tex			\
+	chapters/040-analytisch/5-argument.tex				\
+	chapters/040-analytisch/51-integral.tex				\
+	chapters/040-analytisch/52-meromorph.tex			\
+	chapters/040-analytisch/53-verallgemeinert.tex			\
 	chapters/040-analytisch/chapter.tex
 
