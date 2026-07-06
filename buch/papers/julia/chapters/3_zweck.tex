@@ -1,5 +1,6 @@
 \section{Anwendungen und Zweck}
 \label{julia:zweck}
+\kopfrechts{Anwendungen und Zweck}%
 
 Die Definitionen für die Julia- und Fatou-Mengen sowie die Mandelbrot-Menge basieren auf interessanten Überlegungen, doch der grundlegende Zweck kann mitunter etwas in den Hintergrund geraten.
 Am Anfang des Kapitels wurde mit der Gleichung \eqref{julia:beispielgleichung} und dem Newton-Algorithmus die Überlegung der Funktionen-Iteration motiviert.
@@ -24,21 +25,22 @@ Dazu benötigt man die Ableitung
 \end{equation*}
 und muss diese für die beiden analytischen Lösungen auswerten.
 Interessant ist der Faktor $g^\prime(x_0)$, denn sowohl $g^\prime(\!\sqrt{-a})$ als auch $g^\prime(-\!\sqrt{-a})$ sind gleich $0$, wodurch die gesamten Produkte und somit die Multiplikatoren zu $0$ werden.
-Gemäss der Definition \ref{julia:lambda_defs} sind daher beide analytischen Lösungen \emph{stark anziehende Fixpunkte}.
+Gemäss der Definition \ref{julia:lambda_defs} sind daher beide analytischen Lösungen stark anziehende Fixpunkte.
 
 Die komplexe Ebene (oder hier die reellen Zahlen) ist demzufolge in \emph{Einzugsgebiete} unterteilt:
+\index{Einzugsgebiet}%
 \begin{itemize}
     \item Punkte, für die die Iteration von $g$ zu $\!\sqrt{-a}$ konvergiert
     \item Punkte, für die die Iteration von $g$ zu $-\!\sqrt{-a}$ konvergiert
     \item Punkte, für die die Iteration von $g$ sich anders verhält (z.B. $x = 0$ führt zu Division durch $0$)
 \end{itemize}
-Die Julia-Menge der Funktion $g$ entspricht genau dem Rand, der diese \emph{Einzugsgebiete} trennt.
-Wählt man einen Punkt auf dem Rand und variiert diesen leicht, fällt man je nach Art der Änderung in unterschiedliche \emph{Einzugsgebiete}.
+Die Julia-Menge der Funktion $g$ entspricht genau dem Rand, der diese Einzugsgebiete trennt.
+Wählt man einen Punkt auf dem Rand und variiert diesen leicht, fällt man je nach Art der Änderung in unterschiedliche Einzugsgebiete.
 Diese Randpunkte verhalten sich also wieder chaotisch.
 
 Möchte man nun die Gleichung \eqref{julia:beispielgleichung} mit der Newton-Iterationsformel \eqref{julia:newton_alg} lösen, benötigt man einen Startwert $x_0$.
 Aus Analysis I ist bekannt, dass der Startwert ``genügend nahe'' bei einer Lösung der Gleichung liegen muss.
-Berechnet man nun die Julia-Menge der Funktion $g$, findet man so die \emph{Einzugsgebiete} der Lösungen und kann damit quantifizieren, was ``genügend nahe'' bedeutet.
+Berechnet man nun die Julia-Menge der Funktion $g$, findet man so die Einzugsgebiete der Lösungen und kann damit quantifizieren, was ``genügend nahe'' bedeutet.
 
 \subsection{Der Parameter und die Mandelbrot-Menge}
 Fixiert man statt dem Parameter, die Variable bei $x_0$, kann so studiert werden, welche Parameterwerte zu welcher Art von Verhalten führen.
