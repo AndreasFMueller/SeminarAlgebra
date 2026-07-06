@@ -1,0 +1,401 @@
+%
+% Polynome
+%
+\subsection{Polynome}
+Als Illustration der starken Einschränkungen, die Holomorphie einer
+komplexen Funktion auferlegt, zeigen wir in diesem Abschnitt,
+dass eine holomorphe Funktion automatisch ein Polynom in der
+komplexen Variable $z=x+iy$ ist,
+wenn der Real- oder Imaginärteil ein Polynom von $x$ und $y$ ist.
+
+\begin{satz}
+\label{buch:holomorph:holomorph:satz:polynom}
+Sei $f(z)$ eine holomorphe Funktion, deren Realteil ein Polynom
+im Realteil $x$ und dem Imaginärteil $y$ des Arguments $z=x+iy$ ist.
+Dann ist $f(z)$ ein Polynom.
+\end{satz}
+
+Um den Satz~\ref{buch:holomorph:holomorph:satz:polynom}
+zu beweisen verwenden wir zuerst die Tatsache, dass der Realteil
+eine harmonische Funktion ist um zu zeigen, sich die Terme gleichen
+Grades in $x$ und $y$ als Realteil der Potenzen von $z=x+iy$ schreiben
+lassen.
+Damit ist dann wegen Satz~\ref{buch:holomorph:holomorph:satz:utov}
+auch der Imaginärteil bis auf eine Konstante bestimmt.
+Der Imaginärteil des gefundenen Polynoms kann sich daher höchstens
+durch eine Konstante vom Imaginärteil von $f(z)$ unterscheiden.
+Dies zeigt, dass $f(z)$ ein Polynom ist.
+
+\begin{proof}
+Nach Voraussetzung ist $u(x,y)$ ein Polynom, welches wir in der Form
+\[
+u(x,y)
+=
+\sum_{k,l}
+a_{kl} x^ky^l
+\]
+schreiben, wobei nur endlich viele der $a_{kl}$ von $0$ verschieden
+sind.
+Der Grad des Terms $a_{kl}x^ky^l$ ist $k+l$. 
+
+Die Funktion $u(x,y)$ ist als Realteil einer holomorphen Funktion
+harmonisch, d.~h.~$\Delta u=0$.
+Für die Terme vom Grad $0$ und $1$ gilt dies automatisch, da die
+zweiten partiellen Ableitungen verschwinden.
+Die höchstens linearen Terme haben daher die Form
+\begin{align*}
+a_{00} + a_{10}x + a_{01}y
+&=
+a_{00} + \operatorname{Re} (a_{10}-ia_{01})(x+iy)
+=
+a_{00} + \operatorname{Re} a_1z
+\end{align*}
+mit $a_1=a_{10}-ia_{01}$.
+Die höchstens linearen Terme sind also tatsächlich der Realteil eines
+Polynoms ersten Grades in der Variablen $z$.
+
+Für die Terme vom Grad $2$ verschwinden die zweiten partiellen 
+Ableitungen jedoch nicht automatisch, vielmehr gilt
+\begin{align*}
+0
+&=
+\Delta
+\sum_{k+l=2} a_{kl}x^ky^l
+\\
+&=
+\Delta (a_{20}x^2 + a_{11}xy + a_{02}y^2)
+\\
+&=
+\frac{\partial^2}{\partial x^2}
+a_{20}x^2
++
+\frac{\partial^2}{\partial y^2}
+a_{02}y^2
+\\
+0
+&=
+2\cdot 1\cdot a_{20}  + 2 \cdot 1 \cdot a_{02}
+\qquad\Rightarrow\qquad a_{02}=-a_{20}.
+\end{align*}
+Dies zeigt, dass die beiden Koeffizienten $a_{20}$ und $a_{02}$ nicht
+unabhängig gewählt werden können, sondern dass die Terme zweiten
+Grades nur in der Kombination
+\(
+a_{20}(x^2-y^2) + a_{11}xy
+\)
+vorkommen können.
+Wegen
+\(
+z^2
+=
+(x^2-y^2) + 2ixy
+\)
+lässt sich dies auch als der Realteil 
+\[
+a_{20}(x^2-y^2) + a_{11}xy
+=
+\operatorname{Re} z^2\cdot \biggl(a_{20}-\frac{i}2a_{11}\biggr)
+=
+\operatorname{Re} a_2z^2
+\qquad\text{mit $a_2=a_{20}-\displaystyle\frac{i}2a_{11}$}
+\]
+verstehen.
+Auch für die Terme vom Grad 2 hat sich ergeben, dass sie der Realteil
+eines komplexen Monoms in der Variablen $z$ vom Grad $2$ sind.
+
+Das beobachtete Muster gilt jedoch allgemeiner.
+Wir zeigen jetzt, dass die Terme vom Grad $n$ in $u(x,y)$ zusammen
+den Realteil eines Monoms der Form $a_nz^n$ bilden.
+Durch Subtraktion dieses Terms bleiben dann nur noch Terme vom Grad $n-1$,
+auf die die gleiche Beobachtung wieder angewendet werden kann.
+Auf diese Weise lässt sich schrittweise ein Polynom
+\[
+p(z)
+=
+a_{00} + a_1z + a_2z^2 + \dots + a_{n-1}z^{n-1} + a_nz^n
+\]
+mit
+der Eigenschaft $u(x,y)=\operatorname{Re}p(z)$ konstruieren.
+Der Imaginärteil von $f(z)$ ist durch den Realteil bis auf eine imaginäre
+Konstante festgelegt ist, die wir mit $ib$ bezeichnen können.
+Das Polynom
+\[
+q(z)
+=
+p(z)+ib
+=
+\underbrace{a_{00}+ib}_{\displaystyle a_0}
++ a_1z + a_2z^2 + \dots + a_{n-1}z^{n-1} + a_nz^n
+=
+\sum_{m=0}^n a_mz^m
+\]
+ist dann das gesuchte Polynom mit $f(z)=q(z)$.
+
+Wir betrachten jetzt ausschliesslich die Terme
+\input{chapters/020-holomorph/fig/fig-polynome.tex}
+\[
+u^n(x,y)
+=
+\sum_{k+l=n} a_{kl}x^ky^l
+\]
+vom Grad $n>2$ in $u(x,y)$.
+Der Laplace-Operatoren reduziert den Grad jeweils um $2$, die entstehenden
+Terme müssen sich aber alle wegheben.
+Dies führt auf die Bedingung
+\[
+\Delta
+u^n(x,y)
+=
+\sum_{k+l=n}
+\bigl(k(k-1)a_{kl}x^{k-2}y^l
++
+l(l-1)a_{kl}x^ky^{l-2}
+\bigr)
+=
+0.
+\]
+In Abbildung~\ref{buch:holomorph:holomorph:fig:polynome}
+\input{chapters/020-holomorph/fig/fig-rekursion.tex}
+werden die einzelnen Monome als Gitterpunkte dargestellt, die Pfeile
+beschreiben die Wirkung der zweiten partiellen Ableitungen.
+Dort wo sich zwei Pfeilspitzen treffen, müssen sich Terme wegheben, 
+wie dies in Abbildung~\ref{buch:holomorph:holomorph:fig:rekursion}
+illustriert ist.
+Dies geschieht jeweils für Terme, deren Exponenten sich um 2 unterscheiden:
+\begin{align}
+0
+&=
+\frac{\partial^2}{\partial x^2}
+a_{k,n-k}x^ky^{n-k}
++
+\frac{\partial^2}{\partial y^2}
+a_{k-2,n-k+2}x^{k-2}y^{n-k+2}.
+\notag
+\\
+&=
+\bigl(
+k(k-1) a_{k,n-k} + (n-k+2)(n-k+1) a_{k-2,n-k+2}
+\bigr)
+x^{k-2}y^{n-k}.
+\notag
+\intertext{Wir lesen daraus die Rekursionsformeln}
+a_{k-2,n-k+2}
+&=
+-
+\frac{
+k(k-1)
+}{
+(n-k+2)(n-k+1)
+}
+a_{k,n-k}
+\label{buch:holomorph:holomorph:beweis:polynom:rek1}
+\\
+a_{k,n-k}
+&=
+-
+\frac{
+(n-k+2)(n-k+1)
+}{
+k(k-1)
+}
+a_{k-2,n-k+2}
+\label{buch:holomorph:holomorph:beweis:polynom:rek2}
+\end{align}
+für die Koeffizienten $a_{kl}$ ab.
+Die Koeffizienten sind somit nicht unabhängig voneinander, sondern werden
+durch die Rekursionsformeln
+\eqref{buch:holomorph:holomorph:beweis:polynom:rek1}
+und
+\eqref{buch:holomorph:holomorph:beweis:polynom:rek2}
+miteinandern verknüpft.
+
+Für ungerades $n$ lassen sich alle Koeffizienten durch $a_{n0}$ oder $a_{0n}$
+ausdrücken.
+Es gilt nämlich nach wiederholter Anwendung von
+\eqref{buch:holomorph:holomorph:beweis:polynom:rek1}
+der Reihe nach
+\begin{align*}
+a_{n-2,2}
+&=
+-
+\frac{n(n-1)}{2\cdot 1} a_{n0}
+=
+-\binom{n}{2}
+\\
+a_{n-4,4}
+&=
+-
+\frac{(n-2)(n-3)}{4\cdot 3}
+a_{n-2,2}
+=
+\frac{(n-2)(n-3)}{4\cdot 3}
+\frac{n(n-1)}{2\cdot 1}
+a_{n0}
+=
+\binom{n}{4}
+a_{n0}
+\\
+&\;\vdots
+\\
+a_{n-2k,2k}
+&=
+(-1)^k
+\binom{n}{2k} a_{n0}
+\intertext{bzw.~durch Anwendung von
+\eqref{buch:holomorph:holomorph:beweis:polynom:rek2}}
+a_{2,n-2}
+&=
+-
+\frac{n(n-1)}{2\cdot 1}
+a_{0n}
+=
+-\binom{n}{2} a_{0n}
+\\
+a_{4,n-4}
+&=
+-
+\frac{(n-2)(n-3)}{4\cdot 3}
+a_{2,n-2}
+=
+\frac{(n-2)(n-3)}{4\cdot 3}
+\frac{n(n-1)}{2\cdot 1}
+a_{2,n-2}
+=
+\binom{n}{4}a_{0n}
+\\
+&\;\vdots
+\\
+a_{2k,n-2k}
+&=
+(-1)^k\binom{n}{2k} 
+a_{0n}.
+\end{align*}
+Damit kann man jetzt $u^n(x,y)$
+als
+\begin{align*}
+u^n(x,y)
+&=
+a_{n0}
+\sum_{k=0}^{\lfloor\frac{n}2\rfloor}
+(-1)^k
+\binom{n}{2k}
+x^{n-2k}y^{2k}
++
+a_{0n}
+\sum_{k=0}^{\lfloor\frac{n}2\rfloor}
+(-1)^k
+\binom{n}{2k}
+x^{2k}y^{n-2k}
+\intertext{schreiben.
+Die erste Summe enthält die geraden Potenzen von $y$, die zweite die
+ungeraden.
+Man kann sie auch durch Aufteilung der Summe der binomischen Formel als}
+(x+iy)^n
+&=
+\sum_{l=0}^n i^{n-l}\binom{n}{l} x^k y^{n-l}
+\\
+&=
+\sum_{k=0}^{\lfloor\frac{n}2\rfloor}
+(-1)^k
+\binom{n}{2k}
+x^{n-2k}y^{2k}
++
+i^n
+\sum_{k=0}^{\lfloor\frac{n}2\rfloor}
+(-1)^k
+\binom{n}{2k}
+x^{2k}y^{n-2k}
+\end{align*}
+erhalten.
+Somit folgt
+\[
+u^n(x,y)
+=
+\operatorname{Re}\Bigl(
+(\underbrace{a_{n0}-i^n a_{0n}}_{\displaystyle=a_n})
+(x+iy)^n
+\Bigr)
+=
+\operatorname{Re} a_n
+(x+iy)^n,
+\]
+der Term $u^n(x,y)$ ist also Realteil eines Monoms.
+
+Für Gerade $n=2m$ lassen sich ähnlich alle Terme durch $a_{n0}$ und
+$a_{n-1,1}$ ausdrücken.
+Wie im Falle ungeraden $n$s folgt
+\[
+a_{n-2k,2k}
+=
+(-1)^k
+\binom{n}{2k}
+a_{n0}.
+\]
+Für die verbleibenden Koeffizienten gilt durch wiederholte Anwendung
+von \eqref{buch:holomorph:holomorph:beweis:polynom:rek1}
+der Reihe nach
+\begin{align*}
+a_{n-3,3}
+&=
+-
+\frac{
+(n-1)(n-2)
+}{
+3\cdot 2
+}
+a_{n-1,1}
+=
+-
+\binom{n}{3} \frac{1}{n} a_{n-1,1}
+\\
+a_{n-5,5}
+&=
+-
+\frac{
+(n-3)(n-4)
+}{
+5\cdot 4
+}
+a_{n-3,3}
+=
+\frac{
+(n-3)(n-4)
+}{
+5\cdot 4
+}
+\frac{
+(n-1)(n-2)
+}{
+3\cdot 2
+}
+a_{n-1,1}
+=
+\binom{n}{5}\frac{1}{n}a_{n-1,1}
+\\
+&\;\vdots
+\\
+a_{n-2k-1,2k+1}
+&=
+(-1)^k
+\binom{n}{2k+1}\frac{1}{n}a_{n-1,1}.
+\end{align*}
+Auch in diesem Fall lässt sich durch die Aufteilung
+\begin{align*}
+(x+iy)^n
+&=
+\sum_{l=0}^n i^{n-l} \binom{n}{l} x^ly^{n-l}
+\\
+&=
+\sum_{k=0}^{\frac{n}2} (-1)^k\binom{n}{2k} x^{2k}y^{n-2k}
++
+i^{n-1}
+\sum_{k=0}^{\frac{n}2} (-1)^k\binom{n}{2k+1} x^{n-2k-1}y^{2k+1}
+\end{align*}
+in Real- und Imaginärteil der Potenz $z^n$ erkennen, dass 
+$u^n(x,y)$ wieder als Realteil einer Potenz $a_nz^n$ geschrieben
+werden kann.
+Wie oben ausgeführt, kann man daher schliessen, dass $f(z)$ ein
+Polynom ist, welches durch $u(x,y)$ bis auf eine imaginäre Konstante
+festgelegt ist.
+\end{proof}
+

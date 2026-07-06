@@ -1,0 +1,242 @@
+%
+% 13-homotopie.tex -- Homotopie
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Homotopie
+\label{buch:integration:wegintegral:subsection:homotopie}}
+Im vorangegangenen Abschnitt wurde klar, dass das unter geeigneten
+Voraussetzungen an das Gebiet das Wegintegral für verschiedene Wege 
+zwischen $a$ und $b$ gleich ist.
+Die Bedingung war etwas schwerfällig zu formulieren, ergab sich aber
+unmittelbar aus dem Satz von Green.
+Es musste verlangt werden, zwei Wege zwischen $a$ und $b$ ein in
+$U$ enthaltenes Teilgebiet beranden.
+
+Eine etwas intuitivere Formulierung wäre, dass sich die beiden
+Wege ineinander deformieren lassen.
+Während der Deformation wird das Teilgebiet überstrichen.
+\index{Deformation}%
+Wir versuchen jetzt, dieses Idee mit einer mathematisch präzisen
+Definition zu erfassen.
+\input{chapters/030-integration/fig/fig-homotopie.tex}
+
+\begin{definition}[Homotopie von Wegen]
+\label{buch:integration:definition:homotpie}
+Eine \emph{Homotopie} von Wegen $\gamma_0\colon I\to U$
+\index{Homotpie}%
+und
+$\gamma_1\colon I\to U$, $I=[0,1]$,
+in einem Gebiet $U$
+mit gleichen Endpunkten
+$\gamma_0(0)=\gamma_1(0)$
+und
+$\gamma_0(1)=\gamma_1(1)$
+ist eine Abbildung
+\[
+H
+\colon
+I\times I \to U
+:
+(s,t) \mapsto H(s,t)
+\]
+mit $H(0,t)=\gamma_0(t)$ und $H(1,t)=\gamma_1(t)$
+und konstanten Endpunkten
+$H(s,0)=\gamma_i(0)$
+und
+$H(s,1)=\gamma_i(1)$.
+Zwei Wege $\gamma_i\colon I\to U$  heissen \emph{homotop}, in Zeichen
+\index{homotop}
+$\gamma_0\simeq \gamma_1$, wenn es eine
+Homotopie gibt, die die beiden Wege verbindet.
+\end{definition}
+
+\begin{satz}
+\label{buch:integration:satz:homotopie}
+Sei $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und
+\[
+H
+\colon
+I\times I
+\to
+U
+\]
+eine Homotopie der Wege $\gamma_i$, $i=0,1$, mit $H(s,0) = a$ und $H(s,1)=b$
+für $s\in I$.
+Dann ist
+\[
+\int_{\gamma_0} f(z)\,dz
+=
+\int_{\gamma_1} f(z)\,dz.
+\]
+\end{satz}
+
+\begin{proof}
+Da die Homotopie $H$ eine Abbildung nach $U$ ist, verlaufen
+alle Wege
+\[
+\gamma_s
+\colon
+I\to\mathbb{C}
+:
+t
+\mapsto
+\gamma_s(t) = H(t,s)
+\]
+in $U$.
+Die Vereinigung aller Wege
+\[
+\bigcup_{0\le s\le 1} \operatorname{im}\gamma_s
+=
+\{
+H(t,s)
+\mid
+t,s\in I
+\}
+\subset U
+\]
+ist in $U$ enhalten, so dass zwei beleibige Kurven immer eine
+offene Teilmenge $U$ beranden.
+Der Satz~\ref{buch:integration:wegintegral:satz:stammfunktion}
+bedeutet daher, dass alle Wegintegrale entlange $\gamma_s$
+übereinstimmen, insbesondere auch
+\[
+\int_{\gamma_0} f(z) \, dz
+=
+\int_{\gamma_s} f(z) \, dz
+= 
+\int_{\gamma_1} f(z) \, dz.
+\]
+Damit ist der Satz bewiesen.
+\end{proof}
+
+Der Satz~\ref{buch:integration:satz:homotopie}
+sagt, dass ineinander deformierbare Wege zum gleichen Wegintegral führen.
+Die Bedingung ist jedoch nicht immer einfach zu verifizieren.
+Einfacher wird es, wenn ein Weg zusammenziehbar ist im Sinne
+der folgenden Definition.
+
+\begin{definition}[zusammenziehbar]
+\label{buch:integration:wegintegral:definition:zusammenziehbar}
+Ein geschlossener Weg $\gamma$ in einem Gebiet $U$ heisst
+\emph{zusammenziehbar}, wenn der homotop ist zum konstanten Weg
+\index{zusammenziehbar}%
+$t\mapsto \gamma_1(t)=\gamma(0)=\gamma(1)$.
+\end{definition}
+
+In $\mathbb{C}$ ist jeder Weg zusammenziehbar, indem man die Homotopie
+\[
+H(t,s)
+=
+(1-s)
+\gamma(0)
++
+s
+\gamma(t) 
+\]
+verwendet.
+Für $s=0$ ist $H(t,0) = \gamma(0)$ der konstante Weg im Punkt
+$\gamma(0)$, währen für $s=1$
+$H(t,1=\gamma(t)$ der Weg $\gamma$ ist.
+Ein Weg ist nicht zusammenziehbar, wenn er ein ``Loch'' in
+der Menge umläuft, da er über das Loch hinweggezogen werden
+müsste.
+Zum Beispiel ist die Funktion $f(z)=\frac1z$ holomorph in
+der Menge $U=\mathbb{C}\setminus\{0\}$ definiert, die an der Stelle
+$0$ ein Loch hat.
+Ein Weg, der den Nullpunkt umläuft, kann nicht in einen Punkt
+zusammengezogen werden, da er dabei den Nullpunkt überqueren müsste.
+
+Mit dem Begriff des zusammenziehbaren Weges ist jetzt die ist jetzt
+der Satz~\ref{buch:integration:satz:homotopie}
+sehr viel anschaulicher zu formulieren.
+\input{chapters/030-integration/fig/fig-deformation.tex}
+
+\begin{satz}[Cauchy]
+\index{Satz!Cauchy-Integralsatz}%
+\index{Cauchy-Integralsatz}
+\label{buch:integration:wegintegral:satz:zusammenziehbar}
+Ist $\gamma$ ein zusammenziehbarer Weg im Definitionsgebiet einer
+holomorphen Funktion, dann gilt
+\[
+\oint_\gamma f(z)\, dz = 0.
+\]
+\end{satz}
+
+\begin{proof}
+Sei $H$ ein Homotopie zwischen dem konstanten Weg im Punkt $a$ und
+der geschlossenen Kurve $\gamma$, also
+\[
+H(t,0) = a
+\qquad
+\text{und}
+\qquad
+H(t,1) = \gamma(t).
+\]
+Ausserdem soll jeder Weg $t\mapsto H(t,s)$ ein geschlossener Pfad im
+Punkt $a$ sein, also $H(0,s)=H(1,s)=a$.
+Abbildung~\ref{buch:integration:wegintegral:fig:deformation}
+ist die Kurve $\gamma$ rot eingezeichnet.
+
+Der Punkt $b=H(\frac12,1)$ teilt die Kurve $\gamma$ in zwei Kurven
+$\gamma_1$ und $\gamma_2$ von $a$ nach $b$ auf.
+Die Abbildung $s\mapsto H(\frac12,s)$ ist ein Weg von $a$ nach
+$b=H(\frac12,1)$, der in
+Abbildung~\ref{buch:integration:wegintegral:fig:deformation}
+grün eingezeichnet ist.
+Wir wollen zeigen, dass beide Wege $\gamma_1$ und $\gamma_2$ sich in
+die grüne Kurve $s\mapsto H(\frac12,s)$ deformieren lässt.
+
+Die Funktion 
+\[
+K_1
+\colon
+I\times I
+\to
+\mathbb{C}
+:
+(t,s)
+\mapsto
+K_1(t,s)
+=
+\begin{cases}
+H(t/2s,s)    &\qquad\text{für $t  <  s$}
+\\
+H(\frac12, t)&\qquad\text{für $s \ge t$}
+\end{cases}
+\]
+deformiert den Weg $\gamma_1$ in den grünen Weg,
+denn für $s=1$ entsteht der Weg $\gamma_1$ und
+für $s=0$ der grüne Weg.
+Für $s$-Werte zwischen $0$ und $1$ folgt der Weg zuerst
+der Kurve $t\mapsto H(t,s)$ bis zur grünen Kurve, dann der grünen
+Kurve.
+
+Eine ähnliche Deformation des Weges $\gamma_2$ in die grüne
+Kurve wird durch
+\[
+K_2
+\colon
+I\times I
+\to
+\mathbb{C}
+:
+(t,s)
+\mapsto
+K_2(t,s)
+=
+\begin{cases}
+H((1-2t)/2s,s)    &\qquad\text{für $t  <   s$}
+\\
+H(\frac12, t)     &\qquad\text{für $s \ge t$}
+\end{cases}
+\]
+gegeben.
+
+Da beide Wege $\gamma_1$ und $\gamma_2$ homotop sind zur
+grünen Kurve, sind auch die Wegintegrale entlang der Kurven $\gamma_1$
+und $\gamma_2$ gleich dem Wegintegral entlang der grünen Kurve.
+Das Wegintegral entlang der Kurve $\gamma$ verschwindet daher.
+\end{proof}
+
+

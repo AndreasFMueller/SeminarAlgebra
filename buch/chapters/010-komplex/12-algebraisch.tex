@@ -1,0 +1,992 @@
+%
+% 12-algebraisch.tex -- Algebraische Erweiterungen von Q
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Algebraische Erweiterungen von $\mathbb{Q}$}
+Die Vervollständigung der der rationalen Zahlen zu den reellen
+Zahlen stellt sicher, dass jede Cauchy-Folge einen Grenzwert hat.
+Sie führt aber zu einem neuen Problem, welches ein Hindernis für
+Computeralgebrasysteme wird.
+\index{Computeralgebra}%
+Da reelle Zahlen nur durch ihre Approximationen definiert sind,
+lässt sich damit grundsätzlich nur dann exakt rechnen, wenn auch
+noch eine alternative Charakterisierung zur Verfügung steht.
+Mit der Kreiszahl $\pi$ kann man nur desshalb exakt rechnen, weil
+sie die kleinste positive Nullstelle der Sinusfunktion ist.
+
+Für die Quadratwurzel $\!\sqrt{2}$, die früher als erstes Beispiel
+\index{Quadratwurzel}%
+einer irrationalen Zahl in den Vordergrund gestellt wurde, gibt
+es eine solche alternative Charakterisierung.
+Beim algebraischen Rechnen mit $\!\sqrt{2}$ verwendet man fast
+instinktiv die Beziehung $(\!\sqrt{2})^2=2$, zum Beispiel
+beim Ausmultiplizieren von
+\[
+(\!\sqrt{2}+1)^2
+=
+(\!\sqrt{2})^2
++2\!\sqrt{2}\cdot 1 
++ 1^2
+=
+2 + 2\!\sqrt{2} + 1
+=
+3+2\!\sqrt{2}.
+\]
+
+Wir wollen diese Beobachtung noch etwas expliziter machen und
+bezeichnen mit $\alpha$ ein Objekt, für welches sowohl die Regeln
+der Algebra ebenso gelten wie die Identität $\alpha^2-2=0$.
+Durch die Ersetzung $\alpha^2 = 2$ kann jede Potenz von $\alpha$
+auf entweder ein Vielfaches von $\alpha$ oder auf eine ganze Zahl
+reduziert werden, es gilt nämlich
+\[
+\alpha^n
+=
+\begin{cases}
+2^{\frac{n}2}         &\qquad\text{$n$ gerade}\\
+2^{\frac{n-1}2}\alpha &\qquad\text{$n$ ungerade.}
+\end{cases}
+\]
+Für Linearkombinationen $a+b\alpha$ und $c+d\alpha$ lassen sich
+jetzt einfache Rechenregeln aufstellen:
+\begin{align*}
+(a+b\alpha)\pm(c+d\alpha) &= (a\pm b) + (c\pm d)\alpha
+\\
+(a+b\alpha)(c+d\alpha) &= (ac + 2bd) + (ad+bc)\alpha.
+\end{align*}
+Als Spezialfall der Produktregel findet man
+\[
+(a+b\alpha)(a-b\alpha)
+=
+a^2 - 2 b^2,
+\]
+daher heisst $a-b\alpha$ auch das zu $a+b\alpha$ \emph{konjugierte}
+Element.
+\index{konjugiert}%
+Durch Erweitern mit $(c-d\alpha)$ kann man sogar den Kehrwert
+\begin{align*}
+\frac{1}{c+d\alpha}
+&=
+\frac{1}{c+d\alpha}
+\cdot
+\frac{c-d\alpha}{c-d\alpha}
+=
+\frac{c-d\alpha}{c^2-2d^2}
+=
+\frac{c}{c^2-2d^2} - \frac{d}{c^2-2d^2}\alpha
+\intertext{und damit auch den Quotienten}
+\frac{a+b\alpha}{c+d\alpha}
+&=
+\frac{ac-2bd}{c^2-2d^2} - \frac{ad-bc}{c^2-2d^2}\alpha
+\end{align*}
+definieren.
+
+Alle vier Grundoperationen lassen sich also für alle Zahlen der Form 
+$a+b\alpha$ ausschliesslich durch Verwendung der arithmetischen Gesetze
+und der Identität $\alpha^2-2$ definieren und sie ergeben immer wieder
+Zahlen dieser Form.
+Es entsteht somit eine neue Menge
+\[
+\mathbb{Q}(\alpha)
+=
+\{a+b\alpha\mid a,b\in\mathbb{Q}\},
+\]
+in der die gleichen Rechengesetze gelten wie in $\mathbb{Q}$.
+Die Menge $\mathbb{Q}$ ist eine echte Teilmenge, $\mathbb{Q}(\alpha)$
+ist also eine echte Erweiterung von $\mathbb{Q}$.
+In $\mathbb{Q}(\alpha)$ lässt sich jetzt die Gleichung $x^2-2=0$ lösen.
+Es ist nämlich
+\[
+(x+\alpha)(x-\alpha)
+=
+x^2-\alpha^2
+=
+x^2 - 2
+=
+0,
+\]
+die beiden Lösungen der Gleichung $x^2-2=0$ sind also $\pm\alpha$.
+
+Die Konstruktion lässt sich noch etwas verallgemeinern, indem das
+Polynom $x^2-2$ durch ein beliebiges normiertes Polynom $m(x)$ aus der
+Menge
+\[
+\mathbb{Q}[x]
+=
+\{
+x^n+m_{n-1}x^{n-1}+\dots+m_1x+m_0 
+\mid
+m_0,\dots,m_{n-1}\in\mathbb{Q}
+\}
+\]
+der Polynome mit rationalen Koeffizienten ersetzt wird.
+Wieder versucht man ein neues Objekt $\alpha$ durch die Eigenschaft
+$m(\alpha)=0$ zu charakterisieren.
+Dies führt jedoch auf Schwierigkeiten, wenn sich $m$ als Produkt
+$m=ab$ von Polynomen $a,b\in\mathbb{Q}[x]$ schreiben lässt, denn die beiden
+Faktoren $a(x)$ und $b(x)$ könnten Nullstellen mit widersprüchlichen
+Eigenschaften definieren.
+
+\begin{definition}[irreduzibles Polynom]
+Das Polynom $m\in\mathbb{Q}[x]$ heisst \emph{irreduzibel}, wenn es keine
+\index{irreduzibel}%
+Polynome vom Grad $>0$ gibt, die $m$ als Produkt haben.
+\end{definition}
+
+Man beachte, dass die Eigenschaft, irreduzibel zu sein, vom Koeffizientenkörper
+abhängt.
+Das Polynom $x^2-2$ ist irreduzibel in $\mathbb{Q}[x]$, es lässt sich
+nicht in zwei Faktoren zerlegen.
+Die einzig mögliche Faktorisierung wäre $x^2-2=(x+\!\sqrt{2})(x-\!\sqrt{2})$,
+aber die Faktoren $x+\!\sqrt{2}$ und $x-\!\sqrt{2}$ haben nicht
+alle Koeffizienten in $\mathbb{Q}$.
+Das Polynom $x^2-2\in\mathbb{R}[x]$ ist also nicht irreduzibel als Polynom
+mit reellen Koeffizienten.
+
+In einem irreduziblen Polynom $m$ kann der Koeffizient $m_0$ nicht
+verschwinden, denn dann liesse sich
+\[
+m
+=
+(x^{n-1} + m_{n-1}x^{n-2}+\dots + m_1)x
+\]
+als Produkt zweier Polynome vom Grad $n-1$ bzw.~1 schreiben.
+
+Mit einem irreduziblen Polynom $m$ definieren wir jetzt wieder das Objekt
+$\alpha$ mit der Eigenschaft $m(\alpha)=0$.
+$m$ heisst auch das \emph{Minimalpolynom} von $\alpha$.
+\index{Minimalpolynom}%
+Ausgeschrieben bedeutet dies
+\[
+m(\alpha)
+=
+\alpha^n
++
+m_{n-1}\alpha^{n-1}
++
+\dots
++
+m_1\alpha
++
+m_0
+=
+0
+\quad\Rightarrow\quad
+\alpha^n
+=
+-m_{n-1}\alpha^{n-1}
+-
+\dots
+-
+m_1\alpha
+-
+m_0.
+\]
+Man kann also jede Potenz grösser oder gleich $n$ von $\alpha$ durch
+eine Linearkombination von Potenzen $\alpha^k$ mit $0\le k< n$ 
+ausdrücken.
+
+\begin{definition}
+Sei $m\in\mathbb{Q}[x]$ ein irreduzibles Polynom vom Grad $n$ der Form
+\[
+m(x)
+=
+x^n + m_{n-1}x^{n-1} + \dots + m_1x + m_0.
+\]
+Die Menge
+\begin{equation}
+\mathbb{Q}(\alpha)
+=
+\{
+a_0 + a_1\alpha + \dots + a_{n-1}\alpha^{n-1}
+\mid
+a_k\in\mathbb{Q}\text{ mit } 0\le k<n
+\}
+\label{buch:komplex:zahlen:def:eqn:Qa}
+\end{equation}
+heisst die \emph{algebraische Erweiterung} von $\mathbb{Q}$ um $\alpha$.
+\index{Erweiterung, algebraisch}%
+\index{algebraische Erweiterung}%
+\end{definition}
+
+Wieder sollen die Rechengesetze durch Übertragung der gewohnten
+Regeln entstehen, jedoch müssen alle höheren Potenzen von $\alpha$
+jeweils wieder auf Potenzen $\alpha^k$, $0\le k<n$, reduziert werden.
+Da der Koeffizient $m_0$ des irreduziblen Polynoms $m$ nicht verschwindet,
+kann man die Gleichung $m(\alpha) = 0$ mit $\alpha^{-1}$ multiplizieren
+und nach $\alpha^{-1}$ auflösen:
+\begin{align*}
+m(\alpha)\cdot \alpha^{-1}
+=
+0
+&=
+\alpha^{n-1}
++
+m_{n-1}\alpha^{n-2}
++
+\dots
++
+m_1
++
+m_0\alpha^{-1}
+\\
+\alpha^{-1}
+&=
+-\frac{1}{m_0}
+(
+\alpha^{n-1}
++
+m_{n-1}\alpha^{n-2}
++
+\dots
++
+m_1
+)
+\\
+&=
+-\frac{m_1}{m_0}
+-\dots
+-\frac{m_{n-1}}{m_0}\alpha^{n-2}
+-\frac{1}{m_0}\alpha^{n-1}
+\in
+\mathbb{Q}(\alpha).
+\end{align*}
+Das reziproke Element ist also immer auch in $\mathbb{Q}(\alpha)$.
+\index{reziprok}%
+
+\begin{beispiel}
+\label{buch:komplex:zahlen:bsp:kubikwurzel}
+Die Gleichung $x^3-2=0$ lässt sich in $\mathbb{Q}$ nicht lösen.
+Das Polynom $m(x)=x^3-2$ ist irreduzibel als Polynom in $\mathbb{Q}[x]$.
+Die Erweiterung $\mathbb{Q}(\alpha)$ um das Objekt $\alpha$ mit
+\index{Kubikwurzel}%
+der Eigenschaft $\alpha^3-2=0$ ist also die Menge
+\[
+\mathbb{Q}(\alpha)
+=
+\{
+a_0+a_1\alpha + a_2\alpha^2
+\mid
+a_0,a_1,a_2\in\mathbb{Q}
+\}.
+\]
+Die Additionsregeln sind nicht weiter anspruchsvoll, wir berechnen
+daher nur das Produkt von zwei Elementen $a,b\in\mathbb{Q}(\alpha)$:
+\begin{align*}
+ab
+&=
+(a_0+a_1\alpha+a_2\alpha^2)
+(b_0+b_1\alpha+b_2\alpha^2)
+\\
+&=
+a_0b_0
++
+(a_0b_1+a_1b_0)\alpha
++
+(a_0b_2+a_1b_1+a_2b_0)\alpha^2
++
+(a_1b_2+a_2b_1){\color{darkred}\alpha^3}
++
+a_2b_2{\color{darkred}\alpha^4}.
+\intertext{Die Potenzen $\alpha^3$ und $\alpha^4$ müssen durch Anwendung der
+Reduktionsregel $\alpha^3=2$ auf}
+&=
+a_0b_0
++
+(a_0b_1+a_1b_0)\alpha
++
+(a_0b_2+a_1b_1+a_2b_0)\alpha^2
++
+(a_1b_2+a_2b_1){\color{darkred}\cdot 2}
++
+a_2b_2{\color{darkred} \cdot 2\alpha}
+\intertext{reduziert werden.
+Das Produkt ist daher}
+ab
+&=
+(a_0b_0 + 2a_1b_2+2a_2b_1)
++
+(a_0b_1+a_1b_0 + 2a_2b_2)\alpha
++
+(a_0b_2+a_1b_1+a_2b_0)\alpha^2
+\in\mathbb{Q}(\alpha).
+\end{align*}
+Das zu $\alpha$ reziproke Element ist
+\[
+\alpha^{-1}
+=
+\frac{1}{2}\alpha^2,
+\]
+tatsächlich ist
+\[
+\alpha\cdot \alpha^{-1}
+=
+\alpha
+\cdot
+\frac{1}{2}\alpha^2
+=
+\frac{\alpha^3}{2}
+=
+\frac{2}{2}
+=
+1.
+\]
+In $\mathbb{Q}(\alpha)$ kann man jetzt auch das Polynom $x^3-2$ 
+faktorisieren, indem man durch den Faktor $(x-\alpha)$ dividiert.
+\index{Polynomdivision}%
+Die Polynomdivision ergibt
+\[
+\renewcommand{\arraycolsep}{2.5pt}
+\begin{array}{rcrcrcrcrcrcrcrcr}
+\llap{$($}
+x^3 & &           & &            &-&        2\rlap{$)$}&\phantom{(}:\phantom{)}&\llap{$($} x &-& \alpha\rlap{$)$} &\phantom{(}=\phantom{)}& x^2 &+& \alpha x &+& \alpha^2 \\
+x^3 &-&\alpha x^2 & &            & &         & &   & &        & &     & &          & &          \\
+\cline{1-7}
+    & &\alpha x^2\raisebox{4pt}{\mathstrut} & &            &-&        2& &   & &        & &     & &          & &          \\
+    & &\alpha x^2 &-& \alpha^2 x & &         & &   & &        & &     & &          & &          \\
+\cline{3-7}
+    & &           & & \alpha^2 x\raisebox{4pt}{\mathstrut} &-&        2& &   & &        & &     & &          & &          \\
+    & &           & & \alpha^2 x &-& \alpha^3& &   & &        & &     & &          & &          \\
+\cline{5-7}
+    & &           & &            & & \alpha^3\raisebox{4pt}{\mathstrut}\rlap{$\mathstrut-2 = 0$.}& &   & &        & &     & &          & &
+\end{array}
+\]
+Tatsächlich ergibt Ausmultiplizieren zur Kontrolle
+\begin{align}
+(x-\alpha)
+(x^2 + \alpha x + \alpha^2)
+&=
+x^3 +\alpha x^2 +\alpha^2 x
+-
+\alpha
+x^2
+-
+\alpha^2 x
+-
+\alpha^3
+\label{buch:komplex:zahlen:eqn:faktorisierung}
+\\
+&=
+x^3-\alpha^3
+\notag
+\\
+&=
+x^3-2.
+\notag
+\end{align}
+In der üblichen algebraischen Notation würde man $\alpha=\sqrt[3]{2}$
+für die Kubikwurzel schreiben.
+
+Wir erwarten aber, dass die Gleichung $x^3-2=0$ zwei weitere Lösungen
+hat, die sich aus der Faktorisierung
+\eqref{buch:komplex:zahlen:eqn:faktorisierung}
+berechnen lassen sollten.
+Das Polynom $x^2 +\alpha x + \alpha^2$ ist allerdings irreduzibel
+als Polynom in $\mathbb{Q}(\alpha)[x]$, es definiert also eine neue
+Erweiterung um eine Zahl $\beta$, die das Minimalpolynom
+$b(x)=x^2+\alpha x + \alpha^2$ hat.
+Die Faktorisierung ist also erst in $\mathbb{Q}(\alpha)(\beta)
+=\mathbb{Q}(\alpha,\beta)$ möglich.
+
+Die konventionelle Schreibweise für die Nullstelle des Polynoms
+$b$ ergibt sich aus der Lösungsformel für quadratische Gleichungen.
+Man muss
+\begin{equation}
+\beta
+=
+-\frac{\alpha}{2}
++
+\!\sqrt{
+\rlap{$\phantom{\bigg|}$}
+\smash{\biggl(\frac{\alpha}{2}\biggr)^{\raisebox{-1pt}{$\scriptstyle2$}}-\alpha^2}
+}
+=
+-\frac{\alpha}{2}
++
+\!\sqrt{-\frac34\alpha^2}
+\label{buch:komplex:zahlen:eqn:cbrtnegativ}
+\end{equation}
+setzen.
+\end{beispiel}
+
+Das Beispiel zeigt, wie die Lösung einer Gleichung möglicherweise
+das wiederholte Hinzufügen neuer Zahlen nötig macht.
+Die Notation $\sqrt[3]{2}$ für das Element $\alpha$ ist gefährlich,
+da sie bereits suggeriert, dass $\alpha$ eine reelle Zahl sein
+soll.
+Wir haben aber nur gefordert, dass $\alpha$ eine beliebige
+Nullstelle des Polynoms sein soll.
+Die Darstellung \eqref{buch:komplex:zahlen:eqn:cbrtnegativ} der
+anderen Nullstellen zeigt für $\alpha=\sqrt[3]{2}$, dass diese
+wegen
+\[
+%-\frac{\sqrt[3]{2}}2
+%\pm
+%\!\sqrt{
+%-\frac34(
+%\sqrt[3]{2}
+%)^2
+%}
+%\Rightarrow
+-\frac34 \!\sqrt[3]{2} < 0
+\]
+keine reellen Zahlen sein können.
+Dieses Argument verwendet aber die Ordnungsrelation in den reellen
+Zahlen und insbesondere die Eigenschaft, dass negative Zahlen
+keine reellen Quadratwurzeln haben.
+\index{Ordnungsrelation}%
+Auf die Ordnungsrelation wurde in der Konstruktion von
+$\mathbb{Q}(\alpha)$ nirgends Bezug genommen.
+Sogar die Konstruktion von $\mathbb{Q}(\!\sqrt{2})$ hätte genauso 
+gut im $-\!\sqrt{2}$ an Stelle von $\alpha$ funktionieren können.
+Mit rein arithmetischen Mitteln sind die beiden Nullstellen von
+$x^2-2$ nicht unterscheidbar.
+
+\begin{definition}[algebraisches Element]
+Ein Element $\alpha$ heisst \emph{algebraisch über $\mathbb{Q}$},
+wenn es ein Polynom $m\in\mathbb{Q}[x]$ gibt, welches $m(\alpha)=0$
+erfüllt.
+\index{algebraisches Element}%
+\index{Element, algebraisch}%
+\end{definition}
+
+Die Definition von $\sqrt{2}$ oder $\sqrt[3]{2}$ als
+algebraische Elemente über $\mathbb{Q}$ ermöglicht also,
+exakt mit diesen Elementen zu rechnen, ohne dass auf
+Approximationen zurückgegriffen werden muss.
+Die algebraische Definition ist daher die Methode der
+Wahl für ein Computeralgebrasystem.
+
+%
+% Division im Erweiterungskörper
+%
+\subsubsection{Division in der algebraischen Erweiterung}
+Die Konstruktion von $\alpha^{-1}$ in einer algebraischen Erweiterung
+$\mathbb{Q}(\alpha)$ erklärt nicht, wie man durch ein allgemeines
+Element wie in \eqref{buch:komplex:zahlen:def:eqn:Qa} dividiert.
+Dazu muss man die multiplikative Inverse
+\[
+(a_0+a_1\alpha + \dots + a_{n-1}\alpha^{n-1})^{-1}
+=
+b_0+b_1\alpha + \dots + b_{n-1}\alpha^{n-1}
+\]
+bestimmen können.
+Multiplizieren wir das Produkt
+\[
+(a_0+a_1\alpha + \dots + a_{n-1}\alpha^{n-1})
+(b_0+b_1\alpha + \dots + b_{n-1}\alpha^{n-1})
+=
+1
+\]
+aus und ersetzen wir wiederholt Potenzen $\alpha^n$ durch
+$-m_0-m_1\alpha-\dots-m_{n-1}\alpha^{n-1}$, entsteht ein
+Gleichungssystem für die Koeffizienten $b_k$.
+\index{lineares Gleichungssystem}%
+Die Formulierung und Lösung dieses Gleichungssystems ist jedoch
+in Matrizenschreibweise deutlich einfacher, wir verschieben daher
+die allgemeine Berechnung der multiplikativen Inversen auf
+Abschnitt~\ref{buch:komplex:subsection:matrixschreibweise}.
+
+\begin{beispiel}
+Wir betrachten die Körpererweiterung $\mathbb{Q}(\alpha)$, wobei
+$\alpha$ das Minimalpolynom $m(X) = X^2+X+1$ hat.
+Um die multiplikative Inverse von $a+b\alpha$ zu bestimmen,
+suchen wir $x+y\alpha$ derart, dass
+\begin{align*}
+(a+b\alpha)(x+y\alpha)&=1
+\\
+ax + (bx+ay)\alpha + by\alpha^2 &= 1.
+\intertext{Darin ersetzen wir $\alpha^2=-\alpha-1$ und erhalten}
+ax + (bx+ay)\alpha - by(1+\alpha) &= 1 \\
+(ax-by) + (bx+(a-b)y)\alpha &= 1
+\end{align*}
+Daraus lesen wir das Gleichungssystem
+\index{lineares Gleichungssystem}%
+\[
+\left.
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcr}
+ax &-&     by &=& 1 \\
+bx &+& (a-b)y &=& 0
+\end{array}
+\quad\right\}
+\qquad\text{mit der Lösung}\qquad
+\begin{pmatrix}x\\y\end{pmatrix}
+=
+\frac{1}{b^2+ab-a^2}
+\begin{pmatrix}
+b-a\\b
+\end{pmatrix}
+\]
+ab.
+In der üblichen Schreibweise bedeutet dies, dass
+\[
+(a+b\alpha)^{-1}
+=
+\frac{(b-a)+b\alpha}{b^2+ab-a^2}
+\]
+die multiplikative Inverse ist.
+\end{beispiel}
+
+%
+% Die Reihenfolge der Erweiterungen
+%
+\subsubsection{Die Reihenfolge der Erweiterungen}
+Die Quadratwurzel $\!\sqrt{2}$ ist nicht in $\mathbb{Q}$, liegt aber in
+der algebraischen Erweiterung $\mathbb{Q}(\!\sqrt{2})$, die mithilfe des
+über $\mathbb{Q}$ irreduziblen Polynoms $m(x)=x^2-2\in\mathbb{Q}[x]$ 
+konstruiert werden kann.
+
+$\sqrt[4]{2}$ ist ein algebraisches Element über $\mathbb{Q}$, ist
+aber selbst nicht Teil dieses Körpers.
+Mithilfe des über $\mathbb{Q}$ irreduziblen Polynoms $m(x)=x^4-2$.
+kann man einen Körper $\mathbb{Q}(\sqrt[4]{2})$ konstruieren, welcher
+das Element enthält.
+
+Auch der Körper $\mathbb{Q}(\!\sqrt{2})$ enthält die vierte Wurzel
+$\sqrt[4]{2}$ nicht.
+Um einen Körper zu konstruieren, der auch $\sqrt[4]{2}$ enthält, muss
+$\mathbb{Q}(\!\sqrt{2})$ um die vierte Wurzel erweitert werden.
+Dazu wird das Minimalpolynom von $\sqrt[4]{2}$ benötigt, welches
+irreduzibel sein muss.
+Das bei der Konstruktion von $\mathbb{Q}(\sqrt[4]{2})$ verwendete
+Polynom $x^4-2$ ist jedoch nicht geeignet, da es über dem aktuelle
+Koeffizientenkörper $\mathbb{Q}(\!\sqrt{2})$ nicht irreduzibel ist,
+sondern die Faktorzerlegung
+\[
+x^4 - 2 = (x + \!\sqrt{2})(x - \!\sqrt{2})
+\]
+hat.
+Beide Faktoren haben Koeffizienten in $\mathbb{Q}(\!\sqrt{2})$,
+aber nicht alle Koeffizienten sind auch in $\mathbb{Q}$.
+Einen Körper, der auch $\sqrt[4]{2}$ enthält, kann man also durch
+Erweiterung von $\mathbb{Q}(\!\sqrt{2})$ mithilfe des Polynoms
+$x^2-\!\sqrt{2}$ erhalten.
+Man könnte diesen Körper als $\mathbb{Q}(\!\sqrt{2})(\sqrt[4]{2})$
+schreiben.
+
+Umgekehrt ist die Quadratwurzel $\!\sqrt{2}$ bereits in
+$\mathbb{Q}(\sqrt[4]{2})$, da $\!\sqrt{2}=(\sqrt[4]{2})^2$.
+Es ist also bereits $\!\sqrt{2}\in\mathbb{Q}(\sqrt[4]{2})$.
+Es folgt, dass $\mathbb{Q}(\!\sqrt{2})(\sqrt[4]{2})
+=
+\mathbb{Q}(\sqrt[4]{2})$.
+Die Erweiterung von $\mathbb{Q}$ erst um $\!\sqrt{2}$ 
+und dann um $\sqrt[4]{2}$ liefert zwei verschiedene Körper,
+während die Erweiterung um $\sqrt[4]{2}$ sofort den grossen
+Körper liefert.
+
+Anders sieht es bei der Erweiterung von $\mathbb{Q}$ um $\!\sqrt{2}$
+und $\!\sqrt{3}$ aus.
+Als Minimalpolynom von $\!\sqrt{3}$ kann $x^2-3$ verwendet werden,
+welches auch irreduzibel ist über $\mathbb{Q}(\!\sqrt{2})$.
+Die Erweiterung von $\mathbb{Q}(\!\sqrt{2})$ um $\!\sqrt{3}$
+liefert den Körper
+\begin{align*}
+\mathbb{Q}(\!\sqrt{2})(\!\sqrt{3})
+&=
+\Bigl\{
+a+b\!\sqrt{3}
+\;
+\Big|
+\;
+a,b\in\mathbb{Q}(\!\sqrt{2})
+\Bigr\}
+\\
+&=
+\Bigl\{
+a_0+a_1\!\sqrt{2}+a_2\!\sqrt{3}+a_3\!\sqrt{6}
+\;
+\Big|
+\;
+a_k\in\mathbb{Q}
+\Bigr\}.
+\end{align*}
+Die umgekehrte Reihenfolge führt auf
+\begin{align*}
+\mathbb{Q}(\!\sqrt{3})(\!\sqrt{2})
+&=
+\Bigl\{
+a+b\!\sqrt{2}
+\;
+\Big|
+\;
+a,b\in\mathbb{Q}(\!\sqrt{3})
+\Bigr\}
+\\
+&=
+\Bigl\{
+b_0+b_1\!\sqrt{3}+b_2\!\sqrt{2}+b_3\!\sqrt{6}
+\;
+\Big|
+\;
+b_k\in\mathbb{Q}
+\Bigr\}.
+\end{align*}
+Offensichtlich entsteht der gleiche Körper.
+Es kommt also nicht auf die Reihenfolge an und es ist zulässig,
+\[
+\mathbb{Q}(\!\sqrt{2})(\!\sqrt{3})
+=
+\mathbb{Q}(\!\sqrt{2},\!\sqrt{3})
+=
+\mathbb{Q}(\!\sqrt{3},\!\sqrt{2})
+=
+\mathbb{Q}(\!\sqrt{3})(\!\sqrt{2})
+\]
+zu schreiben.
+
+%
+% Transzendente Erweiterungen
+%
+\subsubsection{Transzendente Erweiterungen}
+Da die Menge aller rationalen Polynome abzählbar unendlich ist,
+kann es nur abzählbar viele über $\mathbb{Q}$ algebraische 
+Zahlen geben.
+Die Menge $\mathbb{R}$ der reellen Zahlen ist aber überabzählbar
+unendlich, so dass die meisten reellen Zahlen nicht algebraisch
+sind.
+Sie heissen transzendent.
+
+\begin{definition}[transzendent]
+Ein Element $\alpha$ heisst \emph{transzendent} über $\mathbb{Q}$,
+wenn es nicht algebraisch ist.
+\index{transzendent}%
+\end{definition}
+
+Die Zahlen $\pi$ und $e$ sind beide transzendent.
+Der Nachweis, dass eine Zahl transzendent ist, ist oft schwierig.
+Schon 1844 hat Jospeh Liouville vermutet, dass $e$ transzendent 
+\index{Liouville, Joseph}%
+ist, der Nachweis ist aber Charles Hermite erst 1873 gelungen
+\cite{buch:hermitebeweis}.
+\index{Hermite, Charles}%
+Für $\pi$ ist der Beweis deutlich anspruchsvoller.
+Nach einem Satz von Lindemann und Weierstrass
+\index{Lindemann, Charles}%
+\index{Weierstrass, Karl}%
+\cite{buch:lindemann-weierstrass} sind für verschiedene
+algebraische Zahlen $\alpha_1,\dots,\alpha_n$
+die Zahlen $e^{\alpha_1},\dots,e^{\alpha_n}$ linear unabhängig
+über $\mathbb{Q}$.
+Die Zahl $0$ ist sicher algebraisch.
+Wäre auch $\pi$ eine algebraische Zahl, dann wäre auch $i\pi$ algebraisch.
+Nach dem Satz von Lindemann-Weierstrass müssten dann $e^0=1$ und
+$e^{i\pi}=-1$ über den algebraischen Zahlen linear unabhängig sein,
+was sie wegen der eulerschen Identität
+\index{eulersche Identität}%
+\index{Identität, eulersch}%
+\[
+e^{i\pi}+1=0
+\]
+offensichtlich nicht sind.
+Der Widerspruch zeigt, dass $\pi$ transzendent sein muss.
+
+%
+% Algebraische Erweiterungen von F_p
+%
+\subsubsection{Algebraische Erweiterungen von $\mathbb{F}_p$}
+Die Konstruktion der reellen Zahlen ist nur möglich, weil es auf
+der Menge $\mathbb{Q}$ der rationalen Zahlen eine Ordnungsrelation
+gibt, die der Idee des Abstands $|a_n-a_m|$ von Folgengliedern
+einen Sinn gibt.
+Die Definition eines algebraischen Elementes hingegen ist auch dann 
+möglich, wenn es keine solche Ordnungsrelation gibt.
+Die endlichen Körper $\mathbb{F}_p$ für Primzahlen $p$ sind von
+dieser Art.
+
+\begin{definition}[endliche Körper $\mathbb{F}_p$]
+\index{endliche Körper}%
+\index{Korper@Körper!endlich}%
+Sei $p$ eine Primzahl.
+Die Menge
+\[
+\mathbb{F}_p
+=
+\{ 0, \dots , p-1 \}
+\]
+der ganzzahligen Reste bei Division durch $p$
+heisst der \emph{endlich Körper} der Ordnung $p$.
+\index{endlicher Körper}%
+\index{Körper, endlich}%
+\index{Fp@$\mathbb{F}_p$}%
+\end{definition}
+
+In $\mathbb{F}_p$ sind wie in $\mathbb{Q}$ alle vier Grundoperationen
+wohldefiniert, insbesondere auch das reziproke Element.
+Diese letzte Aussage ist gleichbedeutend damit, dass die Multiplikation
+\[
+x\mapsto a\cdot x
+\]
+mit einem Element $a\in\mathbb{F}_p\setminus\{0\}$ eine Bijektion ist.
+Da dies eine lineare Abbildung ist, muss man nur prüfen, ob es ein
+Element $x\ne 0$ gibt derart, dass $ax=0$ in $\mathbb{F}_p$ ist.
+Dies ist gleichbedeutend damit, dass 
+\[
+a\cdot n \equiv 0 \mod p
+\qquad\Leftrightarrow\qquad
+p | an
+\]
+gilt.
+Da weder $a$ noch $n$ von $p$ geteilt werden können und $p$ eine
+Primzahl ist, kann es eine solche Zahl $n$ nicht geben.
+
+Da alle ganzen Zahlen, die sich nur um ein Vielfaches von $p$
+unterscheiden, das gleiche Element in $\mathbb{F}_p$ darstellen,
+kann es keine mit den arithmetischen Operationen verträgelich
+Ordnungsrelation geben.
+Schon die Unterschiedung zwischen positiven und negativen
+Zahlen ist sinnlos, da jedes Element $a$ mit $0\le a<p$ auch
+eine Darstellung $a-p$ hat, welche negativ ist.
+Es folgt, dass es auch nicht sinnvoll sein kann, in $\mathbb{F}_p$
+von Folgen und Grenzwerten zu sprechen.
+So etwas wie eine Vervollständigung von $\mathbb{F}_p$ wie
+die Vervollständigung von $\mathbb{Q}$ zu $\mathbb{R}$ kann es
+also nicht geben.
+
+Trotzdem ist es sinnvoll, von algebraischen Erweiturungen zu  sprechen.
+Wir betrachten dazu statt Polynome über $\mathbb{Q}$ solche über
+$\mathbb{F}_p$.
+Wieder setzen wir
+\[
+\mathbb{F}_p[x]
+=
+\{
+x^n + a_{n-1}x^{n-1} + \dots + a_1x + a_0
+\mid
+a_0,\dots,a_{n-1}\in \mathbb{F}_p
+\}.
+\]
+Wie im Falle von rationalen Koeffizienten ist ein irreduzibles
+Polynom eines, welches sich nicht als Produkt zweier Polynome von
+positivem Grad schreiben lässt.
+Dabei kann es aber durchaus passieren, dass ein Polynom, welches
+über $\mathbb{Q}$ irreduzibel war, als Polynom über $\mathbb{F}_p$
+betrachtet nicht mehr irreduzibel sein muss.
+
+\begin{beispiel}
+Für $p=5$ ist
+\[
+(x+3)(x+2)
+=
+x^2 + (3+2)x + 6
+=
+x^2 + 1
+\in
+\mathbb{F}_5[x].
+\]
+Das Polynom $x^2+1\in\mathbb{F}_5[x]$ ist also nicht irreduzibel,
+im Gegensatz zum Polynom $x^2+1\in\mathbb{Q}[x]$, welches tatsächlich
+irreduzibel ist.
+Dies zeigt auch, dass im Gegensatz zu $\mathbb{Q}$ oder $\mathbb{R}$,
+die Gleichung $x^2+1=0$ in $\mathbb{F}_p$ eine Lösung hat.
+\end{beispiel}
+
+Wie für rationale Koeffizienten lassen sich auch für ein algebraisches
+Element über $\mathbb{F}_p$ die arithmetischen Grundoperationen
+definieren.
+
+\begin{beispiel}
+\label{buch:komplex:zahlen:bsp:F5}
+Für $p=5$ ist $x^2-2=x^2+3\in\mathbb{F}_5[x]$ ein irreduzibles Polynom,
+wie man durch Durchprobieren der möglichen Faktoren $(x-a)(x-b)$ mit
+$a,b\in\mathbb{F}_5$ nachprüfen kann.
+Sei jetzt $\alpha$ ein Objekt, welches $\alpha^2=2$ erfüllt.
+Die Rechenoperationen sind ganz analog wie im Falle rationaler
+Koeffizienten definiert.
+\end{beispiel}
+
+Die Nullstelle $\alpha$ des Polynoms $x^2-2\in\mathbb{F}_4[x]$,
+die in Beispiel~\ref{buch:komplex:zahlen:bsp:F5} zu $\mathbb{F}_5$
+hinzugefügt worden ist, ist eine Quadratwurzel von $2$ in $\mathbb{F}_5$,
+hat aber nichts mit der vertrauten Quadratwurzeln
+$\!\sqrt{5}\approx 1.414213562373$ in $\mathbb{R}$ zu tun.
+Während es für reelle Nullstellen von Polynomen in $\mathbb{Q}[x]$ 
+immer eine Dezimaldarstellung gibt, gibt es keine alternative Darstellung
+für $\alpha$.
+
+\begin{beispiel}
+Das Polynom $m(x)=x^3-2=x^3+5\in\mathbb{F}_7[x]$ ist irreduzibel, denn
+wenn es faktorisiert werden könnte, müsste notwendigerweise einer der
+Faktoren den Grad 1 haben.
+Ein solcher Faktor wäre also von der Form $x-a$, wobei $a\in\mathbb{F}_7$
+sein müsste.
+Das Polynom müsste also eine Nullstelle in $\mathbb{F}_7[x]$ haben.
+Die dritten Potenzen aller Elemente von $\mathbb{F}_7$ sind allerdings
+\[
+\begin{tabular}{|>{$}l<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+a   & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+a^3 & 0 & 1 & 1 & 6 & 1 & 1 & 6 \\
+\hline
+\end{tabular}
+\]
+Keine dritte Potenz ergibt 2.
+
+Fügt man $\mathbb{F}_7$ das Element $\alpha$, welches eine Nullstelle
+von $m$ ist, zu $\mathbb{F}_7$ hinzu, erhält man neu die Menge
+$\mathbb{F}_7(\alpha)$.
+Lässt man Koeffizienten aus $\mathbb{F}_7(\alpha)$ zu, lässt sich das
+Polynom $m$ wie in Beispiel~\ref{buch:komplex:zahlen:bsp:kubikwurzel}
+als
+\[
+x^3-2
+=
+(x-\alpha)(\underbrace{x^2+\alpha x + \alpha^2}_{\displaystyle = b})
+\]
+faktorisieren.
+Auch in diesem Beispiel ist eine weitere Erweiterung
+$\mathbb{F}_7(\alpha,\beta)$ von $\mathbb{F}_p(\alpha)$ durch eine
+Nullstelle $\beta$ des Polynoms $b\in\mathbb{F}_7(\alpha)$ nötig,
+damit die anderen zwei Nullstellen von $m$ ebenfalls gefunden werden
+können.
+\end{beispiel}
+
+Die Adjunktion einer Nullstelle eines irreduziblen Polynoms 
+\index{Adjunktion}%
+aus $\mathbb{F}_p[x]$ zu $\mathbb{F}_p$ erzeugt also wieder
+die Menge 
+\[
+\mathbb{F}_p(\alpha)
+=
+\{
+a_0+a_1\alpha + \dots a_{n-1}\alpha^{n-1}
+\mid
+a_0,\dots,a_{n-1}\in\mathbb{F}_p
+\},
+\]
+die ein Vektorraum über $\mathbb{F}_p$ ist, mit den $n$ Monomen
+\[
+1, \alpha, \dots, \alpha^{n-1}
+\]
+als Basis.
+$\mathbb{F}_p(\alpha)$ enthält somit $p^n$ Elemente.
+
+\begin{definition}[endliche Körper]
+Die Menge $\mathbb{F}_p(\alpha)$ mit $p^n$ Elementen heisst der
+\emph{endliche Körper mit $p^n$} Elementen.
+\index{endliche Körper}%
+\index{Korper@Körper!endlich}%
+\end{definition}
+
+Fügt man einem Körper mit $p^n$ Elementen ein weiteres Element mit
+einem Minimalpolynom vom Grad $l$ hinzu, entsteht eine Menge mit
+mit $(p^n)^l=p^{nl}$ Elementen.
+Man kann zeigen, dass alle Körper mit $p^n$ wie man sagt isomorph sind,
+ganz unabhängig davon, was für ein Minimalpolynom verwendet wird
+und schreibt daher unabhängig vom Minimalpolynom
+$\mathbb{F}_p(\alpha)=\mathbb{F}_{p^n}$.
+Die endlichen Körper spielen eine bedeutende Rolle in der Kryptographie.
+Zum Beispiel verwendet die Spezifikation des AES-Algorithmus die 
+\index{AES-Algorithmus}%
+Arithmetik in einem Körper $\mathbb{F}_{2^8}$ mit $2^8$ Elementen,
+die im Code als Bytes dargestellt werden.
+
+%
+% Die ganzen gaussschen Zahlen Z[i]
+%
+\subsubsection{Die ganzen gaussschen Zahlen $\mathbb{Z}[i]$}
+\input{chapters/010-komplex/fig/fig-gausszahlen.tex}%
+Die Erweiterung einer Zahlenmenge um ein neues Element, welches
+als Nullstelle eines irreduziblen Polynoms, lässt sich auch auf
+die Menge $\mathbb{Z}$ anwenden.
+Für das Polynom $m = x^2+1\in\mathbb{Z}[x]$ wird die Nullstelle
+mit $i$ bezeichnet.
+Die Rechenregeln folgen unmittelbar aus den Rechenregeln für
+Polynome mit ganzzahligen Koeffizienten durch Anwendung der
+Identität $i^2+1=0$ oder $i^2=-1$.
+Es entsteht die Menge der ganzen gaussschen Zahlen gemäss der
+folgenden Definition.
+
+\begin{definition}[ganze gausssche Zahlen]
+\index{ganze gausssche Zahlen}%
+Die Elemente
+\[
+\mathbb{Z}[i]
+=
+\{
+a+bi
+\mid
+a,b\in\mathbb{Z}
+\}
+\]
+heisst die Menge der ganzen gaussschen Zahlen.
+Sie bildet einen kommutativen Ring mit Eins, der den Ring $\mathbb{Z}$
+als echten Unterring enthält.
+Die Komponente $a$ heisst der \emph{Realteil} von $z=a+bi$, geschrieben
+$a=\operatorname{Re}z$, $b=\operatorname{Im}z$ heisst Imaginärteil.
+\end{definition}
+
+Die ganzen gaussschen Zahlen können dargestellt werden als die
+Gitterpunkt in einer Ebene, deren horizontale Achse der reelle
+Zahlenstrahl ist, während die vertikale Achse die imaginären
+Zahlen darstellt (Abbildung~\ref{buch:komplex:zahlen:fig:gausszahlen}).
+
+Die Ringoperationen sind
+\begin{align*}
+\text{Addition:}&&
+(a+bi)\pm(c+di)
+&=
+(a\pm c) + (b\pm d)i
+\\
+\text{Multiplikation:}&&
+(a+bi)(c+di)
+&=
+ac-bd
++
+(ad+bc)i.
+\end{align*}
+Nicht jede ganze gausssche Zahl lässt sich invertieren.
+Die Inverse wird durch Erweiterung mit $a-bi$ als
+\[
+\frac{1}{a+bi}\cdot\frac{a-bi}{a-bi}
+=
+\frac{a-bi}{a^2+b^2}
+=
+\frac{a}{a^2+b^2}
+-
+\frac{b}{a^2+b^2}i
+\]
+gefunden.
+Die Inverse existert also genau dann, wenn $a^2+b^2=1$ ist.
+Dies ist nur für die Zahlen $\pm 1$ und $\pm i$ der Falle.
+
+\begin{definition}[Betrag]
+Für eine ganze gausssche Zahl $z=a+bi\in\mathbb{Z}[i]$ heisst die
+Zahl $|z|$ definiert durch $|z|^2 = a^2+b^2$ der \emph{Betrag} von $z$.
+\index{Betrag}%
+\end{definition}
+
+Für zwei das Produkt $z=(a+bi)(c+di)$ zweier ganzer gaussscher Zahlen gilt
+\begin{align*}
+|z|^2
+&=
+(ac-bd)^2 + (ad+bc)^2
+\\
+&=
+a^2c^2-2abcd+b^2d^2
++
+a^2d^2
++
+2abcd
++
+b^2c^2
+\\
+&=
+a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2
+\\
+&=
+(a^2+b^2)(c^2+d^2)
+\\
+&=
+|a+bi|^2 |c+di|^2.
+\end{align*}
+Mit anderen Worten: Wenn sich eine ganze gausssche Zahl faktorisieren
+lässt, dann lassen sich auch die Beträge faktorisieren.
+
+Tatsächlich kann man im Ring $\mathbb{Z}[i]$ der ganzen gausschen Zahlen
+eine Theorie der Faktorisierung aufstellen, die ganz analog ist zur
+Theorie der Primfaktoren in $\mathbb{Z}$.
+

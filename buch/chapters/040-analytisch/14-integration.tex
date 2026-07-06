@@ -1,0 +1,147 @@
+%
+% 14-integration.tex -- Integration der geometrischen Reihe
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Integration der geometrischen Reihe}
+Durch Integration der geometrischen Reihe entlang einer Kurve
+$\gamma$, kann eine auf dem Bild $\operatorname{im}\gamma = \gamma(I)$
+definierte Funktion $f\colon\gamma(I)\to\mathbb{C}$ zu einer
+Funktion erweitert werden, die automatisch holomorph und analytisch
+ist.
+
+\begin{satz}
+Sie $\gamma\colon I\to\mathbb{C}$ eine differenzierbare Kurve und $g$
+eine auf dem Bild $\operatorname{im}(\gamma)=\gamma(I)$ definierte 
+stetige komplexe Funktion.
+Dann ist die auf $\mathbb{C}\setminus\operatorname{im}\gamma$ definierte
+Funktion
+\begin{equation}
+f(z)
+=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{x-z\mathstrut}\,dx
+\end{equation}
+holomorph.
+\end{satz}
+
+\begin{proof}
+Da das Integrationsgebiet kompakt ist und $f$ stetig ist, kann unter
+dem Integral differenziert werden.
+Es ergibt sich die Ableitung
+\begin{align*}
+f'(z)
+&=
+\frac{1}{2\pi i}
+\frac{d}{dz}
+\int_\gamma
+\frac{g(x)}{x-z\mathstrut}
+\,dx
+=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{d}{dz}
+\frac{g(x)}{x-z\mathstrut}
+\,dx
+=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{(x-z\mathstrut)^2}
+\,dx
+\end{align*}
+Insbesondere ist $f(z)$ komplex differenzierbar und damit $f$ holomorph.
+\end{proof}
+
+Andererseits kann man den Integranden mit der geometrischen Reihe
+entwickeln und termweise integrieren.
+Dazu verwenden wir
+\eqref{buch:analytisch:eqn:geometrisch1}
+und
+\eqref{buch:analytisch:eqn:geometrischintegriert}
+und erhalten
+\begin{align}
+f(z)
+&=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{x-a}
+\cdot
+\frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}
+\,dx
+\notag
+\\
+&=
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{x-a}
+\sum_{k=0}^\infty
+\biggl(
+\frac{z-a\mathstrut}{x-a\mathstrut}
+\biggr)^k
+\,dx
+\notag
+\\
+&=
+\sum_{k=0}^\infty
+\biggl(
+\frac{1}{2\pi i}
+\int_\gamma
+\frac{g(x)}{(x-a)^{k+1}}
+\,dx
+\biggr)
+(z-a)^k.
+\label{buch:analytisch:eqn:reihe}
+\end{align}
+Damit ist eine Potenzreihe im Punkt $a$ für die Funktion
+$f(z)$ gefunden.
+Sie ist konvergent, solange 
+\[
+\biggl|
+\frac{z-a}{x-a}
+\biggr|
+=
+\frac{|z-a|}{|x-a|}
+<
+1
+\qquad\Rightarrow\qquad
+|z-a| < |x-a|
+\]
+für alle $x$ entlang des Weges $\gamma$ gilt.
+Dies wird erreicht, wenn 
+\[
+|z-a| < \inf_{\gamma} |x-a|,
+\]
+auf der rechten Seite steht der kleinste Abstand des Punktes $a$ vom
+Weg $\gamma$.
+Wir fassen dieses Resultat im folgenden Satz zusammen.
+
+\begin{satz}
+Sei $\gamma\colon I\to\mathbb{C}$ eine Kurve in $\mathbb{C}$ und
+$f$ eine stetige Funktion auf dem Bild $\gamma(I)=\operatorname{im}\gamma$
+der Kurve.
+Dann ist die Funktion 
+\[
+f(z)
+=
+\int_{\gamma} \frac{g(x)}{x-z}\,dx
+\]
+analytisch und hat im Punkt $a\in\mathbb{C}\setminus \operatorname{im}\gamma$
+die Potenzreihenentwicklung
+\[
+f(z)
+=
+\sum_{k=0}^\infty
+\biggl(
+\frac1{2\pi i}
+\int_\gamma \frac{g(x)}{(x-a)^{k+1}}\,dx
+\biggr)
+(z-a)^k
+\]
+mit Konvergenzradius
+\[
+\varrho(a)
+=
+\inf\{ |\gamma(t)-a|\mid t\in I\}.
+\]
+\end{satz}

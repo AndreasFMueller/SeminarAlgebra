@@ -1,0 +1,253 @@
+%
+% 11-reell.tex -- Erweiterung von Q durch die reellen Zahlen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Erweiterung von $\mathbb{Q}$ durch die reellen Zahlen}
+Schon im Altertum war bekannt, dass die Quadratwurzel $\!\sqrt{2}$ von 
+$2$ nicht rational ist.
+Diese Entdeckung, die normalerweise den Pythatgoräern zugeschrieben wird,
+\index{Pythatgoraer@Pythagoräer}%
+widersprach der verbreiteten Ansicht, dass sich alle Zahlen durch
+Brüche ausdrücken lassen.
+In diesem Abschnitt werden zwei Konstruktionen betrachtet, mit denen
+sich eine Erweiterung von $\mathbb{Q}$ finden lässt, die $\!\sqrt{2}$
+enthält.
+
+%
+% Die reellen Zahlen
+%
+\subsubsection{Die reellen Zahlen}
+Die Quadratwurzel $\!\sqrt{2}$ ist bei weitem nicht die einzige irrationale
+Zahl.
+Jede ganze Zahl, deren Primfaktorzerlegung einen Primfaktor in ungerader
+Anzahl enthält, hat eine irrationale Quadratwurzel.
+Auch für viele kubische Wurzeln, die eulersche Zahl $e$ oder die
+Kreiszahl $\pi$ lassen sich gute Approximationen durch Brüche geben.
+\index{Kreiszahl}%
+\index{pi@$\pi$}%
+Leonhard Euler hat beretis 1737 bewiesen, dass $e$ irrational ist.
+\index{Euler, Leonhard}%
+Für $\pi$ ist dies erst Johann Heinrich Lambert 1761 gelungen.
+\index{Lambert, Johann Heinrich}%
+Diese Beispiele deuten darauf hin, dass es eine grosse Menge von
+Zahlen gibt, die beliebig genau durch Brüche approximiert werden
+können, aber trotzdem keine Brüche sind.
+
+Das Problem kann gelöst werden, indem man eine Menge $\mathbb{R}$ von
+Zahlen definiert, die beliebig genau durch Brüche approximiert werden
+können.
+Dabei muss aber auch berücksichtigt werden, dass eine solche Zahl
+verschiedene Approximationen haben kann.
+Zum Beispiel kann $\pi$ sowohl durch Dezimalbrüche
+\[
+3
+, 3.1
+, 3.14
+, 3.141
+, 3.1415
+, 3.14159
+, 3.141592
+, 3.1415926
+, 3.14159265
+%, 3.141592659
+%, 3.1415926592
+%, 3.14159265926
+\to
+\pi
+\]
+als auch durch die Kettenbruchentwicklung
+\index{Kettenbruch}%
+\[
+\frac{3}{1}
+\approx
+3.{\color{gray}00},
+\frac{22}{7} \approx 3.14{\color{gray}28},
+\frac{333}{106}\approx 3.1415{\color{gray}09},
+\frac{355}{113}\approx 3.141592{\color{gray}92}
+\to
+\pi
+\]
+approximiert werden.
+Es reicht daher nicht, eine Approximation zu haben.
+Es wird ausserdem ein Kriterium benötigt, mit welchem man entscheiden
+kann, ob zwei Approximationen die gleiche Zahl approximieren.
+
+\begin{definition}[Cauchy-Folge]
+Eine Folge $(a_n)_{n\in\mathbb{N}}$ von Zahlen $a_n\in\mathbb{Q}$ heisst
+\emph{Cauchy-Folge}, wenn für jedes $\varepsilon>0$ ein $N\in\mathbb{N}$
+\index{Cauchy-Folge}%
+gibt derart, dass
+\[
+|a_n-a_m| < \varepsilon
+\]
+für alle $m,n> N$ gilt.
+\end{definition}
+
+Die Dezimalbruchapproximation von $\pi$ ist eine Cauchyfolge.
+Sei $a_n$ der endliche Dezimalbruch mit $n$ Nachkommastellen, die
+mit der Dezimalbruchentwicklung übereinstimmen.
+Dann ist
+$a_n-a_m$ ein Dezimalbruch, dessen erste $\min(n,m)$ Nachkommastellen
+$0$ sind.
+Insbesondere ist
+\[
+|a_n-a_m| < 10^{-\min(n,m)}.
+\]
+Sei also $\varepsilon>0$ gegeben und $N\in\mathbb{N}$ derart,
+dass $10^{-N}<\varepsilon$.
+Falls $n,m>N$ sind, folgt
+\[
+|a_n-a_m|
+<
+10^{-\min(n,m)}
+<
+10^{-N}
+<
+\varepsilon.
+\]
+Damit ist gezeigt, dass $(a_n)_{n\in\mathbb{N}}$ eine Cauchy-Folge ist.
+
+Periodische Dezimalbrüche konvergieren gegen rationale Zahlen im Sinne
+der folgenden Definition.
+
+\begin{definition}[konvergente Folge]
+\index{konvergente Folge}%
+Eine Cauchy-Folge $(a_n)_{n\in\mathbb{N}}$ konvergiert gegen $a\in\mathbb{Q}$,
+auch geschrieben als
+\[
+\lim_{n\to\infty} a_n = a
+\qquad\text{oder}\qquad
+a_n\to a,
+\]
+wenn für jedes $\varepsilon>0$ ein $N\in\mathbb{N}$ existiert derart, dass
+\[
+|a_n-a|<\varepsilon
+\]
+für $n>N$.
+\end{definition}
+
+Nicht jede Cauchy-Folge konvergiert gegen eine rationale Zahl.
+Die Approximationsfolge von $\!\sqrt{2}$ ist eine Cauchy-Folge, die nicht
+konvergiert.
+
+Mit Cauchy-Folgen kann man auch Rechnen.
+In der Analysis wird der folgende Satz bewiesen.
+
+\begin{satz}
+Seien $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ Cauchy-Folgen.
+Dann sind $(a_n+b_n)_{n\in\mathbb{N}}$, $(a_n-b_n)_{n\in\mathbb{N}}$ 
+und $(a_nb_n)_{n\in\mathbb{N}}$ Cauchy-Folgen.
+Falls $a_n\to a$ und $b_n\to b$, dann gilt auch
+$a_n\pm b_n\to a\pm b$ und $a_nb_n\to ab$.
+Falls $b\ne 0$ ist, ist auch $(a_n/b_n)_{n\in\mathbb{N}}$ ein Cauchy-Folge
+und $a_n/b_n \to a/b$.
+\end{satz}
+
+\begin{definition}[Nullfolge]
+Eine Cauchy-Folge $(a_n)_{n\in\mathbb{N}}$ heisst \emph{Nullfolge}, wenn
+sie gegen $0$ konvergiert.
+\index{Nullfolge}%
+\end{definition}
+
+Die Rechenoperationen und der Begriff einer Nullfolge ermöglichen jetzt,
+Cauchy-Folgen miteinander zu identifizieren, die den gleichen Grenzwert
+haben, selbst wenn dieser nicht eine rationale Zahl ist.
+
+\begin{definition}
+Zwei Cauchy-Folgen
+$(a_n)_{n\in\mathbb{N}}$
+und
+$(b_n)_{n\in\mathbb{N}}$
+heissen \emph{äquivalent}, in Zeichen $(a_n)\sim (b_n)$ wenn
+$(a_n-b_n)_{n\in\mathbb{N}}$ eine Nullfolge ist.
+\index{aquivalente@äquivalente Cauchy-Folgen}%
+\end{definition}
+
+Wenn zwei Cauchy-Folgen äquivalent sind, dann approximieren sie 
+die gleiche Zahl.
+Die gesuchte Erweiterung der Menge der rationalen Zahlen $\mathbb{Q}$
+besteht also aus Cauchy-Folgen von rationalen Zahlen, wobei jedoch
+äquivalente Folgen die gleiche Zahl repräsentieren.
+
+\begin{definition}[Äquivalenzklassen]
+\index{Aquivalenzklasse@Äquivalenzklasse}%
+Eine \emph{Äquivalenzklasse} $X$ der Äquivalenzrelation $\sim$ von
+\index{Aquivalenzrelation@Äquivalenzrelation}%
+Cauchy-Folgen ist eine Menge von äquivalenten Cauchy-Folgen.
+\end{definition}
+
+Zwei Cauchy-Folgen
+$(a_n)_{n\in\mathbb{N}}\in X$ 
+und
+$(b_n)_{n\in\mathbb{N}}\in X$ 
+in einer Äquivalenzklasse $X$ von rationalen Cauchy-Folgen unterscheiden
+sich nur durch eine Nullfolge, es gilt also
+\[
+\lim_{n\to\infty} (a_n-b_n) = 0.
+\]
+Die reellen Zahlen können jetzt als Äquivalenzklassen von Cauchy-Folgen
+definiert werden.
+
+\begin{definition}[Reelle Zahlen]
+Die Menge der reellen Zahlen $\mathbb{R}$ ist die Menge der Äquivalenzklassen
+von rationalen Cauchy-Folgen bezüglich der Äquivalenzrelation $\sim$.
+\end{definition}
+
+Diese Konstruktion zeigt, dass man mit reellen Zahlen rechnen kann, indem
+man geeignete Approximationen dafür verwendet.
+Welche Approximation verwendet wird, ist egal.
+Wenn die Approximationsfolgen äquivalent sind, unterscheiden sich auch
+Resultate von Rechnungen mit den Folgen durch Nullfolgen.
+Die reellen Zahlen enthalten nach Konstruktionen alle Quadratwurzeln
+und die Zahlen $e$ und $\pi$.
+Jede Gleichung, für deren Lösung eine Approximationsfolge existiert,
+kann daher in $\mathbb{R}$ auch gelöst werden.
+So kann man zum Beispiel die Lösung der Gleichung
+\[
+y = 1 + \frac1y
+\]
+dadurch approximieren, dass man die Folge $(y_n)_{n\in\mathbb{N}}$
+durch
+\[
+y_0 = 1,
+\quad
+y_{n+1} = 1 + \frac1{y_n}
+\]
+bildet.
+$(y_n)_{n\in\mathbb{N}}$ ist eine Cauchy-Folge, die gegen das Verhältnis
+$\varphi=(\!\sqrt{5}+1)/2$ des goldenen Schnittes konvergiert (siehe
+Abbildung~\ref{buch:komplex:zahlen:table:gold}, zweite Spalte).
+\input{chapters/010-komplex/fig/table-gold.tex}
+
+Approximationsfolgen für die Nullstellen einer Funktion $f(x)$ können
+zum Beispiel durch das Newton-Verfahren gefunden werden.
+\index{Newton-Verfahren}%
+\index{Nullstelle}%
+Dazu wählt man eine Anfangsschätzung $x_0$ und bildet dann die 
+Folge
+\[
+x_{n+1}
+=
+x_n - \frac{f(x_n)}{f'(x_n)}.
+\]
+Falls $x_0$ genügend nahe bei einer Nullstelle $\hat{x}$ liegt, wird die
+Folge $(x_n)_{n\in\mathbb{N}}$ gegen die Nullstelle konvergieren:
+\[
+\lim_{n\to\infty} x_n
+=
+\hat{x}.
+\]
+Wendet man dies auf die Funktion $f(x)=x^2+1$ an, welche $f(x) \ge 1$
+für alle $x\in\mathbb{R}$ keine reelle Nullstelle hat, erhält man eine
+Folge, die keine Cauchy-Folge ist
+(Abbildung~\ref{buch:komplex:zahlen:table:gold}, dritte Spalte).
+Die Gleichung
+\begin{equation}
+x^2 + 1 = 0
+\qquad\Leftrightarrow\qquad
+x^2 = -1
+\end{equation}
+hat also keine Lösung, die mit einer Approximationsfolge gefunden werden
+kann.
+

@@ -1,0 +1,109 @@
+%
+% 23-ableitungen.tex -- Ableitungen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Ableitungen}
+Der Satz~\ref{buch:integration:satz:residuensatz} zeigt, wie der
+Wert einer holomorphen Funktion in einem Punkt $z_0$ allein aus den
+Werten entlang eines Weges berechnet werden kann, der den Punkt $z_0$
+im Gegenuhrzeigersinn umläuft.
+Die durch die Formel
+\eqref{buch:integration:eqn:residuensatz}
+gegebene Funktion ist holomorph, man sollte daher auch die Ableitung
+mit Hilfe eines Integrals berechnen können.
+Wenn man 
+\eqref{buch:integration:eqn:residuensatz}
+unter dem Integral nach $z_0$ ableitet, erhält man
+\begin{align}
+f'(z_0)
+=
+\frac{d}{dz_0}f(z_0)
+&=
+\frac{1}{2\pi i}
+\oint
+\frac{d}{dz_0}
+\frac{f(z)}{z-z_0}
+\,dz
+\notag
+\\
+&=
+\frac{1}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^2}
+\,dz.
+\label{buch:integration:eqn:ableitung2}
+\end{align}
+Wie erwartet kann die Ableitung von $f$ ebenfalls durch ein einfaches
+Wegintegral berechnet werden.
+Durch wiederholtes Ableiten kann man auch höhere Ableitungen finden,
+wie sie der folgende Satz zeigt.
+
+\begin{satz}[Cauchy-Formel für Ableitungen]
+\label{buch:integration:satz:ableitungn}
+\index{Satz!Cauchy-Formel für Ableitungen}%
+\index{Cauchy-Ableitungsformel}%
+Ist $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und $\gamma$
+ein Weg, der den Punkt $z_0\in U$ im Gegenuhrzeigersinn umläuft.
+Dann gilt
+\begin{equation}
+\frac{d^n}{dz_0^n}f(z_0)
+=
+f^{(n)}(z_0)
+=
+\frac{n!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^{n+1}}
+\,dz.
+\label{buch:integration:eqn:ableitungn}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Der Fall $n=1$ ist bereits durch \eqref{buch:integration:eqn:ableitung2}
+bewiesen, wir müssen die Formel
+\eqref{buch:integration:eqn:ableitungn}
+für $n>1$ beweisen.
+Wir tun dies mit Hilfe vollständiger Induktion, wobei 
+\eqref{buch:integration:eqn:ableitung2} als Induktionsverankerung
+dient.
+
+Wir nehmen jetzt an \eqref{buch:integration:eqn:ableitungn} für $n$ gilt,
+und zeigen, dass sie dann auch für $n+1$ gilt.
+Dazu leiten wir \eqref{buch:integration:eqn:ableitungn} nach $z_0$
+ab und erhalten
+\begin{align*}
+f^{(n+1)}(z_0)
+&=
+\frac{d}{dz_0}
+f^{(n)}(z_0)
+=
+\frac{d}{dz_0}
+\frac{n!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^{n+1}}
+\,dz
+\\
+&=
+\frac{n!}{2\pi i}
+\oint
+\frac{d}{dz_0}
+\frac{f(z)}{(z-z_0)^{n+1}}
+\,dz
+\\
+&=
+\frac{n!}{2\pi i}
+\oint
+(-(n+1))
+\frac{f(z)}{(z-z_0)^{n+2}}
+(-1)
+\,dz
+\\
+&=
+\frac{(n+1)!}{2\pi i}
+\oint
+\frac{f(z)}{(z-z_0)^{n+2}}
+\,dz.
+\end{align*}
+Damit ist \eqref{buch:integration:eqn:ableitungn} bewiesen.
+\end{proof}

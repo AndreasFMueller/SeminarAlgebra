@@ -1,0 +1,61 @@
+%
+% 27-pol.tex -- Der Fall 1/(x-xi)^k\vartheta
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Integrale von $1/(x-\xi)^k\vartheta$}
+Es muss noch gezeigt werden, dass mit den bereits entwickelten
+Methoden auch das zweite Integral
+in \eqref{buch:intalg:wurzel:eqn:grundintegrale},
+\[
+\int
+\frac{1}{(x-\xi)^k\vartheta}
+\,dx,
+\]
+behandelt werden kann.
+
+Die Substitution
+\begin{align*}
+x &= \xi + \frac{1}{t} \qquad\text{mit}\qquad dx = -\frac{1}{t^2}\,dt
+\intertext{verwandelt den Radikanden in}
+ax^2+bx+c
+&=
+\frac{(a\xi^2+b\xi+c)t^2 + (2a\xi+b)\xi + a}{t^2}
+\intertext{und damit den Integranden in}
+\frac{1}{(x-\xi)^k\vartheta}
+&=
+\frac{t^k\cdot t}{
+\!\sqrt{
+(a\xi^2+b\xi+c)t^2 + (2a\xi+b)t + a
+}
+}.
+\intertext{Das Integral wird damit zu}
+\int\frac{1}{(x-\xi)^k\vartheta}\vartheta\,dx
+&=
+-
+\int
+\frac{t^k\cdot t}{
+\!\sqrt{
+(a\xi^2+b\xi+c)t^2 + (2a\xi+b)t + a
+}}
+\frac{1}{t^2}\,dt
+\intertext{Schreibt man $A=a\xi^2+b\xi+c$, $B=2a\xi+b$ und $C=a$, wird
+das Integral zu}
+&=
+-\int\frac{t^{k-1}}{\!\sqrt{At^2+Bt^2+C}}\,dt.
+\intertext{Dies ist wieder ein Integral}
+&=
+-\int \frac{t^{k-1}}{\tilde{\vartheta}}\,dt
+\end{align*}
+der Form
+$\text{Polynom}/\tilde{\vartheta}$, aber diesmal mit
+\[
+\tilde{\vartheta}
+=
+\!\sqrt{At^2+Bt+C}.
+\]
+Diese Art von Integral wurde in
+Satz~\ref{buch:intalg:wurzel:satz:polynomtheta}
+bereits auf das Integral von $1/\tilde{\vartheta}$
+zurückgeführt.
+

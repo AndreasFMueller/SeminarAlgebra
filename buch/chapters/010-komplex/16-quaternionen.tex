@@ -1,0 +1,411 @@
+%
+% 16-quaternionen.tex -- Quaternionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Quaternionen}
+Die Matrix $J$ ist nicht die einzige Matrix mit der Eigenschaft
+$J^2=-I$.
+\index{Quaternionen}%
+Lässt man komplexe Einträge in den Matrizen zu, haben auch die
+Matrizen
+\begin{align*}
+-i\sigma_x
+&=
+-i
+\begin{pmatrix*}[r]
+0&1\\
+1&0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+&&\Rightarrow&
+(-i\sigma_x)^2
+&=
+\begin{pmatrix*}[r]
+-1& 0\\
+ 0&-1
+\end{pmatrix*}
+=
+-I
+\\
+-i\sigma_y
+&=
+-i
+\begin{pmatrix*}[r]
+0&-i\\
+i& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0&-1\\
+1&0
+\end{pmatrix*}
+=
+J
+&&\Rightarrow&
+(-i\sigma_y)^2
+&=
+J^2
+=
+-I
+\\
+-i\sigma_z
+&=
+-i
+\begin{pmatrix*}[r]
+1&0\\
+0&-1
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-i&0\\
+ 0&i
+\end{pmatrix*}
+&&\Rightarrow&
+(-i\sigma_z)^2
+&=
+\begin{pmatrix*}[r]
+-1& 0\\
+ 0&-1
+\end{pmatrix*}
+=
+-I.
+\end{align*}
+diese Eigenschaft.
+
+\begin{definition}[Pauli-Matrizen]
+Die Matrizen
+\begin{align*}
+\sigma_x
+&=
+\begin{pmatrix*}[r]
+0&1\\
+1&0
+\end{pmatrix*},
+&
+\sigma_y
+&=
+\begin{pmatrix*}[r]
+0&-i\\
+i& 0
+\end{pmatrix*}
+&&\text{und}
+&
+\sigma_z
+&=
+\begin{pmatrix*}[r]
+1&0\\
+0&-1
+\end{pmatrix*}
+\end{align*}
+heissen die \emph{Pauli-Matrizen}.
+\index{Pauli-Matrix}%
+\end{definition}
+
+Die Pauli-Matrizen spielen eine wichtige Rolle in der Beschreibung des
+Spins in der Quantenmechanik.
+\index{Quantenmechanik}%
+\index{Spin}%
+Sie können auch verwendet werden, um die Gruppe $\operatorname{SU}(2)$ 
+der spezielle unitären Matrizen zu beschreiben.
+\index{unitär}%
+
+Schreiben wir
+\begin{align}
+\boldsymbol{i}
+&=
+-i\sigma_x
+=
+\begin{pmatrix}
+0&-i\\
+-i&0
+\end{pmatrix}
+,
+&
+\boldsymbol{j}
+&=
+-i\sigma_y
+=
+\begin{pmatrix}
+0&-1\\
+1&0
+\end{pmatrix}
+=
+J
+&&\text{und}
+&
+\boldsymbol{k}
+&=
+-i\sigma_z
+=
+\begin{pmatrix}
+-i & 0 \\
+ 0 & i
+\end{pmatrix}
+,
+\label{buch:komplex:zahlen:eqn:quaternionen}
+\end{align}
+erhalten wir zusätzlich zu
+$\boldsymbol{i}^2
+=
+\boldsymbol{j}^2
+=
+\boldsymbol{k}^2
+=-1$
+durch Nachrechnen die folgenden Beziehungen:
+\begin{align}
+\boldsymbol{i}\boldsymbol{j}
+&=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+=
+\boldsymbol{k},
+&
+\boldsymbol{j}\boldsymbol{i}
+&=
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+i & 0 \\
+0 & -i
+\end{pmatrix*}
+=
+-\boldsymbol{k},
+\label{buch:komplex:zahlen:eqn:quatrel}
+\\
+\boldsymbol{j}\boldsymbol{k}
+&=
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+=
+\boldsymbol{i},
+&
+\boldsymbol{k}\boldsymbol{j}
+&=
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-1\\
+ 1& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0&i\\
+i&0
+\end{pmatrix*}
+=
+-\boldsymbol{i},
+\notag
+\\
+\boldsymbol{k}\boldsymbol{i}
+&=
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0 & -1 \\
+1 & 0
+\end{pmatrix*}
+=
+\boldsymbol{j},
+&
+\boldsymbol{i}\boldsymbol{k}
+&=
+\begin{pmatrix*}[r]
+ 0&-i\\
+-i& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-i & 0 \\
+ 0 & i
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 0 & 1 \\
+-1 & 0
+\end{pmatrix*}
+=
+-\boldsymbol{j}.
+\notag
+\end{align}
+Wir zu erwarten ist, sind die Produkte der Matrizen
+$\boldsymbol{i}$,
+$\boldsymbol{j}$
+und
+$\boldsymbol{k}$
+nicht kommutativ.
+Diese Relationen auch zusammengefasst werden in die Gleichungen
+\begin{equation}
+\boldsymbol{i}^2
+=
+\boldsymbol{j}^2
+=
+\boldsymbol{k}^2
+=
+\boldsymbol{i}
+\boldsymbol{j}
+\boldsymbol{k}
+=
+-1.
+\label{buch:komplex:zahlen:eqn:hamiltonrelationen}
+\end{equation}
+Multipliziert man die letzte Identität von rechts mit $\boldsymbol{k}$
+erhält man
+\begin{equation*}
+-\boldsymbol{k}
+=
+(
+\boldsymbol{i}
+\boldsymbol{j}
+\boldsymbol{k}
+)
+\boldsymbol{k}
+=
+\boldsymbol{i}
+\boldsymbol{j}
+\boldsymbol{k}^2
+=
+-
+\boldsymbol{i}
+\boldsymbol{j}
+\quad\Rightarrow\quad
+\boldsymbol{i}
+\boldsymbol{j}
+=
+\boldsymbol{k},
+\end{equation*}
+\input{chapters/010-komplex/fig/fig-hamilton.tex}
+also die erste Identität in \eqref{buch:komplex:zahlen:eqn:quatrel}.
+Die anderen Identitäten können auf ähnliche Weise aus
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
+gewonnen werden.
+
+Die Menge
+\[
+\mathbb{H}
+=
+\langle 1,
+\boldsymbol{i},
+\boldsymbol{j},
+\boldsymbol{k}
+\rangle
+=
+\{
+x_0
++
+x_1\boldsymbol{i}
++
+x_2\boldsymbol{j}
++
+x_3\boldsymbol{k}
+\mid
+x_0,\dots,x_3\in\mathbb{R}
+\}
+\subset
+M_{2\times 2}(\mathbb{C})
+\]
+ist einerseits ein reeller Vektorraum und andererseits eine
+Algebra mit den Rechenregeln
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen},
+die William Rowan Hamilton im Jahr 1843 entdeckt hat.
+Sie heisst die Algebra der \emph{Quaternionen}.
+Hamilton sollen die algebraischen Regeln
+\index{Hamilton, William Rowan}%
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
+während eines Spaziergangs über die Broom-Bridge in Dublin
+\index{Dublin}%
+\index{Broom-Bridge}%
+eingefallen sein und er soll sie spontan in einen Stein
+geritzt haben, woran die in Abbildung~\ref{buch:komplex:fig:hamilton}
+abgebildete, an der Broom-Bridge angebrachte Plakette erinnert.
+
+Die Matrizen $\boldsymbol{i}$ und $\boldsymbol{k}$ enthalten
+Einträge, die selbst kompmlexe Zahlen sind.
+Um eine Darstellung ganz ohne komplexe Zahlen zu bekommen, muss
+jeder Eintrag der Matrizen in \eqref{buch:komplex:zahlen:eqn:quaternionen}
+durch eine $2\times 2$-Matrix ersetzt werden.
+Dadurch entstehen drei $4\times 4$-Matrizen, die wir mit grossen
+fetten Buchstaben schreiben:
+\begin{align*}
+\boldsymbol{I}
+&=
+\begin{pmatrix*}[r]
+ 0& 0& 0& 1\\
+ 0& 0&-1& 0\\
+ 0& 1& 0& 0\\
+-1& 0& 0& 0
+\end{pmatrix*},
+&
+\boldsymbol{J}
+&=
+\begin{pmatrix*}[r]
+ 0& 0&-1& 0\\
+ 0& 0& 0&-1\\
+ 1& 0& 0& 0\\
+ 0& 1& 0& 0
+\end{pmatrix*}
+&&\text{und}
+&
+\boldsymbol{K}
+&=
+\begin{pmatrix*}[r]
+ 0& 1& 0& 0\\
+-1& 0& 0& 0\\
+ 0& 0& 0&-1\\
+ 0& 0& 1& 0
+\end{pmatrix*}.
+\end{align*}
+Man kann nachrechnen, dass die für
+$\boldsymbol{i}$,
+$\boldsymbol{j}$
+und
+$\boldsymbol{k}$
+gefundenen Rechenregeln
+\eqref{buch:komplex:zahlen:eqn:hamiltonrelationen}
+auch für
+$\boldsymbol{I}$,
+$\boldsymbol{J}$
+und
+$\boldsymbol{K}$
+gelten.

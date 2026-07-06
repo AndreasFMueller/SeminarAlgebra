@@ -1,0 +1,63 @@
+%
+% 11-problem.tex -- Problemstellung
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Problemstellung}
+Die von Bernoulli gelöste Aufgabe ist die Stammfunktion einer
+rationalen Funktion zu finden, für die ausserdem angenommen wird,
+dass eine Faktorisierung des Nenners in Linearfaktoren bekannt ist.
+Der Fundamentalsatz der Algebra garantiert, dass eine solche
+Faktorisierung immer exisiert, wenngleich er keine Methode
+bereitstellt, die Faktorisierung zu finden.
+
+\begin{aufgabe}
+Gegeben ist eine rationale Funktion $f\in \mathbb{C}(z)$ mit
+komplexen Koeffizienten.
+\index{rationale Funktion}%
+Finde eine Stammfunktion $F$.
+\index{Stammfunktion}
+\end{aufgabe}
+
+Die rationale Funktion wird als gekürzter Bruch
+\[
+f(z)
+=
+\frac{p(z)}{q(z)}
+\qquad\text{und}\qquad
+p(z),q(z)\in \mathbb{Q}(z)
+\]
+geschrieben, wobei $p(z)$ und $q(z)$ teilerfremd sind.
+Es wird angenommen, dass der Nenner als Produkt
+\[
+q(z)
+=
+(z-\alpha_1)\cdot\ldots\cdot (z-\alpha_n)
+=
+\prod_{k=1}^n (z-\alpha_k)
+\]
+faktorisiert werden kann.
+
+Bernoullis Strategie ist, für die rationale Funktion erst
+ein Partialbruchzerlegung zu finden, was im
+Abschnitt~\ref{buch:ratint:bernoulli:subsection:partialbruch}
+durchgeführt werden soll.
+Er schreibt den Integranden als Summe
+\begin{align*}
+f(z)
+=
+s(z)
++
+\sum_{k=1}^n\sum_{l=1}^{n_k}\frac{A_k^l}{(z-\alpha_k)^l},
+\end{align*}
+wobei $s(z)$ ein Polynom und $\alpha_k$ die Nullstellen
+des Nenners von $f(z)$ sind. 
+Um eine Stammfunktion zu finden, müssen Stammfunktionen der
+einzelnen Summanden gefunden werden.
+Der Polynomterm ist dabei das kleinste Problem, da die einzelnen
+Summanden $z^n$ die Stammfunktion $z^{n+1}/(n+1)$ haben.
+Etwas mehr Arbeit geben die Brüche, die aber ebenfalls
+wohlbekannt sind und in
+Gleichung~\ref{buch:ratint:bernoulli:partial:eqn:stammfunktionen}
+angegeben werden.
+

@@ -1,0 +1,566 @@
+%
+% 42-matrix.tex -- Matrixdarstellung algebraischer Elemente
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Matrixdarstellung algebraischer Elemente}
+Für die Rechnung in einem Erweiterungskörper $\mathbb{Q}(\alpha)$
+mit dem Minimalpolynom $m(X)\in \mathbb{Q}[X]$ ist bis jetzt kein
+einfacher Algorithmus gegeben worden.
+Die Matrixdarstellung eines algebraischen Elementes, die in diesem
+Abschnitt studiert werden soll, liefert so einen Algorithmus.
+Gleichzeitig wird damit aber auch ein Werkzeug bereitgestellt,
+welches beim Beweis des Liouville-Prinzips für algebraische Erweiterungen
+\index{Liouville-Prinzip}%
+im Abschnitt~\ref{buch:intalg:liouville:subsection:allgemein}
+als nützlich erweisen wird.
+
+%
+% Die Matrix eines algebraischen Elementes
+%
+\subsubsection{Die Matrix eines algebraischen Elements}
+In diesem Abschnitt betrachten wir die Multiplikationsoperation
+mit $\alpha$ im Erweiterungskörper $\mathbb{Q}(\alpha)$ für ein
+algebraisches Element mit dem Minimalpolynom
+\[
+m(X)
+=
+m_0+m_1X+\dots + m_{n-1}X^{n-1}+X^n
+\in
+\mathbb{Q}[X].
+\]
+Der Erweiterungskörper ist die Menge
+\[
+\mathbb{Q}(\alpha)
+=
+\{
+a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}
+\mid
+a_k\in\mathbb{Q}\;
+\forall k
+\}.
+\]
+Er ist ein $n$-dimensionaler Vektorraum über $\mathbb{Q}$ mit der
+Basis
+\[
+\mathscr{B}
+=
+\{
+1,\alpha,\alpha^2,\ldots,\alpha^{n-1}
+\}.
+\]
+Die Multiplikation mit $\alpha$ ist wegen
+\[
+\alpha (t u + s v)
+=
+t
+\alpha
+u
++
+s
+\alpha
+v
+,\qquad t,s\in\mathbb{Q},\;u,v\in\mathbb{Q}(\alpha)
+\]
+eine lineare Abbildung, man kann sie also auch in der Basis
+$\mathscr{B}$ durch eine $n\times n$-Matrix $A$ beschreiben.
+Aus der Abbildung der Basiselemente in $\mathscr{B}$ kann
+man die Matrix
+\begin{equation}
+\left.
+\begin{aligned}
+1           &\mapsto \alpha   \\
+\alpha      &\mapsto \alpha^2 \\
+\alpha^2    &\mapsto \alpha^3 \\
+\alpha^3    &\mapsto \alpha^4 \\[-3pt]
+            &\phantom{n}\vdots\\
+\alpha^{n-1}&\mapsto -a_0-a_1\alpha-\dots-a_{n-1}\alpha^{n-1}
+\end{aligned}
+\right\}
+\quad\Rightarrow\quad
+\bm{\alpha}
+=
+\left(
+\raisebox{-1.39cm}{\begin{tikzpicture}[>=latex,thick]
+\def\punkt#1#2{ ({(#1)*0.75},{-(#2)*0.5}) }
+\clip \punkt{-0.5}{-0.5} rectangle \punkt{5.5}{5.5};
+%\draw[color=darkred] \punkt{-0.5}{-0.5} rectangle \punkt{5.5}{5.5};
+\def\element#1#2#3{
+\node at \punkt{#1}{#2} {$#3\mathstrut$};
+}
+\def\horizontaldots#1#2{
+\fill \punkt{#1-0.333}{#2} circle[radius=0.02];
+\fill \punkt{#1}{#2} circle[radius=0.02];
+\fill \punkt{#1+0.333}{#2} circle[radius=0.02];
+}
+\def\verticaldots#1#2{
+\fill \punkt{#1}{#2-0.333} circle[radius=0.02];
+\fill \punkt{#1}{#2} circle[radius=0.02];
+\fill \punkt{#1}{#2+0.333} circle[radius=0.02];
+}
+\def\diagonaldots#1#2{
+\fill \punkt{#1-0.333}{#2-0.333} circle[radius=0.02];
+\fill \punkt{#1}{#2} circle[radius=0.02];
+\fill \punkt{#1+0.333}{#2+0.333} circle[radius=0.02];
+}
+\draw[color=darkred!10,line width=11pt] \punkt{-1}{-1} -- \punkt{6}{6};
+\draw[color=blue!10,line width=11pt] \punkt{-1}{0} -- \punkt{5}{6};
+\element{0}{0}{0} \element{1}{0}{0} \element{2}{0}{0}
+\horizontaldots{3}{0}
+\element{4}{0}{0} \element{5}{0}{-m_0}
+%
+\element{0}{1}{1} \element{1}{1}{0} \element{2}{1}{0}
+\horizontaldots{3}{1}
+\element{4}{1}{0} \element{5}{1}{-m_1}
+%
+\element{0}{2}{0} \element{1}{2}{1} \element{2}{2}{0}
+\horizontaldots{3}{2}
+\element{4}{2}{0} \element{5}{2}{-m_2}
+%
+\element{0}{3}{0} \element{1}{3}{0} \element{2}{3}{1}
+\diagonaldots{3}{3}
+\element{5}{3}{-m_3}
+%
+\verticaldots{0}{4}
+\verticaldots{1}{4}
+\verticaldots{2}{4}
+\diagonaldots{3}{4}
+\diagonaldots{4}{4}
+\verticaldots{5}{4}
+%
+\element{0}{5}{0} \element{1}{5}{0} \element{2}{5}{0}
+\horizontaldots{3}{5}
+\element{4}{5}{1} \element{5}{5}{-m_{n-1}}
+\end{tikzpicture}}
+\right)
+\label{buch:komplex:fundamental:eqn:alphaMatrix}
+\end{equation}
+ablesen.
+
+%
+% Multiplikative Inverse in Q(\alpha)
+%
+\subsubsection{Multiplikative Inverse in $\mathbb{Q}(\alpha)$}
+Ein Element $x$ von $\mathbb{Q}(\alpha)$ schreiben wir als Spaltenvektor mit
+den Einträgen $x_0,x_1,\dots,x_{n-1}$.
+Die Multiplikation mit $\alpha$ wird durch die Matrix $\bm{\alpha}$ von
+\eqref{buch:komplex:fundamental:eqn:alphaMatrix} beschrieben.
+Die Multiplikation des Elements $a\in \mathbb{Q}(\alpha)$ mit $x$ wird
+daher durch die Matrixmultiplikation mit der Matrix
+\[
+A
+=
+a_0I+a_1\bm{\alpha} + a_2\bm{\alpha}^2 + \ldots + a_{n-1}\bm{\alpha}^{n-1}
+\]
+wiedergegeben.
+Um die Inverse $x=a^{-1}$ zu finden, muss man also das lineare
+Gleichungssystem
+\index{lineares Gleichungssystem}%
+$ Ax=e_1 $ lösen, wobei $e_1$ der erste Standardbasisvektor ist.
+\index{Standardbasisvektor}%
+Man kann also das multiplikative inverse Element von $a$ als
+\index{multiplikative Inverse}%
+\index{Inverse, multiplikativ}%
+\[
+x = A^{-1}e_1
+\]
+finden.
+
+%
+% Das charakteristische Polynom der Matrix A
+%
+\subsubsection{Das charakteristische Polynom der Matrix $\bm{\alpha}$}
+Das charakteristische Polynom von $\bm{\alpha}$ kann am einfachsten
+durch Entwicklung nach der letzten Spalte bestimmt werden.
+\index{Entwicklung}%
+Die Minordeterminante zum Element $-m_k$ mit $k<n-1$ ist
+\index{Minordeterminante}%
+\[
+\det \bm{\alpha}_{k+1,n}
+=
+\left|
+\;
+\raisebox{-2.2cm}{\begin{tikzpicture}[>=latex,thick]
+\def\punkt#1#2{ ({(#1)*0.75},{-(#2)*0.5}) }
+\clip \punkt{-0.5}{-0.5} rectangle \punkt{8.5}{8.5};
+\begin{scope}
+	\clip \punkt{-0.5}{-0.5} rectangle \punkt{4.5}{4.5};
+	\draw[color=darkred!10,line width=12pt] \punkt{-1}{-1} -- \punkt{4.5}{4.5};
+	\draw[color=blue!10,line width=12pt] \punkt{-1}{0} -- \punkt{4.5}{5.5};
+\end{scope}
+\begin{scope}
+	\clip \punkt{9.5}{9.5} rectangle \punkt{4.5}{4.5};
+	\draw[color=blue!10,line width=12pt] \punkt{9}{9} -- \punkt{4.5}{4.5};
+	\draw[color=darkred!10,line width=12pt] \punkt{9}{8} -- \punkt{4.5}{3.5};
+\end{scope}
+\draw[line width=0.4pt] \punkt{-0.5}{4.5} -- \punkt{8.5}{4.5};
+\draw[line width=0.4pt] \punkt{4.5}{-0.5} -- \punkt{4.5}{8.5};
+
+%\draw[color=darkred] \punkt{-0.5}{-0.5} rectangle \punkt{8.5}{8.5};
+\def\element#1#2#3{
+\node at \punkt{#1}{#2} {$#3\mathstrut$};
+}
+\def\horizontaldots#1#2{
+\fill \punkt{#1-0.333}{#2} circle[radius=0.02];
+\fill \punkt{#1}{#2} circle[radius=0.02];
+\fill \punkt{#1+0.333}{#2} circle[radius=0.02];
+}
+\def\verticaldots#1#2{
+\fill \punkt{#1}{#2-0.333} circle[radius=0.02];
+\fill \punkt{#1}{#2} circle[radius=0.02];
+\fill \punkt{#1}{#2+0.333} circle[radius=0.02];
+}
+\def\diagonaldots#1#2{
+\fill \punkt{#1-0.333}{#2-0.333} circle[radius=0.02];
+\fill \punkt{#1}{#2} circle[radius=0.02];
+\fill \punkt{#1+0.333}{#2+0.333} circle[radius=0.02];
+}
+\element{0}{0}{-\lambda} \element{1}{0}{0}        \element{2}{0}{0}
+\horizontaldots{3}{0}
+\element{4}{0}{0}        \element{5}{0}{0}        \element{6}{0}{0}
+\horizontaldots{7}{0}
+\element{8}{0}{0}
+%
+\element{0}{1}{1}        \element{1}{1}{-\lambda} \element{2}{1}{0}
+\horizontaldots{3}{1}
+\element{4}{1}{0}        \element{5}{1}{0}        \element{6}{1}{0}
+\horizontaldots{7}{1}
+\element{8}{1}{0}
+%
+\element{0}{2}{0}        \element{1}{2}{1}        \element{2}{2}{-\lambda}
+\horizontaldots{3}{2}
+\element{4}{2}{0}        \element{5}{2}{0}        \element{6}{2}{0}
+\horizontaldots{7}{2}
+\element{8}{2}{0}
+%
+\verticaldots{0}{3}
+\verticaldots{1}{3}
+\verticaldots{2}{3}
+\diagonaldots{3}{3}
+\verticaldots{4}{3}
+\verticaldots{5}{3}
+\verticaldots{6}{3}
+\diagonaldots{7}{3}
+\verticaldots{8}{3}
+%
+\element{0}{4}{0}        \element{1}{4}{0}        \element{2}{4}{0}
+\horizontaldots{3}{4}
+\element{4}{4}{-\lambda} \element{5}{4}{0}        \element{6}{4}{0}
+\horizontaldots{7}{4}
+\element{8}{4}{0}
+%
+\element{0}{5}{0}        \element{1}{5}{0}        \element{2}{5}{0}
+\horizontaldots{3}{5}
+\element{4}{5}{0}        \element{5}{5}{1}        \element{6}{5}{-\lambda}
+\horizontaldots{7}{5}
+\element{8}{5}{0}
+%
+\element{0}{6}{0}        \element{1}{6}{0}        \element{2}{6}{0}
+\horizontaldots{3}{6}
+\element{4}{6}{0}        \element{5}{6}{0}        \element{6}{6}{1}
+\horizontaldots{7}{6}
+\element{8}{6}{0}
+%
+\verticaldots{0}{7}
+\verticaldots{1}{7}
+\verticaldots{2}{7}
+\diagonaldots{3}{7}
+\verticaldots{4}{7}
+\verticaldots{5}{7}
+\verticaldots{6}{7}
+\diagonaldots{7}{7}
+\verticaldots{8}{7}
+%
+\element{0}{8}{0} \element{1}{8}{0} \element{2}{8}{0}
+\horizontaldots{3}{8}
+\element{4}{8}{0} \element{5}{8}{0} \element{6}{8}{0}
+\horizontaldots{7}{8}
+\element{8}{8}{1}
+\end{tikzpicture}}
+%
+\;
+\right|
+=
+(-\lambda)^k.
+\]
+Damit tragen diese Unterdeterminanten insgesamt
+\begin{align}
+\sum_{k=0}^{n-2}
+(-1)^{n+k}
+\det \bm{\alpha}_{k+1,n}
+&=
+\sum_{k=0}^{n-2}
+(-1)^{n+k}
+(-m_k)
+(-\lambda)^k
+=
+-
+(-1)^n
+\sum_{k=0}^{n-2}
+m_k\lambda^k
+\label{buch:komplex:fundamentalsatz:spur:eqn:unterdet}
+\end{align}
+bei.
+Die Minordeterminante $\bm{\alpha}_{n,n}$ für das Element in der rechten
+unteren Ecke lässt sich auf analoge Weise bestimmen, sie ist
+$(-\lambda)^{n-1}$.
+Sie leistet den Beitrag
+\[
+(-\lambda-m_{n-1})(-\lambda)^{n-1}
+=
+(-\lambda)^n - m_{n-1}(-\lambda)^{n-1}
+=
+-
+(-1)^n
+(\lambda^n + m_{n-1}\lambda^{n-1}).
+\]
+Zusammen mit \eqref{buch:komplex:fundamentalsatz:spur:eqn:unterdet}
+folgt, dass die Determinante von $\bm{\alpha}-\lambda I$ das charakteristische
+Polynom
+\[
+\chi_{\bm{\alpha}}(\lambda)
+=
+\det (\bm{\alpha}-\lambda I)
+=
+(-1)^n\biggl(
+\lambda^n
++
+\sum_{k=0}^{n-1} m_k \lambda^k
+\biggr)
+=
+(-1)^n m(\lambda)
+\]
+ist.
+Die Eigenwerte der Matrix sind also genau die Nullstellen des
+ursprünglichen Minimalpolynoms $m(\lambda)$.
+
+%
+% Die Spur und die Determinante eines algebraischen Elementes
+%
+\subsubsection{Die Spur und die Determinante eines algebraischen Elements}
+Die Multiplikation mit dem Element $\alpha$ wird in der Basis der
+Potenzen von $\alpha$ durch die Matrix $\bm{\alpha}$ 
+beschrieben.
+Der Matrix $\bm{\alpha}$ kann man einige wohlbekannte Invarianten
+zuordnen.
+
+\begin{definition}[Spur und Determinante]
+Die \emph{Spur} des algebraischen Elements $\alpha$ ist die Spur der
+\index{Spur}%
+\index{Determinante}%
+Matrix $\bm{\alpha}$, die \emph{Determinante} von $\alpha$ ist die
+Determinante der Matrix $\bm{\alpha}$:
+\begin{equation}
+\operatorname{tr}\alpha
+=
+\operatorname{tr}\bm{\alpha}
+=
+-m_{n-1}
+\qquad\text{und}\qquad
+\det\alpha
+=
+\det\bm{\alpha}
+=
+(-1)^nm_0.
+\label{buch:komplex:symmetrisch:eqn:spurdet}
+\end{equation}
+\end{definition}
+
+Die in der Definition enthaltene Aussage, dass Spur und Determinante
+von $\alpha$ bereits durch die Koeffizienten des Minimalpolynoms bestimmt
+sind, muss erst noch gerechtfertigt werden.
+Die Spur und die Determinante einer Matrix sind aber Eigenschaften,
+die nicht von der Wahl einer Basis abhängig sind.
+Die Spur und die Determinante der linearen Abbildung
+\[
+\alpha\colon \mathbb{Q}(\alpha) \to \mathbb{Q}(\alpha) : x \mapsto \alpha x
+\]
+können also in irgend einer Basis berechnet werden.
+Die Wahl von $\mathscr{B}=\{1,\alpha,\dots,\alpha^{n-1}\}$ als Basis
+und die daraus resultierende spezielle Form der Matrix $\bm{\alpha}$,
+führt auf die Werte \eqref{buch:komplex:symmetrisch:eqn:spurdet}.
+
+\begin{korollar}
+Sei $m(X)\in K[X]$ ein irreduzibles Polynom vom Grad $n$ mit Koeffizienten
+in $K$.
+Seien $\alpha_i$, $i=1,\dots,n$ die Nullstellen von $m(X)$.
+Dann ist
+\[
+\operatorname{tr}\alpha_k
+=
+\sum_{i=1}^n \alpha_i
+=
+-m_{n-1}
+\qquad\text{und}\qquad
+\det \alpha_k
+=
+\prod_{i=1}^n \alpha_i
+=
+(-1)^nm_0
+\]
+für alle $k=1,\dots,n$.
+\end{korollar}
+
+\begin{proof}
+Die Spur und die Determinante von $\alpha_k$ ist die Spur bzw.~die Determinante
+der Matrix $\bm{\alpha_k}$.
+Alle Nullstellen haben jedoch die gleiche, aus $m(X)$ konstruierte Matrix
+\eqref{buch:komplex:fundamental:eqn:alphaMatrix},
+sie haben also alle die gleiche Spur und Determinante, die ausserdem
+die Summe bzw.~das Produkt der Eigenwerte dieser Matrix ist.
+Das charakteristische Polynom der Matrix ist aber identisch mit dem
+Minimalpolynom, die $\alpha_i$ sind somit auch die Eigenwerte.
+\index{Eigenwert}%
+\end{proof}
+
+\begin{beispiel}
+Sei $m(X) = X^3 + X + 1$.
+Das Polynom $m(X)$ hat drei verschiedene Nullstellen.
+Sei $\alpha$ eine dieser Nullstellen, dann ist
+\[
+\det \alpha = -1
+\qquad\text{und}\qquad
+\operatorname{tr}\alpha = 0.
+\]
+Tatsächlich kann man mit \texttt{octave} die numerischen Werte
+\index{octave@\texttt{octave}}%
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclcl}
+\alpha_1 &=& \phantom{-}0.341163901914009 &+& 1.161541399997252i \\
+\alpha_2 &=& \phantom{-}0.341163901914009 &-& 1.161541399997252i \\
+\alpha_3 &=&           -0.682327803828019 & &
+\end{array}
+\]
+finden.
+Die Summe und das Produkt der Nullstellen sind
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclcl}
+\alpha_1+\alpha_2+\alpha_3 &=& -7.771561172376096\cdot 10^{-16} &\approx& -m_2\\
+\alpha_1\alpha_2\alpha_3   &=& -1                               &=&-m_0
+\end{array}
+\]
+Dies sind bis auf Maschinengenauigkeit die Koeffizienten des
+Minimalpolynoms.
+\end{beispiel}
+
+%
+% Symmetrische Funktionen der Nullstellen
+%
+\subsubsection{Symmetrische Funktionen der Nullstellen}
+Die elementarsymmetrischen Polynome ausgewertet auf den Nullstellen
+eines Polynoms mit Koeffizienten in $K$ ergeben Werte in $K$, selbst
+dann wenn die Nullstellen selbst nicht in $K$ sind.
+Zusammen mit dem
+Fundamentalsatz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+kann man daraus folgern, dass jedes symmetrische Polynom der Nullstellen
+ebenfalls in $K$ liegt.
+
+\begin{satz}
+Sei $f(X_1,\dots,X_n)$ ein Polynom mit Koeffizienten in $K$,
+das symmetrisch in den Variablen $X_1,\dots,X_n$ ist.
+Sei weiter $p(X)\in K[X]$ ein Polynom mit den Nullstellen
+$\alpha_1,\dots,\alpha_n$.
+Dann ist $f(\alpha_1,\dots,\alpha_n)\in K$.
+\end{satz}
+
+\begin{proof}
+Nach Satz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+kann das Polynom $f(X_1,\dots,X_n)$ als Polynom $g(S_1,\dots,S_n)$
+mit Koeffizienten in $K$ geschrieben werden, so dass
+\[
+f(X_1,\dots,X_n)
+=
+g(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n))
+\]
+gilt.
+Einsetzen der Nullstellen ergibt
+\[
+f(\alpha_1,\dots,\alpha_n)
+=
+g(
+\underbrace{\sigma_1(\alpha_1,\dots,\alpha_n)}_{\displaystyle\in K}
+,\dots,
+\underbrace{\sigma_n(\alpha_1,\dots,\alpha_n)}_{\displaystyle\in K}
+)
+\in K.
+\]
+Es folgt, dass der Wert $f(\alpha_1,\dots,\alpha_n)$ in $K$ liegt.
+\end{proof}
+
+Wenn man zeigen kann, dass eine rationale Funktion von $X_1,\dots,X_n$
+genau dann symmetrisch ist, wenn Zähler und Nenner symmetrisch sind,
+dann folgt auch, dass die Werte rationaler, symmetrischer Funktionen
+der Nullstellen im Koeffizientenkörper liegen.
+
+\begin{satz}
+Sei $f(X_1,\dots,X_n)$ eine rationale Funktion mit Koeffizienten
+in $K$, die symmetrisch ist unter Vertauschungen der Argumente.
+Dann kann $f$ geschrieben werden als Bruch
+\[
+f(X_1,\dots,X_n)
+=
+\frac{u(X_1,\dots,X_n)}{v(X_1,\dots,X_n)},
+\]
+wobei sowohl $u$ als auch $v$ symmetrische Polynome mit Koeffizienten
+in $K$ sind.
+Insbesondere ist $f(\alpha_1,\dots,\alpha_n)$ auch eine rationale Funktion
+der Werte $\sigma_k(\alpha_1,\dots,\alpha_n)\in K$ mit Koeffizienten in $K$.
+\end{satz}
+
+\begin{proof}
+Sei 
+\[
+f(X_1,\dots,X_n)
+=
+\frac{a(X_1,\dots,X_n)}{b(X_1,\dots,X_n)}
+\]
+mit Polynomen $a,b\in K[X_1,\dots,X_n]$.
+Die rationale Funktion $f$ ist symmetrisch.
+Insbesondere folgt
+\begin{align*}
+f(X_1,\dots,X_n)
+&=
+\frac{1}{n!}
+\sum_{\pi\in S_n}
+\frac{a^\pi(X_1,\dots,X_n)}{b^\pi(X_1,\dots,X_n)}.
+\intertext{Durch Zusammenfassen entsteht ein Bruch der Form}
+&=
+\frac{
+u(X_1,\dots,X_n)
+}{
+v(X_1,\dots,X_n)
+},
+\qquad
+\text{mit }
+v(X_1,\dots,X_n)
+=
+n!\prod_{\pi\in S_n} b^\pi(X_1,\dots,X_n).
+\end{align*}
+Der Nenner $v(X_1,\dots,X_n)$ ist offensichtlich ein symmetrisches
+Polynom.
+Da auch $f$ symmetrisch ist, folgt, dass das Polynom
+\[
+u(X_1,\dots,X_n)
+=
+f(X_1,\dots,X_n)\cdot v(X_1,\dots,X_n)
+\]
+ebenfalls symmetrisch ist.
+Damit ist die Existenz der symmetrischen Polynome $u$ und $v$
+gezeigt.
+\end{proof}
+
+\begin{korollar}
+Sei $p(X)\in K[X]$ ein Polynom mit den Nullstellen
+$\alpha_1,\dots,\alpha_n$ und
+$f(X_1,\dots,X_n)$ eine rationale Funktion mit Koeffizienten
+in $K$, die symmetrisch ist unter Vertauschungen der Argumente.
+Dann ist $f(\alpha_1,\dots,\alpha_n)$ auch eine rationale Funktion
+der Werte $\sigma_k(\alpha_1,\dots,\alpha_n)\in K$ mit Koeffizienten in $K$.
+\end{korollar}
+
+Das Korollar bedeutet, dass man die Nullstellen eines Polynoms 
+nicht kennen muss, wenn man die Werte einer symmetrischen rationalen
+Funktion der Nullstellen berechnen will, weil diese Werte bereits vollständig
+durch die Koeffizienten des Polynoms bestimmt sind.

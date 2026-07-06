@@ -1,0 +1,135 @@
+Entscheiden Sie, ob $\log(x)^3$ eine elementare Stammfunktion.
+Falls ja, finden Sie die Stammfunktion.
+
+\begin{loesung}
+Dies ist der polynomielle Fall einer logarithmischen Erweiterung
+$\vartheta=\log(x)$ mit dem Polynom $p(\vartheta)=\vartheta^3$.
+Wir erwarten daher eine Lösung in der Form eines Polynoms
+\[
+q(\vartheta)
+=
+q_4\vartheta^4
++
+q_3\vartheta^3
++
+q_2\vartheta^2
++
+q_1\vartheta
++
+\bar{q}_0
+\]
+mit Koeffizienten in $K(x)$.
+$q_3$ ist ausserdem eine Konstante.
+\begin{itemize}
+\item
+Fall $k=4$: $q_4$ ist die Konstanten $b_4$, die im nächsten Schritt
+bestimmt wird.
+
+\item
+Fall $k=3$:
+Es muss zunächst die Stammfunktion von $p_3=1$ bestimmt werden, sie
+ist 
+\[
+\int p_3 = \int 1 = x + 0\cdot\vartheta
+\quad\Rightarrow\quad 
+\left\{\;
+\begin{aligned}
+b_4 &= -\frac{c_1}{4} \\
+d_3 &= x
+\end{aligned}
+\;\right\}
+\quad\Rightarrow\quad
+q_3 = x + b_3.
+\]
+Da darin $\vartheta$ nicht vorkommt, folgt $c_1=0$ und daher $b_4=0$.
+Die Integrationskonstante $b_3$ wird im nächsten Schritt bestimmt.
+
+\item
+Fall $k=2$:
+\[
+\int p_2 - 3d_3\frac{1}{x}
+=
+\int -3
+=
+-3x+c_2\vartheta
+\quad\Rightarrow\quad
+\left\{\;
+\begin{aligned}
+b_3 &= -\frac{c_2}{3}\\
+d_2 &= -3x
+\end{aligned}
+\;\right\}
+\quad\Rightarrow\quad 
+q_2 = -3x + b_2.
+\]
+Da darin $\vartheta$ nicht vorkommt, folgt $c_2=0$ und daher $b_3=0$.
+Die Integrationskonstante $b_2$ wird im nächsten Schritt bestimmt.
+
+\item
+Fall $k=1$:
+\[
+\int p_1 - 2d_2\frac{1}{x}
+=
+\int 6
+=
+6x + c_1\vartheta
+\quad\Rightarrow\quad
+\left\{\;
+\begin{aligned}
+b_2 &= -\frac{c_1}{2} \\
+d_1 &= 6x
+\end{aligned}
+\;\right\}
+\quad\Rightarrow\quad
+q_1 = 6x + b_1.
+\]
+Da darin $\vartheta$ nicht vorkommt, folgt $c_1=0$ und daher $b_2=0$.
+Die Integrationskonstante $b_1$ wird im nächsten Schritt bestimmt.
+
+\item
+Fall $k=0$:
+\[
+\int p_0 - d_1\frac{1}{x}
+=
+\int -6
+=
+-6x
+\quad\Rightarrow\quad
+\bar{q}_0 = -6 + b_0
+\]
+mit der Integrationskonstanten $b_0$.
+\end{itemize}
+Daraus lesen wir ab, dass
+\[
+\int \log(x)^3
+=
+F
+=
+x\log(x)^3
+-3x\log(x)^2
++6x\log(x)
+-6x
++C.
+\]
+Tatsächlich kann man nachrechnen, dass
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{lclclclclclclcl}
+DF &=& 
+\log(x)^3 &+& x\cdot 3\log(x)^2\displaystyle\frac{1}{x}
+&-& 3\bigg(
+\log(x)^2 &+& x\cdot 2\log(x)\displaystyle\frac{1}{x}
+\bigg)
+&+& 6\bigg(
+\log(x) &+& x\cdot \displaystyle\frac{1}{x}
+\bigg)
+&-& 6
+\\
+   &=& \log(x)^3 &+& 3\log(x)^2 &-& 3 \log(x)^2 &-& 3\cdot 2\log(x) &+& 6 \log(x) &+& 6 &-& 6
+\\
+ &=& \log(x)^3,&& && && && && &&
+\end{array}
+\]
+was bestätigt, dass $F$ die Stammfunktion von $\log(x)^3$ ist.
+\end{loesung}
+

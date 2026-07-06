@@ -1,0 +1,122 @@
+%
+% Residuen und die Form des Integrals
+%
+\subsection{Residuen und die Form des Integrals
+\label{buch:ratint:rothsteintrager:subsection:residuen}}
+In den komplexen zahlen lässt sich der quadratfreie Nenner $q(z)$ von
+\eqref{buch:ratint:rothsteintrager:eqn:integral}
+in ein Produkt verschiedner Linearfaktoren
+\begin{equation}
+q(z)
+=
+(z-\alpha_1)\cdots(z-\alpha_n)
+\label{buch:ratint:rothsteintrager:eqn:faktorisierung}
+\end{equation}
+zerlegen.
+Da die Nullstellen alle verschieden sind, hat die Partialbruchzerlegung
+des Integranden die Form
+\begin{equation}
+\frac{p(z)}{q(z)}
+=
+\frac{A_1}{z-\alpha_1}
++
+\ldots
++
+\frac{A_n}{z-\alpha_n}.
+\label{buch:ratint:rothsteintrager:eqn:integrand}
+\end{equation}
+In dieser Form lässt sich das Integral jedoch sofort angeben, es ist
+\begin{equation}
+\int
+\frac{p(z)}{q(z)}
+\,dz
+=
+A_1\log(z-\alpha_1)
++
+\ldots
++
+A_n\log(z-\alpha_n).
+\label{buch:ratint:rothsteintrager:eqn:integralform}
+\end{equation}
+Der Ausdruck kann noch etwas vereinfacht werden, wenn zwei der
+Koeffizienten gleich sind.
+Ist nämlich $A_k=A_l$, dann können die beiden Summanden in
+$A_k\log\bigl((z-\alpha_k)(z-\alpha_k)\bigr)$
+zusammengefasst werden.
+Für entgegengesetzte Koeffizienten $A_k=-A_l$ folgt entsprechend
+\[
+A_k\log \frac{z-\alpha_k}{z-\alpha_l}.
+\]
+Diese Form tritt zum Beispiel bei der Integration reeller Funktionen
+auf, wo die Nullstellen des Nenners paarweise konjugiert komplex sind.
+
+Wenn die Faktorisierung
+\eqref{buch:ratint:rothsteintrager:eqn:faktorisierung}
+von $q(z)$ bekannt ist, ist das Integrationsproblem an dieser
+Stelle gelöst.
+Wie früher bereits dargelegt wurde, kann man jedoch nicht davon
+ausgehen, dass das Faktorisierungsproblem gelöst werden kann.
+Es müssen also alternative Methoden gesucht werden, die ohne die 
+die Faktorisierung auskommen.
+
+%
+% Die Koeffizienten A_k und Residuen
+%
+\subsubsection{Die Koeffizienten $A_k$ und Residuen}
+Die Form 
+\eqref{buch:ratint:rothsteintrager:eqn:integrand}
+des Integranden des logarithmischen Teils zeigt, dass er isolierte
+Singularitäten hat und daher um jede Singularität in eine Laurent-Reihe
+entwickelt werden kann.
+\index{Singularitat@Singularität}%
+Man kann sogar sagen, dass die Singularitäten Pole erster Ordnung
+sein müssen.
+
+Sie jetzt $\alpha$ eine dieser Pole, dann kann der Integrand
+in eine Laurent-Reihe
+\index{Laurent-Reihe}%
+\[
+\frac{p(z)}{q(z)}
+=
+\frac{b_1}{z-\alpha}
++
+a_0+a_1(z-\alpha) + a_2(z-\alpha)^2+\ldots
+\]
+um den Punkt $\alpha$ entwickelt werden.
+Gliedweise Integration der Reihe ergibt in einer Umgebung von $\alpha$
+\[
+\int
+\frac{p(z)}{q(z)}
+\,dz
+=
+b_1\log(z-\alpha)
++
+a_0(z-\alpha) + \frac{a_1}{2}(z-\alpha)^2 + \frac{a_2}{3}(z-\alpha)^3
++\ldots
+\]
+Durch Vergleich mit
+\eqref{buch:ratint:rothsteintrager:eqn:integralform}
+folgt, dass die gesuchten Koeffizienten $A_k$ die Residuen
+des Integranden an den Nullstellen von $q(z)$ sein müssen.
+\index{Residuum}%
+Diese Koeffizienten lassen sich aber direkt aus den Polynomen 
+$p(z)$ und $q(z)$ berechnen.
+
+\begin{satz}
+\label{buch:ratint:rothsteintrager:satz:residuum}
+Sind $p(z)$ und $q(z)$ teilerfremd und $q(z)$ quadratfrei und
+$\alpha$ eine Nullstelle des Nenners.
+Dann ist das Residuum von $p(z)/q(z)$ an der Stelle $\alpha$
+\[
+A
+=
+\operatorname{res}\biggl(\alpha;\frac{p(z)}{q(z)}\biggr)
+=
+\frac{p(\alpha)}{q'(\alpha)}.
+\]
+\index{resz0f@$\operatorname{res}(z_0;f)$}%
+\end{satz}
+
+Der Satz ist eine direkte Folge des
+Satzes~\ref{buch:analytisch:laurent:residuum:satz}.
+

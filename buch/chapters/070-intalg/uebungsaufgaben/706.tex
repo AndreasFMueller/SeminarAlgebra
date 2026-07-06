@@ -1,0 +1,90 @@
+Entscheiden Sie, ob die folgenden Funktionen eine elementare Stammfunktion
+haben und finden Sie sie, falls sie existiert
+\begin{teilaufgaben}
+\item
+$\displaystyle \int \frac{e^x}{e^{2x}-1}\,dx$
+\item
+$\displaystyle \int \frac{e^x}{e^{x^2}-1}\,dx$
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Für $\vartheta=e^x$ geht es um die Stammfunktion von
+\[
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+\frac{\vartheta}{\vartheta^2-1}.
+\]
+Wir wenden die Methode von Rothstein-Trager an und suchen nichttriviale
+gemeinsame Teiler von
+\[
+\left.
+\begin{aligned}
+a(\vartheta) - c\cdot Db(\vartheta)
+&=
+\vartheta - c\cdot 2\vartheta D\vartheta
+\\
+&=
+\vartheta - 2c\vartheta^2
+\\
+&=
+\vartheta(1-2c\vartheta)
+\end{aligned}
+\right\}
+\qquad\text{und}\qquad
+\left\{
+\begin{aligned}
+b(\vartheta) &= \vartheta^2-1
+\\
+&=
+(\vartheta-1)(\vartheta+1).
+\end{aligned}
+\right.
+\]
+Ein gemeinsamer Teiler liegt vor, wenn $c=\pm \frac12$.
+Die zugehörigen $v_k(\vartheta)$ sind:
+\[
+\begin{aligned}
+c_1&=\phantom{-}\frac12 &&\Rightarrow& v_1(\vartheta) &= \vartheta-1\\
+c_2&=-\frac12           &&\Rightarrow& v_2(\vartheta) &= \vartheta+1.
+\end{aligned}
+\]
+Es folgt, dass die Stammfunktion
+\[
+\int \frac{e^x}{e^{2x}-1}\,dx
+=
+\frac12\log(e^x-1) -\frac12\log(e^x+1)
+\]
+ist.
+\item
+In diesem Fall brauchen wir zwei Erweiterungen $\vartheta_1=e^x$ und
+$\vartheta_2=e^{x^2}$ und
+\[
+\frac{a(\vartheta_2)}{b(\vartheta_2)}
+=
+\frac{\vartheta_1}{\vartheta_2-1}
+\]
+Nach der Methode von Rothstein-Trager sind gemeinsame Teiler von
+\[
+a(\vartheta_2)-c\cdot Db(\vartheta_2)
+=
+\vartheta_1 - c\cdot \vartheta_2\cdot 2x
+=
+-2cx \biggl(\vartheta_2 - \frac{\vartheta_1}{2cx}\biggr)
+\quad\text{und}\quad
+b(\vartheta_2) = \vartheta_2-1
+\]
+gesucht.
+Ein nichttrivialer gemeinsamer Teiler ist nur möglich, wenn der zweite
+Term in der Klammer $=1$ ist, also
+\[
+\frac{\vartheta_1}{2cx}=1
+\qquad\Rightarrow\qquad
+c=\frac{\vartheta_1}{2x}.
+\]
+Da $c$ nicht konstant ist, ist die Stammfunktion nicht elementar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+

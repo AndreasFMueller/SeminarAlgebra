@@ -3,80 +3,12 @@
 %
 \begin{figure}
 \centering
-\begin{tikzpicture}[>=latex,thick,
-    bigcell/.style={draw=blue!50!black,fill=blue!10,line width=0.6pt,rounded corners=1pt},
-    smallcell/.style={draw=orange!70!black,fill=orange!20,line width=0.5pt,rounded corners=0.5pt},
-    isocell/.style={draw=teal!60!black,fill=teal!20,line width=0.6pt,rounded corners=1pt},
-    root/.style={circle,fill=red!80!black,inner sep=0pt,minimum size=3.5pt},
-    newtonpt/.style={circle,fill=teal!60!black,inner sep=0pt,minimum size=2.5pt},
-    label/.style={font=\small\bfseries},
-    sub/.style={font=\scriptsize,gray!50!black}]
-%
-% =========== LINKE SEITE: Quadtree fast fertig ===========
-\begin{scope}[xshift=0cm]
-  \node[label] at (2,4.4) {Quadtree-Phase};
-  \node[sub] at (2,4.0) {grobe Lokalisation};
-  % Rahmen
-  \draw[gray!30,thin] (0,0) rectangle (4,3.7);
-  % Mehrere kleine Quadrate, jedes mit einer Nullstelle
-  \draw[isocell] (0.3,2.7) rectangle (0.9,3.3);
-  \node[root] at (0.6,3.0) {};
-  \node[sub] at (0.6,2.5) {$N{=}1$};
-  %
-  \draw[isocell] (2.7,3.0) rectangle (3.3,3.6);
-  \node[root] at (3.0,3.3) {};
-  \node[sub] at (3.0,2.8) {$N{=}1$};
-  %
-  \draw[isocell] (1.5,1.7) rectangle (2.1,2.3);
-  \node[root] at (1.8,2.0) {};
-  \node[sub] at (1.8,1.5) {$N{=}1$};
-  %
-  \draw[isocell] (3.1,1.2) rectangle (3.7,1.8);
-  \node[root] at (3.4,1.5) {};
-  \node[sub] at (3.4,1.0) {$N{=}1$};
-  %
-  \draw[isocell] (0.5,0.5) rectangle (1.1,1.1);
-  \node[root] at (0.8,0.8) {};
-  \node[sub] at (0.8,0.3) {$N{=}1$};
-\end{scope}
-%
-% Pfeil mit Übergangs-Label
-\draw[->,line width=1.0pt,gray!40!black] (4.4,1.9) -- (5.5,1.9);
-\node[font=\small,gray!40!black] at (4.95,2.3) {Übergabe};
-\node[font=\footnotesize,gray!50!black] at (4.95,1.5) {Mittelpunkte};
-%
-% =========== RECHTE SEITE: Newton-Konvergenz ===========
-\begin{scope}[xshift=6cm]
-  \node[label] at (2,4.4) {Newton-Phase};
-  \node[sub] at (2,4.0) {schnelle Feinkonvergenz};
-  \draw[gray!30,thin] (0,0) rectangle (4,3.7);
-  %
-  % Ein vergrössertes Quadrat aus dem Quadtree, das eine Nullstelle enthält
-  \draw[isocell] (1.0,1.0) rectangle (3.0,3.0);
-  \node[sub] at (2.0,3.2) {kleines Quadtree-Quadrat};
-  % Die wahre Nullstelle
-  \node[root] at (2.3,1.9) {};
-  \node[font=\footnotesize,red!80!black] at (2.65,1.95) {$z_*$};
-  % Newton-Iterationspunkte (Konvergenz auf z*)
-  \node[newtonpt,label={[font=\tiny,above=-1pt]:$z_0$}] (z0) at (1.4,2.7) {};
-  \node[newtonpt,label={[font=\tiny,above=-1pt]:$z_1$}] (z1) at (1.8,2.35) {};
-  \node[newtonpt,label={[font=\tiny,above=-1pt]:$z_2$}] (z2) at (2.15,2.05) {};
-  \node[newtonpt] (z3) at (2.28,1.92) {};
-  % Pfeile
-  \draw[->,teal!60!black,thick] (z0) -- (z1);
-  \draw[->,teal!60!black,thick] (z1) -- (z2);
-  \draw[->,teal!60!black,thick] (z2) -- (z3);
-  %
-  \node[sub] at (2.0,0.6) {quadratische Konvergenz};
-  \node[sub] at (2.0,0.25) {gegen $z_*$};
-\end{scope}
-%
-\end{tikzpicture}
+\includegraphics{papers/weyl/images/hybrid.pdf}
 \caption{Hybrid-Strategie: links liefert der Quadtree-Algorithmus für jede Nullstelle
 ein kleines Quadrat mit $N(D_i) = 1$, das nur noch eine einzige Nullstelle enthält.
 Die Mittelpunkte dieser Quadrate dienen als Startwerte $z_0$ für das
 Newton-Verfahren (rechts), das in wenigen Schritten quadratisch gegen die wahre
-Nullstelle $z_*$ konvergiert. So vereinen sich die globale Zuverlässigkeit des
+Nullstelle $\alpha_*$ konvergiert. So vereinen sich die globale Zuverlässigkeit des
 Quadtree und die lokale Geschwindigkeit von Newton.
 \label{weyl:fig:hybrid}}
 \end{figure}

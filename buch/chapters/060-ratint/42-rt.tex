@@ -1,0 +1,373 @@
+%
+% Der Satz von Rothstein-Trager
+%
+\subsection{Der Satz von Rothstein-Trager}
+Die Form des logarithmischen Teils des Integrals ist zwar bekannt,
+und der Satz~\ref{buch:ratint:rothsteintrager:satz:residuum}
+ermöglicht eine direkte Berechnung des Koeffizienten, sobald
+die Nullstellen bekannt sind, aber genau die Bestimmung der
+Nullstellen war ja der Punkt, warum die Methode von Bernoulli
+als unzureichend erkannt wurde.
+Dies ändert der folgende Satz von Rothstein-Trager.
+
+\begin{satz}[Rothstein-Trager]
+\label{buch:ratint:rothsteintrager:satz:rothsteintrager}
+\index{Rothstein, Michael}%
+\index{Trager, Barry M.}%
+Ist $p(z)$ teilerfremd zum normierten, quadratfreien Polynom $q(z)$ mit
+$\deg p(z)<\deg q(z)$, dann ist
+\begin{equation}
+\int
+\frac{p(z)}{q(z)}
+\,dz
+=
+\sum_{k=1}^m c_k \log v_k(z),
+\label{buch:ratint:rothsteintrager:eqn:rtintegral}
+\end{equation}
+wobei die $c_k$ die verschiedenen, möglicherweise komplexen Zahlen $c$ sind
+derart, dass $p(z)-cq'(z)$ und $q(z)$ einen nichttrivialen gemeinsamen
+Teiler haben.
+Die zugehörigen $v_k(z)$ sind
+\[
+v_k(z)
+=
+\operatorname{ggT}\bigl(p(z)-c_kq'(z),q(z)\bigr).
+\]
+Sie sind normiert, teilerfremd und quadratfrei.
+\end{satz}
+
+Aus der Methode von Bernoulli ist bekannt, dass die Stammfunktion tatsächlich
+\index{Bernoulli!Methode von}%
+die Form~\eqref{buch:ratint:rothsteintrager:eqn:rtintegral} hat.
+Danach sind die $v_k(z)$ verschiedene Linearfaktoren, deren Produkt
+\[
+q(z)
+=
+\prod_{k=1}^m v_k(z)
+\]
+ist.
+Falls zwei Faktoren $v_i(z)$ und $v_k(z)$ den gleichen Koeffizienten
+$c=c_i=c_k$ haben, können die beiden Terme zu einem Term $v(z)$
+zusammengefasst werden mit $v(z) = v_i(z)v_k(z)$.
+Es ist nämlich
+\[
+cv(z)
+=
+c\log \bigl(v_i(z)v_k(z)\bigr)
+=
+c(\log v_i(z) + \log v_k(z))
+=
+c_i \log v_i(z) + c_k\log v_k(z).
+\]
+Man darf also sogar davon ausgehen, dass die $c_k$ alle verschieden
+sind und die $v_k(z)$ Produkte von verschiedenen Linearfaktoren.
+Somit haben die $v_k(z)$ nur einfache Nullstellen, sie sind also
+alle quadratfrei.
+
+\begin{proof}
+Nach der Vorbemerkung muss noch gezeigt werden, dass die Konstanten
+$c_k$ und die Polynome $v_k(z)$ auf die genannte Art gefunden werden
+können.
+Wir nehmen dazu an, dass die Stammfunktion die Form 
+\eqref{buch:ratint:rothsteintrager:eqn:rtintegral} hat
+und schreiben
+\begin{align*}
+u_k(z) &= \prod_{\scriptstyle i=1\atop \scriptstyle i\ne k}^m v_i(z)
+&&\text{und}&
+v(z)   &= \prod_{i=1}^m v_i(z).
+\end{align*}
+Die Ableitung von \eqref{buch:ratint:rothsteintrager:eqn:rtintegral} ist
+\[
+\frac{p(z)}{q(z)}
+=
+\sum_{k=1}^m c_k \frac{v'_k(z)}{v_k(z)}.
+\]
+Durch Multiplizieren mit $q(z)$ und allen $v_i(z)$, $i=1,\dots,m$,
+erhalten wir
+\begin{equation}
+p(z)\prod_{i=1}^m v_i(z)
+=
+\sum_{k=1}^m
+c_k
+q(z)
+v'_k(z)
+\prod_{\scriptstyle i=1 \atop \scriptstyle i\ne k}^m v_i(z)
+=
+\sum_{k=1}^m
+c_k
+q(z)
+v'_k(z)
+u_k(z).
+\label{buch:ratint:rothsteintrager:eqn:produkt}
+\end{equation}
+
+Für den Beweis gehen wir in den folgenden Schritten vor:
+\begin{enumerate}
+\item Schritt:
+$q(z)$ teilt das Produkt $v(z)$ aller $v_i(z)$.
+Die rechte Seite von \eqref{buch:ratint:rothsteintrager:eqn:produkt}
+enthält den Faktor $q(z)$, also muss auch die linke Seite durch $q(z)$
+teilbar sein.
+Da $p(z)$ und $q(z)$ teilerfremd sind, muss $q(z)$ ein Teiler des
+Produktes auf der linken Seite von
+\eqref{buch:ratint:rothsteintrager:eqn:produkt} sein.
+
+\item Schritt:
+Jeder Faktor $v_i(z)$ teilt $q(z)$.
+$v_i(z)$ ist ein Faktor der linken Seite von
+\eqref{buch:ratint:rothsteintrager:eqn:produkt}
+und jedes Faktors $c_kq(z)v'_k(z)u_k(z)$ der rechten Seite ausser
+im Fall $k=i$.
+Daher muss $v_i(z)$ ein Teiler von $c_iq(z)v'_i(z)u_i(z)$ sein.
+Die Polynome $v_i(z)$ und $u_i(z)$ sind teilerfremd und weil $v_i(z)$
+quadratfrei sind auch $v_i(z)$ und $v'_i(z)$.
+Somit muss $v_i(z)$ ein Teiler von $q(z)$ sein.
+
+\item Schritt:
+Jeder Faktor $v_i(z)$ ein Teiler von $q(z)$, also ist auch
+das Produkt $v(z)$ ein Teiler von $q(z)$.
+Da sowohl $v(z)$ als auch $q(z)$ normierte Polynome sind, folgt aus
+$v(z)\mid q(z)$ und $q(z)\mid v(z)$, dass $v(z)=q(z)$.
+
+\item Schritt: wegen $v(z)=q(z)$ kann man jetzt beide Seiten von
+\eqref{buch:ratint:rothsteintrager:eqn:produkt}
+durch $q(z)$ teilen und erhält
+\begin{equation}
+p(z)
+=
+\sum_{i=1}^m
+c_i
+v'_i(z)
+u_i(z).
+\label{buch:ratint:rothsteintrager:eqn:produkt2}
+\end{equation}
+
+\item Schritt:
+Die Gleichung
+\eqref{buch:ratint:rothsteintrager:eqn:produkt2} kann auch als
+\[
+p(z)-c_k v'_k(z) u_k(z)
+=
+\sum_{\scriptstyle i=1\atop \scriptstyle i\ne k}^m c_iv'_i(z) u_i(z)
+\]
+geschrieben werden.
+Ein nichttrivialer Teiler $t(z)$ von $v_k(z)$ teilt alle
+Summanden auf der rechten Seite und muss daher auch ein Teiler
+von $p(z)-c_k v'_k(z) u_k(z)$ sein.
+Insbesondere ist $v_k(z)$ selbst ein Teiler von $p(z)-c_kv'_k(z)u_k(z)$
+oder anders ausgedrückt: $v_k(z)$ ist der grösste gemeinsame Teiler von
+$p(z)-c_kv'_k(z)u_k(z)$ und $v_k(z)$.
+
+\item Schritt:
+Ein nichttrivialer Teiler $t(z)$ von $v_k(z)$ teilt jeden Term $u_i(z)$
+mit $i\ne k$, somit ist $t(z)$ ein Teiler von
+\[
+p(z) - c_kv'_k(z) u_k(z)
+-
+c_k \sum_{\scriptstyle i=1\atop\scriptstyle i\ne k}
+v'_i(z)u_i(z)
+=
+p(z) - c_k \sum_{i=1}^m v'_i(z)u_i(z)
+=
+p(z) - c_k q'(z)
+\]
+sein.
+
+\item Schritt:
+Ein nichttrivialer Teiler von $v_i(z)$ mit $i\ne k$ ist ein Teiler von
+$p(z)-c_iq'(z)$.
+Wäre er auch ein Teiler von $p(z)-c_kq'(z)$, dann müsste er auch ein Teiler
+der Differenz
+\[
+p(z)-c_iq'(z)-(p(z)-c_kq'(z))
+=
+(c_i-c_k)q'(z)
+\ne 0
+\]
+sein.
+Dann wäre er aber auch ein gemeinsamer Teiler von $q(z)$ und $q'(z)$, was
+nicht möglich ist, weil $q(z)$ quadratfrei ist.
+
+\item Schritt:
+Ein gemeinsamer Teiler von $p(z)-c_kq'(z)$ und $b(z)$ kann in Faktoren
+$t_i(z)$ zerlegt werden, die $p(z)-c_kq'(z)$ und $v_i(z)$ teilen.
+Nach dem letzten Schritt müssen die Faktoren $t_i(z)$ mit $i\ne k$
+trivial sein.
+Ist ein gemeinsamer Teiler von $p(z)-c_kq'(z)$ und $b(z)$ auch
+ein gemeinsamer Teiler von $p(z)-c_kq'(z)$ und $v_k(z)$.
+Insbesondere ist $v_k(z)$ der grösste gemeinsame Teiler von $p(z)-c_kq'(z)$
+und $q(z)$.
+\end{enumerate}
+Damit ist alles bewiesen.
+\end{proof}
+
+Wenn es gelingt, eine algebraische Methode zur Bestimmung der
+Koeffizienten $c_i$ zu finden, können auch die Faktoren 
+$r_i(z)$ gefunden werden.
+Man beachte, dass nicht mehr eine Faktorisierung von $q(z)$
+verlangt wird, sondern nur noch die Möglichkeit, gemeinsame
+Faktoren zu finden, was im Prinzip mit dem euklidischen Algorithmus
+möglich ist.
+
+\begin{beispiel}
+Der Integrand von
+\[
+\int \frac{1}{z^3+z}
+\,dz
+\]
+hat nicht die Form, die man in der Methode von Bernoulli erwarten
+würde, aber der Nenner ist quadratfrei, die Methode von Rothstein-Trager
+ist daher anwendbar mit $p(z)=1$ und $q(z) = z^3+z$.
+Es müssen daher $c$ gefunden werden, so dass 
+\[
+1-c\cdot (3z^2+1)
+\qquad\text{und}\qquad
+z^3+1
+\]
+einen nichttrivialen gemeinsamen Teiler haben.
+Der euklidische Algorithmus ergibt
+\begin{align}
+z^3+z
+&=
+-\frac{1}{3c}z
+\cdot
+(1-c - 3cz^2)
++
+\frac{(2c+1)z}{3c}
+\label{buch:ratint:rothsteintrager:bsp1:rest1}
+\\
+(1-c - 3cz^2)
+&=
+-\frac{9c^2z}{2c+1}
+\cdot
+\frac{(2c+1)z}{3c}
++
+1-c
+\label{buch:ratint:rothsteintrager:bsp1:rest2}
+\end{align}
+In \eqref{buch:ratint:rothsteintrager:bsp1:rest1} verschwindet
+der Rest, falls $c_1=-\frac12$ ist.
+Das zugehörige $v_1(z)$ erhält man, indem man $c_1$ in den Divisor
+\[
+1-c_1-3c_1z^2
+=
+1+\frac12+\frac32z^2
+=
+\frac32(z^2+1)
+\qquad\Rightarrow\qquad
+v_1(z)
+=
+z^2+1
+\]
+einsetzt.
+Nimmt man $c\ne -\frac12$ an, folgt aus dem zweiten
+Schritt
+\eqref{buch:ratint:rothsteintrager:bsp1:rest2}
+des euklidischen Algorithmus, dass ein nichttrivialer Teiler vorliegt,
+wenn $1-c=0$ ist, also $c_2=1$.
+Einsetzen von $c_2$ in den Divisor ergibt
+\[
+\frac{(2c_2+1)z}{3c_2}
+=
+\frac{3z}{3}
+=
+z
+=
+v_2(z).
+\]
+Damit kann man jetzt das Integral
+\[
+\int \frac{1}{z^3+z}\,dz
+=
+c_1\log v_1(z)
++
+c_2\log v_2(z)
+=
+-\frac12\log(z^2+1)
++
+\log z
+\]
+hinschreiben.
+\end{beispiel}
+
+\begin{beispiel}
+Man wende die Methode von Rothstein-Trager auf das Integral
+\[
+\int \frac{1}{z^2+1}\,dz
+\]
+an.
+
+\smallskip
+
+\noindent
+In diesem Beispiel ist $p(z) = 1$ und $q(z)=z^2+1$.
+Es müssen die Konstanten $c_k$ gefunden werden, für die
+\[
+p(z)-c\cdot q'(z)
+=
+1-c\cdot 2z
+\qquad\text{und}\qquad
+q(z) = z^2 +1
+\]
+einen nichttrivialen gemeinsamen Teiler haben.
+Aus der Faktorisierung $z^2+1=(z+i)(z-i)$ kann man ablesen, dass
+\[
+1-c\cdot 2z
+=
+-2c\biggl(z-\frac{1}{2c}\biggr)
+=
+-2c(z\pm i)
+\]
+sein muss, woraus man
+\[
+-\frac{1}{2c}=\pm i
+\qquad\Rightarrow\qquad
+c
+=
+\pm\frac12i
+\]
+ablesen kann.
+Es folgt, dass
+\[
+\int \frac{1}{z^2+1}\,dz
+=
+\frac{i}{2}\log (z+i)
+-
+\frac{i}{2}\log (z-i)
+=
+\frac{i}2
+\log
+\frac{z+i}{z-i}
+=
+\arctan z
+\]
+mit der aus der eulerschen Formel ableitbaren Darstellung der
+Arkustangensfunktion durch komplexe Logarithmusfunktionen
+(siehe dazu auch später Satz~\ref{buch:intalg:elementar:satz:trigo:tancot}).
+\end{beispiel}
+
+%
+% Gemeinsame Nullstellen und die Resultante
+%
+\subsubsection{Gemeinsame Nullstellen und die Resultante}
+Der Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
+verlagert das Problem, die Nullstellen des Nenners zu finden darauf,
+die Koeffizienten $c_i$ zu finden.
+Dies ist aus zwei Gründen einfacher:
+\begin{enumerate}
+\item
+Oft sind einige der Koeffizienten $A_k$ gleich.
+In diesen Fällen ist es nicht nötig, die zugehörigen Linearfaktoren
+zu kennen, es genügt das Produkt dieser Linearfaktoren zu finden,
+dies ist das Polynom $r_i(z)$ im
+Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}.
+\item
+Für das Kriterium, einen gemeinsamen Teiler zu finden gibt es
+ein einfaches algebraisches Kriterium, nämlich die Resultante.
+\end{enumerate}
+
+In Kapitel~\ref{chapter:resultante} wird beschrieben, wie die 
+Resultante des Problem, die Koeffizienten $c_i$ zu finden, lösen
+kann.
+\index{Resultante}%
+

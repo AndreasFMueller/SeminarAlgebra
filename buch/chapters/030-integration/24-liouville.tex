@@ -1,0 +1,144 @@
+%
+% 24-liouville.tex -- Der Satz von Liouville
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Der Satz von Liouville}
+Die Cauchy-Formel für die Ableitungen hat die unerwartete Konsquenz,
+dass auf ganz $\mathbb{C}$ definierte holomorphe Funktionen, die nicht
+Polynome sind, exponentiell schnell anwachsen müssen, wenn $z$ gross wird.
+
+\begin{definition}[polynomiell beschränkt]
+Eine in ganz $\mathbb{C}$ definierte komplexe Funktion $f(z)$ heisst
+\emph{polynomiell beschränkt}, wenn es $N\in\mathbb{N}$ und $a>0$
+\index{polynomiell beschränkt}%
+gibt derart, dass
+\begin{equation}
+|f(z)|
+\le a(1+|z|^N)
+\label{buch:integration:eqn:liouvilleschranke}
+\end{equation}
+für alle $z\in\mathbb{C}$ gilt.
+\end{definition}
+
+\begin{satz}[Liouville]
+\label{buch:integration:satz:liouville}
+\index{Satz!von Liouville}%
+\index{Liouville, Joseph}%
+Sei $f$ eine auf ganz $\mathbb{C}$ holomorphe Funktion, die polynomiell
+beschränkt ist.
+Dann ist $f$ ein Polynom vom Grad höchstens $N$.
+\end{satz}
+
+\begin{proof}
+Wir wenden den Satz
+\ref{buch:integration:satz:ableitungn}
+für Ableitungen einer holomorphen Funktion auf den Weg
+$\gamma(t)=z_0+Re^{2\pi it}$.
+Nach der Formel \eqref{buch:integration:eqn:ableitungn}
+gilt für für alle $k$
+\begin{align*}
+f^{(k)}(z_0)
+&=
+\frac{k!}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{(z-z_0)^{k+1}}
+\,dz.
+\intertext{Mit der Voraussetzung
+\eqref{buch:integration:eqn:liouvilleschranke}
+wir dies durch}
+|f^{(k)}(z_0)|
+&=
+\frac{k!}{2\pi}
+\oint_\gamma
+\biggl|
+\frac{f(z)}{(z-z_0)^{k+1}}
+\biggr|
+\,dz
+\\
+&\le
+\frac{k!}{2\pi}
+\int_0^1
+\frac{|f(\gamma(t))|}{R^{k+1}}
+2\pi R
+\,dt
+\\
+&\le
+k!
+\int_0^1
+\frac{|f(\gamma(t))|}{R^k}
+\,dt
+\\
+&\le
+\frac{k!}{R^k}
+\int_0^1
+a(1+|\gamma(t)|^N)
+\,dt
+\\
+&\le
+\frac{k!}{R^k}
+\int_0^1
+a(1+(|z_0|+R)^N)
+\,dt
+\\
+&\le
+k!
+a
+\frac{
+1+(|z_0|+R)^N
+}{R^k}
+\end{align*}
+abgeschätzt.
+Für $R\to\infty$ strebt der Bruch auf der rechten Seite geht für $k>N$ 
+gegen $0$, so dass folgt $f^{(k)}(z_0)=0$.
+Alle Ableitungen höherer als $N$-ter Ordnung der Funktion $f$ verschwinden,
+also ist $f$ ein Polynom vom Grad höchstens $N$.
+\end{proof}
+
+Man beachte, dass der Grenzübergang im letzten Schritt des Beweises 
+verwendet, dass die Funktion auf ganz $\mathbb{C}$ holomorph ist.
+Sobald es Punkte in $\mathbb{C}$ gibt, in denen die Funktion nicht
+holomorph ist, gilt auch die Integralformel nicht mehr und damit
+bricht die Abschätzungskette des Beweises zusammen.
+
+Der Spezialfall $N=0$ liefert die folgende Aussage.
+
+\begin{korollar}
+Eine beschränkte, auf ganz $\mathbb{C}$ holomorphe Funktion ist
+konstant.
+\end{korollar}
+
+Für reelle Funktionen kann ein solches Resultat nicht gelten.
+Die trigonometrischen Funktionen $\sin x$ und $\cos x$ sind
+für alle reellen Argumente von $x$ beschränkt.
+In $\mathbb{R}$ gilt für beide Funktionen
+\[
+|f(x)| \le 1,
+\]
+was der Ungleichung
+\eqref{buch:integration:eqn:liouvilleschranke}
+mit $N=0$ und $a=1$ entspricht.
+Die trigonometrischen Funktionen sind aber alles andere als konstant
+und auch keine Polynome, da Ableitungen beliebig hoher Ordnung nicht
+verschwinden.
+
+Umgekehrt bedeutet der Satz von Liouville, dass eine Funktion,
+die durch eine für alle $z\in\mathbb{C}$ konvergente Potenzreihe
+definiert ist, die kein Polynom ist, nicht polynomiell beschränkt
+sein kann.
+Für die Sinus- und Kosinusfunktionen zeigt die Definition
+\[
+\cos z = \frac{e^{iz}+e^{-iz}}{2}
+\qquad\text{und}\qquad
+\sin z = \frac{e^{z}-e^{-iz}}{2i},
+\]
+dass sich die Funktionen für imaginäre Argumente wie Exponentialfunktionen
+verhalten, die nicht polynomiell beschränkt sind.
+
+Holomorphe Funktionen, die keine Polynome sind, aber für grosse $z$
+nur polynomiell anwachsen, können nicht in ganz $\mathbb{C}$
+holomorph sein.
+Rationale Funktionen, bei denen der Nennergrad grösser ist als der
+Zählergrad, sind Beispiele für dieses Phänomen.
+Tatsächlich hat eine solche Funktion immer mindestens eine Polstelle,
+in der die Funktion nicht definiert ist.
