@@ -80,29 +80,36 @@ Die kleineren kreisförmigen Knospen verhalten sich ähnlich, so gibt es
     \item \emph{Periode-4 Knospen},
     \item und so weiter.
 \end{itemize}
-Grundsätzlich wird, mit sinkender Knospengrösse, die Periode grösser.
+Grundsätzlich wird mit sinkender Knospengrösse die Periode grösser.
 Man kann also jede Region der Mandelbrot-Menge mit einer Periode bezeichnen.
-Beispiele für Punkte $c$ in verschiedenen Regionen sind in der Tabelle \ref{julia:beispiele_aussehen_mandel} dargestellt.
-In der letzten Spalte ist jeweils $z_0$ inklusive der Folge beschrieben, die sich ergibt wenn die Funktion $z^2 + c$ mit dem zugehörigen $c$ iteriert wird.
+Beispiele für Punkte $c$ in vier verschiedenen Regionen sind in der Tabelle und Abbildung \ref{julia:beispiele_aussehen_mandel} dargestellt.
+Für jede Funktion $z^2 + c$ mit einem dieser $c$-Werte gibt es einen \emph{anziehenden} periodischen Punkt $z_0$ mit der jeweiligen Periode.
+In der letzten Spalte ist jeweils der \emph{anziehende} periodische Punkt $z_0$ (zuoberst) inklusive der Folge beschrieben, die sich ergibt wenn die zugehörige Funktion, ausgehend von $z_0$, iteriert wird.
 
-\begin{table}[]
+\begin{figure}
     \centering
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|c|l|c|c|}
         \hline
         \textbf{Wo} & \textbf{$c$} & \textbf{Periode} & \textbf{$z_0$ und ausgehende Folge}    \\
         \hline
-        Kardioide   & $-0.5$       & $1$              & \makecell{$\frac{1\pm\sqrt{3}}{2}$ \\ $\frac{1\pm\sqrt{3}}{2}$ \\ $\ldots$} \\
+        Kardioide   & $c_1 = -0.5$       & $1$              & \makecell{$\frac{1\pm\sqrt{3}}{2}$ \\ $\frac{1\pm\sqrt{3}}{2}$ \\ $\ldots$} \\
         \hline
-        2-Knospe    & $-1$         & $2$              & \makecell{$0$                      \\ $-1$                     \\ $0$      \\ $\ldots$} \\
+        2-Knospe    & $c_2 = -1$         & $2$              & \makecell{$0$                      \\ $-1$                     \\ $0$      \\ $\ldots$} \\
         \hline
-        3-Knospe& $-\frac{1}{4} + \frac{3}{4}i$ & $3$ & \makecell{$0.215751 + 0.056067i$ \\ $-0.2066 + 0.7742i$ \\ $-0.8067 + 0.4301i$ \\ $0.215751 + 0.056067i$ \\ $\ldots$} \\
+        3-Knospe& $c_3 = -\frac{1}{4} + \frac{3}{4}i$ & $3$ & \makecell{$0.215751 + 0.056067i$ \\ $-0.2066 + 0.7742i$ \\ $-0.8067 + 0.4301i$ \\ $0.215751 + 0.056067i$ \\ $\ldots$} \\
         \hline
-        4-Knospe    & $-1.3$       & $4$              & \makecell{$-1.2996224637398612$ \\ $0.3890185482572668$ \\ $-1.1486645691118087$ \\ $0.019430292332817123$ \\ $-1.2996224637398612$ \\ $\ldots$} \\
+        4-Knospe    & $c_4 = -1.3$       & $4$              & \makecell{$-1.2996224637398612$ \\ $0.3890185482572668$ \\ $-1.1486645691118087$ \\ $0.019430292332817123$ \\ $-1.2996224637398612$ \\ $\ldots$} \\
         \hline
     \end{tabular}
-    \caption{Beispielspunkte für den Aufbau der Mandelbrot-Menge}
+
+    \vspace{1em}
+
+    \includegraphics[width=\textwidth]{papers/julia/imgs/mandelbrot_punkte.png}
+
+    \caption{Beispielspunkte in verschiedenen Regionen der Mandelbrot-Menge}
     \label{julia:beispiele_aussehen_mandel}
-\end{table}
+\end{figure}
+
 
 \subsection{Verallgemeinerungen}
 Die Mandelbrot-Menge lässt sich auf verschiedene Arten verallgemeinern.
