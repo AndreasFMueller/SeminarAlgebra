@@ -9,7 +9,7 @@ auf ein kongruentes Gebiet ab.
 Ähnlichkeitsabbildungen bilden ein Gebiet immer auf ein ähnliches
 Gebiet ab.
 In beiden Fällen gibt es einen sehr einfachen Zusammenhang zwischen
-Urbildmenge und Bildmenge, es ist sehr einfach zu entscheiden,
+Urbildmenge und Bildmenge, es ist leicht zu entscheiden,
 ob eine Abbildung zuwischen zwei Mengen existiert.
 
 Die Menge der konformen Abbildung ist jedoch viel grösser,
@@ -39,7 +39,7 @@ H = \{z\in\mathbb{C}\mid \operatorname{Im}z> 0\}.
 \index{Halebene, obere}%
 Sie bildet die reelle Achse auf zwei Geraden ab, die den Winkel $\alpha \pi$
 einschliessen.
-Durch zusammensetzen solcher Abbildungen lässt sich eine Abbildung
+Durch Zusammensetzen solcher Abbildungen lässt sich eine Abbildung
 der oberen Halbebene auf ein Polygon konstruieren.
 
 \begin{definition}[Schwarz-Christoffel-Transformation]
@@ -62,10 +62,10 @@ die Schwarz-Christoffel-Transformation.
 \index{Schwarz-Christoffel-Transformation}%
 \end{definition}
 
-Die Christoffel-Transformation ist nur bis auf Integrationskonstante
-definiert.
+Die Schwarz-Christoffel-Transformation ist nur bis auf eine
+Integrationskonstante definiert.
 Ebenso muss man bei der Berechnung der Potenzen $(w-a_k)^{1-\alpha k/\pi}$
-im Nenner einen geeignete Fortsetzung der Potenzfunktion wählen, damit
+im Nenner eine geeignete Fortsetzung der Potenzfunktion wählen, damit
 eine holomorphe Funktion entsteht.
 
 Man kann zeigen, dass die Schwarz-Christoffel-Transformation die reelle Achse
@@ -94,7 +94,7 @@ f(z)
 (w-\frac{1}{k})^{1-\frac12}
 (w+\frac{1}{k})^{1-\frac12}
 (w+1)^{1-\frac12}
-}.
+}\,dw.
 \end{align*}
 mit $0<k<1$.
 Die Bildmenge ist ein Polygon mit 5 Ecken und Winkeln $90^\circ$-Winkeln
@@ -117,6 +117,7 @@ In Matlab steht ein Paket zur Verfügung, welches die
 Schwarz-Christoffel-Transformation durch interaktive Wahl der Eckpunkte
 des Polygons zu konstruieren gestattet.
 \index{Matlab}%
+Sie wird in Kapitel~\ref{chapter:elektro} verwendet.
 
 %
 % Der riemannsche Abbildungssatz
@@ -142,6 +143,7 @@ z\in\mathbb{C}
 \end{definition}
 
 \begin{satz}[Riemann]
+\label{buch:holomorph:riemann:satz:riemann}
 Ist $U$ ein einfach zusammenhängendes Gebiet in $\mathbb{C}$, welches nicht
 ganz $\mathbb{C}$ ist, dann gibt es eine biholomorphe Abbildung
 $f\colon U\to D$ von $U$ auf die Einheitskreisscheibe.
@@ -160,7 +162,9 @@ Beweise des Satzes.
 
 Auch die Einheitskreisscheibe erfüllt die Voraussetzungen des Satzes.
 Drehungen $z \mapsto f(z)=e^{i\varphi} z$ bilden $D$ biholomorph auf $D$ ab.
-Die Forderung $f'(z)=e^{i\varphi}>0$ bedeutet, dass $\varphi=0$ sein muss,
+Die Forderung $f'(z)=e^{i\varphi}>0$ in der Formulierung des
+Satzes~\ref{buch:holomorph:riemann:satz:riemann}
+bedeutet, dass $\varphi=0$ sein muss,
 sie schliesst also Drehungen aus.
 
 Für $z_0\in D$ ist die Abbildung
@@ -226,6 +230,8 @@ Die obere Halbebene $H$ erfüllt die Voraussetzungen des riemannschen
 Abbildungssatzes.
 Er garantiert, dass es eine Abbildung $f\colon H\to D$ der oberen
 Halbebene auf die Einheitskreisscheibe gibt.
+Eine solche kan als Möbius-Transformation gefunden werden, wie in
+Kapitel~\ref{chapter:moebius} gezeigt wird.
 Auch ein Polygon $P$ in der komplexen Ebene erfüllt die Bedingungen,
 somit gibt es auch ein biholomorphe Abbildung des Polygons auf die
 Einheitskreisscheibe.
