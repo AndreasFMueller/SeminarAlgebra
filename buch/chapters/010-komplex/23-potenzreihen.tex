@@ -43,7 +43,9 @@ die Partialsummenfolge $s_n(z)$ konvergent ist.
 
 \begin{beispiel}
 \label{buch:komplex:funktionen:bsp:geometrisch}
-Für $|z|<1$ ist 
+Für $|z|<1$ ist die geometrische Reihe
+\index{geometrische Reihe}%
+\index{Reihe!geometrisch}%
 \[
 f(z)
 =
@@ -57,8 +59,8 @@ f(z)
 \frac{1}{1-z}
 \]
 der Funktion $f(z)$ bekannt.
-Um zu zeigen, dass dies auch für komplexe Argumente stimmt.
-Dazu bestimmen wir die Partialsummen
+Um zu zeigen, dass dies auch für komplexe Argumente stimmt,
+bestimmen wir die Partialsummen
 \[
 s_n(z)
 =
@@ -84,7 +86,7 @@ s_n(z) - s_m(z)
 =
 \frac{z^{n+1}-z^{m+1}}{z-1}.
 \]
-Wir dürfen ohne Beschränkung der allgemeinheit annehmen, dass $n<m$ ist.
+Wir dürfen ohne Beschränkung der Allgemeinheit annehmen, dass $n<m$ ist.
 Damit können wir die Differenz abschätzen
 \[
 |s_n(z)-s_m(z)|
@@ -174,7 +176,7 @@ ist $a_n=1$ für alle $n$, es folgt daher, dass der
 Konvergenzradius $\varrho=1$ ist.
 
 Falls alle bis auf endlich viele Koeffizienten einer Potenzreihen $\ne 0$
-sind, kann auch das Quotientenkriterium angewndet werden.
+sind, kann auch das Quotientenkriterium angewendet werden.
 Falls der Grenzwert
 \[
 r
@@ -184,7 +186,7 @@ r
 \frac{a_n}{a_{n+1}}
 \biggr|
 \]
-existiert, dann ist $\varrho=r$ der Konvergenzradius.
+existiert, ist $\varrho=r$ der Konvergenzradius.
 Auch diese Kriterium liefert im 
 Beispiel~\ref{buch:komplex:funktionen:bsp:geometrisch}
 wieder den Konvergenzradius 1.
@@ -201,7 +203,8 @@ hat die Form
 \qquad\Rightarrow\qquad
 a_k = \frac{1}{k!}.
 \]
-Mit dem Quotientenkriterium muss der Grenzwert
+Zur Bestimmung des Konvergenzradius mit
+dem Quotientenkriterium muss der Grenzwert
 \[
 \lim_{n\to\infty}
 \biggl|
@@ -215,8 +218,9 @@ Mit dem Quotientenkriterium muss der Grenzwert
 =
 \lim_{n\to\infty} n
 =
-\infty,
+\infty
 \]
+berechnet werden,
 der Konvergenzradius ist also unendlich.
 
 Dies zeigt sich auch in der Cauchy-Hadamard-Formel:
