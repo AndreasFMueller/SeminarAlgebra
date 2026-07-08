@@ -6,20 +6,26 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 0\label{pade:section:teil0}}
-\kopfrechts{Teil 0}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua \cite{pade:bibtex}.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-dolor sit amet.
+\section{Einführung}
+\label{pade:section:einfuehrung}
+\kopfrechts{Einführung}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.  Stet clita
-kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-amet.
+In der Mathematik sowie in den Natur- und Ingenieurwissenschaften müssen Funktionen häufig numerisch ausgewertet werden. Beispiele hierfür sind die Exponentialfunktion, trigonometrische Funktionen oder der natürliche Logarithmus. Obwohl diese Funktionen mathematisch eindeutig definiert sind, lassen sie sich auf einem Computer nicht direkt berechnen. Stattdessen werden sie durch geeignete Näherungsverfahren ersetzt.
+
+Das Ziel einer Approximation besteht darin, eine mathematisch komplizierte Funktion durch einen einfacheren Ausdruck zu ersetzen, dessen Werte möglichst nahe an der ursprünglichen Funktion liegen. Je nach Problemstellung existieren unterschiedliche Approximationsverfahren. Eines der bekanntesten Verfahren ist die Taylorreihe, welche eine Funktion durch ein Polynom approximiert. Taylorpolynome besitzen den Vorteil, dass sie sich einfach berechnen, differenzieren und integrieren lassen.
+
+Taylorpolynome liefern jedoch nur in der unmittelbaren Umgebung ihres Entwicklungspunktes eine hohe Genauigkeit. Entfernt man sich von diesem Punkt, wächst der Approximationsfehler häufig deutlich an. Für viele mathematische und technische Anwendungen reicht eine rein lokale Approximation deshalb nicht aus.
+
+Eine Möglichkeit, dieses Problem zu lösen, besteht darin, eine Funktion nicht durch ein einzelnes Polynom, sondern durch den Quotienten zweier Polynome zu approximieren. Solche rationalen Funktionen besitzen zusätzliche Freiheitsgrade und können den Verlauf vieler Funktionen wesentlich genauer beschreiben. Auf dieser Idee basiert die Padé-Approximation.
+
+Die Padé-Approximation verwendet dieselben Informationen wie die Taylorreihe, ordnet diese jedoch nicht zu einem Polynom, sondern zu einer rationalen Funktion an. Dadurch kann häufig eine deutlich bessere Approximation erreicht werden, ohne dass zusätzliche Informationen über die Funktion benötigt werden.
+
+Benannt ist dieses Verfahren nach dem französischen Mathematiker Henri Eugène Padé (1863--1953). Im Rahmen seiner Dissertation an der Universität Paris untersuchte er Ende des 19.~Jahrhunderts die Frage, wie sich Funktionen möglichst genau durch rationale Funktionen approximieren lassen. Seine Ergebnisse veröffentlichte er im Jahr 1892 und legte damit den Grundstein für das heute nach ihm benannte Verfahren.
+
+Bereits zu dieser Zeit waren Taylorreihen ein zentrales Werkzeug der Analysis. Es war jedoch bekannt, dass Taylorpolynome nur in der Umgebung ihres Entwicklungspunktes eine hohe Genauigkeit besitzen und sich ihre Genauigkeit mit zunehmendem Abstand häufig verschlechtert. Henri Padé verfolgte deshalb einen anderen Ansatz. Er verwendete die Koeffizienten der Taylorreihe nicht direkt zur Konstruktion eines Polynoms, sondern zur Bestimmung einer rationalen Funktion. Dieser scheinbar kleine Unterschied führt häufig zu einer deutlich besseren Approximation.
+
+Heute gehört die Padé-Approximation zu den wichtigsten Verfahren der Approximationstheorie. Sie findet unter anderem Anwendung in der numerischen Mathematik, der Regelungstechnik, der theoretischen Physik sowie bei der numerischen Lösung von Differentialgleichungen. Moderne mathematische Software verwendet Padé-Approximationen in zahlreichen Algorithmen zur effizienten Berechnung elementarer Funktionen.
+
+Zum Verständnis der Padé-Approximation müssen zunächst die Grundlagen der Taylorreihe betrachtet werden. Diese bildet die mathematische Grundlage des gesamten Verfahrens und liefert die Koeffizienten, aus denen später die Padé-Approximation konstruiert wird.
 
 
