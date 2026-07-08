@@ -6,53 +6,101 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 1
-\label{pade:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
+\section{Die Taylorreihe als Grundlage}
+\label{pade:section:taylor}
+\kopfrechts{Taylorreihe}
+
+Die Padé-Approximation baut vollständig auf der Taylorreihe einer Funktion auf. Ohne die Taylorreihe lässt sich keine Padé-Approximation konstruieren, da sämtliche Koeffizienten der späteren rationalen Funktion aus den Koeffizienten der Taylorreihe bestimmt werden. Bevor das eigentliche Verfahren vorgestellt wird, sollen deshalb zunächst die wichtigsten Eigenschaften der Taylorreihe erläutert werden.
+
+Die Grundidee der Taylorreihe besteht darin, eine genügend oft differenzierbare Funktion in der Umgebung eines bestimmten Punktes durch eine Potenzreihe zu beschreiben. Dieser Punkt wird als Entwicklungspunkt bezeichnet und üblicherweise mit \(a\) notiert. Die allgemeine Taylorreihe einer Funktion \(f(x)\) lautet
+
 \begin{equation}
-\int_a^b x^2\, dx
+f(x)
 =
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{pade:equation1}
+\sum_{k=0}^{\infty}
+\frac{f^{(k)}(a)}{k!}(x-a)^k.
+\label{eq:taylor_allgemein}
 \end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
+Jeder Summand dieser Reihe enthält eine Ableitung der Funktion am Entwicklungspunkt. Die erste Ableitung beschreibt die Steigung der Funktion, höhere Ableitungen liefern Informationen über ihre Krümmung und ihr weiteres Verhalten. Werden genügend viele Terme berücksichtigt, kann das Verhalten einer Funktion in der Umgebung des Entwicklungspunktes sehr genau beschrieben werden.
 
-\subsection{De finibus bonorum et malorum
-\label{pade:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{pade:equation1}.
+In vielen Anwendungen wird der Entwicklungspunkt auf
 
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{pade:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{pade:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
+\[
+a=0
+\]
+
+gelegt. Man spricht dann von einer \emph{Maclaurin-Reihe}. Gleichung~\eqref{eq:taylor_allgemein} vereinfacht sich dadurch zu
+
+\begin{equation}
+f(x)
+=
+\sum_{k=0}^{\infty}
+\frac{f^{(k)}(0)}{k!}x^k.
+\label{eq:maclaurin}
+\end{equation}
+
+Ein besonders anschauliches Beispiel ist die Exponentialfunktion
+
+\[
+f(x)=e^x.
+\]
+
+Ihre Ableitung ist wiederum die Exponentialfunktion selbst. Daraus folgt, dass sämtliche Ableitungen an der Stelle \(x=0\) den Wert \(1\) besitzen. Durch Einsetzen in Gleichung~\eqref{eq:maclaurin} erhält man die bekannte Reihenentwicklung
+
+\begin{equation}
+e^x
+=
+1
++
+x
++
+\frac{x^2}{2!}
++
+\frac{x^3}{3!}
++
+\frac{x^4}{4!}
++
+\cdots.
+\label{eq:exp_reihe}
+\end{equation}
+
+Da eine unendliche Reihe auf einem Computer nicht vollständig berechnet werden kann, wird sie nach endlich vielen Summanden abgebrochen. Das entstehende Polynom wird als Taylorpolynom bezeichnet.
+
+Für die Exponentialfunktion ergibt sich beispielsweise das Taylorpolynom zweiter Ordnung zu
+
+\begin{equation}
+T_2(x)
+=
+1
++
+x
++
+\frac{x^2}{2}.
+\label{eq:taylor2}
+\end{equation}
+
+Mit steigender Ordnung werden mehr Terme der Taylorreihe berücksichtigt, wodurch sich die Genauigkeit der Approximation im Allgemeinen verbessert.
+
+\section{Grenzen der Taylorreihe}
+\label{pade:section:grenzen}
+\kopfrechts{Grenzen der Taylorreihe}
+
+Obwohl Taylorpolynome in vielen mathematischen Anwendungen sehr erfolgreich eingesetzt werden, besitzen sie auch grundlegende Einschränkungen. Sie approximieren eine Funktion nur in der unmittelbaren Umgebung ihres Entwicklungspunktes besonders gut. Mit zunehmendem Abstand nimmt der Approximationsfehler häufig deutlich zu.
+
+Dieses Verhalten lässt sich am Beispiel der Exponentialfunktion beobachten. In der Nähe von \(x=0\) stimmen die Werte des Taylorpolynoms nahezu mit der Exponentialfunktion überein. Für grössere Werte von \(x\) wird jedoch sichtbar, dass das Polynom das starke Wachstum der Exponentialfunktion immer schlechter beschreibt.
+
+\begin{figure}
+\centering
+% Hier kommt später Abbildung
+\caption{Vergleich zwischen der Exponentialfunktion und dem Taylorpolynom zweiter Ordnung. Mit zunehmendem Abstand vom Entwicklungspunkt wächst der Approximationsfehler deutlich an.}
+\label{fig:taylorvergleich}
+\end{figure}
+
+Die Ursache hierfür liegt im Aufbau eines Polynoms. Ein Polynom besteht ausschliesslich aus Potenzen der Variablen und besitzt deshalb nur eine begrenzte Flexibilität. Eigenschaften wie starkes exponentielles Wachstum oder asymptotisches Verhalten lassen sich damit nur eingeschränkt beschreiben.
+
+Dies führt zur zentralen Fragestellung dieses Kapitels: Kann dieselbe Information der Taylorreihe auf eine andere Weise genutzt werden, um eine genauere Approximation zu erhalten? Genau an dieser Stelle setzt die Padé-Approximation an. Anstatt die Koeffizienten der Taylorreihe direkt zu einem Polynom zusammenzufassen, werden sie verwendet, um den Zähler und den Nenner einer rationalen Funktion zu bestimmen. Dadurch entsteht häufig eine deutlich genauere Näherung der ursprünglichen Funktion.
+
+Im nächsten Abschnitt wird dieses Verfahren vorgestellt und anhand der Exponentialfunktion Schritt für Schritt hergeleitet.
 
 
