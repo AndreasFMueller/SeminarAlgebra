@@ -18,8 +18,8 @@ Dazu brauchte es die höhere Homologiegruppe $H_2(U)$.
 % H_0: die Zusammenhangskomponenten von U
 %
 \subsubsection{$H_0(U)$: Die Zusammenhangskomponenten von $U$}
-Die Konstruktion der Homologiegruppe $H_1(U)$ kann auch eine
-Dimension tiefer durchgeführt werden.
+Eine zur Konstruktion der Homologiegruppe $H_1(U)$ analoge Konstruktion
+kann auch eine Dimension tiefer durchgeführt werden.
 In Definition~\ref{buch:integration:homologie:definition:randoperator}
 wurden bereits die $0$-Ketten definiert und es wurde illustriert,
 wie der Randoperator aus einer $1$-Kette eine $0$-Kette macht.
@@ -54,18 +54,38 @@ d\in C_1(U)
 konstruieren.
 Sie wird erzeugt von homologen Punkten.
 
-\begin{definition}[Wegzusammenhang]
-Eine Teilmenge $U$ von $\mathbb{C}$ heisst \emph{wegzusammenhängend},
+\begin{satz}[Wegzusammenhang]
+Wenn zu zwei beliebigen Punkten $P_1,P_2\in U$ die $0$-Kette
+$P_2-P_1$ ein Rand einer $1$-Kette $c$ ist, dann gibt es einen Weg
+zwischen $P_1$ und $P_2$.
+Eine Teilmenge $U$ von $\mathbb{C}$ ist genau dann wegzusammenhängend,
 \index{wegzusammenhangend@wegzusammenhängend}%
-wenn zu zwei beliebigen Punkten $P_1,P_2\in U$ ein Weg
-$\gamma \colon I\to U$ existert, der die Punkte verbindet:
-$\partial \gamma=P_2-P_1$.
-Wegzusammenhang ist eine Äquivalenzrelation, die Äquivalenzklassen
-heissen auch die \emph{Wegzusammenhangskomponenten} oder
-einfach \emph{Zusammenhangskomponenten}.
-\end{definition}
+wenn es eine $1$-Kette $c \in C_1(U)$ gibt mit
+$\partial c=P_2-P_1$.
+\end{satz}
 
-Die Homologiegruppe $H_0(U)$ wird also erzeugt von den
+\begin{proof}
+Wenn es einen Weg $\gamma$ zwischen $P_1$ und $P_2$ gibt, z.~B.~weil $U$
+wegzusammenhängend ist, dann hat die
+$1$-Kette $c=\gamma$ den verlangten Rand $\partial c = P_2-P_1$.
+
+Wenn es eine $1$-Kette
+\[
+c
+=
+\sum_k
+c_k\gamma_k
+\]
+mit $\partial c = P_2-P_1$ gibt, dann lassen sich die $\gamma_k$ zu einem
+Weg zusammensetzen, der in $P_1$ beginnt und in $P_2$ endet.
+Nicht unbeding alle Wege der Kette werden verwendet.
+Einige Wege in der Kette bilden geschlossene Wege, die ignoriert
+werden können.
+Die Verkettung der Wege ist ein möglicherweise nicht differenzierbarer
+Weg, somit liegen $P_1$ und $P_2$ in der gleichen Wegzusammenhangskomponente.
+\end{proof}
+
+Die Homologiegruppe $H_0(U)$ wird erzeugt von den
 Zusammenhangskomponenten.
 Natürlich enthält auch $H_1(U)$ Information über die
 Zusammenhangskomponenten, da geschlossene Wege jeweils in einer

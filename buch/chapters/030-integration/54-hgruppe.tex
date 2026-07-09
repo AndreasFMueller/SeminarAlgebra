@@ -5,7 +5,7 @@
 %
 \subsection{Homologiegruppe}
 Im Abschnitt~\ref{buch:integration:homologie:subsection:homologie}
-haben wir die Homologierelation durch die die Umlaufzahl um Punkte,
+haben wir die Homologierelation durch die Umlaufzahl um Punkte,
 die ausserhalb des Definitionsgebietes liegen, definiert.
 \input{chapters/030-integration/fig/fig-raender.tex}%
 Unter Verwendung der Homotopieeigenschaft können wir aber auch eine
@@ -71,12 +71,14 @@ $\gamma_3$ das Randstück von $C$ nach $D$ und
 $\gamma_4$ das Randstück von $D$ zurück nach $A$.
 Es ist offensichtlich, dass die vier Wegstücke einen geschlossenen
 Weg bilden und dass daher $\partial\partial \Gamma=0$ ist.
-Die Ketten $\gamma_1$ und $-\gamma_2-\gamma_3-\gamma_4$ sind homolog
+Die Ketten $\gamma_1$ und $-\gamma_2-\gamma_3-\gamma_4$ sind homolog,
 da die $\gamma_1+\gamma_2+\gamma_3+\gamma_4$ ein geschlossener
 Weg ist.
 
 Eine Abbildung $\Gamma\colon I\times I\to U$ kann man auch als
-eine Homotopie zwischen den Wegen $\gamma_1$ und $-\gamma_3$ lesen.
+eine Homotopie zwischen den Wegen $\gamma_1$ und $\gamma
+=
+\gamma_4^{-1}\cdot\gamma_3^{-1}\cdot\gamma_2^{-1}$ lesen.
 Auch die Zusammensetzung der roten und blauen Kurven in 
 Abbildung~\ref{buch:integration:homologie:fig:residuum}
 lässt sich als Rand einer Abbildung $\Gamma\colon I\times I\to U$
@@ -164,7 +166,7 @@ Daher muss gezeigt werden, dass es nicht auf die Wahl des Repräsentaten
 ankommt, oder genauer, dass die Rechenoperationen mit verschiedene
 Repräsentanten zu homologen Resultaten führen.
 Sind $c$ und $c+\partial d$ Repräsenten der Menge der zu $c$
-homologen Zyklen, dann sind die additive Inverse
+homologen Zyklen, dann sind ihre additiven Inversen
 \(
 -c
 \)

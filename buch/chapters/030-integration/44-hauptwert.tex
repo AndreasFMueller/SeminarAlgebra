@@ -72,15 +72,32 @@ f(z)
 an.
 Während der ursprüngliche reelle Integrand an der Stelle $x=0$ stetig
 ist, hat $f(z)$ dort einen Pol.
-Als Weg kann man der in
+Als Weg kann der in
 Abbildung~\ref{buch:integration:residuen:fig:hauptwert}
-dargestellt Weg verwendet werden.
+dargestellte Weg verwendet werden.
 Er setzt sich zusammen aus den beiden Segmenten $[\varepsilon,R]$
-und $[-R,-\varepsilon]$ und den Kreisbögen mit Radien $R$ und $\varepsilon$,
+und $[-R,-\varepsilon]$ und den Kreisbögen $\gamma_R$ und
+$\gamma_\varepsilon$ mit Radien $R$ und $\varepsilon$,
 die die Segmente zu einem geschlossenen Weg verbinden.
 Im Inneren dieses Weges ist $f(z)$ eine holomorphe Funktion.
-Das gesuchte Integral ist also der Teil über die beiden Segmente
-$\gamma_\pm$ im Grenzwert $R\to\infty$ und $\varepsilon\to 0$:
+Nach dem Integralstatz verschwindet das komplexe Wegintegral
+\begin{equation}
+\int_{\gamma_+\cdot\gamma_R\cdot\gamma_-\cdot\gamma_\varepsilon} f(z)\,dz
+=
+\int_{\gamma_+} f(z)\,dz
++
+\int_{\gamma_R} f(z)\,dz
++
+\int_{\gamma_-} f(z)\,dz
++
+\int_{\gamma_\varepsilon} f(z)\,dz
+=
+0
+\label{buch:integration:residuen:eqn:summe}
+\end{equation}
+über den ganzen Weg.
+Das gesuchte Integral $I$ ist der Teil über die beiden Segmente
+$\gamma_\pm$ im Grenzwert
 \begin{align*}
 I
 &=
@@ -93,8 +110,9 @@ f(z)\,dz
 \int_{\gamma_-}
 f(z)\,dz
 \biggr)
-\intertext{Aus dem Integralsatz kann man dann schliessen, dass
-das Integral auch}
+\intertext{für $R\to\infty$ und $\varepsilon\to 0$.
+Aus \eqref{buch:integration:residuen:eqn:summe} kann man dann
+schliessen, dass das Integral auch}
 &=
 -
 \lim_{R\to\infty}
@@ -104,10 +122,10 @@ das Integral auch}
 \int_{\gamma_{\varepsilon}} f(z)\,dz
 \end{align*}
 ist.
-Bei dieser Berechnung berechnet man das Integral entlang der
-reellen Achse aber mit symmetrischen Segmenten.
-Die Definition eines uneigentlichen Integrals verlangt, dass für
-die Grenzen unabhängig voneinander ein Grenzübergang durchgeführt
+Diese Vorgehensweise berechnet das Integral entlang der
+reellen Achse mit symmetrischen Segmenten, während
+die Definition eines uneigentlichen Integrals verlangt, dass für
+die beden Grenzen unabhängig voneinander ein Grenzübergang durchgeführt
 wird.
 Der symmetrische Grenzwert heisst auch der \emph{Hauptwert} des
 Integrals und wird im Kapitel~\ref{chapter:hauptwert} ausführlicher 
