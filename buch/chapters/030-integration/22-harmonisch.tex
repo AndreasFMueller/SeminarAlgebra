@@ -3,7 +3,7 @@
 %
 % (c) 2026 Prof Dr Andreas Müller
 %
-\subsection{Wegintegrale und Pole}
+\subsection{Wegintegrale und harmonische Funktionen}
 Sei $f\colon U\to\mathbb{C}$ eine holomorphe Funktion und
 $a\in U$ ein Punkt.
 Sei weiter $\gamma$ ein geschlossener Weg, der den Punkt $a$
@@ -42,13 +42,13 @@ Nach dem Residuensatz ist dann
 f(z_0)
 =
 \frac{1}{2\pi i}
-\oint_{S^1_r} 
+\oint_{S^1_r(z_0)} 
 \frac{f(z)}{z-z_0}
 \,dz
 \]
-für den Kreis $S^1_r$ mit Radius $r$ um den Punkt $z_0$.
-Das Integral kann man durch $t\mapsto z_0+e^{it}$ parametrisieren,
-dann wird es zu
+für den Kreis $S^1_r(z_0)$ mit Radius $r$ um den Punkt $z_0$.
+Den Weg kann man durch $t\mapsto z_0+e^{it}$ parametrisieren,
+dann wird das Integral zu
 \begin{align*}
 f(z_0)
 &=
@@ -90,9 +90,9 @@ harmonischer Funktionen, nämlich das Maximum- und Minimum-Prinzip.
 
 \begin{satz}[Maximumprinzip]
 \index{Maximumprinzip}%
-Sei $U\subset\mathbb{C}$ ein Gebiet und $u(x,y)$ ein in $U$ harmonische
+Sei $U\subset\mathbb{C}$ ein Gebiet und $u(x,y)$ eine in $U$ harmonische
 Funktion.
-Dann nimmt die Funktio $u$ ihr Maximum und Minimum auf dem Rand von $U$ an.
+Dann nimmt die Funktion $u$ ihr Maximum und Minimum auf dem Rand von $U$ an.
 \end{satz}
 
 \begin{proof}

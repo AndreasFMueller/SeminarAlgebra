@@ -9,20 +9,60 @@ Die Berechnung des Integrals in
 Abschnitt~\ref{buch:integration:residuen:section:beispiel}
 hat einen Weg verwendet, der den Nullpunkt in einem grossen
 Bogen umrundet hat.
-\input{chapters/030-integration/fig/fig-hauptwert.tex}%
 So wurde das Integral zwischen $-R$ und $R$ zu einem Wegintegral
 über eine geschlossene Kurve vervollständigt, wodurch sich der
 Integralsatz anwenden liess.
-Eine ähnliche Situation tritt bei der Berechnung des Integrals
+Auf diese Weise konnte ein uneigentliches Integral von 
+$1/(x^2+1)$ über die ganze reelle Achse berechnet werden.
+
+Auch das Integral
+\input{chapters/030-integration/fig/fig-sinxx.tex}%
 \begin{equation}
 I
 =
 \int_{-\infty}^\infty \frac{\sin x}{x}\,dx
 \label{buch:integration:residuen:eqn:sinxxintegral}
 \end{equation}
-auf.
-Um es mithilfe eines Wegintegrals zu berechnen, muss ein komplexer
-Integrand und ein passender Weg gefunden werden.
+ist uneigentlich.
+Da der Integrand mit Nullstellen bei ganzzahligen Vielfachen
+von $\pi$ oszilliert, nimmt die Stammfunktion
+\[
+x
+\mapsto
+F(x)
+=
+\int_{0}^{x} \frac{\sin t}{t}\,dt
+\]
+lokale Extrema bei diesen Nullstellen an
+(Abbildung~\ref{buch:integration:fig:sinxx}).
+Jeder Wert liegt daher zwischen Werten
+\[
+F\biggl(
+\biggl\lfloor\frac{x}{\pi}\biggr\rfloor\pi
+\biggr)
+=
+\int_{0}^{\lfloor\frac{x}{\pi}\rfloor\pi}
+\frac{\sin t}{t}\,dt
+\qquad
+\text{und}
+\qquad
+F\biggl(
+\biggl(\biggl\lfloor\frac{x}{\pi}\biggr\rfloor+1\biggr)\pi
+\biggr)
+=
+\int_{0}^{\left(\lfloor\frac{x}{\pi}\rfloor+1\right)\pi}
+\frac{\sin t}{t}\,dt
+\]
+der Stammfunktion an den nächstliegenden ganzzahligen Vielfachen von $\pi$.
+Die Konvergenz des uneigentlichen Integrals ist damit gesichert.
+Trotzdem bleibt die Berechnung des Integralwertes offen, da es
+keine geschlossene Form für die Stammfunktion gibt.
+
+Um den Werte des Integrals $I$ mithilfe eines Wegintegrals zu berechnen,
+muss ein komplexer Integrand und ein passender Weg gefunden werden.
+Dabei ist zu berücksichtigen, dass der Integrand an der Stelle $x=0$
+eine Singularität hat.
+\input{chapters/030-integration/fig/fig-hauptwert.tex}%
 Als Integrand bietet sich
 \[
 f(z)
