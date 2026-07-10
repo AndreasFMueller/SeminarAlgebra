@@ -1,0 +1,124 @@
+%
+% 21-definition.tex -- Verschiedene Definitionsgebiete
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Verschiedene Definitionsgebiete}
+Wir betrachten zwei Potenzreihen
+\[
+f_0(z)
+=
+\sum_{k=0}^\infty a^0_k(z-z_0)^k
+\qquad\text{und}\qquad
+f_1(z)
+=
+\sum_{k=0}^\infty a^1_k(z-z_1)^k
+\]
+mit Konvergenzradien $\varrho_0$ und $\varrho_1$.
+Wir nehmen an, dass
+\[
+|z_1-z_0| < \varrho_0
+\]
+so dass der Punkt $z_1$ im Konvergenzkreis der Potenzreihe
+$f_0(z)$ liegt.
+Die Koeffizienten $a^1_k$ sind vollständig durch die Werte in
+einer Umgebung von $z_1$ gegeben.
+Um dies einzusehen, schreiben wir $z=(z-z_1) + (z_1-z_0)$ und drücken
+\begin{align}
+f_0(z)
+&=
+\sum_{n=0}^\infty a^0_n(z-z_0)^n
+\notag
+\intertext{durch $z-z_1$ aus und erhalten}
+&=
+\sum_{n=0}^\infty a^0_n((z-z_1)+(z_1-z_0))^n.
+\notag
+\intertext{Mit dem Binomialsatz kann dies in}
+&=
+\sum_{n=0}^\infty \sum_{k+l=n} a^0_n\binom{n}{k}(z_1-z_0)^{l} (z-z_1)^k 
+\notag
+\intertext{expandiert werden.
+Da die innere Summe endlich ist, lässt sich die Summationsreihenfolge
+ändern:
+}
+&=
+\sum_{k=0}^\infty
+\Biggl(
+\sum_{n=k}^\infty
+a^0_n\binom{n}{n-k}
+(z_1-z_0)^{n-k}
+\Biggr)
+(z-z_1)^k
+\notag
+\intertext{Die Binomialkoeffizienten können als Bruch geschrieben werden,
+was}
+&=
+\sum_{k=0}^\infty
+\Biggl(
+\sum_{n=k}^\infty
+a^0_n
+\frac{n\cdot(n-1)\cdot\ldots\cdot(n-k+1)}{k!}
+(z_1-z_0)^{n-k}
+\Biggr)
+(z-z_1)^k
+\notag
+\intertext{ergibt.
+Der Nenner $k!$ in den Termen der inneren Summe hängt nicht vom
+Summationsindex ab und kann daher vor die Summe genommen werden:}
+&=
+\sum_{k=0}^\infty
+\frac{1}{k!}
+\Biggl(
+\sum_{n=k}^\infty
+a^0_n
+\bigl(
+n\cdot(n-1)\cdot\ldots\cdot (n-k+1)
+\bigr)
+(z_1-z_0)^{n-k}
+\Biggr)
+(z-z_1)^k.
+\notag
+\intertext{Das Produkt $n\cdot(n-1)\cdot\ldots\cdot(n-k+1)z^{n-k}$
+ist die $k$-te Ableitung von $z^n$.
+Da $k$ für alle Terme der inneren Summe gleich ist, ist die
+innere Summe die $k$-te Ableitung einer einfacheren Summe,
+nämlich}
+&=
+\sum_{k=0}^\infty
+\frac{1}{k!}
+\frac{d^k}{dz_1^k}
+\Biggl(
+\sum_{n=k}^\infty
+a^0_n
+(z_1-z_0)^n
+\Biggr)
+(z-z_1)^k.
+\notag
+\intertext{Die innere Summe ist nichts anderes als die Funktion
+$f_0(z_1)$:}
+&=
+\sum_{k=0}^\infty
+\frac{1}{k!}
+\frac{d^k}{dz_1^k}
+f_0(z_1)
+(z-z_1)^k.
+\label{buch:analytisch:fortsetzung:eqn:taylor01}
+\end{align}
+Die letzte Reihe ist die Taylor-Reihe der Funktion $f_0$ an der
+Stelle $z_1$.
+
+Wir nehmen jetzt an, dass in einer Umgebung vom Radius
+$r_1-|z_0|$ die Funktionen $f_0(z)$ und $f_1(z)$ übereinstimmen.
+Wir wissen bereits, dass die Koeffizienten $a^i_k$ durch die
+Taylor-Reihe der Funktion $f_i(z)$ in den Punkten $z_i$ gegeben
+ist.
+Das Resultat
+\eqref{buch:analytisch:fortsetzung:eqn:taylor01}
+der obigen Rechnung bestätigt, durch einen Koeffizientenvergleich,
+dass
+\[
+a^1_k
+=
+\frac{1}{k!}
+\frac{d^kf_0(z_1)}{dz_1^k}.
+\]

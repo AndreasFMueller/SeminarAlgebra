@@ -1,0 +1,100 @@
+%
+% 16-rational.tex -- 
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Rationale Funktionen
+\label{buch:analytisch:potenzreihen:subsection:rational}}
+Eine rationale Funktion ist ein Quotient der Form
+\begin{equation}
+f(z)
+=
+\frac{p(z)}{q(z)},
+\qquad
+p(z),q(z)\in\mathbb{C}[z]
+\label{buch:analytisch:potenzreihen:bruch}
+\end{equation}
+von zwei Polynomen in $z$.
+Polynome sind holomorphe Funktionen, die in ganz $\mathbb{C}$
+definiert sind.
+Nach der Quotientenregel ist auch der Quotient $f(z)$ eine holomorphe
+Funktion überall dort, wo $q(z)$ nicht verschwindet.
+In diesem Abschnitt untersuchen wir, wie sich für eine solche Funktion
+eine Potenzreihenentwicklung finden lässt.
+
+%
+% Polynomieller und rationaler Teil
+%
+\subsubsection{Polynomieller und rationaler Teil}
+Durch Polynomdivision lässt sich der Bruch
+\eqref{buch:analytisch:potenzreihen:bruch}
+in ein Polynom $s(z)$ und einen einfacheren Bruch
+\[
+f(z) = s(z) + \frac{r(z)}{q(z)}
+\]
+zerlegen.
+Der Grad von $r(z)$ ist kleiner als der Grad von $q(z)$.
+Das Polynom $s(z)$ ist bereits eine Potenzreihe mit unendlichem
+Konvergenzradius, es muss nur noch der rationale Teil $r(z)/q(z)$
+als Potenzreihe dargestellt werden.
+
+%
+% Partialbrüche
+%
+\subsubsection{Partialbrüche}
+In der Analysis lernt man, dass eine rationale Funktion eine
+Partialbruchzerlegung hat.
+Sie wird dort für die Integration rationaler Funktionen verwendet und
+wird daher im Abschnitt~\ref{buch:ratint:bernoulli:subsection:partialbruch}
+im Kapitel~\ref{chapter:ratint} über das Integrationsproblem genauer
+aufgearbeitet.
+Für eine Faktorisierung
+\[
+q(z) = (z-\alpha_1)^{n_1}\cdot\ldots\cdot (z-\alpha_k)^{n_k}
+\]
+in Linearfaktoren kann der Bruch als 
+\[
+\frac{r(z)}{q(z)}
+=
+\sum_{k=1}^n\sum_{l=1}^{n_k} \frac{A_k^l}{(z-\alpha_k)^l}
+\]
+geschrieben werden.
+Man muss also nur noch eine Potenzreihendarstellung für jeden
+einzelnen Summanden finden. 
+
+Ein Summand mit Nennergrad 1 hat die geometrische Reihe
+\begin{align*}
+\frac{A}{z-\alpha}
+&=
+-\frac{A}{\alpha}
+\cdot
+\frac{1}{1-\frac{z}{\alpha}}
+=
+-\frac{A}{\alpha}
+\sum_{i=0}^\infty \frac{z^i}{\alpha^i}
+\end{align*}
+als Potenzreihendarstellung um den Nullpunkt.
+Der Konvergenzradius ist $|\alpha|$.
+Eine analoge Potenzreihenentwicklung lässt sich auch für jeden beliebigen
+anderen Entwicklungspunkt $z_0$ finden, solange $z_0$ keine Nullstelle
+von $q(z)$ ist.
+
+Für Nennergrad $l>1$ ist
+\[
+\frac{A}{(z-\alpha)^l}
+=
+(-1)^l
+\frac{A}{\alpha^l}
+\biggl(
+\frac{1}{1-\frac{z}{\alpha}}
+\biggr)^l
+=
+(-1)^l
+\frac{A}{\alpha^l}
+\biggl(
+\sum_{i=0}^\infty \frac{z^i}{\alpha^i}
+\biggr)^l.
+\]
+Das Produkt von Potenzreihen ist wieder eine Potenzreihe, somit
+sind auch rationale Funktionen analytisch.
+

@@ -1,0 +1,121 @@
+%
+% Eindeutigkeit der Erweiterung des Ableitungsoperators
+%
+\subsection{Eindeutigkeit der Erweiterung des Ableitungsoperators}
+Wir betrachten in diesem Abschnitt einen Differentialkörper $F$ mit
+der Deriviation $D$ und stellen die Frage, ob sich der Differentialoperator
+$D$ auf eindeutige Weise auf eine Erweiterung $F(\vartheta)$ ausdehnen
+lässt.
+
+%
+% Transzendente Erweiterungen
+%
+\subsubsection{Transzendente Erweiterungen}
+Sei $\vartheta$ eine transzendente Erweiterung von $F$ und
+\[
+f(\vartheta) = \frac{a(\vartheta)}{b(\vartheta)}
+\]
+eine rationale Funktion von $\vartheta$ mit Koeffizienten in $F$, dargestellt
+als Bruch von Polynomen $a(\vartheta),b(\vartheta)\in F[\vartheta]$.
+Wir müssen zeigen, dass es nur eine mögliche Definition einer Deriviation
+$\tilde{D}$ auf solchen Brüchen gibt.
+$\tilde{D}$ muss alle Rechenregeln einer Deriviation erfüllen, insbesondere
+die Quotientenregel
+\begin{align*}
+\tilde{D}f(\vartheta)
+&=
+\frac{
+\tilde{D}a(\vartheta)\cdot b(\vartheta)-a(\vartheta)\cdot\tilde{D}b(\vartheta)
+}{
+b(\vartheta)^2
+},
+\intertext{die Linearität}
+\tilde{D} a(\vartheta)
+&=
+\tilde{D} \sum_{k=1}^n a_k\vartheta^k
+=
+\sum_{k=1}^n \tilde{D}(a_k\vartheta^k)
+\intertext{und die Produktregel}
+&=
+\sum_{k=1}^n \tilde{D}a_k\cdot \vartheta^k
++
+\sum_{k=1}^n a_k\cdot \tilde{D} \vartheta^k
+=
+\sum_{k=1}^n Da_k\cdot \vartheta^k
++
+\sum_{k=1}^n a_k\cdot
+k
+\vartheta^{k-1}
+\tilde{D}
+\vartheta.
+\end{align*}
+Die Derivation $\tilde{D}$ ist also eindeutig bestimmt, sobald
+$\tilde{D}\vartheta$ festgelegt ist.
+
+Für eine logarithmische Erweiterung $\vartheta=\log u$ mit $u\in F$ gilt
+$\tilde{D}\vartheta=Du/u$.
+Da $Du\in F$ und $u\in F$ ist die Ableitung von $\vartheta$ eindeutig
+festgelegt und damit $\tilde{D}$ auf ganz $F(\vartheta)$.
+%
+Für eine exponentielle Erweiterung $\vartheta=e^u$ mit $u\in F$ gilt
+$\tilde{D}\vartheta=\tilde{D}e^u = e^uu =\vartheta u$.
+Auch in diesem Fall ist die Ableitung von $\vartheta$ eindeutig
+festgelegt und damit $\tilde{D}$ auf ganz $F(\vartheta)$.
+
+%
+% Algebraische Erweiterungen
+%
+\subsubsection{Algebraische Erweiterungen}
+Sei $\vartheta$ eine algebraische Erweiterung mit dem Minimalpolynom
+$p(X) \in F[X]$ mit Koeffizienten in $F$.
+Auch in diesem Fall stellt sich die Frage, ob die Ausdehnung $\tilde{D}$
+auf $F(\vartheta)$ eindeutig bestimmt ist.
+Die Rechnungen im Fall einertranszendenten Erweiterung folgt auch hier,
+dass die Derivation eindeutig festgelegt ist, wenn $\tilde{D}\vartheta$
+festgelegt wird.
+Durch Ableiten der Definitionsgleichung
+\begin{align}
+\sum_{k=0}^m p_k\vartheta^k
+&=
+0
+\intertext{erhält man die Gleichung}
+\sum_{k=0}^m Dp_k\vartheta^k
++
+\sum_{k=0}^m p_k k\vartheta^{k-1}\tilde{D}\vartheta
+&=
+0
+\notag
+\\
+\sum_{k=0}^m Dp_k\vartheta^k
++
+\biggl(\sum_{k=0}^m p_k k\vartheta^{k-1}\biggr)\tilde{D}\vartheta
+&=
+0,
+\notag
+\intertext{die man nach}
+\tilde{D}\vartheta
+&=
+-\frac{\displaystyle
+\sum_{k=0}^m Dp_k \cdot \vartheta^k
+}{\displaystyle
+\sum_{k=0}^m p_kk\vartheta^{k-1}
+}
+\label{buch:intalg:elementar:Derweiterung:alg}
+\end{align}
+auflösen kann.
+Dies zeigt, dass $\tilde{D}\vartheta$ eindeutig festgelegt ist.
+
+Die zusätzliche Schwierigkeit in diesem Fall ist, dass es mehrere
+Funktionen $\vartheta$ gibt, die die Gleichung $p(\vartheta)=0$ erfüllen.
+Wir müssen in diesem Fall zusätzlich zeigen, dass
+unsere Konstruktion von $\tilde{D}\vartheta$ nicht von der Wahl der
+Lösung von $p(\vartheta)=0$ abhängt.
+Die Formel~\eqref{buch:intalg:elementar:Derweiterung:alg} zeigt aber,
+dass die Ableitung vollständig durch die Koeffizienten des
+Minimalpolynoms $p$ festgelegt wird.
+Ersetzt man also $\vartheta$ durch eine andere Nullstelle von $p$,
+hat die resultierende Ableitung die gleichen algebraischen Eigenschaften.
+
+
+
+

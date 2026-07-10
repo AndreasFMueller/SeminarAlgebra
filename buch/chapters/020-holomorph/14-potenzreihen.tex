@@ -1,0 +1,577 @@
+%
+% Ableitung einer Potenzreihe
+%
+\subsection{Potenzreihen
+\label{buch:holomorph:holomorph:subsection:potenzreihen}}
+In Abschnitt~\ref{buch:komplex:funktionen:subsection:potenzreihen}
+wurden einige aus der reellen Analysis wohlbekannte Funktionen
+durch ihre Potenzreihe definiert.
+In diesem Abschnitt soll gezeigt werden, dass alle diese Funktionen
+holomorph sind.
+
+%
+% Ableitung einer Potenzreihe
+%
+\subsubsection{Ableitung einer Potenzreihe}
+In der reellen Analysis wird gezeigt, dass eine Funktionenreihe gliedweise
+abgeleitet werden darf, wenn die abgeleitete Reihe weiterhin konvergiert.
+
+\begin{satz}[Ableitung einer Potenzreihe]
+\label{buch:holomorph:holomorph:satz:potenzreihe-ableitung}
+Sei eine Funktion durch die Potenzreihe
+\index{Potenzreihe}%
+\[
+f(z)
+=
+\sum_{k=0}^\infty a_k z^k
+\]
+gegeben.
+Dann ist
+\[
+f'(z)
+=
+\sum_{k=1}^\infty ka_k z^{k-1}
+\]
+eine konvergente Potenzreihe mit dem gleichen Konvergenzradius.
+\index{Konvergenzradius}%
+\end{satz}
+
+\begin{proof}
+Es reicht, den Konvergenzradius mit der Cauchy-Hadamard-Formel zu
+bestimmen.
+Dabei kann verwendet werden, dass der Konvergenzradius $\varrho$
+der Potenzreihe für $f(z)$ bekannt ist und den Wert
+\[
+\frac{1}{\varrho}
+=
+\limsup_{n\to\infty} \!\sqrt[n]{|a_n|}
+\]
+hat.
+Für die Koeffizienten der abgeleiteten Reihe folgt
+\begin{align}
+\limsup_{n\to\infty} \!\sqrt[n]{|na_n|}
+&=
+\limsup_{n\to\infty}
+\!\sqrt[n]{n}
+\!\sqrt[n]{|a_n|}.
+\label{buch:holomorph:holomorph:satz:ableitungkonvergenzradius}
+\end{align}
+Wegen
+\[
+\frac{\log n}{n} \to 0\qquad\text{für $n\to\infty$}
+\]
+konvergiert die Folge $\!\sqrt[n]{n}$ gegen
+\[
+\lim_{n\to\infty}
+\!\sqrt[n]{n}
+=
+\lim_{n\to\infty}
+\exp \biggl(
+\frac{1}{n}\log n
+\biggr)
+=
+\exp \biggl(
+\lim_{n\to\infty}
+\frac{1}{n}\log n
+\biggr)
+=
+e^0
+=
+1.
+\]
+Der Grenzwert 
+\eqref{buch:holomorph:holomorph:satz:ableitungkonvergenzradius}
+wird damit zu
+\[
+\limsup_{n\to\infty}
+\!\sqrt[n]{n}
+\!\sqrt[n]{|a_n|}
+=
+\lim_{n\to\infty}
+\!\sqrt[n]{n}
+\cdot
+\limsup_{n\to\infty}
+\!\sqrt[n]{|a_n|}
+=
+\limsup_{n\to\infty}
+\!\sqrt[n]{|a_n|}
+=
+\frac{1}{\varrho}.
+\]
+Der Konvergenzradius der abgeleiteten Reihe ist der gleiche.
+\end{proof}
+
+\begin{satz}[Stammfunktion einer Potenzreihe]
+\label{buch:holomorph:holomorph:satz:potenzreihe-stammfunktion}
+\index{Stammfunktion}%
+Sei eine Funktion durch die Potenzreihe
+\[
+f(z)
+=
+\sum_{k=0}^\infty a_k z^k
+\]
+gegeben.
+Dann ist
+\begin{equation*}
+F(z)
+=
+\sum_{k=0}^\infty \frac{1}{k+1}a_k z^{k+1}
+\end{equation*}
+eine konvergente Potenzreihe mit dem gleichen Konvergenzradius.
+$F(z)$ ist zudem eine Stammfunktion von $f$: $F'(z)=f(z)$.
+\end{satz}
+
+\begin{proof}
+Wie schon im Beweis des
+Satzes~\ref{buch:holomorph:holomorph:satz:potenzreihe-ableitung}
+kann der Konvergenzradius der Reihe $F(z)$ mit der Cauchy-Hadamard-Formel
+bestimmt werden.
+\index{Cauchy-Hadamard-Formel}%
+Er ist
+\begin{align*}
+\limsup_{n\to\infty} \!\sqrt[n]{\frac1{n+1}|a_n|}
+&=
+\underbrace{
+\lim_{n\to\infty}
+\frac{1}{\!\sqrt[n]{n+1}}
+}_{\displaystyle =1}
+\cdot
+\limsup_{n\to\infty}
+\!\sqrt[n]{|a_n|}
+=
+\limsup_{n\to\infty}
+\!\sqrt[n]{|a_n|}
+=
+\frac{1}{\varrho}.
+\end{align*}
+Die Existenz des Grenzwertes von $1/\!\sqrt[n]{n+1}$ folgt auf die
+gleiche Art wie im Beweis von
+Satz~\ref{buch:holomorph:holomorph:satz:potenzreihe-ableitung}.
+\end{proof}
+
+%
+% Die Ableitung der Exponentialfunktion
+%
+\subsubsection{Die Ableitung der Exponentialfunktion}
+Die Exponentialfunktion ist als
+\index{Exponentialfunktion}%
+\begin{equation}
+e^z
+=
+\exp z
+=
+\sum_{k=0}^\infty \frac{z^k}{k!}
+\label{buch:holomorph:holomorph:eqn:exponentialfunktion}
+\end{equation}
+definiert worden.
+Aus den Ableitungsregeln folgt die formale Ableitung
+\[
+\frac{d}{dz}
+e^z
+=
+\sum_{k=0}^\infty \frac{d}{dz} \frac{z^k}{k!}
+=
+\sum_{k=0}^\infty \frac{kz^{k-1}}{k!}
+=
+\sum_{k=1}^\infty \frac{z^{k-1}}{(k-1)!}
+=
+\sum_{k=0}^\infty \frac{z^k}{k!}
+=
+e^z.
+\]
+Die Ableitung der Exponentialfunktion ist also wieder die
+Exponentialfunktion.
+Die Exponentialfunktion ist also eine holomorphe Funktion,
+die die Differentialgleichung $f'=f$ mit der Anfangsbedingung
+$f(0)=1$ erfüllt.
+
+%
+% Die trigonometrischen Funktionen
+%
+\subsubsection{Die trigonometrischen Funktionen}
+Für die trigonometrischen Funktionen Sinus und Kosinus hat die
+\index{trigonometrische Funktion}%
+reelle Analysis die Reihenentwicklungen
+\begin{align*}
+\cos z
+&=
+\sum_{k=0}^\infty (-1)^k \frac{z^{2k}}{(2k)!}
+=
+1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \frac{z^6}{6!} + \frac{z^8}{8!} - \dots
+\\
+\sin z
+&=
+\sum_{k=0}^\infty (-1)^k \frac{z^{2k+1}}{(2k+1)!}
+=
+z - \frac{z^3}{3!} + \frac{z^5}{5!} - \frac{z^7}{7!} + \frac{z^9}{9!} - \dots
+\end{align*}
+\index{cosz@$\cos z$}%
+\index{sinz@$\sin z$}%
+gefunden.
+Sie haben die Ableitungen
+\begin{align*}
+\frac{d}{dz} \cos z
+&=
+\sum_{k=0}^{\infty} (-1)^k \frac{d}{dz} \frac{z^{2k}}{(2k)!}
+=
+\sum_{k=0}^{\infty} (-1)^k \frac{2kz^{2k-1}}{(2k)!}
+=
+\sum_{k=1}^{\infty} (-1)^k \frac{z^{2k-1}}{(2k-1)!}
+\\
+&=
+-
+\sum_{k=1}^{\infty} (-1)^{k-1} \frac{z^{2(k-1)+1}}{(2(k-1)+1)!}
+=
+-
+\sum_{l=1}^{\infty} (-1)^l \frac{z^{2l+1}}{(2l+1)!}
+=
+-\sin z
+\\
+\frac{d}{dz} \sin z
+&=
+\sum_{k=0}^\infty (-1)^k \frac{d}{dz} \frac{z^{2k+1}}{(2k+1)!}
+=
+\sum_{k=0}^\infty (-1)^k \frac{(2k+1)z^{2k}}{(2k+1)!}
+=
+\sum_{k=0}^\infty (-1)^k \frac{z^{2k}}{(2k)!}
+=
+\cos z
+\end{align*}
+Die aus dem Reellen bekannten Ableitungsregeln der trigonometrischen
+Funktionen sind als weiterhing gültig.
+
+Aus den Ableitungsregeln für Sinus und Kosinus folgt mit der Quotientenregel
+auch die Ableitungsregeln für den Tangens, seine Ableitung ist
+\[
+\frac{d}{dz}\tan z
+=
+\frac{d}{dz}
+\frac{\sin z}{\cos z}
+=
+\frac{\cos^2z +\sin^2 z}{\cos^2z}
+=
+\frac{1}{\cos^2z}.
+\]
+\index{tanz@$\tan z$}%
+Man beachte, dass der Zähler
+\[
+Z(z)
+=
+\cos^2z + \sin^2z
+\]
+eine holomorphe Funktion ist, deren Ableitungen auf der reellen Achse
+verschwinden.
+Die Taylorreihe von $Z(z)$ ist also die konstante Funktion $Z(z)=1$.
+
+%
+% Die eulersche Formel
+%
+\subsubsection{Die eulersche Formel}
+Die Exponentialfunktion ist durch die Exponentialreihe definiert.
+
+\begin{satz}[Die eulersche Formel]
+\index{eulersche Formel}%
+\label{buch:holomorph:holomorph:satz:eulerformel}
+Für $t\in\mathbb{R}$ gilt
+\begin{equation}
+e^{it}
+=
+\cos t + i \sin t.
+\label{buch:holomorph:holomorph:eqn:eulerformel}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Wir setzen $it$ als Argument in die Exponentialreihe ein und erhalten
+\begin{align*}
+e^{it}
+&=
+\sum_{k=0}^\infty
+\frac{(it)^n}{n!}.
+\intertext{Aufgeteilt in gerade und ungerade Potenzen ist diese Summe}
+&=
+\sum_{k=0}^\infty \frac{(it)^{2k}}{(2k)!}
++
+\sum_{k=0}^\infty \frac{(it)^{2k+1}}{(2k+1)!}
+\\
+&=
+\sum_{k=0}^\infty (-1)^k \frac{t^{2k}}{(2k)!}
++
+i
+\sum_{k=0}^\infty (-1)^k \frac{t^{2k+1}}{(2k+1)!}
+=
+\cos t + i \sin t.
+\end{align*}
+Damit ist die eulersche Formel bewiesen.
+\end{proof}
+
+\begin{korollar}
+$e^{i\pi}+1=0.$
+\end{korollar}
+
+Für eine beliebige komplexe Zahl $z=x+iy$ ist also
+nach der eulerschen Formel
+\begin{equation}
+e^z
+=
+e^{x+iy}
+=
+e^xe^{iy}
+=
+e^x(\cos y+i\sin y)
+\qquad
+\Rightarrow
+\qquad
+\left\{
+\quad
+\begin{aligned}
+u(x,y) &= e^x \cos y \\
+v(x,y) &= e^x \sin y
+\end{aligned}
+\right.
+\label{buch:holomorph:holomorph:eqn:exprealimag}
+\end{equation}
+Da $e^z$ eine holomorphe Funktion ist, kann die Ableitung allein
+durch die Ableitung nach $x$ berechnet werden.
+Die Ableitung des Faktors $e^x$ ist aber selbst wieder $e^x$, es folgt
+daher
+\[
+\frac{d}{dz}e^z
+=e^x(\cos y+i\sin y)
+=
+e^z.
+\]
+
+Mit der Darstellung
+\eqref{buch:holomorph:holomorph:eqn:exprealimag}
+von Real- und Imaginärteil der Exponentialfunktion 
+können auch sofort die Cauchy-Riemann-Differentialgleichungen
+verifiziert werden, es gilt:
+\begin{equation}
+\left.
+\begin{aligned}
+\frac{\partial u}{\partial x}
+&=
+e^x\cos y,
+&
+\frac{\partial u}{\partial y}
+&=
+-e^x\sin y,
+\\
+\frac{\partial v}{\partial x}
+&=
+e^x \sin y,
+&
+\frac{\partial v}{\partial y}
+&=
+e^x \cos y
+\end{aligned} 
+\quad
+\right\}
+\quad
+\Rightarrow
+\quad
+\left\{
+\quad
+\begin{aligned}
+\frac{\partial u}{\partial x} &= \phantom{-}\frac{\partial v}{\partial y},
+\\
+\frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}.
+\end{aligned}
+\right.
+\end{equation}
+Dass die Cauchy-Riemann-Differentialgleichungen erfüllt sind, bestätigt
+erneut, dass die Exponentialfunktion holomorph ist.
+
+%
+% Der natürliche Logarithmus einer komplexen Zahl
+%
+\subsubsection{Der natürliche Logarithmus einer komplexen Zahl}
+Wir versuchen, ausgehend von
+\eqref{buch:holomorph:holomorph:eqn:exprealimag}
+den natürlichen Logarithmus einer komplexen Zahl als Umkehrfunktion
+der Exponentialfunktion zu definieren.
+Zunächst beachten wir, dass für $z=re^{it}$ folgt, dass
+\begin{equation}
+e^{z+2\pi i}
+=
+e^z
+e^{2\pi i}
+=
+e^z(\cos 2\pi + i \sin 2\pi)
+=
+e^z.
+\label{buch:holomorph:holomorph:eqn:expperiodisch}
+\end{equation}
+Die Exponentialfunktion ist also periodisch mit Periode $2\pi i$.
+Der natürliche Logarithmus einer komplexen Funktion kann daher auch nicht
+eindeutig bestimmt sein, sondern nur bis auf ein Vielfaches von 
+$2\pi i$.
+
+Sei jetzt $z = re^{i\varphi}$ gegeben, wobei $r=|z|$ und
+$\varphi=\operatorname{arg}z$.
+Gesucht ist eine komplexe Zahl $a+bi$ derart, dass
+\[
+e^{a+bi}
+=
+e^a(\cos b + i \sin b)
+=
+z
+=
+re^{i\varphi}
+\]
+gilt.
+Daraus kann man ablesen, dass $e^a = r$ oder $a = \log r = \log |z|$
+ist und $b = \varphi = \operatorname{arg}z$.
+
+\begin{definition}[natürlicher Logarithmus]
+\index{Logarithmus!natürlich}%
+\index{naturlicher Logarithmus@natürlicher Logarithmus}%
+Der natürlich Logarithmus einer komplexen Zahl ist
+\[
+\log z
+=
+\log |z| + i\operatorname{arg}z.
+\]
+Die komplexen Zahlen der Form
+$\log |z| + i\operatorname{arg}z + 2\pi k$ mit $k\in\mathbb{Z}$
+sind ebenfalls Logarithmen von $z$.
+\index{logz@$\log z$}%
+\end{definition}
+
+Aus Satz~\ref{buch:holomorph:holomorph:satz:rechenregeln}
+wissen wir bereits, dass der natürliche Logarithmus eine holomorphe
+Funktion ist.
+Die Ableitung kann mit \eqref{buch:holomoroph:holomorph:eqn:inverseholomorph}
+berechnet werden und es gilt
+\begin{equation}
+\frac{d}{dz}\log z
+=
+\frac{1}{f'(\log z)}
+=
+\frac1{z},
+\label{buch:holomorph:holomorph:eqn:logz}
+\end{equation}
+wobei $f(z)=e^z$ die Exponentialfunktion mit $f'(z)=e^z$ ist, was auf
+den letzten Ausdruck führt.
+Die Gleichung zeigt, dass sich die Logarithmusfunktion statt als
+Umkehrfunktion der Exponentialfunktion auch als eine Funktion
+mit der Ableitung $1/z$ charakterisieren lässt.
+
+\begin{beispiel}
+Die Logarithmusfunktion hat Real- und Imaginärteil
+\[
+u(x,y)
+=
+\frac12
+\log(x^2+y^2)
+\qquad\text{und}\qquad
+v(x,y)
+=
+\arctan\frac{y}{x}.
+\]
+Wir wollen die Cauchy-Riemann-Differentialgleichungen für diese beiden
+Funktion verifizieren.
+Dazu müssen die Ableitungen von $u$ und $v$ bestimmt werden, sie sind
+\begin{align*}
+\frac{\partial u}{\partial x}
+&=
+\frac12
+\frac{2x}{x^2+y^2}
+=
+\frac{x}{x^2+y^2},
+&
+\frac{\partial u}{\partial y}
+&=
+\frac12
+\frac{2y}{x^2+y^2}
+=
+\frac{y}{x^2+y^2},
+\\
+\frac{\partial v}{\partial x}
+&=
+\frac{1}{1+(y/x)^2}
+\frac{-y}{x^2}
+=
+\frac{-y}{x^2+y^2},
+&
+\frac{\partial v}{\partial y}
+&=
+\frac{1}{1+(y/x)^2}\frac{1}{x}
+=
+\frac{1}{1+(y/x)^2}\frac{x}{x^2}
+=
+\frac{x}{x^2+y^2}.
+\end{align*}
+Die Cauchy-Riemann-Differentialgleichungen sind jetzt offensichtlich.
+\end{beispiel}
+
+%
+% Algebraische Charakterisierung der Logarithmusfunktion
+%
+\subsubsection{Algebraische Charakterisierung von Exponential- und Logarithmusfunktion}
+Die Charakterisierung \eqref{buch:holomorph:holomorph:eqn:logz}
+der Logarithmusfunktion lässt sich noch etwas verallgemeinern, indem
+man die Kettenregel bemüht.
+
+\begin{definition}[Logarithmus einer Funktion]
+\label{buch:holomorph:holomorph:definition:alglogarithmus}
+Sei $K$ ein Funktionenkörper von Funktionen der Variablen $z$ und
+$u(z)\in K$ eine Funktion.
+Eine \emph{Logarithmus} von $u$ ist eine Funktion $\vartheta(z)\in K$
+\index{Logarithmus}%
+mit der Eigenschaft
+\[
+\frac{\partial}{dz}\vartheta(z)
+=
+\frac{u'(z)}{u(z)}.
+\]
+\end{definition}
+
+Der Vorteil dieser Definition ist, dass sie weder den Begriff der
+Zusammensetzung von Funktionen noch die Umkehrfunktion benötigt.
+Die Funktion $\vartheta(z)$ wird nicht als Zusammensetzung der
+Logarithmusfunktion mit der Funktion $u(z)$ gewonnen, sondern als
+Lösung der Differentialgleichung $\vartheta'(z) = u'(z)/u(z)$.
+
+Auch die Exponentialfunktion ist einer solchen rein algebraischen
+Charakterisierung zugänglich.
+Die Exponentialfunktion hat die Eigenschaft, dass sie mit ihrer
+Ableitung übereinstimmt.
+Eine Zusammensetzung mit einer anderen Funktion $u(z)$ hat die
+Ableitung
+\[
+\frac{d}{dz} e^{u(z)}
+=
+e^{u(z)} u'(z).
+\]
+Daraus lässt sich die folgende Definition gewinnen, welche wie die
+Definition~\ref{buch:holomorph:holomorph:definition:alglogarithmus}
+rein algebraisch ist und keinen Bezug auf die Zusammensetzung oder
+auch nur auf die gewöhnliche Exponentialfunktion nimmt.
+
+\begin{definition}[Exponentialfunktion, algebraische Charakterisierung]
+\label{buch:holomorph:holomorph:definition:algexponential}
+Sei $K$ ein Funktionenkörper von Funktionen einer Variable $z$ und $u\in K$.
+Eine Funktion $\vartheta\in K$ heisst eine \emph{Exponentialfunktion} von $u$,
+\index{Exponentialfunktion}%
+wenn
+\[
+\vartheta'(z) = \vartheta(z)\cdot u'(z)
+\]
+gilt.
+\end{definition}
+
+\begin{beispiel}
+Da $K$ ein Funktionenkörper ist, ist die Funktion $u(z)=z^2\in K$.
+Die Funktion $e^{z^2}=e^{u(z)}$ erfüllt
+\[
+\frac{d}{dz} e^{z^2}
+=
+e^{z^2}\cdot 2z
+=
+e^{u(z)}\cdot u'(z),
+\]
+also ist $e^{z^2}$ eine Exponentialfunktion von $u(z)=z^2$.
+\end{beispiel}
+

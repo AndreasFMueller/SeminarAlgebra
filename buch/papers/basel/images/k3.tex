@@ -1,0 +1,81 @@
+%
+% tikztemplate.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\def\r{0.42}
+\coordinate (Z)   at (0,0);
+\coordinate (M0)  at (0,{\r});
+\coordinate (M1)  at (0,{2*\r});
+\coordinate (M2)  at (0,{4*\r});
+\coordinate (M3)  at (0,{8*\r});
+% P2 Punkte (auf Diagonalen von M2)
+\coordinate (P21) at ({2.828*\r},{1.172*\r});
+\coordinate (P22) at ({4*\r},{4*\r});   % Schnittpunkt Diagonale P3,1-P3,6 mit k2
+\coordinate (P23) at ({-2.828*\r},{6.828*\r});
+\coordinate (P24) at ({-2.828*\r},{1.172*\r});
+% P1 Punkte
+\coordinate (P11) at ({2*\r},{2*\r});
+\coordinate (P12) at ({-2*\r},{2*\r});
+% P3 Punkte auf k3 (M3=(0,8r), Radius=8r)
+% Nummerierung gemäss Bild: P3,6=oben-links(135 Grad)
+\coordinate (P31) at ({8*\r*cos(-45)}, {8*\r+8*\r*sin(-45)});  % 315 unten-rechts
+\coordinate (P32) at ({8*\r},           {8*\r});                 % 0 rechts
+\coordinate (P33) at ({8*\r*cos(45)},  {8*\r+8*\r*sin(45)});   % 45 oben-rechts
+\coordinate (P34) at (0,               {16*\r});                 % 90 oben
+\coordinate (P35) at ({-8*\r},          {8*\r});                 % 180 links
+\coordinate (P36) at ({8*\r*cos(135)}, {8*\r+8*\r*sin(135)});  % 135 oben-links = P3,6 gemäss Bild
+\coordinate (P37) at ({8*\r*cos(225)}, {8*\r+8*\r*sin(225)});  % 225 unten-links
+% Kreise
+\draw[thin,gray] (M0) circle ({\r});
+\draw[thin,gray] (M1) circle ({2*\r});
+\draw[thin,gray] (M2) circle ({4*\r});
+\draw (M3) circle ({8*\r});
+% Geraden durch M3
+\draw[thin,gray] (0,{-0.5}) -- (0,{16*\r+0.5});
+\draw[thin,gray] ({-8*\r-0.5},{8*\r}) -- ({8*\r+0.5},{8*\r});
+\draw[thin,gray] ({8*\r*cos(135)-0.45},{8*\r+8*\r*sin(135)+0.45}) -- ({8*\r*cos(-45)+0.45},{8*\r+8*\r*sin(-45)-0.45});
+\draw[thin,gray] ({8*\r*cos(45)+0.45},{8*\r+8*\r*sin(45)+0.45}) -- ({8*\r*cos(225)-0.45},{8*\r+8*\r*sin(225)-0.45});
+% ROTE LINIEN: Dreieck 1: P3,6 -- P3,1 -- Z; Dreieck 2: P2,2 -- P3,1 -- Z
+\draw[red, thick] (P36) -- (P31) -- (Z) -- cycle;
+\draw[red, thick] (P22) -- (P31) -- (Z) -- cycle;
+% P3 Punkte
+\fill (P31) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{3,1}$};
+\fill (P32) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{3,2}$};
+\fill (P33) circle (1.5pt) node[above right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{3,3}$};
+\fill (P34) circle (1.5pt) node[right=6pt,       fill=white, inner sep=1pt, font=\tiny] {$P_{3,4}$};
+\fill (P35) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{3,5}$};
+\fill (P36) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{3,6}$};
+\fill (P37) circle (1.5pt) node[left=6pt,        fill=white, inner sep=1pt, font=\tiny] {$P_{3,7}$};
+% P2 Punkte
+\fill (P21) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{2,1}$};
+\fill (P22) circle (1.5pt) node[below right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{2,2}$};
+\fill (P23) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{2,3}$};
+\fill (P24) circle (1.5pt) node[below left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{2,4}$};
+% P1 Punkte
+\fill (P11) circle (1.5pt) node[above right=5pt, fill=white, inner sep=1pt, font=\tiny] {$P_{1,1}$};
+\fill (P12) circle (1.5pt) node[above left=5pt,  fill=white, inner sep=1pt, font=\tiny] {$P_{1,2}$};
+% Mittelpunkte – alle auf y-Achse → nach rechts mit weissem Hintergrund
+\fill (M0) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\tiny]  {$M_0$};
+\fill (M1) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\tiny]  {$M_1$};
+\fill (M2) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\tiny]  {$M_2$};
+\fill (M3) circle (1.5pt) node[right=6pt, fill=white, inner sep=1pt, font=\small] {$M_3$};
+\fill (Z)  circle (1.5pt) node[below left=5pt, fill=white, inner sep=1pt, font=\small] {$Z$};
+% k-Labels mit weissem Hintergrund
+\node[font=\small, fill=white, inner sep=1pt] at ({-9.5*\r},{14*\r}) {$k_3$};
+\node[font=\tiny,  fill=white, inner sep=1pt] at ({-5*\r},{ 6.5*\r}) {$k_2$};
+
+\end{tikzpicture}
+\end{document}
+

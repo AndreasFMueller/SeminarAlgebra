@@ -1,0 +1,34 @@
+%
+% 3-risch.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Der Risch-Algorithmus
+\label{buch:intalg:section:risch}}
+\kopfrechts{Der Risch-Algorithmus}%
+Das Liouville-Prinzip erklärt, wie ein Funktion aussehen muss, wenn sie
+eine elementare Stammfunktion haben soll.
+Für sich allein genommen reicht es nicht, für eine beliebige elementare
+Funktion zu entscheiden, ob sie auch ein elementare Stammfunktion hat.
+Dazu sind weitere Überlegungen nötig, die in diesem Kapitel dargestellt
+werden sollen.
+Das Ziel ist ein Entscheidungsalgorithmus, der ausgehend von einer
+elementaren Funktion als Integranden schrittweise eine Stammfunktion
+konstruiert.
+Falls ein Schritt sich als nicht durchführbar erweist, bedeutet dies,
+dass keine elementare Stammfunktion existiert.
+
+Der Risch-Algorithmus entstand aus den Ansätzen, die Richard Henry Risch
+in den Sechzigerjahren entwickelte \cite{buch:risch}.
+Er beginnt mit einer Verallgemeinerung der Methode von Hermite zur
+Behandlung des rationalen Teils.
+Die besonders erfolgreiche Methode von Rothstein-Trager zur Bestimmung
+der Koeffizienten $c_i$ und der Funktionen $v_i$ kam in den Siebzigerjahren
+dazu.
+Die folgende Darstellung des Algorithmus stützt sich weitgehend auf 
+\cite{buch:algorithms}.
+
+\input{chapters/070-intalg/41-uebersicht.tex}
+\input{chapters/070-intalg/42-log.tex}
+\input{chapters/070-intalg/43-exp.tex}
+\input{chapters/070-intalg/44-alg.tex}

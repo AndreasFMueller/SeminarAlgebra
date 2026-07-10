@@ -1,0 +1,222 @@
+%
+% Exponential- und Logarithmusfunktionen
+%
+\subsection{Exponential- und Logarithmusfunktionen}
+Die Exponential- und Logarithmusfunktionen werden in der klassischen
+Analysis mithilfe einer Potenzreihe oder durch die Umkehrfunktion
+definiert.
+Beide Konzepte stehen im algebraischen Umfeld eines Differentialkörpers
+nicht zur Verfügung.
+Es muss also eine alternative Methode gefunden werden, diese Funktionen
+zu charakterisieren.
+
+Die Potenzreihenmethode zur Lösung von Differentialgleichungen
+hat in Kapitel~\ref{chapter:differentialgleichungen} gezeigt,
+dass die Potenzreihe von $e^x$ eine Folge der Differentialgleichung
+für die Exponentialgleichung ist.
+Die Differentialgleichung lässt sich auch in einem Differentialkörper
+definieren, es liegt daher nahe, diese anstelle der Potenzreihe
+zur Definition der Exponentialfunktion zu verwenden.
+
+\begin{definition}[Exponential- und Logarithmusfunktion]
+\label{buch:intalg:elementar:def:explog}
+Sei $F$ ein Differentialkörper und $f\in F$.
+Ein Element $\vartheta\in F$ heisst eine \emph{Exponentialfunktion}
+von $f$, wenn $D\vartheta = \vartheta\cdot Df$.
+\index{Exponentialfunktion}%
+Die Exponentialfunktion wird manchmal auch $\vartheta=e^f$ geschrieben.
+$\vartheta$ heisst ein \emph{Logarithmus} von $f$, wenn
+$D\vartheta = Df/\vartheta$ oder $\vartheta\cdot D\vartheta = Df$.
+\index{Logarithmus}%
+Der Logarithmus wird manchmal auch $\log f$ geschrieben.
+\end{definition}
+
+%
+% Eindeutigkeit
+%
+\subsubsection{Eindeutigkeit}
+Exponential- und Logarithmusfunktion sind durch die Bedingungen der
+Definition~\ref{buch:intalg:elementar:def:explog} nicht eindeutig
+festgelegt.
+Sind $\vartheta_1$ und $\vartheta_2$ zwei Logarithmen von $f\in F$,
+dann ist
+\[
+D(\vartheta_1-\vartheta_2)
+=
+\frac{Df}{f}-\frac{Df}{f}
+=
+0,
+\]
+die Differenz ist also eine Konstante $\vartheta_1-\vartheta_2\in C$.
+Eine Logarithmusfunktion ist also nur bis auf eine Konstante in $C$
+bestimmt.
+Verwendet man die Notation $\log f$ suggeriert das zwar eine eindeutig
+bestimmte Funktion, es kann aber nur eine Menge von Funktionen
+$\vartheta_1 + C$ gemeint sein.
+
+Sind andererseits $\varphi_1$ und $\varphi_2$ Exponentialfunktionen
+von $f$, dann ist
+\[
+D
+\frac{\varphi_1}{\varphi_2}
+=
+\frac{D\varphi_1\cdot\varphi_2 - \varphi_1\cdot D\varphi_2}{\varphi_2^2}
+=
+\frac{
+\varphi_1 Df\varphi_2 - \varphi_1 \varphi_2 Df
+}{\varphi_2^2}
+=
+0,
+\]
+der Quotient $\varphi_1/\varphi_2$ ist also eine Konstante.
+Eine Exponentialfunktion ist also nur bis auf einen konstanten
+Faktor in $C$ bestimmt.
+Die Notation $e^f$ suggeriert eine eineutig bestimmte Funktion,
+gemeint sein kann aber nur eine Menge $C\varphi_1$ von Funktionen in $F$.
+
+%
+% Logarithmus als Umkehrfunktion der Exponentialfunktion
+%
+\subsubsection{Logarithmus als Umkehrfunktion der Exponentialfunktion}
+Das Konzept der Zusammensetzung von Funktionen kommt in einem
+Differentialkörper nicht vor, so dass die Frage, ob der
+Logarithmus die Umkehrfunktion der Exponentialfunktion ist,
+nicht sinnvoll gestellt werden kann.
+Der Begriff der Umkehrfunktion ist nur sinnvoll, wenn man
+\index{Umkehrfunktion}%
+Funktionen zusammensetzen kann.
+
+Trotzdem kann man eine Interpretation finden, nach der der Logarithmus
+eine Art Umkehrfunktion ist.
+Da die Exponentialfunktion und der Logarithmus durch die
+Definition über ihre differentiellen Eigenschaften nicht eindeutig 
+bestimmt sind, kann auch die Umkehrbeziehung nur im Sinne einer
+Differentialbeziehung gelten.
+
+Sei jetzt $f\in F$ und $\vartheta$ eine Exponentialfunktion von $f$.
+Nach Definition erfüllt sie $D\vartheta=\vartheta\cdot Df$.
+Weiter sei $\varphi$ ein Logarithmus von $\vartheta$, d.~h.~nach
+Definition ist $D\varphi=D\vartheta/\vartheta$.
+Setzt man die definierende Eigenschaft der Exponentialfunktion
+in die Ableitung des Logarithmus ein, erhält man
+\[
+D\varphi
+=
+\frac{D\vartheta}{\vartheta}
+=
+\frac{\vartheta\cdot Df}{\vartheta}
+=
+Df.
+\]
+Dies bedeutet, dass $\varphi$ bis auf eine additive Konstante mit
+$f$ übereinstimmt.
+Mit der konventionellen Schreibweise für Exponentialfunktion und
+Logarithmus kann man dies auch als
+\[
+D\log e^f
+=
+\frac{De^f}{e^f}
+=
+\frac{e^f Df}{e^f}
+=
+Df
+\]
+schreiben.
+Dies bedeutet, dass $\log e^f = f+c$ mit einer Konstante $c\in C$ ist.
+
+Umgekehrt ist
+\begin{align*}
+D\frac{e^{\log f}}{f}
+&=
+\frac{(De^{\log f})\cdot f - e^{\log f}\cdot Df}{f^2}
+\\
+&=
+\frac{e^{\log f}D(\log f)\cdot f - e^{\log f}\cdot Df }{f^2}
+\\
+&=
+\frac{e^{\log f} (Df/f)\cdot f - e^{\log f}\cdot Df }{f^2}
+=
+0,
+\end{align*}
+$e^{\log f}$ ist also bis auf einen konstanten Faktor die ursprüngliche
+Funktion $f$.
+
+%
+% Logarithmus und Exponentialgesetze
+%
+\subsubsection{Logarithmus- und Exponentialgesetze}
+Für die algebraische Rechnung sind Regeln nötig, mit denen Ausdrücke
+mit Logarithmen und Exponentialfunktionen umgeformt werden können.
+Dazu gehören die Logarithmus- und Exponentialgesetze
+\index{Logarithmusgesetz}%
+\index{Exponentialgesetz}%
+\[
+\log ab = \log a + \log b
+\qquad\text{und}\qquad
+e^{a+b}=e^ae^b.
+\]
+Da weder Logarithmus noch Exponentialfunktion eindeutig festgelegt
+sind, kann man so eine einfache Beziehung nicht mehr erwarten.
+
+Sind $f_1,f_2\in F$ Funktionen in $F$ und $\vartheta_1$ und $\vartheta_2$
+Exponentialfunktionen von $f_1$ bzw.~$f_2$, dann gilt
+\[
+D(\vartheta_1\vartheta_2)
+=
+(D\vartheta_1)\vartheta_2
++
+\vartheta_1(D\vartheta_1)
+=
+\vartheta_1 (Df_1) \vartheta_2
++
+\vartheta_1\vartheta_2 (Df_2)
+=
+\vartheta_1\vartheta_2 D(f_1+f_2).
+\]
+Das Produkt $\vartheta = \vartheta_1\vartheta_2$ ist daher wegen
+\[
+D\vartheta = \vartheta D(f_1+f_2)
+\]
+eine Exponentialfunktion von $f_1+f_2$.
+In der konventionellen Notation wird dies als
+\[
+e^{f_1} e^{f_2}
+=
+e^{f_1+f_2}
+\]
+geschrieben.
+Das Produkt der Exponentialfunktionen der Faktoren ist also eine
+Exponentialfunktion der Summe.
+Das Exponentialgesetzt ist also in diesem erweiterten Sinn immer noch
+gültig.
+
+Seien jetzt umgekehrt $\vartheta_1$ und $\vartheta_2$ Logarithmen von
+$f_1$ bzw.~$f_2$.
+Dann gilt
+\[
+D(\vartheta_1+\vartheta_2)
+=
+\frac{Df_1}{f_1}
++
+\frac{Df_2}{f_2}
+=
+\frac{Df_1\cdot f_2+f_1\cdot Df_2}{f_1f_2}
+=
+\frac{D(f_1f_2)}{f_1f_2}.
+\]
+Schreibt man $f=f_1f_2$, dann ist die Summe
+$\vartheta=\vartheta_1+\vartheta_2$ wegen
+\[
+D\vartheta = \frac{Df}{f}
+\]
+ein Logarithmus des Produktes $f$.
+In der konventionellen Notation bedeutet dies, dass
+\[
+\log (f_1f_2)
+=
+\log f_1 + \log f_2
+\]
+ist.
+Die Summe der Logarithmen der Faktoren ist also ein Logarithmus
+des Produktes.
+

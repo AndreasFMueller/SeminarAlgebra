@@ -1,0 +1,68 @@
+%
+% 32-integration.tex -- Umlaufzahl und komplexe Integration
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Umlaufzahl und komplexe Integration}
+Die Umlaufzahl 
+nach Definition~\ref{buch:integration:definition:umlaufzahl}
+zu berechnen ist eher mühsam.
+Daher ist es besonders erfreulich, dass man sie auch mit komplexer
+Wegintegration berechnen kann, wie der folgende Satz zeigt.
+Der Beweis beruht auf der Idee, dass sich der in der
+Abbildung~\ref{buch:integration:fig:argument} rot gezeichnete Weg
+in den grünen Weg deformieren lässt, der die Richtung $s$ immer in der
+gleichen Richtung überschreitet und damit seinerseits homotop zu
+einem Weg der Form $t\mapsto e^{2\pi int}$, für den sich das Integral
+leicht berechnen lässt.
+
+\begin{satz}
+Sei $\gamma$ ein Weg in $\mathbb{C}$, der den Punkt $z_0$ nicht trifft,
+dann umläuft der Weg den Punkt $z_0$
+\[
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{1}{2\pi i}
+\oint_\gamma \frac{dz}{z-z_0}
+\]
+mal.
+\end{satz}
+
+\begin{proof}
+Abbildung~\ref{buch:integration:fig:argument} zeigt, wie die Umlaufzahl
+berechnet wird.
+Durch ``Strecken'' des Graphen von $\varphi(t)$ zu einer Geraden
+(in der Abbildung grün eingezeichnet), kann der Weg durch ein
+Homotopie in einen Weg deformiert werden, der durch  die
+Parametrisierung $\gamma_1(t) = z_0+re^{2\pi i n t}$ beschrieben werden kann.
+Nach Satz~\ref{buch:integration:satz:homotopie} ergeben die
+die beiden Wege denselben Wert des Integrals.
+Der Wert des Integrals über den Weg $\gamma_1$ ist
+\[
+\oint_{\gamma_1}
+\frac{dz}{z-z_0}
+=
+\int_0^1
+\frac{2\pi i nre^{2\pi int}}{z_0+re^{2\pi i nt}-z_0}
+\,dt
+=
+\int_0^1
+2\pi i n
+\,dt
+=
+2\pi i n.
+\]
+Aufgelöst nach $n$ folgt daraus
+\[
+n
+=
+\operatorname{ind}_\gamma(z_0)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}\frac{dz}{z-z_0}
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}\frac{dz}{z-z_0}
+\]
+Damit ist der Satz bewiesen.
+\end{proof}

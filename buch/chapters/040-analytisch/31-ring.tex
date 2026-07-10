@@ -1,0 +1,118 @@
+%
+% 31-ring.tex -- Funktionen auf einem Ringgebiet
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Funktionen auf einem Ringgebiet}
+\input{chapters/040-analytisch/fig/fig-ring.tex}%
+Wir betrachten eine holomorphe Funktion $f\colon U\to\mathbb{C}$.
+Die offene Menge $U$ sei so gestaltet, dass der \emph{Ring}
+\[
+R(z_0;r_1,r_2)
+=
+\{
+z\in\mathbb{C}
+\mid
+r_1 \le |z-z_0| \le r_2
+\}
+\]
+in $U$ enthalten ist.
+\index{Ringgebiet}%
+Abbildung~\ref{buch:analytisch:laurent:fig:ring} zeigt diese Situation.
+Da die Funktion $f$ im Inneren des kleinen Kreises mit Radius $r_1$ um
+den Punkt $z_0$ nicht überall definiert sein muss, ist der Integralsatz
+von Cauchy nicht auf den grossen Kreis anwendbar.
+Der folgende Satz zeigt dass es aber trotzdem möglich ist, den Wert von
+$f$ in einem beliebigen Punkt des Ringgebietes mit einem Wegintegral
+zu berechnen.
+
+\begin{satz}
+Seien $\gamma_2$ und $\gamma_1$ die im Gegenuhrzeigersinn durchlaufenen
+Randkreise des Ringgebietes $R(z_0;r_1,r_2)$ mit Radien $r_2$ und $r_1$.
+Dann gilt
+\begin{equation}
+f(a)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{z-a}
+\,dz
+-
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+\frac{f(z)}{z-a}
+\,dz
+\label{buch:analytisch:laurent:eqn:zweiintegrale}
+\end{equation}
+für jeden Punkt $a\in R(z_0;r_1,r_2)$.
+\end{satz}
+
+\begin{proof}
+Der in Abbildung~\ref{buch:analytisch:laurent:fig:ring} dargestellte
+Weg, der vom Punkt $A$ ausgehend zunächst dem äusseren Randkreis
+folgt bis wieder zurück zum Punkt $A$, dann radial zum Punkt $a$, in 
+einem Halbkreis vom Radius $\varepsilon$ um den Punkt $a$ bis zum
+Punkt $B$, von dort im Uhrzeigersinn um den Inneren Randkreis zurück
+zum Punkt $B$ und erneut radial zum Punkt $A$, mit einem kleinen, 
+kreisförmigen Umweg vom Radius $\varepsilon$ um den Punkt $a$.
+Die Funktion ist im Inneren des Weges überall holomorph,
+nach dem Integralsatz von Cauchy gilt daher
+\[
+\oint_{\gamma_1-\gamma_2-\gamma_{\varepsilon}} \frac{f(z)}{z-a}\,dz 
+=
+0.
+\]
+
+Die radialen Teile werden zweimal in entgegengesetzter Richtung durchlaufen
+und heben sich daher weg.
+Einen Beitrag zum Integral leisten daher nur die Kreise.
+Der kleine Kreis um den Punkt $a$ wird mit $t\mapsto \varepsilon e^{2\pi it}$
+parametrisiert.
+So wird das Integral
+\begin{align*}
+0
+&=
+\oint_{\gamma_1} \frac{f(z)}{z-a}\,dz
+-
+\oint_{\gamma_2} \frac{f(z)}{z-a}\,dz
+-
+\int_0^1
+\frac{f(a+\varepsilon e^{2\pi it})}{a+\varepsilon e^{2\pi it}-a}
+\cdot
+\frac{d}{dt}
+\varepsilon
+e^{2\pi it}
+\,dt
+\\
+\oint_{\gamma_1} \frac{f(z)}{z-a}\,dz
+-
+\oint_{\gamma_2} \frac{f(z)}{z-a}\,dz
+&=
+\int_0^1
+\frac{f(a+\varepsilon e^{2\pi it})}{\varepsilon e^{2\pi it}}
+\cdot
+2\pi i\varepsilon e^{2\pi it}
+\,dt
+\\
+&=
+2\pi i
+\int_0^1
+f(a+\varepsilon e^{2\pi it})
+\,dt.
+\end{align*}
+Die rechte Seite geht für $\varepsilon\to 0$ gegen $0$, so dass
+\[
+f(a)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{z-a}
+\,dz
+-
+\frac{1}{2\pi i}
+\oint_{\gamma_2}
+\frac{f(z)}{z-a}
+\,dz
+\]
+folgt.
+\end{proof}

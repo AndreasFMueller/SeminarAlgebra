@@ -1,0 +1,98 @@
+%
+% pi2.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\ys{0.5}
+\def\skala{0.933}
+\pgfmathparse{3.1415*3.1415}
+\xdef\piq{\pgfmathresult}
+\pgfmathparse{2*3.1415-1.4}
+\xdef\lc{\pgfmathresult}
+\def\vstep{0.45}
+
+\def\beschriftung#1#2#3#4{
+	\draw[color=#3,line width=0.2pt]
+		({3.1415},{\ys*(#2(3.1415))})
+		--
+		(\lc,{\ys*\piq+0.4-(#1)*\vstep});
+	\node[color=#3] at (\lc,{\ys*\piq+0.4-(#1)*\vstep}) [right] {$#4$};
+	\draw[color=#3,line width=0.7pt]
+		plot[domain=-6.3:6.3,samples=300] ({\x},{\ys*#2(\x)});
+}
+
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+f0(\X) = 3.2899;
+f1(\X) = f0(\X) + 4*(-1)*cos(deg(\X));
+f2(\X) = f1(\X) + 4*(0.25)*cos(deg(2*\X));
+f3(\X) = f2(\X) + 4*(-0.1111)*cos(deg(3*\X));
+f4(\X) = f3(\X) + 4*(0.0625)*cos(deg(4*\X));
+f5(\X) = f4(\X) + 4*(-0.04)*cos(deg(5*\X));
+f6(\X) = f5(\X) + 4*(0.0277)*cos(deg(6*\X));
+f7(\X) = f6(\X) + 4*(-0.02041)*cos(deg(7*\X));
+}]
+
+\draw[color=gray,dashed] (3.1415,0) -- ++(0,{\ys*\piq});
+\draw[dashed,color=gray] (0,{\ys*\piq}) -- ++(3.1415,0);
+\foreach \y in {2,4,6,8}{
+	\draw (-0.05,{\ys*\y}) -- ++(0.1,0);
+	\node at (0,{\ys*\y}) [left] {$\y$};
+}
+\draw (-0.05,{\ys*\piq}) -- ++(0.1,0);
+\node at (0,{\ys*\piq}) [left] {$\pi^2$};
+
+\begin{scope}
+	\clip (-6.28318,-0.2) rectangle (6.28318,{\ys*\piq});
+	\draw[color=gray!50,line width=1.2pt]
+		plot[domain=-3.1415:3.1415,samples=300] ({\x},{\ys*\x*\x)});
+
+	\begin{scope}[xshift=6.28318cm]
+		\draw[color=gray!50,line width=1.2pt]
+			plot[domain=-3.1415:3.1415,samples=300]
+				({\x},{\ys*\x*\x)});
+	\end{scope}
+
+	\begin{scope}[xshift=-6.28318cm]
+		\draw[color=gray!50,line width=1.2pt]
+			plot[domain=-3.1415:3.1415,samples=300]
+				({\x},{\ys*\x*\x)});
+	\end{scope}
+\end{scope}
+\node[color=gray!50] at (-3.1415,{\ys*\piq+0.1}) [right] {$y=x^2$};
+\draw (3.1415,{\ys*\piq}) circle[radius=0.1];
+
+\draw[->] (-6.4,0) -- (6.6,0) coordinate[label={$x$}];
+\draw[->] (0,-0.4) -- (0,{\ys*11.0}) coordinate[label={right:$y$}];
+
+\beschriftung{7}{f0}{blue!18}{y=f_0(x)\mathstrut}
+\beschriftung{6}{f1}{blue!21}{y=f_1(x)\mathstrut}
+\beschriftung{5}{f2}{blue!26}{y=f_2(x)\mathstrut}
+\beschriftung{4}{f3}{blue!33}{y=f_3(x)\mathstrut}
+\beschriftung{3}{f4}{blue!41}{y=f_4(x)\mathstrut}
+\beschriftung{2}{f5}{blue!64}{y=f_5(x)\mathstrut}
+\beschriftung{1}{f6}{blue!80}{y=f_6(x)\mathstrut}
+\beschriftung{0}{f7}{blue!100}{y=f_7(x)\mathstrut}
+
+\def\labelheight{-0.30}
+\node at (3.1415,\labelheight) [below] {$\pi\mathstrut$};
+\node at ({2*3.1415},\labelheight) [below] {$2\pi\mathstrut$};
+\draw (3.1415,-0.05) -- ++(0,0.1);
+\draw ({2*3.1415},-0.05) -- ++(0,0.1);
+\node at (-3.1415,\labelheight) [below] {$-\pi\mathstrut$};
+\node at ({-2*3.1415},\labelheight) [below] {$-2\pi\mathstrut$};
+\draw (-3.1415,-0.05) -- ++(0,0.1);
+\draw ({-2*3.1415},-0.05) -- ++(0,0.1);
+\node at (0,\labelheight) [below] {$0\mathstrut$};
+
+\end{tikzpicture}
+\end{document}
+

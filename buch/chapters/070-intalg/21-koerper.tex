@@ -1,0 +1,64 @@
+%
+% Der Funktionekörper
+%
+\subsection{Der Funktionenkörper $\mathbb{Q}(x,\vartheta)$
+\label{buch:intalg:wurzel:subsection:koerper}}
+Der Körper $\mathbb{Q}(z,\vartheta)$ besteht aus den Funktionen
+\[
+f(x)
+=
+\frac{
+\tilde{p}_0 + \tilde{p}_1\vartheta + \tilde{p}_2\vartheta^2
++ \ldots + \tilde{p}_n\vartheta^n
+}{
+\tilde{q}_0 + \tilde{q}_1\vartheta + \tilde{q}_2\vartheta^2
++ \ldots + \tilde{q}_m\vartheta^m
+}
+\]
+mit $p_k\in\mathbb{Q}(x)$, $k=1,\dots,n$, und $q_k\in\mathbb{Q}(x)$,
+$k=1,\dots,m$.
+Da $\vartheta$ eine algebraisches Element über $\mathbb{Q}$ ist, welches
+die Identität
+\[
+\vartheta^2 = ax^2 +bx +c
+\]
+mit $a,b,c\in\mathbb{Q}$ erfüllt, können die höheren Potenzen
+$\vartheta^{2l}$ und $\vartheta^{2l+1}$ durch Potenzen des Radikanden
+ersetze werden:
+\begin{align*}
+\vartheta^{2l}
+&=
+(ax^2 + bx + c)^l
+&&\text{und}&
+\vartheta^{2l+1}
+&=
+(ax^2 + bx + c)^l \vartheta.
+\end{align*}
+Es ist daher möglich, die Funktion $f(x)$ in der einfacheren Form
+\begin{equation}
+f(x)
+=
+\frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
+\label{buch:algint:wurzel:eqn:funktion}
+\end{equation}
+zu schreiben.
+Gesucht ist also eine Stammfunktion von
+\[
+f
+\in
+\mathbb{Q}(x,\vartheta)
+=
+\biggl\{
+\frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
+\;
+\bigg|
+\;
+p_k,q_k\in\mathbb{Q}(x), k=0,1
+\biggr\}
+\]
+als elementare Funktion.
+Da schon die Stammfunktionen von rationalen Funktionen nicht unbedingt
+rational sein müssen, kann man nicht erwarten, dass eine Stammfunktion
+einer Funktion in $\mathbb{Q}(x,\vartheta)$ in diesem Körper liegen wird.
+Es werden also Erweiterungen des Körpers um weitere Funktionen nötig sein,
+um das Problem lösen zu können.

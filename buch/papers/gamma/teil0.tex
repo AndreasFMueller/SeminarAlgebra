@@ -6,20 +6,34 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 0\label{gamma:section:teil0}}
-\kopfrechts{Teil 0}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua \cite{gamma:bibtex}.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-dolor sit amet.
+\section{Fakultät erweitern\label{gamma:section:teil0}}
+\kopfrechts{Fakultät erweitern}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.  Stet clita
-kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-amet.
+Die Fakultät ist definiert als
+\begin{equation}
+n! = \prod_{k=1}^{n} k = 1 \times 2 \times 3 \times \cdots \times n
+\label{gamma:fakultaet}
+\end{equation}
+und gilt für die natürlichen Zahlen. Sie fällt vorallem durch ihr schnelles Wachstum auf.
+Nicht ganz intuitiv dabei ist, dass $0! = 1$ ist. Stellt man die Fakultät in die rekursive Form um
+\begin{equation}
+n! = n \times (n-1)! <=> (n-1) = n!/n
+\label{gamma:fakultaet-rekursiv}
+\end{equation}
+und setzte 0 für $(n-1)$ ein, zeigt sich warum $0! = 1!/1 = 1$ ist. 
+
+Eine erste Definition der Fakultät für nicht Natürliche Zahlen wird bereits 1720 von Daniel Bernoulli und Christian Goldbach gegeben. 
+Auch Leonhard Euler und James Stirling steuern im Laufe der Jahrhunderte ihre eigene Definition bei. 
+Man sieht, die Erweiterung der Fakultät hat grosse Namen der Mathematik beschäftigt. 
+
+\subsection{Eigenschaften der Fakultät}
+
+Um die Fakultät zu erweitern, müssen drei essenzielle Eigenschaften festgelegt werden. 
+\begin{enumerate}
+  \item $f(1) = 1$
+  \item $f(x+1) = x \times f(x), x > 0$
+  \item $f(x)$ wächst schnell
+\end{enumerate}
+Erfüllt eine Funktion alle diese Eigenschaften, kann sie als Erweiterung der Fakultät für nicht Natürliche Zahlen betrachtet werden.
 
 

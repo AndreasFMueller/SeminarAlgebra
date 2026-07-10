@@ -1,0 +1,69 @@
+%
+% sinxx.tex -- sin(x)/x
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\def\a{1.7}
+\def\h{0.45}
+\pgfmathparse{\a*45/atan(1)}
+\xdef\ax{\pgfmathresult}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+bogenmass(\X) = 3.1415*\X/180;
+}]
+
+	\draw[color=blue,line width=1.2pt] plot[domain=-730:730,samples=400]
+		({\h*bogenmass(\x)},{\a*sin(\x)});
+	\draw[color=darkred,line width=1.2pt] plot[domain=-730:730,samples=400]
+		({\h*bogenmass(\x)},{\a*sin(\x)/bogenmass(\x)});
+
+	\draw[->] ({-4.1*3.1415*\h},0) -- ({4.3*3.1415*\h},0)
+		coordinate[label={$x$}];
+
+	\draw[->] (0,{-1.05*\a}) -- (0,{1.30*\a})
+		coordinate[label={right:$y$}];
+	\draw (-0.05,\a) -- (0.05,\a);
+	\node at (0,{\a-0.1}) [above right] {$1$};
+	\draw (-0.05,-\a) -- (0.05,-\a);
+	\node at (0,-\a) [right] {$-1$};
+
+	\foreach \n in {2,3,4}{
+		\draw[line width=0.2pt]
+			({-\n*3.1415*\h},0) -- ++(0,{-1.05*\a});
+		\node at ({-\n*3.1415*\h},{-1.05*\a})
+			[below] {$-\n\pi\mathstrut$};
+		\draw[line width=0.2pt]
+			({\n*3.1415*\h},0) -- ++(0,{-1.05*\a});
+		\node at ({\n*3.1415*\h},{-1.05*\a})
+			[below] {$\n\pi\mathstrut$};
+	}
+	\draw[line width=0.2pt] ({-3.1415*\h},0) -- ++(0,{-1.05*\a});
+	\node at ({-3.1415*\h},{-1.05*\a}) [below] {$-\pi\mathstrut$};
+	\draw[line width=0.2pt] ({3.1415*\h},0) -- ++(0,{-1.05*\a});
+	\node at ({3.1415*\h},{-1.05*\a}) [below] {$\pi\mathstrut$};
+	\node at (0,{-1.05*\a}) [below] {$0\mathstrut$};
+
+	\foreach \n in {1,2,3,4}{
+		\draw ({\n*3.1415*\h},-0.05) -- ++(0,0.1);
+	}
+
+	\node[color=darkred] at
+		({\h*bogenmass(-20)},{\a*sin(-20)/bogenmass(-20)-0.4})
+		[above left] {$\displaystyle y=\frac{\sin x}{x}$};
+	\node[color=blue] at
+		({\h*bogenmass(480)},{\a*sin(480)-0.2})
+		[above right] {$\displaystyle y=\sin x$};
+
+\end{tikzpicture}
+\end{document}
+

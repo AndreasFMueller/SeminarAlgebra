@@ -1,0 +1,99 @@
+%
+% 34-singulaer.tex -- Singularitäten
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Singuläre Punkte}
+Die Laurent-Reihenentwicklung ermöglicht, eine Funktion in der Umgebung
+eines singulären Punktes genauer zu untersuchen.
+Sei $U$ ein offene Teilmenge von $\mathbb{C}$ und $z_0$ ein isolierter
+Punkt von $\mathbb{C}\setminus U$.
+Ein auf $U$ definierte, holomorphe Funktion $f\colon U\to\mathbb{C}$
+ist also in jeder genügend kleinen Umgebung von $z_0$ in jedem Punkt
+definiert ausser im Punkt $a$.
+Eine solche Stelle heisst ein \emph{isolierter} singulärer Punkt.
+\index{isoliert}%
+\index{singularer Punkt@singulärer Punkt}%
+
+Die Funktion $f$ ist in jedem Ringgebiet $R(z_0;r_1,r_2)$, um den Punkt
+$z_0$ definiert, sofern nur $r_1$ klein genug ist und für 
+alle inneren Radien $r_2<r_1$.
+Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} gibt es
+ein Laurent-Reihenentwicklung
+\index{Laurent-Reihe}%
+\begin{equation}
+f(z)
+=
+\sum_{k=0}^\infty a_k(z-z_0)^k
++
+\sum_{k=1}^\infty b_k(z-z_0)^{-k},
+\label{buch:analytisch:laurent:eqn:laurentsing}
+\end{equation}
+die für $z$ beliebig nahe an $z_0$ konvergiert.
+Es folgt, dass die Reihe
+\[
+u(z)
+=
+\sum_{k=1}^\infty b_kz^k
+\]
+für beliebig grosse $z$ konvergiert, sie ist also in ganz $\mathbb{C}$
+definiert.
+Am Nullpunkt ist $u(0)=0$.
+Die zweite Summe in der Laurent-Reihe
+\eqref{buch:analytisch:laurent:eqn:laurentsing}
+kann daher als $u(1/(z-z_0))$ geschrieben werden.
+Die Funktion $u(1/(z-z_0))$ heisst der \emph{singäre Teil} der Funktion $f$
+in einer Umgebung von $z_0$.
+\index{singularer Teil@singulärer Teil}%
+
+Falls $u=0$ ist, dann handelt es sich um eine \emph{hebbare} Singularität,
+\index{hebbar}%
+\index{Singularitat@Singularität}%
+\index{Singularitat, hebbar@Singularität, hebbar}%
+die Funktion kann stetig in den Punkt $z_0$ hinein fortgesetzt werden.
+
+\begin{definition}[Ordnung eines singlären Punktes]
+Sei $z_0$ ein singulärer Punkt der Funktion $f(z)$ und $u(z)$ der 
+singuläre Teil an der Stelle $z_0$.
+Wenn $u(z)$ ein Polynom vom Grad $n$ ist, dann heisst $z_0$ ein
+\emph{Pol der Ordnung $n$}.
+\index{Pol}%
+\index{Ordnung!Pol}%
+Falls $u(z)$ kein Polynom ist, heisst $z_0$ eine \emph{essentielle
+Singularität}.
+\index{essentielle Singularitat@essentielle Singularität}%
+Falls $u=0$ ist und $a_k=0$ für $k\le n$ in 
+\eqref{buch:analytisch:laurent:eqn:laurentsing},
+dann heisst $z_0$ eine \emph{Nullstelle der Ornung $n$}.
+\index{Ordnung!Nullstelle}%
+Die Funktion $\omega(f,z_0)$ ist definiert durch
+\[
+\omega(z_0;f)
+=
+\begin{cases}
+-\infty&\qquad\text{falls $z_0$ eine essentielle Singularität von $f$ ist}\\
+-n&\qquad\text{falls $z_0$ ein Pol der Ordnung $n$ von $f$ ist}\\
+\phantom{-}m&\qquad\text{falls $z_0$ eine Nullstelle der Ordnung $m$ von $f$ ist}\\
+\phantom{-}\infty&\qquad\text{falls $f=0$ ist}
+\end{cases}
+\]
+\end{definition}
+
+Für die Ordnung $\omega(z_0,f)$ gelten die folgenden Rechenregeln.
+\begin{align*}
+\omega(z_0,f+g) &\ge \min\bigl(\omega(z_0,f),  \omega(z_0,g)\bigr)
+\\
+\omega(z_0,fg) &= \omega(z_0,f) + \omega(z_0,g).
+\end{align*}
+
+Wenn $f$ eine Singularität der Ordnung $n$ an der Stelle $z_0$ hat, 
+dann ist $(z-z_0)^{-n}f(z)$ eine analytische Funktion mit einer
+hebbaren Singularität an der Stelle $z_0$, die dort nicht verschwindet.
+Insbesondere ist dann auch $1/(z-z_0)^{-n}\cdot 1/f(z)$ eine in einer
+Umgebung von $z_0$ holomorphe Funktion, so dass man
+\[
+\omega(z_0;f)
+=
+-\omega(z_0;1/f)
+\]
+schliessen kann.

@@ -6,53 +6,87 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 1
-\label{produkt:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
+\section{Eulers Produktdarstellung des Sinus}
+\kopfrechts{Eulers Produktdarstellung des Sinus}
+
+\subsection{Der Ansatz}
+
+Euler beobachtete, dass die Nullstellen von $\sin(x)$ genau die Punkte
+$x = n\pi$, $n \in \mathbb{Z}$, sind.
+Analog zur Polynomfaktorisierung schrieb er einen formalen Ansatz ohne Konvergenzbedenken.
+Sein Ansatz hatte die Form
 \begin{equation}
-\int_a^b x^2\, dx
+\sin(x)
 =
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{produkt:equation1}
+x \cdot \prod_{n=1}^{\infty} \biggl(1 - \frac{x^2}{n^2 \pi^2}\biggr).
 \end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Jeder Faktor $(1 - x^2/n^2\pi^2)$ hat genau die Nullstellen $x = \pm n\pi$.
+Der Vorfaktor $x$ erzeugt die Nullstelle bei $x = 0$.
+Das Normierungsverhalten $\sin(x)/x \to 1$ für $x \to 0$ ist automatisch erfüllt,
+da jeder Faktor für $x = 0$ den Wert $1$ annimmt.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
+Eulers Argument stützte sich auf die Analogie mit Polynomen und auf die
+Übereinstimmung der Nullstellenstruktur.
+Einen strengen Beweis lieferte er nicht, dieser wurde erst durch Weierstraß erbracht.
 
-\subsection{De finibus bonorum et malorum
-\label{produkt:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{produkt:equation1}.
+\subsection{Das Basel-Problem}
 
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{produkt:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{produkt:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
+Dieser Abschnitt behandelt das Basel-Problem nur oberflächlich.
+\index{Basel-Problem}%
+Für eine detaillierte Analyse siehe Kapitel \ref{chapter:basel}.
+Ein bemerkenswertes Nebenresultat ergibt sich durch Koeffizientenvergleich.
+Die Taylorreihe des Sinus liefert den Koeffizienten von $x^3$ als $-1/6$.
+Multipliziert man das unendliche Produkt formal aus, trägt jeder Faktor
+$(1 - x^2/n^2\pi^2)$ den Term $-x^2/n^2\pi^2$ bei,
+sodass der Gesamtkoeffizient von $x^3$ gleich $-\sum_n 1/(n^2\pi^2)$ ist.
+Gleichsetzen liefert das berühmte Resultat:
+\begin{equation}
+\sum_{n=1}^{\infty} \frac{1}{n^2}
+=
+\frac{\pi^2}{6}.
+\end{equation}
+Dieses, als Basel-Problem bekannte Resultat, war seit Jahrzehnten offen
+und hatte namhafte Mathematiker wie die Bernoullis beschäftigt.
+\index{Bernoulli}%
+Der Schritt ist analog zur endlichen Situation:
+Multipliziert man $(1+a_1)(1+a_2)\cdots$ aus, so liefert jeder Faktor genau
+einen linearen Beitrag $a_i$;
+Produkte mehrerer solcher Terme tragen zu höheren Potenzen bei und spielen
+beim Vergleich des $x^2$-Koeffizienten keine Rolle.
+Eulers Lösung, beschrieben in \cite{produkt:euler}, war eine Sensation.
+Stein und Shakarchi bemerken in \textit{Complex Analysis} \cite{produkt:steinShakarchi} treffend,
+dass Eulers Herleitung zwar nicht rigoros war, aber den richtigen Weg wies,
+der später durch die Weierstraß-Theorie vollständig gerechtfertigt werden sollte.
 
+\section{Das Problem der Konvergenz}
+\kopfrechts{Das Problem der Konvergenz}
 
+Eulers Vorgehen war kühn, aber mathematisch nicht gesichert.
+Zwei wesentliche Fragen bleiben offen.
+
+\begin{enumerate}
+\item \emph{Konvergiert das unendliche Produkt
+$\prod(1 - x^2/n^2\pi^2)$ überhaupt?}
+\index{Konvergenz}%
+Im vorliegenden Fall lässt sich dies bejahen, da $\sum 1/n^2$ konvergiert.
+Im Allgemeinen konvergiert ein unendliches Produkt $\prod(1+a_n)$ unter
+geeigneten Bedingungen (etwa wenn $\sum |a_n|$ konvergiert) gegen einen Wert $\neq 0$;
+die einfache Äquivalenz zur Konvergenz von $\sum a_n$ gilt nur in dieser
+Einschränkung \cite{produkt:remmert}.
+
+\item \emph{Folgt aus gleichen Nullstellen auch Gleichheit der Funktionen?}
+Besitzen zwei ganze Funktionen dieselben Nullstellen (inklusive ihrer Vielfachheiten),
+so ist ihr Quotient eine nullstellenfreie ganze Funktion.
+Nach den Sätzen der Funktionentheorie lässt sich eine solche stets in der Form
+$e^{g(z)}$ schreiben, wobei $g$ eine ganze Funktion ist.
+Zwei ganze Funktionen mit denselben Nullstellen unterscheiden sich folglich
+nur um diesen nullstellenfreien Faktor $e^{g(z)}$.
+Euler nutzte implizit, dass dieser Faktor für den Sinus gleich $1$ ist,
+was er durch das Verhalten für $x \to 0$ heuristisch erschloss,
+aber nicht rigoros begründete.
+\end{enumerate}
+
+Diese Lücken machen deutlich, dass eine allgemeine Theorie benötigt wird:
+eine Theorie, die präzise angibt, wann und wie eine ganze Funktion als Produkt
+über ihre Nullstellen darstellbar ist.
+Diese Theorie lieferte Weierstraß.

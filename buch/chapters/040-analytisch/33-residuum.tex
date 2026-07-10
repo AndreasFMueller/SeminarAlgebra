@@ -1,0 +1,165 @@
+%
+% 33-residuum.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Das Residuum}
+Wir betrachten die Laurent-Reihe
+\[
+f(z)
+=
+\sum_{k=-n}^\infty a_k(z-z_0)^k
+\]
+im Punkt $z_0$.
+Sei $\gamma$ ein geschlossener Weg in einem Ringgebiet um $z_0$,
+ der den Punkt $z_0$ einmal umläuft.
+Für die Berechnung des Wegintegrals kann dieser Weg in den kreisförmigen
+Weg $\gamma_0(t) = z_0+re^{2\pi it}$ deformiert werden, der den gleichen
+Wert für das Integral ergibt.
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma f(z)\,dz
+&=
+\frac{1}{2\pi i}
+\oint_{\gamma_0} f(z)\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\int_0^1
+f(z_0+re^{2\pi it}) \dot{\gamma}_0(t)\,dt
+=
+\frac{1}{2\pi i}
+\int_0^1 
+f(z_0+re^{2\pi it}) 2\pi ir e^{2\pi it}\,dt
+\\
+&=
+\sum_{k=-n}^\infty \int_0^1 a_k r^k e^{2\pi i k t} re^{2\pi it}\,dt
+=
+\sum_{k=-n}^\infty \int_0^1 a_k r^{k+1} e^{2\pi i (k+1) t}\,dt
+\intertext{Im Fall $k+1= 0$ wird der Integrand konstant, daher behandeln 
+wird diesen Fall separat:}
+&=
+\sum_{\scriptstyle k=-n\atop \scriptstyle k\ne -1}^\infty
+a_k r^{k+1} \int_0^1 e^{2\pi i (k+1) t} \,dt
++
+a_{-1} \int_0^1 \,dt
+\\
+&=
+\sum_{\scriptstyle k=-n\atop \scriptstyle k\ne -1}^\infty a_k r^{k+1}
+\underbrace{\biggl[
+\frac{1}{2\pi i(k+1)} e^{2\pi i (k+1) t}
+\biggr]_0^1}_{\displaystyle = 0}
++
+a_{-1}
+=
+a_{-1}.
+\end{align*}
+Die Integrale für $k\ne -1$ verschwinden, weil der Integrand periodisch
+ist und das Integral über eine Periode erstreckt wird.
+
+\begin{definition}[Residuum]
+\index{Residuum}%
+\index{resz0f@$\operatorname{res}(z_0;f)$}%
+Der Koeffizient $a_{-1}$ heisst das \emph{Residuum}
+\[
+\operatorname{res}(z_0;f)
+=
+a_{-1}
+\]
+der Funktion $f(z)$ an der Stelle $z_0$.
+\end{definition}
+
+Das Residuum fängt also das Verhalten von Polen erster Ordnung an
+der Stelle $z_0$ ein.
+Dies wird verdeutlich durch den folgenden Satz.
+
+\begin{satz}
+\label{buch:analytisch:laurent:residuum:satz}
+Ist $f(z)$ in einer Umgebung von $\alpha$ holomorph und hat $g(z)$
+eine Nullstelle erster Ordnung in $\alpha$, dann ist das Residuum
+\[
+\operatorname{res}\biggl(\alpha;\frac{f(z)}{g(z)}\biggr)
+=
+\frac{f(\alpha)}{g'(\alpha)}.
+\]
+\end{satz}
+
+\begin{proof}
+Da $g(z)$ eine Nullstelle erster Ordnung an der Stelle $\alpha$
+hat, kann man
+\[
+g(z) = (z-\alpha)\bigl(g'(\alpha)+ r(z)(z-\alpha)\bigr)
+\]
+und damit
+\[
+\frac{f(z)}{g(z)}
+=
+\frac{f(z)}{(z-\alpha)\bigl(g'(\alpha)+r(z)(z-\alpha)\bigr)}
+=
+\frac{1}{z-\alpha}
+\cdot
+\frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+=
+\frac{1}{z-\alpha}
+\cdot
+h(z)
+\]
+mit einer in einer Umgebung von $\alpha$ holomorphen Funktion
+$h(z)$ schreiben.
+Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} ist
+das Residuum das Integral
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(z)}{g(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z-\alpha}
+\frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac1{z-\alpha}
+\cdot
+h(z)
+\,dz.
+\intertext{Nach dem Integralsatz~\ref{buch:integration:satz:residuensatz}
+ergibt das Integral}
+&=
+h(\alpha)
+=
+\frac{f(\alpha)}{g'(\alpha)}.
+\end{align*}
+Dies beweist den Satz.
+\end{proof}
+
+\begin{beispiel}
+Um das Residuum der Funktion $(1+z)/(1-z)$ an der Stelle $1$ zu
+berechnen, kann man den Satz auf die Situation $f(z)=1+z$ und
+$g(z)=1-z$ anwenden, und erhält
+\[
+\operatorname{res}\biggl(1; \frac{1+z}{1-z}\biggr)
+=
+\frac{f(1)}{g'(1)}
+=
+\frac{2}{1}
+=
+2.
+\qedhere
+\]
+\end{beispiel}
+
+Falls der Weg $\gamma$ den Punkt $z_0$ mehrmals umläuft, kann man
+das Wegintegral
+\[
+\frac{1}{2\pi i}
+\oint_\gamma f(z)\,dz
+=
+\operatorname{ind}_\gamma(z_0) \cdot \operatorname{res}(z_0;f)
+\]
+aus der Umlaufzahl von $\gamma$ um den Punkt und dem Residuum der
+Funktion im Punkt $z_0$ berechnen.
