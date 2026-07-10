@@ -70,3 +70,114 @@ nach einem Umlauf wieder zur selben Entwicklung
 im Punkt $1$.
 Dies ist jedoch nicht selbstverständlich, wie die Beispiele
 im kommenden Abschnitt zeigen werden.
+
+
+\begin{satz}
+Seien $f(z)$ und $g(z)$ holomorphe Funktionen auf Gebieten $U$
+bzw.~$V$ die mitsamt aller ihrer Ableitungen in einem Punkt
+von $U\cap V$ übereinstimmen.
+Dann stimmen $f(z)$ und $g(z)$ auf jedem wegzusammenhängenden
+Gebiet, welches die Kurve $\gamma$ enthält, überein.
+\end{satz}
+
+\begin{proof}
+Sei $z_0$ der Punkte, in dem $f(z)$ und $g(z)$ samt ihren
+Ableitungen übereinstimmen.
+In diesem Punkt haben $f(z)$ und $g(z)$ die gleiche Potenzreihenentwicklung.
+Wir müssen zeigen, dass die Funktionen $f(z)$ und $g(z)$ auch ein einem
+Punkte $z_1$ übereinstimmen, der in einem einfach zusammenhängenden Gebiet
+$W\subset U\cap V$ enthalten ist.
+Wir konstruieren zu diesem Zweck einen differenzierbaren Weg $\gamma$
+von $z_0$ nach $z_1$ in $W$.
+Die Überlegungen von
+Abschnitt~\ref{buch:analytisch:analytisch:subsection:potenzreihe}
+zeigen dann, dass die beiden Funktionen samt ihren Ableitungen entlang
+dieses Weges ebenfalls übereinstimmen müssen.
+\end{proof}
+
+Bei der Konstruktion einer analytischen Fortsetzung muss man sich also
+nicht auf die Verwendung von Potenzreihen beschränken.
+Dies wird auch vom folgenden Beispiel illustriert.
+
+\begin{beispiel}
+Die Funktionen
+\begin{equation*}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrclcrcl}
+f
+&\colon&
+\displaystyle
+\biggl\{ re^{i\varphi}\mid r > 0\wedge -\frac{\pi}2<\varphi<\frac{3\pi}2 \biggr\}
+&\to&
+\mathbb{C}
+&:&
+z=re^{i\varphi}
+&\mapsto&
+\sqrt{r}e^{i\varphi/2}
+\\[7pt]
+g
+&\colon&
+\displaystyle
+\biggl\{ re^{i\varphi}\mid r > 0\wedge -\frac{3\pi}2<\varphi<\frac{\pi}2 \biggr\}
+&\to&
+\mathbb{C}
+&:&
+z=re^{i\varphi}
+&\mapsto&
+\sqrt{r}e^{i\varphi/2}
+\end{array}
+\end{equation*}
+sind so definiert sein, dass das Argument $\varphi$ auf den jeweiligen
+Definitionsgebieten stetig ist.
+Beide Funktionen haben die Eigenschaft
+\[
+f(z)^2
+=
+re^{i\varphi} = z
+=
+g(z)^2,
+\]
+sie sind also Wurzelfunktionen.
+
+Die Definitionsgebiete bestehen jeweils aus der komplexen Ebene, aus der
+ein Teil der imaginären Achse entfernt worden ist.
+Konkret ist
+\[
+U = \mathbb{C}\setminus\{-iy\mid y\ge 0\}
+\qquad\text{und}\qquad
+V = \mathbb{C}\setminus\{+iy\mid y\ge 0\}.
+\]
+Die Schnittmenge ist 
+\[
+U\cap V
+=
+\{x+iy\in\mathbb{C}\mid x < 0\}
+\cup
+\{x+iy\in\mathbb{C}\mid x > 0\}.
+\]
+An der Stelle $z=1$ ist $r=1$ und $\varphi=0$ für beide Funktionen,
+die Funktionswerte und die Ableitungen stimmen also überein.
+Es folgt, dass die beiden Funktionen für $\operatorname{Re}z>0$
+und damit auch auf jedem wegzusammenhängenden Teilgebiet davon
+übereinstimmen werden.
+
+Andererseits gilt für Punkte auf der negativen reellen Achse
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclclcr}
+f(-x) &=& f(xe^{i\pi})  &=& \!\sqrt{x}e^{i\pi/2} &=& i\!\sqrt{x},\\
+g(-x) &=& g(xe^{-i\pi}) &=& \!\sqrt{x}e^{i\pi/2} &=& -i\!\sqrt{x}.
+\end{array}
+\]
+Es gibt aber auch kein wegzusammenhängendes Teilgebiet von $U\cap V$,
+welches den Punkt $z=1$ und einen Teil der negativen reellen Achse
+enthält.
+\end{beispiel}
+
+Auch in diesem Beispiel ist des die Singularität der Wurzelfunktion
+an der Stelle $0$, die eine eindeutige Definition verhindert.
+Der Satz zeigt aber noch etwas mehr.
+Er garantiert nämlich, dass man eine Funktion eindeutig auf ein
+grösseres Gebiet ausdehnen kann, wenn man sicherstellen kann,
+dass es nur einen Weg zu einem der neuen Punkte gibt.
+

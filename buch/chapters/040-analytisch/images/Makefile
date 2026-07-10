@@ -6,7 +6,9 @@
 all:	nichtanalytisch.pdf						\
 	wurzel2.pdf							\
 	wurzel.pdf							\
-	ring.pdf
+	ring.pdf							\
+	integral.pdf							\
+	zweipunkte.pdf
 
 nichtanalytisch.pdf:	nichtanalytisch.tex
 	pdflatex nichtanalytisch.tex
@@ -25,3 +27,10 @@ wurzel2.pdf:	wurzel2.tex
 
 ring.pdf:	ring.tex
 	pdflatex ring.tex
+
+integral.pdf:	integral.tex
+	pdflatex integral.tex
+
+zweipunkte.pdf:	zweipunkte.tex
+	pdflatex zweipunkte.tex
+

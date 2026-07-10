@@ -30,7 +30,9 @@ Wir möchten den Zusammenhang zwischen den Koeffizienten $p_k$
 und der Taylor-Reihe von $p(z)$ herstellen.
 \index{Taylor-Reihe}%
 \index{Potenzreihe}
-Dazu benötigen wir zunächst das folgende Lemma.
+Dazu benötigen wir eine Formel für die $k$-te Ableitung einer
+Potenzfunktion, die wir im folgenden Lemma aus der Produktregel
+ableiten.
 
 \begin{lemma}
 \label{buch:analytisch:potenzreihen:lemma:ableitung}
@@ -39,7 +41,9 @@ Die $k$-te Ableitung von $z^n$ ist
 \frac{d^k}{dz^k}
 z^n
 =
+\underbrace{
 n(n-1)\cdots(n-k+1)
+}_{\textstyle\text{$k$ Faktoren}}
 z^{n-k}.
 \label{buch:analytisch:potenzreihen:eqn:ableitung}
 \end{equation}
@@ -80,7 +84,7 @@ bewiesen.
 Das Polynom $p(z)$ kann auch als Potenzreihe im Punkt $z_0$
 geschrieben werden.
 Dies kann auf zwei Arten erreicht werden.
-Einerseits gilt die Taylor-Reihe, die
+Einerseits gilt die Taylor-Reihe
 \begin{align*}
 p(z)
 &=
@@ -88,7 +92,7 @@ p(z)
 \frac{1}{u!}
 \frac{d^up}{dz^u}(z_0)
 (z-z_0)^u.
-\intertext{Andererseits kann eine Potenzreihenentwicklung durch eine
+\intertext{Andererseits kann man eine Potenzreihenentwicklung durch eine
 algebraische Umformung erhalten.
 Zunächst wendet man auf}
 p(z)
@@ -151,7 +155,7 @@ p_k
 \Biggr)
 (z-z_0)^u
 \intertext{gebracht werden.
-Die $u$-te Ableitung kann aus der inneren Summe herausgezogen werden,
+Die Ableitung kann aus der inneren Summe herausgezogen werden,
 so dass sich die Ableitung}
 &=
 \sum_{u=0}^n
