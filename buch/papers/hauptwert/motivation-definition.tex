@@ -1,0 +1,37 @@
+%
+% einleitung.tex -- Beispiel-File für die Einleitung
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Motivation und Definition
+\label{hauptwert:section:motivation-definition}}
+\kopfrechts{Teil 0}
+\subsection{Uneigentliche Integrale}
+
+Man betrachte die Funktion
+\begin{equation}
+f(x) = \frac{1}{x}
+\end{equation}
+und damit das Integral
+\begin{equation}
+\int_{-\infty}^{\infty} f(x)\,dx
+= \int_{-\infty}^{\infty} \frac{1}{x}\,dx.
+\end{equation}
+\input{papers/hauptwert/fig/kehrwert.tex}
+Abbildung \ref{hauptwert:figure:kehrwert} zeigt den Graphen des Integranden
+$f(x)=1/x$.
+Beim Lösen dieses Integrals fällt schnell auf, dass es ein Problem gibt, und
+zwar die Polstelle. Die Funktion hat eine nicht-hebbare
+Definitionslücke bei $x = 0$ und beide Seiten divergieren.
+
+\subsection{Ein erster Versuch}
+Um das Integral zu lösen, wäre der erste natürliche Schritt, beide Seiten
+einzeln zu Lösen und mit dem Grenzwert sich der Polstelle zu nähern:
+
+\begin{equation}
+\int_{-\infty}^{\infty} f(x)\,dx
+= \lim_{\epsilon_1 -> 0^-} \int_{-\infty}^{\epsilon_1} f(x)\,dx + \lim_{\epsilon_2 -> 0^+} \int_{\epsilon_2}^{\infty} f(x)\,dx
+\end{equation}
