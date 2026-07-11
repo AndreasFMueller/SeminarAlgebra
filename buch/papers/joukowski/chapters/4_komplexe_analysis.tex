@@ -1,1 +1,53 @@
 \section{Komplexe Analysis}
+
+Um den Ausdruck~\ref{joukowski:auftrieb:auftrieb} weiter aufzulösen, muss die Funktion $v(z)$ genauer untersucht werden.
+Einige Eigenschaften von $v(z)$ helfen uns dabei einen passenden Ausdruck dafür aufzustellen.
+Wir haben vorausgesetz, dass im Unendlichen die Geschwindigkeit $v(z) = v_\infty$ ergibt.
+Zudem muss es laut Satz 16 eine Polstelle im inneren des Flügelprofils haben, 		% Auf Satz verweisen?
+da sonst das Kontourintegral konstant $0$ wäre, 
+was darauf hindeuten würde, dass keinen Auftrieb erzeilt werden kann.
+Diese Eigenschaften der Geschwindigkeit $v(z)$ führen dazu, dass die komplex konjugierte Geschwidigkeit $\overline{v(z)}$ als Laurent-Reihe der Form
+
+\begin{equation}
+	\overline{v(z)} 
+	= 
+	a_0 + \frac{a_1}{z} + \frac{a_2}{z^2} + \frac{a_3}{z^3} +\dots 
+	= 
+	\sum_{i=0}^{\infty} \frac{a_i}{z^i}
+	\label{joukowski:komplexe-analysis:laurent-reihe}
+\end{equation}
+
+geschrieben werden kann. Im Allgemeinen sind die Koeffizienten $a_i \in \mathbb{C}$, in dieser Anwendung jedoch beschränken sich die Koeffizienten auf $a_i \in \mathbb{R}$.
+Die Laurent-Reihe wird hier eingesetzt, da es im Ursprung bei $z = 0$ eine Polstelle haben muss. 
+Dies kann zum Beispiel mit einer Taylor-Reihe nicht beschrieben werden.
+
+Der Koeffizien $a_0$ entspricht direkt der Geschwindigkeit im Unendlichkeit, weshalb er besser als $v_\infty$ geschrieben werden soll.
+
+% Zusammenhang von |v(z)|^2 und v(z)*^2?
+
+Nun kann die Gleichung\ref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck~\ref{joukowski:auftrieb:auftrieb} eingesetz werden
+und in ein Integral mit allen Termen die mit $v_\infty$ multipliziert werden, 
+und ein Integral mit allen anderen Termen umformen, wobei aus
+
+\[
+	F'
+	= 
+	-i\frac{\rho}{2} \cdot 
+	\displaystyle\oint_{\gamma} v_\infty^2 + v_\infty \cdot \sum_{i=1}^{\infty} \frac{a_i}{z^i} + \biggl(\sum_{i=1}^{\infty} \frac{a_i}{z^i}\biggl)^2
+	dz
+\]
+
+\[
+	F'
+	= 
+	-i\frac{\rho}{2} \cdot  
+	\displaystyle\oint_{\gamma} 2 v_\infty (\frac{v_\infty}{2} + \frac{a_1}{z} + \frac{a_2}{z^2} + ... )
+	dz
+	-
+	i\frac{\rho}{2} \cdot 
+	\displaystyle\oint_{\gamma} \frac{a_1^2}{z^2} + \frac{a_1 a_2}{z^3} + ... 
+	dz
+\]
+
+wird.
+%ein Integral mit allen Termen die mit $v_\infty$ multipliziert werden, und ein Integral mit allen anderen Termen.
