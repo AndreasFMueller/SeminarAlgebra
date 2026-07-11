@@ -10,21 +10,28 @@ PAPERFILES = \
 	papers/uebersicht.tex \
 	papers/aircraft/main.tex \
 	papers/basel/main.tex \
-	papers/beispiel/main.tex \
 	papers/elektro/main.tex \
 	papers/fresnel/main.tex \
 	papers/jordan/main.tex \
 	papers/joukowski/main.tex \
 	papers/julia/main.tex \
 	papers/kepler/main.tex \
-	papers/laplace/main.tex \
 	papers/produkt/main.tex \
 	papers/qa/main.tex \
-	papers/venn/main.tex \
 	papers/weyl/main.tex \
 	papers/zeta/main.tex \
 	papers/bessel/main.tex \
 	papers/buchberger/main.tex \
+	papers/moebius/main.tex \
+	papers/hauptwert/main.tex \
+	papers/konstruktion/main.tex \
+	papers/gamma/main.tex \
+	papers/pade/main.tex \
+	papers/elliptisch/main.tex \
+	papers/geradlinig/main.tex \
+	papers/hankel/main.tex \
+	papers/step/main.tex \
+	papers/resultante/main.tex \
 	
 $(workdir)/buch1-blx.bbl:	$(workdir)/buch1-blx.aux
 	cd $(workdir); bibtex buch1-blx
@@ -129,10 +136,52 @@ $(workdir)/$(seminar)17-blx.bbl:	$(workdir)/$(seminar)17-blx.aux
 	cd $(workdir); bibtex $(seminar)17-blx
 
 $(workdir)/buch18-blx.bbl:	$(workdir)/buch18-blx.aux
-	cd $(workdir) bibtex buch18-blx
+	cd $(workdir); bibtex buch18-blx
 
 $(workdir)/$(seminar)18-blx.bbl:	$(workdir)/$(seminar)18-blx.aux
-	cd $(workdir) bibtex $(seminar)18-blx
+	cd $(workdir); bibtex $(seminar)18-blx
+
+$(workdir)/buch19-blx.bbl:	$(workdir)/buch19-blx.aux
+	cd $(workdir); bibtex buch19-blx
+
+$(workdir)/$(seminar)19-blx.bbl:	$(workdir)/$(seminar)19-blx.aux
+	cd $(workdir); bibtex $(seminar)19-blx
+
+$(workdir)/buch20-blx.bbl:	$(workdir)/buch20-blx.aux
+	cd $(workdir); bibtex buch20-blx
+
+$(workdir)/$(seminar)20-blx.bbl:	$(workdir)/$(seminar)20-blx.aux
+	cd $(workdir); bibtex $(seminar)20-blx
+
+$(workdir)/buch21-blx.bbl:	$(workdir)/buch21-blx.aux
+	cd $(workdir); bibtex buch21-blx
+
+$(workdir)/$(seminar)21-blx.bbl:	$(workdir)/$(seminar)21-blx.aux
+	cd $(workdir); bibtex $(seminar)21-blx
+
+$(workdir)/buch22-blx.bbl:	$(workdir)/buch22-blx.aux
+	cd $(workdir); bibtex buch22-blx
+
+$(workdir)/$(seminar)22-blx.bbl:	$(workdir)/$(seminar)22-blx.aux
+	cd $(workdir); bibtex $(seminar)22-blx
+
+$(workdir)/buch23-blx.bbl:	$(workdir)/buch23-blx.aux
+	cd $(workdir); bibtex buch23-blx
+
+$(workdir)/$(seminar)23-blx.bbl:	$(workdir)/$(seminar)23-blx.aux
+	cd $(workdir); bibtex $(seminar)23-blx
+
+$(workdir)/buch24-blx.bbl:	$(workdir)/buch24-blx.aux
+	cd $(workdir); bibtex buch24-blx
+
+$(workdir)/$(seminar)24-blx.bbl:	$(workdir)/$(seminar)24-blx.aux
+	cd $(workdir); bibtex $(seminar)24-blx
+
+$(workdir)/buch25-blx.bbl:	$(workdir)/buch25-blx.aux
+	cd $(workdir) bibtex buch25-blx
+
+$(workdir)/$(seminar)25-blx.bbl:	$(workdir)/$(seminar)25-blx.aux
+	cd $(workdir) bibtex $(seminar)25-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
@@ -153,6 +202,13 @@ BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch16-blx.bbl \
 	$(workdir)/buch17-blx.bbl \
 	$(workdir)/buch18-blx.bbl \
+	$(workdir)/buch19-blx.bbl \
+	$(workdir)/buch20-blx.bbl \
+	$(workdir)/buch21-blx.bbl \
+	$(workdir)/buch22-blx.bbl \
+	$(workdir)/buch23-blx.bbl \
+	$(workdir)/buch24-blx.bbl \
+	$(workdir)/buch25-blx.bbl \
 
 
 SBLXFILES = $(workdir)/$(seminar).bbl\
@@ -174,43 +230,64 @@ SBLXFILES = $(workdir)/$(seminar).bbl\
 	$(workdir)/$(seminar)16-blx.bbl \
 	$(workdir)/$(seminar)17-blx.bbl \
 	$(workdir)/$(seminar)18-blx.bbl \
+	$(workdir)/$(seminar)19-blx.bbl \
+	$(workdir)/$(seminar)20-blx.bbl \
+	$(workdir)/$(seminar)21-blx.bbl \
+	$(workdir)/$(seminar)22-blx.bbl \
+	$(workdir)/$(seminar)23-blx.bbl \
+	$(workdir)/$(seminar)24-blx.bbl \
+	$(workdir)/$(seminar)25-blx.bbl \
 
 
 PAPER_DIRECTORIES = \
 	aircraft \
 	basel \
-	beispiel \
 	elektro \
 	fresnel \
 	jordan \
 	joukowski \
 	julia \
 	kepler \
-	laplace \
 	produkt \
 	qa \
-	venn \
 	weyl \
 	zeta \
 	bessel \
 	buchberger \
+	moebius \
+	hauptwert \
+	konstruktion \
+	gamma \
+	pade \
+	elliptisch \
+	geradlinig \
+	hankel \
+	step \
+	resultante \
 	
 PAPER_MAKEFILEINC = \
 	papers/aircraft/Makefile.inc \
 	papers/basel/Makefile.inc \
-	papers/beispiel/Makefile.inc \
 	papers/elektro/Makefile.inc \
 	papers/fresnel/Makefile.inc \
 	papers/jordan/Makefile.inc \
 	papers/joukowski/Makefile.inc \
 	papers/julia/Makefile.inc \
 	papers/kepler/Makefile.inc \
-	papers/laplace/Makefile.inc \
 	papers/produkt/Makefile.inc \
 	papers/qa/Makefile.inc \
-	papers/venn/Makefile.inc \
 	papers/weyl/Makefile.inc \
 	papers/zeta/Makefile.inc \
 	papers/bessel/Makefile.inc \
 	papers/buchberger/Makefile.inc \
+	papers/moebius/Makefile.inc \
+	papers/hauptwert/Makefile.inc \
+	papers/konstruktion/Makefile.inc \
+	papers/gamma/Makefile.inc \
+	papers/pade/Makefile.inc \
+	papers/elliptisch/Makefile.inc \
+	papers/geradlinig/Makefile.inc \
+	papers/hankel/Makefile.inc \
+	papers/step/Makefile.inc \
+	papers/resultante/Makefile.inc \
 	

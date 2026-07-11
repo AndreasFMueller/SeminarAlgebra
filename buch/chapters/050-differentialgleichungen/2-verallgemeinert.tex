@@ -1,0 +1,133 @@
+%
+% 2-verallgemeinert.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Verallgemeinerte Potenzreihen}
+Eine Potenzreihe hat innerhalb des Konvergenzradius keine Singularitäten.
+Andererseits ist es durchaus möglich, dass eine Differentialgleichung
+auf einem Intervall, welches $0$ enthält, eine Lösung hat, die sich
+nahe an $0$ wie eine Wurzelfunktion oder wie eine Potenz von $1/x$
+verhält.
+Die Ableitung solcher Funktionen wächst für $x\to 0$ über alle
+Grenzen.
+Eine Potenzreihe hat dagegen immer beschränkte Ableitung in einer 
+genügend kleinen Umgebung des Entwicklungspunktes.
+Um eine grössere Klasse von Differentialgleichung mit einer Reihe
+lösen zu können, muss daher die Klasse der zulässigen Reihen etwas
+vergrössert werden.
+
+\begin{definition}
+\label{buch:differentialgleichungen:verallgemeinert:def}
+Eine \emph{verallgemeinerte Potenzreihe} ist ein Reihe der Form
+\index{verallgemeinerte Potenzreihe}%
+\begin{equation}
+f(z)
+=
+\sum_{k=0}^\infty
+a_k z^{k+\varrho}
+\qquad\text{oder}\qquad
+f(z)
+=
+\sum_{k=0}^\infty
+a_k (z-z_0)^{k+\varrho}
+\label{buch:differentialgleichungen:verallgemeinert:eqn:def}
+\end{equation}
+mit $a_0\ne 0$ und $\varrho\in\mathbb{R}$.
+\end{definition}
+
+Eine verallgemeinerte Potenzreihe mit $\varrho=0$ ist eine gewöhnliche
+Potenzreihe.
+Für $0<\varrho<1$ entsteht eine im Punkt $0$ (bzw.~$z_0$)
+stetige Funktion, deren Ableitung für $z\to 0$ (bzw.~$z\to z_0$)
+über alle Grenzen wächst.
+
+
+Eine verallgemeinerte Potenzreihe $f(z)$ kann auch als
+\begin{equation}
+f(z)
+=
+z^{\varrho}
+\sum_{k=0}^\infty
+a_k z^k
+\label{buch:differentialgleichungen:verallgemeinert:eqn:gewoehnlich}
+\end{equation}
+geschrieben werden.
+Die Reihe 
+\eqref{buch:differentialgleichungen:verallgemeinert:eqn:def}
+ist daher genau dann konvergent, wenn die gewöhnliche Potenzreihe
+auf der rechten Seite von
+\eqref{buch:differentialgleichungen:verallgemeinert:eqn:gewoehnlich}
+konvergiert.
+Der Konvergenzradius ändert sich beim Übergang zu einer verallgemeinerten
+Potenzreihe also nicht.
+
+Die $l$-te Ableitung einer verallgemeinerten Potenzreihe ist
+\begin{align*}
+f^{(l)}(z)
+&=
+\sum_{k=0}^\infty
+(k+\varrho)
+(k+\varrho-1)
+\cdots
+(k+\varrho-l+1)
+a_k z^{k+\varrho-l}
+\\
+&=
+z^{\varrho-l}
+\sum_{k=0}^\infty
+\underbrace{
+(k+\varrho)
+(k+\varrho-1)
+\cdots
+(k+\varrho-l+1)
+a_k}_{\displaystyle=b_k} z^k.
+\end{align*}
+Dies ist wieder eine verallgemeinerte Potenzreihe mit dem neuen
+Exponenten $\varrho-l$.
+Der Konvergenzradius kann mit der Formel
+\begin{align*}
+\frac{1}{r_{f^{(l)}}}
+&=
+\limsup_{n\to\infty}
+\!\sqrt[n]{
+|(n+\varrho)(n+\varrho-1)\cdots(n+\varrho-l+1)|
+\cdot
+|a_n|
+}
+\\
+&\le
+\limsup_{n\to\infty}
+\!\sqrt[n]{
+\raisebox{1pt}{$\mathstrut$}
+\smash{
+(n+\varrho)^l
+\cdot
+|a_n|
+}
+}
+=
+\lim_{n\to\infty}
+(n+\varrho)^{\frac{l}{n}}
+\cdot
+\limsup_{n\to\infty}
+\!\sqrt[n]{
+|a_n|
+}
+=
+\lim_{n\to\infty}
+n^{\frac{l}{n}}
+\cdot
+\frac{1}{r_{f}}
+\\
+&=
+\frac{1}{r_f}
+\end{align*}
+von Cauchy-Hadamard bestimmt werden.
+Die Ungleichung ist erfüllt, sofern $n$ viel grösser als $|\varrho|+l$
+ist.
+Der Konvergenzradius $r_{f^{(l)}}$ der $l$-ten Ableitung $f^{(l)}(z)$
+ist also gegenüber dem Konvergenzradius $r_f$ der ursprünglichen Funktion
+$f(z)$ unverändert.
+
+

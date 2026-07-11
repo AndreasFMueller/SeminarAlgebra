@@ -1,0 +1,88 @@
+%
+% kettenzyklen.tex -- Ketten und Zyklen
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{farbeeins}{rgb}{0.6,0.2,0.4}
+\definecolor{farbezwei}{rgb}{0.6,0.4,0.4}
+\definecolor{farbedrei}{rgb}{0.6,0.6,0.2}
+\definecolor{farbevier}{rgb}{0.2,0.4,0.2}
+\def\punkt#1#2#3{
+	\fill[color=#3] #1 circle[radius=0.08];
+	\draw[color=#2,line width=1.2pt] #1 circle[radius=0.08];
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\coordinate (A1) at (2,1);
+\coordinate (A2) at (5,2);
+\coordinate (A3) at (3,4);
+\coordinate (A4) at (1,7);
+
+\fill[color=gray!10] (A1)
+	to[out=-10,in=-100] (A2)
+	to[out=-170,in=-10] (A3)
+	to[out=10,in=-80] (A4)
+	to[out=-110,in=45] (A1)
+	-- cycle;
+
+\draw[color=farbeeins,line width=1.4pt] (A1) to[out=-10,in=-100] (A2);
+\draw[color=farbezwei,line width=1.4pt] (A2) to[out=-170,in=-10] (A3);
+\draw[color=farbedrei,line width=1.4pt] (A3) to[out=10,in=-80] (A4);
+\draw[color=farbevier,line width=1.4pt] (A4) to[out=-110,in=45] (A1);
+
+\punkt{(A1)}{farbeeins}{farbevier}
+\punkt{(A2)}{farbezwei}{farbeeins}
+\punkt{(A3)}{farbedrei}{farbezwei}
+\punkt{(A4)}{farbevier}{farbedrei}
+
+\node[color=farbevier] at (A1) [left] {$A_1$};
+\node[color=farbeeins] at (A2) [right] {$A_2$};
+\node[color=farbezwei] at (A3) [left] {$A_3$};
+\node[color=farbedrei] at (A4) [right] {$A_4$};
+
+\node[color=farbeeins] at ($0.5*(A1)+0.5*(A2)+(0.3,-0.8)$) {$\gamma_1$};
+\node[color=farbezwei] at ($0.5*(A2)+0.5*(A3)+(0.3,0)$) {$\gamma_2$};
+\node[color=farbedrei] at ($0.5*(A3)+0.5*(A4)+(0.3,0.2)$) {$\gamma_3$};
+\node[color=farbevier] at ($0.5*(A4)+0.5*(A1)+(-0.1,0.0)$) {$\gamma_4$};
+
+\node at ($0.333*(A1)+0.333*(A2)+0.333*(A3)$) {$c$};
+
+\coordinate (B1) at (6,3);
+\coordinate (B2) at (8.5,4);
+\coordinate (B3) at (7,6);
+
+\draw[color=darkred,line width=1.4pt] (B1) to[out=-30,in=-160] (B2);
+\draw[color=orange,line width=1.4pt] (B2) to[out=80,in=-30] (B3);
+
+\punkt{(B1)}{darkred}{white}
+\punkt{(B2)}{orange}{darkred}
+\punkt{(B3)}{orange}{orange}
+
+\node[color=darkred] at (B1) [above] {$B_1$};
+\node[color=orange] at (B2) [right] {$B_2$};
+\node[color=orange] at (B3) [above] {$B_3$};
+
+\node[color=darkred] at ($0.5*(B1)+0.5*(B2)+(0.3,-0.5)$) {$\delta_1$};
+\node[color=orange] at ($0.5*(B2)+0.5*(B3)+(0.5,0.5)$) {$\delta_2$};
+
+\node at ($0.333*(B1)+0.333*(B2)+0.333*(B3)$) {$d$};
+
+\draw[->] (-0.1,0) -- (9.3,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-0.1) -- (0,7.3) coordinate[label={right:$\operatorname{Im}$}];
+
+\node at (9,7) {$\mathbb{C}$};
+
+\end{tikzpicture}
+\end{document}
+

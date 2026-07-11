@@ -1,37 +1,51 @@
 include papers/aircraft/Makefile.inc
 include papers/basel/Makefile.inc
-include papers/beispiel/Makefile.inc
 include papers/elektro/Makefile.inc
 include papers/fresnel/Makefile.inc
 include papers/jordan/Makefile.inc
 include papers/joukowski/Makefile.inc
 include papers/julia/Makefile.inc
 include papers/kepler/Makefile.inc
-include papers/laplace/Makefile.inc
 include papers/produkt/Makefile.inc
 include papers/qa/Makefile.inc
-include papers/venn/Makefile.inc
 include papers/weyl/Makefile.inc
 include papers/zeta/Makefile.inc
 include papers/bessel/Makefile.inc
 include papers/buchberger/Makefile.inc
+include papers/moebius/Makefile.inc
+include papers/hauptwert/Makefile.inc
+include papers/konstruktion/Makefile.inc
+include papers/gamma/Makefile.inc
+include papers/pade/Makefile.inc
+include papers/elliptisch/Makefile.inc
+include papers/geradlinig/Makefile.inc
+include papers/hankel/Makefile.inc
+include papers/step/Makefile.inc
+include papers/resultante/Makefile.inc
 
 TEXFILES = \
 	$(dependencies-aircraft) \
 	$(dependencies-basel) \
-	$(dependencies-beispiel) \
 	$(dependencies-elektro) \
 	$(dependencies-fresnel) \
 	$(dependencies-jordan) \
 	$(dependencies-joukowski) \
 	$(dependencies-julia) \
 	$(dependencies-kepler) \
-	$(dependencies-laplace) \
 	$(dependencies-produkt) \
 	$(dependencies-qa) \
-	$(dependencies-venn) \
 	$(dependencies-weyl) \
 	$(dependencies-zeta) \
 	$(dependencies-bessel) \
 	$(dependencies-buchberger) \
+	$(dependencies-moebius) \
+	$(dependencies-hauptwert) \
+	$(dependencies-konstruktion) \
+	$(dependencies-gamma) \
+	$(dependencies-pade) \
+	$(dependencies-elliptisch) \
+	$(dependencies-geradlinig) \
+	$(dependencies-hankel) \
+	$(dependencies-step) \
+	$(dependencies-resultante) \
 

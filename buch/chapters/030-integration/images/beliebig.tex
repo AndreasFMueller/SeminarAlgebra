@@ -1,0 +1,336 @@
+%
+% beliebig.tex -- Zusammensetzung eines beliebigen Weges
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\def\opfeil#1#2{
+	\begin{scope}
+		\clip ($#1+(-0.4,0)$) rectangle ++(0.8,0.2);
+		\draw[->,color=#2] ($#1+(-0.3,0)$) -- ++(0.6,0);
+	\end{scope}
+}
+\def\wpfeil#1#2{
+	\begin{scope}
+		\clip ($#1+(-0.4,0)$) rectangle ++(0.8,-0.2);
+		\draw[<-,color=#2] ($#1+(-0.3,0)$) -- ++(0.6,0);
+	\end{scope}
+}
+\def\upfeil#1#2{
+	\begin{scope}
+		\clip ($#1+(-0.2,-0.4)$) rectangle ++(0.2,0.8);
+		\draw[->,color=#2] ($#1+(0,-0.3)$) -- ++(0,0.6);
+	\end{scope}
+}
+\def\dpfeil#1#2{
+	\begin{scope}
+		\clip ($#1+(0.2,-0.4)$) rectangle ++(-0.2,0.8);
+		\draw[<-,color=#2] ($#1+(0,-0.3)$) -- ++(0,0.6);
+	\end{scope}
+}
+\def\o{0.02}
+\def\pfeil#1#2{
+	\begin{scope}
+	\draw[<-,color=darkred] ($#1+({#2-90}:\o)$) -- ++({180+#2}:0.1);
+	\end{scope}
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\clip (0.5,0.5) rectangle (11.5,9.5);
+
+\foreach \x in {0,...,12}{
+	\draw[color=gray,line width=0.4pt] (\x,0) -- ++(0,10);
+}
+\foreach \y in {0,...,10}{
+	\draw[color=gray,line width=0.4pt] (0,\y) -- ++(12,0);
+}
+
+\coordinate (A1) at (4,1);
+\coordinate (A2) at (6,2);
+\coordinate (A3) at (8,3);
+\coordinate (A4) at (11,7);
+\coordinate (A5) at (9,9);
+\coordinate (A6) at (4,8);
+\coordinate (A7) at (3,9);
+\coordinate (A8) at (1,7);
+\coordinate (A9) at (3,6);
+\coordinate (A10) at (4,5);
+\coordinate (A11) at (2,4);
+\coordinate (A12) at (1,3);
+
+%\node at (A1) {1};
+%\node at (A2) {2};
+%\node at (A3) {3};
+%\node at (A4) {4};
+%\node at (A5) {5};
+%\node at (A6) {6};
+%\node at (A7) {7};
+%\node at (A8) {8};
+%\node at (A9) {9};
+%\node at (A10) {10};
+%\node at (A11) {11};
+%\node at (A12) {12};
+
+
+\begin{scope}
+	\clip (A1) rectangle (A2);
+	\fill[color=darkred!20,opacity=0.5]
+		(A1) to[out=0,in=-135] (A2) -- (4,2) -- cycle;
+	\draw[color=blue,line width=2pt] (A1) -- (4,2) -- (A2);
+	\draw[color=gray!20,line width=0.4pt] (A1) -- (4,2) -- (A2);
+	\dpfeil{(4.1,1.5)}{blue}
+	\wpfeil{(5,1.9)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A2) rectangle (A3);
+	\fill[color=darkred!20,opacity=0.5]
+		(A2) to[out=45,in=-120] (A3) -- (6,3) -- cycle;
+	\draw[color=blue,line width=2pt] (A2) -- (6,3) -- (A3);
+	\draw[color=gray!20,line width=0.4pt] (A2) -- (6,3) -- (A3);
+	\dpfeil{(6.1,2.5)}{blue}
+	\wpfeil{(7,2.9)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A3) rectangle (A4);
+	\fill[color=darkred!20,opacity=0.5]
+		(A3) to[out=60,in=-90] (A4) -- (8,7) -- cycle;
+	\draw[color=blue,line width=2pt] (A3) -- (8,7) -- (A4);
+	\draw[color=gray!20,line width=0.4pt] (A3) -- (8,7) -- (A4);
+	\dpfeil{(8.1,5)}{blue}
+	\wpfeil{(8.5,6.9)}{blue}
+	\wpfeil{(10,6.9)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A4) rectangle (A5);
+	\fill[color=darkred!20,opacity=0.5]
+		(A4) to[out=90,in=0] (A5) -- (9,7) -- cycle;
+	\draw[color=blue,line width=2pt] (A4) -- (9,7) -- (A5);
+	\draw[color=gray!20,line width=0.4pt] (A4) -- (9,7) -- (A5);
+	\opfeil{(10,7.1)}{blue}
+	\dpfeil{(9.1,7.5)}{blue}
+	\dpfeil{(9.1,8.5)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A5) rectangle (A6);
+	\fill[color=darkred!20,opacity=0.5]
+		(A5) to[out=180,in=0] (A6) -- (9,8) -- cycle;
+	\draw[color=blue,line width=2pt] (A5) -- (9,8) -- (A6);
+	\draw[color=gray!20,line width=0.4pt] (A5) -- (9,8) -- (A6);
+	\upfeil{(8.9,8.5)}{blue}
+	\opfeil{(7.5,8.1)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A6) rectangle (A7);
+	\fill[color=darkred!20,opacity=0.5]
+		(A6) to[out=180,in=0] (A7) -- (3,8) -- cycle;
+	\draw[color=blue,line width=2pt] (A6) -- (3,8) -- (A7);
+	\draw[color=gray!20,line width=0.4pt] (A6) -- (3,8) -- (A7);
+	\opfeil{(3.5,8.1)}{blue}
+	\dpfeil{(3.1,8.5)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A7) rectangle (A8);
+	\fill[color=darkred!20,opacity=0.5]
+		(A7) to[out=180,in=90] (A8) -- (3,7) -- cycle;
+	\draw[color=blue,line width=2pt] (A7) -- (3,7) -- (A8);
+	\draw[color=gray!20,line width=0.4pt] (A7) -- (3,7) -- (A8);
+	\upfeil{(2.9,8.5)}{blue}
+	\upfeil{(2.9,7.5)}{blue}
+	\opfeil{(2,7.1)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A8) rectangle (A9);
+	\fill[color=darkred!20,opacity=0.5]
+		(A8) to[out=-90,in=180] (A9) -- (3,7) -- cycle;
+	\draw[color=blue,line width=2pt] (A8) -- (3,7) -- (A9);
+	\draw[color=gray!20,line width=0.4pt] (A8) -- (3,7) -- (A9);
+	\upfeil{(2.9,6.5)}{blue}
+	\wpfeil{(2,6.9)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A9) rectangle (A10);
+	\fill[color=darkred!20,opacity=0.5]
+		(A9) to[out=0,in=90] (A10) -- (4,6) -- cycle;
+	\draw[color=blue,line width=2pt] (A9) -- (4,6) -- (A10);
+	\draw[color=gray!20,line width=0.4pt] (A9) -- (4,6) -- (A10);
+	\wpfeil{(3.5,5.9)}{blue}
+	\upfeil{(3.9,5.5)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A10) rectangle (A11);
+	\fill[color=darkred!20,opacity=0.5]
+		(A10) to[out=-90,in=30] (A11) -- (4,4) -- cycle;
+	\draw[color=blue,line width=2pt] (A10) -- (4,4) -- (A11);
+	\draw[color=gray!20,line width=0.4pt] (A10) -- (4,4) -- (A11);
+	\opfeil{(3,4.1)}{blue}
+	\upfeil{(3.9,4.5)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A11) rectangle (A12);
+	\fill[color=darkred!20,opacity=0.5]
+		(A11) to[out=-150,in=90] (A12) -- (2,3) -- cycle;
+	\draw[color=blue,line width=2pt] (A11) -- (2,3) -- (A12);
+	\draw[color=gray!20,line width=0.4pt] (A11) -- (2,3) -- (A12);
+	\upfeil{(1.9,3.5)}{blue}
+	\opfeil{(1.5,3.1)}{blue}
+\end{scope}
+
+\begin{scope}
+	\clip (A12) rectangle (A1);
+	\fill[color=darkred!20,opacity=0.5]
+		(A12) to[out=-90,in=180] (A1) -- (4,3) -- cycle;
+	\draw[color=blue,line width=2pt] (A12) -- (4,3) -- (A1);
+	\draw[color=gray!20,line width=0.4pt] (A12) -- (4,3) -- (A1);
+	\upfeil{(3.9,1.5)}{blue}
+	\upfeil{(3.9,2.5)}{blue}
+	\wpfeil{(3,2.9)}{blue}
+	\wpfeil{(1.5,2.9)}{blue}
+\end{scope}
+
+\def\rechteck#1#2#3{
+\begin{scope}
+	\clip #1 rectangle #2;
+	\fill[color=darkgreen!20,opacity=0.5] #1 rectangle #2;
+	\draw[color=darkgreen,line width=2pt] #1 rectangle #2;
+	\draw[color=gray!20,line width=0.4pt] #1 rectangle #2;
+	\node[color=darkgreen] at ($0.5*#1+0.5*#2$) {$#3$};
+\end{scope}
+}
+
+\rechteck{(4,2)}{(6,7)}{R_1}
+\opfeil{(5,2.1)}{darkgreen}
+\wpfeil{(5,6.9)}{darkgreen}
+\upfeil{(5.9,5)}{darkgreen}
+\upfeil{(5.9,2.5)}{darkgreen}
+\dpfeil{(4.1,2.5)}{darkgreen}
+\dpfeil{(4.1,3.5)}{darkgreen}
+\dpfeil{(4.1,4.5)}{darkgreen}
+\dpfeil{(4.1,5.5)}{darkgreen}
+\dpfeil{(4.1,6.5)}{darkgreen}
+
+\rechteck{(6,3)}{(8,7)}{R_2}
+\opfeil{(7,3.1)}{darkgreen}
+\wpfeil{(7,6.9)}{darkgreen}
+\upfeil{(7.9,5)}{darkgreen}
+\dpfeil{(6.1,5)}{darkgreen}
+
+\rechteck{(2,3)}{(4,4)}{R_3}
+\opfeil{(3,3.1)}{darkgreen}
+\wpfeil{(3,3.9)}{darkgreen}
+\upfeil{(3.9,3.5)}{darkgreen}
+\dpfeil{(2.1,3.5)}{darkgreen}
+
+\rechteck{(3,6)}{(4,8)}{R_4}
+\opfeil{(3.5,6.1)}{darkgreen}
+\wpfeil{(3.5,7.9)}{darkgreen}
+\upfeil{(3.9,7.5)}{darkgreen}
+\upfeil{(3.9,6.5)}{darkgreen}
+\dpfeil{(3.1,6.5)}{darkgreen}
+\dpfeil{(3.1,7.5)}{darkgreen}
+
+\rechteck{(4,7)}{(9,8)}{R_5}
+\opfeil{(5,7.1)}{darkgreen}
+\opfeil{(7,7.1)}{darkgreen}
+\opfeil{(8.5,7.1)}{darkgreen}
+\wpfeil{(7.5,7.9)}{darkgreen}
+\upfeil{(8.9,7.5)}{darkgreen}
+\dpfeil{(4.1,7.5)}{darkgreen}
+
+\begin{scope}
+\clip	(0,0) --
+	(A1) to[out=0,in=-135]
+	(A2) to[out=45,in=-120]
+	(A3) to[out=60,in=-90]
+	(A4) to[out=90,in=0]
+	(A5) to[out=180,in=0]
+	(A6) to[out=180,in=0]
+	(A7) to[out=180,in=90]
+	(A8) to[out=-90,in=180]
+	(A9) to[out=0,in=90]
+	(A10) to[out=-90,in=30]
+	(A11) to[out=-150,in=90]
+	(A12) to[out=-90,in=180]
+	(A1) -- 
+	(0,0) -- (0,10) -- (12,10) -- (12,0) -- cycle;
+\draw[color=darkred,line width=2.2pt]
+	(A1) to[out=0,in=-135]
+	(A2) to[out=45,in=-120]
+	(A3) to[out=60,in=-90]
+	(A4) to[out=90,in=0]
+	(A5) to[out=180,in=0]
+	(A6) to[out=180,in=0]
+	(A7) to[out=180,in=90]
+	(A8) to[out=-90,in=180]
+	(A9) to[out=0,in=90]
+	(A10) to[out=-90,in=30]
+	(A11) to[out=-150,in=90]
+	(A12) to[out=-90,in=180]
+	cycle;
+\end{scope}
+
+\fill[color=darkred] ($(A1)+(-90:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A2)+(-45:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A3)+(-30:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A4)+(0:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A5)+(90:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A6)+(90:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A7)+(90:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A8)+(180:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A9)+(-90:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A10)+(180:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A11)+(150:\o)$) circle[radius=0.06];
+\fill[color=darkred] ($(A12)+(180:\o)$) circle[radius=0.06];
+
+\pfeil{(A1)}{0}
+\pfeil{(A2)}{45}
+\pfeil{(A3)}{55}
+\pfeil{(A4)}{90}
+\pfeil{(A5)}{180}
+\pfeil{(A6)}{180}
+\pfeil{(A7)}{180}
+\pfeil{(A8)}{-90}
+\pfeil{(A9)}{0}
+\pfeil{(A10)}{-90}
+\pfeil{(A11)}{-152}
+\pfeil{(A12)}{-90}
+
+\node[color=darkred] at (2.7,2.1) {$H_{1}$};
+\node[color=darkred] at (4.6,1.5) {$H_{2}$};
+\node[color=darkred] at (6.5,2.6) {$H_{3}$};
+\node[color=darkred] at (9.2,5.8) {$H_{4}$};
+\node[color=darkred] at (9.8,7.8) {$H_{5}$};
+\node[color=darkred] at (8,8.4) {$H_{6}$};
+\node[color=darkred] at (3.4,8.3) {$H_{7}$};
+\node[color=darkred] at (2.3,7.7) {$H_{8}$};
+\node[color=darkred] at (2.3,6.5) {$H_{9}$};
+\node[color=darkred] at (3.5,5.5) {$H_{10}$};
+\node[color=darkred] at (3.6,4.2) {$H_{11}$};
+\node[color=darkred] at (1.5,3.4) {$H_{12}$};
+
+\node at (10.5,1.5) {$\mathbb{C}$};
+
+\node[color=darkred] at (9.65,4.35) {$\gamma$};
+
+\end{tikzpicture}
+\end{document}
+

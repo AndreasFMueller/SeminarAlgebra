@@ -1,0 +1,403 @@
+%
+% 13-reell.tex -- Rationale Funktionen mit reellen Koeffizienten
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Rationale Funktionen mit reellen Koeffizienten}
+Der Fundamentalsatz der Algebra garantiert eine Faktorisierung 
+eines Polynoms mit komplexen Koeffizienten in Linearfaktoren
+der Form $z-\alpha$, wobei $\alpha$ eine Nullstelle des Polynoms
+ist.
+\index{Fundamentalsatz der Algebra}%
+Dies ist jedoch nur möglich, wenn wenn komplexe Nullstellen zugelassen
+werden.
+\index{Nullstelle}%
+Es ist jedoch einfach Polynome anzugeben, die über den reellen Zahlen
+nicht in Linearfaktoren zerlegt werden können.
+Das Polynom $p(x)=x^2+1$ hat keine reellen Nullstellen.
+Über den reellen Zahlen ist $p(x)$ ein irreduzibles Polynom.
+Über den komplexen Zahlen ist jedoch $p(x)=(x+i)(x-i)$ eine
+Faktorisierung in Linearfaktoren.
+\index{Faktorisierung}%
+
+%
+% Faktorisierung in lineare und quadratische Faktoren
+%
+\subsubsection{Faktorisierung in lineare und quadratische Faktoren}
+Für ein reelles Polynom 
+$p(z) = a_0 + a_1z + \dots + a_{n-1}z^{n-1} + a_nz^n$
+kann man also eine Faktorisierung in Linearfaktoren
+nicht erwarten.
+Betrachtet man das Polynom jedoch als ein Polynom mit komplexen
+Koeffizienten, dann garantiert der Fundamentalsatz der Algebra eine
+Faktorisierung
+\[
+p(z)
+=
+a_n
+(z-\alpha_1) 
+(z-\alpha_2) 
+\cdot
+\ldots
+\cdot
+(z-\alpha_n),
+\]
+wobei die $\alpha_k$ Nullstellen des Polynoms sind.
+Es gilt also $p(\alpha_k)=0$ für alle $k$.
+
+Das Polynom $p(x)$ hat reelle Koeffizienten, die $\bar{a}_k=a_k$
+für alle $k$ erfüllen.
+Daher kann man die Bedinung $p(\alpha_k)=0$ komplex konjugieren
+und bekommt
+\begin{align*}
+0
+=
+\overline{p(\alpha_k)}
+&=
+\bar{a}_0
++
+\bar{a}_1 \bar{\alpha}_k
++
+\bar{a}_2 \bar{\alpha}_k^2
++
+\ldots
++
+\bar{a}_{n-1} \bar{\alpha}_k^{n-1}
++
+\bar{a}_{n} \bar{\alpha}_k^{n}
+\\
+&=
+a_0
++
+a_1 \bar{\alpha}_k
++
+a_2 \bar{\alpha}_k^2
++
+\ldots
++
+a_{n-1} \bar{\alpha}_k^{n-1}
++
+a_{n} \bar{\alpha}_k^{n}
+\\
+&=
+p(\bar{\alpha}_k).
+\end{align*}
+Es folgt, dass $\bar{\alpha}_k$ ebenfalls eine Nullstelle ist.
+Falls $\alpha_k=\bar{\alpha}_k$ ist, ist $\alpha_k$ eine reelle
+Nullstelle.
+Falls $\alpha_k\ne \bar{\alpha}_k$ ist, dann ist $\bar{\alpha}_k$
+eine der anderen Nullstellen.
+Die Nullstellen eines reellen Polynoms sind als entweder reell,
+oder wenn sie nicht reell sind, dann treten sie in Paaren von
+konjugiert komplexen Nullstellen auf.
+
+Ein Paar von konjugiert komplexen Nullstellen führt auf den Faktor
+\begin{align}
+(z-\alpha)(z-\bar{\alpha})
+&=
+z^2 -(\alpha+\bar{\alpha}) z + \alpha\bar{\alpha}
+\label{buch:ratint:bernoulli:reell:faktoren}
+\intertext{Die Summe konjugiert komplexer Zahlen ist
+\index{konjugiert}%
+$(a+bi)+(a-bi) = 2a $, also das Doppelte des Realteils.
+Daher ist der zu berechnende Faktor}
+&=
+z^2 -2\operatorname{Re}(\alpha)\, z + |\alpha|^2
+\notag
+\end{align}
+Sowohl $\operatorname{Re}\alpha$ und $|\alpha|^2$ sind reell.
+Indem man die Paare konjugiert komplexer Zahlen zu quadratischen
+Faktoren wie in \eqref{buch:ratint:bernoulli:reell:faktoren}
+zusammenfasst, findet man eine Faktorisierung des Polynoms in
+der Form
+\begin{equation}
+p(z)
+=
+a_n
+(z-\alpha_1)
+\cdot\ldots\cdot
+(z-\alpha_m)
+\cdot
+(z^2 + \beta_1 z + \gamma_1)
+\cdot \ldots \cdot
+(z^2 + \beta_l z + \gamma_l),
+\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+\end{equation}
+wobei die $\alpha_1,\dots,\alpha_m$ die reellen Nullstellen sind
+und die Faktoren $z^2 +\beta_k z +\gamma_k$ Paare von
+konjugiert komplexen, aber nicht reellen Lösungen haben.
+Damit die rechte Seite den richtigen Grad hat, muss $n=m+2l$ sein.
+\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+
+%
+% Reelle Partialbruchzerlegung
+%
+\subsubsection{Reelle Partialbruchzerlegung}
+In der Zerlegung
+\eqref{buch:ratint:bernoulli:eqn:reellefaktorisierung}
+können einzelne Faktoren auch mehrfach vorkommen.
+Die Konstruktion der Partialbruchzerlegung produziert
+daher für jeden Faktor Partialnenner in Potenzen nicht
+grösser als in der Faktorisierung.
+Dies ist im folgenden Satz zusammengefasst.
+
+\begin{satz}
+\label{buch:ratint:bernoulli:satz:reelle-partialbruchzerlegung}
+Ist der Nenner $q(z)$ der rationalen Funktion $f(z)=p(z)/q(z)$ 
+ein Polynom mit einer Faktorisierung der Form
+\begin{equation}
+q(z)
+=
+a_n
+(z-\alpha_1)^{s_1}
+\cdots
+(z-\alpha_m)^{s_m}
+(z^2+\beta_1 z + \gamma_1)^{r_1}
+\cdots
+(z^2+\beta_l z + \gamma_l)^{r_l}
+\end{equation}
+dann gibt es eine eindeutig bestimmte Partialbruchzerlegung der Form
+\begin{equation}
+\renewcommand{\arraycolsep}{2pt}
+%\renewcommand{\arraystretch}{1.7}
+\begin{array}{rcclcccl}
+f(z)
+&=&&
+\displaystyle
+\frac{A_1^1    }{ z-\alpha_1       }
+&+& \ldots &+&
+\displaystyle
+\frac{A_1^{r_1}}{(z-\alpha_1)^{s_1}}
+\\
+&&&\hspace*{11pt}\vdots&&&&\hspace*{17pt}\vdots
+\\[2pt]
+&&+&
+\displaystyle
+\frac{A_m^{1}  }{ z-\alpha_m       }
+&+& \ldots &+&
+\displaystyle
+\frac{A_m^{s_m}}{(z-\alpha_m)^{s_m}}
+\\[10pt]
+&&+&
+\displaystyle
+\frac{B_1^1    z + C_1^1    }{ z+\beta_1 z + \gamma_1       }
+&+& \ldots &+&
+\displaystyle
+\frac{B_1^{r_1}z + C_1^{r_1}}{(z+\beta_1 z + \gamma_1)^{r_1}}
+\\
+&&&\hspace*{24pt}\vdots&&&&\hspace*{29pt}\vdots
+\\[2pt]
+&&+&
+\displaystyle
+\frac{B_l^1    z + C_1^l    }{ z+\beta_l z + \gamma_l       }
+&+& \ldots &+&
+\displaystyle
+\frac{B_l^{r_l}z + C_l^{r_1}}{(z+\beta_l z + \gamma_l)^{r_l}}
+\end{array}
+\label{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
+\end{equation}
+Darin sind die Zahlen $A_i^k$, $B_i^k$ und $C_i^k$ reelle Zahlen.
+\end{satz}
+
+\begin{proof}
+Die Form der Partialbruchzerlegung ist aus der früheren Diskussion,
+die zu Satz~\ref{buch:analytisch:rational:satz:partialbruchzerlegung}
+geführt hat, klar.
+Es muss höchstens noch gezeigt werden, dass diese Zerlegung auch
+eindeutig ist.
+
+Offenbar sind $s_i$ Zahlen $A_i^k$ zu bestimmen, insgesamt also
+$s_1+\dots+s_m$ Unbekannte für Terme zu den Linearfaktoren.
+Zu den quadratischen Faktoren sind je $s_i$ Unbekannte
+\index{quadratischer Faktor}%
+$B_i^k$ und $C_i^k$ zu bestimmen, also insgesamt
+$2r_1+\dots+2r_l$ Unbekannte.
+Die Gesamtzahl der Unbekannten ist $s_1+\dots+s_m+2r_1+\dots+2r_l=n$.
+
+
+Multipliziert man die Gleichung
+\eqref{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
+mit dem Nenner $q(z)$, dann bleibt auf der linken Seite das Polynom
+$p(z)$ und auf der rechten ein Polynom, dessen Koeffizienten
+Linearkombinationen der Unbekannten $A_i^k$, $B_i^k$ und $C_i^k$
+sind.
+Das Zählerpolynom hat Grad $<n$, es enthält also höchstens $n$
+Koeffizienten.
+Koeffizientenvergleich liefert dann insgesamt $n$ lineare Gleichungen
+für die Unbekannten.
+Das entstehende lineare Gleichungssystem hat also $n$ Gleichungen für
+\index{lineares Gleichungssystem}%
+$n$ Unbekannte.
+\end{proof}
+
+Die reelle Partialbruchzerlegung erlaubt die Berechnung einer
+Stammfunktion durch Integration der einzelnen Terme.
+Für die linearen Terme ist bereits die Stammfunktion
+\[
+\int\frac{dz}{z-\alpha}
+=
+\log (z-\alpha)
+\]
+bekannt.
+Die Stammfunktion für die Terme zu den quadratischen Faktoren
+des Nenners wird im nächsten Abschnitt bestimmt.
+
+%
+% Stammfunktionen für quadratische Faktoren
+%
+\subsubsection{Stammfunktionen für quadratische Faktoren}
+Möchte man das Integral nur im reellen berechnen, muss man auch 
+Partialbrüche der Form
+\begin{equation}
+f(z)
+=
+\frac{Az+B}{(z^2 +\beta z + \gamma)^m}
+\qquad\text{mit $m>1$.}
+\label{buch:ratint:bernoulli:eqn:quadrpotnenner}
+\end{equation}
+mit quadratischen Nennern berechnen.
+Dies ist mit wohlbekannten Methoden der klassischen Analysis 
+nötig, wir geben hier nur die Resultate an, die man zum Beispiel
+in \cite[section 2.1]{buch:bronstein} dargestellt finden kann.
+
+Für die Nennerpotenz $m=1$ findet man die Formel
+\begin{align*}
+\int 
+\frac{Bz+C}{z^2+\beta z+\gamma}
+\,dz
+&=
+\frac{B}{2} \log( z^2+\beta z+\gamma )
++
+\frac{2C-\beta B}{\!\sqrt{4\gamma-\beta^2}}
+\arctan\frac{2z+\beta}{\!\sqrt{4\gamma-\beta^2}}.
+\end{align*}
+Hier treten logarithmische Terme und ein Arkustangensterm auf.
+Die Arkustangensfunktion kann ebenfalls durch Logarithmusfunktionen
+in der Form $\arctan(z) =-\frac{i}2\log(z+i) +\frac{i}2\log(z-i)$
+ausgedrückt werden.
+Im vorliegenden Fall ist dies besonders naheliegend, weil die
+beiden Nullstellen des Nenner konjugiert komplex sind.
+
+Höheren Nennerpotenzen $m>1$ können mit der folgenden Rekursionsformel
+reduziert werden:
+\begin{align}
+\int 
+\frac{Bz+C}{(z^2+\beta z+\gamma)^m}
+\,dz
+&=
+\frac{
+(2C-\beta B)z+\beta C-2\gamma B
+}{
+(m-1)(4\gamma-\beta^2)(z^2+bz+c)^{m-1}
+}
+\notag
+\\
+&\qquad
++
+\int \frac{
+(2m-3)(2C-\beta B)
+}{
+(m-1)(4\gamma-\beta^2)(z^2+\beta z+\gamma)^{m-1}
+}
+\,dz.
+\label{buch:ratint:reell:eqn:rekursion}
+\end{align}
+Die Rekursionsformel basiert im wesentlichen auf partieller Integration.
+Sie wird sich im Abschnitt~\ref{buch:ratint:section:hermite}
+als ein Spezialfall der Methode von Hermite herausstellen.
+
+%
+% Die allgemeine Form der Stammfunktion
+%
+\subsubsection{Die allgemeine Form der Stammfunktion}
+Die vorangegangenen Berechnungen zeigen, dass das Integral einer
+rationalen Funktion $f(z)$ sich immer als eine Summe von Termen
+der folgenden Form darstellen lassen.
+\begin{enumerate}
+\item
+Für jeden Linearfaktor $z-\alpha$ sind rationale Terme der Form
+\[
+\frac{A}{(z-\alpha)^m}
+\]
+möglich, wobei $m$ nicht grösser sein kann als die Potenz, mit der
+der Faktor im Nenner von $f(z)$ vorkommt.
+
+Ausserdem ist ein Term der Form
+\[
+A \log (z-\alpha)
+\]
+möglich.
+\item
+Für jeden quadratischen Faktor der Form $q(z)=z^2+\beta z+\gamma$
+sind rationale Terme der Form $t(z) / q(z)^m$ möglich, wobei $t(z)$
+ein lineares Polynom ist und $m$ nicht grösser sein kann als die
+Potenz, in der $q(z)$ im Nnner von $f(z)$ vorkommt.
+
+Ausserdem sind Terme der Form
+\[
+\log q(z)
+=
+\log (z^2 +\beta z + \gamma)
+\]
+und
+\[
+\arctan l(z)
+=
+-\frac{i}{2}\log (\zeta+i)
++\frac{i}{2}\log (\zeta-i)
+\qquad\text{mit }
+\zeta=\frac{2z+\beta}{\!\sqrt{4\gamma-\beta^2}}
+\]
+möglich.
+Die Stammfunktion lässt sich also auch in diesem Fall durch
+rationale Funktionen und eine Linearkombination von drei Logarithmen
+ausdrücken.
+Dies ist in Übereinstimmung mit den Erkenntnissen des Liouville-Prinzips,
+welches in Abschnitt~\ref{buch:intalg:section:liouville} präsentiert wird.
+\end{enumerate}
+
+Die Methode von Bernoulli postuliert, dass die Argumente der
+Logarithmusfunktionen die Linearfaktoren der Nullstellen des
+quadratischen Nenners sind.
+Es ist nicht offensichtlich, dass die Argument $\zeta+i$ und $\zeta-i$
+tatsächlich solche Linearfaktoren sind.
+Wir multiplizieren die Faktoren daher aus und erhalten
+\begin{align*}
+(\zeta+i)(\zeta-i)
+&=
+\zeta^2+1
+\\
+&=
+\frac{4z^2+4z\beta+\beta^2}{4\gamma-\beta^2}
++
+1
+=
+\frac{4z^2+4z\beta+\beta^2+4\gamma-\beta^2}{4\gamma-\beta^2}
+=
+\frac{4z^2+4z\beta+4\gamma}{4\gamma-\beta^2}
+\\
+&=
+\frac{4}{4\gamma-\beta^2}
+(z^2+\beta z+\gamma).
+\end{align*}
+Die Faktoren $\zeta+i$ und $\zeta-i$ haben daher die gleichen
+Nullstellen wie das Polynom $q(z)=z^2+\beta z+\gamma$.
+Tatsächlich ist
+\begin{align*}
+0&=\zeta\pm i
+=
+\frac{2z+\beta\pm i\!\sqrt{4\gamma-\beta^2}}{\!\sqrt{4\gamma-\beta^2}}
+=
+\frac{2z+\beta\pm \!\sqrt{\beta^2 - 4\gamma}}{\!\sqrt{4\gamma-\beta^2}}
+&&\Rightarrow&
+z
+&=
+-\frac{\beta}2\mp \!\sqrt{\frac{\beta^2}{4}-\gamma}.
+\end{align*}
+Dies ist die Lösungsformel für die quadratische Gleichung
+$z^2+\beta z+\gamma=0$.
+
+
+
+
+

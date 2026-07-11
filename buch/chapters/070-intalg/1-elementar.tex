@@ -1,0 +1,98 @@
+%
+% 1-elementar.tex -- Elementare Funktionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Elementare Funktionen
+\label{buch:intalg:section:elementar}}
+\kopfrechts{Elementare Funktionen}%
+Der Benutzer eines Computeralgebrasystems erwartet, dass er
+als Integranden Funktionen wie
+\[
+\!\sqrt{ax^2+bx+c},\quad
+\sin(x-\pi),\quad
+\sqrt{\tan x},\quad
+e^{-x^2}
+\]
+eingeben kann und als Output eine Stammfunktion in einer ähnlichen
+Form erhalten kann.
+Zum Beispiel liefert Maxima für die dritte Funktion die Stammfunktion
+\begin{align*}
+\int\!\sqrt{\tan x}\,dx
+&=
+-\frac1{2^{\frac32}}
+\Bigl(
+\log \bigl(\tan x+\!\sqrt{2}\sqrt{\tan x}+1\bigr)
+-
+\log \bigl(\tan x-\!\sqrt{2}\sqrt{\tan x}+1\bigr)
+\Bigr)
+\\
+&\qquad
++\frac1{\!\sqrt{2}}
+\Bigl(
+\arctan \bigl( \!\sqrt{2}\sqrt{\tan x}+1 \bigr)
++
+\arctan \bigl( \!\sqrt{2}\sqrt{\tan x}-1 \bigr)
+\Bigr).
+\end{align*}
+Natürlich ist es recht anspruchsvoll, auf diese Lösung zu kommen.
+Allein durch Anwendung heuristischer Integrationsregeln kommt
+man wohl kaum darauf.
+Es braucht also einen algebraischen Prozess, der diese sehr 
+komplizierte Stammfunktion schrittweise aufbauen kann.
+
+In der Stammfunktion kommt nicht überraschend die
+Funktion $\!\sqrt{\tan x}$
+wieder vor, aber auch Polynome in dieser Funktion sowie Logarithmus
+und Arkustangens-Funktionen, mit solchen Polynomen als Argument.
+\index{arctan}%
+Schreibt man $\vartheta(x)=\!\sqrt{\tan x}$, dann wird die Stammfunktion
+zu
+\begin{align*}
+\int\vartheta(x)\,dx
+&=
+-\frac1{2\!\sqrt{2}}
+\Bigl(
+\log \bigl(\vartheta(x)^2 +\!\sqrt{2} \vartheta(x) + 1\bigr)
+-
+\log \bigl(\vartheta(x)^2 -\!\sqrt{2} \vartheta(x) + 1\bigr)
+\Bigr)
+\\
+&\qquad
++\frac1{\!\sqrt{2}}
+\Bigl(
+\arctan \bigl( \!\sqrt{2}\vartheta(x) + 1 \bigr)
++
+\arctan \bigl( \!\sqrt{2}\vartheta(x) - 1 \bigr)
+\Bigr).
+\end{align*}
+Um diese Funktion aufzubauen, wird zusätzlich zur Funktion $\vartheta(x)$
+zunächst die Konstante $\!\sqrt{2}$ benötigt.
+Damit lassen sich dann die Polynome
+\[
+\vartheta(x)^2 + \!\sqrt{2}\vartheta(x) + 1,
+\quad
+\vartheta(x)^2 - \!\sqrt{2}\vartheta(x) + 1,
+\quad
+\!\sqrt{2}\vartheta(x)+1,
+\quad
+\!\sqrt{2}\vartheta(x)-1
+\]
+in $\vartheta(x)$ bilden.
+Im nächsten Schritt muss dann der Logarithmus bzw.~die Arkustangensfunktion
+angewendet werden.
+Schliesslich kann die Stammfunktion als Linearkombination gebildet werden.
+
+Jahrelange Beschäftigung mit algebraischen Umformungen hat die Intuition
+gebildet, die in der obenstehenden Analyse der Struktur der Formel
+angewendet worden ist.
+Um auf diesen Ideen aufbauend einen Integrationsalgorithmus herstellen
+zu können, müssen wir die einzelnen Schritt durch wohldefinierte
+algebraische Konstruktionen ersetzen.
+
+\input{chapters/070-intalg/11-funktionenkoerper.tex}
+\input{chapters/070-intalg/12-differential.tex}
+\input{chapters/070-intalg/13-explog.tex}
+\input{chapters/070-intalg/14-trigo.tex}
+\input{chapters/070-intalg/15-elementar.tex}
+\input{chapters/070-intalg/16-ableitung.tex}

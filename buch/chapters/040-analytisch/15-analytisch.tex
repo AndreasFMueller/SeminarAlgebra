@@ -1,0 +1,81 @@
+%
+% 15-analytisch.tex -- Potenzreihenentwicklung einer holomorphen Funktion
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Potenzreihenentwicklung einer holomorphen Funktion
+\label{buch:analytisch:potenzreihen:subsection:analytisch}}
+Falls für eine komplexe Funktion eine konvergente Potenzreihenentwicklung
+existiert, dann ist die Funktion sogar unendlich oft stetig differenzierbar.
+Ob auch die Umkehrung gilt, wissen wir noch nicht.
+Die Existenz einer konvergenten Potenzreihe und die Existenz einer
+komplexen Ableitung sind also nach unserem aktuellen Wissensstand
+nicht notwendigerweise dasselbe.
+
+Wir wissen aber nach
+Satz~\ref{buch:analytisch:potenzreihen:satz:integralanalytisch},
+dass eine holomorphe Funktion, die durch das
+Integral~\eqref{buch:analytisch:potenzreihen:eqn:fzintegral}
+aus den Werten einer stetigen Funktion entlang einer Kurve
+entsteht, analytisch ist.
+Wir können diese Erkenntnis nun mit dem cauchyschen Integralsatz
+zusammenbringen und zeigen, dass jede holomorphe Funktion auch
+eine konvergente Potenzreihenentwicklung hat.
+
+Sei jetzt also $f(z)$ eine holomorphe Funktion und $\gamma$ ein
+geschlossener Weg, der ein Gebiet $U$ berandet und genau einmal
+umläuft.
+Satz~\ref{buch:analytisch:potenzreihen:satz:integralanalytisch}
+sagt für $g(x)=f(z)$, dass das
+Integral~\eqref{buch:analytisch:potenzreihen:eqn:fzintegral}
+eine analytische Funktion ist.
+Der cauchysche Integralsatz sagt andererseits, dass sie in $U$ mit
+$f(z)$ übereinstimmt.
+Damit haben wir den folgenden Satz gezeigt.
+
+\begin{satz}[holomorphe Funktionen sind analytisch]
+\label{buch:analytisch:satz:holomorph-analytisch}
+Eine holomorphe Funktion $f(z)$ ist analytisch, die Taylor-Reihe
+von $f$ im Punkt $a$ konvergiert.
+Der Konvergenzradius ist das Supremum der Radien von Kreisen um $a$,
+die vollständig im Definitionsbereich von $f$ enthalten sind.
+\end{satz}
+
+Die Integrale auf der rechten Seite von \eqref{buch:analytisch:eqn:reihe}
+können ebenfalls mit dem Satz~\ref{buch:integration:satz:ableitungn}
+ausgerechnet werden.
+Wegen
+\[
+f^{(k)}(z)
+=
+\frac{k!}{2\pi i}
+\oint_\gamma
+\frac{f(x)}{(x-z)^{k+1}}
+\,dx
+\]
+ergeben sie
+\begin{align*}
+f(z)
+&=
+\sum_{k=0}^{\infty}
+\biggl(
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f(x)}
+{(x-z_0)^{k+1}}
+\,dx
+\biggr)
+(z-z_0)^k
+=
+\sum_{k=0}^\infty
+\frac{f^{(k)}(z_0)}{k!}
+(z-z_0)^k.
+\end{align*}
+Damit ist die gefundene Potenzreihe der Funktion $f$ die
+Taylor-Reihe der Funktion $f$ im Punkt $z_0$.
+
+Der Satz~\ref{buch:analytisch:satz:holomorph-analytisch}
+hat gezeigt, dass eine holomorphe Funktion immer auch
+analytisch ist.
+Dies ist eine Eigenschaft, die nicht für reelle analytische
+Funktionen gilt, wie im nachfolgenden Abschnitt gezeigt wird.

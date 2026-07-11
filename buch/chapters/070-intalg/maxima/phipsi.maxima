@@ -1,0 +1,17 @@
+phi: phi9 * z^9 + phi8 * z^8 + phi7 * z^7 + phi6 * z^6 + phi5 * z^5 + phi4 * z^4 + phi3 * z^3 + phi2 * z^2 + phi1 * z + phi0;
+
+psi: psi8 * z^8 + psi7 * z^7 + psi6 * z^6 + psi5 * z^5 + psi4 * z^4 + psi3 * z^3 + psi2 * z^2 + psi1 * z + psi0;
+
+theta2: a*z^2 + b*z + c;
+
+delta: expand(diff(psi,z) * theta2 + psi * (a*z + b/2) + A);
+
+coeff(delta, z, 8);
+coeff(delta, z, 7);
+coeff(delta, z, 6);
+coeff(delta, z, 5);
+coeff(delta, z, 4);
+coeff(delta, z, 3);
+coeff(delta, z, 2);
+coeff(delta, z, 1);
+coeff(delta, z, 0);

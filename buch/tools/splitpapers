@@ -18,11 +18,11 @@ fi
 datesuffix=`date +%Y%m%d`
 
 awk 'BEGIN {
-	offsetpage = 16
+	offsetpage = 14
 	startpage = 0
 	identifier = ""
 	chapterno = 0
-	lastchapter = 13
+	lastchapter = 8
 }
 /newlabel{chapter:/ {
 	s = substr($0, 19, length($0) - 19)
@@ -36,6 +36,8 @@ awk 'BEGIN {
 	newpage = int(substr(s, 1, i))
 	if (chapterno > lastchapter) {
 		printf("pdfjam --outfile separata/%s-%s.pdf buch.pdf %d-%d\n", identifier, '"${datesuffix}"', startpage + offsetpage, newpage + offsetpage - 1)
+	} else {
+		printf("pdfjam --outfile chapters/review/chapter%d-%s.pdf buch.pdf %d-%d\n", chapterno, '"${datesuffix}"', startpage + offsetpage, newpage + offsetpage - 1)
 	}
 	startpage = newpage
 	chapterno = newchapterno

@@ -1,0 +1,187 @@
+Finden Sie eine Lösung der Differentialgleichungen
+\begin{teilaufgaben}
+\item $y'+2xy=0$
+\item $(x+1)y'=3y$
+\end{teilaufgaben}
+mithilfe der Potenzreihenmethode.
+
+\begin{loesung}
+In beiden Teilaufgaben kann man einen Ansatz der Form
+\[
+y(x)
+=
+\sum_{n=0}^\infty a_n x^n
+\qquad\text{mit}\qquad
+y'(x)
+=
+\sum_{n=1}^\infty na_n x^{n-1}
+=
+\sum_{l=0}^\infty (l+1)a_{l+1} x^l
+\]
+benutzen.
+\begin{teilaufgaben}
+\item
+Einsetzen in die Differentialgleichung ergibt
+\begin{align*}
+0
+&=
+\sum_{l=0}^\infty (l+1)a_{l+1} x^l
++2x
+\sum_{n=0}^\infty a_n x^n
+\\
+&=
+\sum_{l=0}^\infty (l+1)a_{l+1} x^l
++
+\sum_{n=0}^\infty 2a_n x^{n+1}
+\\
+&=
+\sum_{l=0}^\infty (l+1)a_{l+1} x^l
++
+\sum_{l=1}^\infty 2a_{l-1} x^l
+\\
+&=
+a_1
++
+\sum_{l=1}^\infty \bigl((l+1)a_{l+1} + 2a_{l-1}\bigr)x^l
+\end{align*}
+Koeffizientenvergleich liefert jetzt 
+die Beziehungen
+\begin{align*}
+a_1
+&=
+0
+\\
+(l+1)a_{l+1} + 2a_{l-1}
+&=
+0
+&&\Rightarrow&
+a_{l+1} &= -\frac{2}{l+1} a_{l-1}
+&&\forall l > 0.
+\end{align*}
+Aus der Rekursionsformel kann man bereits ablesen, dass alle
+ungeraden Koeffizienten verschwinden.
+Für die geraden Koeffizienten findet man iterativ
+\begin{align*}
+a_2 &= -a_0 \\
+a_4 &= -\frac{2}{4} a_2 = \frac12 a_0 \\
+a_6 &= -\frac{2}{6} a_4 = -\frac{1}{3} a_4 = -\frac{1}{3!} \\
+a_8 &= -\frac{2}{8} a_6 = -\frac{1}{4} a_6 = \frac{1}{4!} \\
+a_{10} &= -\frac{2}{10} a_8 = -\frac{1}{5} a_8 = -\frac{1}{5!}
+ &\phantom{a}\vdots \\
+a_{2k} &= (-1)^k\frac{1}{k!}
+\end{align*}
+Daraus folgt die Potenzreihe
+\[
+y(x)
+=
+\sum_{n=0}^\infty
+a_n x^n
+=
+\sum_{k=0}^\infty
+a_{2k} x^{2k}
+=
+\sum_{k=0}^\infty
+\frac{(-1)^k}{k!} (x^2)^k
+=
+\sum_{k=0}^\infty
+\frac{1}{k!} (-x^2)^k
+=
+e^{-x^2}.
+\]
+Tatsächlich ist $y(x)=a_0e^{-x^2}$ eine Lösung der Differentialgleichung,
+denn
+\[
+y'(x)
++
+2xy(x)
+=
+-
+a_0e^{-x^2}2x
++
+2xa_0e^{-x^2}
+=
+0.
+\]
+\item
+Einsetzen in die Differentialgleichung ergibt
+\begin{align*}
+(x+1)
+\sum_{n=1}^\infty na_n x^{n-1}
+&=
+3
+\sum_{n=0}^\infty a_n x^n
+\\
+\sum_{n=1}^\infty na_n x^n
++
+\sum_{n=1}^\infty na_n x^{n-1}
+&=
+\sum_{n=0}^\infty 3a_n x^n
+\\
+\sum_{n=1}^\infty na_n x^n
++
+\sum_{n=0}^\infty (n+1)a_{n+1} x^n
+&=
+\sum_{n=0}^\infty 3a_n x^n
+\\
+\sum_{n=1}^\infty \bigl(na_n+(n+1)a_{n+1}-3a_n\bigr) x^n
+&=3a_0 - a_1
+\end{align*}
+Durch Koeffizientenvergleich kann man jetzt schliessen, dass
+\begin{align*}
+a_1&=3a_0 \\
+(n+1)a_{n+1} &= (3-n)a_n&&\forall n>0.
+\end{align*}
+Durch iterative Anwendung dieser Formeln findet man
+\begin{align*}
+a_2 &= a_1 = 3a_0\\
+a_3 &= \frac{1}{3} a_2 = a_0 \\
+a_4 &= \frac{0}{4} a_3 = 0.
+\end{align*}
+Daher ist die Lösung
+\[
+y(x)
+=
+a_0 + 3a_0 x + 3a_0 x^2 + a_0 x^3
+=
+a_0 (1+x)^3.
+\]
+Tatsächlich ist $y' = 3a_0(1+x)^2$ und daher
+\[
+(1+x)y'(x)
+=
+(1+x) 3a_0(1+x)^2
+=
+3a_0(1+x)^3
+=
+3y(x),
+\]
+d.~h.~die Funktion $y(x)=a_0(1+x)^3$ ist eine Lösung
+der Differentialgleichung.
+
+Die Differentialgleichung kann auch mit der Separationsmethode
+direkt gelöst werden.
+Dazu formt man die Gleichung erst um zu
+\[
+\frac{y'}{y}
+=
+\frac{3}{x+1}
+\]
+und berechnet die Stammfunktion
+\begin{align*}
+\int\frac{y'}{y}\,dx
+&=
+\int
+\frac{3}{x+1}
+\,dx
+\intertext{auf beiden Seiten.
+Die Stammfunktionen können auf beiden Seiten sofort ermittelt
+werden, sie sind}
+\log y &= 3\log(x+1) + C.
+\intertext{Nimmet man auf beiden Seiten die Exponentialfunktion,
+erhält man die Lösung}
+y&=e^C(x+1)^3 = a_0(x+1)^3
+\end{align*}
+mit $a_0=e^C$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}

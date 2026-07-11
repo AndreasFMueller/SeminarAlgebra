@@ -1,0 +1,204 @@
+In der vorangegangenen Aufgabe wurde die ganze Funktion $f(z)=(e^z-1)/z$
+in eine Potenzreihe entwickelt.
+\begin{teilaufgaben}
+\item Bestimmen Sie die Nullstellen der Funktion $f(z)$.
+\item Die reziproke Funktion hat die Potenzreihenentwicklung
+\begin{equation}
+g(z)
+=
+\frac{1}{f(z)}
+=
+\frac{z}{e^z-1}
+=
+\sum_{n=0}^\infty \frac{B_n}{n!}z^k.
+\label{buch:402:greihe}
+\end{equation}
+Die Koeffizienten $B_n$ heissen die Bernoulli-Zahlen.
+Bestimmen Sie die ersten Bernoulli-Zahlen bis $B_4$, indem 
+Sie den Ansatz~\eqref{buch:402:greihe}
+in die Gleichung
+\[
+z = (e^z-1) g(z)
+\]
+einsetzen und die Koeffizienten durch Koeffizientenvergleich
+bestimmen.
+\item
+Bestimmen Sie den Konvergenzradius der Reihe.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Nullstellen von $f(z)$ sind die Nullstellen von $e^z-1$ oder die
+Lösungen der Gleichung
+\begin{equation}
+e^a(\cos b + i \sin b)
+=
+1.
+\label{buch:402:gleichung}
+\end{equation}
+Daraus liest man ab, dass $\sin b=0$ sein muss,
+d.~h. $b\in \pi\mathbb{Z}$.
+Für die ungeraden Vielfachen von $\pi$ führen zu einem negativen $\cos b$,
+es bleiben daher nur die geraden Vielfachen von $\pi$.
+Um die Gleichung~\eqref{buch:402:gleichung} zu erfüllen muss jetzt nur noch
+$e^a=1$ sein, d.~h.~$a=0$.
+Die Menge der Nullstellen ist daher $2\pi i\mathbb{Z}\setminus\{0\}$.
+\item
+Wir schreiben Terme bis vierter Ordnung der beiden Reihen und
+multiplizieren aus
+\begin{align*}
+z
+&=
+\biggl(
+\frac{z}{2} + \frac{z^2}{3!} + \frac{z^3}{4!} + \frac{z^4}{5!} + \ldots
+\biggr)
+\biggl(
+B_0 + B_1z + \frac{B_2}{2!}z^2 + \frac{B_3}{3!}z^3 + \frac{B_4}{4!}z^4 + \ldots
+\biggr)
+\\
+&=
+\textstyle
+B_0z
++
+\bigl(\frac12 B_0 + B_1\bigr) z^2
++
+\bigl(\frac16 B_0 + \frac12 B_1 + \frac12 B_2\bigr)z^2
++
+\bigl(\frac1{24} B_0 + \frac16 B_1 + \frac14 B_2 + \frac16 B_3\bigr)z^3
+\\
+&\qquad
+\textstyle
++
+\bigl(\frac1{120} B_0 + \frac1{24} B_1 + \frac1{12} B_2 + \frac1{12} B_3 + \frac1{24} B_4)z^4
++
+\ldots
+\end{align*}
+Daraus kann man die Gleichungen
+\[
+\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcrcrcrcl}
+           B_0 & &               & &               & &               & &               &=& 1\\
+\frac1{2}  B_0 &+&           B_1 & &               & &               & &               &=& 0\\
+\frac1{6}  B_0 &+& \frac1{2} B_1 &+& \frac1{2} B_2 & &               & &               &=& 0\\
+\frac1{24} B_0 &+& \frac1{6} B_1 &+& \frac1{4} B_2 &+& \frac1{6} B_3 & &               &=& 0\\
+\frac1{120}B_0 &+& \frac1{24}B_1 &+& \frac1{12}B_2 &+& \frac1{12}B_3 &+& \frac1{24}B_4 &=& 0.
+\end{array}
+\]
+Da das Gleichungssystem Dreiecksform hat, kann man die
+Koeffizienten sofort rekursiv auflösen und findet
+\[
+\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclcr}
+B_0 &=& &=&\phantom{-}1
+\\
+B_1 &=& &=&-\frac12
+\\
+B_2 &=& -\frac{1}{3} B_0 - B_1 = -\frac13 + \frac12 &=& \phantom{-}\frac{1}{6}
+\\
+B_3 &=& -\frac1{4}   B_0 - B_1 - \frac{3}{2} B_2
+     = -\frac14 + \frac12 - \frac14
+     &=& \phantom{-}0
+\\
+B_4 &=& -\frac1{5}   B_0 - B_1 - 2           B_2 - 2 B_3
+     = -\frac1{5} +\frac12 -\frac13
+     &=& -\frac1{30}\rlap{.}
+\end{array}
+\]
+Damit sind die ersten Bernoulli-Zahlen bis $B_4$ bestimmt, wie in der
+Aufgabe verlangt.
+
+Man kann mit der gleichen Methode auch mehr erreichen, als in der
+Aufgabe verlangt war.
+Man kann nämlich allgemein
+\begin{align*}
+z
+&=
+\biggl(
+\sum_{k=0}^\infty \frac{z^k}{(k+1)!}
+\biggr)
+\biggl(
+\sum_{n=0}^\infty \frac{B_n}{n!}z^n
+\biggr)
+=
+\sum_{l=0}^\infty
+\biggl(
+\sum_{n=0}^l
+\frac{B_n}{n!}
+\cdot
+\frac{1}{(l-n+1)!}
+\biggr)
+z^l
+\end{align*}
+schreiben.
+Für $l>1$ kann man daraus die Rekursionsformel
+\[
+\frac{B_l}{l!}
++
+\sum_{n=0}^{l-1}
+\frac{B_n}{n!}
+\cdot
+\frac{1}{(l-n+1)!}
+=
+0
+\qquad\Rightarrow\qquad
+\frac{B_l}{l!}
+=
+-
+\sum_{n=0}^{l-1}
+\frac{B_n}{n!}
+\cdot
+\frac{1}{(l-n+1)!}
+\]
+ableiten.
+Tatsächlich gibt die Formel für $l=4$
+\begin{align*}
+0
+&=
+\frac{B_4}{4!}
++
+\frac{B_3}{3!}\frac{1}{2!}
++
+\frac{B_2}{2!}\frac{1}{3!}
++
+\frac{B_1}{1!}\frac{1}{4!}
++
+\frac{B_0}{0!}\frac{1}{5!}
+\\
+&=
+\frac{1}{24}B_4
++
+\frac{1}{12}B_3
++
+\frac{1}{12}B_2
++
+\frac{1}{24}B_1
++
+\frac{1}{120}B_0,
+\end{align*}
+was mit der oben gefundenen Formel übereinstimmt.
+Multipliziert man mit $l!$ folgt
+\begin{align*}
+B_l
+&=
+-
+\sum_{n=0}^{l-1}
+\frac{l!}{n!\,(l-n+1)!} B_n
+=
+-
+\sum_{n=0}^{l-1}
+\frac{1}{l-n+1}
+\binom{l}{n}
+B_n.
+\end{align*}
+\item
+Die Funktion $g(z)$ hat Pole bei den Nullstellen von $f(z)$.
+Die Pole sind $2\pi ik$, $k\in \mathbb{Z}\setminus\{0\}$, daher ist
+der nächste Pol zum Nullpunkt der Punkt $z=\pm 2\pi i$ und daher 
+ist der Konvergenzradius $=2\pi$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+

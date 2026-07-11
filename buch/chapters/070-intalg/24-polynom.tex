@@ -1,0 +1,165 @@
+%
+% Integranden der Form Polynom/theta
+%
+\subsection{Integranden der Form $\text{Polynom}/\vartheta$}
+Der Summand $\varphi$ in
+\eqref{buch:intalg:wurzel:eqn:summe}
+lässt sich auf ein Integral nur von $1/\vartheta$ reduzieren,
+wie der folgende Satz zeigt.
+
+\begin{satz}
+\label{buch:intalg:wurzel:satz:polynomtheta}
+Sei $\varphi\in\mathbb{Q}[x]$ ein Polynom mit rationalen Koeffizienten
+und $\vartheta=\!\sqrt{ax^2+bx+c}$.
+Dann gibt es ein Polynom $\psi\in\mathbb{Q}[x]$ mit 
+\begin{equation}
+\int\frac{\varphi}{\vartheta}\,dx
+=
+\psi\vartheta
++
+A\int\frac{1}{\vartheta}\,dx,
+\label{buch:intalg:wurzel:eqn:polytheta}
+\end{equation}
+wobei $A$ eine Konstante ist.
+\end{satz}
+
+\begin{proof}
+Wenn es das Polynom $\psi$ und die Konstante $A$ gibt, dann 
+muss auch die Ableitung der Gleichung~\eqref{buch:intalg:wurzel:eqn:polytheta} 
+erfüllt sein, also
+\begin{equation}
+\frac{\varphi}{\vartheta}
+=
+\psi'\vartheta + \psi\vartheta'+A\frac{1}{\vartheta}.
+\label{buch:intalg:wurzel:eqn:polytheta'}
+\end{equation}
+Die Ableitung von $\vartheta$ ist
+\[
+\vartheta'
+=
+\frac{2ax+b}{2\vartheta}
+=
+\frac{ax+b/2}{\vartheta}.
+\]
+Eingesetzt in 
+\eqref{buch:intalg:wurzel:eqn:polytheta'} und mit $\vartheta$ multipliziert
+erhält man die Gleichung
+\begin{align*}
+\varphi
+&=
+\psi'\vartheta^2 + \psi (ax+b/2) + A
+\\
+\varphi
+&=
+\psi' (ax^2+bx+c) + \psi (ax+b/2) + A
+\end{align*}
+Um diese Differentialgleichung für die Funktion $\psi$ zu lösen, verwenden
+wir Ansätze der Form
+\[
+\renewcommand{\arraycolsep}{1pt}
+\begin{array}{rcrcrcrcrcccrcr}
+\varphi&=& \varphi_mx^m &+& \varphi_{m-1}x^{m-1} &+&   \varphi_{m-2}x^{m-2} &+&   \varphi_{m-3}x^{m-3} &+& \ldots &+& \varphi_1 x &+& \varphi_0\phantom{.}\\
+\psi   &=&              & &    \psi_{m-1}x^{m-1} &+&      \psi_{m-2}x^{m-2} &+&      \psi_{m-3}x^{m-3} &+& \ldots &+&    \psi_1 x &+&    \psi_1\phantom{.}\\
+\psi'  &=&              & &                      & & (m-1)\psi_{m-1}x^{m-2} &+& (m-2)\psi_{m-2}x^{m-3} &+& \ldots &+&   2\psi_2 x &+&    \psi_1.
+\end{array}
+\]
+Durch Ausmultiplizieren und Koeffizientenvergleich entstehen die Gleichungen
+\[
+\renewcommand{\arraycolsep}{1pt}
+\def\i#1{\rlap{$\scriptstyle #1$}\phantom{m-2}}
+\begin{array}{lcrcrcrcrcrcrcr}
+\varphi_{m  } &=& (m-1)a\psi_{m-1}   & &                    & &                    &+& a\psi_{m-1}   & &                   & &   \\
+\varphi_{m-1} &=& (m-2)a\psi_{m-2}   &+& (m-1)b\psi_{m-1}   & &                    &+& a\psi_{m-2}   &+& (b/2)\psi_{m-1} & &   \\
+\varphi_{m-2} &=& (m-3)a\psi_{m-3}   &+& (m-2)b\psi_{m-2}   &+& (m-1)c\psi_{m-1}   &+& a\psi_{m-3}   &+& (b/2)\psi_{m-2}   & &   \\
+\varphi_{m-3} &=& (m-4)a\psi_{m-4}   &+& (m-3)b\psi_{m-3}   &+& (m-2)c\psi_{m-2}   &+& a\psi_{m-4}   &+& (b/2)\psi_{m-3}   & &   \\
+              &\vdots &              & &                    & &                    & &               & &                   & &   \\
+\varphi_{3}   &=&     2a\psi_{\i{2}} &+&     3b\psi_{\i{3}} &+&     4c\psi_{\i{4}} &+& a\psi_{\i{2}} &+& (b/2)\psi_{\i{3}} & &   \\
+\varphi_{2}   &=&      a\psi_{\i{1}} &+&     2b\psi_{\i{2}} &+&     3c\psi_{\i{3}} &+& a\psi_{\i{1}} &+& (b/2)\psi_{\i{2}} & &   \\
+\varphi_{1}   &=&                    & &      b\psi_{\i{1}} &+&     2c\psi_{\i{2}} &+& a\psi_{\i{0}} &+& (b/2)\psi_{\i{1}} & &   \\
+\varphi_{0}   &=&                    & &                    & &      c\psi_{\i{1}} & &               &+& (b/2)\psi_{\i{0}} &+& A \\
+\end{array}
+\]
+oder zusammengefasst
+\[
+\renewcommand{\arraycolsep}{1pt}
+\def\i#1{\rlap{$\scriptstyle #1$}\phantom{m-2}}
+\begin{array}{lcrcrcrcrcr}
+\varphi_{m  } &=& \phantom{(}m\phantom{\mathstrut-0)}a\psi_{m-1}
+                                     & &                             & &                    & &   \\
+\varphi_{m-1} &=& (m-1)a\psi_{m-2}   &+&  ((2(m-1)+1)b/2)\psi_{m-1}  & &                    & &   \\
+\varphi_{m-2} &=& (m-2)a\psi_{m-3}   &+&  ((2(m-2)+1)b/2)\psi_{m-2}  &+& (m-1)c\psi_{m-1}   & &   \\
+\varphi_{m-3} &=& (m-3)a\psi_{m-4}   &+&  ((2(m-3)+1)b/2)\psi_{m-3}  &+& (m-2)c\psi_{m-2}   & &   \\
+              &\vdots &              & &                             & &                    & &   \\
+\varphi_{3}   &=&     3a\psi_{\i{2}} &+& 7b/2\phantom{)}\psi_{\i{3}} &+&     4c\psi_{\i{4}} & &   \\
+\varphi_{2}   &=&     2a\psi_{\i{1}} &+& 5b/2\phantom{)}\psi_{\i{2}} &+&     3c\psi_{\i{3}} & &   \\
+\varphi_{1}   &=&      a\psi_{\i{0}} &+& 3b/2\phantom{)}\psi_{\i{1}} &+&     2c\psi_{\i{2}} & &   \\
+\varphi_{0}   &=&                    & &  b/2\phantom{)}\psi_{\i{0}} &+&      c\psi_{\i{1}} &+& A.\\
+\end{array}
+\]
+Daraus kann man Rekursionsformeln für die Koeffizienten $\psi_k$ ableiten:
+\begin{align*}
+\psi_{m-1}
+&=
+\frac{1}{ma}\varphi_m
+\\
+\psi_{m-2}
+&=
+\frac{1}{(m-1)a}\biggl(
+\varphi_{m-1}
+-
+((2(m-1)+1)b/2)\psi_{m-1}
+\biggr)
+\\
+\psi_{m-3}
+&=
+\frac{1}{(m-2)a}\biggl(
+\varphi_{m-2}
+-
+((2(m-1)+1)b/2)\psi_{m-2}
+-
+(m-1)c\psi_{m-1}
+\biggr)
+\\
+&\phantom{a}\vdots
+\\
+\psi_{k}
+&=
+\frac{1}{(k+1)a}
+\biggl(
+\varphi_{k+1}
+-
+((2(k+1)+1)b/2)\psi_{k+1}
+-
+(k+2)
+\psi_{k+2}
+\biggr)
+\\
+&\phantom{a}\vdots
+\\
+\psi_0
+&=
+\frac{1}{a}\biggl(
+\varphi_1
+-
+3b/2\psi_1
+-
+2c\psi_2
+\biggr)
+\\
+A
+&=
+\varphi_0 -(b/2)\psi_0 - c\psi_1.
+\end{align*}
+Damit sind der Reihe nach die Koeffizienten
+$\psi_{m-1},\psi_{m-2},\dots,\psi_2,\psi_1,\psi_0,A$
+eindeutig festgelegt, was die Existenz des Polynoms $\psi$ und der
+Konstanten $A$ beweist.
+\end{proof}
+
+Der Satz besagt, dass der erste Summand in~\eqref{buch:intalg:wurzel:eqn:summe}
+zu einem Integranden führt, dessen Integral sich auf das Integral von
+$1/\vartheta$ reduzieren lässt.
+Diese Art von Integral tritt auch bei der Berechnung des zweiten Summanden
+auf und wird im
+Abschnitt~\ref{buch:intalg:wurzel:subsection:stammfunktiontheta}
+berechnet.

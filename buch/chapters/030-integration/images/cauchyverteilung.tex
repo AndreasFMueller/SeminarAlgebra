@@ -1,0 +1,71 @@
+%
+% cauchyverteilung.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\skala{1}
+\def\R{4.5}
+\def\r{0.9}
+\def\w{120}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\node at (\R,\R) [above right] {$\mathbb{C}$};
+
+% Koordinatenachsen
+\draw[->] (0,-5.1) -- (0,5.3) coordinate[label={right:$\operatorname{Im}$}];
+\fill[color=gray!40,opacity=0.7] (0,0) -- (0:\r) arc (0:\w:\r) -- cycle;
+\node at (0,0) [above right] {$\varphi$};
+\draw[->] (-5.1,0) -- (5.3,0) coordinate[label={$\operatorname{Re}$}];
+
+% Radius R und Endpunkt
+\draw[->,color=black] (0,0) -- (\w:\R);
+\node at (\w:{0.5*\R}) [left] {$R$};
+\node at ($(120:\R)+(0.4,0)$) [above left] {$R(\cos\varphi+i\sin\varphi)$};
+\fill[color=darkred] (\w:\R) circle[radius=0.05];
+
+% \gamma_2
+\draw[color=darkred,line width=1.4pt] (-\R,0) -- (\R,0) arc(0:180:\R);
+\draw[->,color=darkred,line width=1.4pt] (-\R,0.1) -- (-\R,0);
+\node[color=darkred] at (45:\R) [above right] {$\gamma_2$};
+
+% \bar\gamma_2
+\draw[->,color=darkred!40,line width=1.4pt] (-\R,-0.1) -- (-\R,0);
+\draw[color=darkred!40,line width=1.4pt] (-\R,0) arc(-180:0:\R);
+\node[color=darkred!40] at (-45:\R) [below right] {$\bar{\gamma}_2$};
+
+% \gamma_1
+\draw[color=darkred,line width=1.4pt] (-\R,0) -- (\R,0);
+\node[color=darkred] at ({0.5*\R},0) [above] {$\gamma_1$};
+
+% Punkte +i und -i
+\coordinate (plusI) at (0,1);
+\coordinate (minusI) at (0,-1);
+
+\fill[color=white] (plusI) circle[radius=0.08];
+\draw[color=blue] (plusI) circle[radius=0.08];
+\node[color=blue] at (plusI) [above right] {$+i$};
+
+\fill[color=white] (minusI) circle[radius=0.08];
+\draw[color=blue] (minusI) circle[radius=0.08];
+\node[color=blue] at (minusI) [below right] {$-i$};
+
+% Beschriftung x-Achse
+\node at (-\R,0) [below left] {$-R\mathstrut$};
+\node at (\R,0) [below right] {$R\mathstrut$};
+
+% Verbindungspunkte der Kurventeile
+\fill[color=darkred] (-\R,0) circle[radius=0.05];
+\fill[color=darkred] (\R,0) circle[radius=0.05];
+
+\end{tikzpicture}
+\end{document}
+

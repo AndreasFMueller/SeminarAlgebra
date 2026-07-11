@@ -1,0 +1,119 @@
+%
+% teil3.tex -- Punkte, Linien und Kreise in der gaussschen Ebene
+%
+\section{Punkte, Linien und Kreise in der gaussschen Ebene
+\label{komplex:section:objekte}}
+\kopfrechts{Die gaussschen Ebene}
+Bevor die Konstruktion gleichseitiger Dreiecke entwickelt werden kann,
+ist es nützlich zu sehen,
+wie sich elementare geometrische Objekte --- Strecken, Geraden, Kreise ---
+direkt in der Sprache komplexer Zahlen ausdrücken lassen.
+Die Unterabschnitte führen Strecken, Geraden samt Mittelsenkrechten,
+Kreise und schliesslich Kollinearität und Winkelmessung ein.
+
+%
+% Strecken als Differenzen komplexer Zahlen
+%
+\subsection{Strecken als Differenzen komplexer Zahlen
+\label{komplex:subsection:strecken}}
+Eine Strecke zwischen zwei Punkten $z_1$ und $z_2$ wird in komplexer
+Schreibweise vollständig durch die Differenz $z_2 - z_1$ beschrieben.
+Diese Differenz enthält gleichzeitig die Länge der Strecke und ihre
+Richtung.
+Die Länge ist $|z_2 - z_1|$, die Richtung wird durch das Argument
+$\arg(z_2 - z_1)$ festgelegt.
+
+Diese kompakte Codierung ist der eigentliche Grund,
+warum komplexe Zahlen für geometrische Konstruktionen so geeignet sind.
+Eine Strecke wird zu einer einzigen Zahl, mit der man weiterrechnen kann.
+
+%
+% Geraden, Mittelsenkrechte und Parameterdarstellung
+%
+\subsection{Geraden, Mittelsenkrechte und Parameterdarstellung
+\label{komplex:subsection:geraden}}
+Eine Gerade durch zwei Punkte $z_1$ und $z_2$ lässt sich parametrisch
+schreiben als
+\begin{equation}
+z(t)
+=
+z_1 + t \, (z_2 - z_1) ,
+\qquad
+t \in \mathbb{R} .
+\label{komplex:eq:gerade}
+\end{equation}
+Für $t = 0$ erhält man $z_1$,
+für $t = 1$ erhält man $z_2$,
+und für $t = 1/2$ den Mittelpunkt der Strecke.
+Mit $t \in [0, 1]$ beschreibt die Formel die Strecke selbst,
+mit $t \in \mathbb{R}$ die ganze Gerade.
+
+Die \emph{Mittelsenkrechte} zweier Punkte $z_1$ und $z_2$ besteht aus allen
+\index{Mittelsenkrechte}%
+Punkten $z$, die zu beiden den gleichen Abstand haben:
+\begin{equation}
+|z - z_1|
+=
+|z - z_2| .
+\label{komplex:eq:mittelsenkrechte}
+\end{equation}
+Quadrieren wir beide Seiten und nutzen die Identität
+$|w|^2 = w \cdot \overline{w}$, so wird daraus
+\[
+(z - z_1)(\overline{z} - \overline{z_1})
+=
+(z - z_2)(\overline{z} - \overline{z_2}) .
+\]
+Ausmultiplizieren liefert auf beiden Seiten den Term $z \overline{z}$,
+der sich kürzt; die übrigen Terme ordnen wir nach $z$ und $\overline{z}$
+und erhalten
+\begin{equation}
+(\overline{z_2} - \overline{z_1}) \, z
++ (z_2 - z_1) \, \overline{z}
+=
+|z_2|^2 - |z_1|^2 .
+\label{komplex:eq:mittelsenkrechte-linear}
+\end{equation}
+Das ist eine lineare Gleichung in $z$ und $\overline{z}$, die genau die
+Mittelsenkrechte beschreibt.
+
+%
+% Kreise als Niveaumengen des Betrags
+%
+\subsection{Kreise als Niveaumengen des Betrags
+\label{komplex:subsection:kreise}}
+\index{Niveaumenge}%
+Der Kreis mit Mittelpunkt $z_0$ und Radius $r$ besteht aus allen Punkten
+$z$ mit
+\begin{equation}
+|z - z_0|
+=
+r .
+\label{komplex:eq:kreis}
+\end{equation}
+Diese Gleichung ist eine direkte Übersetzung der geometrischen Definition.
+In ihrer Knappheit liegt ihr Wert:
+Während der Kreis in kartesischen Koordinaten zwei reelle Variablen $x$
+und $y$ benötigt, beschreibt eine einzige komplexe Gleichung die ganze
+Punktmenge.
+
+%
+% Kollinearitaet und Winkel
+%
+\subsection{Kollinearität und Winkel
+\label{komplex:subsection:winkel}}
+Drei Punkte $z_1, z_2, z_3$ sind genau dann \emph{kollinear},
+\index{kollinear}%
+wenn der Quotient
+\begin{equation}
+\frac{z_3 - z_1}{z_2 - z_1}
+\label{komplex:eq:quotient}
+\end{equation}
+reell ist.
+Allgemein gibt das Argument dieses Quotienten den Winkel an,
+unter dem die Strecke $z_1 z_3$ gegenüber der Strecke $z_1 z_2$ gedreht
+ist.
+Damit verschmelzen Winkelberechnungen und Quotientenbildung zu derselben
+Operation.
+Diese Beobachtung ist der Schlüssel für die in
+Abschnitt~\ref{komplex:section:beweis} geführten Beweise.

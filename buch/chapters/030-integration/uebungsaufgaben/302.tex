@@ -1,0 +1,234 @@
+Berechnen Sie die Wegintegrale der folgenden Funktionen entlang der
+angegebenen Pfade, die sie Sie in der vorangegangenen Aufgabe gezeichnet
+haben.
+\begin{teilaufgaben}
+\item Für $f(z) = z^3$ berechnen Sie $\int_{\gamma_4}f(z)\,dz$.
+\item Für $f(z) = \bar{z}$ berechnen Sie $\int_{\gamma_2}f(z)\,dz$ und
+$\int_{\gamma_3}f(z)\,dz$.
+Warum sind die beiden Integrale verschieden?
+\item Für $f(z) = 1/z$ berechnen Sie $\int_{\gamma_2}f(z)\,dz$ und
+$\int_{\gamma_3}f(z)\,dz$.
+Warum sind die beiden Integrale verschieden?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Für die Funktion $f(z) = z^3$ sind die Wegintegrale
+\begin{align*}
+%\int_{\gamma_1} f(z)\,dz
+%&=
+%\int_0^1 (1+it)^3\, i\,dt
+%\\
+%&=
+%\int_0^1 i - 3t - 3it^2 + t^3\,dt
+%=
+%\biggl[
+%it - \frac{3}{2}t^2 - it^3 +\frac{1}{4}t^4
+%\biggr]_0^1
+%\\
+%&=
+%i - \frac{3}{2} -i + \frac{1}{4}
+%=
+%\frac{7}{4}.
+%\\
+%%
+%% Integral über gamma_2
+%%
+%\int_{\gamma_2} f(z)\,dz
+%&=
+%\int_0^1 (e^{-\pi i t})^3 (-\pi i) e^{-\pi it}\,dt
+%=
+%-\pi i
+%\int_0^1 e^{-4\pi i t}\,dt
+%\\
+%&=
+%-\pi i
+%\Bigl[
+%\frac{1}{-4\pi i} e^{-4\pi it}
+%\Bigr]_0^1
+%=
+%\frac{1}{4}
+%\Bigl(e^{-4\pi i} - 1\Bigr)
+%=
+%\frac{1}{4}(1-1)
+%=
+%0.
+%\\
+%%
+%% Integral über gamma_3
+%%
+%\int_{\gamma_3} f(z)\,dz
+%&=
+%\int_0^1 (e^{\pi i t})^3 (\pi i) e^{\pi it}\,dt
+%=
+%\pi i
+%\int_0^1 e^{4\pi i t}\,dt
+%\\
+%&=
+%\pi i
+%\Bigl[
+%\frac{1}{4\pi i} e^{4\pi it}
+%\Bigr]_0^1
+%=
+%\frac{1}{4}
+%\Bigl(e^{4\pi i} - 1\Bigr)
+%=
+%\frac{1}{4}(1-1)
+%=
+%0.
+%\\
+\int_{\gamma_4} f(z)\,dz
+&=
+\int_0^1 
+(1+it+t^2)^3 (i+2t)
+\,dt
+=
+\int_0^1 
+2t^3+it^2+2it+2t+i-1
+\,dt
+\\
+&=
+\biggl[
+\frac{t^4}{2}
++
+\frac{it^3}{3}
++
+it^2
++
+t^2
++it
+-
+t
+\biggr]_0^1
+=
+\frac{14i+3}{6}.
+\end{align*}
+\item Für die Funktion $f(z) = \bar{z}$ sind die Wegintegrale
+\begin{align*}
+%\int_{\gamma_1} f(z)\,dz
+%&=
+%\int_0^1
+%\overline{(1+it)}
+%i
+%\,dt
+%=
+%\int_0^1
+%i+t
+%\,dt
+%=
+%\biggl[ it+\frac{t^2}{2} \biggr]_0^1
+%=
+%i+\frac12
+%\\
+\int_{\gamma_2} f(z)\,dz
+&=
+\int_0^1
+\overline{e^{-\pi it}}
+(-\pi i)e^{-\pi it}
+\,dt
+=
+\int_0^1
+e^{\pi it}
+(-\pi i)e^{-\pi it}
+\,dt
+=
+-\pi i
+\int_0^1
+\,dt
+=
+-\pi i.
+\\
+\int_{\gamma_3} f(z)\,dz
+&=
+\int_0^1
+\overline{e^{\pi it}}
+\pi ie^{\pi it}
+\,dt
+=
+\int_0^1
+e^{-\pi it}
+\pi ie^{\pi it}
+\,dt
+=
+\pi i
+\int_0^1
+\,dt
+=
+\pi i.
+%\\
+%\int_{\gamma_4} f(z)\,dz
+%&=
+%\int_0^1
+%\overline{(1+it+t^2)}
+%(i+2t)
+%\,dt
+%=
+%\int_0^1
+%(1-it+t^2)
+%(i+2t)
+%\,dt
+%\\
+%&=
+%\int_0^1
+%(1-it+t^2)
+%(i+2t)
+%\,dt
+%=
+%\int_0^1
+%2t^3-it^2+3t+i
+%\,dt.
+%\\
+%&=
+%\biggl[
+%\frac{t^4}{2}-\frac{it^3}{3}+\frac{3t^2}{2}+it
+%\biggr]_0^1
+%=
+%\frac{2i+6}{3}.
+\end{align*}
+Die beiden Integrale sind verschieden, weil die Funktion $z\mapsto\bar{z}$
+nicht holomorph ist.
+\item %Für die Funktion $f(z) = 1/z$ sind die verlangten Wegintegrale
+%\begin{align*}
+%\int_{\gamma_1} f(z)\,dz
+%&=
+%\int_0^1 \frac{1}{1+it}\,i\,dt
+%=
+%\int_0^1 \frac{1-it}{1+t^2}\,i\,dt
+%=
+%\int_0^1 \frac{i+t}{1+t^2}\,dt
+%\\
+%&=
+%\biggl[
+%\frac12 \log(1+t^2) + i\arctan(t)
+%\biggr]_0^1
+%=
+%\frac12\log 2 + \frac{i\pi}4,
+%\intertext{
+Wegen $1/e^{i\pi t}=e^{-i\pi t}=\overline{e^{i\pi t}}$ stimmt
+die Funktion $z\mapsto 1/z$ auf dem Einheitskreis mit $z\mapsto\bar{z}$ 
+überein, ergibt also die gleichen Integrale wie in Teilaufgabe b).
+%Das verbleibende Integral über $\gamma_4$ ist
+%}
+%\int_{\gamma_4} f(z)\,dz
+%&=
+%\int_0^1 \frac{1}{1+it+t^2} (i+2t)\,dt
+%=
+%\biggl[
+%\log(t^2+it+1)
+%\biggr]_0^1
+%\\
+%&=
+%\log(1+i) - \log(1)
+%=
+%\log(1+i)
+%=
+%\frac12
+%\log(2)
+%+
+%\frac{i\pi}{4}.
+Die beiden Integrale sind verschieden, weil die Funktion $z\mapsto1/z$
+ist zwar holomoroph, aber nicht im Punkt $z=0$, wo sie einen Pol hat.
+\qedhere
+%\end{align*}
+\end{teilaufgaben}
+\end{loesung}

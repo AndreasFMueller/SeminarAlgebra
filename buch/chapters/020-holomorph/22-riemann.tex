@@ -1,0 +1,241 @@
+%
+% 22-riemann.tex -- Der Abbildungssatz von Riemann
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Der Abbildungssatz von Riemann}
+Isometrische Abbildungen sind konform, bilden aber ein Gebiet immer
+auf ein kongruentes Gebiet ab.
+Ähnlichkeitsabbildungen bilden ein Gebiet immer auf ein ähnliches
+Gebiet ab.
+In beiden Fällen gibt es einen sehr einfachen Zusammenhang zwischen
+Urbildmenge und Bildmenge, es ist leicht zu entscheiden,
+ob eine Abbildung zuwischen zwei Mengen existiert.
+
+Die Menge der konformen Abbildung ist jedoch viel grösser,
+mithilfe holomorpher Abbildungen lassen sich Abbildungen
+zwischen sehr viel allgemeineren Gebieten der komplexen Ebene
+konstruieren.
+Wir definieren den folgenden Begriff, um die Idee der
+bijektiven, winkeltreuen und orientierungserhaltenden Abbildung
+für komplexe Funktionen zu kodifizieren.
+
+\begin{definition}[biholomorph]
+Sind $U$ und $V$ offene Mengen in $\mathbb{C}$, dann heisst
+eine Abbildung $f\colon U\to V$ \emph{biholomorph}, wenn sie bijektiv
+und holomorph ist.
+\index{biholomorph}%
+\end{definition}
+
+%
+% Die obere Halbebene und Polygone
+%
+\subsubsection{Die obere Halbebene und Polygone}
+Die Abbildung $z\mapsto z^\alpha$ ist holomorph auf der oberen Halbebene
+\[
+H = \{z\in\mathbb{C}\mid \operatorname{Im}z> 0\}.
+\]
+\index{obere Halbebene}%
+\index{Halebene, obere}%
+Sie bildet die reelle Achse auf zwei Geraden ab, die den Winkel $\alpha \pi$
+einschliessen.
+Durch Zusammensetzen solcher Abbildungen lässt sich eine Abbildung
+der oberen Halbebene auf ein Polygon konstruieren.
+
+\begin{definition}[Schwarz-Christoffel-Transformation]
+Für reelle Zahlen $a_k$ mit $a_1<a_2<\dots<a_n$, Winkel
+$\alpha_1,\dots,\alpha_n\in\mathbb{R}$ und eine Konstante $K\in \mathbb{C}$
+heisst die auf der oberen Halbebene definierte Abbildung
+\[
+z
+\mapsto 
+f(z)
+=
+\int^z \frac{K}{
+(w-a_1)^{1-\alpha_1/\pi}
+(w-a_2)^{1-\alpha_2/\pi}
+\dots
+(w-a_n)^{1-\alpha_n/\pi}
+}\,dw
+\]
+die Schwarz-Christoffel-Transformation.
+\index{Schwarz-Christoffel-Transformation}%
+\end{definition}
+
+Die Schwarz-Christoffel-Transformation ist nur bis auf eine
+Integrationskonstante definiert.
+Ebenso muss man bei der Berechnung der Potenzen $(w-a_k)^{1-\alpha k/\pi}$
+im Nenner eine geeignete Fortsetzung der Potenzfunktion wählen, damit
+eine holomorphe Funktion entsteht.
+
+Man kann zeigen, dass die Schwarz-Christoffel-Transformation die reelle Achse
+auf ein Polygon mit Innenwinkeln $\alpha_1$ an der Stelle $f(a_i)$ abbildet.
+Die Konstante $K$ kann dazu verwendet werden, das Polygon beliebig zu drehen
+und zu skalieren.
+Durch Wahl einer geeigneten Integrationskonstante kann das Polygon an
+jede beliebige Stelle der komplexen Ebene verschoben werden.
+
+Ein bekannter Spezialfall der Schwarz-Christoffel-Transformation ist
+das elliptische Integral
+\begin{align*}
+f(z)
+&=
+\int^z
+\frac{1}{\!\sqrt{(1-w^2)(1-k^2w^2)}}\,dw
+\\
+&=
+\int^z 
+\frac{1/k^2}{\!\sqrt{(w^2-1)(k^2w^2-\frac{1}{k^2})}}\,dw
+\\
+&=
+\int^z
+\frac{1/k^2}{
+(w-1)^{1-\frac12}
+(w-\frac{1}{k})^{1-\frac12}
+(w+\frac{1}{k})^{1-\frac12}
+(w+1)^{1-\frac12}
+}\,dw.
+\end{align*}
+mit $0<k<1$.
+Die Bildmenge ist ein Polygon mit 5 Ecken und Winkeln $90^\circ$-Winkeln
+in den Ecken $f(\pm 1)$ und $f(\pm\frac{1}{k})$.
+Da die Winkelsumme in einem 5-Eck $540^\circ$ ist, muss der Winkel
+an der Ecke $\lim_{z\to\infty}f(z)$ $180^\circ$ sein.
+Mehr Information zur Theorie der elliptischen Integrale findet der
+interessierte Leser in Kapitel~\ref{chapter:elliptisch}.
+
+Das Beispiel der elliptischen Integrale zeigt, dass man nicht erwarten
+kann, die Transformation in geschlossener Form auszuführen.
+Für die numerische Rechnung ist die Definition durch die Differentialgleichung
+\[
+\frac{f''(z)}{f'(z)}
+=
+\sum_{k=1}^n \frac{\alpha_k-1}{z-a_k}
+\]
+oft zugänglicher.
+In Matlab steht ein Paket zur Verfügung, welches die
+Schwarz-Christoffel-Transformation durch interaktive Wahl der Eckpunkte
+des Polygons zu konstruieren gestattet.
+\index{Matlab}%
+Sie wird in Kapitel~\ref{chapter:elektro} verwendet.
+
+%
+% Der riemannsche Abbildungssatz
+%
+\subsubsection{Der riemannsche Abbildungssatz}
+Die Schwarz-Christoffel-Transformation ist eine diskrete Approxomation
+des folgenden allgemeine Satzes, der zum ersten Mal von
+Bernhard Riemann
+\index{Riemann, Bernhard}%
+in seiner Dissertation formuliert wurde.
+
+\begin{definition}[Einheitskreisscheibe]
+Die \emph{Einheitskreisscheibe} in der komplexen Ebene ist die offene Menge
+\[
+D
+=
+\{
+z\in\mathbb{C}
+\mid
+|z|<1
+\}.
+\]
+\end{definition}
+
+\begin{satz}[Riemann]
+\label{buch:holomorph:riemann:satz:riemann}
+Ist $U$ ein einfach zusammenhängendes Gebiet in $\mathbb{C}$, welches nicht
+ganz $\mathbb{C}$ ist, dann gibt es eine biholomorphe Abbildung
+$f\colon U\to D$ von $U$ auf die Einheitskreisscheibe.
+Die Abbildung ist eindeutig bestimmt, wenn zusätzlich von einem Punkt
+$z_0\in H$ gefordert wird, dass $f(z_0)=0$ und $f'(z_0)>0$ verlangt wird.
+\end{satz}
+
+Der von Riemann in seiner Dissertation im Jahr 1851 gegeben Beweis
+wurde später von Weierstrass als unvollständig erkannt.
+\index{Weierstrass, Karl}%
+Den ersten vollständigen Beweis gab William Fogg Osgood erst 1900.
+\index{Osgood, William Fogg}%
+Ein Beweis würde den Rahmen dieses Seminars sprengen, viele Standardwerke
+über komplexe Analysis wie \cite{buch:alfohrs,buch:lang} enthalten
+Beweise des Satzes.
+
+Auch die Einheitskreisscheibe erfüllt die Voraussetzungen des Satzes.
+Drehungen $z \mapsto f(z)=e^{i\varphi} z$ bilden $D$ biholomorph auf $D$ ab.
+Die Forderung $f'(z)=e^{i\varphi}>0$ in der Formulierung des
+Satzes~\ref{buch:holomorph:riemann:satz:riemann}
+bedeutet, dass $\varphi=0$ sein muss,
+sie schliesst also Drehungen aus.
+
+Für $z_0\in D$ ist die Abbildung
+\begin{equation}
+z
+\mapsto
+f(z)
+=
+e^{i\varphi}\frac{z-z_0}{1-\bar{z}_0z}
+\label{buch:holomorph:geometrie:automorphD}
+\end{equation}
+als rationale Funktion holomorph.
+Sie bildet $z_0$ auf den Nullpunkt ab.
+Für einen Punkt $z$ auf dem Rand von $D$ ist $|z|=1$ und daher.
+\[
+1-\bar{z}_0z
+=
+|z|^2-\bar{z}_0z
+=
+\bar{z}z-\bar{z}_0z
+=
+(\bar{z}-\bar{z}_0)z.
+\]
+Dies bedeutet, dass $f(z)$ den Betrag
+\[
+|f(z)|^2
+=
+\frac{|z-z_0|^2}{|1-\bar{z}_0z|^2}
+=
+\frac{|z-z_0|^2}{|(\bar{z}-\bar{z}_0)z|^2}
+=
+\frac{|z-z_0|^2}{|\bar{z}-\bar{z}_0|^2\,|z|^2}
+=
+\frac{|z-z_0|^2}{ |z-z_0|^2}
+=
+1
+\]
+hat.
+Der Rand von $D$ wird also wieder auf den Rand von $D$ abgebildet.
+Der Faktor $e^{i\varphi}$ fügt eine Drehung um den Winkel $\varphi$ hinzu.
+Sie ist auch umkehrbar:
+\begin{align*}
+w &= e^{i\varphi}\frac{z-z_0}{1-\bar{z}_0z}
+&&\Rightarrow&
+we^{-i\varphi}(1-\bar{z}_0z) &= z-z_0
+\\
+&&&&
+we^{-i\varphi} + z_0 &= z+we^{-i\varphi}\bar{z}_0z
+\\
+&&&&
+we^{-i\varphi} + z_0 &= z(1+we^{-i\varphi}\bar{z}_0)
+\\
+&&&&
+z&=
+\frac{1+we^{-i\varphi}\bar{z}_0}{ we^{-i\varphi} + z_0}.
+\end{align*}
+Poincaré hat gezeigt, dass jede biholomorphe Selbstabbildung von $D$
+die Form \eqref{buch:holomorph:geometrie:automorphD} hat.
+Dies erklärt, warum die Zusatzbedingung des Satzes von Riemann, dass
+$z_0\in U$ auf $0$ abgebildet werden muss, die Abbildung eindeutig macht.
+
+Die obere Halbebene $H$ erfüllt die Voraussetzungen des riemannschen
+Abbildungssatzes.
+Er garantiert, dass es eine Abbildung $f\colon H\to D$ der oberen
+Halbebene auf die Einheitskreisscheibe gibt.
+Eine solche kan als Möbius-Transformation gefunden werden, wie in
+Kapitel~\ref{chapter:moebius} gezeigt wird.
+Auch ein Polygon $P$ in der komplexen Ebene erfüllt die Bedingungen,
+somit gibt es auch ein biholomorphe Abbildung des Polygons auf die
+Einheitskreisscheibe.
+Die Zusammensetzung $g^{-1}\circ f$ ist dann eine biholomorphe Abbildung
+der oberen Halbebene auf das Polygon.
+Die Schwarz-Christoffel-Transformation ist eine explizite Formel
+für diese Abbildung.

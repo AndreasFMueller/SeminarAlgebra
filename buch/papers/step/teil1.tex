@@ -1,0 +1,399 @@
+%
+% teil1.tex -- Beispiel-File für das Paper
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Automatic Differentiation
+\label{step:section:teil1}}
+\kopfrechts{Automatic Differentiation}
+
+Aufgrund dem bei der finiten Differenzenmethode vorgenommenen Abbruch der Taylorreihe entstehen -- wie im vorherigen Abschnitt gezeigt -- Ungenauigkeiten, insbesondere wenn die Schrittweite $h$ zu groß gewählt wird.  
+Im Folgenden wird eine Methode vorgestellt, mit der diese Ungenauigkeiten vermieden werden können. Ausgangspunkt ist (\ref{step:taylor2}), in der die Terme höherer Ordnung weiterhin vollständig enthalten sind
+\begin{equation*}
+	f(x+h) = \sum_{k=0}^{\infty} \frac{h^k}{k!} f^{(k)}(x).
+\end{equation*}
+Für eine praktisch berechenbare Lösung müssen auch hier die Terme höherer Ordnung eliminiert werden. Im Gegensatz zur finiten Differenzenmethode werden diese jedoch nicht einfach abgeschnitten, sondern gezielt zum Verschwinden gebracht.  
+Dies wird erreicht, indem für die Schrittweite $h$ spezielle algebraische Eigenschaften eingeführt werden. Anstelle von $h$ wird dabei $\epsilon$ verwendet, um eine klare Abgrenzung zur finiten Differenzenmethode zu schaffen.
+
+Sei dazu $\epsilon \neq 0$ ein nilpotentes Element mit $\epsilon^2 = 0$. Dann gilt insbesondere
+
+\begin{equation*}
+	\epsilon^n = 0 \quad \forall\quad n \geq 2.
+\end{equation*}
+
+\subsection{Herleitung der dualen Zahl und Motivation}
+
+Wird nun in der Taylorentwicklung $h$ durch $\epsilon$ ersetzt und die oben definierten Eigenschaften von $\epsilon$ verwendet, ergibt sich:
+
+\begin{equation*}
+	f(x+\epsilon) = \sum_{k=0}^{\infty} \frac{\epsilon^k}{k!} f^{(k)}(x).
+\end{equation*}
+Aufgrund der Eigenschaft $\epsilon^n = 0$ für alle $n \geq 2$ verschwinden sämtliche Terme höherer Ordnung. Es bleiben lediglich die ersten beiden Terme der Reihe übrig:
+
+\begin{equation*}
+	f(x+\epsilon) = f(x) + \epsilon f'(x).
+		\label{step:autodiffdual}
+\end{equation*}
+Dieser Ausdruck wird als \emph{duale Zahl} $\left(f\left(x\right), f'\left(x\right)\right)$ interpretiert. Dabei stellt der Realteil $f(x)$ den Funktionswert dar, während der $\epsilon$-Anteil direkt die Ableitung $f'(x)$ enthält. Auf den ersten Blick scheint sich der Ausdruck in Gleichung\,\ref{step:autodiffdual} kaum von der finiten Differenz in \ref{step:finiteDifferenz} zu unterscheiden.
+Der entscheidende Unterschied liegt jedoch in der zugrunde liegenden Algebra:  
+Bei der finiten Differenzenmethode wird $h$ als reelle Zahl gegen $0$ genommen und die Ableitung wird über einen Grenzübergang approximiert.
+Dabei wählt man $h$ sehr klein und hofft, dass der Fehler entsprechend gering bleibt. Mit $\epsilon$ hingegen wird ein Konstrukt eingeführt, bei dem alle Terme höherer Ordnung aufgrund der Eigenschaft $\epsilon^2 = 0$ exakt verschwinden.
+Da dies ein algebraisches Konstrukt und keine Approximation ist, entsteht kein Approximationsfehler.  
+Der wesentliche Vorteil dieser Methode liegt somit darin, dass Ableitungen \emph{exakt} und ohne Abbruchfehler berechnet werden können.
+Zusätzlich ermöglicht diese Methode die gleichzeitige Berechnung von Funktionswert und Ableitung in einem einzigen Auswertungsschritt.
+Dies macht sie besonders attraktiv für numerische Verfahren, da sie sowohl effizient als auch numerisch stabil ist.
+
+
+
+\subsection{Algebraische Herleitung der Rechenregeln für duale Zahlen}
+
+Die Rechenregeln für duale Zahlen lassen sich aus ihrer algebraischen Struktur herleiten. 
+\begin{definition}[Duale Zahlen]
+	Die Menge der dualen Zahlen ist definiert als
+	\begin{equation}
+		\mathbb{D} := \{\, u + \varepsilon u' \mid u,u' \in \mathbb{R} \,\},
+	\end{equation}
+	mit
+	\begin{equation}
+		\varepsilon^2 = 0
+	\end{equation}
+\end{definition}
+Gegeben seien die beiden dualen Zahlen $(u,u') = u + \varepsilon u'$ und $(v,v') = v + \varepsilon v'$.
+Die \textbf{Addition} zweier dualer Zahlen sei wie folgt definiert
+\begin{equation*}
+(u + \varepsilon u') + (v + \varepsilon v') 
+	= (u+v) + \varepsilon(u'+v').
+\end{equation*}
+Woraus sich auch die \textbf{Subtraktion} zweier dualer Zahlen definieren lässt
+\begin{equation*}
+	(u + \varepsilon u') - (v + \varepsilon v') 
+	= (u-v) + \varepsilon(u'-v').
+\end{equation*}
+Die Multiplikation zweier dualer Zahlen sei wie folgt definiert
+\begin{equation*}
+	(u + \varepsilon u')(v + \varepsilon v') 
+	= uv + \varepsilon uv' + \varepsilon u'v + \varepsilon^2 u'v'.
+\end{equation*}
+Mit $\varepsilon^2 = 0$ folgt
+\begin{equation*}
+	= uv + \varepsilon(uv' + u'v).
+\end{equation*}
+Für die Division zweier dualer Zahlen muss in einem ersten Schritt die Inverse einer dualen Zahl definiert werden. 
+Diese muss existieren und muss ebenfalls ein Element von $	\mathbb{D} $ sein
+
+\begin{equation*}
+(v + \varepsilon v')^{-1} \in \mathbb{D}, \quad \text{für}\quad v\neq0.
+\end{equation*}
+Für den Kehrwert einer dualen Zahl gilt somit
+\begin{equation*}
+\frac{1}{v + \varepsilon v'} = a + \varepsilon a'
+\end{equation*}
+und damit
+\begin{equation*}
+\left(v + \varepsilon v'\right)\left(a + \varepsilon a'\right) = 1.
+\end{equation*}
+Mit Hilfe der Regeln für die Addition und Multiplikation zweier dualer Zahlen ergibt sich
+\begin{equation*}
+av + \varepsilon\left(a'v + av'\right) + \varepsilon^2 a' v' = 1.
+\end{equation*}
+Mit $\varepsilon^2 = 0$ ergibt sich
+\begin{align*}
+	av &=1 \\
+	a'v + av' &= 0
+\end{align*}
+und somit 
+\begin{align*}
+	a &= \frac{1}{v} \\
+	a' &= -\frac{av'}{v}.
+\end{align*}
+Somit gilt für den Kehrwert der dualen Zahl $v +  \varepsilon v'$
+\begin{equation*}
+\frac{1}{v + \varepsilon v'} = a + \varepsilon a' = \frac{1}{v} - \varepsilon\frac{v'}{v^2}
+\end{equation*}
+und ganz allgemein gilt damit für die \textbf{Division} zweier dualer Zahlen folgender Zusammenhang
+\begin{equation*}
+	\frac{u + \varepsilon u'}{v + \varepsilon v'} =  \frac{\left(u + \varepsilon u'\right)\left(v - \varepsilon v' \right)}{v^2} = \frac{uv + \varepsilon\left(u'v - uv'\right) - \varepsilon^2u' v'}{v^2} = \frac{uv + \varepsilon\left(u'v - uv'\right)}{v^2}.
+\end{equation*}
+Zur Bestimmung der \textbf{Potenz} einer dualen Zahl wird die Darstellung
+\begin{equation*}
+	(u,u') = u + \varepsilon u'
+\end{equation*}
+verwendet. Es gilt somit
+\begin{equation*}
+	(u,u')^n = (u + \varepsilon u')^n.
+\end{equation*}
+Unter Verwendung des binomischen Lehrsatzes ergibt sich
+\begin{equation*}
+	(u + \varepsilon u')^n 
+	= \sum_{k=0}^{n} \binom{n}{k} u^{n-k} (\varepsilon u')^k.
+\end{equation*}
+Da $\varepsilon^2 = 0$ gilt, verschwinden alle Terme mit $k \geq 2$, sodass nur die ersten beiden Summanden verbleiben:
+\begin{equation*}
+	(u + \varepsilon u')^n 
+	= u^n + \binom{n}{1} u^{n-1} (\varepsilon u').
+\end{equation*}
+\begin{equation*}
+	(u + \varepsilon u')^n 
+	= u^n + \binom{n}{1} u^{n-1} (\varepsilon u')
+	= u^n + \frac{n!}{1!(n-1)!} u^{n-1} (\varepsilon u')
+\end{equation*}
+Dies vereinfacht sich zu
+\begin{equation*}
+	(u + \varepsilon u')^n 
+	= u^n + \frac{n \cdot (n-1)!}{1 \cdot (n-1)!} u^{n-1} (\varepsilon u')
+	= u^n + n\, u^{n-1} (\varepsilon u').
+\end{equation*}
+Somit ergibt die \textbf{Potenz} einer dualen Zahl mit einer reellen Zahl folgendes Ergebnis
+\begin{equation*}
+	(u,u')^n = (u^n,\; n u^{n-1} u').
+\end{equation*}
+
+Aus diesen Herleitungen ergeben sich nun wohldefinierte Regeln für das Rechnen mit dualen Zahlen.
+\begin{satz}[Rechenregeln für duale Zahlen]
+	Für $u,v,u',v' \in \mathbb{R}$ gelten:
+	\begin{equation}
+		(u,u') + (v,v') = (u+v,\; u'+v'),
+	\end{equation}
+	\begin{equation}
+		(u,u') \cdot (v,v') = (uv,\; uv' + u'v),
+	\end{equation}
+	\begin{equation}
+		\frac{(u,u')}{(v,v')} = \left(\frac{u}{v},\; \frac{u'v - uv'}{v^2}\right), \quad v \neq 0,
+	\end{equation}
+	\begin{equation}
+		(u,u')^n = (u^n,\; n u^{n-1} u'), \quad n \in \mathbb{R}.
+	\end{equation}
+	\label{step:autodiffregeln}
+\end{satz}
+Die Menge der dualen Zahlen $\mathbb{D}$ bildet zusammen mit den in Satz \ref{step:autodiffregeln} definierten Regeln eine algebraische Struktur mit den folgenden Eigenschaften:
+\begin{itemize}
+	\item \textbf{Assoziativität:} Sowohl die Addition als auch die Multiplikation sind assoziativ.
+	\item \textbf{Kommutativität:} Addition und Multiplikation sind kommutativ.
+	\item \textbf{Distributivität:} Die Multiplikation ist distributiv bezüglich der Addition.
+\end{itemize}
+Diese Eigenschaften folgen unmittelbar aus den entsprechenden Eigenschaften der reellen Zahlen sowie der Relation $\varepsilon^2 = 0$. Insbesondere werden bei der Multiplikation keine Terme höherer Ordnung als $\varepsilon$ berücksichtigt, wodurch die Struktur konsistent bleibt.
+Somit bildet $\mathbb{D}$ einen kommutativen Ring mit Eins, wobei das neutrale Element der Multiplikation durch $1 + \varepsilon \cdot 0$ gegeben ist.
+
+
+\begin{satz}[Algebraische Struktur]
+	Die Menge $\mathbb{D}$ bildet mit den definierten Operationen einen kommutativen Ring mit Eins.
+\end{satz}
+Die Ringaxiome folgen aus den entsprechenden Eigenschaften der reellen Zahlen sowie der Relation $\varepsilon^2 = 0$. Insbesondere bleiben Assoziativität, Kommutativität und Distributivität unter dieser Erweiterung erhalten.
+
+
+%\noindent
+%Die bekannten Ableitungsregeln der Differentialrechnung sind somit bereits in der algebraischen Struktur der dualen Zahlen enthalten. Insbesondere entspricht die Multiplikationsregel der Produktregel und die Divisionsregel der Quotientenregel.
+
+
+%Gegeben sei die duale Zahl 
+%$$(u, u') = f(x) + \epsilon f'(x),$$ 
+%wobei $u = f(x)$ der Funktionswert und $u' = f'(x)$ der Ableitungsanteil ist.  
+%Es stellt sich nun die Frage, wie mit diesem algebraischen Konstrukt die Ableitung genau berechnet werden kann. 
+%Um dies zu bewerkstelligen, müssen zuerst einige Rechenregeln definiert werden, was bspw. geschieht, wenn zwei duale Zahlen addiert oder subtrahiert werden: 
+%\renewcommand{\arraystretch}{1.5}
+%\begin{table}[h!] %todo
+%	\centering
+%	\begin{tabular}{|l|c|}
+%		\hline
+%		\textbf{Operation} & \textbf{Resultat} \\
+%		\hline
+%		Addition & $(u, u') + (v, v') = (u + v, \; u' + v')$ \\
+%		\hline
+%		Subtraktion & $(u, u') - (v, v') = (u - v, \; u' - v')$ \\
+%		\hline
+%		Multiplikation mit Skalar $k$ & $k \cdot (u, u') = (k u, \; k u')$ \\
+%		\hline
+%		Multiplikation & $(u, u') \cdot (v, v') = (u v, \; u v' + u' v)$ \\
+%		\hline
+%		Division (ausserNull) & $\dfrac{(u, u')}{(v, v')} = \Big(\dfrac{u}{v}, \; \dfrac{u' v - u v'}{v^2}\Big)$ \\
+%		\hline
+%		Potenz $n \in \mathbb{R}$ & $(u, u')^n = (u^n, \; n u^{n-1} u')$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Rechenregeln für duale Zahlen $(u, u')$ und $(v, v')$.}
+%	\label{step:autodiffregeln}
+%\end{table}
+%Leser, die mit komplexen Zahlen vertraut sind, können die folgende Beobachtung als hilfreiche Übung betrachten: Interpretiert man duale Zahlen in der Form $(u, u') = u + \epsilon u'$ mit der definierenden Eigenschaft $\epsilon^2 = 0$ und setzt diesen Ausdruck in die oben angegebenen Rechenregeln ein, so ergeben sich sämtliche Eigenschaften unmittelbar aus der algebraischen Struktur. Dies zeigt, dass die Rechenregeln für duale Zahlen nicht separat postuliert werden müssen, sondern sich konsistent aus der Definition von $\epsilon$ herleiten lassen.
+%
+%Dem mathematisch geschulten Leser wird sicherlich aufgefallen sein, dass es sich bei einem Teil der in Tabelle\,\ref{step:autodiffregeln} gezeigten Regeln um die allgemeinen Regeln für die Ableitung handelt, namentlich die Produkt-, die Division- und die Kettenregel. 
+%Die aufgestellten Regeln im Umgang mit dualen Zahlen sollen im Folgenden an einem Beispiel getestet werden. 
+
+
+\subsection{Die Anwendung der dualen Zahlen auf Polynome}
+
+Gegeben sei das Polynom dritten Grades
+\begin{equation*}
+	f\left(x\right) =  x^3 + 2x² + 4x + 1.
+\end{equation*}
+Wird das Polynom für eine allgemeine duale Zahl $(u, u')$ evaluiert, so müssen nur die in Satz \ref{step:autodiffregeln} definierten Rechenregeln angewendet werden. Dabei gilt:
+\begin{align*}
+	f(u, u') &= (u, u')^3 + 2 (u, u')^2 + 4 (u, u') + 1 \\
+	&= (u^3, 3 u^2 u') + 2 (u^2, 2 u u') + (4 u, 4 u') + (1, 0) \\
+	&= (u^3 + 2 u^2 + 4 u + 1, \; 3 u^2 u' + 4 u u' + 4 u') \\
+	&= (f(u), f'(u) \cdot u').
+\end{align*}
+Setzt man nun $u' = 1$, entspricht dies der Wahl $\frac{\mathrm{d}x}{\mathrm{d}x} = 1$, also der Ableitung in Richtung der unabhängigen Variablen $x$. Mit dieser Wahl wird der Dualteil der Zahl exakt die Ableitung der Funktion $f$ an der Stelle $u$ darstellen.
+Damit erhält man
+\begin{equation*}
+	f(u, 1) = (f(u), f'(u)),
+\end{equation*}
+wobei der Realteil $f(u)$ den Funktionswert liefert und der Dualteil $f'(u)$ automatisch die Ableitung enthält.  
+Auf diese Weise können Funktionswert und Ableitung gleichzeitig in einem einzigen Schritt bestimmt werden, ohne dass Grenzwerte gebildet oder Approximationen wie bei der finiten Differenzenmethode nötig wären. Anschaulich propagiert die duale Zahl auf Grund ihrer algebraischen Struktur die Ableitung „mit“: Jede Operation auf dem Polynom wendet automatisch die entsprechenden Ableitungsregeln an und liefert den korrekten Ableitungswert im Dualteil, ohne dass ein Grenzübergang oder Approximation wie bei der finiten Differenzenmethode erforderlich ist.
+
+Am Beispiel des Polynoms wurde gezeigt, dass sich mit Hilfe dualer Zahlen dessen Ableitung exakt berechnen lässt.
+Es treten keine Abbruchfehler auf, da die Taylor-Reihe nicht – wie bei der finiten Differenzenmethode – abgeschnitten wird.
+Des Weiteren entstehen keine Rundungsfehler, da die Ableitung nicht mittels kleiner Differenzen approximiert, sondern analytisch bestimmt wird.
+Allerdings ergibt sich eine Einschränkung: Die bislang eingeführten Rechenregeln sind in dieser Form nur auf algebraische Ausdrücke anwendbar.
+Nicht-algebraische Funktionen wie der Sinus oder die Exponentialfunktion werden damit noch nicht erfasst. 
+Im Folgenden wird daher gezeigt, wie sich auch solche elementaren Funktionen unter Verwendung dualer Zahlen behandeln lassen, sodass ihre Ableitungen im Computer ebenfalls automatisch berechnet werden können. 
+
+\subsection{Anwendung der dualen Zahlen in Python und Vergleich mit der finiten Differenz-Methode}
+
+Wie bereits gezeigt, lassen sich Polynome mit Hilfe dualer Zahlen exakt ableiten, was im Gegensatz zur finiten Differenzenmethode steht, bei der aufgrund der Approximation kleine Abweichungen auftreten.
+Im Folgenden wird zusätzlich demonstriert, wie sich auch nicht-algebraische Funktionen mithilfe dualer Zahlen auf ‚automatische‘ Weise ableiten lassen.
+Zur Veranschaulichung ist es sinnvoll, eine mögliche Implementierung der dualen Zahlen in Python zu betrachten.
+Die vollständige Implementierung ist im Anhang \textbf{\textcolor{red}{XY verweis auf gitordner im references.bib}} zu finden.
+Im Folgenden werden lediglich ausgewählte Ausschnitte gezeigt, gefolgt von Beispielen zur Ableitung sowohl von Polynomen als auch von nicht-algebraischen Funktionen.
+In der Klasse \texttt{Dual} werden alle in Tabelle\,\ref{step:autodiffregeln} dargestellten Regeln mit Hilfe der magischen Methoden implementiert, bspw. die Addition, Multiplikation zweier dualer Zahlen sowie auch die Potenz einer dualen Zahl mit einer reellen Zahl:
+
+\begin{lstlisting}[
+	numbers=none,
+	basicstyle=\ttfamily\fontsize{7}{9}\selectfont,
+	keepspaces=true,
+	]
+class Dual:
+   def __init__(self, real, dual=0.0):
+      self.real = real
+      self.dual = dual
+	
+   def __add__(self, other):
+      if isinstance(other, Dual):
+         return Dual(self.real + other.real, self.dual + other.dual)
+      else:
+         return Dual(self.real + other, self.dual)
+	
+   def __mul__(self, other):
+      if isinstance(other, Dual):
+         return Dual(self.real * other.real, self.real * other.dual + self.dual * other.real)
+      else:
+         return Dual(self.real * other, self.dual * other)
+	
+   def __pow__(self, power):
+      return Dual(self.real**power, power * (self.real ** (power - 1)) * self.dual)
+
+\end{lstlisting}
+
+\noindent Mit dieser einfachen Implementierung lassen sich bereits Polynome der Form
+\begin{lstlisting}[
+	numbers=none,
+	basicstyle=\ttfamily\fontsize{7}{9}\selectfont,
+	keepspaces=true,
+	]
+def f(x):
+   return x**3 + x**2 + x + 1
+\end{lstlisting}
+problemlos ableiten und zwar wie folgt:
+\begin{lstlisting}[
+	numbers=none,
+	basicstyle=\ttfamily\fontsize{7}{9}\selectfont,
+	keepspaces=true,
+	]
+>>> x = Dual(1, 1)
+>>> result = f(x)
+>>> result.real
+4
+>>> result.dual
+6
+\end{lstlisting}
+Der Leser ist eingeladen, die dargestellten Ergebnisse stelbstständig zu überprüfen.
+
+\noindent Im Vergleich dazu wird dieselbe Funktion \texttt{f(x)} mit Hilfe der Methode der finiten Differenzen abgeleitet:
+\begin{lstlisting}[
+	numbers=none,
+	basicstyle=\ttfamily\fontsize{7}{9}\selectfont,
+	keepspaces=true,
+	]
+def forward_diff(f, x, h):
+   return (f(x + h) - f(x)) / h
+
+>>> result_diff = forward_diff(f, 1, 1e-12)
+6.000533403494046
+\end{lstlisting}
+Das Ergebnis verdeutlicht, dass die Ableitung mit der finiten Differenzenmethode nicht exakt ist. Ursache hierfür ist der Abbruch der Taylor-Reihe, die der Methode zugrunde liegt, wodurch stets eine kleine Abweichung vom exakten Wert entsteht.
+
+
+Möchte man nun auch nicht-algebraische Funktionen mit Hilfe der dualen Zahlen ableiten, so müssen diese im Sinne der dualen Zahlen definiert werden. In Python lässt sich dies ganz einfach bewerkstelligen, indem man die entsprechende Funktionen definiert, hier gezeigt am Beispield der Sinusfunktion: 
+\begin{lstlisting}[
+	numbers=none,
+	basicstyle=\ttfamily\fontsize{7}{9}\selectfont,
+	keepspaces=true,
+	]
+import math
+def sin(d):
+   return Dual(math.sin(d.real), math.cos(d.real) * d.dual)
+  
+>>> x = Dual(2*math.pi, 1)
+>>> result = sin(x)
+>>> result.dual
+1.0
+>>> result_diff = forward_diff(math.sin, 2*math.pi, 1e-12)
+>>> result_diff
+1.000088900582341
+\end{lstlisting}
+Damit ist gezeigt, wie sich nicht-algebraische Funktionen wie der Sinus mithilfe dualer Zahlen und der damit verbundenen automatischen Differentiation ableiten lassen.
+In der Implementierung wird der Ableitungsanteil direkt über die Kettenregel propagiert, indem der Dualteil der Eingabe mit der Ableitung der Funktion multipliziert wird.
+Das Ergebnis verdeutlicht den Vorteil gegenüber der finiten Differenzenmethode: Die Ableitung von $\sin\left(x\right)$ an der Stelle $x = 2\pi$ wird exakt als 1.0 berechnet, während die finite Differenzenmethode einen leicht abweichenden Wert liefert, da hier die Taylorreihe nur approximativ ausgewertet wird. 
+
+Bisher wurde gezeigt, dass sich mit dualen Zahlen und automatischer Differentiation sowohl Polynome als auch nicht-algebraische Funktionen effizient und exakt ableiten lassen.
+Eine weitere präzise Methode zur Berechnung von Ableitungen numerischer Funktionen ist die Complex-Step-Differentiation.
+Sie vermeidet die Rundungsfehler, die bei der finiten Differenzenmethode auftreten, und liefert sehr genaue erste Ableitungen, ohne dass ein explizites Dualzahl-Framework notwendig ist.
+%Addition zweier dualen Zahlen: 
+%\begin{equation*}
+%	\left(u, u'\right) + \left(v, v'\right) = \left(u + v, u' + v'\right)
+%\end{equation*}
+%
+%
+%Subtraktion zweier dualen Zahlen: 
+%\begin{equation*}
+%	\left(u, u'\right) - \left(v, v'\right) = \left(u - v, u' - v'\right)
+%\end{equation*}
+%
+%Mulitplikation mit einem Skalar:
+%\begin{equation*}
+%	k\left(u, u'\right)= \left(ku, ku'\right)
+%\end{equation*}
+%
+%Division zweier dualen Zahlen: 
+%\begin{equation*}
+%\frac{\left(u, u'\right)}{\left(v, v'\right)} = \left(\frac{u}{v},\frac{u'v - uv'}{v^2}\right)
+%\end{equation*}
+%
+%Die Potenz einer dualen Zahl zu einer reellen Zahl:
+%\begin{equation*}
+%	\left(u, u'\right)^n= \left(u^n, nu^{n-1}\cdot u'\right)
+%\end{equation*}
+%Dieser Ausdruck wird als \emph{duale Zahl} interpretiert. Dabei stellt der Realteil $f(x)$ den Funktionswert dar, während der $\epsilon$-Anteil direkt die Ableitung $f'(x)$ enthält. Auf den ersten Blick scheint sich der Ausdruck in Gleichung\,\ref{step:autodiffdual} kaum von der finiten Differenz in Gleichung\,\ref{step:finiteDifferenz} zu unterscheiden. Der entscheidende Unterschied liegt jedoch in der zugrunde liegenden Algebra:
+%
+%\begin{itemize}
+%	\item \textbf{Finite Differenzen:} $h$ ist eine reelle Zahl, die gegen $0$ geht. Die Ableitung wird über einen Grenzübergang approximiert. Hier wählt man $h$ sehr klein und hofft, dass der entstehende Fehler gering bleibt. Trunkierungs- und Rundungsfehler sind dabei unvermeidlich.
+%	\item \textbf{Duale Zahlen:} $\epsilon$ ist ein algebraisches Element mit der Eigenschaft $\epsilon^2 = 0$. Alle Terme höherer Ordnung verschwinden exakt, und es entsteht kein Approximationsfehler. Die Ableitung wird dadurch direkt und exakt berechnet.
+%\end{itemize}
+%
+%Die wesentlichen Vorteile der dualen Darstellung lassen sich wie folgt zusammenfassen:
+%
+%\begin{enumerate}
+%	\item \textbf{Exakte Ableitungen:} Es treten keine Trunkierungsfehler auf, da keine Terme vernachlässigt werden.
+%	\item \textbf{Effizienz:} Funktionswert und Ableitung können in einem einzigen Auswertungsschritt berechnet werden.
+%	\item \textbf{Numerische Stabilität:} Da keine Approximationen nötig sind, sind die Ergebnisse robust gegenüber Rundungsfehlern.
+%\end{enumerate}
+%
+%Diese Eigenschaften machen duale Zahlen insbesondere für numerische Verfahren und die automatische Differentiation äußerst attraktiv.
+%Dieser Ausdruck wird als \emph{duale Zahl} interpretiert. Dabei stellt der Realteil $f(x)$ den Funktionswert dar, während der $\epsilon$-Anteil direkt die Ableitung $f'(x)$ enthält.
+%Es scheint auf den ersten Blick, dass sich der Ausdruck in Gleichung\,\ref{step:autodiffdual} nicht wesentlich von dem Ausdruck der finiten Differenz in Gleichung\,\ref{step:finiteDifferenz} unterscheidet. Dies ist jedoch der Fall, denn während bei der finiten Differenzmethode $h$ als reelle Zahl gegen $0$ geht und die Ableitung über einen Grenzübergang approximiert wird – man also $h$ sehr klein wählt und hofft, dass der entstehende Fehler entsprechend klein ist –, wird mit $\epsilon$ ein algebraisches Zahlensystem konstruiert, in dem die Terme höherer Ordnung aufgrund der Eigenschaft $\epsilon^2 = 0$ exakt verschwinden. Da es sich im zweiten Fall um ein algebraisches Konstrukt und eben nicht um eine Approximation handelt, tritt ein Approximatiosnfehler gar nicht erst auf.
+%
+%Der wesentliche Vorteil dieser Darstellung liegt also darin, dass die Ableitung ohne Approximation berechnet werden kann. Im Gegensatz zur finiten Differenzenmethode treten keine Trunkierungsfehler auf, da keine Terme vernachlässigt werden, sondern aufgrund der algebraischen Struktur von $\epsilon$ exakt verschwinden. 
+%
+%Darüber hinaus erlaubt diese Methode die gleichzeitige Berechnung von Funktionswert und Ableitung in einem einzigen Auswertungsschritt. Dies macht sie insbesondere für numerische Verfahren und automatische Differentiation attraktiv, da sie sowohl effizient als auch numerisch stabil ist.

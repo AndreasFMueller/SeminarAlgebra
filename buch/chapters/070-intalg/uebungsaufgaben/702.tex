@@ -1,0 +1,52 @@
+Zeigen, Sie dass in einem Differentialkörper die sogenannte
+\emph{logarithmische Ableitung}
+\index{logarithmische Ableitung}%
+$Df/f$ die folgenden Regeln erfüllt:
+\begin{teilaufgaben}
+\item
+Für zwei Funktionen $f,g\in F$ gilt
+$\displaystyle \frac{D(fg)}{fg}=\frac{Df}{f}+\frac{Dg}{g}$.
+\item
+Für zwei Funktionen $f,g\in F$ gilt
+$\displaystyle \frac{D(f/g)}{f/g}=\frac{Df}{f}-\frac{Dg}{g}$.
+\item
+Zwei Funktionen unterscheiden sich genau dann um einen konstanten
+Faktor, wenn sie die gleiche logarithmische Ableitung haben.
+\end{teilaufgaben}
+
+\begin{loesung}
+Beide Teilaufgaben ergeben sich durch direkte Rechnung mit den
+Rechenregeln für die Derivation $D$:
+\begin{teilaufgaben}
+\item Mit der Produktregel folgt:
+\begin{align*}
+\frac{D(fg)}{fg}
+&=
+\frac{Df\cdot g + f\cdot Dg}{fg}
+=
+\frac{Df}{f} + \frac{Dg}{g}
+\end{align*}
+\item Mit der Quotientenregel folgt:
+\begin{align}
+\frac{D(f/g)}{f/g}
+&=
+\frac{g}{f}\cdot \frac{Df\cdot g - f\cdot Dg}{g^2}
+=
+\frac{Df\cdot g - f\cdot Dg}{fg}
+=
+\frac{Df}{f} - \frac{Dg}{g}.
+\label{buch:702:logabl}
+\end{align}
+\item
+Die Aussage ist gleichbedeutend damit, dass $f/g$ konstant ist genau
+dann, wenn $f$ und $g$ die gleiche logarithmische Ableitung haben.
+Falls $f/g$ konstant ist, ist $D(f/g)=0$ und damit erst recht die
+logarithmische Ableitung von $f/g$, die nach
+\eqref{buch:702:logabl}
+die Differenz der logarithmischen Ableitungen von $f$ und $g$ ist.
+Sind umgekehrt die logarithmischen Ableitungen von $f$ und $g$ gleich,
+dann verschwindet die logarithmische Ableitung von $f/g$ und somit auch
+die Ableitung von $f/g$, $f/g$ ist konstant.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}

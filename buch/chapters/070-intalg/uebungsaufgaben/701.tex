@@ -1,0 +1,87 @@
+Für $f\in F$ Zeigen Sie, dass die folgenden Identitäten gelten:
+\begin{teilaufgaben}
+\item $n\log(f) = \exp(f^n)$
+\item $\exp(nf) = \exp(f)^n$
+\item $\log(\exp(f)) = f$
+\item $\exp(\log f)) = f$
+\end{teilaufgaben}
+
+\begin{hinweis}
+Man betrachte in b) und d) die logarithmische Ableitung von Aufgabe
+\ref{702}.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Ableitungen beider seiten sind
+\begin{align*}
+D(n\log(f) &= n\, Df/f
+D\log(f^n) &= D(f^n)/f^n = nf^{n-1}\, Df/f^n = n\,Df/f
+\end{align*}
+Da die Differnz dieser Gleichungen
+\[
+D(n\log(f)-\log(f^n)) = 0
+\]
+ist, können sich die beiden Funktionen nur um eine Konstante unterscheiden.
+
+\item
+Anwendung des Operators $D$ auf beide Seiten liefert
+\begin{align*}
+D\exp(nf)  &= \exp(nf) n Df \\
+D\exp(f)^n &= n \exp(f)^{n-1} D\exp(f) = n \exp(f)^n Df
+\end{align*}
+Die Funktionen $g_1=\exp(nf)$ und $g_2=\exp(f)^n$ erfüllen also beide
+die Differentialgleichung
+\[
+Dg = g\cdot n\,Df,
+\qquad\Rightarrow\qquad
+\frac{Dg}{g} = n\,Df.
+\]
+Somit ist
+\begin{align*}
+\frac{D(g_1/g_2)}{g_1/g_2}
+&=
+\frac{g_2}{g_1}
+\frac{Dg_1\cdot g_2-g_1\cdot Dg_2}{g_2^2}
+=
+\frac{Dg_1\cdot g_2 -g_1\cdot Dg_2}{g_1g_2}
+=
+\frac{Dg_1}{g_1} - \frac{Dg_2}{g_2}
+=
+0,
+\end{align*}
+die beiden Funktionen unterscheiden sich also nur um einen konstanten
+Faktor.
+
+\item
+Die Ableitung der linken Seite ist
+\begin{align*}
+D\log(\exp(f)) &= \frac{D\exp(f)}{\exp(f)} = \frac{\exp(f) Df}{\exp(f)}=Df.
+\end{align*}
+Somit ist 
+\[
+D\bigl(\log(\exp(f)) - f\bigr) = 0,
+\]
+die beiden Seiten unterscheiden sich also nur um eine Konstante.
+
+\item
+Wir berechnen die logarithmische Ableitung der beiden Seiten der Gleichung:
+\begin{align*}
+D\exp(\log(f))
+&=
+\exp(\log(f)) D\log(f)
+=
+\exp(\log(f)) \frac{Df}{f}
+\\
+\Rightarrow\quad
+\frac{D\exp(\log(f))}{\exp(\log(f))}
+&=
+\frac{Df}{f},
+\end{align*}
+die beiden Seiten der Gleichung können sich also nur um einen konstanten
+Faktor unterscheiden.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+

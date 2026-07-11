@@ -1,0 +1,133 @@
+%
+% dreiecke.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+%f(\t) = { 0.5 * (\t - 2.5) * \t * (\t - 1.25) + \t };
+f(\t) = { 0.3 * (2.5 - \t) * \t + \t };
+g(\t) = { -0.3 * (2.5 - \t) * \t + \t };
+}]
+
+\begin{scope}
+	\coordinate (A) at (0,0);
+	\coordinate (AB) at (2.5,0);
+	\coordinate (B) at (2.5,2.5);
+	\node at (A) [below] {$a$};
+	\node at (B) [above] {$b$};
+	\fill[color=gray!20] plot[domain=0:2.5,samples=40] ({\x},{f(\x)})
+		-- (B) -- (AB) -- (A) -- cycle;
+	\draw[->,color=darkred,line width=1.2pt]
+		plot[domain=0:2.5,samples=40] ({\x},{f(\x)});
+	\draw[<-,color=blue] (B) -- (AB) -- (A);
+	\fill (A) circle[radius=0.05];
+	\fill (B) circle[radius=0.05];
+	\node at (1.6,0.8) {$G_1$};
+	\def\X{1.5}
+	\node[color=darkred] at ({\X-0.12},{f(\X)+0.12}) [below right]
+		{$\varphi(x)$};
+	\node[color=darkred] at ({\X+0.12},{f(\X)-0.12}) [above left]
+		{$\psi(y)$};
+	\def\X{0.75}
+	\node[color=darkred] at ({\X+0.12},{f(\X)-0.12}) [above left]
+		{$\gamma$};
+	\node[color=blue] at (1.25,0) [below] {$\gamma_x$};
+	\node[color=blue] at ({0.5*(2.5+3.15)},1.25) {$\gamma_y$};
+\end{scope}
+
+\begin{scope}[xshift=3.15cm]
+	\coordinate (A) at (0,0);
+	\coordinate (AB) at (0,2.5);
+	\coordinate (B) at (2.5,2.5);
+	\node at (A) [below] {$a$};
+	\node at (B) [above] {$b$};
+	\fill[color=gray!20] plot[domain=0:2.5,samples=40] ({\x},{g(\x)})
+		-- (B) -- (AB) -- (A) -- cycle;
+	\draw[->,color=darkred,line width=1.2pt]
+		plot[domain=0:2.5,samples=40] ({\x},{g(\x)});
+	\draw[<-,color=blue] (B) -- (AB) -- (A);
+	\fill (A) circle[radius=0.05];
+	\fill (B) circle[radius=0.05];
+	\node at (0.9,1.7) {$G_2$};
+	\def\X{1.0}
+	\node[color=darkred] at ({\X-0.12},{g(\X)+0.12}) [below right]
+		{$\varphi(x)$};
+	\node[color=darkred] at ({\X+0.12},{g(\X)-0.12}) [above left]
+		{$\psi(y)$};
+	\def\X{1.75}
+	\node[color=darkred] at ({\X-0.1},{g(\X)+0.12}) [below right]
+		{$\gamma$};
+	\node[color=blue] at (1.25,2.5) [above] {$\gamma_x$};
+\end{scope}
+
+\begin{scope}[xshift=6.30cm]
+	\coordinate (A) at (0,2.5);
+	\coordinate (AB) at (0,0);
+	\coordinate (B) at (2.5,0);
+	\node at (A) [above] {$a$};
+	\node at (B) [below] {$b$};
+	\fill[color=gray!20] plot[domain=0:2.5,samples=40] ({\x},{2.5-g(\x)})
+		-- (B) -- (AB) -- (A) -- cycle;
+	\draw[->,color=darkred,line width=1.2pt]
+		plot[domain=0:2.5,samples=40] ({\x},{2.5-g(\x)});
+	\draw[<-,color=blue] (B) -- (AB) -- (A);
+	\fill (A) circle[radius=0.05];
+	\fill (B) circle[radius=0.05];
+	\node at (0.9,0.8) {$G_3$};
+	\def\X{1.0}
+	\node[color=darkred] at ({\X+0.12},{2.5-g(\X)+0.12}) [below left]
+		{$\varphi(x)$};
+	\node[color=darkred] at ({\X-0.12},{2.5-g(\X)-0.12}) [above right]
+		{$\psi(y)$};
+	\def\X{1.75}
+	\node[color=darkred] at ({\X-0.12},{2.5-g(\X)-0.12}) [above right]
+		{$\gamma$};
+	\node[color=blue] at (1.25,0) [below] {$\gamma_x$};
+	\node[color=blue] at (0,1.25) [left] {$\gamma_y$};
+\end{scope}
+
+\begin{scope}[xshift=9.15cm]
+	\coordinate (A) at (0,2.5);
+	\coordinate (AB) at (2.5,2.5);
+	\coordinate (B) at (2.5,0);
+	\node at (A) [above] {$a$};
+	\node at (B) [below] {$b$};
+	\fill[color=gray!20] plot[domain=0:2.5,samples=40] ({\x},{2.5-f(\x)})
+		-- (B) -- (AB) -- (A) -- cycle;
+	\draw[->,color=darkred,line width=1.2pt]
+		plot[domain=0:2.5,samples=40] ({\x},{2.5-f(\x)});
+	\draw[<-,color=blue] (B) -- (AB) -- (A);
+	\fill (A) circle[radius=0.05];
+	\fill (B) circle[radius=0.05];
+	\node at (1.6,1.7) {$G_4$};
+	\def\X{1.5}
+	\node[color=darkred] at ({\X+0.12},{2.5-f(\X)+0.12}) [below left]
+		{$\varphi(x)$};
+	\node[color=darkred] at ({\X-0.12},{2.5-f(\X)-0.12}) [above right]
+		{$\psi(y)$};
+	\def\X{0.75}
+	\node[color=darkred] at ({\X+0.1},{2.5-f(\X)+0.12}) [below left]
+		{$\gamma$};
+	\node[color=blue] at (1.25,2.5) [above] {$\gamma_x$};
+	\node[color=blue] at (2.5,1.25) [right] {$\gamma_y$};
+\end{scope}
+
+\draw[->] (-0.3,-0.9) -- ++(12.6,0)
+	coordinate[label={above left:$\operatorname{Re}$}];
+\draw[->] (-0.2,-1.0) -- ++(0,4.0)
+	coordinate[label={right:$\operatorname{Im}$}];
+
+\end{tikzpicture}
+\end{document}
+

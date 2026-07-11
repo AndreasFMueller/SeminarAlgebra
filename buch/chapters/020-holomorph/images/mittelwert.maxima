@@ -1,0 +1,16 @@
+/*
+ * mittelwert.maxima
+ *
+ * (c) 2026 Prof Dr Andreas Müller
+ */
+a: 1;
+b: 7;
+p: (3/20)*(x-2)*(x-4)*(x-6)+(3/10)*x+1;
+
+p: expand(p);
+
+m: (subst(b,x,p) - subst(a,x,p))/(b-a);
+
+solve(m = diff(p,x), x);
+
+

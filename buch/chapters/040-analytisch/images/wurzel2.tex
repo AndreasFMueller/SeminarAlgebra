@@ -22,8 +22,6 @@
 \definecolor{schnittfarbe}{rgb}{0.2,0.2,1.0}
 \begin{tikzpicture}[>=latex,thick,scale=\skala]
 
-% add image content here
-
 \draw[->] (-0.95,0) -- (0.95,0) coordinate[label={$\operatorname{Re}$}];
 \draw[->] (0,-0.95) -- (0,0.95) coordinate[label={right:$\operatorname{Im}$}];
 \foreach \k in {0,...,\kurvesteps}{
@@ -46,11 +44,13 @@
 }
 
 \begin{scope}
+	\xdef\winkel{\kurvemax}
 	\clip (0:\kurvenradius)
-		circle[radius=\patchradius];
+		circle[radius={\patchradius-0.0025}];
 	\fill[color=schnittfarbe!20] (\winkel:\kurvenradius)
-		circle[radius=\patchradius];
+		circle[radius={\patchradius-0.0025}];
 \end{scope}
+
 
 \node at (-0.8,0.8) {$\mathbb{C}$};
 

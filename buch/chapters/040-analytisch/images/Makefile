@@ -3,7 +3,12 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	nichtanalytisch.pdf wurzel2.pdf wurzel.pdf
+all:	nichtanalytisch.pdf						\
+	wurzel2.pdf							\
+	wurzel.pdf							\
+	ring.pdf							\
+	integral.pdf							\
+	zweipunkte.pdf
 
 nichtanalytisch.pdf:	nichtanalytisch.tex
 	pdflatex nichtanalytisch.tex
@@ -19,3 +24,13 @@ wurzel.pdf:	wurzel.tex wurzel.jpg
 
 wurzel2.pdf:	wurzel2.tex
 	pdflatex wurzel2.tex
+
+ring.pdf:	ring.tex
+	pdflatex ring.tex
+
+integral.pdf:	integral.tex
+	pdflatex integral.tex
+
+zweipunkte.pdf:	zweipunkte.tex
+	pdflatex zweipunkte.tex
+

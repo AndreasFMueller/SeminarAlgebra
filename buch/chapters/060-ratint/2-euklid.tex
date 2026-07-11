@@ -1,0 +1,48 @@
+%
+% 2-euklid.tex -- Der eudklidische Algorithmus
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\section{Der euklidische Algorithmus
+\label{buch:ratint:section:euklid}}
+\kopfrechts{Der euklidische Algorithmus}%
+Die Konstruktion der Partialbruchzerlegung hat erfordert, dass gemeinsame
+Faktoren von Polynomen gefunden werden mussten.
+Es ist natürlich immer denkbar, eine Faktorisierung der beteiligten
+Polynome zu suchen, und die gemeinsamen Faktoren zu identifizieren.
+Der Fundamentalsatz der Algebra garantiert zwar, dass solche
+Faktoren über $\mathbb{C}$ existieren, für die Anwendung in einem
+Computeralgebrasystem brauchen wir aber eine Faktorisierung über
+$\mathbb{Q}$ oder einer Körpererweiterung von $\mathbb{Q}$, die in nur
+endlich vielen Schritten erfolgt ist.
+
+Das Finden der Faktoren ist eine weitere Schwierigkeit.
+Selbst über $\mathbb{C}$ können die vom Fundamentalsatz garantierten
+Linearfaktoren für Polynome vom Grad $\ge 5$ algorithmisch im
+Allgemeinen nicht gefunden werden.
+Es ist daher nicht angebracht, auf dem Umweg über die Faktorisierung
+nach gemeinsame Faktoren zu suchen.
+
+Es gibt aber eine direkte Möglichkeit, gemeinsame Faktoren zu finden.
+In seiner ursprünglichen Version, die in
+Abschnitt~\ref{buch:ratint:euklid:subsection:ganzezahlen}
+beschrieben wird, findet der euklidische Algorithmus den grössten
+gemeinsamen Teiler $r$ zweier ganzer Zahlen $a$ und $b$.
+Die erweiterte Form ist zudem in der Lage, den grössten gemeinsamen
+Teiler als $r=sa+tb$ zu schreiben mit ganzen Zahlen $s,t\in\mathbb{Z}$.
+Diese Version kann dazu verwendet werden, die multiplikative Inverse 
+in einem endlichen Körper zu finden.
+
+Der euklidische Algorithmus ist nicht auf ganze Zahlen beschränkt.
+Er lässt sich in jedem sogenannten euklidischen Ring durchführen.
+Dazu gehören auch die Polynomringe.
+Der grösste gemeinsame Teiler von zwei Polynomen ist ein gemeinsamer
+Faktor, der gemeinsame Nullstellen enthält.
+Eine mehrfache Nullstelle eines Polynoms $p(X)$ führt zu einem gemeinsamen
+Teiler von $p'(X)$ und $p(X)$, auch solche mehrfache Faktoren
+können also mit dem euklidischen Algorithmus gefunden werden.
+
+\input{chapters/060-ratint/21-euklidganz.tex}
+\input{chapters/060-ratint/22-polynome.tex}
+\input{chapters/060-ratint/23-euklidisch.tex}
+\input{chapters/060-ratint/24-koerper.tex}

@@ -1,0 +1,140 @@
+%
+% teil1.tex -- Komplexe Zahlen als Punkte der Ebene
+%
+\section{Komplexe Zahlen als Punkte der Ebene
+\label{komplex:section:zahlenebene}}
+\kopfrechts{Komplexe Zahlen als Punkte der Ebene}
+Der gesamte folgende Aufbau ruht auf einer einzigen Identifikation:
+Eine komplexe Zahl wird gleichzeitig als algebraisches Objekt
+mit Real- und Imaginärteil und als Punkt einer Ebene gelesen.
+Beide Lesarten werden im Folgenden parallel geführt,
+sodass jede Rechnung eine geometrische Bedeutung erhält.
+Die Unterabschnitte stellen zunächst die kartesische Form
+\eqref{komplex:eq:kartesisch} bereit
+und führen anschliessend Addition, Multiplikation, Betrag und Konjugation
+ein.
+
+%
+% Algebraische Form und gausssche Zahlenebene
+%
+\subsection{Algebraische Form und gausssche Zahlenebene
+\label{komplex:subsection:algebraisch}}
+Eine komplexe Zahl ist ein Ausdruck der Form
+\begin{equation}
+z
+=
+a + bi
+\label{komplex:eq:kartesisch}
+\end{equation}
+mit reellen Zahlen $a$ und $b$.
+Die Grösse $i$ erfüllt definitionsgemäss $i^2 = -1$
+und wird als \emph{imaginäre Einheit} bezeichnet.
+\index{imaginare Einheit@imaginäre Einheit}%
+Die reelle Zahl $a$ heisst \emph{Realteil} und wird mit $\Re(z)$ bezeichnet,
+\index{Realteil}%
+$b$ heisst \emph{Imaginärteil} und wird mit $\Im(z)$ bezeichnet.
+\index{Imaginarteil@Imaginärteil}
+Die Menge aller komplexen Zahlen wird mit $\mathbb{C}$ bezeichnet.
+
+Identifiziert man $z = a + bi$ mit dem Punkt $(a, b)$ der reellen Ebene,
+so ist $\mathbb{C}$ als Menge mit $\mathbb{R}^2$ identisch.
+Diese Identifikation heisst \emph{gausssche Zahlenebene}.
+\index{Zahlenebene, gausssche}%
+Die reelle Achse trägt die Zahlen mit $\Im(z) = 0$,
+die imaginäre Achse die Zahlen mit $\Re(z) = 0$.
+Was $\mathbb{C}$ von $\mathbb{R}^2$ unterscheidet,
+ist nicht die Menge der Punkte,
+sondern die zusätzliche Multiplikation,
+die jedem Punktepaar einen weiteren Punkt zuordnet.
+Diese Multiplikation hat eine geometrische Bedeutung,
+die in Abschnitt~\ref{komplex:subsection:multiplikation} sichtbar wird.
+
+%
+% Addition, Subtraktion und Translation
+%
+\subsection{Addition, Subtraktion und Translation
+\label{komplex:subsection:addition}}
+Sind $z_1 = a_1 + b_1 i$ und $z_2 = a_2 + b_2 i$ zwei komplexe Zahlen,
+so ist die Summe komponentenweise definiert:
+\begin{equation}
+z_1 + z_2
+=
+(a_1 + a_2) + (b_1 + b_2) \, i .
+\label{komplex:eq:addition}
+\end{equation}
+Geometrisch entspricht die Addition genau der Vektoraddition in
+$\mathbb{R}^2$.
+Stellt man $z_1$ und $z_2$ als Pfeile vom Ursprung zum jeweiligen Punkt dar,
+so ergibt sich $z_1 + z_2$ durch Aneinanderfügen dieser Pfeile nach dem
+Parallelogrammgesetz.
+Insbesondere ist die Abbildung $z \mapsto z + w$ für ein festes $w$
+eine \emph{Translation} der Ebene um den Vektor $w$.
+\index{Translation}%
+Translationen sind die einfachsten Transformationen,
+die in dieser Arbeit auftreten.
+
+Die Subtraktion $z_1 - z_2$ hat eine besonders nützliche Bedeutung:
+Der Vektor von Punkt $z_2$ zu Punkt $z_1$ wird gerade durch $z_1 - z_2$
+dargestellt.
+Diese Beobachtung ist klein, aber zentral,
+denn sie erlaubt es, Strecken und Richtungen unmittelbar als komplexe
+Zahlen zu schreiben.
+
+%
+% Multiplikation als Drehstreckung
+%
+\subsection{Multiplikation als Drehstreckung
+\label{komplex:subsection:multiplikation}}
+Die Multiplikation ergibt sich aus der Forderung $i^2 = -1$ und der
+Distributivität:
+\begin{equation}
+(a_1 + b_1 i)(a_2 + b_2 i)
+=
+(a_1 a_2 - b_1 b_2) + (a_1 b_2 + a_2 b_1) \, i .
+\label{komplex:eq:multiplikation-kartesisch}
+\end{equation}
+In dieser Form sieht man der Multiplikation ihre geometrische Bedeutung
+kaum an.
+Um sie sichtbar zu machen, betrachtet man zwei Spezialfälle.
+Multiplikation mit einer reellen Zahl $r > 0$ streckt jeden Punkt vom
+Ursprung weg um den Faktor $r$.
+Multiplikation mit $i$ bildet $a + bi$ auf $-b + ai$ ab,
+was geometrisch einer Drehung um $90^\circ$ gegen den Uhrzeigersinn
+entspricht.
+Die volle geometrische Deutung der Multiplikation als \emph{Drehstreckung}
+\index{Drehstreckung}%
+wird in Abschnitt~\ref{komplex:subsection:rotation} abgeleitet.
+
+%
+% Betrag, Konjugation und Abstand
+%
+\subsection{Betrag, Konjugation und Abstand
+\label{komplex:subsection:betrag}}
+Der \emph{Betrag} einer komplexen Zahl ist definiert als
+\begin{equation}
+|z|
+=
+\!\sqrt{a^2 + b^2}
+\label{komplex:eq:betrag}
+\end{equation}
+und entspricht dem euklidischen Abstand des Punktes $z$ vom Ursprung.
+Die \emph{konjugiert komplexe} Zahl ist $\overline{z} = a - bi$;
+\index{konjugiert komplex}%
+sie ergibt sich durch Spiegelung an der reellen Achse.
+Aus der Definition folgt unmittelbar
+\begin{equation}
+z \cdot \overline{z}
+=
+a^2 + b^2
+=
+|z|^2 ,
+\label{komplex:eq:konjugation}
+\end{equation}
+was später in Beweisen wiederholt verwendet wird.
+
+Der Abstand zweier Punkte $z_1$ und $z_2$ der gaussschen Ebene ist gerade
+$|z_1 - z_2|$.
+Damit lassen sich geometrische Bedingungen wie ``der Punkt $z$ hat von zwei
+festen Punkten denselben Abstand'' sofort als algebraische Gleichungen
+schreiben --- eine Idee, die in Abschnitt~\ref{komplex:section:objekte}
+systematisch genutzt wird.

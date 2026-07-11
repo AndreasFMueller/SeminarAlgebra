@@ -1,0 +1,176 @@
+%
+% paar.tex -- Weg um ein Paar von Singularitäten
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\pgfmathparse{sqrt(5*5-3*3)}
+\xdef\o{\pgfmathresult}
+\xdef\a{3.5}
+\xdef\e{0.75}
+\def\acht#1#2{
+	\xdef\e{#1}
+	\xdef\tmax{90}
+	\draw[color=#2]
+		plot[domain=-\tmax:\tmax,samples=100]
+			({Rplus(\x,\e)*cos(\x)},{Rplus(\x,\e)*sin(\x)})
+		--
+		plot[domain=-\tmax:\tmax,samples=100]
+			({-Rplus(\x,\e)*cos(\x)},{-Rplus(\x,\e)*sin(\x)})
+		--
+		cycle;
+}
+\def\zwei#1#2{
+	\xdef\e{#1}
+	\pgfmathparse{0.5*asin(\e*\e)}
+	\xdef\tmax{\pgfmathresult}
+	\draw[color=#2]
+		plot[domain=-\tmax:\tmax,samples=100]
+			({Rplus(\x,\e)*cos(\x)},{Rplus(\x,\e)*sin(\x)})
+		--
+		plot[domain=\tmax:-\tmax,samples=100]
+			({Rminus(\x,\e)*cos(\x)},{Rminus(\x,\e)*sin(\x)})
+		--
+		cycle;
+	\draw[color=#2]
+		plot[domain=-\tmax:\tmax,samples=100]
+			({-Rplus(\x,\e)*cos(\x)},{-Rplus(\x,\e)*sin(\x)})
+		--
+		plot[domain=\tmax:-\tmax,samples=100]
+			({-Rminus(\x,\e)*cos(\x)},{-Rminus(\x,\e)*sin(\x)})
+		--
+		cycle;
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function={
+	sqr(\t) = \t * \t;
+	Rplus(\t,\e)  = \a * sqrt(cos(2*\t) + sqrt(\e*\e*\e*\e-sqr(sin(2*\t))));
+	Rminus(\t,\e) = \a * sqrt(cos(2*\t) - sqrt(\e*\e*\e*\e-sqr(sin(2*\t))));
+}]
+
+%
+% Gebiet
+%
+\xdef\e{1.2}
+\xdef\tmax{90}
+\fill[color=darkred!20,opacity=0.5]
+	plot[domain=-\tmax:\tmax,samples=100]
+		({Rplus(\x,\e)*cos(\x)},{Rplus(\x,\e)*sin(\x)})
+	--
+	plot[domain=-\tmax:\tmax,samples=100]
+		({-Rplus(\x,\e)*cos(\x)},{-Rplus(\x,\e)*sin(\x)})
+	--
+	cycle;
+\xdef\e{1.2}
+\pgfmathparse{\a*sqrt(\e*\e-1)}
+\xdef\Y{\pgfmathresult}
+\node at (-3,{\Y+0.3}) [above left] {$U$};
+
+\xdef\e{0.6}
+\pgfmathparse{0.5*asin(\e*\e)}
+\xdef\tmax{\pgfmathresult}
+\fill[color=white]
+	plot[domain=-\tmax:\tmax,samples=100]
+		({Rplus(\x,\e)*cos(\x)},{Rplus(\x,\e)*sin(\x)})
+	--
+	plot[domain=\tmax:-\tmax,samples=100]
+		({Rminus(\x,\e)*cos(\x)},{Rminus(\x,\e)*sin(\x)})
+	--
+	cycle;
+\fill[color=white]
+	plot[domain=-\tmax:\tmax,samples=100]
+		({-Rplus(\x,\e)*cos(\x)},{-Rplus(\x,\e)*sin(\x)})
+	--
+	plot[domain=\tmax:-\tmax,samples=100]
+		({-Rminus(\x,\e)*cos(\x)},{-Rminus(\x,\e)*sin(\x)})
+	--
+	cycle;
+
+\draw[->] (-5.5,0) -- (5.8,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-3) -- (0,3) coordinate[label={right:$\operatorname{Im}$}];
+\fill[color=white,opacity=0.5]
+	plot[domain=-\tmax:\tmax,samples=100]
+		({Rplus(\x,\e)*cos(\x)},{Rplus(\x,\e)*sin(\x)})
+	--
+	plot[domain=\tmax:-\tmax,samples=100]
+		({Rminus(\x,\e)*cos(\x)},{Rminus(\x,\e)*sin(\x)})
+	--
+	cycle;
+\fill[color=white,opacity=0.5]
+	plot[domain=-\tmax:\tmax,samples=100]
+		({-Rplus(\x,\e)*cos(\x)},{-Rplus(\x,\e)*sin(\x)})
+	--
+	plot[domain=\tmax:-\tmax,samples=100]
+		({-Rminus(\x,\e)*cos(\x)},{-Rminus(\x,\e)*sin(\x)})
+	--
+	cycle;
+
+%
+% geschlossene Kurve
+%
+\acht{1.1}{darkred}
+\xdef\e{1.1}
+\pgfmathparse{\a*sqrt(\e*\e-1)}
+\xdef\Y{\pgfmathresult}
+\node[color=darkred] at (0,\Y) [above right] {$\gamma$};
+\draw[<-,color=darkred] (0,\Y) -- ++(0.1,0);
+\draw[<-,color=darkred] (0,-\Y) -- ++(-0.1,0);
+\pgfmathparse{\a*sqrt(1+\e*\e)}
+\xdef\X{\pgfmathresult}
+\draw[<-,color=darkred] (\X,0) -- ++(0,-0.1);
+\draw[<-,color=darkred] (-\X,0) -- ++(0,0.1);
+
+
+%
+% Homotopie
+%
+\acht{1.05}{darkred!30}
+\acht{1.02}{darkred!30}
+\acht{1.001}{darkred!30}
+%\zwei{0.999}{blue!30}
+\zwei{0.98}{blue!30}
+\zwei{0.95}{blue!30}
+\zwei{0.90}{blue!30}
+\zwei{0.85}{blue!30}
+
+\begin{scope}[xshift=0.9cm,yshift=0.1cm]
+\clip (-0.4,0) rectangle (0.4,1);
+\draw[->,color=blue,line width=1.6pt] (0.35,0) -- (-0.35,0);
+\end{scope}
+
+\begin{scope}[xshift=-0.9cm,yshift=-0.1cm]
+\clip (-0.4,-1) rectangle (0.4,0);
+\draw[->,color=blue,line width=1.6pt] (-0.35,0) -- (0.35,0);
+\end{scope}
+
+%
+% zwei Kurven
+%
+\zwei{0.80}{blue}
+%\xdef\e{0.8}
+\pgfmathparse{\a*sqrt(1-\e*\e)}
+\xdef\X{\pgfmathresult}
+\draw[color=blue,line width=2.4pt] (-\X,0) -- (\X,0);
+\draw[color=darkred!5,line width=0.8pt] ({-\X-0.04},0) -- ({\X+0.04},0);
+
+\node[color=blue] at ({\a-0.1},1.1) [below] {$\gamma_+$};
+\node[color=blue] at ({-\a-0.1},1.1) [below] {$\gamma_-$};
+
+\fill (-\a,0) circle[radius=0.05];
+\node at (-\a,0) [above] {$F_1$};
+\fill (\a,0) circle[radius=0.05];
+\node at (\a,0) [above] {$F_2$};
+
+\end{tikzpicture}
+\end{document}
+

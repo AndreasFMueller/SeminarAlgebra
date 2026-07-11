@@ -1,0 +1,55 @@
+/*
+ * beispiel.maxima
+ */
+A:  8 + 20 * %i;
+B: 28 + 22 * %i;
+C: 17 + 25 * %i;
+
+BA: A - B;
+AC: C - A;
+CB: B - C;
+
+d: 1/2 + %i*sqrt(3)/2;
+
+BA60: ratsimp(BA * d);
+AC60: ratsimp(AC * d);
+CB60: ratsimp(CB * d);
+
+Pb: A + AC60;
+Pa: C + CB60;
+Pc: B + BA60;
+
+Oa: (B + C + Pa) / 3;
+Ob: (A + C + Pb) / 3;
+Oc: (A + B + Pc) / 3;
+
+delta: ratsimp((Ob - Oc) - d * (Oa - Oc));
+
+/*
+ * allgemeine Rechnung
+ */
+
+A: z1;
+B: z2;
+C: z3;
+
+BA: A - B;
+AC: C - A;
+CB: B - C;
+
+d: 1/2 + %i*sqrt(3)/2;
+
+BA60: ratsimp(BA * d);
+AC60: ratsimp(AC * d);
+CB60: ratsimp(CB * d);
+
+Pb: A + AC60;
+Pa: C + CB60;
+Pc: B + BA60;
+
+Oa: (B + C + Pa) / 3;
+Ob: (A + C + Pb) / 3;
+Oc: (A + B + Pc) / 3;
+
+delta: ratsimp((Ob - Oc) - d * (Oa - Oc));
+

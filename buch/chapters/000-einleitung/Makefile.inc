@@ -5,5 +5,9 @@
 #
 
 CHAPTERFILES += 							\
+	chapters/000-einleitung/1-frueh.tex				\
+	chapters/000-einleitung/2-kalkuel.tex				\
+	chapters/000-einleitung/3-epsilon.tex				\
+	chapters/000-einleitung/4-cas.tex				\
 	chapters/000-einleitung/chapter.tex
 
