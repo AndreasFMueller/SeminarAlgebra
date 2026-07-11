@@ -1,0 +1,86 @@
+Entscheiden Sie, ob die folgenden Funktionen eine elementare Stammfunktion
+haben:
+\begin{teilaufgaben}
+\item $f(x)= (1+\log(x))x^x$
+\item $f(x)=x^x$
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir schreiben $x^x = e^{x \log(x)}$, die Funktion
+$\vartheta_2 = x^x = \exp(x\log(x))$ ist also eine exponentielle Erweiterung
+des Körpers $K(x,\vartheta_1)$ mit $\vartheta_1=\log x$.
+$\vartheta_2$ hat die definierende Eigenschaft
+$D\vartheta_2 = \vartheta_2 \cdot x\log(x)$.
+\begin{teilaufgaben}
+\item 
+Für dieses Integral wird die Risch-Differentialgleichung zu
+\[
+Dq_1 + (\log(x)+1)q_1 = 1 + \log(x),
+\]
+die die Lösung $q_1=1$ hat.
+Es folgt, dass
+\[
+\int (1+\log(x))x^x = 1\cdot \vartheta_2 = x^x+C.
+\]
+Tatsächlich ist die Ableitung
+\begin{align*}
+Dx^x
+&=
+D(\exp(x\log(x))
+=
+\exp(x\log(x)) \biggl(\log(x) + x\cdot\frac{1}{x}\biggr)
+=
+(1+\log(x))x^x.
+\end{align*}
+\item
+Da $\vartheta_2$ eine exponentielle Erweiterung ist, muss die
+Risch-Differentialgleichung
+\[
+Dq_1
++
+Du\, q_1 = p_1
+\qquad\Rightarrow\qquad
+Dq_1 + (\log(x) + 1)q_1 = 1
+\]
+mit $q_1\in K(x,\vartheta_1)$ gelöst werden.
+Eine Lösung kann als gekürzter Bruch $a(\vartheta_1)/b(\vartheta_1)$ mit
+Polynomen $a(\vartheta_1),b(\vartheta_1)\in K(x)[\vartheta_1]$ geschrieben
+werden, wobei $b(\vartheta_1)$ ausserdem normiert sein soll.
+Einsetzen in die Differentialgleichung und multiplizieren mit $b(\vartheta_1)^2$
+ergibt
+\[
+Da(\vartheta_1) b(\vartheta_1)
+-
+a(\vartheta_1)Db(\vartheta_1)
++
+(\vartheta_1+1)a(\vartheta_1)b(\vartheta_1)
+=
+b(\vartheta_1)^2.
+\]
+Da alle Terme ausser möglicherweise dem zweiten durch $b(\vartheta_1)$
+teilbar sind, muss auch der zweite teilbar sein.
+Weil der Bruch gekürzt ist, muss $b(\vartheta_1)\mid Db(\vartheta_1)$
+sein.
+Da aber $Db(\vartheta_1)$ kleineren Grad als $b(\vartheta_1)$ hat,
+muss $Db(\vartheta_1)=0$ und damit $b(\vartheta_1)=b_0$ eine Konstante sein.
+Da $b(\vartheta_1)$ normiert ist, folgt ausserdem $b_0=1$.
+
+Die Differentialgleichung vereinfacht sich jetzt zu
+\[
+\begin{aligned}
+&&
+Da(\vartheta_1) + (\vartheta_1+1) a(\vartheta_1)
+&= a(\vartheta_1)
+\\
+&\Rightarrow&
+Da(\vartheta_1)
+&= -\vartheta_1 a(\vartheta).
+\end{aligned}
+\]
+Auf der rechten Seite steht ein Polynom vom Grad $1+\deg a(\vartheta)$
+während die linke Seite höchstens Grad $\deg a(\vartheta_1)$ hat.
+Somit kann es keine Lösung der Differentialgleichung geben, das Integral
+ist nicht elementar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}

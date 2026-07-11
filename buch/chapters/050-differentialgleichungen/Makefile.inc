@@ -3,6 +3,10 @@
 #
 # (c) 2025 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
+AUFGABENFILES +=							\
+	chapters/050-differentialgleichungen/uebungsaufgaben/501.tex	\
+	chapters/050-differentialgleichungen/uebungsaufgaben/502.tex	\
+	chapters/050-differentialgleichungen/uebungsaufgaben/503.tex
 
 CHAPTERFILES += 							\
 	chapters/050-differentialgleichungen/1-potenzreihen.tex		\

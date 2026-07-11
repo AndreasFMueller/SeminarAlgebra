@@ -1,0 +1,26 @@
+%
+% 53-verallgemeinert.tex -- Das verallgemeinerte Argumentprinzip
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Das verallgemeinerte Argumentprinzip
+\label{buch:analytisch:argument:subsection:verallgemeinert}}
+Das Argumentprinzip von Satz~\ref{buch:analytisch:argument:satz:argument}
+hat eine unmittelbare Verallgemeinerung.
+
+\begin{satz}[Verallgemeinertes Argumentprinzip]
+\index{Argumentprinzip!verallgemeinert}%
+Sei $f$ eine meromorphe Funktion und $\gamma$ ein Weg, der keine Nullstellen
+oder Pole von $f$ enthält und sei $g$ eine ganze Funktion.
+Dann ist
+\[
+\oint_\gamma \frac{f'(z)}{f(z)} g(z)\,dz
+=
+\sum_{\text{$a$ Nullstelle von $f$}} \operatorname{ind}_\gamma(a) g(a)
+-
+\sum_{\text{$b$ Pol von $f$}} \operatorname{ind}_\gamma(b) g(a)
+\]
+Wobei die Nullstellen $a$ und Pole $b$ von $f$ mit Ihrer Vielfachheit
+gezählt werden sollen.
+\end{satz}
+

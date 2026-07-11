@@ -1,0 +1,180 @@
+%
+% 11-polynome.tex -- Potenzreihen von Polynomen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Potenzreihen von Polynomen
+\label{buch:analytisch:potenzreihen:subsection:polynome}}
+Das Polynom
+\[
+p(z)
+=
+p_0
++ 
+p_1z
++
+p_2z^2
++
+\dots
++
+p_{n-1}z^{n-1}
++
+p_nz^n
+=
+\sum_{k=0}^n p_kz^k
+\]
+ist eine Potenzreihe, die bereits nach endlich vielen Termen
+abbricht.
+\index{Polynom}%
+Wir möchten den Zusammenhang zwischen den Koeffizienten $p_k$
+und der Taylor-Reihe von $p(z)$ herstellen.
+\index{Taylor-Reihe}%
+\index{Potenzreihe}
+Dazu benötigen wir eine Formel für die $k$-te Ableitung einer
+Potenzfunktion, die wir im folgenden Lemma aus der Produktregel
+ableiten.
+
+\begin{lemma}
+\label{buch:analytisch:potenzreihen:lemma:ableitung}
+Die $k$-te Ableitung von $z^n$ ist
+\begin{equation}
+\frac{d^k}{dz^k}
+z^n
+=
+\underbrace{
+n(n-1)\cdots(n-k+1)
+}_{\textstyle\text{$k$ Faktoren}}
+z^{n-k}.
+\label{buch:analytisch:potenzreihen:eqn:ableitung}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Wir beweisen die Formel
+\eqref{buch:analytisch:potenzreihen:eqn:ableitung}
+durch vollständige Induktion.
+Für $k=0$ wird gar nicht abgeleitet, die Formel gilt trivialerweise.
+
+Für den Induktionsschritt nehmen wir jetzt an, dass die Formel für die
+$k$-te Ableitung bereits bewiesen ist, und zeigen kann, dass sie auch
+für die $(k+1)$-te Ableitung gilt.
+Dazu berechnen wir
+\begin{align*}
+\frac{d^{k+1}}{dz^{k+1}} z^n
+&=
+\frac{d}{dz}
+\frac{d^k}{dz^k}
+z^n
+\\
+&=
+\frac{d}{dz}
+n(n-1)\dots(n-k+1) z^{n-k}
+\\
+&=
+n(n-1)\dots(n-k+1)(n-k) z^{n-k-1}
+\\
+&=
+n(n-1)\dots(n-k+1)(n-(k+1)+1) z^{n-(k+1)}.
+\end{align*}
+Dies ist die Formel für die $(k+1)$-te Ableitung.
+Damit ist der Induktionsschritt gelungen und damit die Formel
+bewiesen.
+\end{proof}
+
+Das Polynom $p(z)$ kann auch als Potenzreihe im Punkt $z_0$
+geschrieben werden.
+Dies kann auf zwei Arten erreicht werden.
+Einerseits gilt die Taylor-Reihe
+\begin{align*}
+p(z)
+&=
+\sum_{u=0}^n
+\frac{1}{u!}
+\frac{d^up}{dz^u}(z_0)
+(z-z_0)^u.
+\intertext{Andererseits kann man eine Potenzreihenentwicklung durch eine
+algebraische Umformung erhalten.
+Zunächst wendet man auf}
+p(z)
+&=
+p\bigl((z-z_0) + z_0\bigr)
+=
+\sum_{k=0}^n p_k \bigl((z-z_0)+z_0\bigr)^k
+\intertext{die binomische Formel an und erhält}
+&=
+\sum_{k=0}^n
+p_k
+\sum_{u+v=k}
+\binom{k}{u}
+(z-z_0)^u
+z_0^v.
+\intertext{Durch Umstellung der Summe und Expansion des
+Binomialkoeffizienten kann man dies in dir Form}
+&=
+\sum_{u=0}^n
+\Biggl(
+\sum_{k=u}^n
+p_k
+\binom{k}{u}
+z_0^{k-u}
+\Biggr)
+(z-z_0)^u
+\\
+&=
+\sum_{u=0}^n
+\Biggl(
+\sum_{k=u}^n
+p_k
+\frac{k(k-1)\cdots(k-u+1)}{u!}
+z_0^{k-u}
+\Biggr)
+(z-z_0)^u
+\intertext{bringen.
+Der Nenner $u!$ kann aus der inneren Summe herausgezogen werden und
+die verbleibenden Terme können mit Hilfe der Formel
+\eqref{buch:analytisch:potenzreihen:eqn:ableitung}
+in die Form}
+&=
+\sum_{u=0}^n
+\frac{1}{u!}
+\Biggl(
+\sum_{k=u}^n
+p_k
+k(k-1)\cdots(k-u+1)
+z_0^{k-u}
+\Biggr)
+(z-z_0)^u
+\\
+&=
+\sum_{u=0}^n
+\frac{1}{u!}
+\Biggl(
+\sum_{k=u}^n
+p_k
+\frac{d^u}{dz_0^u}z_0^k
+\Biggr)
+(z-z_0)^u
+\intertext{gebracht werden.
+Die Ableitung kann aus der inneren Summe herausgezogen werden,
+so dass sich die Ableitung}
+&=
+\sum_{u=0}^n
+\frac{1}{u!}
+\frac{d^u}{dz_0^u}
+\Biggl(
+\sum_{k=0}^n
+p_k
+z_0^k
+\Biggr)
+(z-z_0)^u
+\\
+&=
+\sum_{u=0}^n
+\frac{1}{u!}
+\frac{d^up}{dz_0^u}
+(z_0)
+(z-z_0)^u
+\end{align*}
+des Polnoms $p(z_0)$ an der Stelle $z_0$ ergibt.
+Die algebraisch gefundene Potenzreihe stimmt also automatisch
+mit der Taylor-Reihe überein.

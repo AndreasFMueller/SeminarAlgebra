@@ -6,8 +6,9 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Konvergiert das Basel-Problem überhaupt?}
-\label{basel:section:konvergenz}
+\section{Konvergiert das Basel-Problem überhaupt?
+\label{basel:section:konvergenz}}
+\kopfrechts{Konvergiert das Basel-Problem überhaupt?}
  
 Um die Konvergenz bestimmen zu können, braucht man die Ungleichung
 \[
@@ -40,12 +41,13 @@ Zur Berechnung schaut man sich die $m$-te Partialsumme an,
 \]
 und schreibt jeden Summanden als Differenz zweier Brüche,
 so erhält man die \emph{Teleskopsumme}
+\index{Teleskopsumme}%
 \begin{align*}
-    \left(1 - \frac{1}{2}\right)
-    + \left(\frac{1}{2} - \frac{1}{3}\right)
-    + \left(\frac{1}{3} - \frac{1}{4}\right)
+    \biggl(1 - \frac{1}{2}\biggr)
+    + \biggl(\frac{1}{2} - \frac{1}{3}\biggr)
+    + \biggl(\frac{1}{3} - \frac{1}{4}\biggr)
     + \cdots
-    + \left(\frac{1}{m} - \frac{1}{m+1}\right).
+    + \biggl(\frac{1}{m} - \frac{1}{m+1}\biggr).
 \end{align*}
 Diese heisst so, weil sich zwei benachbarte Terme neutralisieren und man somit die Reihe zusammenfahren kann.
 So bleibt nur noch der erste und der letzte Term
@@ -58,6 +60,7 @@ Lässt man $m$ gegen unendlich gehen, geht diese Differenz gegen eins,
     1 - \frac{1}{m+1} \xrightarrow{m \to \infty} 1.
 \]
 Anhand des sogenannten \emph{Majorantenkriteriums} weiss man also, dass die Reihe des Basel-Problems konvergiert.
+\index{Majorantenkriterium}%
 
 Zusätzlich liefert diese Analyse ein bemerkenswertes Resultat über den Wert der Reihe selbst.
 Da die Reihe des Basel-Problems durch die Teleskopsumme nach oben beschränkt ist,

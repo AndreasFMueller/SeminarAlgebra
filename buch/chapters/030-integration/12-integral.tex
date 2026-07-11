@@ -1,0 +1,1193 @@
+%
+% 12-integration.tex -- Integral entlang eines Weges
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Integral entlang eines Weges}
+Für eine stetige komplexe Funktion $f(z)$ und einen Weg $\gamma(t)$
+ist $f(\gamma(t))$ eine stetige Funktion der reellen Variablen $t$.
+Nach allgemeinen Sätzen über das Riemann-Integral können wir also 
+\index{Riemann-Integral}%
+von Real- und Imaginärteil das Integral über das Definitionsgebiet
+berechnen.
+Die Definition eines Wegintegrals sollte aber möglichst nicht von
+der Parametrisierung des Weges abhängen.
+Dies ist nicht selbstverständlich.
+Das Integral der konstanten Funktion $1$ z.~B.~ist immer
+\begin{equation}
+\int_a^b f(\gamma(t)) \,dt
+=
+\int_a^b 1\,dt
+=
+b-a,
+\label{buch:integration:wegintegral:eqn:konstant}
+\end{equation}
+hängt also sehr wohl von der Parametrisierung ab.
+Daher werden wir zunächst eine von der Parametrisierung unabhängige
+Form des Wegintegrals definieren müssen.
+Anschliessend werden wir zeigen, wie dieses Wegintegral mit der
+Stammfunktion zusammenhängt.
+\index{Stammfunktion}
+
+%
+% Definition des Wegintegrals
+%
+\subsubsection{Definition des Wegintegrals}
+Das einführende Beispiel
+hat gezeigt, dass das Integral
+\eqref{buch:integration:wegintegral:eqn:konstant}
+von $f(\gamma(t))$ von der Parametrisierung
+abhängt.
+Bewegt sich der Punkt $\gamma(t)$ langsamer durch das Gebiet $U$,
+wird ein längeres Parameterintervall benötigt, um die Strecke
+zwischen zwei Punkten zu durchlaufen.
+Das gesuchte Wegintegral benötigt also auch noch einen
+von der Geschwindigkeit $\dot{\gamma}(t)$ abhängigen Faktor,
+um diesen Unterschied auszugleichen.
+
+\begin{definition}[Wegintegral in $\mathbb{C}$]
+\label{buch:integration:definition:definition:wegintegral}
+Sei $f\colon U\to\mathbb{C}$ eine stetige komplexe Funktion und
+$\gamma:I\to U$ ein differenzierbarer Weg $U$ mit $I=[a,b]$.
+Dann ist das \emph{Integral von $f$ entlang des Weges $\gamma$}
+\index{Integral entlang eines Weges}%
+\index{Wegintegral}%
+\index{Sgamma@$\int_\gamma$}%
+gegeben durch
+\begin{equation}
+\int_\gamma f(z)\,dz
+=
+\int_I f(\gamma(t)) \dot{\gamma}(t)\,dt.
+\end{equation}
+Die gleiche Definition kann verwendet werden, wenn der Weg
+$\gamma$ in endlich vielen Punkten nicht differenzierbar ist.
+Wenn $\gamma$ ein geschlossener Weg ist, wird das Integral auch
+\[
+\int_\gamma f(z)\,dz
+=
+\oint_\gamma f(z)\,dz
+\]
+geschrieben.
+\index{Sogamma@$\oint_\gamma$}%
+\end{definition}
+
+Wir schreiben $\gamma(t) = x(t) + iy(t)$ und die Funktion $f=u+iv$ 
+als Summe von Real- und Imaginärteil.
+Dann wird das Wegintegral zu
+\begin{align*}
+\int_\gamma f(z)\,dz
+&=
+\int_a^b \bigl(u(x(t), y(t)) + i v(x(t), y(t))\bigr)\,
+(\dot{x}(t)+ i\dot{y}(t))\,dt
+\\
+&=
+\int_a^b u(x(t),y(t)) \dot{x}(t) -  v(x(t),y(t))\dot{y}(t)\,dt
+\\
+&\qquad
++
+i
+\int_a^b u(x(t),y(t))\dot{y}(t) + v(x(t),y(t))\dot{x}(t)\,dt,
+\end{align*}
+und kann dank dieser Formeln allein mit reellen Integralen berechnet
+werden.
+
+%
+% Unabhängigkeit vond er Parametrisierung
+%
+\subsubsection{Unabhängigkeit von der Parametrisierung}
+Wir müssen überprüfen, dass die
+Definition~\ref{buch:integration:definition:definition:wegintegral}
+tatsächlich nicht von der Parametrisierung abhängt.
+Dazu sei $t(\tau)$ eine invertierbare Funktion, die auf einem Intervall
+$I_1=[c,d]$ definiert ist.
+Nach der Formel für den Koordinatenwechsel in einem Integral
+folgt dann
+\begin{align*}
+\int_c^d f(\gamma(t(\tau))) \frac{d\gamma(t(\tau))}{d\tau} \,d\tau
+&=
+\int_c^d f(\gamma(t(\tau))) \dot{\gamma}(t(\tau)) \frac{dt(\tau)}{dt}\,d\tau
+\\
+&=
+\int_{\tau(c)}^{\tau(d)} f(\gamma(t)) \dot{\gamma}(t) \,dt
+\\
+&=
+\int_a^b f(\gamma(t)) \dot{\gamma}(t) \,dt.
+\end{align*}
+Die Umparametrisierung $\tau(t)$ ändert also den Wert des Integrals
+\index{Umparametrisierung}%
+nicht.
+Insbesonderen hängt der Wert des Integrals nicht vom Parameterintervall ab.
+Für die Berechnung des Wegintegrals kann jedes beliebige geeignete
+Intervall verwendet werden.
+Die Notation $\smash{\int_\gamma}$ hat daher auch keinen Platz, die Wahl
+des Intervals anzugeben.
+
+\begin{beispiel}
+\label{buch:integration:wege:bsp:kreisintegral}
+Wir berechnen das Wegintegral für den geschlossenen Weg von
+Beispiel~\ref{buch:integration:wege:bsp:kreis}
+für die Funktion $f(z) = z^n$.
+Einsetzen der Parametrisierung ergibt
+\begin{align*}
+\oint_\gamma f(z)\,dz
+&=
+\int_0^{2\pi}
+\bigl( e^{it} \bigr)^{n} ie^{it}
+\,dt
+=
+i
+\int_0^{2\pi}
+e^{i(n+1)t}
+\,dt
+=
+i
+\int_0^{2\pi} \cos (n+1)t + i\sin(n+1)t\,dt.
+\end{align*}
+Falls $n+1\ne 0$ ist, stehen auf der rechten Seite Integrale der
+Sinus- und Kosinusfunktion über eine ganze Anzahl von Perioden, diese
+Integrale verschwinden.
+Für $n=-1$ verschwindet der Sinus-Term und es bleibt
+\[
+\oint_\gamma \frac{dz}z
+=
+i
+\int_0^{2\pi}
+1\,dt
+=
+2\pi i.
+\]
+Zusammengefasst erhalten wir für ganzzahliges $n$
+\[
+\oint_\gamma z^n\,dz
+=
+\begin{cases}
+0&\qquad\text{falls $n\ne -1$}\\
+2\pi i&\qquad\text{falls $n=-1$.}
+\end{cases}
+\]
+Alternativ könnte man das Integral auch mit dem Standardintervall
+und dem Weg $\gamma\colon [0,1]\to\mathbb{C}:t\mapsto e^{2\pi it}$
+berechnen.
+Die Berechnungsformel liefert dann
+\begin{align*}
+\int_\gamma z^n\,dz
+&=
+\int_0^1 e^{2\pi i n t}\cdot 2\pi i e^{2\pi i t}\,dt
+=
+2\pi i
+\int_0^1 e^{2\pi i (n+1)t}\,dt
+\\
+&=
+\left\{
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rclcllcl}
+\displaystyle
+2\pi i
+\biggl[\frac{1}{2\pi i (n+1)} e^{2\pi i(n+1)t}\biggr]_0^1
+&=&
+0
+&\quad&\text{falls}&
+n &\ne& -1,
+\\[10pt]
+\displaystyle 2\pi i \int_0^1 1\,dt
+&=&
+2\pi i
+&\quad&\text{falls}&
+n &=& -1.
+\end{array}
+\right.
+\end{align*}
+Die Parametrisierung mit dem Einheitsintervall liefert tatsächlich den
+gleichen Wert für das Wegintegral.
+\end{beispiel}
+
+%
+% Zusammenhängen von Wegen
+%
+\subsubsection{Zusammenhängen von Wegen}
+Seien $\gamma_1$ und $\gamma_2$ mit dem Einheitsintervall parametrisierte
+Wege in $U\subset\mathbb{C}$ so, dass der Endpunkt von $\gamma_1$ der
+Anfangspunkt von $\gamma_2$ ist, also
+\[
+\gamma_1(1)
+=
+\gamma_2(0).
+\]
+Dann kann man die Verkettung
+\index{Verkettung}%
+$\gamma_1\cdot\gamma_2$ der beiden Wege durch
+\[
+\gamma_1\cdot\gamma_2
+\colon
+I
+\to
+U
+:
+t
+\mapsto
+\begin{cases}
+\gamma_1(2t)   &\qquad\text{für $0 \le t \le \frac12$}\\
+\gamma_2(2t-1) &\qquad\text{für $\frac12 \le t \le 1$}
+\end{cases}
+\]
+definieren, die ebenfalls durch das Einheitsintervall parametrisiert ist.
+Der Weg $\gamma_1\cdot\gamma_2$ führt vom Punkt $\gamma_1(0)$
+über $\gamma_1(1)=\gamma_2(0)$ zum Punkt $\gamma_2$.
+
+%
+% Umkehrung der Durchlaufrichtung
+%
+\subsubsection{Umkehrung der Durchlaufrichtung}
+Die Umkehrung der Durchlaufrichtung eines Weges hat Auswirkungen
+\index{Durchlaufrichtung}%
+auf den Wert des Wegintegrals, die wir später brauchen werden.
+
+\begin{definition}
+\label{buch:integration:wegintegral:def:wegumkehrung}
+Sei $\gamma\colon I\to U$ ein mit dem Einheitsintervall parametrisierter
+differenzierbarer Weg.
+Dann ist
+\[
+\gamma^{-1}
+\colon
+I
+\to
+U
+:
+t\mapsto \gamma(1-t)
+\]
+ein differenzierbarer Weg in $U$.
+Er heisst der \emph{umgekehrte Weg} von $\gamma$, er wird in
+\index{Weg!umgekehrt}%
+entgegengesetzer Richtung durchlaufen.
+\end{definition}
+
+Eine alternative Möglichkeit, den umgekehrten Weg zu
+$\gamma\colon [a,b]\to\mathbb{C}$ zu definieren, ist
+\[
+\gamma^{-1}\colon [-b,-a] \to \mathbb{C} : t\mapsto \gamma(-t).
+\]
+Für das Einheitsintervall kann diese Parametrisierung durch eine
+Verschiebung des Parameters auf die
+Definition~\ref{buch:integration:wegintegral:def:wegumkehrung}
+zurückgeführt werden.
+
+Man beachte, dass die Notation $\gamma^{-1}$ auch als die inverse
+\index{gamma-1@$\gamma^{-1}$}%
+Funktion gelesen werden können, dies ist jedoch nicht, was hier
+gemeint ist.
+Tatsächlich hat die Umkehrfunktion von $\gamma$ in diesem Zusammenhang
+meistens keine sinnvolle Anwendung hat, so dass nicht wirklich
+eine Gelegenheit für eine Verwechselung entsteht.
+
+\begin{satz}
+\label{buch:integration:wegintegral:satz:wegumkehrung}
+Ist $\gamma$ ein differenzierbarer Weg in $U\subset\mathbb{C}$ und
+$f\colon U\to\mathbb{C}$ eine stetige Funktion, dann ist
+\[
+\int_{\gamma^{-1}} f(z)\,dz
+=
+-
+\int_{\gamma} f(z)\,dz.
+\]
+\end{satz}
+
+\begin{proof}
+Da es nicht auf die Parametrisierung des Weges ankommt, gehen wir
+von der Parametrisierung durch ein Einheitsintervall aus.
+Die Definition~\ref{buch:integration:wegintegral:def:wegumkehrung}
+von $\gamma^{-1}$ bedeutet, dass die Ableitung von 
+$\gamma^{-1}$
+\[
+\frac{d}{dt}
+\gamma^{-1}(t)
+=
+\frac{d}{dt}
+\bigl(\gamma(1-t)\bigr)
+=
+\dot{\gamma}(1-t)\cdot(-1)
+\]
+ist.
+Jetzt kann man das Wegintegral
+\begin{align*}
+\int_{\gamma^{-1}} f(z)\,dz
+&=
+-
+\int_0^1
+f(\gamma(1-t))
+\dot{\gamma}(1-t)
+\,dt
+\intertext{mit der Variablentransformation $s=1-t$ als}
+&=
+-
+\int_1^0
+f(\gamma(s))
+\dot{\gamma}(s)
+\,(-ds)
+=
+-\int_0^1
+f(\gamma(s))
+\dot{\gamma}(s)
+\,ds
+\end{align*}
+schreiben.
+Damit ist der Satz bewiesen.
+\end{proof}
+
+%
+% Wegintegrale über achsenparallele Wege
+%
+\subsubsection{Wegintegrale über achsenparallele Wege}
+\input{chapters/030-integration/fig/fig-rechteck.tex}%
+Wir betrachten eine stetige komplex Funktion $f\colon U\to\mathbb{C}$
+und zwei Punkte $a,b\in U$.
+Der Einfachheit halber nehmen wir an, dass das Rechteck $R$ mit Ecken $a$
+und $b$ in $U$ enthalten ist.
+Als Weg zwischen $a$ und $b$ können Teile des Randes des Rechtecks $R$
+verwendet werden.
+
+Der Weg $\gamma_1$ in Abbildung~\ref{buch:integration:wegintegral:fig:rechteck}
+verläuft zunächst parallel zur reellen Achse, bevor er parallel zur
+imaginären Achse in den Punkt $b$ führt.
+Der horizontale Teil des Weges kann mit
+\begin{align*}
+\gamma_{1,h}
+&\colon
+[\operatorname{Re}a,\operatorname{Re}b]
+\to
+\mathbb{C}
+:
+t
+\mapsto
+t + i\operatorname{Im} a
+&&\Rightarrow&
+\dot{\gamma}_{1,h} &= 1
+\intertext{parametrisiert werden, während der vertikale Teil
+die Parametrisierung}
+\gamma_{1,v}
+&\colon
+[\operatorname{Im}a,\operatorname{Im}b]
+\to
+\mathbb{C}
+:
+s
+\mapsto
+\operatorname{Re}b + is
+&&\Rightarrow&
+\dot{\gamma}_{1,h} &= i
+\end{align*}
+hat.
+Das Wegintegral der Funktion über den Weg $\gamma_1$ kann daher als
+Summe zweier Integrale
+\begin{align}
+F_1(b)
+&=
+\int_{\gamma_1} f(z)\,dz
+\notag
+\\
+&=
+\int_{\gamma_{1,h}} f(z)\,dz
++
+\int_{\gamma_{1,v}} f(z)\,dz
+\notag
+\\
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\operatorname{Im}a)
+\,dt
++
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+\cdot
+i
+\,ds
+\label{buch:integration:wegintegral:achsparallel:eqn:F1}
+\end{align}
+geschrieben werden.
+Die Ableitung von $F_1(b+iy)$ nach $y$ kann damit ebenfalls berechnet
+werden:
+\begin{align*}
+\frac{1}{i}
+\frac{\partial}{\partial y} F_1(b+iy)
+&=
+\frac{1}{i}
+\frac{\partial}{\partial y}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b+y}
+f(\operatorname{Re}b+is)\cdot i
+\,ds
+=
+\frac{\partial}{\partial y}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b+y}
+f(\operatorname{Re}b+is)
+\,ds
+\\
+&=
+f(\operatorname{Re}+i(\operatorname{Im}b+y))
+=
+f(b).
+\end{align*}
+Da der Weg $\gamma_1$ im Punkt $b$ vertikal verläuft, kann man ihn
+zum Zweck der Ableitung noch etwas über $\operatorname{Im}b$ hinaus
+verlängern.
+Er definiert so eine Funktion $F_1(b)$, deren
+Ableitung nach $i\operatorname{Im}b$ mit $f(b)$ übereinstimmt.
+
+Andererseits erlaubt der Weg $\gamma_2$ eine Funktion
+\begin{align}
+F_2(b)
+&=
+\int_{\gamma_2} f(z) \,dz
+\notag
+\\
+&=
+\int_{\gamma_{2,v}}
+f(z)\,dz
++
+\int_{\gamma_{2,h}}
+f(z)\,dz
+\notag
+\\
+&=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}a + is) \cdot i \,ds
++
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t + i\operatorname{Im}b)
+\,dt
+\label{buch:integration:wegintegral:achsparallel:eqn:F2}
+\end{align}
+von $b$ zu definieren.
+Durch horizontale Verlängerung des Weges $\gamma_2$ über den Punkt $b$
+hinaus kann man jetzt auch die Ableitung von $F_2(b+x)$ berechnen:
+\begin{align*}
+\frac{\partial}{\partial x}F_2(b+x)
+&=
+\frac{\partial}{\partial x}
+\int_{\operatorname{Re}a}^{\operatorname{Re}b+x}
+f(t + i\operatorname{Im}b)
+\,dt
+\\
+&=
+f(\operatorname{Re}b+x+i\operatorname{Im}b)
+=
+f(b+x).
+\end{align*}
+Der Weg $\gamma_2$ definiert also eine Funktion $F_2(b)$, deren
+Ableitung nach $\operatorname{Re}b$ mit $f(b)$ übereinstimmt.
+
+Wenn wir zusätzlich zeigen können, dass die beiden Funktionen
+$F_1(b)$ und $F_2(b)$ übereinstimmen, dann ist dadurch eine
+Stammfunktion von $f$ definiert.
+
+%
+% Integral einer holomorphen Funktion über ein Rechteck
+%
+\subsubsection{Integral einer holomorphen Funktion über ein Rechteck}
+\index{Rechteck}%
+In diesem Abschnitt nehmen wir zusätzlich an, dass Real- und Imaginärteil
+als Funktionen von zwei reellen Variablen differenzierbar sind.
+Wir möchten die Voraussetzungen finden, unter denen es nicht darauf
+ankommt, welchen der zwei betrachteten Wege wir nehmen.
+Wir möchten also untersuchen, wann die Differenz $F = F_1(b) - F_2(b)$
+verschwindet.
+
+Wir berechnen die Differenz $F_1(b)-F_2(b)$ aus
+\eqref{buch:integration:wegintegral:achsparallel:eqn:F1}
+und
+\eqref{buch:integration:wegintegral:achsparallel:eqn:F2}
+\begin{align*}
+F_1(b) - F_2(b)
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\operatorname{Im}a)
+\,dt
++
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+\cdot
+i
+\,ds
+\\
+&\qquad
+-
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}a + is) \cdot i
+\,ds
+-
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t + i\operatorname{Im}b)
+\,dt
+\\
+&=
+-
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t + i\operatorname{Im}b)
+-
+f(t + i\operatorname{Im}a)
+\,dt
+\\
+&\qquad
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+-
+f(\operatorname{Re}a+is)
+\,ds.
+\end{align*}
+Die Differenzen im Integranden können als Integral einer Ableitung
+geschrieben werden:
+\begin{equation}
+\begin{aligned}
+f(\operatorname{Re}b+is)
+-
+f(\operatorname{Re}a+is)
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\frac{\partial f}{\partial x}(x+is)
+\,dx
+\\
+f(t + i\operatorname{Im}b)
+-
+f(t + i\operatorname{Im}a)
+&=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\frac{\partial f}{\partial y}(t+iy)
+\,dy.
+\end{aligned}
+\label{buch:integration:wegintegral:achsparallel:eqn:partint}
+\end{equation}
+Damit wird die Differenz
+\begin{align*}
+F_1(b) - F_2(b)
+&=
+-
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\frac{\partial f}{\partial y}(x+iy)
+\,dy
+\,dx
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\frac{\partial f}{\partial x}(x+iy)
+\,dx
+\,dy.
+\intertext{Da über ein Rechteck integriert wird, dürfen die beiden
+Integrationen des zweiten Integrals vertauscht werden, die Differenz
+ist also auch}
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+-\frac{\partial f}{\partial y}(x+iy)
++
+i
+\frac{\partial f}{\partial x}(x+iy)
+\,dy
+\,dx
+\\
+&=
+-2i
+\int\hspace*{-2mm}\int_{R}
+\frac12
+\biggl(
+\frac{\partial f}{\partial x}
++
+i
+\frac{\partial f}{\partial y}
+\biggr)
+\,dx\,dy
+=
+2i
+\int\hspace*{-2mm}\int_R
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy.
+\end{align*}
+Die Differenz verschwindet also genau dann, wenn die Ableitung
+$\partial f/\partial\bar{z}$ verschwindet, also genau für holomorphe
+Funktionen.
+
+\begin{satz}
+\label{buch:integration:wegintegral:satz:rechteckintegrale}
+Sei $f\colon U\to\mathbb{C}$ 
+eine Funktion, deren Real- und Imaginärteile als Funktionen von zwei
+reellen Variablen differenzierbar sind. 
+Dann sind die Integrale über die Wege $\gamma_1$ und $\gamma_2$ für
+beliebige Rechtecke mit den Ecken $a,b\in\mathbb{C}$, die in $U$
+enthalten sind, gleich, wenn die Funktion $f$ holomorph ist.
+\end{satz}
+
+%
+% Dreiseitige Wege
+%
+\subsubsection{Dreiseitige Wege}
+\input{chapters/030-integration/fig/fig-dreiecke.tex}
+Der Satz~\ref{buch:integration:wegintegral:satz:rechteckintegrale}
+zeigt, dass das Wegintegral einer holomorphen Funktion über den
+``linken oberen'' und den ``rechten unteren'' Rand eines Rechtecks 
+mit den Ecken $a$ und $b$ gleich ist.
+Da sich jede beliebige Kurve durch einen Polygonzug mit achsenparallelen
+Segmenten approximieren lässt, ist anzunehmen, dass auch das Integral
+über eine beliebige Kurve von $a$ nach $b$ gleich sein dürfte.
+Um dies zu zeigen, beginnen wir mit der in
+Abbildung~\ref{buch:integration:wegintegral:fig:dreiecke}
+dargestellten Situation, dass sich der Weg von $a$ nach $b$ als Graph
+der Funktionen $\varphi(x)$ und $\psi(y)$ darstellen lässt.
+Solche Gebiete wollen wir im Folgenden \emph{Dreiseite} nennen.
+\index{Dreiseit}%
+Sowohl
+\[
+x\mapsto (x,\varphi(x))
+\qquad\text{als auch}\qquad
+y\mapsto (\psi(y), y)
+\]
+beschreibt also jeweils die diagonale rote Kurve $\gamma$ in
+Abbildung~\ref{buch:integration:wegintegral:fig:dreiecke},
+während die achsparallelen Abschnitte mit $\gamma_x$ und $\gamma_y$
+bezeichnet werden sollen.
+
+Damit kann man jetzt für jedes der Gebiete in
+Abbildung~\ref{buch:integration:wegintegral:fig:dreiecke}
+der Unterschied der Wegintegrale über die achsparallelen Teile
+und über die gekrümmte Seite durch ein Gebietsintegral 
+ausgedrückt werden.
+Das Integral über $\gamma$ kann wahlweise durch $x$ im Interval
+$[\operatorname{Re}a,\operatorname{Re}b]$ als $x+i\varphi(x)$
+oder durch $y$ im Interval
+$[\operatorname{Im}a,\operatorname{Im}b]$ als $\psi(y)+iy)$
+parametrisiert werden.
+Wir verwenden dazu die gleiche Vorgehensweise wie im vorangegangenen
+Abschnitt, ersetzen aber den Weg $\gamma_2$ durch den Weg
+$\color{darkred}\gamma$, so dass wir das Integral
+\begin{align}
+F
+=
+\int_{\gamma} f(z)\,dz
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(x+i\varphi(x))\cdot(1+i\varphi'(x))\,dx
+=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(\delta_1(x))\cdot\dot{\delta}_1(x)\,dx
+\label{buch:integration:wegintegral:eqn:int1}
+\\
+&=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\psi(y)+iy)\cdot(\psi'(y)+i)\,dy
+=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\delta_2(y))\cdot\dot{\delta}_2(y)\,dy
+\label{buch:integration:wegintegral:eqn:int2}
+\end{align}
+erhalten, wobei
+\[
+\begin{aligned}
+\delta_1(t) &= t+i\varphi(t)
+&&\qquad&
+&\text{mit }\phantom{s}\llap{$t$}\in[\operatorname{Re}a,\operatorname{Re}b]
+\\
+\delta_2(s) &= \psi(s)+is
+&&\qquad&
+&\text{mit }
+s\in[\operatorname{Im}a,\operatorname{Im}b]
+\end{aligned}
+\]
+zwei verschiedene Parametrisierungen der Kurve $\gamma$ sind.
+
+Mit den Funktion $\varphi(t)$ und $\psi(s)$ lassen sich 
+Parametertransformationen durchführen, es gilt nämlich
+\begin{align*}
+\psi(\varphi(t))&=t
+&&\text{und}&
+\varphi(\psi(s))&=s
+\intertext{und daher nach der Kettenregel auch }
+\psi'(\varphi(t)) \varphi'(t) &= 1
+&&\text{und}&
+\varphi'(\psi(s)) \psi'(s) &= 1
+\intertext{oder}
+\psi'(\varphi(t)) &= \frac{1}{\varphi'(t)}
+&&\text{und}&
+\varphi'(\psi(s)) &= \frac{1}{\psi'(s)}.
+\end{align*}
+Mit der Parametertransformation $s=\varphi(t)$ bzw.~$t=\psi(s)$ kann man
+die Teile der Integrale mit Ableitungen der Funktionen $\varphi(t)$
+und $\psi(s)$ in
+\eqref{buch:integration:wegintegral:eqn:int1}
+und
+\eqref{buch:integration:wegintegral:eqn:int2}
+durch
+\begin{align*}
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\varphi(t))\, \varphi'(t)
+\,dt
+&=
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\psi(s)+is)
+\,ds
+\\
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\psi(s)+is)\,\psi'(s)
+\,ds
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\varphi(t))
+\,dt
+\end{align*}
+in solche ohne die Ableitungen von $\varphi(t)$ und $\psi(s)$
+transformieren.
+Nach der Transformation treten die $\varphi'$- und $\psi'$-Terme in den 
+Integranden nicht mehr auf.
+Das Integral bekommt jetzt die Form
+\begin{align}
+F
+=
+\int_\gamma f(z)\,dz
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\varphi(t))
+\,dt
++
+i
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\varphi(t))
+\,
+\varphi'(t))
+\,dt
+\notag
+\\
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\varphi(t))
+\,dt
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\psi(s)+is)
+\,ds.
+\label{buch:integration:wegintegral:eqn:ableitungslos}
+\end{align}
+
+%
+% Wegintegrale über die Randstücke von Dreiseiten
+%
+\subsubsection{Wegintegrale über die Randstücke von Dreiseiten}
+Mit der Formel
+\eqref{buch:integration:wegintegral:eqn:ableitungslos}
+können wir jetzt die Differenz 
+\begin{align*}
+F_1(b) - F
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\operatorname{Im}a)
+\,dt
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+\,ds
+{\color{darkred}\mathstrut-
+F}
+\intertext{der Wegintegrale über die blauen und roten Randteile ohne
+die Terme mit den Ableitungen $\varphi'$ und $\psi'$ als}
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+f(t+i\operatorname{Im}a)
+{\color{darkred}\mathstrut-
+f(t+i\varphi(t))}
+\,dt
+\\
+&\hspace*{3.4cm}
++
+i
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+f(\operatorname{Re}b+is)
+{\color{darkred}\mathstrut-
+f(\psi(y)+is)}
+\,ds
+\intertext{ausdrücken.
+Die Differenzen in den Integranden kann man wie in
+\eqref{buch:integration:wegintegral:achsparallel:eqn:partint}
+als Integral über eine partielle Ableitung ausdrücken.
+So entstehen zwei Doppelintegrale}
+&=
+\int_{\operatorname{Re}a}^{\operatorname{Re}b}
+\int_{\operatorname{Im}a}^{\varphi(t)}
+-
+\frac{\partial f}{\partial y}(t+is)
+\,ds
+\,dt
++
+\int_{\operatorname{Im}a}^{\operatorname{Im}b}
+\int_{\psi(y)}^{\operatorname{Re}b}
+i
+\frac{\partial f}{\partial x}(t+is)
+\,dt
+\,ds.
+\intertext{Die beiden doppelten Integrale erstrecken sich beide
+über das Gebiet $G_1$, sie können daher als ein einziges Doppelintegral}
+&=
+\int_{G_1}
+-
+\frac{\partial f}{\partial y}(t+is)
++
+i
+\frac{\partial f}{\partial x}(t+is)
+\,dt
+\,ds
+\intertext{über das Gebiet $G_1$ geschrieben werden.
+Der Integrand kann als die Wirtinger-Ableitung von $f$
+nach $\bar{z}$ geschrieben werden.
+Damit kann man die Differenz}
+&=
+i
+\int\hspace*{-2mm}\int_{G_1}
+\frac{\partial f}{\partial x}
++
+i
+\frac{\partial f}{\partial y}
+\,dx\,dy
+=
+2i
+\int\hspace*{-2mm}\int_{G_1}
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy
+\end{align*}
+als ein zweifaches Integral über das Gebeit $G_1$ ausdrücken.
+
+Eine analoge Rechnung lässt sich auch für die anderen Gebiete
+$G_i$, $i=2,\dots,4$ durchführen.
+In allen Fällen zeigt sich, dass die Differenz der Integrale
+ein Gebietsintegral der Wirtinger-Ableitung $\partial f/\partial\bar{z}$
+\index{Gebietsintegral}%
+\index{Wirtinger-Ableitung}%
+über das Gebiet ist.
+
+\begin{satz}
+\label{buch:integration:wegintegral:satz:dreiecke}
+Ist $f$ ein holomorphe Funktion $\sigma$ die im Gegenuhrzeigersinn
+orientierte Randkurve eines der Gebiete $G_k$ in der 
+\index{Randkurve}%
+Abbildung~\ref{buch:integration:wegintegral:fig:dreiecke},
+dann ist die Differenz der Wegintegrale über die blauen und
+roten Teile des Randes jeweils
+\begin{equation}
+(-1)^k
+\int_\gamma f(z)\,dz
+=
+2i
+(-1)^k
+\int\hspace*{-2mm}\int_{G_k} 
+\frac{\partial f}{\partial\bar{z}}(x+iy)
+\,dx\,dy.
+\label{buch:integration:wegintegral:eqn:dreiecke}
+\end{equation}
+\end{satz}
+
+\begin{proof}
+Es ist nur noch der Vorzeichenfaktor $(-1)^k$ zu klären.
+Die Differenz der beiden Integrale kann als eine Summe von
+Wegintegralen über die blauen und roten Teile des Randes
+betrachtet wird, wobei der rote Teil in umgekehrter Richtung
+durchlaufen wird.
+So entsteht ein einziges Wegintegral über den Rand des
+Gebiets.
+
+In den Situationen $G_1$ und $G_3$ wird das Gebiet von der
+zusammegesetzten Kurve im Gegenuhrzeigersinn umlaufen, während
+es in den Situationen $G_2$ und $G_4$ im Uhrzeigersinn umlaufen
+wird.
+Indem man die Durchlaufrichtung des zusammengesetzten Weges
+in der Situation $G_2$ und $G_4$ umkehrt, entsteht auch in diesen
+Situationen ein Weg, der das Gebiet im Gegenuhrzeigersinn
+umläuft.
+Das Vorzeichen in
+\eqref{buch:integration:wegintegral:eqn:dreiecke}
+kompensiert die Umkehrung der Durchlaufrichtung des Weges.
+\end{proof}
+
+%
+% Beliebige Wege
+%
+\subsubsection{Beliebige Wege}
+\input{chapters/030-integration/fig/fig-beliebig.tex}
+Wir betrachten jetzt ein Gebiet in der komplexen Ebene, welches
+von einem geschlossenen Weg $\gamma$ berandet wird, wie es in
+Abbildung~\ref{buch:integration:wegintegral:fig:beliebig}
+dargestellt ist.
+Um das Wegintegral berechnen zu können, muss die Randkurve
+$\gamma$ differenzierbar sein.
+Damit lässt sich die Kurve aber auch in Segmente unterteilen,
+die durch umkehrbare Funktionen $\varphi$ und $\psi$ parametrisiert
+werden können.
+Jedes solche Segment ist der gekrümmt Rand eines Dreiseits.
+Es ist aber möglich, dass die achsparallelen Teile des Randes
+des Dreiseits nicht im Gebiet enthalten sind.
+Indem das gekrümmte Randstück des Dreiseits weiter unterteilt
+wird, lassen sich die Randdreiseite soweit verkleinern, dass 
+sich der ganze Rand durch Dreiseite abdecken lassen, die im Gebiet
+enthalten sind.
+
+Die Abbildung~\ref{buch:integration:wegintegral:fig:beliebig}
+zeigt, wie sich der Teil des Gebietes im Inneren der Randdreiseseite
+in Rechtecke zerlegen lässt.
+Damit ist es gelungen, das Gebiet in Dreiseite $H_k$ und Rechtecke $R_l$
+zu zerlegen.
+Das Wegintegral über den Rand jedes dieser Teilstücke kann als ein
+zweifaches Integral über das Gebiet
+\[
+\oint_{\partial H_k} f(z)\,dz
+=
+\int\hspace*{-2mm}\int_{H_k} \frac{\partial f}{\partial\bar{z}}\,dx\,dy
+\quad\text{und}\quad
+\oint_{\partial R_l} f(z)\,dz
+=
+\int\hspace*{-2mm}\int_{R_l} \frac{\partial f}{\partial\bar{z}}\,dx\,dy
+\]
+ausgedrückt werden.
+Die Teilgebietsränder im Inneren des Gebietes werden wie in
+Abbildung~\ref{buch:integration:wegintegral:fig:beliebig}
+durch die halben Pfeile angedeutet immer zweimal in entgegengesetzter
+Richtung durchlaufen.
+Nach Satz~\ref{buch:integration:wegintegral:satz:wegumkehrung}
+bedeutet dies, dass die die Wegintegrale über
+diese Teilstücke entgegengesetzt sind und sich in der Summe wegheben.
+Es folgt, dass
+\begin{align*}
+\oint_{\gamma}f(z)\,dz
+&=
+\sum_k\oint_{\partial H_k} f(z)\,dz
++
+\sum_l\oint_{\partial R_l} f(z)\,dz
+\\
+&=
+\sum_k
+\int\hspace*{-2mm}\int_{\partial H_k}
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy
++
+\sum_l
+\int\hspace*{-2mm}\int_{\partial R_l}
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy
+\\
+&=
+\int\hspace*{-2mm}\int_{G}
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy.
+\end{align*}
+Damit ist der folgende Satz bewiesen.
+
+\begin{satz}[Cauchy]
+\label{buch:integration:wegintegral:satz:cauchy}
+\index{Satz!Cauchy-Integralsatz}%
+\index{Cauchy-Integralsatz}%
+Sei $f$ eine komplexe Funktion mit differenzierbarem Real- und
+Imaginärteil und sei $\gamma$ ein geschlossener, differenzierbarer
+Weg im Definitionsgebiet der Funktion, der das Gebiet $G$ im
+Gegenuhrzeigersinn umläuft.
+Dann gilt
+\begin{equation}
+\oint_\gamma f(z)\,dz
+=
+2i
+\int\hspace*{-2mm}\int_G
+\frac{\partial f}{\partial\bar{z}}
+\,dx\,dy.
+\end{equation}
+Für eine holomorphe Funktion $f$ gilt
+\[
+\oint f(z)\,dz
+=
+0.
+\]
+\end{satz}
+
+
+%
+% Der Satz von Green
+%
+\subsubsection{Der Satz von Green}
+\input{chapters/030-integration/fig/fig-green.tex}%
+Die Aussage von
+Satz~\ref{buch:integration:wegintegral:satz:rechteckintegrale}
+ist ein Spezialfall des sehr viel allgemeineren Satzes von Green.
+
+\begin{satz}[Green]
+\index{Satz!Green}%
+\index{Green, Satz von}%
+\label{buch:integration:wegintegral:satz:green}
+Sei $G\subset\mathbb{R}^2$ ein Gebiet in $\mathbb{R}^2$, welches
+von einer Kurve $\gamma(t)=(x(t),y(t))$ berandet wird.
+Seien ausserdem $f$ und $g$ zwei auf einer Umgebung von $G$ definierte,
+differenzierbare Funktionen.
+Dann gilt
+\[
+\int_{\gamma} f\,dx + g\,dy
+=
+\int_I
+f(x(t),y(t))\,\dot{x}(t)
++
+g(x(t),y(t))\,\dot{y}(t)
+\,dt
+=
+\int_G 
+\frac{\partial g}{\partial x}
+-
+\frac{\partial f}{\partial y}
+\,dx\,dy
+\]
+\end{satz}
+
+\begin{proof}
+Wir beweisen die Aussage des Satzes unter der vereinfachenden Annahme,
+dass der Rand des Gebietes $G$ durch Funktion $\varphi_{\pm}(x)$ und
+$\psi_{\pm}(x)$ wie in
+Abbildung~\ref{buch:integration:wegintegral:fig:green}
+gezeigt, beschrieben werden kann.
+
+Die Differenz der Funktionswerte von $f$ an den Stellen
+$(x,\varphi_+(x))$ und $(x,\varphi_-(x))$ kann als Integral der
+partiellen Ableitung nach $y$ entlang der grünen Linie
+\begin{align*}
+f(x,\varphi_+(x)) - f(x,\varphi_-(x))
+&=
+\int_{\varphi_-(x)}^{\varphi_+(x)} \frac{\partial f}{\partial y}(x,y)\,dy
+\intertext{berechnet werden.
+Analog kann man die Differenz}
+g(\psi_+(y),y) - g(\psi_-(y),y)
+&=
+\int_{\psi_-(y)}^{\psi_+(y)} \frac{\partial g}{\partial x}(x,y)\,dx
+\end{align*}
+schreiben.
+
+Das Wegintegral entlang des Randes ist die Differenz der Integrale
+entlang der verschiedenfarbigen Teile des Randes.
+Die richtige Orientierung verwendet die Vorzeichen wie folgt:
+\begin{equation*}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclcl}
+\displaystyle
+\int_\gamma f\,dx
+&=&
+\displaystyle
+-
+\int_{x_-}^{x_+}
+f(x,\varphi_+(x))
+-
+f(x,\varphi_-(x))
+\,dx
+&=&
+\displaystyle
+-
+\int_{x_0}^{x_1}
+\int_{\varphi_-(x)}^{\varphi_+(x)}
+\frac{\partial f}{\partial y}(x,y)
+\,dy
+\,dx
+\\[10pt]
+\displaystyle
+\int_\gamma g\,dy
+&=&
+\displaystyle
+\phantom{-}
+\int_{y_-}^{y_+}
+g(\psi_+(y),y)
+-
+g(\psi_-(y),y)
+\,dy
+&=&
+\displaystyle
+\phantom{-}
+\int_{y_-}^{y_+}
+\int_{\psi_-(y)}^{\psi_+(y)}
+\frac{\partial g}{\partial x}(x,y)
+\,dx
+\,dy.
+\end{array}
+\end{equation*}
+Die Summe der beiden Gleichungen ergibt die Aussage des Satzes.
+\end{proof}
+
+
+%
+% Wegintegral und Stammfunktion
+%
+\subsubsection{Wegintegral und Stammfunktion}
+Der Satz~\ref{buch:integration:wegintegral:satz:green}
+zeigt, dass es nicht darauf ankommt, welchen Weg man zwischen
+zwei Punkten $a$ und $b$ wählt, solange zwei solche Wege ein
+Teilgebiet des Definitionsgebietes beranden.
+In diesem Fall lässt sich also durch Wegintegration immer eine
+Stammfunktion finden.
+\index{Stammfunktion}%
+Dazu muss es aber zwischen zwei beliebigen Punkten von $U$ einen
+Weg geben.
+
+\begin{definition}[wegzusammenhängend]
+Ein Gebiet $U\subset\Omega$ heisst \emph{wegzusammenhängend}, wenn
+\index{wegzusammenhangend@wegzusammenhängend}%
+es zu je zwei Punkten $a,b\in U$ einen Weg gibt, der $a$ und $b$
+verbindet.
+\end{definition}
+
+Ein Stammfunktion kann jetzt konstruiert werden, indem man einen
+Weg von $a$ nach $b$ wählt und dann die Stammfunktion als das
+Wegintegral
+\[
+F(b)
+=
+\int_\gamma f(z)\,dz
+\]
+definiert.
+Wir müssen uns davon überzeugen, dass verschiedene Wege den gleichen
+Wert $F(b)$ liefern.
+
+Zwei verschiedene Wege $\gamma_1$ und $\gamma_2$
+könnten jedoch zu zwei verschiedenen Werten
+\[
+F_1(b)
+=
+\int_{\gamma_1}f(z)\,dz
+\qquad\text{und}\qquad
+F_2(b)
+=
+\int_{\gamma_2}f(z)\,dz
+\]
+der Stammfunktion Anlass geben.
+Setzt man den Weg $\gamma_1$ mit dem in umgekehrter Richtung
+durchlaufenen Weg $\gamma_2^{-1}$ zusammen, entsteht ein
+geschlossener Weg $\gamma=\gamma_1\cdot\gamma_2^{-1}$.
+Der Unterschied der beiden Werte
+\[
+F_1(b) - F_2(b)
+=
+\int_\gamma f(z)\,dz
+\]
+kann mit Satz~\ref{buch:integration:wegintegral:satz:cauchy}
+berechnet werden, wenn der zusammengesetzte Weg $\gamma$ eine
+Teilmenge von $\mathbb{C}$ berandet, in dem $f$ definiert ist.
+Ist $f$ ausserdem holomorph auf dieser Teilmenge, verschwindet
+die Differenz.
+Für die Definition einer Stammfunktion ist also notwendig, dass
+zwei Wege von $a$ nach $b$ eine Teilmenge von $\mathbb{C}$
+beranden, die im Definitionsgebiet der holomorphen Funktion $f$
+enthalten ist.
+
+\begin{satz}[Stammfunktion]
+\label{buch:integration:wegintegral:satz:stammfunktion}
+\index{Stammfunktion}%
+\index{Satz!Stammfunktion}%
+Sei $U\subset\mathbb{C}$ ein wegzusammenhängendes Gebiet und $a\in U$
+ein Punkt.
+Aussserdem habe $U$ die Eigenschaft, dass für jeden Punkt $b\in U$
+zwei verschiedene Wege, die $a$ und $b$ verbinden, ein offenes Teilgebiet
+von $U$ beranden.
+Dann hat eine holomorphe Funktion $f\colon U\to\mathbb{C}$ eine Stammfunktion
+\[
+F(b)
+=
+\int_\gamma f(z)\,dz,
+\]
+wobei $\gamma$ ein beliebiger Weg ist, der $a$ mit $b$ verbindet.
+\end{satz}

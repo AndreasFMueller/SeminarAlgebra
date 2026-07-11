@@ -1,0 +1,540 @@
+%
+% 23-ueberlagerungen.tex -- Überlagerungen der komplexen Ebene
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Überlagerungen der komplexen Ebene}
+\input{chapters/040-analytisch/fig/fig-wurzel2.tex}
+\input{chapters/040-analytisch/fig/fig-wurzel.tex}
+Die analytische Fortsetzung einer holomorphen Funktion entlang eines
+Weges kann auf Situationen führen, in denen keine widerspruchsfreie
+Definition der Funktion auf dem ganzen Definitionsbereich möglich ist.
+Um trotzdem eine konsistente Definition zu ermöglichen, muss der
+Definitionsbereich angepasst werden.
+Es ist zwar möglich, den Definitionsbereich künstlich zu verkleinern
+und auf einen Teil der Funktion zu verzichten.
+Doch viel befriedigender ist eine Situation, in der eine Überlagerung
+des Definitionsbereichs konstruiert wird, wie dies im Folgenden
+gezeigt werden soll.
+
+%
+% Definitionsbereich für die Wurzelfunktionen
+%
+\subsubsection{Definitionsbereich für die Wurzelfunktionen}
+Die reelle Wurzelfunktion $x\mapsto \!\sqrt{x\mathstrut}$ lässt
+sich in der Polardarstellung $z=r(\cos\varphi+i\sin\varphi)$ einer
+komplexen Zahl durch
+\[
+\!\sqrt{z\mathstrut}
+=
+\!\sqrt{r\mathstrut}
+\Bigl(\cos\frac{\varphi}2+i\sin\frac{\varphi}2\Bigr)
+\]
+zu einer Wurzelfunktion für komplexe Zahlen erweitert werden.
+Die Polardarstellung einer komplexen Zahl ist jedoch nicht eindeutig.
+Das Argument $\varphi$ ist nur bis auf ein Vielfaches von $2\pi$
+festgelget.
+Falls $r$ und $\varphi$ die komplexe Zahl
+$
+z
+=
+r(\cos\varphi+i\sin\varphi)
+$ 
+darstellen, dann gilt auch
+$
+z
+=
+r(\cos(\varphi+2\pi k) + i\sin(\varphi+2\pi k)
+$.
+Die möglichen Werte der Quadratwurzel sind daher
+\begin{align*}
+\!\sqrt{z}
+&=
+\!\sqrt{r\mathstrut}\Bigl(
+\cos\frac{\varphi+2\pi k}{2}
++
+i
+\sin\frac{\varphi+2\pi k}{2}
+\Bigr)
+\\
+&=
+\!\sqrt{r\mathstrut}\Bigl(
+\cos\Bigl(\frac{\varphi}2+\pi k\Bigr)
++
+i
+\sin\Bigl(\frac{\varphi}2+\pi k\Bigr)
+\Bigr)
+\\
+&=
+\!\sqrt{r\mathstrut}
+(-1)^k
+\Bigl(\cos\frac{\varphi}2+i\sin\frac{\varphi}2\Bigr).
+\end{align*}
+Wie erwartet hat jede von $0$ verschiedene komplexe Zahl zwei
+verschiedene Quadratwurzeln, die sich um den Faktor $-1$ 
+unterscheiden.
+
+Die analytische Fortsetzung entlang einer Kurve in der komplexen
+Ebene soll helfen, den Wert der Quadratwurzel so festzulegen,
+dass eine holomorphe Funktion entsteht.
+An der Stelle $z=0$ ist die Quadratwurzel nicht differenzierbar,
+da schon die reelle Wurzelfunktion nicht differenzierbar ist.
+Wir müssen daher den Punkt $z=0$ aus dem Definitionsbereich
+ausschliessen.
+
+Wir betrachten jetzt einen stetigen Weg $\gamma(t)$ in der Menge
+$D=\mathbb{C}\setminus\{0\}$, der auf der positiven reellen
+Achse beginnt.
+Da der Weg nicht durch den Nullpunkt führt, können wir ihn
+auch in der Polardarstellung als
+\[
+\gamma(t)
+=
+r(t)
+\bigl(
+\cos\varphi(t)
++
+i\sin\varphi(t)
+\bigr)
+\]
+mit stetigen Funktionen $r(t)$ und $\varphi(t)$ geschrieben
+werden.
+Da die Kurve auf der positiven reellen Achse beginnt, gilt
+$\varphi(0)=0$.
+Da die Wurzelfunktion $\!\sqrt{x}$ für positive reelle Zahlen $x$
+positiv ist, kann der Wert bei analytischer Fortsetzung entlang
+der Kurve $\gamma(t)$ nur
+\begin{equation}
+\!\sqrt{\gamma(t)}
+=
+\!\sqrt{r(t)}
+\biggl(
+\cos\frac{\varphi(t)}2
++
+i
+\sin\frac{\varphi(t)}2
+\biggr)
+\label{buch:analytisch:fortsetzung:eqn:wurzelfortsetzung}
+\end{equation}
+sein.
+
+Abbildung~\ref{buch:analytisch:fortsetzung:fig:wurzel2} zeigt die
+kreisförmigen Definitionsgebiete\footnote{Der Konvergenzkreis
+einer Potenzreihenentwicklung der Wurzelfunktion um den Mittelpunkt jedes
+dieser kreisförmigen Gebiet würde sich bis zum Nullpunkt erstrecken,
+wo die Wurzelfunktion eine Singularität hat.}
+der analytischen Fortsetzung entlang eines Kreises.
+In jedem Kreisgebiet ist die Wurzelfunktion durch 
+\eqref{buch:analytisch:fortsetzung:eqn:wurzelfortsetzung}
+gegeben.
+Entlang der Kurve nimmt das Argument stetig zu, bis sich im
+blauen Schnittgebiet in der
+Abbildung~\ref{buch:analytisch:fortsetzung:fig:wurzel2}
+der Wert des Arguments um $2\pi$ vergrössert hat.
+Der Wert der Wurzelfunktion wurde aber bei dieser Argumentänderung
+mit $-1$ multipliziert.
+Die analytische Fortsetzung entlang der gelben Kurve führt also
+zu entgegengesetzen und damit widersprüchlichen Werten, je nachdem wie
+oft der Nullpunkt der komplexen Ebene umrundet wurde.
+
+
+
+%
+% Definitionsbereich für die Logarithmusfunktion
+%
+\subsubsection{Definitionsbereich für die Logarithmusfunktion}
+Wir untersuchen das analoge Problem für die Logarithmusfunktion.
+Als Umkehrfunktion der Exponentialfunktion kann sie leicht aus
+der Formel
+\[
+e^z
+=
+e^x(\cos y + i \sin y)
+\]
+abgeleitet werden.
+Ist $e^z=r(\cos\varphi+i\sin\varphi)$ die Polardarstellung einer
+komplexen Zahl, dann muss der Logarithmus $z=x+iy$ die Gleichungen
+\begin{align*}
+r&=e^x,
+&
+\cos y &= \cos\varphi
+&&\text{und}
+\sin y &= \sin\varphi
+\end{align*}
+erfüllen.
+Die erste Gleichung besagt, dass $x=\log r$ die bekannte
+reelle Logarithmusfunktion sein muss.
+Die letzten zwei Gleichungen besagen, dass sich $\varphi$ und $y$
+um ein Vielfaches von $2\pi$ unterscheiden.
+Die Menge der möglichen Logarithmuswerte ist daher
+\begin{equation}
+\{
+\log r
++
+(\varphi
++
+2\pi k)i
+\mid
+k\in\mathbb{Z}
+\}.
+\label{buch:analytisch:fortsetzung:eqn:logfort}
+\end{equation}
+
+Auch im Fall der Logartihmusfunktion muss daher die analytische
+Fortsetzung dazu herangezogen werden, den Wert zu definieren.
+Da der Logarithmus im Nullpunkt nicht differenzierbar ist, müssen
+Wege wieder den Nullpunkt meiden.
+Da die analytische Fortsetzung stetig ist, muss der Logarithmuswert
+\[
+\log\gamma(t)
+=
+\log|\gamma(t)| + i\varphi(t)
+\]
+sein.
+In jedem Punkt gibt es, konsistent mit
+\eqref{buch:analytisch:fortsetzung:eqn:logfort},
+unendlich viele mögliche Werte.
+Der Wert der analytischen Fortsetzung hängt von der Anzahl der
+Umrundungen des Nullpunktes durch den Weg ab.
+
+Wie im Falle der Wurzelfunktion lässt sich die Logarithmusfunktion
+also auf $D=\mathbb{C}\setminus\{0\}$ nicht widerspruchsfrei
+definieren.
+Dazu muss der Definitionsbereich durch die Menge
+\[
+\mathbb{R}^+\times \mathbb{R}
+=
+\{
+(r,\varphi)
+\mid
+r>0
+\}
+\]
+ersetzt werden, der durch die Abbildung
+\[
+\pi
+\colon
+(r,\varphi)
+\mapsto
+r(\cos\varphi+i\sin\varphi)
+\]
+auf $D$ abgebildet werden.
+Über jedem Punkt $z\in D$ sitzen unendlich viele Punkte $p$ mit
+$\pi(p)=z$, die zu den verschiedenen möglichen Werten des Logarithmus
+gehört.
+
+%
+% Universelle Überlagerung von $\mathbb{C}\setminus\{0\}$
+%
+\subsubsection{Universelle Überlagerung von $\mathbb{C}\setminus\{0\}$}
+Die beiden Beispiele der Quadratwurzel und der Logarithmusfunktion
+zeigen zwar, dass es jeweils möglich ist, einen Definitionsbereich
+zu konstruieren, auf dem sich die Funktion widerspruchsfrei definieren
+lässt.
+Für die Konstruktion wird die analytische Fortsetzung ausgehend von 
+einem festen Punkt verwendet.
+In beiden Beispielen kam es darauf an, wie oft der Weg, entlang dem
+die analytische Fortsetzung gebildet wird, den Nullpunkt umrundet.
+Auf die Details des Weges kommt es nicht an.
+Zwei Wege mit den gleichen Endpunkten, die sich ineinander deformieren
+lassen, also homotop sind,
+\index{homotop}%
+führen auf den gleichen Funktionswert.
+
+Für ein allgemeine Definition eines Kandidaten des Definitionsbereichs
+müssen also homotope Pfade zwischen Punkten $p_0$ und $p_1$ innerhalb
+eines Gebiets $B\subset\mathbb{C}$ untersucht werden.
+Wir parametrisieren Pfade mit Parametern aus dem Einheitsintervall
+$I=[0,1]$.
+Eine Homotpie $H$ zwischen zwei Pfaden in $B$ ist ein Abbildung
+\[
+H\colon I\times I\to B
+\qquad\text{mit}\qquad
+\left\{
+\begin{aligned}
+H(t,0) &= \gamma(t) \\
+H(t,1) &= \delta(t) \\
+H(0,s) &= p_0 \\
+H(1,s) &= p_1 
+\end{aligned}
+\right.
+\]
+Die ersten zwei Bedingungen besagen, dass die Homotopie die Kurve
+$\gamma$ in die Kurve $\delta$ deformiert, wenn der Parameter $s$
+von $0$ in $1$ variert wird.
+Die letzten zwei Bedingungen besagen, dass die Endpunkte der Kurven
+während der Deformation mit dem Parameter $s$ fest bleiben.
+Die Menge der zu $\gamma$ homotopen Pfade wird mit $[\gamma]$
+bezeichnet.
+
+\begin{definition}[Universelle Überlagerung]
+Die Menge
+\[
+E
+=
+\{
+[\gamma]
+\mid
+\gamma\colon I\to B
+\text{ mit }
+\gamma(0)=p_0
+\}
+\]
+mit der Abbildung
+\[
+\pi
+\colon
+E\to B
+:
+[\gamma] \mapsto \gamma(1)
+\]
+heisst die
+\emph{universelle Überlagerung}
+\index{universelle Uberlagerung@universelle Überlagerung}%
+\index{Uberlagerung, universelle@Überlagerung, universelle}%
+von $B$.
+Die Abbildung $\pi$ heisst die \emph{Projektion}.
+\index{Projektion}
+\end{definition}
+
+\begin{satz}
+Die Menge $E$ ist zusammenziehbar.
+\end{satz}
+
+\begin{proof}
+Sei $\gamma\colon I \to B$ ein Weg und $s\in I$, dann ist
+\[
+\gamma_s
+\colon
+I \to B
+:
+t \mapsto \gamma_s(t) = \gamma(st)
+\]
+ein Weg in $B$, der in $p_0$ beginnt.
+Die Abbildung
+\[
+H
+\colon
+E\times I \to E
+:
+(\gamma,s)\mapsto \gamma_s
+\]
+ist stetig.
+Für $s=0$ ist $H(\gamma,0)(t) = \gamma_0(t) = \gamma(0\cdot t) = \gamma(0)=p_0$,
+$H(\gamma,0)$ ist also der konstante Weg.
+Für $s=1$ ist $H(\gamma,1)(t) = \gamma_1(t) = \gamma(1\cdot t) = \gamma(t)$.
+$H$ ist also eine Homotopie, die die identische Abbildung mit der konstanten
+Abbildung verbindet.
+Insbendere ist $E$ zusammenziehbar.
+\end{proof}
+
+%
+% Die Fundamentalgruppe
+%
+\subsubsection{Die Fundamentalgruppe}
+Die Pfade in der Menge $\pi_1(B)=\pi^{-1}(p_0)$ können durch die
+Verkettung
+\[
+\gamma\cdot \delta
+\colon
+I\to B
+:
+t
+\mapsto
+(\gamma\cdot\delta)(t)
+=
+\begin{cases}
+\gamma(2t)&\qquad \text{für $0\le t\le \frac12$}\\
+\delta(2t-1)&\qquad \text{für $\frac12\le t\le 1$}
+\end{cases}
+\]
+miteinander verknüpft werden.
+Homotope Kurven haben homotope Verknüpfung.
+
+Die Verknüpfung der Homotopieklassen von Pfaden ist assoziativ.
+Seien $\gamma_1$, $\gamma_2$ und $\gamma_3$ drei Pfade mit Endpunkten
+$p_0$.
+Dann ist
+\begin{align*}
+(\gamma_1\cdot\gamma_2)\cdot\gamma_3
+&\colon
+I
+\to
+B
+:
+t
+\mapsto
+\begin{cases}
+\gamma_1(4t)&\qquad\text{für $0\le t\le \frac14$}\\
+\gamma_2(4t-1)&\qquad\text{für $\frac14\le t\le \frac12$}\\
+\gamma_3(2t-1)&\qquad\text{für $\frac12\le t\le 1$}
+\end{cases}
+\\
+\gamma_1\cdot(\gamma_2\cdot\gamma_3)
+&\colon
+I
+\to
+B
+:
+t
+\mapsto
+\begin{cases}
+\gamma_1(2t)&\qquad\text{für $0\le t\le \frac12$}\\
+\gamma_2(4t-2)&\qquad\text{für $\frac12\le t\le \frac34$}\\
+\gamma_3(4t-3)&\qquad\text{für $\frac34\le t\le 1$}
+\end{cases}
+\end{align*}
+Die Abbildung
+\[
+H\colon I\times I \to B
+:
+(t,s)
+\mapsto
+\begin{cases}
+\gamma_1((4-2s)t)     &\text{für $0\le t\le \frac14(1+s)$}\\
+\gamma_2(4t-1-s)      &\text{für $\frac14(1+s) \le t \le \frac14(2+s) $}\\
+\gamma_3((2+2s)t-1-2s &\text{für $\frac14(2+s) \le t \le 1$}\\
+\end{cases}
+\]
+ist eine Homotopie zwischen 
+$(\gamma_1\cdot\gamma_2)\cdot\gamma_3$
+und
+$\gamma_1\cdot(\gamma_2\cdot\gamma_3)$.
+Damit ist gezeigt, dass die Verkettung von Wegen bis auf Homotopie
+assoziativ ist.
+
+Der konstante Pfad $e(t) = p_0$ erfüllt
+$\gamma\cdot e=e\cdot \gamma = \gamma$, z.~B.~ist 
+\[
+H
+\colon
+I\times I \to B
+:
+(t,s)
+\mapsto
+\begin{cases}
+\gamma((1+s)t) &\qquad\text{für $0\le t \le \frac12(1+s)$}\\
+p_0            &\qquad\text{für $\frac12(1+s)\le t\le 1$}
+\end{cases}
+\]
+ein Homotpie zwischen $\gamma$ und $\gamma\cdot e$.
+Ein ähnliche Homotopie kann konstruiert werden zwischen $e\cdot\gamma$
+und $\gamma$.
+Somit ist der konstante Pfad bis auf Homotpie ein neutrales Element 
+für die Verkettung von Pfaden.
+
+Zu $\gamma\in \pi_1(B)$ ist
+\[
+\gamma^{-1}
+\colon
+I\to B
+:
+t\mapsto \gamma^{-1}(t) = \gamma(1-t)
+\]
+der inverse Pfad mit der Eigenschaft.
+Tatsächlich ist
+\[
+H
+\colon
+I\times I
+\to
+B
+:
+(t,s)
+\mapsto
+\begin{cases}
+\gamma((1-s)2t)    &\qquad\text{für $0\le t\le \frac12$}\\
+\gamma((1-s)(1-2t))&\qquad\text{für $\frac12\le t\le 1$}
+\end{cases}
+\]
+eine Homotpie zwischen $\gamma\cdot\gamma^{-1}$ und dem konstanten
+Weg $e$.
+Damit ist gezeigt, dass die Menge $\pi_1(B)$ eine Gruppe ist.
+
+\begin{definition}[Fundamentalgruppe]
+Die Menge $\pi_1(B)=\pi^{-1}(p_0)$ heisst die Fundamentalgruppe von $B$.
+\end{definition}
+
+\begin{satz}
+Ist $B$ ein zusammenziehbarer Raum, dann ist die Fundamentalgruppe
+$\pi_1(B)=\{e\}$ trivial.
+\end{satz}
+
+\begin{proof}
+Wenn $H\colon B\times I\to B$ eine Homotopie zwischen der identischen
+Abbildung $\operatorname{id}_B\colon B\to B$ und der konstanten Abbildung
+$e(b) = p_0$ und $\gamma$ eine geschlossene Kurve in $B$, dann ist
+\[
+I\times I
+\to
+B
+:
+(t,s)
+\mapsto
+H(\gamma(t),s)
+\]
+eine Homotopie zwischen der Kurve $\gamma$ und der konstanten Kurve $e$.
+Jede Kurve ist damit homotop zum neutralen Element in der Fundamentalgruppe.
+\end{proof}
+
+%
+% Universelle Überlagerung als Definitionsbereich
+%
+\subsubsection{Universelle Überlagerung als Definitionsbereich}
+Die universelle Überlagerung $\pi\colon E \to B$, die auf den
+vorangegangengenen Seiten entwickelt wurde, ist der natürlich
+Definitionsbereich für eine eindeutige holomorphe Funktion.
+In der Diskussion der Wurzel- und der Logarithmusfunktion haben
+wir festgestellt, dass es in jedem Punkt von $B=\mathbb{C}\setminus\{0\}$
+mindestens zwei sinnvolle Funktionswerte für diese Funktionen.
+Ebenso wurde gezeigt, dass die analytische Fortsetzung entlang
+eines geschlossenen Weges um den Nullpunkt von einem möglichen
+Wert zu einem anderen führt.
+
+Die Projektion $\pi\colon E\to B$ bedeutet, dass jeder Punkt $p\in E$
+eine kleine Umgebung, die bijektiv auf eine kleine Umgebung von $\pi(p)$
+abgebildet wird.
+Diese Umgebung in $B$ ist eine offene Menge in $\mathbb{C}$, es ist also
+sinnvoll, von holomorphen Funktionen in einer Umgebung von $\pi(p)$ zu 
+sprechen.
+Die Projektion $\pi$ transportiert diese Struktur auf die Umgebung
+des Punktes $p\in E$.
+Es ist also sinnvoll, die Frage zu stellen, ob eine Funktion
+$E\to \mathbb{C}$ holomorph ist.
+
+Sei jetzt $U\subset B$ eine offene Menge und $f\colon U\to\mathbb{C}$
+eine holomorphe Funktion.
+Ausgehend von einem Punkt $p\in U$ können wir Wege $\gamma$ mit
+Anfangspunkt $p$ und Endpunkt $q$ betrachten und die zugehörige
+analytische Fortsetzung entlang der Kurve bestimmen.
+Da solche Kurven genau die Punkte der Menge $E$ ausmachen, die
+von $\pi$ auf $q$ abgebildet werden, definiert der Wert der
+analytischen Fortsetzung entlang $\gamma$ eine Funktion $E\to \mathbb{C}$.
+Zwei homotope Wege mit Endpunkt $q$ führen zur gleichen 
+analytischen Fortsetzung und damit zum gleichen Funktionswert.
+
+Die Schwierigkeiten der mehrfachen Funktionswerte, die in einem
+Definitionsgebiet mit Löchern wie in $\mathbb{C}\setminus\{0\}$
+entstehen kann, verschwindet für Funktionen in $E$, weil $E$ 
+zusammenziehbar ist.
+Versucht man eine holomorphe Funktion entlang zwei verschiedener
+Wege $\gamma_1$ und $\gamma_2$ von $p$ nach $q$ analytisch fortzusetzen,
+dann muss der gleiche Funktionswert entstehen.
+Die Zusammensetzung $\gamma=\gamma_1\cdot\gamma_2^{-1}$ ist ein
+zusammenziehbarer Weg, daher liefert die analytische Fortsetzung
+entlang $\gamma$ den gleichen Funktionswert am Anfang und am Ende
+der Kurve.
+Die analytische Fortsetzung entlang $\gamma_1$ und $\gamma_2^{-1}$ 
+liefern daher beide den Funktionswert im Punkt $\gamma(\frac12)$.
+
+
+
+
+
+
+
+
+
+
+
+
