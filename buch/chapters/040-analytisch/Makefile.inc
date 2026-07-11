@@ -6,8 +6,7 @@
 
 AUFGABENFILES +=							\
 	chapters/040-analytisch/uebungsaufgaben/401.tex			\
-	chapters/040-analytisch/uebungsaufgaben/402.tex			\
-	chapters/040-analytisch/uebungsaufgaben/403.tex
+	chapters/040-analytisch/uebungsaufgaben/402.tex
 
 CHAPTERFILES += 							\
 	chapters/040-analytisch/1-potenzreihen.tex			\

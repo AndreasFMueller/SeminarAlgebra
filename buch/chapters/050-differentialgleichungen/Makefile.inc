@@ -5,7 +5,8 @@
 #
 AUFGABENFILES +=							\
 	chapters/050-differentialgleichungen/uebungsaufgaben/501.tex	\
-	chapters/050-differentialgleichungen/uebungsaufgaben/502.tex
+	chapters/050-differentialgleichungen/uebungsaufgaben/502.tex	\
+	chapters/050-differentialgleichungen/uebungsaufgaben/503.tex
 
 CHAPTERFILES += 							\
 	chapters/050-differentialgleichungen/1-potenzreihen.tex		\
