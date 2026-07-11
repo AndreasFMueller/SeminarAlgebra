@@ -63,6 +63,13 @@
       <file>buch16-blx.aux</file>
       <file>buch17-blx.aux</file>
       <file>buch18-blx.aux</file>
+      <file>buch19-blx.aux</file>
+      <file>buch20-blx.aux</file>
+      <file>buch21-blx.aux</file>
+      <file>buch22-blx.aux</file>
+      <file>buch23-blx.aux</file>
+      <file>buch24-blx.aux</file>
+      <file>buch25-blx.aux</file>
       <file>buch-blx.bib</file>
     </provides>
     <requires type="dynamic">
@@ -85,6 +92,13 @@
       <file>buch16-blx.bbl</file>
       <file>buch17-blx.bbl</file>
       <file>buch18-blx.bbl</file>
+      <file>buch19-blx.bbl</file>
+      <file>buch20-blx.bbl</file>
+      <file>buch21-blx.bbl</file>
+      <file>buch22-blx.bbl</file>
+      <file>buch23-blx.bbl</file>
+      <file>buch24-blx.bbl</file>
+      <file>buch25-blx.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -124,21 +138,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -168,21 +189,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -212,21 +240,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -256,21 +291,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -300,21 +342,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -344,21 +393,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -388,27 +444,34 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
     </requires>
   </external>
-  <external package="biblatex" priority="5" active="1">
+  <external package="biblatex" priority="5" active="0">
     <generic>bibtex</generic>
     <cmdline>
       <binary>bibtex</binary>
@@ -432,21 +495,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -476,21 +546,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -520,21 +597,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -564,21 +648,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -608,21 +699,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -652,27 +750,34 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
     </requires>
   </external>
-  <external package="biblatex" priority="5" active="1">
+  <external package="biblatex" priority="5" active="0">
     <generic>bibtex</generic>
     <cmdline>
       <binary>bibtex</binary>
@@ -696,21 +801,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -740,21 +852,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -784,21 +903,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -828,21 +954,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -872,21 +1005,28 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
@@ -916,21 +1056,385 @@
       <file>../chapters/references.bib</file>
       <file>../papers/aircraft/references.bib</file>
       <file>../papers/basel/references.bib</file>
-      <file>../papers/beispiel/references.bib</file>
       <file>../papers/elektro/references.bib</file>
       <file>../papers/fresnel/references.bib</file>
       <file>../papers/jordan/references.bib</file>
       <file>../papers/joukowski/references.bib</file>
       <file>../papers/julia/references.bib</file>
       <file>../papers/kepler/references.bib</file>
-      <file>../papers/laplace/references.bib</file>
       <file>../papers/produkt/references.bib</file>
       <file>../papers/qa/references.bib</file>
-      <file>../papers/venn/references.bib</file>
       <file>../papers/weyl/references.bib</file>
       <file>../papers/zeta/references.bib</file>
       <file>../papers/bessel/references.bib</file>
       <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="0">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch19-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch19-blx.aux</file>
+    </input>
+    <output>
+      <file>buch19-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch19-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch19-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="1">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch20-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch20-blx.aux</file>
+    </input>
+    <output>
+      <file>buch20-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch20-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch20-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="1">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch21-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch21-blx.aux</file>
+    </input>
+    <output>
+      <file>buch21-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch21-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch21-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="1">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch22-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch22-blx.aux</file>
+    </input>
+    <output>
+      <file>buch22-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch22-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch22-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="1">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch23-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch23-blx.aux</file>
+    </input>
+    <output>
+      <file>buch23-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch23-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch23-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="0">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch24-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch24-blx.aux</file>
+    </input>
+    <output>
+      <file>buch24-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch24-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch24-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
+    </requires>
+  </external>
+  <external package="biblatex" priority="5" active="1">
+    <generic>bibtex</generic>
+    <cmdline>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
+      <infile>buch25-blx</infile>
+    </cmdline>
+    <input>
+      <file>buch25-blx.aux</file>
+    </input>
+    <output>
+      <file>buch25-blx.bbl</file>
+    </output>
+    <provides type="dynamic">
+      <file>buch25-blx.bbl</file>
+    </provides>
+    <requires type="dynamic">
+      <file>buch25-blx.aux</file>
+      <file>buch-blx.bib</file>
+    </requires>
+    <requires type="editable">
+      <file>../chapters/references.bib</file>
+      <file>../papers/aircraft/references.bib</file>
+      <file>../papers/basel/references.bib</file>
+      <file>../papers/elektro/references.bib</file>
+      <file>../papers/fresnel/references.bib</file>
+      <file>../papers/jordan/references.bib</file>
+      <file>../papers/joukowski/references.bib</file>
+      <file>../papers/julia/references.bib</file>
+      <file>../papers/kepler/references.bib</file>
+      <file>../papers/produkt/references.bib</file>
+      <file>../papers/qa/references.bib</file>
+      <file>../papers/weyl/references.bib</file>
+      <file>../papers/zeta/references.bib</file>
+      <file>../papers/bessel/references.bib</file>
+      <file>../papers/buchberger/references.bib</file>
+      <file>../papers/moebius/references.bib</file>
+      <file>../papers/hauptwert/references.bib</file>
+      <file>../papers/konstruktion/references.bib</file>
+      <file>../papers/gamma/references.bib</file>
+      <file>../papers/pade/references.bib</file>
+      <file>../papers/elliptisch/references.bib</file>
+      <file>../papers/geradlinig/references.bib</file>
+      <file>../papers/hankel/references.bib</file>
+      <file>../papers/step/references.bib</file>
+      <file>../papers/resultante/references.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>
