@@ -6,7 +6,8 @@
 AUFGABENFILES +=							\
 	chapters/060-ratint/uebungsaufgaben/601.tex			\
 	chapters/060-ratint/uebungsaufgaben/602.tex			\
-	chapters/060-ratint/uebungsaufgaben/603.tex
+	chapters/060-ratint/uebungsaufgaben/603.tex			\
+	chapters/060-ratint/uebungsaufgaben/604.tex
 
 CHAPTERFILES += 							\
 	chapters/060-ratint/1-bernoulli.tex				\

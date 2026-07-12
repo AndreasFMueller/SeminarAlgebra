@@ -7,12 +7,15 @@
 \label{buch:ratint:bernoulli:subsection:partialbruch}}
 Der Definitionsbereich einer rationalen Funktion $f(z)=p(z)/q(z)$
 wird durch die Nullstellen des Nenners bestimmt.
-Ein Integral entlang eines Weges, der eine Nullstelle des Nenners
-umläuft, dann ist das Integral durch Funktionswerte und 
-Ableitung in dieser Nullstelle bestimmt.
-Es ist daher naheliegend, die rationale Funktion $f(z)$ in
-einzelne Summanden zu zerlegen, welche jeweils nur eine einzige
-Nullstelle im Nenner haben.
+Bei der Berechnung von Wegintegralen haben wir gelernt, dass es
+dabei vor allem auf die Pole ankommt.
+Im Falle eines rationalen Integranden $f(z)$ geht es also um die 
+Nullstellen des Nenners.
+Da das Integral linear ist, ist es naheliegend zu versuchen,
+die rationale Funktion $f(z)$ in einzelne Summanden zu zerlegen,
+welche jeweils nur eine einzige Nullstelle im Nenner haben.
+Dies leistet die Partialbruchzerlegung, die in diesem Abschnitt
+studiert und noch etwas verfeinert werden soll.
 
 %
 % Divisionsrest abspalten
@@ -35,7 +38,7 @@ a(z)
 \frac{r(z)}{q(z)}
 \]
 aufgeteilt werden.
-Das Polynom $a(z)$ sind holomorph in ganz $\mathbb{C}$ und trägt
+Das Polynom $a(z)$ ist holomorph in ganz $\mathbb{C}$ und trägt
 daher nicht zu Wegintegralen über geschlossene Wege bei.
 Wir wollen daher im Folgenden annehmen, dass $\deg p(z)<\deg q(z)$.
 
@@ -54,7 +57,7 @@ teilbar sein, es gibt also ein Polynom $p^1(z)$ mit der Eigenschaft
 \[
 p^1(z)(z- a) + p( a) = p(z).
 \]
-Der Grad von $p^(z)$ ist $\deg p^1(z) = \deg p(z)-1 < \deg p(z)$.
+Der Grad von $p(z)$ ist $\deg p^1(z) = \deg p(z)-1 < \deg p(z)$.
 Durch wiederholte Anwendung dieses Prozesses entstehen Polynome
 $p^2(z),\dots,p^m(z)$, mit 
 \begin{equation}
@@ -123,8 +126,8 @@ f(z)
 \frac{A_1}{(z- a)^n}.
 \end{align*}
 Wir haben also gezeigt, dass eine rationale Funktion mit Nenner
-$(z- a)^n$ immer geschrieben werden kann als eine Summe
-von Termen der Form $A_k/(z- a)^{n-k}$.
+$(z- a)^n$ immer als eine Summe von Termen der Form $A_k/(z- a)^{n-k}$
+geschrieben werden kann.
 
 %
 % Potenz eines Polynoms im Nenner
@@ -182,7 +185,7 @@ A_m(z)\cdot u(z)^{m-1} + A_{m-1}(z)\cdot u(z)^{m-2}
 +
 A_3(z)\cdot u(z)^2 + A_2(z)\cdot u(z) + A_1(z).
 \end{align*}
-Durch Division durch $u(z)^n$ kann jetzt wieder ein Darstellung
+Durch Division durch $u(z)^n$ kann jetzt wieder eine Darstellung
 \begin{align*}
 f(z)
 &=
@@ -277,6 +280,7 @@ Im vorangegangenen Abschnitt wurde nicht verlangt, dass die Nenner
 $q_k(z)$ irreduzibel sind.
 Insbesondere ist für das Argument zulässig, dass jeder Nenner $q_k(z)$
 ein Potenz $q_k(z) = u_k(z)^{n_k}$ ist.
+Auch $u_k(z)$ muss nicht irreduzibel sein.
 Dann kann der Algorithmus des vorangegangenen Abschnitts auf jeden
 Term auf der rechten Seite von
 \eqref{buch:analytisch:rational:partial:eqn:pksumqk}
@@ -300,12 +304,12 @@ f(z)
 =
 p_0(z)
 +
-\sum_{k=1}^{m_1}
+\sum_{k=1}^{n_1}
 \frac{A_k^1(z)}{q_1(z)^{n_1-k+1}}
 +
 \ldots
 +
-\sum_{k=1}^{m_l}
+\sum_{k=1}^{n_l}
 \frac{A_k^l(z)}{q_l(z)^{n_1-k+1}}
 \]
 mit Polynomen $A_k^r(z)$
@@ -320,33 +324,6 @@ Dies ist mithilfe des euklidischen Algorithmus für Polynome
 sehr leicht festzustellen.
 Irreduzibilität ist dagegen algorithmisch viel schwieriger
 zu etablieren.
-
-%Im Integrationsproblem ermöglicht die Partialbruchzerlegung
-%wegen der Linearität des Integrals, die Aufgabe in separate
-%Integrationsprobleme für rationale Funktionen mit
-%einfacheren Nennern zu zerlegen.
-%Die klassische Methode, die man in der Analysis lernt,
-%geht davon aus, dass sich dank des Fundamentalsatzes der Algebra
-%das Nennerpolynom in Linearfaktoren zerlegen lässt, so dass alle
-%$q_k(z)$ von der Form $z-a_k$ sind.
-%Es müssen dann nur noch Integrale der Form
-%\[
-%\int
-%\frac{A}{(z-a)^n}
-%\,dz
-%=
-%\begin{cases}
-%\displaystyle-\frac{1}{n-1} \frac{A}{(z-a)^{n-1}}&\qquad\text{für $n>1$} \\
-%A\log (z-a)                                      &\qquad\text{für $n=1$}
-%\end{cases}
-%\]
-%bestimmt werden.
-%Die Partialbruchzerlegung löst also mindestens im Prinzip
-%das Integrationsproblem für rationale Funktionen.
-%Leider gibt es für Polynome vom Grad grösser als $5$ im
-%Allgemeinen keine Formel zur Bestimmung der Nullstellen.
-%Somit gibt es für ein Computeralgebrasystem im Allgmeinen
-%keine Möglichkeit, ein Integral auf diesem Weg zu bestimmen.
 
 %
 % Partialbruchzerlegung und lineare Gleichungssysteme
@@ -410,11 +387,11 @@ vereinfacht werden und liefert das Gleichungssystem
 \renewcommand{\arraycolsep}{2pt}
 \renewcommand{\arraystretch}{1.3}
 \begin{array}{rcrcrcrcrcr}
-  A^1_1 & &        &+&  A^2_1 & &       & &        &=&  0\\
- 2A^1_1 &+&  A^1_2 & &        &+& A^2_2 & &        &=&  0\\
-        & & 3A^1_2 &-& 2A^2_1 &-& A^2_2 &+&  A^2_3 &=&  1\\
--2A^1_1 &+& 3A^1_2 & &        &-& A^2_2 &-& 2A^2_3 &=&  0\\
-- A^1_1 &+&  A^1_2 &+&  A^2_1 &+& A^2_2 &+&  A^2_3 &=& -4\\
+  A^1_1 & &        &+&  A^2_1 & &       & &        &=&  0\phantom{.}\\
+ 2A^1_1 &+&  A^1_2 & &        &+& A^2_2 & &        &=&  0\phantom{.}\\
+        & & 3A^1_2 &-& 2A^2_1 &-& A^2_2 &+&  A^2_3 &=&  1\phantom{.}\\
+-2A^1_1 &+& 3A^1_2 & &        &-& A^2_2 &-& 2A^2_3 &=&  0\phantom{.}\\
+- A^1_1 &+&  A^1_2 &+&  A^2_1 &+& A^2_2 &+&  A^2_3 &=& -4.\\
 \end{array}
 \]
 Die Lösung des Gleichungssystems ergibt
@@ -445,15 +422,20 @@ Gleichnamig machen liefert wieder den ursprünglichen Bruch
 \eqref{buch:analytisch:rational:partial:bsp:aufgabe}
 \end{beispiel}
 
+%
+% Stammfunktionen für Partialbrüche
+%
 \subsubsection{Stammfunktionen für Partialbrüche}
-Dank der Partialbruchzerlegung zerfällt in Summanden der Form
+Dank der Partialbruchzerlegung zerfällt der Integrand nach
+\eqref{buch:analytisch:rational:partial:eqn:ansatz}
+in Summanden der Form
 \index{Partialbruchzerlegung}%
 \[
 \frac{A}{(z-\alpha)^l}
 =
 A(z-\alpha)^{-l}.
 \]
-Die Stammfunktion ist
+Die Stammfunktion eines solchen Terms ist
 \begin{equation}
 \int \frac{A}{(z-\alpha)^l} \,dz
 =
