@@ -17,15 +17,29 @@ x^2y'' + p(x)xy' + q(x)y = 0,
 wobei $p(x)$ und $q(x)$ in einer Umgebung von $0$ eine konvergente
 Potenzreihenentwicklung haben.
 
+Die besselsche Differentialgleichung
+\begin{equation}
+x^2 y'' + xy' + (x^2-n^2) y = 0
+\label{buch:differentialgleichungen:fuchs:eqn:besseldgl}
+\end{equation}
+ist von dieser Art.
+Sie ist der Fall einer konstanten Funktion $p(x)=1$ und $q(x)=x^2-n^2$
+ist ein Polynom, sie ist also ein komplexe Differentialgleichung.
+Die besselsche Differentialgleichung wird in Kapitel~\ref{chapter:bessel}
+gelöst.
+Sie tritt bei der Lösung der Wellengleichung in zwei Dimensionen
+immer bei Rotationssymmetrischen Lösungen auf.
+Ihre Lösungen, die Bessel-Funktionen, haben auch sonst in der Technik
+vielfältige Anwendungen.
+
 %
 % Warum Potenzreihen nicht immer reichen
 %
 \subsection{Warum Potenzreihen nicht immer reichen
 \label{buch:differentialgleichungen:fuchs:subsection:warum}}
-
-Schreibt man die Differentialgleichung
+Löst man die Differentialgleichung
 \eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
-in der Form
+nach $y''$ auf, erhält man
 \[
 y''
 =
@@ -34,11 +48,11 @@ y''
 -
 \frac{q(x)}{x^2}y
 \]
-kann man erkennen, dass schon für konstante Funktionen $p(x)$ und
-$q(x)$ die zweite Ableitung $y''$ an der Stelle $x=0$
-eine Singulartität haben muss, die sich mit einer gewöhnlichen
+und kann erkennen, dass schon für konstante Funktionen $p(x)$ und
+$q(x)$ die zweite Ableitung $y''$ an der Stelle $x=0$ eine
+Singulartität haben muss, die sich mit einer gewöhnlichen
 Potenzreihe nicht darstellen lässt.
- man eine physikalische Anwendung an, dann haben
+Nimmt man eine physikalische Anwendung an, dann haben
 $x^2y''$, $xy'$ und $y$ alle die gleiche Masseinheit, so dass
 die Funktionen $p(x)$ und $q(x)$ dimensionslos sein können.
 
@@ -114,8 +128,11 @@ die quadratische Gleichung nie erfüllt, entsprechend müssen
 alle Koeffizienten $a_k=0$ sein und damit ist $y(x)=0$
 die triviale Lösung.
 
+Der Lösungsansatz mit einer Potenzreihe führt also nicht zu einer
+nichttrivialen Lösung.
+
 %
-%
+% Lösungsversuch mit einer verallgemeinerten Potenzreihe
 %
 \subsubsection{Lösungsversuch mit einer verallgemeinerten Potenzreihe}
 Wir versuchen die Differentialgleichung 
@@ -128,7 +145,7 @@ y(x)
 \sum_{k=0}^\infty
 a_k x^{k+\varrho}
 \intertext{zu lösen.
-Die Ableitungen sind}
+Die Ableitungsterme sind}
 p_0xy'(x)
 &=
 \sum_{k=0}^\infty
@@ -141,7 +158,7 @@ x^2y''
 \sum_{k=0}^\infty
 (k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}.
 \end{align*}
-Setzt man dies in die Differentialgleichung ein entsteht
+Setzt man diese in die Differentialgleichung ein, entsteht die Gleichung
 \begin{align*}
 \sum_{k=0}^\infty
 (k+\varrho)(k+\varrho-1)
@@ -175,8 +192,9 @@ Durch Koeffizientenvergleich folgt, dass
 \[
 \bigl((k+\varrho)^2+(p_0-1)(k+\varrho) + q_0\bigr) a_k = 0
 \]
-für alle $k$ sein.
-Wieder folgt, dass hächstens zwei Koeffizienten $a_k$ von $0$
+für alle $k$ sein muss.
+Dies ist eine quadratische Gleichung, es 
+folgt also wieder, dass höchstens zwei der Koeffizienten $a_k$ von $0$
 verschieden sein können, die Lösung müsste also von der Form
 \[
 y(x)
@@ -202,7 +220,9 @@ $p(x)$ und $q(x)$
 \label{buch:differentialgleichungen:fuchs:subsection:nichtkonstant}}
 In diesem Abschnitt lösen wir die Differentialgleichung
 \eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
-für nicht konstanten Koeffizienten
+für nicht konstanten, aber analytischen Koeffizientenfunktionen
+$p(x)$ und $q(x)$.
+Letztere lassen sich also in Potenzreihen
 \[
 p(x)
 =
@@ -212,17 +232,20 @@ p(x)
 \qquad
 q(x)
 =
-\sum_{l=0}^\infty q_lx^l.
+\sum_{l=0}^\infty q_lx^l
 \]
+entwickeln.
 Die Lösung setzen wir in der Form einer verallgemeinerten Potenzreihe
 \[
 y(x)
 =
 \sum_{k=0}^\infty
-a_kx^k
+a_kx^{k+\varrho}
 \]
 an, wobei nach Definition einer verallgemeinerten Potenzreihe $a_0\ne 0$
 sein muss.
+Man beachte aber, dass im Gegensatz zu einer gewöhnlichen Potenzreihe,
+der Koeffizienten $a_0$ nicht der Anfangswert für $x=0$ ist.
 
 \subsubsection{Differentialgleichung und Koeffizientenvergleich}
 Die Einsetzen von $y(x)$ in die Differentialgleichung ergibt
@@ -344,11 +367,10 @@ Bestimmung der Koeffizienten $a_n$ nützlich sein.
 Die Bedingungen~\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
 können jetzt verwendet werden, um alle Koeffizienten $a_n$ für $n>0$
 aus $a_0$ zu bestimmen.
-Dazu spalten wir
-in der Gleichung
+Dazu spalten wir in der Gleichung
 \eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
-für $k=n$
-von den Summen den ersten Term ab und erhalten
+für $k=n$ von den Summen den $a_n$ enthaltenden ersten Term mit $s=0$ ab
+und erhalten
 \begin{equation*}
 (n+\varrho)(n+\varrho+1)
 a_n
@@ -422,6 +444,30 @@ a_{n-s}.
 \end{align}
 Die rechte Seite hängt nur von den Termen $a_0,\dots,a_{n-1}$ ab.
 
+%
+% Lösung
+%
+\subsubsection{Lösung}
+Um die Lösung der Differentialgleichung zu finden, muss jetzt also
+erst die Indexgleichung gelöst werden, um die möglichen Exponenten
+$\varrho$ zu bestimmen.
+Diese zwei Werte werden zwei linear unabhängige Lösungen der
+ursprünglichen Differentialgleichungen ergben.
+
+Dann werden die Rekursionsgleichungen 
+\eqref{buch:differentialgleichungen:fuchs:eqn:rekursionan}
+verwendet, um die Koeffizienten für die Potenzreihe zu bestimmen.
+Dabei werden einzelne Koeffizienten frei gewählt werden können.
+
+Schliesslich können die beiden gefundenen Lösungen linear kombiniert
+werden, um die allgemeine Lösung der Differentialgleichung zu finden.
+Die Anfangs- oder Randbedingungen bestimmen dann die Koeffizienten
+der Linearkombination.
+
+%
+% Nullstellen von F
+%
+\subsubsection{Nullstellen von $F$}
 Die Rekursionsformel
 \eqref{buch:differentialgleichungen:fuchs:eqn:rekursionan}
 offenbart aber noch eine weitere Schwierigkeit.
@@ -430,10 +476,13 @@ die linke Seite von
 \eqref{buch:differentialgleichungen:fuchs:eqn:anrekursion},
 es muss also auch die rechte verschwinden, wenn es eine Lösung
 geben soll.
-Dies auferlegt den Koeffizienten $a_n$ die zusätzliche
-Bedingung
+
+Dies auferlegt die zusätzliche Bedingung
 \[
-\frac{1}{F(n+\varrho)}
+-
+a_n
+F(n+\varrho)
+=
 \sum_{s=1}^n
 \bigl(
 (n-s+\varrho)p_s
@@ -442,7 +491,23 @@ q_s
 \bigr)
 a_{n-s}
 =
-0.
+0,
 \]
+die Koeffizienten können also nicht beliebig gewählt werden.
+
+Das Verschwinden von $F(n+\varrho)$ ist unvermeidlich, wenn sich die
+beiden Nullstellen der Indexgleichung um eine ganze Zahl unterscheiden.
+Für die Differenz $n=\varrho_2-\varrho_1$ der beiden Nullstellen gilt
+dann $F(n+\varrho_1)=F(\varrho_2)=0$.
+In diesem Fall kann es schwierig sein, zwei unabhängige Lösungen zu
+finden.
+
+Bei der Bessel-Gleichung ist es zum Beispiel nicht möglich, 
+zwei unabhängig Lösungen finden, wenn die Lösungen der Indexgleichung
+ganz- oder halbzahlig sind.
+Man findet dann nur die sogenannten Bessel-Funktionen erster Art.
+Erst durch analytische Fortsetzung der Lösungsfunktion um die
+Singularität an der Stelle $x=0$ kann eine linear unabhängige
+Lösungsfunktion gefunden werden, die Bessel-Funktionen zweiter Art.
 
 

@@ -31,8 +31,9 @@ CHAPTERFILES += 							\
 	chapters/040-analytisch/42-cauchyliouville.tex			\
 	chapters/040-analytisch/43-fundamentalsatz.tex			\
 	chapters/040-analytisch/5-argument.tex				\
-	chapters/040-analytisch/51-integral.tex				\
-	chapters/040-analytisch/52-meromorph.tex			\
-	chapters/040-analytisch/53-verallgemeinert.tex			\
+	chapters/040-analytisch/51-argument.tex				\
+	chapters/040-analytisch/52-integral.tex				\
+	chapters/040-analytisch/53-meromorph.tex			\
+	chapters/040-analytisch/54-verallgemeinert.tex			\
 	chapters/040-analytisch/chapter.tex
 
