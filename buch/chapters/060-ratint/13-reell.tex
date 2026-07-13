@@ -9,10 +9,10 @@ eines Polynoms mit komplexen Koeffizienten in Linearfaktoren
 der Form $z-\alpha$, wobei $\alpha$ eine Nullstelle des Polynoms
 ist.
 \index{Fundamentalsatz der Algebra}%
-Dies ist jedoch nur möglich, wenn wenn komplexe Nullstellen zugelassen
+Dies ist jedoch nur möglich, wenn komplexe Nullstellen zugelassen
 werden.
 \index{Nullstelle}%
-Es ist jedoch einfach Polynome anzugeben, die über den reellen Zahlen
+Es ist jedoch einfach, Polynome anzugeben, die über den reellen Zahlen
 nicht in Linearfaktoren zerlegt werden können.
 Das Polynom $p(x)=x^2+1$ hat keine reellen Nullstellen.
 Über den reellen Zahlen ist $p(x)$ ein irreduzibles Polynom.
@@ -47,7 +47,7 @@ Es gilt also $p(\alpha_k)=0$ für alle $k$.
 
 Das Polynom $p(x)$ hat reelle Koeffizienten, die $\bar{a}_k=a_k$
 für alle $k$ erfüllen.
-Daher kann man die Bedinung $p(\alpha_k)=0$ komplex konjugieren
+Daher kann man die Bedingung $p(\alpha_k)=0$ komplex konjugieren
 und bekommt
 \begin{align*}
 0
@@ -95,14 +95,14 @@ Ein Paar von konjugiert komplexen Nullstellen führt auf den Faktor
 \begin{align}
 (z-\alpha)(z-\bar{\alpha})
 &=
-z^2 -(\alpha+\bar{\alpha}) z + \alpha\bar{\alpha}
+z^2 -(\alpha+\bar{\alpha}) z + \alpha\bar{\alpha}.
 \label{buch:ratint:bernoulli:reell:faktoren}
 \intertext{Die Summe konjugiert komplexer Zahlen ist
 \index{konjugiert}%
 $(a+bi)+(a-bi) = 2a $, also das Doppelte des Realteils.
 Daher ist der zu berechnende Faktor}
 &=
-z^2 -2\operatorname{Re}(\alpha)\, z + |\alpha|^2
+z^2 -2\operatorname{Re}(\alpha)\, z + |\alpha|^2.
 \notag
 \end{align}
 Sowohl $\operatorname{Re}\alpha$ und $|\alpha|^2$ sind reell.
@@ -127,7 +127,6 @@ wobei die $\alpha_1,\dots,\alpha_m$ die reellen Nullstellen sind
 und die Faktoren $z^2 +\beta_k z +\gamma_k$ Paare von
 konjugiert komplexen, aber nicht reellen Lösungen haben.
 Damit die rechte Seite den richtigen Grad hat, muss $n=m+2l$ sein.
-\label{buch:ratint:bernoulli:eqn:reellefaktorisierung}
 
 %
 % Reelle Partialbruchzerlegung
@@ -192,7 +191,7 @@ f(z)
 \frac{B_l^1    z + C_1^l    }{ z+\beta_l z + \gamma_l       }
 &+& \ldots &+&
 \displaystyle
-\frac{B_l^{r_l}z + C_l^{r_1}}{(z+\beta_l z + \gamma_l)^{r_l}}
+\frac{B_l^{r_l}z + C_l^{r_1}}{(z+\beta_l z + \gamma_l)^{r_l}}.
 \end{array}
 \label{buch:ratint:bernoulli:eqn:reelle-partialbruchzerlegung}
 \end{equation}
@@ -203,8 +202,8 @@ Darin sind die Zahlen $A_i^k$, $B_i^k$ und $C_i^k$ reelle Zahlen.
 Die Form der Partialbruchzerlegung ist aus der früheren Diskussion,
 die zu Satz~\ref{buch:analytisch:rational:satz:partialbruchzerlegung}
 geführt hat, klar.
-Es muss höchstens noch gezeigt werden, dass diese Zerlegung auch
-eindeutig ist.
+Es muss höchstens noch gezeigt werden, wie diese Zerlegung effizient
+ermittelt werden kann.
 
 Offenbar sind $s_i$ Zahlen $A_i^k$ zu bestimmen, insgesamt also
 $s_1+\dots+s_m$ Unbekannte für Terme zu den Linearfaktoren.
@@ -246,18 +245,18 @@ des Nenners wird im nächsten Abschnitt bestimmt.
 % Stammfunktionen für quadratische Faktoren
 %
 \subsubsection{Stammfunktionen für quadratische Faktoren}
-Möchte man das Integral nur im reellen berechnen, muss man auch 
+Möchte man das Integral nur im Reellen berechnen, muss man auch 
 Partialbrüche der Form
 \begin{equation}
 f(z)
 =
 \frac{Az+B}{(z^2 +\beta z + \gamma)^m}
-\qquad\text{mit $m>1$.}
+\qquad\text{mit $m>1$}
 \label{buch:ratint:bernoulli:eqn:quadrpotnenner}
 \end{equation}
-mit quadratischen Nennern berechnen.
+mit quadratischen Nennern integrieren.
 Dies ist mit wohlbekannten Methoden der klassischen Analysis 
-nötig, wir geben hier nur die Resultate an, die man zum Beispiel
+möglich, wir geben hier nur die Resultate an, die man zum Beispiel
 in \cite[section 2.1]{buch:bronstein} dargestellt finden kann.
 
 Für die Nennerpotenz $m=1$ findet man die Formel
@@ -278,7 +277,7 @@ ausgedrückt werden.
 Im vorliegenden Fall ist dies besonders naheliegend, weil die
 beiden Nullstellen des Nenner konjugiert komplex sind.
 
-Höheren Nennerpotenzen $m>1$ können mit der folgenden Rekursionsformel
+Höhere Nennerpotenzen $m>1$ können mit der folgenden Rekursionsformel
 reduziert werden:
 \begin{align}
 \int 
@@ -331,7 +330,7 @@ möglich.
 Für jeden quadratischen Faktor der Form $q(z)=z^2+\beta z+\gamma$
 sind rationale Terme der Form $t(z) / q(z)^m$ möglich, wobei $t(z)$
 ein lineares Polynom ist und $m$ nicht grösser sein kann als die
-Potenz, in der $q(z)$ im Nnner von $f(z)$ vorkommt.
+Potenz, in der $q(z)$ im Nenner von $f(z)$ vorkommt.
 
 Ausserdem sind Terme der Form
 \[
@@ -341,12 +340,12 @@ Ausserdem sind Terme der Form
 \]
 und
 \[
-\arctan l(z)
+\arctan \zeta(z)
 =
 -\frac{i}{2}\log (\zeta+i)
 +\frac{i}{2}\log (\zeta-i)
 \qquad\text{mit }
-\zeta=\frac{2z+\beta}{\!\sqrt{4\gamma-\beta^2}}
+\zeta(z)=\frac{2z+\beta}{\!\sqrt{4\gamma-\beta^2}}
 \]
 möglich.
 Die Stammfunktion lässt sich also auch in diesem Fall durch
@@ -360,7 +359,7 @@ Die Methode von Bernoulli postuliert, dass die Argumente der
 Logarithmusfunktionen die Linearfaktoren der Nullstellen des
 quadratischen Nenners sind.
 Es ist nicht offensichtlich, dass die Argument $\zeta+i$ und $\zeta-i$
-tatsächlich solche Linearfaktoren sind.
+tatsächlich solche Linearfaktoren des Polynoms $q(z)$ sind.
 Wir multiplizieren die Faktoren daher aus und erhalten
 \begin{align*}
 (\zeta+i)(\zeta-i)

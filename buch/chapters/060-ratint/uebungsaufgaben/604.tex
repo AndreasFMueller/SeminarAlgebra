@@ -1,0 +1,108 @@
+Im Youtube-Video \cite{buch:feynman} wird vorgeschlagen, das Integral
+\[
+\int \frac{x^2}{(1+x^2)^2}\,dx
+\]
+mit der Feynman-Methode zu lösen, die darauf beruht, einen Parameter
+$a$ in das Integral
+\[
+I(a)
+=
+\int \frac{1}{1+ax^2}\,dx
+\]
+einzuführen und dann nach $a$ abzuleiten.
+Durch Integration unter dem Integralzeichen wird daraus
+\[
+I'(a)
+=
+-
+\int \frac{x^2}{(1+ax^2)^2}\,dx,
+\]
+d.~h.~das gesuchte Integral ist $I'(a)$.
+Da
+\[
+I(a)
+=
+\int \frac{1}{1+ax^2}\,dx
+=
+\int \frac{1}{1+(\!\sqrt{a}x)^2}\,\!\sqrt{a}\,dx
+=
+\!\sqrt{a}
+\arctan(\!\sqrt{a}x)
+\]
+ein wohlbekanntes Integral ist, muss man nur noch die Ableitung ausrechnen
+und findet
+\[
+-
+I'(1) = \frac12 \arctan(x) - \frac{x}{2(1+x^2)}.
+\]
+Bestimmen Sie das Integral stattdessen mit dem in diesem Kapitel
+beschriebenen Algorithmus.
+
+\begin{loesung}
+Die quadratfreie Faktorisierung des Nenners ist $q(x)^2$ mit $q(x)=1+x^2$.
+Wir müssen also als erstes die Methode von Hermite anzuwenden, um den
+Exponenten im Nenner zu reduzieren.
+Dazu müssen $s(x)$ und $t(x)$ gefunden werden, so dass
+\[
+\begin{array}{rcrcl}
+s(x)q(x)    &+& t(x)q'(x) &=& x^2 \\
+s(x)(1+x^2) &+& t(x) 2x &=& x^2
+\end{array}
+\]
+gilt.
+Mit dem euklidischen Algorithmus findet man
+\[
+\underbrace{x^2}_{\displaystyle=s(x)}\mathstrut\cdot q(x)
+\underbrace{\mathstrut-\frac{x^3}{2}}_{\displaystyle=t(x)}\mathstrut\cdot q'(x) = x^2
+\]
+und damit
+\begin{align*}
+\int
+\frac{x^2}{(1+x^2)^2}\,dx
+&=
+\int \frac{x^2}{q(x)}\,dx
+-
+\int \frac{x^3}{2} \frac{q'(x}{q(x)^2}\,dx
+\\
+&=
+\int \frac{x^2}{q(x)}\,dx
+-
+\frac{x^3}{2} \frac{-1}{q(x)}
+-
+\int
+\frac{3x^2}{2} \frac{-1}{q(x)}
+\,dx
+\\
+&=
+\frac{x^3}{2(1+x^2)}
+-
+\frac{1}{2}
+\int
+\frac{x^2}{q(x)}\,dx
+\\
+&=
+\frac{x^3}{2(1+x^2)}
+-
+\frac{1}{2}
+\int
+1-
+\frac{1}{q(x)}
+\,dx
+\\
+&=
+\frac{x^3}{2(1+x^2)}
+-
+\frac{x}{2}
++
+\frac12
+\int\frac{1}{1+x^2}\,dx
+\\
+&=
+-
+\frac12
+\frac{x}{1+x^2}
++
+\frac12\arctan x.
+\qedhere
+\end{align*}
+\end{loesung}
