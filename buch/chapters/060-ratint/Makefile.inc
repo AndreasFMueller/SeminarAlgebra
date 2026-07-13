@@ -26,5 +26,7 @@ CHAPTERFILES += 							\
 	chapters/060-ratint/4-rothsteintrager.tex			\
 	chapters/060-ratint/41-residuen.tex				\
 	chapters/060-ratint/42-rt.tex					\
+	chapters/060-ratint/fig/fig-ggz.tex				\
+	chapters/060-ratint/fig/tabular-euklid.tex			\
 	chapters/060-ratint/chapter.tex
 

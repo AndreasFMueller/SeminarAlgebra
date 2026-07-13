@@ -35,5 +35,12 @@ CHAPTERFILES += 							\
 	chapters/040-analytisch/52-integral.tex				\
 	chapters/040-analytisch/53-meromorph.tex			\
 	chapters/040-analytisch/54-verallgemeinert.tex			\
+	chapters/040-analytisch/fig/fig-argument.tex			\
+	chapters/040-analytisch/fig/fig-integral.tex			\
+	chapters/040-analytisch/fig/fig-nichtanalytisch.tex		\
+	chapters/040-analytisch/fig/fig-ring.tex			\
+	chapters/040-analytisch/fig/fig-wurzel.tex			\
+	chapters/040-analytisch/fig/fig-wurzel2.tex			\
+	chapters/040-analytisch/fig/fig-zweipunkte.tex			\
 	chapters/040-analytisch/chapter.tex
 

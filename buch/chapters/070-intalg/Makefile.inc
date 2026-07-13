@@ -39,5 +39,9 @@ CHAPTERFILES += 							\
 	chapters/070-intalg/42-log.tex					\
 	chapters/070-intalg/43-exp.tex					\
 	chapters/070-intalg/44-alg.tex					\
+	chapters/070-intalg/fig/fig-invcis.tex				\
+	chapters/070-intalg/fig/fig-invtan.tex				\
+	chapters/070-intalg/fig/lf.tex					\
+	chapters/070-intalg/fig/polylog.tex				\
 	chapters/070-intalg/chapter.tex
 
