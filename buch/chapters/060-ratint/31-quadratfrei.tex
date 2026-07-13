@@ -34,9 +34,9 @@ n
 (z-\alpha)^n\cdot s'(z)
 =
 (z-\alpha)^{n-1} 
-\cdot (s(z)+(z-\alpha)\cdot s'(z)).
+\cdot \bigl(s(z)+(z-\alpha)\cdot s'(z)\bigr).
 \]
-Für $z=\alpha$ ist der Klammerfaktor
+Für $z=\alpha$ ist der Klammerfaktor ganz rechts
 \[
 s(\alpha) + (\alpha-\alpha)\cdot s'(\alpha)
 =
@@ -62,7 +62,7 @@ q'(z)
 =
 n p(z)^{n-1} \cdot s(z) + p(z)^n \cdot s'(z)
 =
-q(z)^{n-1}\cdot (ns(z) + p(z) s'(z)).
+q(z)^{n-1}\cdot \bigl(ns(z) + p(z) s'(z)\bigr).
 \]
 Der Faktor auf der rechten Seite ist nicht durch $p(z)$ teilbar,
 weil $s(z)$ nicht durch $p(z)$ teilbar ist.
@@ -125,7 +125,7 @@ Wenn ein Polynome $q(z)$ mehrfache Nullstellen hat, dann hat die
 Ableitung die gleichen Nullstellen, aber mit einer um $1$ kleineren
 Ordnung.
 Der grösste gemeinsame Teiler von $q(x()$ und $q'(x)$ besteht
-daher alle Faktoren, die mehr als einmal vorkommen, mit einer
+daher aus allen Faktoren, die mehr als einmal vorkommen, mit einer
 gegenüber $q(z)$ um $1$ verminderten Vielfachheit.
 Im Quotienten
 \[
@@ -149,7 +149,7 @@ q'(z)
 5z^4-4z^3-6z^2+4z+1.
 \]
 Der euklidische Algoritmus liefert als grössten gemeinsamen
-Teiler das Polnom
+Teiler das Polynom
 \[
 g(z)
 =
@@ -189,7 +189,7 @@ gibt.
 Einer davon kommt genau zweimal vor, der andere ist $z-1$ und kommt
 dreimal vor.
 Durch Division $(z^2-1)/(z-1)=z+1$ findet man jetzt, dass $z+1$
-der Faktor ist, der genau zweimal ist.
+der Faktor ist, der genau zweimal enthalten ist.
 Wir haben somit die Faktorisierung
 \[
 q(z)
@@ -261,7 +261,7 @@ mit teilerfremden Faktoren.
 Die Bestimmung der quadratfreien Faktorisierung aus der Zerlegung
 in Linearfaktoren zeigt zwar, dass es eine solche Faktorisierung
 gibt, ist aber kein praktikabler Weg, sie algorithmisch zu bestimmen.
-daher soll in diesem Abschnitt soll die folgende Aufgabe gelöst werden.
+daher soll in diesem Abschnitt die folgende Aufgabe gelöst werden.
 
 \begin{aufgabe}
 Formuliere einen Algorithmus, der zu einem beliebigen rationalen Polynom
@@ -291,7 +291,7 @@ p_{k+1}(z) &= \frac{g_k(z)}{g_{k+1}(z)}.
 Nach Konstruktion sind die Polynom $p_k(z)$ alle quadratfrei.
 Sie enthalten alle Linearfaktoren von $g_k(z)$.
 Nach Konstruktion ist $g_{k+1}(z)$ immer ein echter Teiler von $g_k(z)$.
-Der Grad nimmt daher in jedem Schritt ab.
+Der Grad nimmt in jedem Schritt ab.
 Die Konstruktion bricht daher nach endlich vielen Schritten ab.
 
 In jedem Iterationsschritt nimmt der Exponent der in $g_k(z)$
@@ -313,9 +313,9 @@ Dies beweist den folgenden Satz.
 Sei $q(z)\in K[z]$ ein normiertes Polynom.
 Setze $q_0(z)=q(z)$ und bilde rekursiv die Folgen
 \begin{align*}
-g_k(z) &= \operatorname{ggT}\bigl(g_{k-1}(z),g_{k-1}'(z)\bigr)
+g_k(z) &= \operatorname{ggT}\bigl(g_{k-1}(z),g_{k-1}'(z)\bigr),
 &
-p_k(z) &= \frac{g_{k-1}(z)}{g_k(z)}
+p_k(z) &= \frac{g_{k-1}(z)}{g_k(z)},
 &
 q_k(z) &= \frac{p_k(z)}{p_{k+1}(z)}.
 \end{align*}
@@ -410,7 +410,7 @@ ist.
 Man beachte aber, dass diese Faktorisierung mit $z^2-2$ auch einen Faktor
 enthält, der kein Linearfaktor ist.
 Da $z^2-2 = (z+\!\sqrt{2})(z-\!\sqrt{2})$, gibt es über $\mathbb{Q}$
-gar keine Faktorisierung in Linearfaktoren.
+keine Faktorisierung in Linearfaktoren.
 \end{beispiel}
 
 \begin{beispiel}
