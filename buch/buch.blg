@@ -5,7 +5,7 @@ The style file: biblatex.bst
 I couldn't open database file ../chapters/references.bib
 ---line 9 of file buch.aux
  : \bibdata{buch-blx,../chapters/references
- :                                         ,../papers/aircraft/references,../papers/basel/references,../papers/beispiel/references,../papers/elektro/references,../papers/fresnel/references,../papers/jordan/references,../papers/joukowski/references,../papers/julia/references,../papers/kepler/references,../papers/laplace/references,../papers/produkt/references,../papers/qa/references,../papers/venn/references,../papers/weyl/references,../papers/zeta/references,../papers/bessel/references,../papers/buchberger/references}
+ :                                         ,../papers/aircraft/references,../papers/basel/references,../papers/elektro/references,../papers/fresnel/references,../papers/jordan/references,../papers/joukowski/references,../papers/julia/references,../papers/kepler/references,../papers/produkt/references,../papers/qa/references,../papers/weyl/references,../papers/zeta/references,../papers/bessel/references,../papers/buchberger/references,../papers/moebius/references,../papers/hauptwert/references,../papers/konstruktion/references,../papers/gamma/references,../papers/pade/references,../papers/elliptisch/references,../papers/geradlinig/references,../papers/hankel/references,../papers/step/references,../papers/resultante/references}
 I'm skipping whatever remains of this command
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
