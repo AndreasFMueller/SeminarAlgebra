@@ -2,13 +2,14 @@
 
 \subsection{Ausdruck für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$}
 
-Um den Ausdruck~\eqref{joukowski:auftrieb:auftrieb} weiter aufzulösen, muss die oben eingesetzte Funktion $v(z)$ genauer untersucht werden.
+Um den Ausdruck~\eqref{joukowski:auftrieb:auftrieb} weiter aufzulösen, muss die oben verwendete Funktion $v(z)$ genauer untersucht werden.
 Einige Eigenschaften von $v(z)$ helfen uns dabei einen passenden Ausdruck dafür aufzustellen.
-Wir haben vorausgesetz, dass im Unendlichen die Geschwindigkeit $v(z) = v_\infty \in \mathbb{R}$ ergibt.
+Wir haben vorausgesetz, dass im Unendlichen die ungestörte Anströmungsgeschwindigkeit $v(z) = v_\infty \in \mathbb{R}$ ergibt.
 Zudem muss es laut Beispiel~\ref{buch:integration:wege:bsp:kreisintegral} eine einfache Polstelle im inneren des Flügelprofils haben,
-da sonst das Kontourintegral konstant $0$ wäre,
+da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzeilt werden kann.
-Diese Eigenschaften der Geschwindigkeit $v(z)$ führen dazu, dass die komplex konjugierte Geschwidigkeit $\overline{v(z)}$ als Laurent-Reihe der Form
+Diese beiden Eigenschaften der Geschwindigkeit $v(z)$ führen dazu, 
+dass die komplex konjugierte Geschwidigkeit $\overline{v(z)}$ als Laurent-Reihe der Form
 
 \[
 	\overline{v(z)} 
@@ -17,10 +18,13 @@ Diese Eigenschaften der Geschwindigkeit $v(z)$ führen dazu, dass die komplex ko
 	= 
 	\sum_{k=0}^{\infty} \frac{a_k}{z^k}
 \]
-geschrieben werden kann. Im Allgemeinen sind die Koeffizienten $a_k \in \mathbb{C}$, in dieser Anwendung jedoch beschränken sich die Koeffizienten auf $a_k \in \mathbb{R}$.
-Da die Geschwindigkeit $v(z)$ überall ausser im Punkt $z_0 = 0$ definiert ist, muss auch der Reihenausdruck diese Eigenschaft haben.
-Dies wird zum Beispiel von einer Taylor-Reihe nicht erfüllt, weshalb die Laurent-Reihe gewählt wurde.
+geschrieben werden kann.
 
+Da die Geschwindigkeit $v(z)$ überall ausser im Punkt $z_0 = 0$ definiert ist, muss auch der Reihenausdruck diese Eigenschaft haben.
+Dies wird zum Beispiel von einer Taylor-Reihe nicht erfüllt, da es damit unmöglich ist eine Definitionslücke bei $z_0 = 0$ zu erreichen,
+weshalb die Laurent-Reihe gewählt wurde. Auch der konstante Wert im Unendlichen bereitet der Taylor-Reihe schwierigkeiten.
+
+Im Allgemeinen sind die Koeffizienten $a_k \in \mathbb{C}$, einzelne beschränken sich jedoch auf $a_k \in \mathbb{R}$, wie $a_0$.
 Der Koeffizient $a_0$ entspricht direkt der Geschwindigkeit im Unendlichkeit, weshalb er besser als $v_\infty$ geschrieben werden soll.
 Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit die besser formulierte Reihenentwicklung
 
@@ -235,14 +239,15 @@ der Ausdruck
 	\end{aligned}
 \]
 Für die Auswertung dieses Integrals gibt es für die einzelnen Terme drei verschiedene Auswertungen.
-Der Term $v_\infty r e^{i t} dt$ integriert gibt
+Der Term $v_\infty r e^{i t}$ integriert gibt
 $\biggl[v_\infty r e^{i t}\biggr]_0^{2\pi} = v_\infty r e^{0 \cdot i t} - v_\infty r e^{2\pi \cdot i t}$
 wobei $e^{0 \cdot i t } - e^{2\pi \cdot i t} = 0$ ist.
 Somit leistet er keinen Beitrag.
 
-Alle Terme $\displaystyle\frac{a_k}{r^{k-1} e^{(k-1) \cdot i t}}$ 
+Gleich wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}
+gehen alle Terme $\displaystyle\frac{a_k}{r^{k-1} e^{(k-1) \cdot i t}}$ 
 mit $k \in \mathbb{N}$, $k \geq 2$ 
-gehen beim Grenzübergang des Radiuses $\displaystyle\lim_{r\to \infty}$ gegen $0$.
+beim Grenzübergang des Radiuses $\displaystyle\lim_{r\to \infty}$ gegen $0$.
 Somit leisten auch all diese keinen Beitrag.
 
 Der Einzige Term im Integral, welcher nicht verschwindet ist $a_1$, der zu
@@ -270,5 +275,6 @@ entsteht der Term
 	=
 	-i \rho v_\infty \cdot a_1 2\pi i
 	= \rho v_\infty a_1 2 \pi.
+	\label{joukowski:komplexe-analysis:auftriebskraft-berechnet}
 \end{equation}
 % Ist a_1 elem C, sonst keine auftriebskraft?
