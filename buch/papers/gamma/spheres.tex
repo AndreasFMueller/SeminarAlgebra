@@ -1,6 +1,13 @@
+Wir motivieren anhand des Volumens 
+$n$-Dimensionaler Kugeln die Erweiterung 
+der Fakultät auf reelle Zahlen ($\Gamma$-Funktion).
+Das Aufkommen der Fakultät in der allgemeinen 
+Darstellung des Kugelvolumens erklärt zudem, 
+warum die $\Gamma$-Funktion teilweise Werte 
+mit $\pi$ annimmt.
 
-\section{Kugeln\label{gamma:section:spheres}}
-\kopfrechts{Kugeln}
+\section{Motivation der Gamma-Funktion durch Kugeln\label{gamma:section:spheres}}
+\kopfrechts{Motivation der Gamma-Funktion durch Kugeln}
 
 $\pi$ ist definiert als die Konstante, welche 
 \eqref{gamma-eq:circumference} erfüllt.
@@ -190,20 +197,41 @@ entspricht, siehe \eqref{gamma-eq:const-structure-induction}.
 \end{gather}
 
 Wir sehen, dass $C_n$ ein Faktor von $C_{n+1}$ ist. Die mit dem Volumen assoziierte Konstante 
-scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen.
+scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. Eine Untersuchung des Terms $I_n = \int_{-1}^1 (1- u^2)^{n/2} \,du$ in \eqref{gamma-eq:n-sphere-constant} ergibt eine weitere rekursive Struktur: $I_n = \frac{n}{n+1} I_{n-2}$.
 
-Tatsächlich wird in der Berechnung des Volumens einer Kugel die Fakultät 
-verwendet \eqref{gamma-eq:n-sphere-volume-even}. Diese Definition ist allerdings  
-nur mit geraden Dimensionen möglich, weil die Fakultät nur auf Ganzzahlen definiert ist.
-Mit der $\Gamma$-Funktion lässt sich diese Formel auf beliebige Dimensionen
-anwenden (auch auf nicht ganzzahlige): \eqref{gamma-eq:n-sphere-volume}. 
+\begin{equation}
+\label{gamma-eq:n-sphere-constant}
+    \begin{split}
+        I_n &= \int_{-1}^1 (1- u^2)^{n/2} \,du \\
+        &= \left[ u (1-u^2)^{n/2} \right]_{-1}^{1} - \int_{-1}^1 u \cdot (-nu(1-^2)^{n/2 - 1}) \,du \\
+        &= (0 - 0) - \int_{-1}^1 -nu^2(1-u^2)^{n/2 - 1} \,du \\
+        &= n \int_{-1}^1 u^2 (1 - u^2)^{n/2 - 1} \,du \\
+        &= n \int_{-1}^1 (1 - (1 - u^2)) (1-u^2)^{n/2 - 1} \,du \\
+        &= n \int_{-1}^1 (1 - u^2)^{n/2 - 1} \,du - n \int_{-1}^1 (1-u^2)^{n/2} \,du \\
+        &= n I_{n-2} - n I_n \\
+        (n+1) I_n &= n I_{n-2} \\
+        I_n &= \frac{n}{n+1} I_{n-2} \\
+    \end{split}
+\end{equation}
+
+Mit diesem Wissen lässt sich der konstante Faktor des Volumens einer $n$-Dimensionalen Kugel herleiten als $C_n = C_{n-1} I_{n-1} = C_{n-1} I_{n-1} I_{n-2} = C_{n-1} \frac{1}{n} I_1 I_0$ (siehe \eqref{gamma-eq:n-sphere-constant-2}). Allerdings funktioniert dies nur mit geraden $n$.
+
+
+\begin{equation}
+\label{gamma-eq:n-sphere-constant-2}
+    \text{(für gerade $n$)} \\
+    \begin{split}
+    I_n I_{n-1} &= (\frac{n}{n+1} \cdot \frac{n-2}{n-1} \cdot \ldots \cdot \frac{2}{3} \cdot I_1) \cdot (\frac{n-1}{n} \cdot \frac{n-3}{n-1} \cdot \ldots \cdot \frac{1}{2} \cdot I_0) \\
+    &= \frac{n}{n+1} \cdot \frac{n-1}{n} \cdot \ldots \cdot \frac{2}{3} \cdot  \frac{1}{2} \cdot I_1 I_0 \\
+    &= \frac{n}{n+1} \cdot I_1 I_0
+    \end{split}
+\end{equation}
+
+TODO segway to the following formula:
 
 \begin{equation}
 \label{gamma-eq:n-sphere-volume-even}
-    V_n(r) = \frac{2 \pi^{n/2}}{(\frac{n}{2})!}  r^n
+    V_n(r) = \frac{\pi^{n/2}}{(\frac{n}{2})!}  r^n
 \end{equation}
 
-\begin{equation}
-\label{gamma-eq:n-sphere-volume}
-    V_n(r) = \frac{2 \pi^{n/2}}{\Gamma(\frac{n}{2} + 1)}  r^n
-\end{equation}
+Schön wäre es, das Volumen nicht nur für gerade-Dimensionale Kugeln berechnen können. Dazu müssten wir allerdings die Fakultät auf halbe Zahlen anwenden können.
