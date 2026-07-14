@@ -1,10 +1,70 @@
+%
+% 01_Einleitung.tex -- Historischer Kontext, die drei Gesetze und
+% Zielsetzung der Arbeit
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Die keplerschen Gesetze
+\label{kepler:section:einleitung}}
 
-\section{Einleitung
-  \label{kepler:section:Einleitung}}
+Johannes Kepler formulierte zu Beginn des 17.~Jahrhunderts drei
+Gesetze über die Bewegung der Planeten um die Sonne.
+Er stützte sich dabei auf die Beobachtungsdaten des dänischen
+Astronomen Tycho Brahe.
+Diese Daten waren für die damalige Zeit aussergewöhnlich präzis.
+Die ersten beiden Gesetze veröffentlichte Kepler 1609 in der
+Astronomia Nova \cite{kepler:astronomianova}.
+Das dritte Gesetz fand er erst zehn Jahre später.
+Er publizierte es 1619 in Harmonices Mundi \cite{kepler:harmonices}.
+Die drei Gesetze lauten:
+\begin{enumerate}
+\item
+Die Planeten bewegen sich auf elliptischen Bahnen.
+In einem gemeinsamen Brennpunkt dieser Ellipsen steht die Sonne.
+\item
+Ein von der Sonne zum Planeten gezogener Fahrstrahl überstreicht in
+gleichen Zeiten gleich grosse Flächen.
+\item
+Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich zueinander
+wie die Kuben der grossen Halbachsen ihrer Bahnellipsen.
+\end{enumerate}
+Kepler gewann diese Gesetze rein empirisch aus den Beobachtungsdaten.
+Eine physikalische Begründung gelang erst Isaac Newton.
+Er zeigte 1687 in seinen Principia \cite{kepler:principia}, dass alle
+drei Gesetze aus dem Gravitationsgesetz folgen.
 
-Johannes Kepler veröffentlichte im frühen 17. Jahrhundert die Gesetze der Planetenbahnen, welche den Grundstein für die heutige Astronomie legten. Kepler stützte seine Erkenntnisse auf die Auswertung der Beobachtungsdaten von Tycho Brahe. Erst viele Jahrzehnte später gelang es Isaac Newton, eine  physikalische Begründung für diese Gesetze zu finden.
+Diese Arbeit leitet das dritte Gesetz mathematisch aus dem
+Gravitationsgesetz her.
+Die ersten beiden Gesetze beschreiben die Bahn eines einzelnen
+Planeten.
+Das dritte Gesetz vergleicht dagegen verschiedene Planeten
+miteinander.
+Es besagt: der Quotient $T^2/a^3$ hat für alle Körper um dasselbe
+Zentralgestirn denselben Wert.
+Dabei ist $T$ die Umlaufzeit und $a$ die grosse Halbachse der Bahn.
+In Lehrbüchern wird das Gesetz meist nur für Kreisbahnen hergeleitet.
+Für Kreisbahnen genügt nämlich ein einfaches Kräftegleichgewicht.
+Reale Planetenbahnen sind aber Ellipsen.
+Für Ellipsen führt die Berechnung der Umlaufzeit auf ein reelles
+Integral.
+Dieses Integral lässt sich mit elementaren Mitteln nur mühsam
+auswerten.
+Elementare Zugänge ohne komplexe Analysis finden sich zum Beispiel
+bei Vogt \cite{kepler:vogt}.
 
-Das Haupotthema dieser Arbeit ist die exakte mathematische Herleitung des Dritten Keplerschen Gesetzes. Dieses Gesetz beschreibt den Zusammenhang zwischen der Umlaufzeit eines Planeten und der Grösse seiner Bahn (der grossen Halbachse). Vielfach beschränkt man sich bei der Herleitung oft auf den Spezialfall von Kreisbahnen. Da reale Planetenbahnen jedoch keine Kreise, sondern Ellipsen beschreiben, reicht diese vereinfachte Betrachtung für einen allgemeinen Beweis nicht aus.
-
-Die Herleitung Unterteilen wir in drei Schritte:
- Zunächst werden das erste und zweite Keplersche Gesetz als notwendige physikalische Voraussetzungen formuliert. Anschliessend wird die gängige Herleitung für Kreisbahnen durchgeführt. Im letzten Schritt wird der vereinfachte Ansatz der Kreisbahn durch die allgemeingültigen Ellipsenbahn ersetzt. Die Herleitung machen wir durch die komplexe Integration der Bewegungsgleichungen.
+Wir gehen einen anderen Weg und lösen das Integral mit komplexer
+Integration.
+Die nötigen Methoden wurden im ersten Teil dieses Buches entwickelt.
+Abschnitt~\ref{kepler:section:grundlagen} stellt zuerst die
+geometrischen und physikalischen Grundlagen bereit.
+Dort leiten wir die Umlaufzeit als Integral über den Polarwinkel her.
+Abschnitt~\ref{kepler:section:kreisbahn} behandelt den Spezialfall der
+Kreisbahn.
+Er dient später als Kontrolle für das allgemeine Resultat.
+In Abschnitt~\ref{kepler:section:komplex} verwandeln wir das Integral
+in ein Wegintegral über den komplexen Einheitskreis.
+Dieses Wegintegral werten wir mit der Cauchy-Formel für Ableitungen
+aus.
+Zum Schluss prüfen wir das Resultat an realen Bahndaten von Planeten
+und einem Kometen.
