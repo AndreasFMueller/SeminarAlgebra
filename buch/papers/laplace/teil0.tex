@@ -6,28 +6,32 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Motivation (Noel) \label{laplace:section:teil0}}
+
+% TODO: tendenziell \delta als reeallteil von s durch \sigma ersetzten
+
+\section{Die Laplace-Transformation \label{laplace:section:teil0}}
 \kopfrechts{Teil 0}
 
 %\subsection{Laplacetransformation}
-Die Laplace-Transformation ist eine Integral-Transformation von der Form
+Die Laplace-Transformation ist eine \textbf{lineare} Integral-Transformation von der Form
 \begin{equation}
 F(s) = \mathcal{L}\{f(t)\} = \int_{0}^{\infty} f(t) \, e^{-st} \, \mathrm{d}t ,
 %\label{Laplace:teil0:Laplacetransformation}
 \end{equation}
-wobei $f(t)$ die zu transformierende Zeitfunktion ist ($f$ ist meistens Real) und $s$ ein Parameter der Transformation aus dem Komplexen Zahlenraum.
+wobei $f(t)$ die zu transformierende Zeitfunktion ist ($f$ ist meist reellwertig) und $s$ ein Parameter der Transformierten aus der komplexen Zahlenebene.
 Der Real- und Imaginärteil von $s$ wird meistens mit $\delta$ und $\omega$ abgekürzt.
-Somit repräsentiert mit $e^{-st} = e^{\delta t} \cdot e^{i \omega t}$ im Integral $\delta$ eine Abklingkonstante und $\omega$ eine Kreisfrequenz mit der auf Orthogonalität mit $f$ geprüft wird.
-Des weiteren bildet $F(s)$ die Laplace-Transformierte.
+Durch Zerlegung $e^{-st} = e^{\delta t} \cdot e^{i \omega t}$ lässt sich $\delta$ als Abklingkonstante und $\omega$ als eine Kreisfrequenz interpretieren mit der auf Orthogonalität mit $f$ geprüft wird.
+Zudem bildet $F(s)$ die Laplace-Transformierte.
 
 
-Bei der Laplace-Transformierten $F(s)$ spricht man von einer Funktionen im Bildbereich die mit einer Funktion $f(t)$ in Korrespondenz steht.
-Dabei spricht man $f(t)$ Korrespondiert mit $F(t)$.
-Diese Korrespondenz wird mit einem "Hantelsymbol" geschrieben so dass $f(t) \laplacecorr F(s)$ oder $F(s) \invlaplacecorr f(t)$ Symbol ausgedrückt.
+Bei der Laplace-Transformierten $F(s)$ spricht man von einer Funktion im Bildbereich, die mit einer Funktion $f(t)$ in Korrespondenz steht.
+Man sagt dabei, $f(t)$ korrespondiert mit $F(s)$.
+Diese Korrespondenz wird durch ein Hantelsymbol ausgedrückt: $f(t) \laplacecorr F(s)$.
+
 
 Als Beispiel wird die Funktion $f(t) = e^{\alpha t}$ transformiert.
-$\alpha$ kann dabei beliebig Komplex sein, solange das Integral konvergiert.
-Dies ist garantiert mit $\mathrm{Re}\{\alpha\} < \delta$.
+$\alpha$ kann dabei beliebig komplex sein, solange das Integral konvergiert.
+Dies ist sichergestellt, wenn $\mathrm{Re}\{\alpha\} < \delta$.
 Eingesetzt ergibt das
 \begin{equation}
 	\begin{aligned}
@@ -36,29 +40,31 @@ Eingesetzt ergibt das
 	\end{aligned}
 	\label{Laplace:teil0:exp beispiel}
 \end{equation} 
-Somit ist auch klar, dass $\mathcal{L}^{-1}\{\frac{1}{s - \alpha}\} = e^{\alpha t}$ ergibt.
+Somit ist auch klar, dass $\mathcal{L}^{-1}\{\frac{1}{s - \alpha}\} = e^{\alpha t}$ ist.
 Wir haben also die erste Korrespondenz,
 \begin{equation}
 	e^{\alpha t} \laplacecorr \frac{1}{s - \alpha},
+	\label{Laplace:teil0:exp korrespondenz}
 \end{equation}
 aufgestellt.
-Kern dieses Kapitels ist es, solche Korrespondenzen, durch die Laplace-Umkehrformel, auch genannt Bromwich-Integral, durch spezielle Konturen aufzustellen.
+Später in diesem Kapitel werden solche Korrespondenzen, mittels der Laplace-Umkehrformel, auch genannt Bromwich-Integral, durch spezielle Konturen aufgestellt.
+Weitere Korrespondenzen findet man in speziellen dafür vorgesehenen  Korrespondenztabellen, die leicht im Internet gefunden werden können.
 
 Breite Anwendung findet die Laplace-Transformation vor allem dadurch, dass sie Ableitungen in algebraische Ausdrücke umwandeln kann.
 Dadurch können sonst schwierige Differentialgleichungen vereinfacht oder direkt gelöst werden.
-Dies kann einfach gezeigt werden indem die nach der Zeit abgeleitete Funktion $f'(t)$ eingesetzt und anschliessend durch Partielle Integration integriert wird.
+Dies kann einfach gezeigt werden, indem die zeitliche Ableitung $f'(t)$ eingesetzt und anschliessend durch Partielle Integration integriert wird.
 Dadurch wird aus
 \begin{equation}
 	\mathcal{L}\{f'(t)\} = \int_{0}^{\infty} f'(t) \, e^{-st} \, \mathrm{d}t,
 	%\label{Laplace:teil0:integral ableitung laplacetransformation}
 \end{equation}
-wobei $f(t)$ die Stammfunktion von $f'(t)$ $f$ ist,
+wobei $f(t)$ die Stammfunktion von $f'(t)$ ist,
 \begin{equation}
 	\mathcal{L}\{f'(t)\} = \left. e^{-st} f(t) \, \right|_{t=0}^{t=\infty} - 
 	\int_{0}^{\infty} f(t) \, (-s \, e^{-st}) \, dt.
 	%\label{Laplace:teil0:partielle Integration}
 \end{equation}
-Mit der Mit der Annahme, dass $\mathrm{Re}\{e^{-st}\} = e^{-\delta}$ stärker abschwächt, als $f(t)$ wächst, wird der erste Term gegen $0 - f(0^+)$ konvergieren. % TODO: konvergenz mit 0^+ kontrollieren
+Unter der Annahme, dass der Term $\mathrm{Re}\{e^{-st}\} = e^{-\delta}$ stärker abschwächt, als $f(t)$ wächst, wird der erste Term gegen $0 - f(0^+)$ konvergieren. % TODO: konvergenz mit 0^+ kontrollieren
 Der Zweite Term ist wiederum die normale Laplace-Transformation mit dem Vorfaktor $s$. 
 Dadurch ergibt sich
 \begin{equation}
@@ -68,17 +74,52 @@ Dadurch ergibt sich
 	\end{aligned}
 	\label{Laplace:teil0:ableitung laplacetransformation}
 \end{equation}
-Somit ergibt sich als erste Korrespondenz 
+Wir haben als weitere Korrespondenz 
 \begin{equation}
 	f'(t) \laplacecorr sF(s) - f(0^+).
 	%\label{Laplace:teil0:ableitung korrespondenz}
 \end{equation}
-Die Ableitung Korrespondiert nun, sofern $f(0^+)$ bekannt ist, mit einem algebraischen Ausdruck. 
+Die Ableitung korrespondiert nun, sofern $f(0^+)$ bekannt ist, mit einem algebraischen Ausdruck. 
 Ableitungskorrespondenzen höheren Grades können einfach durch erneute  Substitution von $ f(t)$ mit $f'(t)$ in Gleichung \ref{Laplace:teil0:ableitung laplacetransformation} gefunden werden.
 Dabei ergibt sich für die n-te Ableitung
 \begin{equation}
 	f^{(n)}(t) \laplacecorr s^{n}F(s) - s^{n-1}f(0^+) - s^{n-2}f'(0^+) - \dotsc - f^{(n-1)}(0^+).
 \end{equation}
 
-An 
+Als Beispiel wird nun eine einfache gewöhnliche  Differentialgleichung 
+2.Grades mit gegebenen Anfangsbedingungen gelöst.
+Dabei wird auf die Gleichung
+\begin{equation}
+	y''(t) - y(t) = 0
+\end{equation}
+der Laplace-Operator angewendet. Mit $Y(s) = \mathcal{L}\{y(t)\}$ sowie den Anfangsbedingungen $y(0) = 0$ und $y'(0) = 1$ erhält man dann
+\begin{equation}
+	\begin{aligned}
+		0 &= s^2 Y(s) - s y(0^+) - y'(0^+) - Y(s) \\
+		0 &= s^2 Y(s) - 0 - 1 - Y(s)\\
+		Y(s) &= \frac{1}{s^2 - 1}\\
+		Y(s) &= \frac{1}{(s-1)(s+1)}\\
+		Y(s) &= \frac{\tfrac{1}{2}}{s-1} + \frac{-\tfrac{1}{2}}{s+1}.
+	\end{aligned}
+	\label{Laplace:teil0:DGL bildbereich}
+\end{equation}
+Dabei wurde im letzten Schritt eine Partialbruchzerlegung vorgenommen.
+Die zwei rechten Terme erkennen wir bereits aus der ersten Korrespondenz \ref{Laplace:teil0:exp korrespondenz}.
+Aufgrund der Linearität des Laplace-Operators bildet, 
+mit der auf Gleichung \ref{Laplace:teil0:DGL bildbereich} angewendeten Laplace-Inversion, $y(t)$ im Zeitbereich eine Summe der einzelnen Korrespondenzen. Als Lösung der Differentialgleichung ergibt sich dadurch 
+\begin{equation}
+	 y(t) = \frac{1}{2} e^{t} - \frac{1}{2} e^{-t}.
+\end{equation}
 
+\section{Wärmeleitgleichung als Leitbeispiel für die Laplace-Inversion}
+Als motivierendes Leitbeispiel für die in diesem Kapitel behandelten Inversionstechniken betrachten wir die eindimensionale Wärmeleitungsgleichung. Suchen wir die räumlich-zeitliche Temperaturentwicklung $u(x,t)$ in einem homogenen Medium mit der Temperaturleitfähigkeit $\alpha$, so lautet die zugrundeliegende partielle Differentialgleichung:
+\begin{equation}
+    \frac{\partial u(x,t)}{\partial t} = \alpha \frac{\partial^2 u(x,t)}{\partial x^2}.
+\end{equation}
+Wenden wir die Laplace-Transformation bezüglich der Zeitvariable $t$ an und gehen von einer homogenen Anfangsbedingung $u(x,0) = 0$ aus, landen wir im Bildraum unmittelbar bei einer gewöhnlichen Differentialgleichung:
+\begin{equation}
+    s U(x,s) = \alpha \frac{\partial^2 U(x,s)}{\partial x^2}.
+\end{equation}
+Die formale Lösung dieser Gleichung lässt sich in Abhängigkeit der räumlichen Randbedingungen zwar in geschlossener Form angeben. Sie führt jedoch charakteristischerweise auf Ausdrücke, die gebrochene Potenzen wie $\sqrt{s/\alpha}$ oder Hyperbelfunktionen mit der Wurzel der komplexen Frequenz enthalten.
+
+Genau hier offenbart sich das methodische Problem. Diese resultierende Funktion $U(x,s)$ weist komplexe Singularitätenstrukturen auf. Typischerweise treten unendlich viele Polstellen oder Verzweigungspunkte auf. Eine direkte Rücktransformation durch bloße Umformung oder elementare Partialbruchzerlegung ist in diesen Fällen prinzipiell ausgeschlossen. Um aus $U(x,s)$ die physikalisch aussagekräftige Temperaturverteilung $u(x,t)$ zu rekonstruieren, genügen die Ansätze der elementaren Systemtheorie nicht mehr. Vielmehr wird deutlich, dass zur exakten analytischen Lösung derartiger partieller Differentialgleichungen zwingend fortgeschrittene Methoden der komplexen Analysis herangezogen werden müssen. In den folgenden Abschnitten werden wir sehen, wie die systematische Auswertung von Integralen in der komplexen Ebene den Schlüssel zur Überwindung dieser analytischen Hindernisse bildet.
