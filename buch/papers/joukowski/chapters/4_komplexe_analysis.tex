@@ -1,4 +1,5 @@
 \section{Komplexe Analysis}
+\label{joukowski:sec:komplexe-analysis}
 
 \subsection{Ausdruck für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$}
 
@@ -38,8 +39,8 @@ nicht erfüllt, da es ausschliesslich aus den Termen
 	k \in [0, \infty)
 \]
 besteht und somit unmöglich ist, eine Definitionslücke bei $z_0 = 0$ zu erreichen.
- 
-Auch das wiederspiegeln des konstanten Wertes im Unendlichen ist nur dank den Termen
+
+Auch das ausdrücken des konstanten Wertes im Unendlichen ist nur dank den Termen
 \[
 	\frac{a_k}{z^k},
 	\quad
@@ -54,9 +55,8 @@ welche alle die Eigenschaft
 	0
 	\label{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
 \end{equation}
-aufweisen,
-möglich.
-Auch das kann mit Taylor-Reihe so nicht erreicht werden.
+aufweisen, möglich.
+Auch das kann mit Taylor-Reihe so nicht erreicht werden, da diese für belibig grosse Werte von $|z|$ nicht gegen $0$ konvergieren.
 
 Bei der allgemeinen Form der Laurent-Reihe sind die Koeffizienten $a_k \in \mathbb{C}$.
 In dieser Anwendung beschränken sich jedoch einzelne Koeffizienten auf $a_k \in \mathbb{R}$, wie das bei $a_0$ der Fall ist.
@@ -214,7 +214,7 @@ Für die Auswertung von $\Lambda$
 aus der Gleichung~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} können wir ausnutzen,
 dass nicht um die Kontour des Flügelprofils direkt integriert werden muss,
 sondern dass jeder Weg, welcher das Flügelprofil komplett umschliesst, dasselbe Resultat gibt.
-Dies kann so nur angewendet werden, da die Funktion Holomorph ist.
+Dies kann so nur angewendet werden, da der Integrand von $\Lambda$ holomorph ist.
 Wir wählen als Weg den Kreis mit Zentrum bei $z_0 = 0$ und mit Radius $r$.
 Dafür muss jetzt die Definition~\ref{buch:integration:definition:definition:wegintegral} des Wegintegrals verwendet werden.
 Wir wählen dafür die Funktion 
@@ -298,9 +298,9 @@ periodisch ist, ist daher
 	k \neq 0.
 	\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
 \end{equation}
-Dies geschieht für Alle Terme des Integrals, weshalb es gesamthaft keinen Beitrag leistet.
 
 \begin{proof}
+	\label{joukowski:komplexe-analysis:proof:integral-e-hoch-kit}
 	Wir berechnen das Integral
 	\[
 		\displaystyle\int_{0}^{2\pi}
@@ -345,29 +345,24 @@ Dies geschieht für Alle Terme des Integrals, weshalb es gesamthaft keinen Beitr
 		2\pi.
 	\]
 	Damit gilt die Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit} als Bewiesen.
-	
 \end{proof}
 
-des Radiuses $\displaystyle\lim_{r\to \infty}$ durchführen.
-Weil jeder Term der Gleichung~\eqref{joukowski:komplexe-analysis:parametrisiertes-lambda} 
-ein $r$ der Ordnung $1$ bis $n$ im Nenner hat,
-gehen alle gegen $0$.
+Aus der Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit} folgt direkt, dass $\Lambda = 0$ sein muss.
 
-Somit folgt, dass $\Lambda = 0$ sein muss.
-Der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} verkleinert sich zur Form 
+Somit verkleinert sich der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} zur Gleichung 
 \[
-	F' = -i \rho v_\infty \Gamma,
+F' = -i \rho v_\infty \Gamma,
 \] 
 welche als \emph{Satz von Kutta-Joukowski} gilt.
 
 \begin{satz}[Satz von Kutta-Joukowski]
 	\label{joukowski:komplexe-analysis:satz:kutta-joukowski}
-	Der Satz von Kutta-Joukowski beschreibt die Proportionalität zwischen der komplexen Kraft und der Zirkulation,
+	Der \emph{Satz von Kutta-Joukowski} beschreibt die Proportionalität zwischen der komplexen Kraft und der Zirkulation,
 	und hat die Form
 	\[
-		F'
-		=
-		-i \rho v_\infty \Gamma.
+	F'
+	=
+	-i \rho v_\infty \Gamma.
 	\]
 \end{satz}
 
@@ -407,19 +402,21 @@ der Ausdruck
 		dt.
 	\end{aligned}
 \]
-Für die Auswertung dieses Integrals gibt es für die einzelnen Terme drei verschiedene Auswertungen.
-Der Term $v_\infty r e^{i t}$ integriert gibt
-$\biggl[v_\infty r e^{i t}\biggr]_0^{2\pi} = v_\infty r e^{0 \cdot i t} - v_\infty r e^{2\pi \cdot i t}$
-wobei $e^{0 \cdot i t } - e^{2\pi \cdot i t} = 0$ ist.
-Somit leistet er keinen Beitrag.
+Für die Auswertung dieses Integrals gibt es für die einzelnen Terme zwei verschiedene Auswertungen.
+Die Terme
+\[
+	v_\infty r e^{i t}
+	\quad
+	\text{und}
+	\quad
+	\frac{a_k}{r^{k-1} e^{(k-1) \cdot i t}},
+	\quad
+	k \in [2, \infty)
+\]
+sind alle gleicher Art wie bei der Berechnung von $\Lambda$ in der Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit},
+weshalb alle durch die Integration zu $0$ reduziert werden.
 
-Gleich wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}
-gehen alle Terme $\displaystyle\frac{a_k}{r^{k-1} e^{(k-1) \cdot i t}}$ 
-mit $k \in \mathbb{N}$, $k \geq 2$ 
-beim Grenzübergang des Radius $\displaystyle\lim_{r\to \infty}$ gegen $0$.
-Somit leisten auch all diese keinen Beitrag.
-
-Der Einzige Term im Integral, welcher nicht verschwindet, ist $a_1$, der zu
+Der einzige Term im Integral, welcher nicht verschwindet, ist $a_1$, der zu
 \[
 	i\displaystyle\int_{0}^{2\pi}
 	a_1
@@ -438,7 +435,7 @@ Somit gilt
 Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt ausrechnen.
 Durch das Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
 in Satz~\ref{joukowski:komplexe-analysis:satz:kutta-joukowski}
-entsteht der Term
+erhalten wir den Term
 \begin{equation}
 	F'
 	=
@@ -446,4 +443,21 @@ entsteht der Term
 	= \rho v_\infty a_1 2 \pi.
 	\label{joukowski:komplexe-analysis:auftriebskraft-berechnet}
 \end{equation}
-% Ist a_1 elem C, sonst keine auftriebskraft?
+Somit zeigt sich, dass nur ein Koeffizient der Laurent-Reihe, 
+ausser die von uns vorgegebene Geschwindigkeit im Unendlichen $v_\infty$, 
+einen Beitrag an der komplexen Kraft leistet, nämlich $a_1$.
+Das heisst, dass dieser Koeffizient direkt bestimmt, 
+ob eine reine Auftriebskraft resultiert, so wie wir das von unseren Voraussetzungen im Kapitel~\ref{joukowski:sec:voraussetzungen} erwarten.
+Oder ob zusätzlich noch einen Luftwiderstand sich bemerkbar macht.
+
+Wir erwarten eine reine Auftriebskraft, was bedeutet, dass
+\[
+	F'
+	=
+	i F_y
+	=
+	\rho v_\infty a_1 2 \pi
+\]
+rein imaginär sein muss. Somit muss auch $a_1$ rein imaginär sein.
+
+Im Kapitel~\ref{joukowski:sec:stroemungslinien} Strömungslinien zeigen wir wie der Koeffizient $a_1$ für verschiedene Flügelprofile bestimmt werden kann.
