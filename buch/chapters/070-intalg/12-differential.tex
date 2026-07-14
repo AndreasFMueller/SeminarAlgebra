@@ -3,8 +3,7 @@
 %
 \subsection{Differentialkörper von Funktionen}
 In einem Funktionsausdruck für eine differenzierbare Funktion spielt
-unter das Funktionsargument unter allen Symbolen 
-eine besondere Rolle.
+das Funktionsargument unter allen Symbolen eine besondere Rolle.
 Wir gehen davon aus, dass man nach dem Funktionsargument ableiten
 kann, weil es ``variabel'' ist.
 Nach den Parametern gedenkt man dagegen nicht abzuleiten, da man
@@ -17,17 +16,17 @@ diese als ``konstant'' ansehen möchte.
 Im rein algebraischen Framework eines Funktionenkörpers ist es nicht
 sinnvoll, die Definition der Ableitung als Grenzwert
 \[
-f'(z)
+f'(x)
 =
 \lim_{h\to 0}
-\frac{f(z+h)-f(z)}{h}
+\frac{f(x+h)-f(x)}{h}
 \]
 eines Differenzenquotienten zu verwenden.
 Um den Grenzwert zu definieren, wird ein Ordnungsrelation gebraucht,
 ein Konzept, welches sich nicht mit rein algebraischen Eigenschaften
 erfassen lässt.
-Für den Grenzwert wird ein Zahlenkörper gebraucht, in dem alle
-Grenzwerte existieren, was in $\mathbb{Q}$ nicht gegeben ist.
+Für den Grenzwert wird ausserdem ein Zahlenkörper gebraucht, in dem
+alle Grenzwerte existieren, was in $\mathbb{Q}$ nicht gegeben ist.
 Der einzige Körper, der vollständig wäre, ist $\mathbb{R}$, der aber
 im Computer nicht exakt dargestellt werden kann und daher nicht als
 Basis eines CAS definiert werden kann.
@@ -36,17 +35,17 @@ Als alternativer Ansatz für die Definition der können die einfachsten
 bekannten Rechenregeln der Ableitung verwendet werden.
 Die Ableitung ist zum Beispiel eine lineare Abbildung.
 Dies allein reicht jedoch nicht, weil die Ableitung auch für 
-Potenzen $z^n$ oder für Produkte von Funktionen angewendet werden
+Potenzen $x^n$ oder für Produkte von Funktionen angewendet werden
 soll.
 Die Linearität kann darüber nichts aussagen.
 Daher braucht es eine zusätzlich Regel für Produkte, die natürlich
 die Produktregel für dei Ableitung wiedergeben soll.
 
 \begin{definition}[Derivation]
-Eine \emph{Derivation} in einem Funktionenkörper $K$ ist eine 
-lineare Abbildung $D\colon K\to K$, die zusätzlich die Produktregel
+Eine \emph{Derivation} in einem Funktionenkörper $F$ ist eine 
+lineare Abbildung $D\colon F\to F$, die zusätzlich die Produktregel
 \[
-D(fg) = (Df)g + f(Dg)\qquad\forall f,g\in K
+D(fg) = (Df)g + f(Dg)\qquad\forall f,g\in F
 \]
 erfüllt.
 \index{Derivation}%
@@ -66,7 +65,7 @@ In der Analysis verwendet man die Notation
 \]
 die die Variable, nach der abgeleitet wird, klar erkennbar macht.
 Allerdings ist in der Analysis auch die Notation $f'$ für die
-abgeleitete Funktion üblich, aus der man die Variable auch nicht
+abgeleitete Funktion üblich, aus der man die Variable nicht
 ablesen kann.
 
 Die spezielle Kennzeichnung des Funktionsargumentes ist aber auch
@@ -86,7 +85,7 @@ Derivation.
 Der Hauptsatz der Infinitesimalrechnung besagt, dass das Integral
 einer Funktion auch eine Stammfunktion ist.
 Die Definition des Integrals ist daher für die Arbeit eines
-Computeralgebrasystems nicht relevant, es mur nur eine Stammfunktion
+Computeralgebrasystems nicht relevant, es muss nur eine Stammfunktion
 finden können.
 Der klassische Begriff der Stammfunktion verwendet die Ableitung.
 Für den vorliegenden algebraischen Zusammenhang kann er wie folgt
@@ -94,8 +93,8 @@ verallgemeinert werden.
 
 \begin{definition}[Stammfunktion]
 Sei $F$ ein Differentialkörper mit Derivation $D$.
-Eine Funktion $\vartheta\in F$ heisst eine \emph{Stammfunktion} von 
-$f\in F$, wenn $D\vartheta=f$.
+Eine Funktion $g\in F$ heisst eine \emph{Stammfunktion} von 
+$f\in F$, wenn $Dg=f$.
 \index{Stammfunktion}%
 \end{definition}
 
@@ -107,7 +106,11 @@ Die Produktregel reicht bereits, um die aus dem Analysisunterricht
 bekannten Ableitungsregeln zu reproduzieren.
 
 \begin{enumerate}
-\item Ableitung einer Potenz: wir betrachten die Potenz $f^n$ eines
+%
+% Ableitung einer Potenz
+%
+\item
+Ableitung einer Potenz: wir betrachten die Potenz $f^n$ eines
 Elementes $f\in K$.
 Die Derivationseigenschaft liefert
 \begin{align*}
@@ -126,9 +129,13 @@ f\cdot f \cdot\ldots \cdot Df
 =
 nf^{n-1}\cdot Df.
 \end{align*}
-Die ist die aus der Analysis wohlbekannte Regel für Ableitungen einer
+Dies ist die aus der Analysis wohlbekannte Regel für Ableitungen einer
 Potenz.
-\item Ableitung der Eins: Die Eins zeichnet sich durch die
+%
+% Ableitung von  Konstanten
+%
+\item
+Ableitung der Eins: Die Eins zeichnet sich durch die
 Eigenschaft $1^n=1$ aus.
 Lässt man die Derivation darauf wirken, erhält man
 \[
@@ -140,9 +147,12 @@ D1
 \qquad\Rightarrow\qquad
 (n-1)D1 = 0.
 \]
-Da $n-1\ne 1$ ist, folgt $D1=0$, die Ableitung der Eins ist somit $1$.
+Da $n-1\ne 1$ ist, folgt $D1=0$, die Ableitung der Eins ist somit $0$.
 Da die Derivation $D$ linear ist, gilt für jedes andere Element
 $q\in\mathbb{Q}$ sofort $Dq = D(q\cdot 1) = q\cdot D1 = 0$.
+%
+% Ableitung von 1/f
+%
 \item
 Ableitung von $1/f$: Die reziproke Funktion $1/f$ ist charakterisiert
 durch die Eigenschaft $f\cdot (1/f)=1$.
@@ -166,7 +176,11 @@ D(1/f)
 -\frac{Df}{f^2},
 \end{align*}
 dies ist die Ableitungsregel einer Potenz $f^{-1}$.
-\item Potenzregel für beliebige Exponenten: Wir wissen bereits,
+%
+% Potenzregel für beliebige Exponenten
+%
+\item
+Potenzregel für beliebige Exponenten: Wir wissen bereits,
 dass $D(f^n)=nf^{n-1}Df$ für positive $n$.
 Für einen negativen Exponenten ist
 \[
@@ -186,9 +200,19 @@ Df,
 \]
 dies ist die erwartete Ableitungsformel für beliebige ganzzahlige 
 Exponenten.
-\item Ableitungsregel für Polynome:
-Sie $p(X) = p(X) = p_0 + p_1X + \dots + p_nX^n \in K[X]$ ein Polynom
+%
+% Ableitung von Polynomen
+%
+\item
+Ableitungsregel für Polynome:
+Sei $p(X) = p(X) = p_0 + p_1X + \dots + p_nX^n \in K[X]$ ein Polynom
 mit Koeffizienten im Koeffizientenkörper.
+Man beachte, dass $X$ hier nur ein Platzhalter ist, für den eine beliebige
+Funktion eingesetzt werden kann. 
+$p(X)$ selbst ist nicht im Funktionenkörper enthalten, erst $p(f)$ 
+wird ein Element des Funktionenkörpers.
+Insbesondere darf man $X$ nicht mit $x$ verwechseln.
+
 Wir möchten die Ableitung von $Dp(f)$ berechnen.
 Nach der Potenzregel gilt
 \begin{align*}
@@ -210,7 +234,18 @@ das abgeleitete Polynom $p'(X)$, so dass man}
 \end{align*}
 schreiben kann.
 Dies ist formal die Kettenregel für Polynome.
-\item Quotientenregel:
+
+Der Spezialfall $f=x$ liefert die Ableitungsformel
+\[
+Dp(x) = p'(x)\cdot Dx = p'(x),
+\]
+d.~h.~die für das abgeleitet Polynom eingeführte Notation ist im 
+Fall $X=x$ identisch mit der Ableitung mit der Deriviation $D$.
+%
+% Quotientenregel
+%
+\item
+Quotientenregel:
 Der Quotient $f/g$ kann auch als Produkt $f\cdot (1/g)$ geschrieben
 werden.
 Daher ist die Ableitung davon
@@ -251,14 +286,23 @@ q(f)^2
 Df.
 \end{align*}
 Dies ist die Kettenregel für den Polynombruch $p(X)/q(X)$.
+
+Auch in diesem Fall ergibt der Spezialfall $f=x$ die wohlbekannte
+Quotientenregel
+\[
+D\frac{p(x)}{q(x)}
+=
+\frac{p'(x)q(x)-p(x)q'(x)}{q(x)^2}
+\]
+für rationale Funktionen.
 \end{enumerate}
 
 Diese Beispiele zeigen, dass alle Regeln, die man üblicherweise
 zur Berechnung von Ableitungen braucht, allein aus der Linearität
 und Eigenschaft der Derivation folgen.
 Der Funktionenkörper $F$ mit der Derivation $D$ ist daher ein
-vollständiges Modell für die algebraischen Eigenschaften der
-Ableitung.
+vollständiges Modell für die vertrauten algebraischen Eigenschaften
+der Ableitung.
 Es ist daher auch denkbar, dass das Problem, eine Stammfunktion
 zu finden, allein in diesem algebraischen Rahmen gelöst werden
 kann.
@@ -296,38 +340,62 @@ Wenn der Funktionenkörper $F$ um ein algebraisches Element $\alpha$
 erweitert wird, dann muss auch die Ableitung $D\alpha$ berechnet
 werden können, damit $F(\alpha)$ wieder ein Differentialkörper ist.
 
-Sei als $p(X)\in F[X]$ das Minimalpolynom des Elementes $\alpha$,
-es gilt also $p(\alpha)=0$.
-Die Ableitung ist nach den Berechungsregeln
+Sei also $m(X)\in F[X]$ das Minimalpolynom des Elementes $\alpha$,
+es gilt also $m(\alpha)=0$ und folglich auch $Dm(\alpha)=0$.
+Andererseits ist nach den Berechungsregeln die Ableitung
 \begin{align*}
-0
-=
-Dp(\alpha)
+Dm(\alpha)
 &=
-p'(\alpha)D\alpha
+D(m_0)
 +
-(Dp_0+Dp_1\alpha + \dots + Dp_n\alpha^n)
-\intertext{Da $p$ das Minimalpolynom von $\alpha$ ist, kann $p'(\alpha)$
-nicht verschwinden, denn dann wäre $p'$ ein Polynom kleineren Grades,
+D(m_1\alpha)
++
+D(m_2\alpha^2)
++
+D(m_3\alpha^3)
++
+\ldots
++
+D(m_n\alpha^n)
+\\
+&=
+{\color{darkred}Dm_0}
++
+({\color{darkred}Dm_1})\alpha + {\color{blue}m_1}D\alpha
++
+({\color{darkred}Dm_2})\alpha^2 + {\color{blue}2m_2 \alpha}D\alpha
+%+
+%(Dm_3)\alpha^3 + 3m_3 \alpha^2 D\alpha
++
+\ldots
++
+({\color{darkred}Dm_n})\alpha^n + {\color{blue}nm_n\alpha^{n-1}}D\alpha
+\\
+&=
+{\color{blue}m'(\alpha)}D\alpha
++
+({\color{darkred}Dm_0+Dm_1\alpha + \dots + Dm_n\alpha^n}).
+\intertext{Da $m(X)$ das Minimalpolynom von $\alpha$ ist, kann $m'(\alpha)$
+nicht verschwinden, denn dann wäre $m'$ ein Polynom kleineren Grades,
 das auf $\alpha$ verschwindet.
 Somit kann man die Gleichung nach $D\alpha$ auflösen und erhält}
 D\alpha
 &=
 -
-\frac{Dp_0+(Dp_1)\alpha +\ldots+(Dp_n)\alpha^n}{p'(\alpha)}.
+\frac{{\color{darkred}Dm_0+(Dm_1)\alpha +\ldots+(Dm_n)\alpha^n}}{{\color{blue}m'(\alpha)}}.
 \end{align*}
 Die Ableitung eines algebraischen Elementes ist also durch das
 Minimalpolynom eindeutig bestimmt.
 
 \begin{beispiel}
 Die Quadratwurzel $\!\sqrt{f}$ eines Elementes $f\in F$ hat das
-Minimalpolynom $p(X) = X^2 -f \in F[X]$ mit der Ableitung $p'(X)=2X$.
+Minimalpolynom $m(X) = X^2 -f \in F[X]$ mit der Ableitung $m'(X)=2X$.
 Die Ableitung der Koeffizienten ergibt das Polynom $-Df$.
 Damit ist die Ableitung der Quadratwurzel
 \begin{align*}
 D\!\sqrt{f}
 &=
-\frac{-Df}{p'(\!\sqrt{f})}
+\frac{-\color{darkred}Df}{\color{blue}m'(\!\sqrt{f})}
 =
 -\frac{1}{2\!\sqrt{f}}\cdot Df.
 \end{align*}
@@ -336,13 +404,12 @@ Dies ist die Kettenregel für die Wurzelfunktion.
 
 \begin{beispiel}
 Die $n$-te Wurzel $\sqrt[n]{f}$ eines Elementes $f\in K$ ist algebraisch
-mit dem Minimalpolynom $p(X)=X^n -f$ mit Ableitung $p'(X)=nX^{n-1}$ und
-dem Polynom mit den abgeleiteten Koeffizienten $-Df$.
+mit dem Minimalpolynom $m(X)=X^n -f$ mit Ableitung $m'(X)=nX^{n-1}$.
 Dann ist
 \begin{align*}
 D\!\sqrt[n]{f}
 &=
-\frac{-Df}{p'\bigl(\!\sqrt[n]{f}\bigr)}
+\frac{-\color{darkred}Df}{\color{blue}m'\bigl(\!\sqrt[n]{f}\bigr)}
 =
 -
 \frac{1}{n\bigl(\!\sqrt[n]{f}\bigr)^{n-1}}
@@ -362,11 +429,16 @@ Die Ableitung $D$ ermöglicht jetzt aber auch, die Konstanten dadurch
 zu definieren, dass ihre Ableitung verschwindet.
 
 \begin{definition}[Konstantenkörper]
-Sei $F$ ein Differentialkörper, dann heisst
+Sei $F$ ein Differentialkörper.
+Ein Element $c\in F$ heisst \emph{konstant} oder eine \emph{Konstante},
+\index{konstant}%
+\index{Konstante}%
+wenn $Dc=0$ ist.
+Die Menge
 \[
 C=\{c\in F\mid Dc=0\}
 \]
-der Körper der Konstanten oder \emph{Konstantenkörper} in $F$.
+der Konstanten heisst der \emph{Konstantenkörper} in $F$.
 \index{Konstantenkorper@Konstantenkörper}%
 \end{definition}
 
