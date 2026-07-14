@@ -1,15 +1,16 @@
 \section{Komplexe Analysis}
+\label{joukowski:sec:komplexe-analysis}
 
 \subsection{Ausdruck für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$}
 
-Um den Ausdruck~\eqref{joukowski:auftrieb:auftrieb} weiter aufzulösen, muss die oben verwendete Funktion $v(z)$ genauer untersucht werden.
-Einige Eigenschaften von $v(z)$ helfen uns dabei einen passenden Ausdruck dafür aufzustellen.
-Wir haben vorausgesetz, dass im Unendlichen die ungestörte Anströmungsgeschwindigkeit $v(z) = v_\infty \in \mathbb{R}$ ergibt.
-Zudem muss es laut Beispiel~\ref{buch:integration:wege:bsp:kreisintegral} eine einfache Polstelle im inneren des Flügelprofils haben,
+Um den Ausdruck~\eqref{joukowski:Auftriebskarft:Auftrieb1} weiter aufzulösen, muss die oben verwendete Funktion $v(z)$ genauer untersucht werden.
+Einige Eigenschaften von $v(z)$ helfen uns dabei, einen passenden Ausdruck dafür aufzustellen.
+Wir haben vorausgesetzt, dass im Unendlichen die ungestörte Anströmungsgeschwindigkeit $v(z) = v_\infty \in \mathbb{R}$ resultiert.
+Zudem muss es laut Beispiel~\ref{buch:integration:wege:bsp:kreisintegral} eine einfache Polstelle im Inneren des Flügelprofils haben,
 da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzeilt werden kann.
 Diese beiden Eigenschaften der Geschwindigkeit $v(z)$ führen dazu, 
-dass die komplex konjugierte Geschwidigkeit $\overline{v(z)}$ als Laurent-Reihe der Form
+dass die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ als Laurent-Reihe der Form
 
 \[
 	\overline{v(z)} 
@@ -20,12 +21,50 @@ dass die komplex konjugierte Geschwidigkeit $\overline{v(z)}$ als Laurent-Reihe 
 \]
 geschrieben werden kann.
 
-Da die Geschwindigkeit $v(z)$ überall ausser im Punkt $z_0 = 0$ definiert ist, muss auch der Reihenausdruck diese Eigenschaft haben.
-Dies wird zum Beispiel von einer Taylor-Reihe nicht erfüllt, da es damit unmöglich ist eine Definitionslücke bei $z_0 = 0$ zu erreichen,
-weshalb die Laurent-Reihe gewählt wurde. Auch der konstante Wert im Unendlichen bereitet der Taylor-Reihe schwierigkeiten.
+Da die Geschwindigkeit $v(z)$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
+muss auch der Reihenausdruck diese Eigenschaft teilen.
+Dies wird zum Beispiel von einer Taylor-Reihe der Form
+\[
+	f(z)
+	=
+	\displaystyle\sum_{k = 0}^{\infty}
+	\frac{f^{(k)}(z_0)}{k!}
+	(z - z_0)^k
+\]
+nicht erfüllt, da es ausschliesslich aus den Termen
+\[
+	(z - z_0)^k,
+	\quad
+	\text{wobei }
+	k \in [0, \infty)
+\]
+besteht und somit unmöglich ist, eine Definitionslücke bei $z_0 = 0$ zu erreichen.
 
-Im Allgemeinen sind die Koeffizienten $a_k \in \mathbb{C}$, einzelne beschränken sich jedoch auf $a_k \in \mathbb{R}$, wie $a_0$.
-Der Koeffizient $a_0$ entspricht direkt der Geschwindigkeit im Unendlichkeit, weshalb er besser als $v_\infty$ geschrieben werden soll.
+Auch das ausdrücken des konstanten Wertes im Unendlichen ist nur dank den Termen
+\[
+	\frac{a_k}{z^k},
+	\quad
+	\text{wobei }
+	k \in [1, \infty),
+\]
+welche alle die Eigenschaft
+\begin{equation}
+	\displaystyle\lim_{|z|\to \infty}
+	\frac{a_k}{z^k}
+	=
+	0
+	\label{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
+\end{equation}
+aufweisen, möglich.
+Auch das kann mit Taylor-Reihe so nicht erreicht werden, da diese für belibig grosse Werte von $|z|$ nicht gegen $0$ konvergieren.
+
+Bei der allgemeinen Form der Laurent-Reihe sind die Koeffizienten $a_k \in \mathbb{C}$.
+In dieser Anwendung beschränken sich jedoch einzelne Koeffizienten auf $a_k \in \mathbb{R}$, wie das bei $a_0$ der Fall ist.
+
+Aufgrund der Eigenschaft~\eqref{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
+geht hervor, dass der Koeffizient $a_0$ direkt der Geschwindigkeit im Unendlichen entspricht, 
+weshalb er besser als $v_\infty$ geschrieben werden soll.
+
 Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit die besser formulierte Reihenentwicklung
 
 \begin{equation}
@@ -39,38 +78,66 @@ Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit
 
 \subsection{Berechnung der Kraft}
 
-Wir können die Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck~\eqref{joukowski:auftrieb:auftrieb} einsetzen 
-und in ein Integral, mit allen Termen die mit $v_\infty$ multipliziert werden, 
-und ein Integral mit allen Termen die nicht mit $v_\infty$ multipliziert werden, umformen, wobei aus
-
-\[
-	\begin{aligned}
-		F'
-		&= 
-		-i\frac{\rho}{2} \cdot 
-		\displaystyle\oint_{\gamma} v_\infty^2 + 2 v_\infty \sum_{k=1}^{\infty} \frac{a_k}{z^k} + \biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
-		dz \\
-		\quad
-		&= 
-		-i\frac{\rho}{2} \cdot  
-		\displaystyle\oint_{\gamma} 
-		2 v_\infty \biggl(\frac{v_\infty}{2} + \sum_{k=1}^{\infty} \frac{a_k}{z^k} \biggr)
-		dz
-		-
-		i\frac{\rho}{2} \cdot 
-		\displaystyle\oint_{\gamma} 
-		\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
-		dz
-	\end{aligned}
-\]
-wird. 
-Beim ersten Ausdruck kann der Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ umwandeln. 
-Somit lässt sich $-\frac{v_\infty}{2}$ ins zweite Integral verschieben.
-Jetzt kann 
-
+Wir können die obige Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck
 \[
 	F'
-	= 
+	=
+	-i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	|v(z)|^2
+	dz
+\]
+von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen und ausmultiplizieren, wobei
+\begin{align}
+	F'
+	&= 
+	-i\frac{\rho}{2} \cdot 
+	\displaystyle\oint_{\gamma} 
+	v_\infty^2 
+	+ 2 v_\infty \sum_{k=1}^{\infty} \frac{a_k}{z^k} 
+	+ \biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
+	dz 
+	\notag
+	\\
+	\intertext{daraus entsteht.}
+	\intertext{In einem nächsten Schritt können wir den Ausdruck in ein Integral, mit allen Termen die mit $v_\infty$ 
+	multipliziert werden, und ein Integral mit allen Termen die nicht mit $v_\infty$ multipliziert werden, umformen, damit}
+	F'
+	&= 
+	-i\frac{\rho}{2} \cdot  
+	\displaystyle\oint_{\gamma} 
+	2 v_\infty \biggl(\frac{v_\infty}{2} + \sum_{k=1}^{\infty} \frac{a_k}{z^k} \biggr)
+	dz
+	-
+	i\frac{\rho}{2} \cdot 
+	\displaystyle\oint_{\gamma} 
+	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
+	dz 
+	\label{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty}
+	\\
+	\intertext{entsteht.}
+	\intertext{Beim ersten Ausdruck können wir einen Trick anwenden indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
+	erweitern. 
+	Dies lässt uns die Gleichung~\eqref{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty} als}
+	F'
+	&= 
+	-i\frac{\rho}{2} \cdot  
+	\displaystyle\oint_{\gamma} 
+	2 v_\infty \biggl(v_\infty - \frac{v_\infty}{2}
+	+ \sum_{k=1}^{\infty} \frac{a_k}{z^k} \biggr)
+	dz
+	-
+	i\frac{\rho}{2} \cdot 
+	\displaystyle\oint_{\gamma} 
+	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
+	dz 
+	\notag
+	\\
+	\intertext{schreiben.}
+	\intertext{Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
+	Nachdem der konstante Faktor $2 v_\infty$ vor das erste Integral genommen wird, kann jetzt}
+	F'
+	&= 
 	-i \rho v_\infty \cdot
 	\displaystyle\oint_{\gamma} 
 	\biggl(v_\infty + \sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)
@@ -78,28 +145,28 @@ Jetzt kann
 	-
 	i\frac{\rho}{2} \cdot 
 	\displaystyle\oint_{\gamma} 
-	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2 - \frac{v_\infty^2}{2}
-	dz
-\]
-mit der Gleichung ~\eqref{joukowski:komplexe-analysis:laurent-reihe} in
-\[
+	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2 - v_\infty^2
+	dz 
+	\notag
+	\\
+	\intertext{durch einsetzen der Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in}
 	F'
-	= 
+	&= 
 	-i \rho v_\infty \cdot
 	\displaystyle\oint_{\gamma} \overline{v(z)}
 	dz
 	-
 	i\frac{\rho}{2} \cdot 
 	\displaystyle\oint_{\gamma} 
-	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2 - \frac{v_\infty^2}{2}
-	dz
-\]
-umgeschrieben werden.
-Da $\frac{v_\infty}{2}$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
-und es entsteht
-\begin{equation}
+	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2 - v_\infty^2
+	dz 
+	\notag
+	\\
+	\intertext{umgeschrieben werden.}
+	\intertext{Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
+	und es entsteht}
 	F'
-	= 
+	&= 
 	-i \rho v_\infty \cdot
 	\displaystyle\oint_{\gamma} \overline{v(z)}
 	dz
@@ -109,13 +176,14 @@ und es entsteht
 	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
 	dz.
 	\label{joukowski:komplexe-analysis:kraft-mit-zwei-termen}
-\end{equation}
-Wir definieren für den Ausdruck des ersten Integrals die \emph{Zirkulation} $\Gamma$.
+	\intertext{Wir definieren für den Ausdruck des ersten Integrals die \emph{Zirkulation} $\Gamma$.}
+	\notag
+\end{align}
 
 \begin{definition}[Zirkulation]
 	\label{joukowski:komplexe-analysis:def:zirkulation}
-	Die Zirkulation $\Gamma$ ist das Mass für die um ein Profil drehende Strömung 
-	und ist das Ergebnis des Linienintegrals
+	Die \emph{Zirkulation} $\Gamma$ ist das Mass für die um ein Profil drehende Strömung 
+	und ist der Wert des Linienintegrals
 	\[
 		\Gamma
 		=
@@ -135,7 +203,7 @@ somit kann die Kraft $F'$ vereinfacht geschrieben werden als
 	\label{joukowski:komplexe-analysis:kraft-mit-lambda}
 \end{equation}
 
-Um die Kraft zu berechnen können wir das Problem in zwei Teile aufteilen:
+Um die Kraft zu berechnen, können wir das Problem in zwei Teile aufteilen:
 Einerseits die Auswertung von $\Lambda$,
 andererseits die Berechnung der Zirkulation $\Gamma$.
 
@@ -146,63 +214,159 @@ Für die Auswertung von $\Lambda$
 aus der Gleichung~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} können wir ausnutzen,
 dass nicht um die Kontour des Flügelprofils direkt integriert werden muss,
 sondern dass jeder Weg, welcher das Flügelprofil komplett umschliesst, dasselbe Resultat gibt.
+Dies kann so nur angewendet werden, da der Integrand von $\Lambda$ holomorph ist.
 Wir wählen als Weg den Kreis mit Zentrum bei $z_0 = 0$ und mit Radius $r$.
 Dafür muss jetzt die Definition~\ref{buch:integration:definition:definition:wegintegral} des Wegintegrals verwendet werden.
-Wobei wir die Funktion 
+Wir wählen dafür die Funktion 
 \[
 	f(z)
 	=
-	\biggl(\displaystyle\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
+	\biggl(\displaystyle\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2.
 \]
-wählen.
-Dabei parametrisieren wir $z = \gamma(t) = r e^{i t}$ und stellen das Integral 
-\begin{equation}
-	\begin{aligned}
-		\Lambda
-		&=
-		\displaystyle\int_{0}^{2\pi} 
-		\biggl(\sum_{k=1}^{\infty} \frac{a_k}{r^k e^{k \cdot i t}}\biggr)^2
-		i r e^{i t}
-		dt \\
-		\quad
-		&=
-		i \displaystyle\int_{0}^{2\pi}
-		\bigg(\frac{a_1^2}{r^2 e^{2i t}} + \frac{a_1 a_2}{r^3 e^{3i t}} + \frac{a_2^2}{r^4 e^{4i t}} + \dots \bigg) 
-		r e^{i t}
-		dt \\
-		\quad
-		&=
-		i \displaystyle\int_{0}^{2\pi}
-		\bigg(\frac{a_1^2}{r e^{i t}} + \frac{a_1 a_2}{r^2 e^{2i t}} + \frac{a_2^2}{r^3 e^{3i t}} + \dots \bigg) 
-		dt
-	\end{aligned}
+Die Parametrisierung von $z$ wählen wir dabei als
+\begin{align*}
+	z
+	&=
+	\gamma(t)
+	=
+	r e^{i t}.
+	\\
+	\intertext{Daraus folgt}
+	\dot{\gamma}(t)
+	&=
+	\frac{d\gamma(t)}{dt}
+	=
+	i r e^{i t}.
+	\\
+\end{align*}
+Weil wir einmal im Kreis integrieren, setzen wir die Grenzen des parametrisiertes Integrals auf $0$ respektive $2\pi$.
+Somit stellen wir für den Ausdruck
+\begin{align}
+	\Lambda
+	&=
+	\displaystyle\oint_{\gamma}
+	f(z)
+	dz
+	=
+	\displaystyle\int_{0}^{2\pi}
+	f(\gamma(t))
+	\dot{\gamma}(t)
+	dt
+	\notag
+	\\
+	\intertext{das Integral}
+	\Lambda
+	&=
+	\displaystyle\int_{0}^{2\pi} 
+	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{r^k e^{k \cdot i t}}\biggr)^2
+	i r e^{i t}
+	dt 
+	\notag
+	\\
+	\quad
+	&=
+	i \displaystyle\int_{0}^{2\pi}
+	\bigg(\frac{a_1^2}{r^2 e^{2i t}} + \frac{a_1 a_2}{r^3 e^{3i t}} + \frac{a_2^2}{r^4 e^{4i t}} + \dots \bigg) 
+	r e^{i t}
+	dt
+	\notag
+	\\
+	\quad
+	&=
+	i \displaystyle\int_{0}^{2\pi}
+	\bigg(\frac{a_1^2}{r e^{i t}} + \frac{a_1 a_2}{r^2 e^{2i t}} + \frac{a_2^2}{r^3 e^{3i t}} + \dots \bigg) 
+	dt
 	\label{joukowski:komplexe-analysis:parametrisiertes-lambda}
-\end{equation}
+\end{align}
 auf.
 
-Da die Auswertung des Integrals nicht vom Radius des Kreises abhängig ist, sofern er das ganze Fügelprofil umschliesst,
-können wir den Grenzübergang des Radiuses $\displaystyle\lim_{r\to \infty}$ durchführen.
-Weil jeder Term der Gleichung~\eqref{joukowski:komplexe-analysis:parametrisiertes-lambda} 
-ein $r$ der Ordnung $1$ bis $n$ im Nenner hat,
-gehen alle gegen $0$.
-
-Somit folgt, dass $\Lambda = 0$ sein muss.
-Der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} verkleinert sich zur Form 
+Die Auswertung des Integrals erfolgt sehr schnell, weil
 \[
-	F' = -i \rho v_\infty \Gamma,
+	\frac{1}{e^{k \cdot i t}}
+	=
+	e^{-k \cdot i t}
+\]
+periodisch ist, ist daher
+\begin{equation}
+	\displaystyle\int_{0}^{2\pi}
+	\frac{1}{e^{k \cdot i t}}
+	dt
+	=
+	0,
+	\quad
+	\forall
+	k \neq 0.
+	\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
+\end{equation}
+
+\begin{proof}
+	\label{joukowski:komplexe-analysis:proof:integral-e-hoch-kit}
+	Wir berechnen das Integral
+	\[
+		\displaystyle\int_{0}^{2\pi}
+		\frac{1}{e^{k \cdot i t}}
+		dt
+		=
+		\displaystyle\int_{0}^{2\pi}
+		e^{-k \cdot i t}
+		dt.
+	\]
+	Die Stammfunktion von
+	\[
+		e^{-k \cdot i t}
+	\]
+	ist für den allgemeinen Fall $k \neq 0$
+	\[
+		\frac{e^{-k \cdot i t}}{-k \cdot i}
+		=
+		\frac{i e^{-k \cdot i t}}{k}.
+	\]
+	Setzen wir die Grenzen $0$ und $2\pi$ ein, erhalten wir
+	\[
+		\biggl[\frac{i e^{-k \cdot i t}}{k}\biggr]_{0}^{2\pi}
+		=
+		\frac{i}{k} \biggl(e^{-k \cdot 2\pi i} - e^{0}\biggr)
+		=
+		\frac{i}{k} (1 - 1)
+		=
+		0.
+	\]
+	
+	Für den Spezialfall $k = 0$ gilt
+	\[
+		\displaystyle\int_{0}^{2\pi}
+		e^{0}
+		dt
+		=
+		\displaystyle\int_{0}^{2\pi}
+		1
+		dt
+		=
+		2\pi.
+	\]
+	Damit gilt die Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit} als Bewiesen.
+\end{proof}
+
+Aus der Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit} folgt direkt, dass $\Lambda = 0$ sein muss.
+
+Somit verkleinert sich der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} zur Gleichung 
+\[
+F' = -i \rho v_\infty \Gamma,
 \] 
 welche als \emph{Satz von Kutta-Joukowski} gilt.
 
 \begin{satz}[Satz von Kutta-Joukowski]
 	\label{joukowski:komplexe-analysis:satz:kutta-joukowski}
-	Der Satz von Kutta-Joukowski beschreibt die Proportionalität zwischen der komplexen Kraft und der Zirkulation,
+	Der \emph{Satz von Kutta-Joukowski} beschreibt die Proportionalität zwischen der komplexen Kraft und der Zirkulation,
 	und hat die Form
 	\[
-		F'
-		=
-		-i \rho v_\infty \Gamma.
+	F'
+	=
+	-i \rho v_\infty \Gamma.
 	\]
 \end{satz}
+
+\input{papers/joukowski/fig/04_komplexe_analysis/fig-geschlossenes_linienintegral.tex}
 
 \subsubsection{Berechnung der Zirkulation $\Gamma$}
 Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
@@ -238,19 +402,21 @@ der Ausdruck
 		dt.
 	\end{aligned}
 \]
-Für die Auswertung dieses Integrals gibt es für die einzelnen Terme drei verschiedene Auswertungen.
-Der Term $v_\infty r e^{i t}$ integriert gibt
-$\biggl[v_\infty r e^{i t}\biggr]_0^{2\pi} = v_\infty r e^{0 \cdot i t} - v_\infty r e^{2\pi \cdot i t}$
-wobei $e^{0 \cdot i t } - e^{2\pi \cdot i t} = 0$ ist.
-Somit leistet er keinen Beitrag.
+Für die Auswertung dieses Integrals gibt es für die einzelnen Terme zwei verschiedene Auswertungen.
+Die Terme
+\[
+	v_\infty r e^{i t}
+	\quad
+	\text{und}
+	\quad
+	\frac{a_k}{r^{k-1} e^{(k-1) \cdot i t}},
+	\quad
+	k \in [2, \infty)
+\]
+sind alle gleicher Art wie bei der Berechnung von $\Lambda$ in der Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit},
+weshalb alle durch die Integration zu $0$ reduziert werden.
 
-Gleich wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}
-gehen alle Terme $\displaystyle\frac{a_k}{r^{k-1} e^{(k-1) \cdot i t}}$ 
-mit $k \in \mathbb{N}$, $k \geq 2$ 
-beim Grenzübergang des Radiuses $\displaystyle\lim_{r\to \infty}$ gegen $0$.
-Somit leisten auch all diese keinen Beitrag.
-
-Der Einzige Term im Integral, welcher nicht verschwindet ist $a_1$, der zu
+Der einzige Term im Integral, welcher nicht verschwindet, ist $a_1$, der zu
 \[
 	i\displaystyle\int_{0}^{2\pi}
 	a_1
@@ -266,10 +432,10 @@ Somit gilt
 	a_1 2\pi i.
 	\label{joukowski:komplexe-analysis:zirkulation-berechnet}
 \end{equation}
-Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirk ausrechnen.
+Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt ausrechnen.
 Durch das Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
 in Satz~\ref{joukowski:komplexe-analysis:satz:kutta-joukowski}
-entsteht der Term
+erhalten wir den Term
 \begin{equation}
 	F'
 	=
@@ -277,4 +443,21 @@ entsteht der Term
 	= \rho v_\infty a_1 2 \pi.
 	\label{joukowski:komplexe-analysis:auftriebskraft-berechnet}
 \end{equation}
-% Ist a_1 elem C, sonst keine auftriebskraft?
+Somit zeigt sich, dass nur ein Koeffizient der Laurent-Reihe, 
+ausser die von uns vorgegebene Geschwindigkeit im Unendlichen $v_\infty$, 
+einen Beitrag an der komplexen Kraft leistet, nämlich $a_1$.
+Das heisst, dass dieser Koeffizient direkt bestimmt, 
+ob eine reine Auftriebskraft resultiert, so wie wir das von unseren Voraussetzungen im Kapitel~\ref{joukowski:sec:voraussetzungen} erwarten.
+Oder ob zusätzlich noch einen Luftwiderstand sich bemerkbar macht.
+
+Wir erwarten eine reine Auftriebskraft, was bedeutet, dass
+\[
+	F'
+	=
+	i F_y
+	=
+	\rho v_\infty a_1 2 \pi
+\]
+rein imaginär sein muss. Somit muss auch $a_1$ rein imaginär sein.
+
+Im Kapitel~\ref{joukowski:sec:stroemungslinien} Strömungslinien zeigen wir wie der Koeffizient $a_1$ für verschiedene Flügelprofile bestimmt werden kann.
