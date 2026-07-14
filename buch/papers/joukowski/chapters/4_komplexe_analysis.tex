@@ -20,12 +20,51 @@ dass die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ als Laurent-Reihe
 \]
 geschrieben werden kann.
 
-Da die Geschwindigkeit $v(z)$ überall ausser im Punkt $z_0 = 0$ definiert ist, muss auch der Reihenausdruck diese Eigenschaft haben.
-Dies wird zum Beispiel von einer Taylor-Reihe nicht erfüllt, da es damit unmöglich ist, eine Definitionslücke bei $z_0 = 0$ zu erreichen,
-weshalb die Laurent-Reihe gewählt wurde. Auch der konstante Wert im Unendlichen bereitet der Taylor-Reihe Schwierigkeiten.
+Da die Geschwindigkeit $v(z)$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
+muss auch der Reihenausdruck diese Eigenschaft teilen.
+Dies wird zum Beispiel von einer Taylor-Reihe der Form
+\[
+	f(z)
+	=
+	\displaystyle\sum_{k = 0}^{\infty}
+	\frac{f^{(k)}(z_0)}{k!}
+	(z - z_0)^k
+\]
+nicht erfüllt, da es ausschliesslich aus den Termen
+\[
+	(z - z_0)^k,
+	\quad
+	\text{wobei }
+	k \in [0, \infty)
+\]
+besteht und somit unmöglich ist, eine Definitionslücke bei $z_0 = 0$ zu erreichen.
+ 
+Auch das wiederspiegeln des konstanten Wertes im Unendlichen ist nur dank den Termen
+\[
+	\frac{a_k}{z^k},
+	\quad
+	\text{wobei }
+	k \in [1, \infty),
+\]
+welche alle die Eigenschaft
+\begin{equation}
+	\displaystyle\lim_{|z|\to \infty}
+	\frac{a_k}{z^k}
+	=
+	0
+	\label{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
+\end{equation}
+aufweisen,
+möglich.
+Auch das kann mit Taylor-Reihe so nicht erreicht werden.
 
-Bei der allgemeinen Form der Laurent-Reihe sind die Koeffizienten $a_k \in \mathbb{C}$, einzelne beschränken sich jedoch auf $a_k \in \mathbb{R}$, wie $a_0$.
-Der Koeffizient $a_0$ entspricht direkt der Geschwindigkeit im Unendlichkeit, weshalb er besser als $v_\infty$ geschrieben werden soll.
+Bei der allgemeinen Form der Laurent-Reihe sind die Koeffizienten $a_k \in \mathbb{C}$.
+In dieser Anwendung beschränken sich jedoch einzelne Koeffizienten auf $a_k \in \mathbb{R}$, wie das bei $a_0$ der Fall ist.
+
+Aufgrund der Eigenschaft~\eqref{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
+geht hervor, dass der Koeffizient $a_0$ direkt der Geschwindigkeit im Unendlichen entspricht, 
+weshalb er besser als $v_\infty$ geschrieben werden soll.
+
 Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit die besser formulierte Reihenentwicklung
 
 \begin{equation}
@@ -39,7 +78,7 @@ Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit
 
 \subsection{Berechnung der Kraft}
 
-Wir können die obige Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck
+Wir können die obige Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck
 \[
 	F'
 	=
@@ -60,7 +99,7 @@ von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen und ausmultip
 	dz 
 	\notag
 	\\
-	\intertext{entsteht.}
+	\intertext{daraus entsteht.}
 	\intertext{In einem nächsten Schritt können wir den Ausdruck in ein Integral, mit allen Termen die mit $v_\infty$ 
 	multipliziert werden, und ein Integral mit allen Termen die nicht mit $v_\infty$ multipliziert werden, umformen, damit}
 	F'
@@ -95,7 +134,7 @@ von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen und ausmultip
 	\notag
 	\\
 	\intertext{schreiben.}
-	\intertext{Somit lässt sich $2 v_\infty (-\frac{v_\infty}{2})$ ins zweite Integral verschieben.
+	\intertext{Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
 	Nachdem der konstante Faktor $2 v_\infty$ vor das erste Integral genommen wird, kann jetzt}
 	F'
 	&= 
@@ -110,7 +149,7 @@ von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen und ausmultip
 	dz 
 	\notag
 	\\
-	\intertext{durch einsetzen der Reihenentwicklung aus Gleichung ~\eqref{joukowski:komplexe-analysis:laurent-reihe} in}
+	\intertext{durch einsetzen der Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in}
 	F'
 	&= 
 	-i \rho v_\infty \cdot
@@ -241,8 +280,75 @@ Somit stellen wir für den Ausdruck
 \end{align}
 auf.
 
-Da die Auswertung des Integrals nicht vom Radius des Kreises abhängig ist, sofern er das ganze Fügelprofil umschliesst,
-können wir den Grenzübergang des Radiuses $\displaystyle\lim_{r\to \infty}$ durchführen.
+Die Auswertung des Integrals erfolgt sehr schnell, weil
+\[
+	\frac{1}{e^{k \cdot i t}}
+	=
+	e^{-k \cdot i t}
+\]
+periodisch ist, ist daher
+\begin{equation}
+	\displaystyle\int_{0}^{2\pi}
+	\frac{1}{e^{k \cdot i t}}
+	dt
+	=
+	0,
+	\quad
+	\forall
+	k \neq 0.
+	\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
+\end{equation}
+Dies geschieht für Alle Terme des Integrals, weshalb es gesamthaft keinen Beitrag leistet.
+
+\begin{proof}
+	Wir berechnen das Integral
+	\[
+		\displaystyle\int_{0}^{2\pi}
+		\frac{1}{e^{k \cdot i t}}
+		dt
+		=
+		\displaystyle\int_{0}^{2\pi}
+		e^{-k \cdot i t}
+		dt.
+	\]
+	Die Stammfunktion von
+	\[
+		e^{-k \cdot i t}
+	\]
+	ist für den allgemeinen Fall $k \neq 0$
+	\[
+		\frac{e^{-k \cdot i t}}{-k \cdot i}
+		=
+		\frac{i e^{-k \cdot i t}}{k}.
+	\]
+	Setzen wir die Grenzen $0$ und $2\pi$ ein, erhalten wir
+	\[
+		\biggl[\frac{i e^{-k \cdot i t}}{k}\biggr]_{0}^{2\pi}
+		=
+		\frac{i}{k} \biggl(e^{-k \cdot 2\pi i} - e^{0}\biggr)
+		=
+		\frac{i}{k} (1 - 1)
+		=
+		0.
+	\]
+	
+	Für den Spezialfall $k = 0$ gilt
+	\[
+		\displaystyle\int_{0}^{2\pi}
+		e^{0}
+		dt
+		=
+		\displaystyle\int_{0}^{2\pi}
+		1
+		dt
+		=
+		2\pi.
+	\]
+	Damit gilt die Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit} als Bewiesen.
+	
+\end{proof}
+
+des Radiuses $\displaystyle\lim_{r\to \infty}$ durchführen.
 Weil jeder Term der Gleichung~\eqref{joukowski:komplexe-analysis:parametrisiertes-lambda} 
 ein $r$ der Ordnung $1$ bis $n$ im Nenner hat,
 gehen alle gegen $0$.
@@ -264,6 +370,8 @@ welche als \emph{Satz von Kutta-Joukowski} gilt.
 		-i \rho v_\infty \Gamma.
 	\]
 \end{satz}
+
+\input{papers/joukowski/fig/04_komplexe_analysis/fig-geschlossenes_linienintegral.tex}
 
 \subsubsection{Berechnung der Zirkulation $\Gamma$}
 Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
