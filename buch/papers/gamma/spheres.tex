@@ -22,6 +22,7 @@ Intuition siehe Abb. \ref{gamma-fig:ring-integration}.
     A(r) = \int_{0}^{r} 2 \pi r \,dr = \pi r^2
 \end{equation}
 
+\noindent
 Der Satz des Pythagoras gibt uns eine einfache Beschreibung aller 
 Punkte, die Teil des Kreises sind \eqref{gamma-eq:pythagoras}.
 
@@ -45,6 +46,7 @@ in Abb. \ref{gamma-fig:rect-integration} dargestellt.
     A(r) = 2 \int_{-r}^{r} \sqrt{r^2-x^2} \,dx
 \end{gather} 
 
+\noindent
 Das Integral aus \eqref{gamma-eq:area-pythagoras} ist nicht trivial 
 zu lösen, deswegen werden wir es vermeiden. Ein Vorteil dieses Ansatzes ist jedoch, 
 dass sich die durch den Satz des Pythagoras definierte Metrik sehr 
@@ -59,6 +61,7 @@ wie in \eqref{gamma-eq:pythagoras-3d}.
     \end{split}
 \end{equation}
 
+\noindent
 Nun können wir das Volumen einer Kugel herleiten, indem wir Halbkreise entsprechender
 Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}). 
 Dabei integrieren wir entlang der $x$-Achse und innerhalb iterativ entlang der $y$-Achse. 
@@ -66,25 +69,28 @@ Eine formelle Begründung für diese iterative angehensweise ist der Satz von Fu
 
 \input{papers/gamma/spheres_drawings.tex}
 
+\noindent
 Für ein bestimmtes $x$ sind die möglichen $y$-Werte gemäss Ungleichung 
 \eqref{gamma-eq:pythagoras-y} eingeschränkt und für ein bestimmtes $x$ und $y$ wird dann
 der maximale Wert für $z$ gemäss Ungleichung \eqref{gamma-eq:pythagoras-3d} genommen. 
-Dies ist in \eqref{gamma-eq:sphere-volume} zu sehen. 
-
-Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(r)$
-zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie in 
-\eqref{gamma-eq:composed-sphere-volume}.
+Dies ist in \eqref{gamma-eq:sphere-volume} zu sehen.
 
 \begin{equation}
 \label{gamma-eq:sphere-volume}
     V(r) = 2 \int_{-r}^{r} \int_{-\sqrt{r^2-x^2}}^{\sqrt{r^2-x^2}} \sqrt{r^2-x^2-y^2} \,dy \,dx
 \end{equation}
 
+\noindent
+Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(r)$
+zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie in 
+\eqref{gamma-eq:composed-sphere-volume}.
+
 \begin{equation}
 \label{gamma-eq:composed-sphere-volume}
     V(r) = 2 \int_{-r}^{r} A\left(\sqrt{r^2-x^2}\right) \,dx
 \end{equation}
 
+\noindent
 Wir haben etwas interessantes getan, nämlich haben wir unsere Berechnung für zwei Dimensionen 
 verwendet, um das Volumen in drei Dimensionen zu berechnen. 
 
@@ -116,6 +122,7 @@ $V_n$ dieser Form entspricht, siehe~\eqref{gamma-eq:const-structure-induction}.
     \end{split}
 \end{gather}
 
+\noindent
 Wir sehen, dass $C_n$ ein Faktor von $C_{n+1}$ ist. Die mit dem Volumen assoziierte Konstante 
 scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. Eine Untersuchung des Terms $I_n = \int_{-1}^1 (1- u^2)^{n/2} \,du$ in \eqref{gamma-eq:n-sphere-constant} ergibt eine weitere rekursive Struktur: $I_n = \frac{n}{n+1} I_{n-2}$.
 
@@ -134,6 +141,7 @@ scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. E
     \end{split}
 \end{equation}
 
+\noindent
 Mit diesem Wissen lässt sich der konstante Faktor des Volumens einer
 $n$-Dimensionalen Kugel herleiten als $C_n = C_{n-1} I_{n-1} = C_{n-2} I_{n-1}
 I_{n-2} = C_{n-2} \frac{2}{n} I_1 I_0$. Der letzte Schritt ist
@@ -149,6 +157,7 @@ geraden $n$.
     \end{split}
 \end{equation}
 
+\noindent
 Von~\eqref{gamma-eq:area} wissen wir, dass $C_2 = \pi$. Eine einfache Rechnung
 ergibt, dass $I_0 = 2$ und $I_1 = \frac{\pi}{2}$, d.h. $C_n = C_{n-2} \frac{2 \pi}{n}$. Jetzt können wir für gerade Dimensionen
 die rekursive Definition `abrollen' in einen einzigen
@@ -164,6 +173,7 @@ Term:~\eqref{gamma-eq:nonrecursive-constant}.
     \end{split}
 \end{equation}
 
+\noindent
 Wir können jetzt also wie in \eqref{gamma-eq:n-sphere-volume-even} ein Kugelvolumen bei geraden Dimensionen einfach berechnen.
 
 \begin{equation}
@@ -171,4 +181,5 @@ Wir können jetzt also wie in \eqref{gamma-eq:n-sphere-volume-even} ein Kugelvol
     V_n(r) = \frac{\pi^{n/2}}{(\frac{n}{2})!}  r^n
 \end{equation}
 
+\noindent
 Schön wäre es, das Volumen nicht nur für gerade-Dimensionale Kugeln berechnen können. Dazu müssten wir allerdings die Fakultät auf halbe Zahlen anwenden können.
