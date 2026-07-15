@@ -1,0 +1,30 @@
+\section{Die $\Gamma$-Funktion für Kugelvolumen\label{gamma:section:teil0}}
+\kopfrechts{$\Gamma$ in Kugelvolumen}
+
+Mithilfe der $\Gamma$-Funktion können wir nun die Formel zur Berechnung des Kugelvolumens erweitern:~\eqref{gamma-eq:n-sphere-volume}.
+
+\begin{equation}
+\label{gamma-eq:n-sphere-volume}
+    V_n(r) = \frac{\pi^{n/2}}{\Gamma(\frac{n}{2}+1)}  r^n
+\end{equation}
+
+Wir erfahren zum Beispiel, dass das Volumen einer $1$-dimensionalen Einheitskugel $V_1(1) = 2$ sein muss. Intuitiv ist das, vertretbar, wie \ref{gamma-fig:1-dim-sphere} zeigt.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+        \draw[latex-latex, thick, black] (-1.8, 0) -- (1.8, 0) node[right, black] {$\mathbb{R}^1$};
+        \draw[line width=1mm, gray!80, cap=round] (-1, 0) -- (1, 0);
+        \filldraw[black] (0,0) circle (1.5pt) node[above=3pt] {$0$};
+        \filldraw[black] (-1,0) circle (2.5pt) node[above=4pt] {$-1$};
+        \filldraw[black] (1,0) circle (2.5pt) node[above=4pt] {$1$};
+        \draw[dimen/.style={<->, >=Latex, blue, thin}]
+            (0, -0.4) -- node[fill=white, inner sep=1.5pt, font=\small] {$r = 1$} (1, -0.4);
+        \draw[gray, dashed] (0, 0) -- (0, -0.45);
+        \draw[gray, dashed] (1, 0) -- (1, -0.45);
+    \end{tikzpicture}
+    \caption{$1$-Dimensionale Einheitskugel}
+    \label{gamma-fig:1-dim-sphere}
+\end{figure}
+
+Dies hat die interessante Konsequenz, dass $\Gamma(1.5) = \frac{1}{2} \pi$, weil sie $\sqrt{\pi}$ im Zähler ausgleichen muss.
