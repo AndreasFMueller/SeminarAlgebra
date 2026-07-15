@@ -1,5 +1,6 @@
 %
-% kehrwert.tex -- Graph der Funktion f(x) = 1/x
+% kehrwert-symmetrisch.tex -- Graph der Funktion f(x) = 1/x
+% mit symmetrisch gewählten Integrationsgrenzen
 %
 % (c) 2026 Damien Flury, OST Ostschweizer Fachhochschule
 %
@@ -10,6 +11,7 @@
 \usepackage{pgfplots}
 \usetikzlibrary{arrows,math}
 \definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.8}
 \begin{document}
 \def\skala{1}
 \begin{tikzpicture}[>=latex,thick,scale=\skala]
@@ -28,20 +30,20 @@
 	\node at (0,\y) [left] {$\y$};
 }
 
-% Flächen unter dem Integranden, ungleichmässig um die Polstelle gewählt
-\fill[darkred!30,opacity=0.5]
-	(-3.5,0) -- plot[domain=-3.5:-0.6,samples=100] ({\x},{1/\x}) -- (-0.6,0) -- cycle;
-\fill[darkred!30,opacity=0.5]
-	(0.4,0) -- plot[domain=0.4:2.5,samples=100] ({\x},{1/\x}) -- (2.5,0) -- cycle;
+% Flächen unter dem Integranden, symmetrisch um die Polstelle gewählt
+\fill[darkblue!30,opacity=0.5]
+	(-4,0) -- plot[domain=-4:-0.31,samples=100] ({\x},{1/\x}) -- (-0.31,0) -- cycle;
+\fill[darkblue!30,opacity=0.5]
+	(0.31,0) -- plot[domain=0.31:4,samples=100] ({\x},{1/\x}) -- (4,0) -- cycle;
 
 % negativer Ast
-\draw[color=darkred,line width=1.4pt]
+\draw[color=darkblue,line width=1.4pt]
 	plot[domain=-4.2:-0.303,samples=200] ({\x},{1/\x});
 % positiver Ast
-\draw[color=darkred,line width=1.4pt]
+\draw[color=darkblue,line width=1.4pt]
 	plot[domain=0.303:4.2,samples=200] ({\x},{1/\x});
 
-\node[color=darkred] at (2.3,1.1) {$f(x)=\dfrac{1}{x}$};
+\node[color=darkblue] at (2.3,1.1) {$f(x)=\dfrac{1}{x}$};
 
 \end{tikzpicture}
 \end{document}
