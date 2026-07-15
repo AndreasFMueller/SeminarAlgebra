@@ -180,8 +180,8 @@ mit \eqref{gamma-eq:n-sphere-volume-recursive}.
 Betrachtet man $A(r) = V_2(r) = 2 \pi r$, so scheint es intuitiv, dass $V_n$ jeweils mit $C_n r^n$
 dargestellt werden kann, wobei $C_n$ eine der Dimension zugehörige Konstante ist.
 
-Wir können induktiv beweisen, dass $V_{n+1}$ dieser Form entspricht, sofern $V_n$ dieser Form 
-entspricht, siehe \eqref{gamma-eq:const-structure-induction}.
+Wir können induktiv beweisen, dass $V_{n+1}$ dieser Form entspricht, sofern
+$V_n$ dieser Form entspricht, siehe~\eqref{gamma-eq:const-structure-induction}.
 
 \begin{gather}
 \label{gamma-eq:const-structure-induction}
@@ -203,7 +203,7 @@ scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. E
 \label{gamma-eq:n-sphere-constant}
     \begin{split}
         I_n &= \int_{-1}^1 (1- u^2)^{n/2} \,du \\
-        &= \left[ u (1-u^2)^{n/2} \right]_{-1}^{1} - \int_{-1}^1 u \cdot (-nu(1-^2)^{n/2 - 1}) \,du \\
+        &= \left[ u (1-u^2)^{n/2} \right]_{-1}^{1} - \int_{-1}^1 u \cdot (-nu(1-u^2)^{n/2 - 1}) \,du \\
         &= (0 - 0) - \int_{-1}^1 -nu^2(1-u^2)^{n/2 - 1} \,du \\
         &= n \int_{-1}^1 u^2 (1 - u^2)^{n/2 - 1} \,du \\
         &= n \int_{-1}^1 (1 - (1 - u^2)) (1-u^2)^{n/2 - 1} \,du \\
@@ -214,20 +214,37 @@ scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. E
     \end{split}
 \end{equation}
 
-Mit diesem Wissen lässt sich der konstante Faktor des Volumens einer $n$-Dimensionalen Kugel herleiten als $C_n = C_{n-1} I_{n-1} = C_{n-1} I_{n-1} I_{n-2} = C_{n-1} \frac{1}{n} I_1 I_0$ (siehe \eqref{gamma-eq:n-sphere-constant-2}). Allerdings funktioniert dies nur mit geraden $n$.
-
+Mit diesem Wissen lässt sich der konstante Faktor des Volumens einer
+$n$-Dimensionalen Kugel herleiten als $C_n = C_{n-1} I_{n-1} = C_{n-2} I_{n-1}
+I_{n-2} = C_{n-2} \frac{2}{n} I_1 I_0$. Der letzte Schritt ist
+durch~\eqref{gamma-eq:n-sphere-constant-2} begründet, funktioniert aber nur mit
+geraden $n$.
 
 \begin{equation}
 \label{gamma-eq:n-sphere-constant-2}
-    \text{(für gerade $n$)} \\
     \begin{split}
-    I_n I_{n-1} &= (\frac{n}{n+1} \cdot \frac{n-2}{n-1} \cdot \ldots \cdot \frac{2}{3} \cdot I_1) \cdot (\frac{n-1}{n} \cdot \frac{n-3}{n-1} \cdot \ldots \cdot \frac{1}{2} \cdot I_0) \\
-    &= \frac{n}{n+1} \cdot \frac{n-1}{n} \cdot \ldots \cdot \frac{2}{3} \cdot  \frac{1}{2} \cdot I_1 I_0 \\
-    &= \frac{n}{n+1} \cdot I_1 I_0
+    I_{n-1} I_{n-2} &= (\frac{n-1}{n} \cdot \frac{n-3}{n-2} \cdot \ldots \cdot \frac{3}{4} \cdot I_1) \cdot (\frac{n-2}{n-1} \cdot \frac{n-4}{n-2} \cdot \ldots \cdot \frac{2}{3} \cdot I_0) \\
+    &= \frac{n-1}{n} \cdot \frac{n}{n-1} \cdot \ldots \cdot \frac{3}{4} \cdot  \frac{2}{3} \cdot I_1 I_0 \\
+    &= \frac{2}{n} \cdot I_1 I_0
     \end{split}
 \end{equation}
 
-TODO segway to the following formula:
+Von~\eqref{gamma-eq:area} wissen wir, dass $C_2 = \pi$. Eine einfache Rechnung
+ergibt, dass $I_0 = 2$ und $I_1 = \frac{\pi}{2}$, d.h. $C_n = C_{n-2} \frac{2 \pi}{n}$. Jetzt können wir für gerade Dimensionen
+die rekursive Definition `abrollen' in einen einzigen
+Term:~\eqref{gamma-eq:nonrecursive-constant}.
+
+\begin{equation}
+\label{gamma-eq:nonrecursive-constant}
+    \begin{split}
+        C_n &= \pi \cdot \frac{2 \pi}{4} \cdot \frac{2 \pi}{6} \cdot \ldots \cdot \frac{2 \pi}{n} \\
+            &= \frac{2 \pi}{2} \cdot \frac{2 \pi}{4} \cdot \frac{2 \pi}{6} \cdot \ldots \cdot \frac{2 \pi}{n} \\
+            &= \frac{(2 \pi)^{n/2}}{2^{n/2}} \frac{1}{\left(\frac{n}{2}\right)!} \\
+            &= \frac{\pi^{n/2}}{\left(\frac{n}{2}\right)!}
+    \end{split}
+\end{equation}
+
+Wir können jetzt also wie in \eqref{gamma-eq:n-sphere-volume-even} ein Kugelvolumen bei geraden Dimensionen einfach berechnen.
 
 \begin{equation}
 \label{gamma-eq:n-sphere-volume-even}
