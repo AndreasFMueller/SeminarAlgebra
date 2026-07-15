@@ -595,7 +595,7 @@ elementare Stammfunktion hat, ist die Definition einer neuen
 speziellen Funktion angebracht, mit der die Stammfunktion ausgedrückt
 werden kann.
 
-\begin{definition}
+\begin{definition}[Dilogarithmus]
 Der \emph{Dilogarithmus} ist die Funktion
 \[
 \operatorname{Li}_2(z)
@@ -607,7 +607,7 @@ für $|z|<1$.
 \end{definition}
 
 Die Ableitung des Dilogarithmus ist
-\[
+\begin{equation}
 \frac{d}{dz}
 \operatorname{Li}_2(z)
 =
@@ -618,7 +618,8 @@ Die Ableitung des Dilogarithmus ist
 =
 -
 \frac{ \log(1-z) }{z},
-\]
+\label{buch:intalg:exp:dilog:integraldef}
+\end{equation}
 wobei der letzte Schritt aus der Potenzreihenentwicklung
 \[
 \log(1+z) = -\sum_{k=1}^\infty (-1)^k\frac{z^k}{k}
@@ -642,6 +643,19 @@ Reihe
 \sum_{k=1}^\infty (-1)^k z^k
 \end{align*}
 gefunden werden kann.
+\input{chapters/070-intalg/fig/fig-li2.tex}%
+Aus der Ableitung~\eqref{buch:intalg:exp:dilog:integraldef}
+folgt die Integraldefinition
+\[
+\operatorname{Li}_2(x)
+=
+-\int_0^x
+\frac{\log(1-t)}{t}\,dt
+\]
+des Dilogarithmus für reelle Argumente $x\in(-\infty,0)$, die als
+Basis für die graphische Darstellung des Graphen von
+$\operatorname{Li}_2(x)$ 
+in Abbildung~\ref{buch:intalg:fig:li2} diente.
 
 Damit kann jetzt die Stammfunktion von $f(x)=x/(e^x+1)$ bestimmt werden.
 Mathematica findet die Funktion
@@ -859,7 +873,7 @@ kann dazu nichts aussagen.
 Daher wurden auch gänzlich andere Methoden zur Lösung dieser
 Differentialgleichung entwickelt.
 
-\begin{definition}
+\begin{definition}[Risch-Differentialgleichung]
 Sei $F$ ein differentieller Funktionenkörper und $f,g\in F$.
 Das Problem, eine Lösung $y\in F$ der Differentialgleichung
 \[
