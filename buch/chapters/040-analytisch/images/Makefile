@@ -8,7 +8,8 @@ all:	nichtanalytisch.pdf						\
 	wurzel.pdf							\
 	ring.pdf							\
 	integral.pdf							\
-	zweipunkte.pdf
+	zweipunkte.pdf							\
+	argument.pdf
 
 nichtanalytisch.pdf:	nichtanalytisch.tex
 	pdflatex nichtanalytisch.tex
@@ -34,3 +35,8 @@ integral.pdf:	integral.tex
 zweipunkte.pdf:	zweipunkte.tex
 	pdflatex zweipunkte.tex
 
+argument.pdf:	argument.tex argumentpfad.tex
+	pdflatex argument.tex
+
+argumentpfad.tex:	argument.m
+	octave argument.m

@@ -1,0 +1,200 @@
+%
+% 51-argument.tex
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Argumentänderungen}
+Das Argument einer komplexen Zahl $z$ ist der Winkel $\varphi$, für den
+$z=|z|e^{i\varphi}$.
+Weil die imaginäre Exponentialfunktion wegen $e^{2\pi i}=1$ periodisch
+ist, ist das Argument nur bis auf ein ganzzahliges Vielfaches von $2\pi$
+festgelegt.
+Dies wurde auch schon in
+Abschnitt~\ref{buch:analytisch:fortsetzung:subsection:ueberlagerung}
+beobachtet, wo die Logarthmusfunktion untersucht wurde.
+Der Logarithmus der komplexen Zahl $re^{i\varphi}$ ist
+\[
+\log (re^{i\varphi}) = \log r + i\varphi + 2\pi i k
+\]
+für $k\in\mathbb{Z}$.
+Die Logarithmusfunktion verspricht also, im Imaginärteil das
+Argument zu liefern, versagt aber weil das Resultat nicht eindeutig
+bestimmt ist.
+
+%
+% Das Argument einer Funktion
+%
+\subsubsection{Das Argument einer Funktion}
+Für $z=0$ ist das Argument undefiniert, es hat bei $0$ eine
+Singularität.
+Für eine komplexe Funktion $f(z)$ ist es daher ausgeschlossen,
+die Funktion $\log f(z)$ zu definieren, wenn die Funktion $f(z)$
+eine Nullstelle hat.
+Schliesst man Punkte des Definitionsbereichs aus, in denen $f(z)$
+verschwindet, dann ist der Wert von $\log f(z)$ bis auf ein ganzzahliges
+Vielfaches von $2\pi$ festgelegt.
+Es ist also immer noch nicht möglich, einen eindeutigen Wert von $\log f(z)$
+festzulegen.
+Man kann aber einen der möglichen Werte für $\log f(z_0)$ an der Stelle
+$z_0$ zu wählen und dann versuchen, die Werte von $\log f(z)$ für $z$ 
+in einer Umgebung von $z_0$ so definieren, dass eine stetige
+Funktion entsteht.
+
+\begin{beispiel}
+Die Funktion $f(z) = z^3$ bildet $z=re^{i\varphi}$ auf
+$f(z) = r^3e^{3i\varphi}$ ab.
+Der Logarithmus ist
+\[
+\log f(z)
+=
+\log r^3 + 3i\varphi
++
+2\pi k
+=
+3\log r + 3i\varphi
++
+2\pi i k
+\]
+für $k\in\mathbb{Z}$.
+Um den Logarithmus festzulegen, muss man also den Wert für einen
+Punkt  $z_0$ festzulegen.
+Wir wählen $z_0=i=e^{i\frac{\pi}2}$, wir müssen also einen der Werte
+\[
+\dots
+-\frac{9\pi}{2},
+-\frac{5\pi}{2},
+-\frac{\pi}{2},
+{\color{darkred}\frac{3\pi}2}, 
+\frac{7\pi}2,
+\frac{11\pi}2,
+\frac{15\pi}2,
+\dots
+\]
+auswählen.
+Der mittlere Wert $3\pi/2$ ist der offensichtliche, aber jede andere
+Wahl ist genauso zulässig.
+
+Mit der Wahl $\log f(i) = -\frac{\pi}2i$ können wir jetzt die anderen
+Werte des Logarithmus in einer Umgebung von $z_0=i$ berechnen.
+Auf dem Gebiet $\mathbb{C}\setminus\{x\in\mathbb{R}\mid x\le 0\}$,
+der komplexen Ebene ohne die negative reelle Achse, kann das Argument
+von $z=re^{i\varphi}$ im Intervall $\varphi\in(-\pi,\pi)$ eindeutig
+festgelegt werden.
+Mit dieser Wahl des Argumentes von $z$ ist dann
+\[
+\log f(z)
+=
+\log|f(z)| - \frac{\pi}2 + 3\biggl(\varphi-\frac{\pi}2\biggr)i.
+\]
+Mit dieser Wahl des Wertes von $\log f(z_0)$ haben positive reelle Werte
+von $z$ das Argument $\varphi=0$ und damit die Werte
+\[
+\log f(r) = 3\log r - \frac{\pi}2 -3\frac{\pi}2 = 3\log r-2\pi
+\]
+des Logarithmus.
+Wendet man die Exponentialfunktion an, ergibt sich der reelle Wert
+$r^3$, da der Imaginärteil ein ganzzahliges Vielfaches von $2\pi$ ist.
+\end{beispiel}
+
+%
+% Argument entlang einer Kurve
+%
+\subsubsection{Argument entlang einer Kurve}
+Die Konstruktion von $\log f(z)$ im vorangegangenen Abschnitt
+hat das Problem, dass der Logarithmus nicht eindeutig definiert werden kann,
+in einer Umgebung eines einzelnen Wertes gelöst.
+Verwendet wurde dabei, dass sich das Argument von $\log f(z)$ immer von
+einem bekannten Wert $\log f(z_1)$ auf eine Umgebung ausdehnen lässt.
+Ausgehend vom Wort in einem anderen Punkt $z_2$ dieser Umgebung, kann
+$\log f(z)$ auf eine Umgebung von $z_2$ ausgedehnt werden.
+Dies ist genau die Vorgehensweise der analytischen Fortsetzung einer
+Funktion, die in Abschnitt~\ref{buch:analytisch:fortsetzung:subsection:kurve}
+studiert wurde.
+Sie garantiert, dass es entlang einer Kurve $\gamma$ im Definitionsbereich
+der Funktion $f(z)$ immer möglich ist, den Logarithmus so zu wählen,
+dass $\log f(\gamma(t))$ stetig ist.
+
+Die Festlegung der Werte des Logarithmus von $f(z)$ entlang der Kurve
+bedeutet, dass es stetige Funktionen $r(t)$ und $\varphi(t)$ mit
+\begin{equation}
+\log f(\gamma(t)) = \log r(t) + i\varphi(t)
+\label{buch:analytisch:argument:argument:eqn:logf1}
+\end{equation}
+gibt, die
+$f(\gamma(t))
+=
+e^{r(t)}\bigl(\cos\varphi(t)+i\sin\varphi(t)\bigr)$
+erfüllen.
+
+Für eine holomorphe Funktion $f(z)$ und eine differenzierbare Kurve
+$\gamma(t)$ sind die Funktionen $r(t)$ und $\varphi(t)$ nicht nur
+stetig, sondern sogar differenzierbar.
+Man kann daher die Ableitung auf zwei verschiedene Arten berechnen, nämlich
+einerseits mit der Kettenregel aus der Zusammensetzung von $\log\circ f$,
+und andererseits aus \eqref{buch:analytisch:argument:argument:eqn:logf1}.
+Die beiden Arten geben
+\[
+\frac{d}{dt}\log f(\gamma(t))
+=
+\begin{cases}
+\displaystyle
+\frac{f'(\gamma(t))}{f(\gamma(t))}
+&\qquad\text{mit der Kettenregel}
+\\[10pt]
+\displaystyle
+\frac{\dot{r}(t)}{r(t)} + i\dot{\varphi}(t)
+&\qquad\text{aus 
+\eqref{buch:analytisch:argument:argument:eqn:logf1}.}
+\end{cases}
+\]
+Der Realteil beschreibt also die Änderung des Betrags $|f(z)|$ 
+während der Imaginärteil die Änderung des Argumentes bestimmt.
+Für eine auf dem Intervall $I=[a,b]$ definierte geschlossene Kurve
+$\gamma$ kann man beide Formen der Ableitung entlang der Kurve
+integrieren, esfolgt dann
+\begin{align}
+\oint_\gamma \frac{f'(z)}{f(z)}\,dz
+&=
+\int_I \frac{\dot{r}(t)}{r(t)}\,dt
++
+i\int_I \dot{\varphi}(t)\,dt
+\notag
+\\
+&=
+\Bigl[ \log r(t) \Bigr]_a^b
++
+i\Bigl[\varphi(t)\Bigr]_a^b
+\notag
+\\
+&=
+\bigl(\log r(b) - \log r(a)\bigr)
++
+i
+\bigl(\varphi(b)-\varphi(a)\bigr).
+\label{buch:analytisch:argument:eqn:argumentintegral0}
+\end{align}
+Da die Kurve geschlossen ist, ist $r(b)=r(a)$, der Realteil von
+\eqref{buch:analytisch:argument:eqn:argumentintegral0}
+verschwindet daher.
+
+\begin{satz}[Argumentintegral]
+Für eine holomorphe Funktioin $f(z)$ und eine differenzierbare Kurve
+$\gamma(t)$ im Definitionsgebiet von $f(z)$, auf der $f(z)$ nicht verschwindet,
+ist das Integral
+\begin{equation}
+\oint_\gamma \frac{f'(z)}{f(z)}\,dz
+=
+2\pi i k
+\label{buch:analytisch:argument:eqn:argumentintegral}
+\end{equation}
+mit $k\in\mathbb{Z}$.
+\index{Argumentintegral}%
+\end{satz}
+
+Wir nennen \eqref{buch:analytisch:argument:eqn:argumentintegral}
+das Argumentintegral.
+Es hängt offenbar nicht von der konkreten Wahl des Logarithmus ab.
+Insbesondere kann es auch ohne die Aufwendige konstruktion einer
+analytischen Fortsetzung der Funktion $\log f(z)$ berechnet werden.
+
+

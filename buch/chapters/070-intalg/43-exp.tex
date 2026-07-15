@@ -40,13 +40,13 @@ Db(\vartheta)
 =
 \sum_{k=1}^m D(\vartheta-\beta_i)\prod_{i\ne k} (\vartheta-\beta_i).
 \]
-Sei wieder $\vartheta-b_j$ ein gemeinsamer Teiler von $b(\vartheta)$
+Sei wieder $\vartheta-\beta_j$ ein gemeinsamer Teiler von $b(\vartheta)$
 und $Db(\vartheta)$.
 Dann folgt wie im Beweis von Lemma~\ref{buch:intalg:risch:log:lemma:bDb},
-dass $\vartheta-b_j$ ein Teiler von $D(\vartheta-b_j)$ sein muss.
+dass $\vartheta-\beta_j$ ein Teiler von $D(\vartheta-\beta_j)$ sein muss.
 Nach dem Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch} ist
-$(\vartheta-b_j)\mid (D\vartheta-Db_j)$ genau dann, wenn der Teiler ein
-Monom ist, wenn also $b_j=0$ und damit $\vartheta$ ein Teiler von
+$(\vartheta-\beta_j)\mid (D\vartheta-D\beta_j)$ genau dann, wenn der Teiler ein
+Monom ist, wenn also $\beta_j=0$ und damit $\vartheta$ ein Teiler von
 $b(\vartheta)$ ist.
 \end{proof}
 
@@ -89,7 +89,8 @@ Form
 \label{buch:intalg:risch:exp:eqn:partbruch}
 \end{align}
 mit $a_i\in F$ und $a_{ik}\in F[\vartheta]$.
-Die zweite Summe enthält nur Terme, die den Faktor $\vartheta$ im 
+Die zweite Summe in \eqref{buch:intalg:risch:exp:eqn:partbruch}
+enthält nur Terme, die den Faktor $\vartheta$ im 
 Nenner nicht enthalten und daher mit der Methode von Hermite
 reduziert werden können.
 
@@ -126,6 +127,12 @@ Verallgemeinerte Polynome werden auch \emph{Laurent-Polynome} genannt.
 \index{Laurent-Polynom}%
 Das Paar $(l,k)=\deg p(\vartheta)$ heisst der \emph{Grad} des verallgemeinerten
 Polynoms.
+Wir nennen $l$ auch den \emph{negativen Grad} und $k$ den
+\emph{positiven Grad}.
+\index{negativer Grad}%
+\index{Grad!negativ}%
+\index{positiver Grad}%
+\index{Grad!positiv}%
 \end{definition}
 
 Die später zu entwickelnde Methode für den polynomiellen Teil muss also
@@ -135,7 +142,7 @@ können.
 \begin{lemma}
 \label{buch:intalg:risch:lemma:verallgabl}
 Die Ableitung eines verallgemeinerten Polynoms $p(\vartheta)$ ist
-wieder ein verallgemeinertes Polynom x den gleichen Graden.
+wieder ein verallgemeinertes Polynom mit den gleichen Graden.
 \end{lemma}
 
 \begin{proof}
@@ -155,7 +162,7 @@ Dp(\vartheta)
 \notag
 \\
 &=
-\sum_{i=-k}^l (Dp_i + ip_i Du ) \vartheta^i
+\sum_{i=-k}^l (Dp_i + ip_i Du ) \vartheta^i.
 \label{buch:intalg:risch:lemma:eqn:verallgabl}
 \end{align}
 Wegen $Dp_i+ip_iDu\in F$ ist 
@@ -164,7 +171,8 @@ ein verallgemeinertes Polynom.
 
 Für den höchsten Koeffizienten $Dp_l +lp_lDu$ folgt wie im Beweis
 von Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell},
-dass dieser nicht verschwinden kann.
+dass dieser nicht verschwinden kann und der positive Grad von
+$p(\vartheta)$ und $Dp(\vartheta)$ gleich sind.
 
 Wäre $\bar{p}_{-k}=Dp_{-k} -k p_k Du=0$, dann wäre auch
 \[
@@ -209,7 +217,7 @@ Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell} sind
 $Dp(\vartheta)$ und $Dq(\vartheta)$ wieder Polynome vom gleichen Grad.
 Da die linke Seite von \eqref{buch:intalg:risch:rt:eqn:liouvillediff}
 und die Terme $Dv_k(\vartheta)/v_k(\vartheta)$
-einen quadratfreien Nenner haben, muss auch der Nennen von
+einen quadratfreien Nenner haben, muss auch der Nenner von
 \eqref{buch:intalg:risch:lemma827:Dv0} quadratfrei sein.
 Im Gegensatz zur Argumentation im Beweis von
 Lemma~\ref{buch:intalg:risch:lemma:v0log} kann das bei einer
@@ -261,7 +269,8 @@ Einerseits war bereits bekannt, dass der Term $v_0$ in der
 Stammfunktion verschwindet.
 Ausserdem wurde verwendet, dass Ableiten den Grad eines normierten
 Polynoms immer verkleinert.
-Beider Voraussetzungen sind nicht mehr gegeben.
+Beide Voraussetzungen sind bei einer exponentiellen Erweiterung
+nicht mehr gegeben.
 Trotzdem werden wir unten einen analogen Satz für exponentielle
 Erweiterungen beweisen.
 
@@ -433,7 +442,7 @@ c_i \deg v_i(\vartheta) l(b(\vartheta)) Du.
 \end{align*}
 Alle Summanden in \eqref{buch:intalg:risch:exp:rt:eqn:abar} haben
 den gleichen Grad.
-Die Terme in der Summe in haben daher zusammen den führenden Term
+Die Terme in der Summe haben daher zusammen den führenden Term
 \[
 l\biggl(
 \sum_{i=1}^m c_i Dv_i(\vartheta) u_i(\vartheta)
@@ -482,11 +491,11 @@ a(\vartheta) - z\cdot Db(\vartheta)
 \qquad\text{und}\qquad
 b(\vartheta) = \vartheta+1
 \]
-einen gemeinsamen Teiler haben.
+einen nichttrivialen gemeinsamen Teiler haben.
 Beide Polynome sind vom Grad 1, ein gemeinsamer Teiler ist also nur
 möglich, wenn die Polynome Vielfache voneinander sind.
 Dies ist der Fall, wenn $z=c_1=-1$ ist.
-Der grösste gemeinsame Teiler ist rtggtdann $v_i=\vartheta+1$.
+Der grösste gemeinsame Teiler ist dann $v_i=\vartheta+1$.
 
 Die Funktion $g$ in \eqref{buch:intalg:risch:exp:eqn:g}
 ist
@@ -543,7 +552,7 @@ bestätigt.
 \label{buch:intalg:risch:exp:bsp:x/ex+1}
 Man finde eine Stammfunktion von 
 \begin{equation}
-f = \frac{x}{e^x+1} = \frac{x}{\vartheta+1}
+f = \frac{x}{e^x+1} = \frac{x}{\vartheta+1},
 \label{buch:intalg:risch:exp:eqn:x/ex+1}
 \end{equation}
 wobei $\vartheta$ die exponentielle Erweiterung mit $\vartheta=e^x$.
@@ -565,10 +574,10 @@ x-z\cdot \vartheta
 \qquad\text{und}\qquad
 b(\vartheta) = \vartheta+1
 \]
-einen gemeinsamen Teiler haben.
+einen nichttrivialen gemeinsamen Teiler haben.
 Wieder ist dies nur möglich, wenn das linke Polynom ein Vielfaches
 des rechten Polynoms ist.
-Dies ist genau für $z=c_1=-x$ sein, dann ist
+Dies ist genau für $z=c_1=-x$ der Fall, dann ist
 \[
 a(\vartheta) - z\cdot Db(\vartheta)
 =
@@ -577,7 +586,7 @@ x+x \vartheta
 x(\vartheta+1)
 \]
 ist.
-Da $c_i=x$ nicht konstant ist, kann es keine elementare Stammfunktion
+Da $c_1=x$ nicht konstant ist, kann es keine elementare Stammfunktion
 geben.
 \end{beispiel}
 
@@ -637,26 +646,26 @@ gefunden werden kann.
 Damit kann jetzt die Stammfunktion von $f(x)=x/(e^x+1)$ bestimmt werden.
 Mathematica findet die Funktion
 \index{Mathematica}%
-\[
-F(x) =
+\begin{align*}
+F(x)
+&=
 -x\log(1+e^{-x})
 +
 \operatorname{Li}_2(-e^{-x}).
-\]
-Die Ableitung davon ist
-\begin{align*}
+\intertext{Um davon die Ableitung zu berechnen, ist es nützlich, die
+Ableitung von $\operatorname{Li}_2(-e^{-x})$ haben.
+Sie ist}
+\frac{d}{dx}
+\operatorname{Li}_2(-e^{-x})
+&=
+\log(1+e^{-x}).
+\intertext{Die Ableitung von $F(x)$ wird damit}
 \frac{d}{dx}F(x)
 &=
 -\log(1+e^{-x})
 -x\frac{1}{1+e^{-x}}\frac{d}{dx}(e^{-x})
- + \frac{d}{dx}\operatorname{Li}_2(-e^{-x})
-\\
-&=
--\log(1+e^{-x})
--x\frac{1}{1+e^{-x}}\frac{d}{dx}(e^{-x})
--
-\frac{\log(1+e^{-x})}{-e^{-x}}
-\frac{d}{dx}(-e^{-x})
++
+\log(1+e^{-x})
 \\
 &=
 -
@@ -664,15 +673,12 @@ Die Ableitung davon ist
 +
 x\frac{1}{1+e^{-x}}e^{-x}
 +
-\frac{\log(1+e^{-x})}{e^{-x}}
-e^{-x}
+\log(1+e^{-x})
 \\
 &=
 x\frac{e^{-x}}{1+e^{-x}}.
 \intertext{Erweitern mit $e^x$ ergibt}
 &=
-%x\frac{1}{e^x+1}
-%=
 \frac{x}{e^x+1}.
 \end{align*}
 Damit ist gezeigt, dass $F(x)$ tatsächlich die Stammfunktion von $f(x)$
@@ -683,68 +689,96 @@ andere Stammfunktion, nämlich
 \begin{align}
 G(x)
 &=
-\frac{x^2}2 - x \log(e^x+1) - \operatorname{Li}_2(-e^{-x})
+\frac{x^2}2 - x \log(e^x+1) - \operatorname{Li}_2(-e^{x}).
 \notag
-\intertext{Die Ableitung ist}
+\intertext{In diesem Fall brauchen wird die Ableitung}
+\frac{d}{dx}\operatorname{Li}_2(-e^x)
+&=
+-\log(e^x+1).
+\intertext{Die Ableitung von $G(x)$ wird damit}
 \frac{d}{dx}G(x)
 &=
 x-\log(e^x+1) - \frac{xe^x}{e^x+1} 
--
-\frac{d}{dx}\operatorname{Li}_2(-e^{-x})
++
+\log(e^x+1)
 \notag
 \\
 &=
 \frac{x(e^x+1)-xe^x}{e^x+1} 
--
-\log(e^x+1)
-+
-\frac{\log(1+e^{-x})}{-e^{-x}}\frac{d}{dx}(-e^{-x})
 \notag
 \\
 &=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
-+
-\frac{\log(1+e^{-x})}{-e^{-x}}
-e^{-x}
-\notag
-\\
-&=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
--
-\log(1+e^{-x}).
-\label{buch:intalg:risch:exp:maximaabl}
-\intertext{Schreiben wir $1+e^{-x}=e^{-x}(e^x+1)$, wird
-\eqref{buch:intalg:risch:exp:maximaabl} zu}
-&=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
--
-\log(e^{-x}\cdot (e^x + 1))
-\notag
-\\
-&=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
--
-x
-+
-\log(e^x+1)
-\notag
-\\
-&=
-\frac{x}{e^x+1}
-%=
-%\frac{xe^x+x-xe^x}{e^x+1}
-=
 \frac{x}{e^x+1}.
 \end{align}
 Auch diese Form der Stammfunktion ist also korrekt.
+
+Die beiden Stammfunktionen $F(x)$ und $G(x)$ können sich um höchstens
+eine Konstante unterscheiden, die Differenz ist 
+\begin{align}
+C
+=
+F(x)-G(x)
+&=
+-x\log(1+e^{-x})+\operatorname{Li}_2(-e^{-x})
+-\frac{x^2}2+x\log(e^x+1)+\operatorname{Li}_2(-e^x)
+\notag
+\intertext{Die Konstante kann durch Evaluieren für $x=0$ gefunden werden,
+sie stellt sich als $C=0$ heraus.
+Die beiden Logarithmus-Terme können als Logarithmus eines Bruchs
+geschrieben werden:}
+0
+&=
+-x\log\frac{1+e^{-x}}{e^x+1}+\operatorname{Li}_2(-e^{-x})
+-\frac{x^2}2+\operatorname{Li}_2(-e^x)
+\notag
+\\
+&=
+-x\log e^{-x}
+-
+\frac{x^2}2
++
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x)
+\notag
+\\
+0
+&=
+\frac{x^2}2
++
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x),
+\label{buch:intalg:risch:li2identity}
+\end{align}
+eine nichttriviale Identität für den Dilogarithmus.
+
+Die Ableitung von
+$
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x)
+$
+ist
+\begin{align*}
+\frac{d}{dx}\Bigl(
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x)
+\Bigr)
+&=
+\log(1+e^{-x})-\log(e^x+1)
+\\
+&=
+\log\frac{1+e^{-x}}{e^x+1}
+=
+\log e^{-x}
+=
+-x
+\end{align*}
+mit der Stammfunktion $-\frac{x^2}{2}$, was 
+\eqref{buch:intalg:risch:li2identity}
+bestätigt.
 
 %
 % Der polynomielle Teil und die Risch-Differentialgleichung
@@ -822,7 +856,7 @@ sondern diese Funktion muss in $F$ sein.
 Der Satz von Picard-Lindelöf als Beispiel eines Existenz- und
 Eindeutigkeitssatzes für gewöhnliche Differentialgleichungen
 kann dazu nichts aussagen.
-Daher wurden auch gänzlich andere Lösungen zur Lösung dieser
+Daher wurden auch gänzlich andere Methoden zur Lösung dieser
 Differentialgleichung entwickelt.
 
 \begin{definition}

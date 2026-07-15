@@ -8,9 +8,16 @@ Die meisten Operationen bei der Lösung dieses Problems ergaben
 wieder rationale Funktionen.
 Nur ganz am Schluss traten Terme auf, deren Integrale mit dem
 Logarithmus eines Polynoms berechnet werden können.
-Wir brauchen also eine Menge von Funktionen, in der alle arithmetischen
-Operationen durchgeführt werden können, also einen Körper von
+Dies zeigt, dass wir zum Aufbau von Stammfunktion zumindest die
+arithmetischen Grundoperationen auf beliebige Funktionen anwenden können
+müssen.
+Die natürliche Struktur, in der sich die Integrationstheorie
+abspielt, ist daher ein Körper von Funktionen.
+Im Kapitel~\ref{chapter:ratint} war dies der Körper der rationalen
 Funktionen.
+In diesem Abschnitt muss es also darum gehen, diesen Funktionenkörper
+massvoll zu erweitern, dass möglichst viele praktisch wichtige
+Funktionen darin vorkommen.
 
 %
 % Koeffizientenkörper
@@ -31,7 +38,7 @@ Die zusätzlichen Konstanten können algebraisch sein, wie die
 Wurzel $\!\sqrt{2}$, oder transzendent, wie $\pi$, für die es keine
 polynomielle Relation gibt.
 Als Zahlenkörper, aus dem die Koeffizienten der Polynome stammen
-muss daher immer in Erweiterung von $\mathbb{Q}$ verwendet werden,
+muss daher immer eine Erweiterung von $\mathbb{Q}$ verwendet werden,
 die durch Hinzufügen endlich vieler Elemente $c_1,\dots,c_n$ entstehen.
 In der Kette
 \[
@@ -49,18 +56,19 @@ In der Kette
 \subset
 \underbrace{\mathbb{Q}(c_1,c_2,c_3,\ldots,c_{n-1},c_n)}_{\displaystyle = K_n}
 =
-K.
+K
 \]
-Jedes Element $c_k$ ist transzendent oder algebraisch ist über
+wird in jedem schritt genau ein neues Element
+$c_k$ hinzugefügt, welches transzendent oder algebraisch ist über
 dem vorangegangenen Körper.
 Falls $c_k$ algebraisch ist, dann gibt es ein Minimalpolynom
-$m_k(x) \in K_{k-1}[x]$, welches $m_k(c_k)=0$.
+$m_k(x) \in K_{k-1}[x]$, für welches $m_k(c_k)=0$ gilt.
 
 Zu den transzendenten Elementen in $K$ gehören insbesondere auch
 Parameter in den Ausdrücken.
 Wenn ein CAS den quadratischen Ausdruck $ax^2+bx+c$ integrieren soll,
 ohne den Koeffizienten $a$, $b$ und $c$ feste Werte zuzuordnen, dann
-müssen diese Elemente als transzendet über jedem zugrundeliegenden
+müssen diese Elemente als transzendent über jedem zugrundeliegenden
 Körper betrachtet werden.
 Damit sagt man, dass keine weiteren Beziehungen zwischen diesen
 Koeffizienten bekannt sind.
@@ -120,7 +128,16 @@ f(x)
 =
 \frac{ax^2+\!\sqrt{2}-c}{x^2+c^2}
 \]
-mit einem transzendenten Element $c$ zu schreiben.
+mit einem transzendenten Element $c$ zu schreiben, welches für
+$\sqrt{\pi}$ steht.
 Diese Version macht es aber schwieriger, eine Beziehung zwischen $\pi$ 
 und den trigonometrischen Funktionen herzustellen.
 \end{beispiel}
+
+Der kleinste Funktionenkörper, der die Konstanten in $K$ und das
+Funktionsargument $x$ enthält, ist der Körper $K(x)$ der rationalen
+Funktionen mit Koeffizienten in $K$.
+Wir bezeichnen ihn auch mit $F=K(x)$.
+Im Folgenden verwenden wir die Konvention, Funktionenkörper mit $F$
+und Konstantenkörper mit $K$ zu bezeichnen.
+

@@ -7,12 +7,13 @@
 \label{buch:differentialgleichungen:section:potenzreihen}}
 \kopfrechts{Potenzreihenansatz für Differentialgleichungen}
 Wir betrachten eine gewöhnliche Differentialgleichung
-\[
+\begin{equation}
 F(x,y,y',\dots,y^{(n)}) = 0
-\]
+\label{buch:differentialgleichungen:potenzreihenansatz:eqn:dgl}
+\end{equation}
 der Ordnung $n$.
-Wir nehmen an, dass die Lösung sich als Potenzreihe in der
-Form
+Wir nehmen an, dass sich die Lösung als konvergente Potenzreihe in
+der Form
 \begin{equation}
 y(x)
 =
@@ -20,12 +21,51 @@ y(x)
 \label{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
 \end{equation}
 schreiben lässt.
-Dann kann die Lösung auch als holomorphe Funktion einer komplexen
-Variable $x$ betrachtet werden und die Ableitungen von $y(x)$ sind
+Die Funktion $y(x)$ ist also reell analytisch und damit beliebig
+oft stetig differenzierbar.
+Die Exponentialfunktion oder die trigonometrischen Funktionen Sinus
+und Kosinus treten als Lösungen von gewöhnlichen Differentialgleichungen
+auf und haben solche konvergenten Potenzreihenentwicklungen.
+
+Dann kann die Potenzreihe der Lösung auch als holomorphe Funktion
+betrachten, indem man für $x$ auch komplexe Argumente innerhalb des
+Konvergenzkreises zulässt.
+Die Ableitungen $y'(x)$, $y''(x)$,\dots,$y^{(n)}(x)$ sind auch
 komplexe Ableitungen.
-Für viele Differentialgleichungen wird dann auch die Differentialgleichung
-für die holomorphe Funktion erfüllt sein.
-Die folgenden Beispiele sollen dies zeigen.
+Lässt sich auch die Funktion $F$ als eine holomorphe Funktion von
+komplexen Argumenten $x$, $y$, $y'$,\dots,$y^{(n)}$ interpretieren,
+dann wird
+\eqref{buch:differentialgleichungen:potenzreihenansatz:eqn:dgl}
+zu einer komplexen Differentialgleichung für eine gesuchte
+Funktion.
+Da diese holomorph sein muss, ist es auch naheliegend, sie als
+Potenzreihe zu schreiben.
+
+Der angesprochene Fall, dass in $F$ komplexe Argumente eingesetzt
+werden können, ist zum Beispiel bei einer linearen Differentialgleichung
+\[
+y^{(n)}(x)
++
+a_{n-1}(x) y^{(n-1)}(x)
++
+\dots
++
+a_2(x) y''(x)
++
+a_1(x) y'(x)
++
+a_0(x)
+=
+0
+\]
+gegeben, sofern die Koeffizientenfunktionen $a_k(x)$ holomorphe Funktionen
+eines komplexen Argumentes $a_k(x)$ sind.
+In den nachfolgenden Abschnitten werden zum Beispiele für lineare
+Differentialgleichungen mit konstanten Koeffizienten gezeigt.
+Die fuchsche Differentialgleichung, die in
+Abschnitt~\ref{buch:differentialgleichungen:section:fuchs} behandelt wird,
+ist eine lineare Differentialgleichung mit
+rationalen oder analytische Koeffizientenfunktionen.
 
 %
 % Die Exponentialfunktion
@@ -71,13 +111,13 @@ a_{l+1}
 \frac{1}{l+1} a_l
 \label{buch:differentialgleichungen:potenzreihen:eqn:exprek}
 \end{equation}
-für alle $l\ge 0$.
-Wir haben also keine Gleichung, mit der $a_0$ bestimmt werden kann,
-aber die Rekursionsgleichung
+ist für alle $l\ge 0$.
 \eqref{buch:differentialgleichungen:potenzreihen:eqn:exprek}
-erlauben uns,
-alle Koeffizienten durch $a_0$ auszudrücken:
-\begin{align*}
+ist eine Rekursionsgleichung, die ermöglicht, die Koefizienten $a_k$
+mit $k>0$ auf $a_0$ zurückzuführen.
+Löst man die Gleichung iterativ auf, erhält man die Werte
+\begin{equation}
+\begin{aligned}
 a_1
 &=
 -k\frac{1}{0+1}a_0 = -ka_0 
@@ -103,8 +143,15 @@ a_5
 a_l
 &=
 (-1)^l \frac{k^l}{l!}a_0.
-\end{align*}
-Daraus ergibt sich als Lösung der Differentialgleichung
+\end{aligned}
+\label{buch:differentialgleichungen:potenzreihen:eqn:rekursion}
+\end{equation}
+Der Koeffizient $a_0$ wird durch die Differentialgleichung oder
+durch \eqref{buch:differentialgleichungen:potenzreihen:eqn:expdgl}
+nicht festgelegt.
+
+Aus \eqref{buch:differentialgleichungen:potenzreihen:eqn:rekursion}
+ergibt sich als Lösung der Differentialgleichung als die Potenzreihe
 \[
 y(x)
 =
@@ -114,6 +161,10 @@ a_0
 \sum_{l=0}^\infty
 (-1)^l
 \frac{k^l}{l!}x^l
+=
+a_0
+\sum_{l=0}^\infty
+\frac{(-kx)^l}{l!}
 =
 a_0e^{-kx}.
 \]
@@ -140,16 +191,22 @@ Sie kann aus einer Anfangsbedingung $y(0)=a_0$ bestimmt werden.
 \subsection{Schwingungen}
 Die Schwingungsdifferentialgleichung ist eine Differentialgleichung
 der Form
-\[
+\begin{equation}
 y''
 =
 -\omega^2\,y.
-\]
+\label{buch:differentialgleichungen:potenzreihen:eqn:schwingungsdgl}
+\end{equation}
 Auch in diesem Fall sind die Koeffizienten konstant und somit
 analytisch und es ist gerechtfertigt, eine analytische Lösung
 zu erwarten und mit einem Potenzreihenansatz zu suchen.
+
+%
+% Reell analytische Lösung
+%
+\subsubsection{Reell analytische Lösung}
 Die zweite Ableitung des
-Ansatzes~\eqref{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
+Potenzreihenansatzes~\eqref{buch:differentialgleichungen:potenzreihen:eqn:ansatz}
 ist
 \[
 y''(x)
@@ -158,7 +215,9 @@ y''(x)
 a_l l(l-1) x^{l-2}
 .
 \]
-Setzen wir dies in die Differentialgleichung ein, ergibt sich
+Setzen wir dies in die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:schwingungsdgl}
+ein, ergibt sich
 \begin{align*}
 \sum_{l=2}^\infty
 a_l l(l-1) x^{l-2}
@@ -187,6 +246,18 @@ a_{l+2}
 &=
 -\frac{\omega^2}{(l+1)(l+2)} a_{l}.
 \end{align*}
+Man beachte, dass die Rekursionsformel nur entweder gerade oder ungerade
+indizierte Koeffizienten untereinander in Beziehung setzt.
+Die gerade indizierten Koeffizienten müssen sich daher alle durch
+$a_0$ ausdrücken lassen, während die ungerade indizierten Koeffizienten
+von $a_1$ abhängen.
+Die Lösungsfunktion ist also erst durch die Angabe von $a_0=y(0)$ und
+$a_1=y'(0)$ eindeutig festgelegt.
+
+%
+% Lösung der Rekursionsgleichung
+%
+\subsubsection{Lösung der Rekursionsgleichung}
 Diese Rekursionsformeln ermöglichen, die Koeffizienten $a_l$ mit $l\ge 2$
 durch $a_0$ und $a_1$ als
 \begin{align*}
@@ -273,3 +344,304 @@ y''(x)
 -\omega^2 y(x),
 \]
 und erfüllt damit wie erwartet die Schwingungsdifferentialgleichung.
+
+%
+% Komplexe Lösungen
+%
+\subsubsection{Komplexe Lösungen}
+Die Differentialgleichung 
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:schwingungsdgl}
+kann man auch in der Form
+\begin{equation}
+\biggl(\frac{d}{dx}-i\omega\biggr)
+\biggl(\frac{d}{dx}+i\omega\biggr)
+y
+=
+0
+\label{buch:differentialgleichungen:potenzreihen:eqn:faktschwing}
+\end{equation}
+schreiben.
+Lösungen der Differentialgleichungen erster Ordnung
+\begin{equation}
+\biggl(\frac{d}{dx} - i \omega\biggr)y = 0
+\qquad\text{und}\qquad
+\biggl(\frac{d}{dx} + i \omega\biggr)y = 0
+\label{buch:differentialgleichungen:potenzreihen:eqn:einzelschwing}
+\end{equation}
+ergeben linear unabhängige Lösungen der Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:faktschwing}.
+Die Differentialgleichungen
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:einzelschwing}
+sind komplexe Differentialgleichungen der Form
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:expdgl}
+und können daher mit der Exponentialreihe gelöst werden.
+Die Lösungen von 
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:einzelschwing}
+\begin{equation}
+y_+(x) = e^{i\omega x}
+\qquad\text{und}\qquad
+y_-(x) = e^{-i\omega x}
+\end{equation}
+können zu den allgemeinen Lösungen der Schwingungsdifferentialgleichungen
+linear kombiniert werden.
+Die trigonometrischen Funktionen als Lösungen entstehen als die
+Linearkombinationen
+\[
+\cos \omega x
+=
+\frac{y_+(x)+y_-(x)}{2}
+\qquad\text{und}\qquad
+\sin \omega x
+=
+\frac{y_+(x)-y_-(x)}{2i}.
+\]
+
+%
+% Die Wurzelfunktion
+%
+\subsection{Die Wurzelfunktion}
+Die Wurzelfunktion ist eine Lösung der algebraischen Gleichung $y^2=x$.
+Durch Ableiten nach $x$ wird daraus die nichtlineare Differentialgleichung
+\begin{equation}
+2yy'=1.
+\label{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+\end{equation}
+Mit der Funktion
+\[
+F(x,y,y')
+=
+2yy'-1
+\]
+kann die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+in der Form
+\eqref{buch:differentialgleichungen:potenzreihenansatz:eqn:dgl}
+geschrieben werden.
+Die Funktion $F$ ist eine Polynom in den Variablen $y$ und $y'$ und
+ist damit insbesondere auch für komplexe Argumente definiert.
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+ist eine komplexe Differentialgleichung für die Wurzelfunktion
+und sollte daher eine komplexe Potenzreihe für die Wurzelfunktion
+zu liefern in der Lage sein.
+
+%
+% Potenzreihenlösung für die Wurzelfunktion
+%
+\subsubsection{Potenzreihenlösung für die Wurzelfunktion}
+Wir schreiben die Lösung als
+\[
+y(x)
+=
+\sum_{k=0}^\infty a_kx^k
+\qquad\Rightarrow\qquad
+y'(x)
+=
+\sum_{k=1}^\infty ka_kx^{k-1}
+=
+\sum_{l=0}^\infty (l+1)a_{l+1}x^l
+\]
+und setzen in die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+ein.
+Es entsteht die Gleichung
+\begin{align}
+\frac12
+&=
+\sum_{k=0}^\infty \sum_{l=0}^\infty a_k(l+1)a_{l+1}x^{k+l}
+=
+\sum_{n=0}^\infty
+\biggl(
+\sum_{l=0}^n (l+1)a_{n-l}a_{l+1}
+\biggr)
+x^n.
+\end{align}
+Durch Koeffizientenvergleich können wir jetzt die Koeffizienten $a_k$
+bestimmen.
+
+
+Der Koeffizient für $n=0$ ist $a_0a_1=\frac12$ oder $a_1=\frac{1}{2a_0}$.
+Die Koeffizienten von $x^n$ mit $n>0$ müssen alle verschwinden, es muss
+also
+\begin{align*}
+0
+&=
+\sum_{l=0}^n (l+1)a_{n-l}a_{l+1}
+&&\Rightarrow&
+(n+1)a_0a_{n+1}
+&=
+-
+\sum_{l=0}^{n-1} (l+1)a_{n-l}a_{l+1}
+\\
+&
+&&\Rightarrow&
+a_{n+1}
+&=
+\frac{1}{(n+1)a_0}
+\sum_{l=0}^{n-1} (l+1)a_{n-l}a_{l+1}.
+\end{align*}
+Dies ist eine Rekursionsformel, die den Koeffizienten $a_{n+1}$ aus
+den Koeffizienten $a_0,\dots,a_n$ bestimmt.
+Alle Koeffizienten hängen also vom Wert $a_0$ ab.
+
+%
+% Der Spezialfall a_0=1
+%
+\subsubsection{Der Spezialfall $a_0=1$}
+Um die Rechnung zu vereinfachen, berechnen wir die Koeffizienten nur für 
+den Fall $a_0=1$, also für den Fall einer Wurzelfunktion, die für $x=0$
+den Wert $1$ ergibt.
+Um die Koeffizienten besser auseinanderzuhalten, bezeichnen wir die
+Koeffizienten für diesen Spezialfall mit $b_k$.
+\input{chapters/050-differentialgleichungen/fig/fig-wurzel.tex}%
+Wir erwarten also eine Potenzreihenentwicklung für die Funktion
+$y(x)=\!\sqrt{1+x}$.
+Die Rechnung ergibt
+\begin{align*}
+n&=0: &&&
+1 &=
+b_0{\color{darkred}b_1}
+\\
+&&&\Rightarrow&
+b_1
+&=
+\frac{1}{2b_0}
+&&=
+\frac12
+\\
+n&=1: &&&
+0 &=
+b_1^2+2b_0{\color{darkred}b_2}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_2}
+&= 
+-\frac{b_1^2}{2b_0}
+&&=
+-\frac{1}{8}
+\\
+n&=2: &&&
+0 &=
+b_2b_1+2b_1b_2+3b_0{\color{darkred}b_3}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_3}
+&=
+-\frac{1}{3b_0}(3b_1b_2)
+&&=
+\frac{1}{16}
+\\
+n&=3: &&&
+0 &=
+b_3b_1+2b_2^2+3b_1b_3+4b_0{\color{darkred}b_4}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_4}
+&=
+-
+\frac{1}{4b_0}(4b_3b_1+2b_2^2)
+&&=
+-\frac{5}{128}
+\\
+n&=4: &&&
+0 &=
+b_4b_1+2b_3b_2+3b_2b_3+4b_1b_4+5b_0{\color{darkred}b_5}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_5}
+&=
+-\frac{1}{5b_0}(5b_1b_4+5b_2b_3)
+&&=
+\frac{7}{256}
+\end{align*}
+Die Lösung hat also die Potenzreihe
+\begin{align}
+\!\sqrt{1+x}
+&=
+\frac12
+-\frac{1}{8}x
++\frac{1}{16}x^2
+-\frac{5}{128}x^3
++\frac{7}{256}x^4
+-\dots
+\label{buch:differentialgleichungen:potenzreihen:wurzelapprox}
+\end{align}
+Die Abbildung~\ref{buch:differentialgleichungen:fig:wurzel}
+zeigt die exakte Lösung $\!\sqrt{1+x}$ im Vergleich zur Approximation
+\eqref{buch:differentialgleichungen:potenzreihen:wurzelapprox}.
+
+%
+% Der allgemeine Fall
+%
+\subsubsection{Der allgemeine Fall}
+Die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+hat als allgemeine Lösung die Funktion $y(x)=\!\sqrt{x-C}$.
+Die Wahl $a_0=1$ entspricht daher dem Wert $C=-1$.
+Für beliebiges $a_0$ findet man
+\[
+y(x)
+=
+\!\sqrt{x+a_0^2}
+=
+\frac{1}{a_0}
+\sqrt{1+\frac{x\mathstrut}{a_0^2\mathstrut}}
+=
+\frac{1}{a_0}
+\sum_{k=0}^\infty b_k\biggl(\frac{x\mathstrut}{{a_0}^2\mathstrut}\biggr)^k
+\]
+als Lösung.
+Daraus können wir ablesen, dass
+\[
+a_k
+=
+\frac{b_k}{a_0^{2k+1}}
+\]
+ist.
+
+%
+% Die binomische Reihe
+%
+\subsubsection{Die binomische Reihe}
+Für die Funktion $f(x) = (1+x)^\alpha$ ist auch die binomische Formel
+\begin{align*}
+(1+x)^\alpha
+&=
+\sum_{k=0}^\infty \binom{\alpha}{k}x^k
+=
+\sum_{k=0}^\infty \frac{\alpha(\alpha-1)\cdot\ldots\cdot (\alpha-k+1)}{k!}x^k
+\end{align*}
+bekannt
+Im Spezialfall $\alpha=\frac12$ kann man die Binomialkoeffizienten
+explizit ausrechnen.
+Dazu erweitern wir den Bruch
+\begin{align}
+\binom{\frac12}{k}
+&=
+\frac{\frac12\cdot(-\frac12)\cdot(-\frac32)\cdot\ldots\cdot(-\frac{2k-3}{2})}{k!}
+=
+(-1)^{k-1}
+\frac{1\cdot 3 \cdot\ldots\cdot(2k-3)}{2^k\cdot k!}
+\intertext{mit $2^k\cdot k!=2\cdot 4 \cdot \ldots\cdot (2k)$ und erhalten}
+&=
+(-1)^{k-1}
+\frac{1\cdot 2\cdot 3 \cdot 4 \cdot\ldots\cdot(2k-3)\cdot(2k-2)\cdot 2k}{(2^k\cdot k!)^2}
+\notag
+\\
+&=
+(-1)^{k-1}
+\frac{(2k)!}{2^{2k}\cdot (k!)^2\cdot(2k-1)}
+=
+(-1)^{k-1}
+\frac{1}{2^{2k}}
+\binom{2k}{k}.
+\label{buch:differentialgleichungen:potenzreihen:eqn:koeffizient}
+\end{align}
+Tatsächlich bekommt
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:koeffizient}
+für die ersten paar $k$ die Werte der Koeffizienten der
+Tabelle~\ref{buch:differentialgleichungen:tab:wurzel}.
+\input{chapters/050-differentialgleichungen/fig/tab-wurzel.tex}%
+Sie stimmen mit den Koeffizienten in
+\eqref{buch:differentialgleichungen:potenzreihen:wurzelapprox}
+überein.
+
