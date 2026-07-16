@@ -6,7 +6,7 @@
 \subsection{Nullstellen von Polynomen über $\mathbb{Q}$}
 Der Fundamentalsatz der Algebra löst das Problem der Faktorisierung
 ein einem einzigen Körper.
-Jedes Polynom $p(z)\in \mathbb{C}[z]$ lässt sich in Linearfaktoren
+Jedes Polynom $p(Z)\in \mathbb{C}[Z]$ lässt sich in Linearfaktoren
 zerlegen.
 Dies ermöglicht zum Beispiel die Partialbruchzerlegung rationaler
 Funktionen und steht damit am Anfang der Lösung des Integrationsproblem
@@ -25,8 +25,8 @@ Nicht jede komplexe Zahl hat eine exakte Darstellung in einem Computersystem.
 Da $\mathbb{C}=\mathbb{R}(i)$ eine algebraische Erweiterung der 
 überabzählbar unendlichen Menge der reellen Zahlen ist, gibt es
 überabzählbar unendlich viele komplexe Zahlen.
-In einem Computer kann man aber nur abzählbar unendlich viele Zahlen
-exakt darstellen.
+In einem Computer kann man aber prinzipiell nur abzählbar unendlich
+viele Zahlen exakt darstellen.
 Gleitkomma-Arithmetik löst das Problem dadurch, dass reelle Zahlen
 \index{Gleitkomma-Arithmetik}%
 und damit auch komplexe Zahlen approximiert werden.
@@ -81,7 +81,8 @@ Zahlen $\mathbb{Q}$.
 Jedesmal, wenn eine Wurzel oder eine Nullstelle eines Polynoms auftritt,
 wird der Körper der darstellbaren Zahlen um das algebraische Element
 $\alpha$ erweitert.
-Die weiteren Rechnungen finden daher in $K=\mathbb{Q}(\alpha)$ statt.
+Die weiteren Rechnungen finden im erweiterten Körper $K=\mathbb{Q}(\alpha)$
+statt.
 Die algebraischen Eigenschaften des Elements $\alpha$ sind Teil der
 Spezifikation von $\alpha$.
 Auch die imaginäre Einheit ist von dieser Art.
@@ -101,7 +102,7 @@ Es gibt zwar kein Polynom in $\mathbb{Q}[z]$, das $\pi$ oder $e$ als
 Nullstelle hat, da diese Zahlen transzendent sind.
 Die Potenzen $\pi^k$, $k\in\mathbb{N}$ sind über $\mathbb{Q}$ linear
 unabhängig.
-Das bedeutet aber nur, dass man eine Potenz von $\pi$ niemals wird
+Das bedeutet aber nur, dass man eine Potenz von $\pi$ niemals
 durch niedrigere Potenzen wird ausdrücken können, wie das bei den
 algebraischen Elementen der Fall ist.
 Dafür gibt es Beziehungen wie $e^{i\pi}=-1$, mit denen Exponentialausdrücke
@@ -122,7 +123,7 @@ Dies ist aber wieder nicht die Art und Weise, wie ein Computeralgebrasystem
 mit der Ableiltung umgeht.
 Hierfür werden die algebraischen Eigenschaften des Ableitungsoperators
 verwendet, die man als die Ableitungsregeln aus der Analysis kennt.
-Sie ermöglichen, dass man die Ableitung beliebig komplizierter Ausdrücke
+Sie ermöglichen, die Ableitung beliebig komplizierter Ausdrücke
 zu berechnen, sofern man nur die Ableitungsregeln für die Komponenten
 des Ausdrucks kennt.
 Man muss zum Beispiel nicht wissen, wie man einen Wert von $f(x)=e^{1291x}$
@@ -135,7 +136,7 @@ Vollständigkeit von $\mathbb{C}$.
 Die Existenz von Werten eines Integrals ist dadurch gesichert.
 Ein Computeralgebrasystem ist jedoch nicht an Werten interessiert,
 sondern an algebraischen Ausdrücken für die Stammfunktion.
-Um eine solche zu finden ist die Definition des Riemann-Integrals
+Um einen solchen zu finden, ist die Definition des Riemann-Integrals
 \index{Riemann-Integral}%
 \index{Integral, Riemann-}%
 als Grenzwert einer Summe von Rechteckflächen nicht zweckmässig.

@@ -6,8 +6,8 @@
 \subsection{Der Körper der komplexen Zahlen}
 In der bisherigen Entwicklung haben wir uns vor allem um einzelne
 Zahlen gekümmert.
-Für die Menge der Zahlen als ganzes und die darauf definierten 
-Rechenoperationen haben wir uns nur indirekt gekümmert.
+Der Menge der Zahlen als Ganzes und die darauf definierten 
+Rechenoperationen haben wir uns nur indirekt angenommen.
 
 %
 % Was ist ein Körper
@@ -108,11 +108,13 @@ A\in M_{n\times n}(\mathbb{R})
 \text{$A$ ist invertierbar}
 \}
 \]
-ist eine Gruppe bezüglich der Matrizenmultiplikation mit der
-Einheitsmatrix $I$ als neutralem Element.
+der invertierbaren $n\times n$-Matrizen ist eine Gruppe bezüglich
+der Matrizenmultiplikation mit der Einheitsmatrix $I$ als neutralem
+Element.
 \index{Einheitsmatrix}%
 Da die Matrizenmultiplikation für $n>1$ nicht kommutativ ist,
-ist $\operatorname{GL}_n(\mathbb{R})$ eine Gruppe.
+ist $\operatorname{GL}_n(\mathbb{R})$ im Allgemeinen keine abelsche
+Gruppe.
 \end{beispiel}
 
 \begin{beispiel}
@@ -154,7 +156,7 @@ sind.
 \end{beispiel}
 
 Die vertrauten Zahlenmengen zeichnen sich dadurch aus, dass sie nicht
-nur eine Operation tragen, sondern zusätzlich zur Addition oft auch
+nur eine Operation tragen, sondern zusätzlich zur Addition auch
 eine Multiplikation.
 
 \begin{definition}[Ring]
@@ -196,6 +198,8 @@ nicht invertierbar sind.
 Ist nämlich $ab=0$ und wäre $a^{-1}$ ein zu $a$ inverses Element, dann
 wäre
 \[
+0
+=
 a^{-1}0
 =
 a^{-1}ab
@@ -277,7 +281,7 @@ Die Menge $\mathbb{F}_p$ ist für jede Primzahl ein Körper.
 % Körperaxiome für R
 %
 \subsubsection{Körperaxiome für $\mathbb{R}$}
-Die reellen Zahlen werden als Grenzwerte von Cauchy-Folgen von
+Die reellen Zahlen wurden als Grenzwerte von Cauchy-Folgen von
 rationalen Zahlen konstruiert.
 Sind $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ zwei
 Cauchy-Folgen von rationalen Zahlen mit Grenzwerten $a$ bzw.~$b\in\mathbb{R}$.
@@ -321,12 +325,12 @@ echten Teilkörper enthält.
 % Körperaxiome für eine algebraische Erweiterung
 %
 \subsubsection{Körperaxiome für eine algebraische Erweiterung}
-Sei $K$ ein Körper und $m\in K[x]$ ein irreduzibles 
+Sei $K$ ein Körper und $m(X)\in K[X]$ ein irreduzibles 
 Polynom, welches 
 \[
-m(x)
+m(X)
 =
-x^n + m_{n-1}x^{n-1} + \dots + m_1x + m_0
+X^n + m_{n-1}X^{n-1} + \dots + m_1X + m_0
 \]
 geschrieben werden soll.
 Der Körper $K$ kann durch ein Element $\alpha$, welches die
@@ -368,7 +372,7 @@ des Polynoms $m$ ist.
 % Der Körper C = R(i)
 %
 \subsubsection{Die Körper $\mathbb{C}=\mathbb{R}(i)$ und $\mathbb{Q}(i)$}
-Sei $m = x^2 + 1 \in\mathbb{R}[x]$.
+Sei $m(X) = X^2 + 1 \in\mathbb{R}[X]$.
 Dieses Polynom ist irreduzibel und definiert daher eine algebraische
 Erweiterung von $\mathbb{R}$, die mit $\mathbb{R}(i)$ bezeichnet wird.
 Das Element $i$ ist eine Nullstelle von $m$, es gilt also $i^2+1=0$.
@@ -429,13 +433,13 @@ Die Operationen zur Berechnung des inversen Elementes sind
 für sich genommen nützlich, wir geben ihnen in der folgenden
 Definition einen Namen.
 
-\begin{definition}
+\begin{definition}[konjugiert komplexe Zahl]
 Für $z=a+bi\in\mathbb{C}$ heisst
 $\bar z = a-bi$ die zu $z$ \emph{konjugiert komplexe} Zahl.
 \index{konjugiert komplex}%
 \end{definition}
 
-Das Polynom $m=x^2+1\in\mathbb{Q}[x]$ ist natürlich auch als
+Das Polynom $m(X)=X^2+1\in\mathbb{Q}[X]$ ist natürlich auch als
 Polynom mit rationalen Koeffizienten irreduzibel.
 Daher lässt sich auch $\mathbb{Q}$ durch die imaginäre Einheit
 $i$ algebraisch zum Körper $\mathbb{Q}(i)$ erweitern.

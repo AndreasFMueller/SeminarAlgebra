@@ -20,9 +20,10 @@ deren Flächeninhalt mit rein algebraischen Methoden bestimmt werden
 konnte.
 Durch feiner werdende Unterteilung der Polygone konnte eine beliebig
 genaue Näherung gefunden werden.
-Den Parabelbogen $y=x^2$ mit $x\in [0,1]$ kann man durch Unterteilung
+Den Parabelbogen $y=x^2$ mit $x\in [0,1]$ (siehe
+Abbildung~\ref{buch:einleitung:fig:parabel}) kann man z.~B.~durch Unterteilung
 in $n$ Stützstellen $x_i = \frac{i}{n}$, $i=0,\dots,n$, als Vereinigung
-von Trapezen mit dem Flächeninhalt
+von Trapezen mit jeweils dem Flächeninhalt
 \begin{align*}
 |F_i|
 &=
@@ -42,10 +43,11 @@ n^2-(i-1)^2+n^2-i^2
 \frac1{2n^3}\bigl(
 2n^2
 -1+2i-2i^2
-\bigr).
+\bigr)
 \end{align*}
+betrachten.
 Die Summe dieser Flächen ist
-\begin{align*}
+\begin{align}
 F(n)
 &=
 \sum_{i=1}^n
@@ -57,6 +59,7 @@ F_i
 2n^2
 -1+2i-2i^2
 \bigr)
+\notag
 \\
 &=
 \frac1{2n^3}
@@ -79,7 +82,8 @@ F_i
 2
 \sum_{i=1}^n i^2
 \biggr).
-\intertext{Für die einzelnen Summe sind algebraische Ausdrücke in $n$
+\notag
+\intertext{Für die einzelnen Summen sind algebraische Ausdrücke in $n$
 bekannt, sie ergeben}
 &=
 1
@@ -95,7 +99,8 @@ n
 2
 \frac{n(n+1)(2n+1)}{6}
 \biggr)
-\\
+\notag
+\intertext{oder ausmultipliziert}
 &=
 1
 -
@@ -109,7 +114,8 @@ n
 -
 (n+3n^2+2n^3)
 \bigr)
-\\
+\notag
+\intertext{und zusammengefasst}
 &=
 1
 -
@@ -126,10 +132,13 @@ n
 =
 \frac23
 -\frac{1}{6n^2}.
-\end{align*}
-Nach dieser rein algebraischen Umformung wird argumentiert, dass für
-grosse $n$ die letzten zwei Terme nur einen sehr kleinen Beitrag
-zur Fläche leisten, im Grenzwert verschwinden und daher die Fläche
+\label{buch:einleitung:frueh:eqn:summen}
+\end{align}
+Damit sind die algebraischen Umformungen abgeschlossen.
+Jetzt wird argumentiert, dass für grosse $n$ die letzten zwei Terme
+von \eqref{buch:einleitung:frueh:eqn:summen}
+nur einen sehr kleinen Beitrag zur Fläche leisten, im Grenzwert
+verschwinden und daher die Fläche
 \[
 \lim_{n\to\infty} F(n) = \frac23
 \]
@@ -150,10 +159,11 @@ Newton wurde zur Entwicklung seiner Form der Infinitesimalrechnung
 motiviert durch die Beschreibung mechanischer Vorgänge.
 \emph{Fluenten} sind in seiner Terminologie Grössen, die sich mit der
 Zeit ändern können.
+Heute würden wir sagen: Fluenten sind Funktionen der Zeit.
 \index{Fluente}%
 Die Idee einer Funktion war schon vor Newton bekannt.
 \index{Newton, Isaac}%
-Nicolas von Oresme hat sich die Methode erdacht, die Abhängigkeit
+Nicolaus von Oresme hat sich die Methode erdacht, die Abhängigkeit
 \index{Oresme, Nikolaus von}%
 von Grössen durch einen Graphen zu visualisieren und diesen als
 Werkzeug für die Untersuchung zu verwenden.
@@ -177,8 +187,8 @@ die Zeichen $\bar{x}$ wie auch $\boxed{x}$ verwendet.
 Dies hat letztendlich die Anwendung seiner Methode erschwert und
 dazu geführt, dass heute fast ausschliesslich die von Leibniz
 eingeführte Notation verwendet wird.
-Man kann aber sagen, dass Newton der Hauptsatz der Infinitesimalrechnung
-bereits bekannt war.
+Abgesehen von der schwierigen Notation von Newtons Technik kann man sagen,
+dass Newton auch der Hauptsatz der Infinitesimalrechnung bereits bekannt war.
 
 %
 % Die Notation von Leibniz
@@ -189,16 +199,18 @@ Leibniz hat seine Ideen zur Infinitesimalrechnung unabhängig von Newton
 \index{Leibniz, Gottfried Wilhelm}%
 und unabhängig von der unmittelbaren physikalischen Anwendung
 entwickelt.
-Newton war im zwar zuvorgekommen, doch hat jedoch sein Methode erst
+Newton war ihm zwar zuvorgekommen, doch hat dieser sein Methode erst
 viel später veröffentlicht.
-Auch entbrannte später ein heftiger Prioritätsstreit zwischen Newton
+Leider entbrannte später auch ein heftiger Prioritätsstreit zwischen
+Newton und Leibniz.
 \index{Prioritatsstreit@Prioritätsstreit}%
-und Leibniz.
 
 Unabhängig von der Frage der Priorität ist es das besondere Verdienst
 von Leibniz, eine intuitiv zugängliche Notation gefunden zu haben,
 die noch heute gelehrt wird und die Basis von Erweiterungen ist.
 Die Ableitung ist motiviert durch die Sekantensteigung eines
+\index{Sekante}%
+\index{Steigung}%
 Funktionsgraphen $y=f(x)$, die durch den Differenzenquotienten
 \[
 \frac{\Delta y}{\Delta x}
@@ -251,7 +263,7 @@ summiert.
 Um den exakten Wert des Flächeninhalts unter der Kurve zu bestimmen,
 ersetzt er die endliche Breite $\Delta x$ eines Streifens durch die
 infinitesimale Breite $dx$ und die endliche Summe $\sum$ durch eine
-unendliche Summe und erhält
+``unendliche Summe'' und schreibt
 \[
 F
 =

@@ -19,7 +19,7 @@ was sich auch in dem im englischsprachigen Raum üblichen Namen
 % Eulers Einführung in die Analysis
 %
 \subsection{Eulers Einführung in die Analysis}
-Das Buch \emph{Introduction at analysin infinitorum}
+Das Buch \emph{Introductio in analysin infinitorum}
 \cite{buch:introductio1,buch:introductio2}
 beginnt Leonhard Euler, den Leser in die Ideen der Inifinitesimalrechnung
 einzuführen.
@@ -40,16 +40,15 @@ algebraisch definierte Kurven wie auch Graphen transzendenter
 \index{Graph}%
 Funktionen.
 
-Erst in seinen späteren Werk \cite{buch:institutiones}
-\emph{Institutiones calculi differentialis} behandelt er die Ableitung
-und das Integral.
+Erst in seinen späteren Werk \emph{Institutiones calculi differentialis}
+\cite{buch:institutiones} behandelt er die Ableitung und das Integral.
 Anwendungen die wie Bestimmung von Extrema oder Differentialgleichungen
 \index{Extrema}%
 werden darin ausführlich mit vielen Besipielen durchgerechnet.
 Das Integralzeichen, wie es Leibniz eingeführt hat, kommt jedoch im
 \index{Integralzeichen}%
 ganzen Buch nicht vor.
-Bei der Lösung von Differentialgleichungen er sich wieder der algebraischen
+Bei der Lösung von Differentialgleichungen bedient er sich der algebraischen
 \index{Differentialgleichung}%
 Regeln für die Ableitung, ohne je einen formellen Integralkalkül
 entwickelt zu haben.
@@ -63,7 +62,7 @@ Mit den ``unendlich kleinen'' Grössen $dx$ und $dy$ wird nach den
 wird nicht durchgeführt. 
 Sogar Differentialgleichungen sind nicht Gleichungen zwischen Ableitungen
 einer gesuchten Funktion, sondern tatsächlich Gleichungen zwischen
-den differentialen $dx$, $dy$, $d^2y$ und $dx^2$.
+den Differentialen $dx$, $dy$, $d^2y$ und $dx^2$.
 
 %
 % Die Rechenregeln der klassischen Infinitesimalrechnung
@@ -73,6 +72,7 @@ Für die praktische Arbeit mit Ableitungen im Stile Eulers genügt es,
 die folgenden Regeln zu kennen.
 Regeln für Funktionen:
 \begin{align}
+&\text{Linearität:}&
 \frac{d}{dx}(f(x)\pm g(x))
 &=
 \frac{d}{dx}f(x)
@@ -80,11 +80,13 @@ Regeln für Funktionen:
 \frac{d}{dx}g(x)
 \label{buch:einleitung:kalkuel:eqn:lin1}
 \\
+&&
 \frac{d}{dx}(\alpha f(x))
 &=
 \alpha \frac{d}{dx}f(x)
 \label{buch:einleitung:kalkuel:eqn:lin2}
 \\
+&\text{Produkt:}&
 \frac{d}{dx}\bigl(f(x)g(x)\bigr)
 &=
 \biggl(\frac{d}{dx}f(x)\biggr)
@@ -95,19 +97,23 @@ f(x)
 \label{buch:einleitung:kalkuel:eqn:prod}
 \intertext{\index{linear}\index{Produktregel}%
 Ein Regel, die Konstanten charakterisiert:}
+&\text{Konstanten:}&
 \frac{d}{dx}c&=0\qquad\text{wenn $c$ eine Konstante ist.}
 \label{buch:einleitung:kalkuel:eqn:const}
 \intertext{Eine Regel, die die unabhängige Variable auszeichnet:}
+&\text{Variable:}&
 \frac{d}{dx}x&=1.
 \label{buch:einleitung:kalkuel:eqn:var}
 \intertext{Die Ableitung des Reziproken $1/f(x)$ lässt sich daraus und aus
 der Eigenschaft $f(x)\cdot 1/f(x)=1$ mit der Produktregel gewinnen,
 \index{Quotientenregel}%
 ebenso die Quotientenregel}
+&\text{Quotienten:}&
 \frac{d}{dx} \frac{f(x)}{g(x)}
 &=
 \frac{\frac{df}{dx}(x)g(x) - f(x)\frac{dg}{dx}(x)}{g(x)^2}.
 \intertext{Dazu kommt noch die Kettenregel}
+&\text{Kettenregel:}&
 \frac{d}{dx} f(g(x))&=\frac{df}{dx}(g(x))\frac{dg}{dx}(x),
 \end{align}
 \index{Kettenregel}%
@@ -115,7 +121,7 @@ die für zusammengesetzte Funktionen nützlich ist.
 \index{Zusammensetzung}
 
 In der klassischen Entwicklung der Infinitesimalrechnung werden diese
-Regeln aus einer Definition der Ableitung als Grenzewert von
+Regeln aus der Definition der Ableitung als Grenzewert von
 Differenzenquotienten gewonnen.
 \index{Differenzenquotient}%
 Man kann sich aber auch auf den Standpunkt stellen, dass diese Regeln
@@ -138,6 +144,7 @@ die rationalen Zahlen enthält $\mathbb{Q}\subset F$.
 $K$ heisst auch der Konstantenkörper.
 Meistens geht man von den reellen Zahlen $\mathbb{R}$ als Zahlenkörper aus.
 \index{Konstantenkorper@Konstantenkörper}%
+Für die Computeralgebra wird jedoch der Körper $\mathbb{Q}$ vorgezogen.
 \item
 $F$ ist eine Algebra über dem Konstantenkörper $K$.
 Da $K\subset F$ ist, ist dies automatisch erfüllt.

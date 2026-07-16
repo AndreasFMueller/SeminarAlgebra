@@ -310,6 +310,7 @@ $e^{i\pi}+1=0.$
 \end{korollar}
 
 Für eine beliebige komplexe Zahl $z=x+iy$ ist also
+nach der eulerschen Formel
 \begin{equation}
 e^z
 =
@@ -322,6 +323,7 @@ e^x(\cos y+i\sin y)
 \Rightarrow
 \qquad
 \left\{
+\quad
 \begin{aligned}
 u(x,y) &= e^x \cos y \\
 v(x,y) &= e^x \sin y
@@ -354,7 +356,7 @@ e^x\cos y,
 &
 \frac{\partial u}{\partial y}
 &=
--e^x\sin y
+-e^x\sin y,
 \\
 \frac{\partial v}{\partial x}
 &=
@@ -364,15 +366,17 @@ e^x \sin y,
 &=
 e^x \cos y
 \end{aligned} 
+\quad
 \right\}
 \quad
 \Rightarrow
 \quad
 \left\{
+\quad
 \begin{aligned}
-\frac{\partial u}{\partial x} &= \phantom{-}\frac{\partial v}{\partial y}
+\frac{\partial u}{\partial x} &= \phantom{-}\frac{\partial v}{\partial y},
 \\
-\frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}
+\frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}.
 \end{aligned}
 \right.
 \end{equation}
@@ -406,7 +410,7 @@ $2\pi i$.
 
 Sei jetzt $z = re^{i\varphi}$ gegeben, wobei $r=|z|$ und
 $\varphi=\operatorname{arg}z$.
-Gesucht ist jetzt eine komplexe Zahl $a+bi$ derart, dass
+Gesucht ist eine komplexe Zahl $a+bi$ derart, dass
 \[
 e^{a+bi}
 =
@@ -514,12 +518,13 @@ man die Kettenregel bemüht.
 \label{buch:holomorph:holomorph:definition:alglogarithmus}
 Sei $K$ ein Funktionenkörper von Funktionen der Variablen $z$ und
 $u(z)\in K$ eine Funktion.
-Eine \emph{Logarithus} von $u$ ist eine Funktion $\vartheta(z)\in K$
+Eine \emph{Logarithmus} von $u$ ist eine Funktion $\vartheta(z)\in K$
+\index{Logarithmus}%
 mit der Eigenschaft
 \[
 \frac{\partial}{dz}\vartheta(z)
 =
-\frac{u'(z)}{z}.
+\frac{u'(z)}{u(z)}.
 \]
 \end{definition}
 
@@ -527,11 +532,11 @@ Der Vorteil dieser Definition ist, dass sie weder den Begriff der
 Zusammensetzung von Funktionen noch die Umkehrfunktion benötigt.
 Die Funktion $\vartheta(z)$ wird nicht als Zusammensetzung der
 Logarithmusfunktion mit der Funktion $u(z)$ gewonnen, sondern als
-Lösung der Differentialgleichung $\vartheta'(z) = u'(z)/z$.
+Lösung der Differentialgleichung $\vartheta'(z) = u'(z)/u(z)$.
 
 Auch die Exponentialfunktion ist einer solchen rein algebraischen
 Charakterisierung zugänglich.
-Die Exponentialfunktion hat die Eigenschaft, dass sie mit Ihrer
+Die Exponentialfunktion hat die Eigenschaft, dass sie mit ihrer
 Ableitung übereinstimmt.
 Eine Zusammensetzung mit einer anderen Funktion $u(z)$ hat die
 Ableitung
@@ -549,6 +554,7 @@ auch nur auf die gewöhnliche Exponentialfunktion nimmt.
 \label{buch:holomorph:holomorph:definition:algexponential}
 Sei $K$ ein Funktionenkörper von Funktionen einer Variable $z$ und $u\in K$.
 Eine Funktion $\vartheta\in K$ heisst eine \emph{Exponentialfunktion} von $u$,
+\index{Exponentialfunktion}%
 wenn
 \[
 \vartheta'(z) = \vartheta(z)\cdot u'(z)

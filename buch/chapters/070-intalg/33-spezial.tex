@@ -17,7 +17,7 @@ Und für logarithmische Erweiterungen muss man zeigen, dass diese genau
 dann verschwinden können, wenn sie linear in der Stammfunktion auftreten.
 
 In diesem Abschnitt beweisen wir dies für eine Erweiterung, die von einem
-einzigen zusätzlichen Element erzeugt werden.
+einzigen zusätzlichen Element erzeugt wird.
 Dies ist zwar nicht ausreichend für das Integral
 \[
 \int \frac{dx}{x^2+1}
@@ -56,10 +56,10 @@ a_0(\vartheta)
 geschrieben werden, wobei $a_0(\vartheta)$, $a(\vartheta)$ und $b(\vartheta)$
 Polynome mit Koeffizienten in $F$ sind.
 Ausserdem darf angenommen werden, dass $a(\vartheta)$ und $b(\vartheta)$
-teilerfremd sind und dass $\deg a(\vartheta)<\deg b(\vartheta)$ sind,
-dass der Bruch in 
+teilerfremd sind, dass also der Bruch in
 \eqref{buch:intalg:liouville:spezial:eqn:bruch}
-vollständig gekürzt.
+vollständig gekürzt ist und dass
+$\deg a(\vartheta)<\deg b(\vartheta)$ gilt.
 
 Wir nehmen ausserdem an, dass $F$ und $F(\vartheta)$ den gleichen
 Konstantenkörper haben.
@@ -208,7 +208,7 @@ in irreduzible Faktoren des Nenners in der Form einer Partialbruchzerlegung
 geschrieben werden.
 
 Im Fall einer logarithmischen Erweiterung
-(Beweis von Satz~\label{buch:intalg:liouville:satz:logsimple})
+(Beweis von Satz~\ref{buch:intalg:liouville:satz:logsimple})
 haben wir dann unter Verwendung von
 Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch}
 gezeigt, dass der Term mit der höchsten Nennerpotenz $b_k(\vartheta)^{r_k+1}$
@@ -218,7 +218,7 @@ vorkommen können.
 
 Im vorliegenden Fall ist $b_k(\vartheta)$ kein Monom, also nicht von
 der Form $h\vartheta^m$.
-Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+Nach Aussage 3 von Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
 sind also $b_k(\vartheta)$ und $b_k(\vartheta)'$ teilerfremd und damit
 die Bruchterme in \eqref{buch:intalg:liouville:speziell:eqn:f}
 vollständig gekürzt.
@@ -247,7 +247,7 @@ Erweiterung gar nicht enthält.
 \begin{satz}
 \label{buch:intalg:liouville:satz:algsimple}
 Sei $F(\vartheta)$ eine algebraische Erweiterung eines
-Funktionenkörpers $F$.
+Funktionenkörpers $F$ mit Minimalpolynom $m(X)\in F[X]$.
 $F$ und $F(\vartheta)$ haben den gleichen Konstantenkörper.
 Weiter sei $f\in F$ und $g\in F(\vartheta)$ eine Stammfunktion von $f$.
 Dann ist $g\in F$.
@@ -297,39 +297,39 @@ Es folgt, dass $Dg$ eine rationale Funktion von $\vartheta$ mit
 Koeffizienten in $F$ ist, die ihrerseits wieder als Polynom
 geschrieben werden kann.
 
-Das muss jetzt noch gezeigt werden, dass aus $f=Dg$ folgt,
+Es muss jetzt noch gezeigt werden, dass aus $f=Dg$ folgt,
 dass $a(\vartheta)$ nicht von $\vartheta$ abhängt.
-$\vartheta$ ist nicht die einzige Lösung von $p(\vartheta)=0$, wir schreiben
-$\vartheta=\vartheta_1$ und $\vartheta_2,\dots,\vartheta_m$ für die
-$m=\deg p$ weiteren Lösungen der Gleichung.
+$\vartheta$ ist nicht die einzige Lösung von $m(\vartheta)=0$, wir schreiben
+$\vartheta=\vartheta_1$ und $\vartheta_2,\dots,\vartheta_l$ für die
+$l=\deg m$ weiteren Lösungen der Gleichung.
 Es gilt also
 \begin{align}
 f
 &=
-Da(\vartheta_k),\qquad k=1,\dots,m.
+Da(\vartheta_k),\qquad k=1,\dots,l.
 \notag
 \intertext{Die Summe all dieser Gleichungen ist}
 m\cdot f
 &=
-\sum_{k=1}^m Da(\vartheta_k).
+\sum_{k=1}^l Da(\vartheta_k).
 \notag
 \intertext{Es folgt}
 f
 &=
-\frac{1}{m}
-\sum_{k=1}^m Da(\vartheta_k)
+\frac{1}{l}
+\sum_{k=1}^l Da(\vartheta_k)
 =
 Dh
-\qquad\text{mit } h=\frac{1}{m} \sum_{k=1}^m a(\vartheta_k)
+\qquad\text{mit } h=\frac{1}{l} \sum_{k=1}^l a(\vartheta_k)
 \label{buch:intalg:liouville:alg:eqn:symmetrisch}
 \end{align}
 $h$ ist eine symmetrische Funktion in
-$\vartheta_1,\dots,\vartheta_m$, nach dem Hauptsatz über symmetrische
+$\vartheta_1,\dots,\vartheta_l$, nach dem Hauptsatz über symmetrische
 Funktionen lassen sich die Koeffizienten von $h$ nach dem Fundamentalsatz
 \ref{buch:komplex:fundamental:satz:fundamentalpolynom} über symmetrische
 Polynome durch die elementarsymmetrischen Funktionen von
-$\vartheta_1,\dots,\vartheta_m$ ausdrücken.
-Diese sind jedoch Koeffzienten des Minimalpolynoms von $\vartheta$,
+$\vartheta_1,\dots,\vartheta_l$ ausdrücken.
+Diese sind jedoch Koeffzienten des Minimalpolynoms $m(X)$ von $\vartheta$,
 die alle in $F$ liegen.
 Somit hängt die rechte Seite von
 \eqref{buch:intalg:liouville:alg:eqn:symmetrisch}

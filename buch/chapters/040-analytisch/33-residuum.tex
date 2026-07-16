@@ -49,6 +49,7 @@ a_{-1} \int_0^1 \,dt
 \underbrace{\biggl[
 \frac{1}{2\pi i(k+1)} e^{2\pi i (k+1) t}
 \biggr]_0^1}_{\displaystyle = 0}
+\mathstrut
 +
 a_{-1}
 =
@@ -90,7 +91,9 @@ hat, kann man
 \[
 g(z) = (z-\alpha)\bigl(g'(\alpha)+ r(z)(z-\alpha)\bigr)
 \]
-und damit
+schreiben, wobei $r(z)$ eine in einer Umgebung von $\alpha$ holomorphe
+Funktion ist, die keine Nullstelle $z=\alpha$ hat.
+Damit wird
 \[
 \frac{f(z)}{g(z)}
 =
@@ -104,8 +107,11 @@ und damit
 \cdot
 h(z)
 \]
-mit einer in einer Umgebung von $\alpha$ holomorphen Funktion
-$h(z)$ schreiben.
+mit der in einer Umgebung von $\alpha$ holomorphen Funktion
+\[
+h(z) = \frac{f(z)}{g'(\alpha)+r(z)(z-\alpha)}
+\]
+schreiben.
 Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} ist
 das Residuum das Integral
 \begin{align*}
@@ -132,6 +138,8 @@ ergibt das Integral}
 &=
 h(\alpha)
 =
+\frac{f(\alpha)}{g'(\alpha) + r(\alpha)(\alpha - \alpha)}
+=
 \frac{f(\alpha)}{g'(\alpha)}.
 \end{align*}
 Dies beweist den Satz.
@@ -155,11 +163,77 @@ $g(z)=1-z$ anwenden, und erhält
 
 Falls der Weg $\gamma$ den Punkt $z_0$ mehrmals umläuft, kann man
 das Wegintegral
-\[
+\begin{equation}
 \frac{1}{2\pi i}
 \oint_\gamma f(z)\,dz
 =
 \operatorname{ind}_\gamma(z_0) \cdot \operatorname{res}(z_0;f)
-\]
+\label{buch:analytisch:laurentreihen:residuum:eqn:integralres}
+\end{equation}
 aus der Umlaufzahl von $\gamma$ um den Punkt und dem Residuum der
 Funktion im Punkt $z_0$ berechnen.
+
+%
+% Residuen und Integralberechnung
+%
+\subsubsection{Residuen und Integralberechnung}
+Der Begriff des Residuums ermöglicht manchmal, die Berechnung reeller 
+Integrale im Abschnitt~\ref{buch:integration:section:residuen}
+noch etwas eleganter zu formulieren.
+
+\begin{beispiel}
+\label{buch:analytisch:laurentreihen:bsp:cauchyverteilung}
+Bei der Berechnung des Integrals der Funktion
+\[
+\varphi(z)
+=
+\frac{1}{z^2+1}
+\]
+entlang der reellen Achse in
+Abschnitt~\ref{buch:integration:residuen:section:beispiel} 
+erfolgt mithilfe eines Weges, die die Polstelle $i$ des Integranden
+einmal umrundet.
+Der Integrand kann als
+\[
+\varphi(z)
+=
+\frac{1/(z+i)}{z-i}
+=
+\frac{f(z)}{g(z)}
+\qquad\text{mit}\qquad
+\left\{
+{\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+f(z) &=& \displaystyle \frac{1}{z+i} \mathstrut
+\\[8pt]
+g(z) &=& z-i \mathstrut
+\end{array}}
+\right.
+\]
+geschrieben werden.
+Das Residuum ist nach Satz~\ref{buch:analytisch:laurent:residuum:satz}
+daher
+\[
+\operatorname{res}(i, \varphi)
+=
+\frac{f(i)}{g'(i)}
+=
+\frac{1/2i}{1}
+=
+\frac{1}{2i}.
+\]
+Für den geschlossenen Pfad $\gamma$ wird nach
+\eqref{buch:analytisch:laurentreihen:residuum:eqn:integralres}
+\[
+\oint_{\gamma} \varphi(z)\,dz
+=
+2\pi i \operatorname{res}(i,\varphi)
+=
+2\pi i\cdot \frac{1}{2i}
+=
+\pi.
+\]
+Da der Kreisbogen für $R\to\infty$ keinen Beitrag leistet, ist dies auch
+der Wert des reellen Integrals.
+\end{beispiel}
+

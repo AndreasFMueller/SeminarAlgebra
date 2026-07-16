@@ -3,7 +3,7 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	imaginaerteil.pdf polynome.pdf rekursion.pdf konform.pdf
+all:	imaginaerteil.pdf polynome.pdf rekursion.pdf konform.pdf mittelwert.pdf
 
 imaginaerteil.pdf:	imaginaerteil.tex
 	pdflatex imaginaerteil.tex
@@ -20,3 +20,5 @@ konform.pdf:	konform.tex konformcurves.tex
 konformcurves.tex:	konform.m
 	octave konform.m
 
+mittelwert.pdf:	mittelwert.tex
+	pdflatex mittelwert.tex

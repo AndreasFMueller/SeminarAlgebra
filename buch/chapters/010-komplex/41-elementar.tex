@@ -20,7 +20,7 @@ Im Folgenden soll untersucht werden, wie sich ein Polynom von mehreren
 Variablen ändert, wenn die Variablen vertauscht werden.
 Wir benötigen dazu die folgenden Notationen.
 
-\begin{definition}
+\begin{definition}[Permutation]
 Eine \emph{Permutation} $\sigma$ von $n$ Elementen ist eine bijektive Abbildung
 \index{Permutation}%
 $\pi\colon [n]\to[n]$.
@@ -88,17 +88,17 @@ garantiert.
 Die Reihenfolge der Linearfaktoren, in die eine Polynom zerfällt, spielt
 keine Rolle.
 Jede Reihenfolge führt auf das gleiche ausmultiplizierte Polynom.
-Um die Entstehung der Koeffizienten zu verstehen, müssen wir daher nur
+Um die Entstehung der Koeffizienten zu verstehen, müssen daher nur
 algebraische Ausdrücke in den Nullstellen studiert werden, die sich nicht
-ändert, wenn man die Nullstellen vertauscht.
+ändern, wenn man die Nullstellen vertauscht.
 Da beim Ausmultiplizieren nur Multiplikation und Addition verwendet
 werden, müssen wir also Polynome in mehreren Variablen studieren, die
 sich nicht ändern, wenn man die Variablen vertauscht.
 
-\begin{definition}
+\begin{definition}[symmetrisches Polynom]
 \index{symmetrisches Polynom}%
 Ein Polynom $p(X_1,\dots,X_n)$ in den Variablen $X_1,\dots,X_n$
-heisst \emph{symmetrisch}, wenn für jede Permutation $\sigma\in S_n$
+heisst \emph{symmetrisch}, wenn jede Permutation $\sigma\in S_n$
 der Variablen das gleiche Polynome ergibt.
 Es gilt also
 \[
@@ -126,7 +126,7 @@ $\sigma_2(X_1,X_2)=X_1X_2$, aber auch
 q(X_1,X_2)
 &=
 X_1^2+X_2^2.
-\intertext{Allerdings ist dies kein neues Polynom, denn es ist}
+\intertext{Allerdings ist dies kein ``neues'' Polynom, denn es ist}
 X_1^2+X_2^2
 &=
 (X_1+X_2)^2 - 2X_1X_2
@@ -139,8 +139,8 @@ $\sigma_2(X_1,X_2)$ ausgedrückt werden.
 
 Auch für symmetrische Polynome dritten Grades können wir Beispiele
 finden.
-In allen Fällen lassen sich diese Polynome zu durch die
-$\sigma_k(X_1,X_2)$ ausdrücken:
+In allen Fällen lassen sich diese Polynome durch die
+$\sigma_k(X_1,X_2)$, $k=1,2$, ausdrücken:
 \begin{align*}
 X_1^2X_2 + X_1X_2^2
 &=
@@ -216,7 +216,7 @@ Da das Produkt kommutativ ist, ist dieses Polynom symmetrisch in den
 Variablen $X_1,\dots,X_n$.
 Multipliziert man das Polynom aus und fasst die Terme mit gleicher
 Potenz von $T$ zusammen erhält man
-\[
+\begin{equation}
 \renewcommand{\arraycolsep}{2pt}
 \begin{array}{rclclclcl}
 p(T,X_1,\dots,X_n)
@@ -241,7 +241,8 @@ T^{n-2}
 &=&
 \rlap{$\displaystyle \sum_{k=0}^n \sigma_k(X_1,\dots,X_n) T^{n-k} $}
 \end{array}
-\]
+\label{buch:komplex:symmetrisch:eqn:definition}
+\end{equation}
 mit Polynomen $\sigma_k(X_1,\dots,X_n)$, $k=0,\dots,n$.
 Da $p(T,X_1,\dots,X_n)$ symmetrisch ist, gilt
 \[
@@ -263,8 +264,9 @@ Polynome.
 
 \begin{definition}[Elementarsymmetrische Polynome]
 \label{buch:komplex:fundamental:def:elementarsymmetrisch}
-Die Polynome $\sigma_k(X_1,\dots,X_n)\in \mathbb{Z}[X_1,\dots,X_n]$ 
-heissen \emph{elementarsymmetrische Polynome}.
+Die durch \eqref{buch:komplex:symmetrisch:eqn:definition} definierten
+Polynome $\sigma_k(X_1,\dots,X_n)\in \mathbb{Z}[X_1,\dots,X_n]$ 
+heissen die \emph{elementarsymmetrischen Polynome}.
 \index{elementarsymmetrische Polynome}%
 \end{definition}
 
@@ -502,15 +504,16 @@ als Polynom in den elementarsymmetrischen Polynomen ausdrücken.
 Ist $p(X_1,\dots,X_n)\in K[X_1,\dots,X_n]$ ein symmetrisches
 Polynom von $n$ Variablen, dann gibt es genau ein Polynom
 $q(S_1,\dots,S_n)\in K[S_1,\dots,S_n]$ derart, dass
+\index{Fundamentalsatz für symmetrische Polynome}%
 \[
 p(X_1,\dots,X_n)
 =
 q\bigl(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n)\bigr).
+\qedhere
 \]
-\index{Fundamentalsatz für symmetrische Polynome}%
 \end{satz}
 
-Nicht nur kann gibt es das Polynom $q$, wir werden einen Beweis
+Nicht nur gibt es das Polynom $q$, wir werden einen Beweis
 geben, der das Polynom sogar rekursiv konstruiert.
 Wir illustrieren die Idee am Beispiel eines symmetrischen
 Polynoms $q(X_1,X_2)$ dritten Grades in $X_1$ und $X_2$.
@@ -530,7 +533,7 @@ $cX_1^3$ und $cX_2^3$ enthält, nämlich $c\sigma_1(X_1,X_2)^3$.
 Die Differenz $q_1(X_1,X_2)=q(X_1,X_2)-c\sigma_1(X_1,X_2)^3$ enthält die
 Terme $X_1^3$ und $X_2^3$ nicht mehr.
 
-$q_1$ kann aber immer noch $c_1X_1^2X_2$ enthalten.
+$q_1(X_1,X_2)$ kann aber immer noch $c_1X_1^2X_2$ enthalten.
 Symmetrie verlangt dann, dass es auch $c_1X_1X_2^2$ enthält.
 Mit den elementarsymmetrischen Polynomen können wir 
 \[
@@ -552,15 +555,17 @@ $q_3(X_1,X_2)=q_2(X_1,X_2)-c_2\sigma_1(X_1,X_2)^2$ eliminieren.
 Falls dann noch ein Term $c_3X_1X_2$ bleibt, wird dieser durch
 $q_4(X_1,X_2)=q_3(X_1,X_2)-c_3\sigma_2(X_1,X_2)$ eliminiert.
 
-$q_4$ ist ersten Grades und kann daher sofort durch $\sigma_1(X_1,X_2)=X_1+X_2$
-und $\sigma_0(X_1,X_2)=0$ dargestellt werden.
+$q_4(X_1,X_2)$ ist ein Polynom ersten Grades und kann daher sofort
+als Linearkombination von $\sigma_1(X_1,X_2)=X_1+X_2$ und
+$\sigma_0(X_1,X_2)=1$ dargestellt werden.
 
 Der Algorithmus eliminiert also die verschiedenen Arten von Monomen, die
-in $q$ vorkommen können dadurch, dass ein geeignetes Produkt von 
+in $q(X_1,X_2)$ vorkommen können dadurch, dass ein geeignetes Produkt von 
 elementarsymmetrischen Polynomen subtrahiert wird.
-Dabei ist ein einer Reihenfolge vorzugehen, die verhindert, das bereits
+Dabei ist in einer Reihenfolge vorzugehen, die verhindert, dass bereits
 eliminierte Terme wieder hinzugefügt werden.
-Es muss also als vor allem eine Anordnung der Monome definiert werden.
+Es muss also als vor allem eine geeignete Anordnung der Monome definiert
+werden.
 
 Um die Ordnung zweier Monome gleichen Grades zu definieren, kürzen wir 
 das Monom $X_1^{a_1}\dots X_n^{a_n}$ durch das $n$-Tupel
@@ -625,6 +630,8 @@ Die umgekehrt lexikographische Ordnung der Tripel vom Grad 3 ist
 \end{aligned}
 \label{buch:komplex:symmetrisch:eqn:3tupelordnung}
 \end{equation}
+``Grosse'' Elemente im Sinn der umgekehrt lexikographischen Ordnung
+haben also möglichst grosse Komponenten $a_i$ mit kleinem Index $i$.
 
 \begin{lemma}
 \label{buch:komplex:symmetrisch:lemma:maximal}
@@ -661,12 +668,12 @@ m_1 < m_2
 \quad
 \begin{cases}
 \deg m_1 < \deg m_2&\qquad\text{falls $\deg m_1\ne \deg m_2$}\\
-m_1 < m_2&\qquad\text{falls $\deg m_1\ne \deg m_2$}
+m_1 < m_2&\qquad\text{falls $\deg m_1 = \deg m_2$}
 \end{cases}
 \]
 definiert, wobei die Ordnung gleichgradiger Monome im zweiten Fall
-die ungekehrt lexikographische Ordnung ist von
-Definition~\ref{buch:komplex:symmetrisch:def:ulexiko}.
+die ungekehrt lexikographische Ordnung von
+Definition~\ref{buch:komplex:symmetrisch:def:ulexiko} ist.
 \end{definition}
 
 Für zwei Variablen $X_1$ und $X_2$ ergeben sich bis zum Grad 3 die folgenden 
@@ -709,14 +716,18 @@ aus
 ergibt.
 
 \begin{definition}[führendes Monom, führender Koeffizient]
-Das \emph{führende Monom} $\operatorname{LM}(p)$ eines Polynoms $p$ ist
+Das \emph{führende Monom} oder \emph{leading monimial}
+$\operatorname{LM}(p)$ eines Polynoms $p$ ist
 \index{fuhrendes Monom@führendes Monom}%
+\index{leading monomial}%
 \index{LM}%
 \index{Monom!fuhrend@Monom!führend}%
 das grösste Monom, welches in $p$ vorkommt.
-Der \emph{führende Koeffizient} $\operatorname{LC}(p)$ von $p$ 
+Der \emph{führende Koeffizient} oder \emph{leading coefficient}
+$\operatorname{LC}(p)$ von $p$ 
 ist der Koeffizient des führenden Monoms in $p$.
 \index{fuhrendes Koeffizient@führendes Koeffizient}%
+\index{leading coefficient}%
 \index{LC}%
 \index{Koeffizient!fuhrend@Koeffizient!führend}%
 \end{definition}
@@ -852,7 +863,7 @@ p-\sigma_1^3
 q
 &\leftarrow
 \sigma_1^3.
-\intertext{Für das neue Polynom ist das führend Monom das rot
+\intertext{Für das neue Polynom ist das führende Monom das rot
 hervorgehobene $\operatorname{LM}(p)=X_2X_1^2$, mit
 führendem Koeffizienten $\operatorname{LC}(p)=-3$, es muss als im nächsten
 Schritt $3\sigma_1\sigma_2$ addiert werden:}

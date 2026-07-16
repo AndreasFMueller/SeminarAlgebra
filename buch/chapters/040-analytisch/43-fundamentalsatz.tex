@@ -50,7 +50,7 @@ Wählt man $r$ so gross, dass für alle $k$, $0\le k\le n-1$
 \frac{a_k}{a_n}
 \le
 \frac{r^{n-k}}{n+1}
-\label{buch:analytisch:ganz:fundamental:proof:2}
+\label{buch:analytisch:ganz:fundamental:proof:3}
 \end{equation}
 gilt, dann ist jeder Terme auf der rechten Seite von
 \eqref{buch:analytisch:ganz:fundamental:eqn:1}
@@ -64,14 +64,14 @@ gilt, dann ist jeder Terme auf der rechten Seite von
 \biggr|
 \cdot
 \frac{1}{r^{n-k}}
-\le
+\stackrel{\eqref{buch:analytisch:ganz:fundamental:proof:3}}{\le}
 \frac{r^{n-k}}{n+1}
 \cdot
 \frac{1}{r^{n-k}}
 =
 \frac{1}{n+1}.
 \]
-Explizit bedeutet dies, dass 
+Aufgelöst nach $r$ bedeutet dies, dass 
 \begin{equation}
 r\ge
 \max
@@ -87,11 +87,12 @@ r\ge
 gewählt werden muss.
 
 Mit der Wahl \eqref{buch:analytisch:ganz:fundamental:proof:r}
-von $r$ wird die Ungleichung
+von $r$ wird die Gleichung
 \eqref{buch:analytisch:ganz:fundamental:eqn:1}
 für $|z|\ge r$
 wegen
-\label{buch:analytisch:ganz:fundamental:proof:2}
+\eqref{buch:analytisch:ganz:fundamental:proof:3}
+zur Ungleichung
 \begin{equation}
 |f(z)|
 \ge
@@ -114,7 +115,8 @@ Der Betrag von $f(z)$ wächst also mit $r^n$.
 Wir haben also gezeigt, dass der Term höchsten Grades im Polynom
 das Wachstum dominiert.
 
-Wir nehmen jetzt an, dass $f(z)$ keine Nullstelle hat.
+Wir nehmen jetzt an, dass $f(z)$ keine Nullstelle hat, und führen
+diese Annahme zu einem Widerspruch.
 Dann ist $1/f(z)$ eine ganze Funktion.
 Aus der Ungleichung
 \eqref{buch:analytisch:ganz:fundamental:eqn:2}
@@ -177,8 +179,8 @@ $q(z)$ und $r(z)$ derart, dass
 \[
 f(z) = (z-z_n)\cdot q(z) + r(z).
 \]
-Der Grad von $r(z)$ muss kleiner sein als der Grad von $z-z_n$,
-$r(z)$ ist daher eine Konstante.
+Der Grad von $r(z)$ muss kleiner sein als der Grad des Divisors $z-z_n$.
+Somit hat $r(z)$ Grad $0$ und ist eine Konstante.
 Da $f(z_n)=0$ und $z-z_n=0$ ist, muss auch $r(z_n)=0$ sein, daher
 ist die Konstante $0$.
 
@@ -210,19 +212,23 @@ in die Form
 u^3
 +
 \biggl(
+\underbrace{
 \frac13 a_2^2
 -\frac23 a_1a_2
 +a_1
+}_{\displaystyle = p}
 \biggr)
 u
 +
 \biggl(
+\underbrace{
 \frac{1}{27} a_2
 +
 \frac19 a_2^3
 -\frac13 a_1a_2
 +
 a_0
+}_{\displaystyle = q}
 \biggr)
 =
 u^3 + pu + q
@@ -253,7 +259,7 @@ u
 }}
 }
 \]
-gegben.
+gegeben.
 
 Auch für Polynome vierten Grades gibt es ähnliche Formeln 
 \index{Polynom vierten Grades}%
@@ -262,12 +268,14 @@ von Lodovico Ferrari.
 Niels Henrik Abel hat jedoch gezeigt, dass es für $n>4$ im
 \index{Abel, Niels Henrik}%
 Allgemeinen keine solche Formel gibt.
-Es ist daher zwar wahr, dass es für jedes Polynom vom Grad $n$
+Es ist zwar wahr, dass es für jedes Polynom vom Grad $n$
 über $\mathbb{C}$ eine Produktdarstellung aus Linearfaktoren
-gibt, aber es gibt kein Methode, diese Nullstellen in Form eines
-algebraischen Ausdrucks zu finden.
-Für ein Computeralgebrasystem entsteht somit die Schwierigkeit,
-dass es keinen Algorithmus gibt, diese Nullstellen zu finden.
+gibt, aber es gibt kein algebraische Methode, diese Nullstellen in
+Form eines algebraischen Ausdrucks zu finden.
+Mit dem Computer sind beliebig genaue numerische Lösungen
+zugänglich.
+Für ein Computeralgebrasystem entsteht jedoch die Schwierigkeit,
+dass es keinen Algorithmus gibt, diese Nullstellen exakt zu finden.
 
 Für die Integration rationaler Funktionen wird zum Beispiel gelehrt,
 dass die Partialbruchzerlegung gebildet werden muss, für deren einzelne
@@ -279,5 +287,7 @@ müssen.
 Da es dafür keinen Algorithmus gibt, kann ein Computeralgebrasystem
 diesen Algorithmus nur in Spezialfällen implementieren, in denen
 eine Faktorisierung des Nenners bekannt ist.
+Diese Schwierigkeit wird in den Kapiteln~\ref{chapter:ratint}
+und \ref{chapter:intalg} adressiert.
 
 

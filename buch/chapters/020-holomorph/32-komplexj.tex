@@ -41,8 +41,8 @@ aus $\Delta z$ und $\overline{\Delta z}=\Delta x -i\Delta y$
 rekonstruieren lassen.
 Die Jacobi-Matrix der Funktion $f$ betrachtet als reelle Funktion
 $\mathbb{R}^2\to\mathbb{R}^2$ sollte sich also auch als eine Matrix
-Matrix ausdrücken lassen, die auf den 2-dimensionalen komplexen
-Vektor mit Komponenten $\Delta z$ und $\overline{\Delta z}$ wirken.
+ausdrücken lassen, die auf den 2-dimensionalen komplexen
+Vektor mit Komponenten $\Delta z$ und $\overline{\Delta z}$ wirkt.
 
 Da wir nicht a priori davon ausgehen möchten, dass die Funktion $f$
 holomorph ist, schreiben wir sie als $f(z,\bar{z})$ und untersuchen
@@ -64,12 +64,19 @@ u(x,y)\\
 v(x,y)
 \end{pmatrix}
 +
+\bgroup
+\renewcommand{\arraystretch}{1.9}
 \begin{pmatrix}
+\displaystyle
 \frac{\partial u}{\partial x}(x,y) &
+\displaystyle
 \frac{\partial u}{\partial y}(x,y) \\
+\displaystyle
 \frac{\partial v}{\partial x}(x,y) &
+\displaystyle
 \frac{\partial v}{\partial y}(x,y)
 \end{pmatrix}
+\egroup
 \begin{pmatrix}
 \Delta x \\
 \Delta y
@@ -81,6 +88,7 @@ In diesem Ausdruck möchten wir alles durch die Funktionen $f(z,\bar{z})$
 und ihre konjugiert komplexe Funktion $\bar{f}(z,\bar{z})$ sowie die Variablen
 $z$ und $\bar{z}$ und die partiellen Ableitungen nach $z$ und $\bar{z}$
 ausdrücken.
+Für das Inkrement findet man
 \[
 \begin{pmatrix}
 \Delta x\\
@@ -90,8 +98,9 @@ ausdrücken.
 \begin{pmatrix}
 \frac12   (\Delta z+\overline{\Delta z}) \\
 \frac1{2i}(\Delta z-\overline{\Delta z})
-\end{pmatrix}
+\end{pmatrix}.
 \]
+Die Ableitungen werden
 \begin{align*}
 \frac{\partial u}{\partial x}
 &=
@@ -111,7 +120,7 @@ ausdrücken.
 \frac{\partial \bar{f}}{\partial z}
 +
 \frac{\partial \bar{f}}{\partial \bar{z}}
-\biggr)
+\biggr),
 \\
 \frac{\partial u}{\partial y}
 &=
@@ -137,7 +146,7 @@ i
 -
 \frac{\partial\bar{f}}{\partial\bar{z}}
 \biggr)
-\biggr)
+\biggr),
 \\
 \frac{\partial v}{\partial x}
 &=
@@ -157,7 +166,7 @@ i
 \frac{\partial \bar{f}}{\partial z}
 -
 \frac{\partial \bar{f}}{\partial \bar{z}}
-\biggr)
+\biggr),
 \\
 \frac{\partial v}{\partial y}
 &=
@@ -181,7 +190,7 @@ i\biggl(
 -
 \frac{\partial\bar{f}}{\partial\bar{z}}
 \biggr)
-\biggr)
+\biggr).
 \end{align*}
 Im Interesse etwas kompakterer Formeln schreiben wir die partiellen
 Ableitungen nach $z$ und $\bar{z}$ in der in der Theorie der partiellen
@@ -229,7 +238,7 @@ f_{\bar{z}}
 \bar{f}_{\bar{z}}
 )
 \frac1{2i}
-(\Delta z - \overline{\Delta z})
+(\Delta z - \overline{\Delta z}),
 \\
 &=
 \frac12
@@ -278,7 +287,7 @@ f_{\bar{z}}
 -
 \bar{f}_{\bar{z}}
 )
-\overline{\Delta z}.
+\overline{\Delta z}
 \intertext{schreiben, wobei dass Approximationszeichen $\approx$
 immer eine Approximation bis auf einen $o$-Term bedeutet.
 Die Funktionen $u$ und $v$ sind Real- und Imaginärteil der
@@ -341,8 +350,9 @@ schreiben.
 
 Für eine holomorphe Funktion wird die komplexe Jacobi-Matrix zu
 einer Diagonalmatrix.
-Man beachte auch, dass wegen die Elemente der unteren Zeile
-\eqref{buch:holomorph:nichtholomorph:eqn:dkonj}
+Man beachte auch, dass
+wegen \eqref{buch:holomorph:nichtholomorph:eqn:dkonj}
+die Elemente der unteren Zeile der komplexen Jacobi-Matrix
 durch Konjugation und Vertauschen aus den Elementen der oberen
 Zeile hervorgehen.
 

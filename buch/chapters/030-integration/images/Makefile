@@ -21,7 +21,8 @@ all:									\
 	raender.pdf							\
 	rechteck.pdf							\
 	residuum.pdf							\
-	wege.pdf
+	wege.pdf							\
+	sinxx.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -76,3 +77,9 @@ hauptwert.pdf:	hauptwert.tex
 
 methode.pdf:	methode.tex
 	pdflatex methode.tex
+
+sinxx.pdf:	sinxx.tex sinxxdata.tex
+	pdflatex sinxx.tex
+
+sinxxdata.tex:	sinxx.m
+	octave sinxx.m

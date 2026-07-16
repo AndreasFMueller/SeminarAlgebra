@@ -18,18 +18,21 @@ verdient einen eigenen Namen.
 Die Ketten $c_1$ und $c_2$ heissen \emph{homolog} in $U$, in Zeichen
 $c_1\sim c_2$ oder $c_1\sim_{U}c_2$, wenn
 \index{homolog}%
-für jeden Punkt $a\in \mathbb{C}\setminus U$
+für jeden Punkt $a\in \mathbb{C}\setminus U$ ausserhalb von $U$
+die Umlaufzahlen
 \[
 \operatorname{ind}_{c_1}(a)
 =
 \operatorname{ind}_{c_2}(a)
 \]
-gilt.
+von $c_1$ und $c_2$ um $a$ gleich sind.
 \end{definition}
 
-Die Kette $\gamma_++\gamma_-$ ist also zu $\gamma$ homolog.
+Die Kette $\gamma_++\gamma_-$ in
+Abbildung~\ref{buch:integration:homologie:fig:paar} ist zu $\gamma$ homolog,
+da beide Ketten jedes der Löcher $F_1$ und $F_2$ genau einmal umrunden.
 Für homologe Ketten ist nicht nur die Umlaufzahl gleich, sondern
-jedes Integral.
+jedes Integral einer holomorphen Funktion über die Ketten.
 
 \begin{satz}
 Sind die Ketten $c_1$ und $c_2$ homolog, dann ist
@@ -39,6 +42,10 @@ Sind die Ketten $c_1$ und $c_2$ homolog, dann ist
 \int_{c_2} f(z)\,dz.
 \]
 \end{satz}
+
+\begin{proof}
+TODO
+\end{proof}
 
 Wir betrachten jetzt einen später besonders nützlichen Spezialfall.
 \input{chapters/030-integration/fig/fig-merohomolog.tex}%
@@ -56,7 +63,7 @@ und den Verbindungen zu $\gamma$ lässt sich ein neuer Weg zusammensetzen,
 der sich in $U$ zusammenziehen lässt.
 Das Wegintegral über den gesamten Weg verschwindet daher.
 Die Verbindungswege zur Kurve $\gamma$ werden dabei zweimal in
-entgegengesetzter Richtung durchlaufen und tragen daher nicht zum
+entgegengesetzter Richtung durchlaufen und tragen somit nicht zum
 Wegintegral bei.
 Das Wegintegral einer in $U$ holomorphen Funktion über $\gamma$
 ist daher gleich der Summe der Wegintegrale der Funktion
@@ -77,7 +84,7 @@ wobei jedes $\gamma_k$ ein Kreis vom Radius $r$ um $z_k$ ist.
 \end{satz}
 
 \begin{proof}
-Es muss nur der Radius $r$ berechnet werden.
+Es muss nur noch der Radius $r$ berechnet werden.
 Nimmt man
 \[
 r
@@ -87,7 +94,7 @@ r
 \]
 dann können sich die Kreise um die Punkte $z_k$ mit Radius $r$ nicht
 schneiden.
-Für jeden Punkt $z_k$ ist dann die Umlaufzahl 
+Für jeden Punkt $z_k$ ist die Umlaufzahl 
 \[
 \operatorname{ind}_{\gamma_k}(z_l)
 =

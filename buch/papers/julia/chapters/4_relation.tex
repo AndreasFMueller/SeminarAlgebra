@@ -1,5 +1,6 @@
 \section{Beziehung zwischen Julia-Mengen und Mandelbrot-Menge}
 \label{julia:sec:relation}
+\kopfrechts{Beziehung zwischen Julia-Mengen und Mandelbrot-Menge}%
 
 Zwischen der Mandelbrot-Menge sowie den Julia- bzw. Fatou-Mengen bestehen mehrere, teils überraschende Zusammenhänge.
 In diesem Abschnitt werden drei solche Zusammenhänge näher betrachtet.
@@ -47,6 +48,7 @@ Grund dafür ist, dass $c=0.6i$ noch in der Mandelbrot-Menge $M$ liegt, während
 In den Abbildungen \ref{julia:fig:mandelbrot_julia_2-4} und \ref{julia:fig:mandelbrot_julia_5} ist die Mandelbrot-Menge schwarz dargestellt, alle eingefärbten Punkte gehören nicht mehr dazu.
 
 Es stellt sich heraus, dass die Julia-Menge \emph{zusammenhängend} ist, für alle $c \in M$ und \emph{nicht zusammenhängend} für alle $c \not\in M$.
+\index{zusammenhangend@zusammenhängend}%
 
 
 \subsection{Ähnlichkeit der Mandelbrot- und Julia-Menge}
@@ -79,9 +81,11 @@ Dies soll an Funktionen der Art $f_c(z) = z^2 + c$ illustriert werden.
     Bis auf das Farbschema und die Ausrichtung sind sind die Bilder (6) der Mandelbrot-Menge und (2) der Julia-Menge fast gleich.
 \end{beispiel}
 
-Wie Kawahira und Kisaka in \cite{julia:ähnlichkeit_mandelbrot} gezeigt haben, passiert dies für \emph{parabolische Parameter} und \emph{Misiurewicz-Parameter}.
+Wie Kawahira und Kisaka in \cite{julia:ähnlichkeit_mandelbrot} gezeigt haben, passiert dies für parabolische Parameter und Misiurewicz-Parameter.
 \begin{definition}
     Ein Parameter $c$ wird als \emph{parabolisch} bezeichnet, wenn die Funktion $f_c$ einen periodischen Punkt besitzt, dessen Multiplikator $\lambda$ \eqref{julia:lambda_multiplicator} eine Einheitswurzel (siehe \ref{julia:sec:nicht_fix_periodisch}) ist.
+\index{parabolischer Parameter}%
+\index{Parameter!parabolisch}%
 \end{definition}
 \begin{beispiel}
     Ein Beispiel ist der Parameter $c = \frac{1}{4}$.
@@ -91,6 +95,8 @@ Wie Kawahira und Kisaka in \cite{julia:ähnlichkeit_mandelbrot} gezeigt haben, p
 
 \begin{definition}
     Ein Parameter $c$ heisst \emph{Misiurewicz-Parameter}, wenn der Startwert $z_0 = 0$ präperiodisch, aber nicht periodisch ist.
+\index{Misiurewicz-Parameter}%
+\index{Parameter!Misiurewicz-}%
 \end{definition}
 Ein präperiodischer Startwert wird nach endlich vielen Iterationen periodisch, ist aber selbst nicht periodisch.
 Dies ist dargestellt in Abbildung \ref{julia:fig:preperiodic}.
@@ -104,7 +110,7 @@ Dies ist dargestellt in Abbildung \ref{julia:fig:preperiodic}.
 \end{figure}
 
 \begin{beispiel}
-    Beim Parameter $c = -2$ handelt es sich um einen \emph{Misiurewicz-Parameter}, iteriert man die Funktion $f_c$ ausgehend von $z_0 = 0$, ergibt sich die Folge
+    Beim Parameter $c = -2$ handelt es sich um einen Misiurewicz-Parameter, iteriert man die Funktion $f_c$ ausgehend von $z_0 = 0$, ergibt sich die Folge
     \begin{equation*}
         0 \mapsto -2 \mapsto 2 \mapsto 2 \mapsto 2 \mapsto \ldots\, .
     \end{equation*}
