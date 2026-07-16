@@ -1,7 +1,7 @@
 %
 % main.tex -- Paper zum Thema <buchberger>
 %
-% (c) 2020 Autor, OST Ostschweizer Fachhochschule
+% (c) 2026 Nathanael Fässler, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
@@ -11,29 +11,17 @@
 \begin{refsection}
 \chapterauthor{Nathanael Fässler}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+An der OST lernen Studenten der technischen Studiengänge in Vorlesungen der linearen Algebra, wie man lineare Gleichungssysteme löst.
+Dafür lernen sie den Gauss-Algorithmus kennen.
+Mit diesem Verfahren lässt sich allerdings nur eine Teilmenge von Problemen mit Gleichungssystemen lösen.
+Um Gleichungssysteme mit Polynomgleichungen zu lösen, braucht man ein mächtigeres Werkzeug: den Buchberger-Algorithmus.
 
-\input{papers/buchberger/teil0.tex}
-\input{papers/buchberger/teil1.tex}
-\input{papers/buchberger/teil2.tex}
-\input{papers/buchberger/teil3.tex}
+Dieses Paper erklärt die Erweiterung von linearen Gleichungssystemen zu polynomiellen Gleichungssystemen und wie man sie löst.
+Im Kapitel~\ref{buchberger:section:sudoku} wird als interessante Anwendung ein Sudoku in ein Gleichungssystem aus Polynomgleichungen übersetzt und anschliessend mit dem Buchberger-Algorithmus gelöst.
+
+\input{papers/buchberger/einleitung.tex}
+\input{papers/buchberger/buchberger.tex}
+\input{papers/buchberger/sudoku.tex}
 
 \printbibliography[heading=subbibliography]
 \end{refsection}
