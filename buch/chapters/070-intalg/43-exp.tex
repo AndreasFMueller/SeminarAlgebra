@@ -595,7 +595,7 @@ elementare Stammfunktion hat, ist die Definition einer neuen
 speziellen Funktion angebracht, mit der die Stammfunktion ausgedrückt
 werden kann.
 
-\begin{definition}
+\begin{definition}[Dilogarithmus]
 Der \emph{Dilogarithmus} ist die Funktion
 \[
 \operatorname{Li}_2(z)
@@ -607,7 +607,7 @@ für $|z|<1$.
 \end{definition}
 
 Die Ableitung des Dilogarithmus ist
-\[
+\begin{equation}
 \frac{d}{dz}
 \operatorname{Li}_2(z)
 =
@@ -618,7 +618,8 @@ Die Ableitung des Dilogarithmus ist
 =
 -
 \frac{ \log(1-z) }{z},
-\]
+\label{buch:intalg:exp:dilog:integraldef}
+\end{equation}
 wobei der letzte Schritt aus der Potenzreihenentwicklung
 \[
 \log(1+z) = -\sum_{k=1}^\infty (-1)^k\frac{z^k}{k}
@@ -642,30 +643,43 @@ Reihe
 \sum_{k=1}^\infty (-1)^k z^k
 \end{align*}
 gefunden werden kann.
+\input{chapters/070-intalg/fig/fig-li2.tex}%
+Aus der Ableitung~\eqref{buch:intalg:exp:dilog:integraldef}
+folgt die Integraldefinition
+\[
+\operatorname{Li}_2(x)
+=
+-\int_0^x
+\frac{\log(1-t)}{t}\,dt
+\]
+des Dilogarithmus für reelle Argumente $x\in(-\infty,0)$, die als
+Basis für die graphische Darstellung des Graphen von
+$\operatorname{Li}_2(x)$ 
+in Abbildung~\ref{buch:intalg:fig:li2} diente.
 
 Damit kann jetzt die Stammfunktion von $f(x)=x/(e^x+1)$ bestimmt werden.
 Mathematica findet die Funktion
 \index{Mathematica}%
-\[
-F(x) =
+\begin{align*}
+F(x)
+&=
 -x\log(1+e^{-x})
 +
 \operatorname{Li}_2(-e^{-x}).
-\]
-Die Ableitung davon ist
-\begin{align*}
+\intertext{Um davon die Ableitung zu berechnen, ist es nützlich, die
+Ableitung von $\operatorname{Li}_2(-e^{-x})$ haben.
+Sie ist}
+\frac{d}{dx}
+\operatorname{Li}_2(-e^{-x})
+&=
+\log(1+e^{-x}).
+\intertext{Die Ableitung von $F(x)$ wird damit}
 \frac{d}{dx}F(x)
 &=
 -\log(1+e^{-x})
 -x\frac{1}{1+e^{-x}}\frac{d}{dx}(e^{-x})
- + \frac{d}{dx}\operatorname{Li}_2(-e^{-x})
-\\
-&=
--\log(1+e^{-x})
--x\frac{1}{1+e^{-x}}\frac{d}{dx}(e^{-x})
--
-\frac{\log(1+e^{-x})}{-e^{-x}}
-\frac{d}{dx}(-e^{-x})
++
+\log(1+e^{-x})
 \\
 &=
 -
@@ -673,15 +687,12 @@ Die Ableitung davon ist
 +
 x\frac{1}{1+e^{-x}}e^{-x}
 +
-\frac{\log(1+e^{-x})}{e^{-x}}
-e^{-x}
+\log(1+e^{-x})
 \\
 &=
 x\frac{e^{-x}}{1+e^{-x}}.
 \intertext{Erweitern mit $e^x$ ergibt}
 &=
-%x\frac{1}{e^x+1}
-%=
 \frac{x}{e^x+1}.
 \end{align*}
 Damit ist gezeigt, dass $F(x)$ tatsächlich die Stammfunktion von $f(x)$
@@ -692,68 +703,96 @@ andere Stammfunktion, nämlich
 \begin{align}
 G(x)
 &=
-\frac{x^2}2 - x \log(e^x+1) - \operatorname{Li}_2(-e^{-x})
+\frac{x^2}2 - x \log(e^x+1) - \operatorname{Li}_2(-e^{x}).
 \notag
-\intertext{Die Ableitung ist}
+\intertext{In diesem Fall brauchen wird die Ableitung}
+\frac{d}{dx}\operatorname{Li}_2(-e^x)
+&=
+-\log(e^x+1).
+\intertext{Die Ableitung von $G(x)$ wird damit}
 \frac{d}{dx}G(x)
 &=
 x-\log(e^x+1) - \frac{xe^x}{e^x+1} 
--
-\frac{d}{dx}\operatorname{Li}_2(-e^{-x})
++
+\log(e^x+1)
 \notag
 \\
 &=
 \frac{x(e^x+1)-xe^x}{e^x+1} 
--
-\log(e^x+1)
-+
-\frac{\log(1+e^{-x})}{-e^{-x}}\frac{d}{dx}(-e^{-x})
 \notag
 \\
 &=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
-+
-\frac{\log(1+e^{-x})}{-e^{-x}}
-e^{-x}
-\notag
-\\
-&=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
--
-\log(1+e^{-x}).
-\label{buch:intalg:risch:exp:maximaabl}
-\intertext{Schreiben wir $1+e^{-x}=e^{-x}(e^x+1)$, wird
-\eqref{buch:intalg:risch:exp:maximaabl} zu}
-&=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
--
-\log(e^{-x}\cdot (e^x + 1))
-\notag
-\\
-&=
-\frac{x}{e^x+1} 
--
-\log(e^x+1)
--
-x
-+
-\log(e^x+1)
-\notag
-\\
-&=
-\frac{x}{e^x+1}
-%=
-%\frac{xe^x+x-xe^x}{e^x+1}
-=
 \frac{x}{e^x+1}.
 \end{align}
 Auch diese Form der Stammfunktion ist also korrekt.
+
+Die beiden Stammfunktionen $F(x)$ und $G(x)$ können sich um höchstens
+eine Konstante unterscheiden, die Differenz ist 
+\begin{align}
+C
+=
+F(x)-G(x)
+&=
+-x\log(1+e^{-x})+\operatorname{Li}_2(-e^{-x})
+-\frac{x^2}2+x\log(e^x+1)+\operatorname{Li}_2(-e^x)
+\notag
+\intertext{Die Konstante kann durch Evaluieren für $x=0$ gefunden werden,
+sie stellt sich als $C=0$ heraus.
+Die beiden Logarithmus-Terme können als Logarithmus eines Bruchs
+geschrieben werden:}
+0
+&=
+-x\log\frac{1+e^{-x}}{e^x+1}+\operatorname{Li}_2(-e^{-x})
+-\frac{x^2}2+\operatorname{Li}_2(-e^x)
+\notag
+\\
+&=
+-x\log e^{-x}
+-
+\frac{x^2}2
++
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x)
+\notag
+\\
+0
+&=
+\frac{x^2}2
++
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x),
+\label{buch:intalg:risch:li2identity}
+\end{align}
+eine nichttriviale Identität für den Dilogarithmus.
+
+Die Ableitung von
+$
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x)
+$
+ist
+\begin{align*}
+\frac{d}{dx}\Bigl(
+\operatorname{Li}_2(-e^{-x})
++
+\operatorname{Li}_2(-e^x)
+\Bigr)
+&=
+\log(1+e^{-x})-\log(e^x+1)
+\\
+&=
+\log\frac{1+e^{-x}}{e^x+1}
+=
+\log e^{-x}
+=
+-x
+\end{align*}
+mit der Stammfunktion $-\frac{x^2}{2}$, was 
+\eqref{buch:intalg:risch:li2identity}
+bestätigt.
 
 %
 % Der polynomielle Teil und die Risch-Differentialgleichung
@@ -834,7 +873,7 @@ kann dazu nichts aussagen.
 Daher wurden auch gänzlich andere Methoden zur Lösung dieser
 Differentialgleichung entwickelt.
 
-\begin{definition}
+\begin{definition}[Risch-Differentialgleichung]
 Sei $F$ ein differentieller Funktionenkörper und $f,g\in F$.
 Das Problem, eine Lösung $y\in F$ der Differentialgleichung
 \[

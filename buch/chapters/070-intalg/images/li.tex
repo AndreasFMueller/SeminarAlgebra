@@ -1,0 +1,41 @@
+%
+% li.tex -- Graph der Funktion li(x)
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\input{lipaths.tex}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\draw[->] (-0.05,0) -- (10.3,0) coordinate[label={$x$}];
+\draw[->] (0,-4.1) -- (0,6.3) coordinate[label={right:$\operatorname{li}(x)$}];
+
+\foreach \x in {1,...,10}{
+	\draw (\x,-0.05) -- ++(0,0.1);
+	\node at (\x,0) [below] {$\x\mathstrut$};
+}
+\foreach \y in {-4,...,6}{
+	\draw (-0.05,\y) -- ++(0.1,0);
+	\node at (0,\y) [left] {$\y\mathstrut$};
+}
+
+\begin{scope}
+	\clip (0,-4) rectangle (10,6.3);
+	\draw[color=darkred,line width=1.2pt] \kurvenull;
+	\draw[color=darkred,line width=1.2pt] \kurvezweilinks;
+	\draw[color=darkred,line width=1.2pt] \kurvezweirechts;
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
+

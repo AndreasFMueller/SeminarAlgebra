@@ -43,5 +43,8 @@ CHAPTERFILES += 							\
 	chapters/070-intalg/fig/fig-invtan.tex				\
 	chapters/070-intalg/fig/lf.tex					\
 	chapters/070-intalg/fig/polylog.tex				\
+	chapters/070-intalg/fig/fig-li.tex				\
+	chapters/070-intalg/fig/fig-li2.tex				\
+	chapters/070-intalg/fig/fig-ei.tex				\
 	chapters/070-intalg/chapter.tex
 

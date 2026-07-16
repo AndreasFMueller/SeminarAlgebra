@@ -1,0 +1,52 @@
+%
+% ei.tex -- draw Ei graph
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{2}
+\def\dx{1}
+\def\dy{0.25}
+\input{eipaths.tex}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\clip ({-3.1*\dx},{-4.4*\dy}) rectangle ({3.2*\dx},{10.85*\dy});
+
+\draw[->] (-3.05,0) -- (3.15,0) coordinate[label={$x$}];
+\draw[->] (0,{-4.4*\dy}) -- (0,{10.5*\dy})
+	coordinate[label={right:$\operatorname{Ei}(x)$}];
+
+\foreach \x in {-3,...,-1,1,2,3}{
+	\draw (\x,{-0.05/\skala}) -- ++(0,{0.1/\skala});
+}
+\foreach \x in {-3,...,-1}{
+	\node at (\x,0) [above] {$\x\mathstrut$};
+}
+\foreach \x in {1,...,3}{
+	\node at (\x,0) [below] {$\x\mathstrut$};
+}
+\foreach \y in {-4,...,-1,1,2,...,10}{
+	\draw ({-0.05/\skala},{\y*\dy}) -- ++({0.1/\skala},0);
+}
+\foreach \y in {-4,-2,2,4,...,10}{
+	\node at (0,{\y*\dy}) [left] {$\y\mathstrut$};
+}
+
+\begin{scope}
+	\clip ({-3.1*\dx},{-4.4*\dy}) rectangle ({3.1*\dx},{10*\dy});
+	\draw[color=darkred,line width=1.2pt] \kurvelinks;
+	\draw[color=darkred,line width=1.2pt] \kurverechts;
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
+
