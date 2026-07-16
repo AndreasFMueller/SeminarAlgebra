@@ -10,5 +10,6 @@ dependencies-fresnel =						\
 	papers/fresnel/teil0.tex					\
 	papers/fresnel/teil1.tex					\
 	papers/fresnel/teil2.tex					\
-	papers/fresnel/teil3.tex
+	papers/fresnel/teil3.tex					\
+	papers/fresnel/beugung-herleitung.tex
 
