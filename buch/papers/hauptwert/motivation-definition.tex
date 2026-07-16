@@ -63,9 +63,10 @@ einem einzigen, gemeinsamen $\epsilon$ und symmetrischen Grenzen $\pm R$.
 \input{papers/hauptwert/fig/kehrwert-symmetrisch.tex}
 Abbildung \ref{hauptwert:figure:kehrwert-symmetrisch} zeigt diese symmetrische
 Wahl der Integrationsgrenzen im Vergleich zur unsymmetrischen Aufteilung
-aus Abbildung \ref{hauptwert:figure:kehrwert}.
+aus Abbildung \ref{hauptwert:figure:kehrwert}. Durch symmetrische Annäherung
+--- man schreibt dann oftmals $\pv$ (Principal Value)
 \begin{equation}
- \int_{-R}^{-\epsilon} \frac{1}{x}\,dx
+ \pv\int_{-R}^{-\epsilon} \frac{1}{x}\,dx
 + \int_{\epsilon}^{R} \frac{1}{x}\,dx
   = \bigl(\ln\epsilon - \ln R\bigr) + \bigl(\ln R - \ln\epsilon\bigr)
 = 0.
@@ -74,3 +75,27 @@ aus Abbildung \ref{hauptwert:figure:kehrwert}.
 Der Grenzwert $\epsilon \to 0^+$, $R \to \infty$ existiert somit und ist $0$,
 im Gegensatz zum unabhängigen Grenzwert aus
 \eqref{hauptwert:equation:aufteilung}, welcher nicht existiert.
+
+\subsection{Ein weiteres Beispiel in der reellen Analysis}
+Als zweites Beispiel betrachten wir die Funktion $f(x) = \frac{x}{1 + x^2}$
+und deren uneigentliches Integral $\int_{-\infty}^{\infty} \frac{x}{1 + x^2}\,dx$.
+\input{papers/hauptwert/fig/ungerade.tex}
+Abbildung \ref{hauptwert:figure:ungerade} zeigt den Graphen des Integranden.
+Versucht man wieder asymmetrisch von $-\infty$ nach $\infty$ zu integrieren,
+erhält man
+\begin{equation}
+\begin{aligned}
+  \int_{-\infty}^{\infty} \frac{x}{1 + x^2}\,dx
+  &= \Bigl[\tfrac{1}{2}\ln(1 + x^2)\Bigr]_{-\infty}^{\infty} \\
+  &= \lim_{x\to\infty} \tfrac{1}{2}\ln(1 + x^2)
+   - \lim_{x\to-\infty} \tfrac{1}{2}\ln(1 + x^2),
+\end{aligned}
+\end{equation}
+also wieder den unbestimmten Ausdruck $\infty - \infty$:
+Das uneigentliche Integral existiert nicht.
+Da der Integrand aber ungerade ist, heben sich die Flächen links und
+rechts vom Ursprung bei symmetrischen Grenzen $\pm R$ exakt auf,
+der Cauchy-Hauptwert existiert also und ist
+\begin{equation}
+\pv\int_{-\infty}^{\infty} \frac{x}{1 + x^2}\,dx = 0.
+\end{equation}

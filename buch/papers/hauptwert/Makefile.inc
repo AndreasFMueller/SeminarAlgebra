@@ -12,5 +12,9 @@ dependencies-hauptwert =						\
 	papers/hauptwert/teil2.tex					\
 	papers/hauptwert/teil3.tex					\
 	papers/hauptwert/fig/kehrwert.tex				\
-	papers/hauptwert/images/kehrwert.pdf
+	papers/hauptwert/fig/kehrwert-symmetrisch.tex			\
+	papers/hauptwert/fig/ungerade.tex				\
+	papers/hauptwert/images/kehrwert.pdf				\
+	papers/hauptwert/images/kehrwert-symmetrisch.pdf		\
+	papers/hauptwert/images/ungerade.pdf
 
