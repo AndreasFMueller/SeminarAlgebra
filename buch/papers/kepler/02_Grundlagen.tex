@@ -10,12 +10,10 @@
 
 Für die Umlaufzeit eines Planeten brauchen wir zwei Zutaten.
 Die erste Zutat ist die geometrische Form der Bahn.
-Die zweite Zutat ist die Geschwindigkeit, mit der der Planet diese
-Bahn durchläuft.
+Die zweite Zutat ist die Geschwindigkeit, mit der der Planet diese Bahn durchläuft.
 Die Form liefert das erste keplersche Gesetz.
 Die Geschwindigkeit liefert das zweite.
-In diesem Abschnitt beschreiben wir zuerst die Ellipse in
-Polarkoordinaten.
+In diesem Abschnitt beschreiben wir zuerst die Ellipse in Polarkoordinaten.
 Dann leiten wir beide Gesetze aus der Newtonschen Mechanik her.
 Daraus gewinnen wir eine Integraldarstellung der Umlaufzeit.
 Diese Darstellung ist der Ausgangspunkt für alles Weitere.
@@ -45,17 +43,14 @@ Diese Darstellung ist der Ausgangspunkt für alles Weitere.
 kleiner Halbachse $b$.
 Die Sonne steht in einem der beiden Brennpunkte.
 Der zweite Brennpunkt $F_2$ bleibt leer.
-Der Ort des Planeten wird durch den Abstand $r$ zur Sonne und den
-Polarwinkel $\vartheta$ beschrieben.
+Der Ort des Planeten wird durch den Abstand $r$ zur Sonne und den Polarwinkel $\vartheta$ beschrieben.
 Der Winkel wird vom sonnennächsten Punkt aus gemessen.
 \label{kepler:figure:ellipse}}
 \end{figure}
 
-Eine Ellipse hat eine grosse Halbachse $a$ und eine kleine Halbachse
-$b$.
+Eine Ellipse hat eine grosse Halbachse $a$ und eine kleine Halbachse $b$.
 Sie besitzt zwei Brennpunkte.
-Diese liegen auf der grossen Achse im Abstand $c=\sqrt{a^2-b^2}$ vom
-Mittelpunkt (Abbildung~\ref{kepler:figure:ellipse}).
+Diese liegen auf der grossen Achse im Abstand $c=\sqrt{a^2-b^2}$ vom Mittelpunkt (Abbildung~\ref{kepler:figure:ellipse}).
 Das Verhältnis
 \begin{equation}
 E
@@ -72,8 +67,7 @@ Der Grenzfall $E=0$ ergibt einen Kreis.
 Wir schreiben die Exzentrizität mit einem grossen $E$.
 Das kleine $e$ bleibt so für die Eulersche Zahl reserviert.
 
-Für die Rechnung eignen sich Polarkoordinaten $(r,\vartheta)$ am
-besten.
+Für die Rechnung eignen sich Polarkoordinaten $(r,\vartheta)$ am besten.
 Die Sonne liegt dabei im Ursprung, also in einem Brennpunkt.
 In diesen Koordinaten lautet die Gleichung der Ellipse
 \begin{equation}
@@ -89,8 +83,7 @@ a(1-E^2).
 \label{kepler:eqn:ellipse}
 \end{equation}
 Die Grösse $p$ heisst Halbparameter der Ellipse.
-Sie ist der Abstand von der Sonne zur Bahn senkrecht zur grossen
-Achse.
+Sie ist der Abstand von der Sonne zur Bahn senkrecht zur grossen Achse.
 Der Winkel $\vartheta$ wird vom sonnennächsten Punkt aus gemessen.
 Für $\vartheta=0$ ist der Nenner maximal und der Abstand $r$ minimal.
 Für $\vartheta=\pi$ erreicht der Planet den sonnenfernsten Punkt.
@@ -109,8 +102,7 @@ Nach Newton \cite{kepler:principia} ist die Gravitationskraft
 \label{kepler:eqn:gravitation}
 \end{equation}
 Dabei ist $G$ die Gravitationskonstante.
-Der Vektor $\hat{r}$ ist der Einheitsvektor von der Sonne zum
-Planeten.
+Der Vektor $\hat{r}$ ist der Einheitsvektor von der Sonne zum Planeten.
 Die Gravitation ist eine Zentralkraft.
 Sie wirkt immer entlang der Verbindungslinie von Sonne und Planet.
 Deshalb verschwindet das Drehmoment bezüglich der Sonne: wegen
@@ -127,18 +119,14 @@ m\,(\vec{r}\times\vec{v})
 \end{equation}
 bleibt deshalb während der ganzen Bewegung erhalten.
 Daraus folgt auch, dass die Bahn eben ist.
-Der Ortsvektor $\vec{r}$ steht nämlich immer senkrecht auf dem festen
-Vektor $\vec{L}$.
-Wir können die Bewegung deshalb vollständig in der Bahnebene
-beschreiben.
-Dazu verwenden wir die Polarkoordinaten aus
-Abschnitt~\ref{kepler:subsection:ellipse}.
+Der Ortsvektor $\vec{r}$ steht nämlich immer senkrecht auf dem festen Vektor $\vec{L}$.
+Wir können die Bewegung deshalb vollständig in der Bahnebene beschreiben.
+Dazu verwenden wir die Polarkoordinaten aus Abschnitt~\ref{kepler:subsection:ellipse}.
 
 In Polarkoordinaten hat die Geschwindigkeit zwei Komponenten.
 Die radiale Komponente ist $\dot{r}$.
 Die dazu senkrechte Komponente ist $r\dot{\vartheta}$.
-Zum Kreuzprodukt in \eqref{kepler:eqn:drehimpulsvektor} trägt nur die
-senkrechte Komponente bei.
+Zum Kreuzprodukt in \eqref{kepler:eqn:drehimpulsvektor} trägt nur die senkrechte Komponente bei.
 Der Betrag des Drehimpulses ist daher
 \begin{equation}
 L
@@ -147,10 +135,8 @@ m\,r^2\,\dot{\vartheta}.
 \label{kepler:eqn:drehimpuls}
 \end{equation}
 Diese Beziehung enthält bereits das zweite keplersche Gesetz.
-In einem kurzen Zeitintervall $dt$ überstreicht der Fahrstrahl
-näherungsweise ein schmales Dreieck.
-Das Dreieck hat die Seiten $r$ und $r\,d\vartheta$, also die Fläche
-$dA=\frac12 r^2\,d\vartheta$.
+In einem kurzen Zeitintervall $dt$ überstreicht der Fahrstrahl näherungsweise ein schmales Dreieck.
+Das Dreieck hat die Seiten $r$ und $r\,d\vartheta$, also die Fläche $dA=\frac12 r^2\,d\vartheta$.
 Mit \eqref{kepler:eqn:drehimpuls} folgt für die
 Flächengeschwindigkeit
 \begin{equation}
@@ -163,22 +149,17 @@ Flächengeschwindigkeit
 \text{konstant}.
 \label{kepler:eqn:flaechensatz}
 \end{equation}
-Der Fahrstrahl überstreicht in gleichen Zeiten also gleich grosse
-Flächen.
-Anschaulich heisst das: in Sonnennähe ist ein Planet schneller als in
-Sonnenferne.
+Der Fahrstrahl überstreicht in gleichen Zeiten also gleich grosse Flächen.
+Anschaulich heisst das: in Sonnennähe ist ein Planet schneller als in Sonnenferne.
 Für uns ist vor allem die Form \eqref{kepler:eqn:drehimpuls} wichtig.
-Sie verknüpft die Winkelgeschwindigkeit $\dot{\vartheta}$ mit dem
-Abstand $r$.
-Damit können wir später die Umlaufzeit als Integral über den Winkel
-schreiben.
+Sie verknüpft die Winkelgeschwindigkeit $\dot{\vartheta}$ mit dem Abstand $r$.
+Damit können wir später die Umlaufzeit als Integral über den Winkel schreiben.
 
 \subsection{Die Bahngleichung
 \label{kepler:subsection:bahngleichung}}
 
 Jetzt begründen wir das erste keplersche Gesetz.
-Dabei finden wir auch den Zusammenhang zwischen dem Drehimpuls $L$
-und der Bahngeometrie.
+Dabei finden wir auch den Zusammenhang zwischen dem Drehimpuls $L$ und der Bahngeometrie.
 Diesen Zusammenhang brauchen wir später.
 Die Bewegungsgleichung lautet $m\ddot{\vec{r}}=\vec{F}$.
 Ihre radiale Komponente ist in Polarkoordinaten
@@ -188,14 +169,12 @@ Ihre radiale Komponente ist in Polarkoordinaten
 -\frac{GM}{r^2}.
 \label{kepler:eqn:radialgleichung}
 \end{equation}
-Der Term $r\dot{\vartheta}^2$ beschreibt die
-Zentrifugalbeschleunigung.
+Der Term $r\dot{\vartheta}^2$ beschreibt die Zentrifugalbeschleunigung.
 Diese Differentialgleichung enthält noch die Zeit.
 Für die Form der Bahn interessiert uns die Zeit aber gar nicht.
 Ein bewährter Trick hilft weiter \cite{kepler:goldstein}.
 Wir gehen zur neuen Variablen $u=1/r$ über.
-Die Zeitableitungen ersetzen wir mit \eqref{kepler:eqn:drehimpuls}
-durch Ableitungen nach dem Winkel $\vartheta$.
+Die Zeitableitungen ersetzen wir mit \eqref{kepler:eqn:drehimpuls} durch Ableitungen nach dem Winkel $\vartheta$.
 Aus $\dot{\vartheta}=Lu^2/m$ folgt für die radiale Geschwindigkeit
 \begin{align*}
 \dot{r}
@@ -252,13 +231,10 @@ m\sqrt{GMp}.
 Für $0\le E<1$ ist die Bahn eine Ellipse.
 Das beweist das erste keplersche Gesetz.
 Für $E\ge 1$ entstehen Parabeln und Hyperbeln.
-Das sind offene Bahnen von Körpern, die nicht an die Sonne gebunden
-sind.
+Das sind offene Bahnen von Körpern, die nicht an die Sonne gebunden sind.
 Für Planeten spielen sie keine Rolle.
-Die Beziehung \eqref{kepler:eqn:drehimpulsgeometrie} ist
-bemerkenswert.
-Sie drückt den Drehimpuls allein durch die Massen und die Geometrie
-der Bahn aus.
+Die Beziehung \eqref{kepler:eqn:drehimpulsgeometrie} ist bemerkenswert.
+Sie drückt den Drehimpuls allein durch die Massen und die Geometrie der Bahn aus.
 
 \subsection{Die Umlaufzeit als Integral
 \label{kepler:subsection:umlaufzeit}}
@@ -292,11 +268,8 @@ T
 Damit ist das Problem auf ein bestimmtes Integral zurückgeführt.
 Das Integral sieht harmlos aus.
 Mit reellen Methoden ist es aber unangenehm.
-Die übliche Weierstrass-Substitution $t=\tan(\vartheta/2)$ führt zwar
-zum Ziel.
-Sie artet aber in eine lange Bruchrechnung aus.
-Wir werten das Integral in Abschnitt~\ref{kepler:section:komplex}
-deshalb mit komplexer Integration aus.
+% Die übliche Weierstrass-Substitution $t=\tan(\vartheta/2)$ führt zwar zum Ziel.
+% Sie artet aber in eine lange Bruchrechnung aus.
+Wir werten das Integral in Abschnitt~\ref{kepler:section:komplex} deshalb mit komplexer Integration aus.
 Zuerst betrachten wir aber den Spezialfall der Kreisbahn.
-Dort erhält man das dritte keplersche Gesetz auch ohne dieses
-Integral.
+Dort erhält man das dritte keplersche Gesetz auch ohne dieses Integral.

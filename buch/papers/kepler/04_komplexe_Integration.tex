@@ -8,16 +8,11 @@
 \section{Elliptische Bahnen und komplexe Integration
 \label{kepler:section:komplex}}
 
-In diesem Abschnitt werten wir das Integral in
-\eqref{kepler:eqn:tintegral} für beliebige Exzentrizität $0<E<1$ aus.
-Dazu verwandeln wir das reelle Integral in ein Wegintegral über den
-komplexen Einheitskreis.
-Diese Methode gehört zu den klassischen Anwendungen der
-Funktionentheorie \cite{kepler:freitagbusam}.
-Eine unterhaltsame historische Einordnung findet sich bei Nahin
-\cite{kepler:nahin}.
-Die Integrationsgrenzen $0$ und $2\pi$ sind der entscheidende Hinweis
-auf diese Methode.
+In diesem Abschnitt werten wir das Integral in \eqref{kepler:eqn:tintegral} für beliebige Exzentrizität $0<E<1$ aus.
+Dazu verwandeln wir das reelle Integral in ein Wegintegral über den komplexen Einheitskreis.
+Diese Methode gehört zu den klassischen Anwendungen der Funktionentheorie \cite{kepler:freitagbusam}.
+Eine unterhaltsame historische Einordnung findet sich bei Nahin \cite{kepler:nahin}.
+Die Integrationsgrenzen $0$ und $2\pi$ sind der entscheidende Hinweis auf diese Methode.
 Der Integrand hängt nur über $\cos(\vartheta)$ vom Winkel ab.
 Er durchläuft also genau eine Periode.
 Genauso durchläuft $e^{i\vartheta}$ genau einmal den Einheitskreis.
@@ -38,17 +33,14 @@ e^{i\vartheta}
 \frac12\biggl(z+\frac{1}{z}\biggr).
 \]
 Der Winkel $\vartheta$ läuft von $0$ bis $2\pi$.
-Die Variable $z$ durchläuft dabei den Einheitskreis
-$C=\{z\in\mathbb{C}\,|\,|z|=1\}$ genau einmal im positiven
-Umlaufsinn.
+Die Variable $z$ durchläuft dabei den Einheitskreis $C=\{z\in\mathbb{C}\,|\,|z|=1\}$ genau einmal im positiven Umlaufsinn.
 Aus $dz=ie^{i\vartheta}\,d\vartheta$ folgt für das Differential
 \[
 d\vartheta
 =
 \frac{dz}{iz}.
 \]
-Vor dem Einsetzen bringen wir den Nenner des Integranden auf einen
-gemeinsamen Bruch:
+Vor dem Einsetzen bringen wir den Nenner des Integranden auf einen gemeinsamen Bruch:
 \[
 1+E\cdot\frac12\biggl(z+\frac{1}{z}\biggr)
 =
@@ -102,15 +94,13 @@ Mit ihr arbeiten wir im Folgenden.
 \end{tikzpicture}
 \caption{Lage der beiden Polstellen relativ zum Integrationsweg $C$.
 Gezeichnet ist der Fall $E=0.6$.
-Beide Polstellen liegen auf der negativen reellen Achse, hier bei
-$z_+=-\frac13$ und $z_-=-3$.
+Beide Polstellen liegen auf der negativen reellen Achse, hier bei $z_+=-\frac13$ und $z_-=-3$.
 Nur $z_+$ liegt im Inneren des Einheitskreises.
 Nur dieser Pol trägt zum Wegintegral bei.
 \label{kepler:figure:polstellen}}
 \end{figure}
 
-Der Wert eines Wegintegrals wird durch die Singularitäten im Inneren
-der Kurve bestimmt.
+Der Wert eines Wegintegrals wird durch die Singularitäten im Inneren der Kurve bestimmt.
 Wir suchen deshalb die Nullstellen des Nenners.
 Dazu lösen wir die quadratische Gleichung
 \[
@@ -129,36 +119,30 @@ Auf dem Integrationsweg selbst liegen keine Pole.
 
 Die Wurzelausdrücke sehen kompliziert aus.
 Sie werden sich später aber stark vereinfachen.
-Im Moment interessiert nur eine Frage: welcher Pol liegt innerhalb
-von $C$?
-Die Antwort liefert der Satz von Vieta.
-Aus der normierten Gleichung liest man
-\begin{equation}
-z_+ \cdot z_-
-=
-1
-\qquad\text{und}\qquad
-z_+ + z_-
-=
--\frac{2}{E}
-\label{kepler:eqn:vieta}
-\end{equation}
-ab.
-Für den weiter von Null entfernten Pol gilt
+Im Moment interessiert nur eine Frage: welcher Pol liegt innerhalb von $C$?
+Die Antwort auf diese Frage bekommen wir mittels Grenzwertbetrachtungen.
 \[
-|z_-|
+\lim_{E \to 1^-} \frac{-1}{E}+\sqrt{\frac{1}{E^2}-1}
 =
-\frac{1}{E}+\sqrt{\frac{1}{E^2}-1}
->
-1,
+-1
 \]
-denn schon der erste Summand ist wegen $E<1$ grösser als $1$.
-Aus dem Produkt in \eqref{kepler:eqn:vieta} folgt dann sofort
-$|z_+|=1/|z_-|<1$.
-Der Pol $z_+$ liegt also im Inneren des Einheitskreises.
+\[
+\lim_{E \to 0^+} \frac{-1}{E}+\sqrt{\frac{1}{E^2}-1}
+=
+0
+\]
+\[
+\lim_{E \to 1^-} \frac{-1}{E}-\sqrt{\frac{1}{E^2}-1}
+=
+-1
+\]
+\[
+\lim_{E \to 0^+} \frac{-1}{E}-\sqrt{\frac{1}{E^2}-1}
+=
+-\infty
+\]
+Wie wir sehen liegt der Pol $z_+$ innerhalb des Einheitskreises.
 Der Pol $z_-$ liegt ausserhalb.
-Abbildung~\ref{kepler:figure:polstellen} zeigt die Situation für
-$E=0.6$.
 
 \subsection{Auswertung mit der Cauchy-Formel für Ableitungen
 \label{kepler:subsection:cauchy}}
@@ -181,12 +165,10 @@ f(z)
 =
 \frac{z}{(z-z_-)^2}.
 \]
-Die Funktion $f$ ist auf dem Einheitskreis und in seinem Inneren
-holomorph.
+Die Funktion $f$ ist auf dem Einheitskreis und in seinem Inneren holomorph.
 Ihre einzige Singularität $z_-$ liegt nämlich ausserhalb.
 Der Pol in $z_+$ ist von zweiter Ordnung.
-Wir brauchen deshalb die Cauchy-Formel für Ableitungen aus
-Satz~\ref{buch:integration:satz:ableitungn}.
+Wir brauchen deshalb die Cauchy-Formel für Ableitungen aus Satz~\ref{buch:integration:satz:ableitungn}.
 Für $n=1$ liefert sie
 \begin{equation}
 \oint_C
@@ -208,8 +190,7 @@ f'(z)
 -\frac{z+z_-}{(z-z_-)^3}.
 \]
 Jetzt setzen wir die Stelle $z_+$ ein.
-Zähler und Nenner lassen sich direkt durch die Vieta-Beziehungen
-\eqref{kepler:eqn:vieta} ausdrücken.
+Zähler und Nenner lassen sich direkt durch die Vieta-Beziehungen \eqref{kepler:eqn:vieta} ausdrücken.
 Im Zähler steht die Summe $z_++z_-=-2/E$.
 Im Nenner steht die Differenz $z_+-z_-=2\sqrt{1/E^2-1}$.
 Die unhandlichen Wurzelterme kombinieren sich dadurch zu
@@ -245,8 +226,7 @@ Es bleibt der reelle Wert
 \label{kepler:eqn:integralwert}
 \end{equation}
 Am Ende kommt also eine reelle Zahl heraus.
-Das ist eine willkommene Kontrolle, denn das Ausgangsintegral war
-reell.
+Das ist eine willkommene Kontrolle, denn das Ausgangsintegral war reell.
 Auch der Grenzfall stimmt.
 Für $E\to 0$ liefert \eqref{kepler:eqn:integralwert} den Wert $2\pi$.
 Denselben Wert haben wir in
@@ -291,12 +271,9 @@ T
 =
 \frac{2\pi\,a^{\frac{3}{2}}}{\sqrt{GM}}.
 \]
-Die Umlaufzeit hängt also weder von der Masse des Planeten noch von
-der Exzentrizität seiner Bahn ab.
-Sie hängt nur von der grossen Halbachse und der Masse des
-Zentralgestirns ab.
-Quadrieren liefert das dritte keplersche Gesetz in seiner üblichen
-Form
+Die Umlaufzeit hängt also weder von der Masse des Planeten noch von der Exzentrizität seiner Bahn ab.
+Sie hängt nur von der grossen Halbachse und der Masse des Zentralgestirns ab.
+Quadrieren liefert das dritte keplersche Gesetz in seiner üblichen Form
 \begin{equation}
 \frac{T^2}{a^3}
 =
@@ -338,35 +315,23 @@ $4\pi^2/GM_{\odot}=2.975\cdot 10^{-19}\,\text{s}^2\text{m}^{-3}$
 \label{kepler:table:plausibilisierung}}
 \end{table}
 
-Zum Schluss prüfen wir das Resultat \eqref{kepler:eqn:keplerdrei} an
-realen Daten.
-Tabelle~\ref{kepler:table:plausibilisierung} vergleicht die Erde, den
-Mars und den Kometen 67P/Tschurjumow-Gerassimenko.
+Zum Schluss prüfen wir das Resultat \eqref{kepler:eqn:keplerdrei} an realen Daten.
+Tabelle~\ref{kepler:table:plausibilisierung} vergleicht die Erde, den Mars und den Kometen 67P/Tschurjumow-Gerassimenko.
 Der Komet ist durch die Rosetta-Mission bekannt geworden.
 Als Testfall ist er besonders interessant.
 Seine Bahn hat die Exzentrizität $E\approx 0.641$.
 Sie ist damit weit von einer Kreisbahn entfernt.
-Die Kreisbahn-Herleitung aus
-Abschnitt~\ref{kepler:subsection:kraeftegleichgewicht} macht über ihn
-deshalb keine Aussage.
-Die Bahndaten stammen aus \cite{kepler:nasafactsheet} und
-\cite{kepler:jplsbdb}.
-Für die Sonne gilt
-$GM_{\odot}=1.327\cdot 10^{20}\,\text{m}^3\text{s}^{-2}$.
+Die Kreisbahn-Herleitung aus Abschnitt~\ref{kepler:subsection:kraeftegleichgewicht} macht über ihn deshalb keine Aussage.
+Die Bahndaten stammen aus \cite{kepler:nasafactsheet} und \cite{kepler:jplsbdb}.
+Für die Sonne gilt $GM_{\odot}=1.327\cdot 10^{20}\,\text{m}^3\text{s}^{-2}$.
 Damit ergibt sich für alle drei Körper derselbe Quotient $T^2/a^3$.
 Er stimmt mit dem theoretischen Wert $4\pi^2/GM_{\odot}$ überein.
 
-Das dritte keplersche Gesetz ist damit für beliebige elliptische
-Bahnen bewiesen und numerisch bestätigt.
-Die Unabhängigkeit von der Planetenmasse macht es zu einem
-praktischen Werkzeug.
+Das dritte keplersche Gesetz ist damit für beliebige elliptische Bahnen bewiesen und numerisch bestätigt.
+Die Unabhängigkeit von der Planetenmasse macht es zu einem praktischen Werkzeug.
 Man misst die Umlaufzeit und die Halbachse eines einzigen Begleiters.
-Daraus liefert \eqref{kepler:eqn:keplerdrei} die Masse des
-Zentralkörpers.
-So bestimmt man die Masse der Sonne, eines Planeten mit Monden oder
-eines fernen Sterns mit Exoplaneten.
+Daraus liefert \eqref{kepler:eqn:keplerdrei} die Masse des Zentralkörpers.
+So bestimmt man die Masse der Sonne, eines Planeten mit Monden oder eines fernen Sterns mit Exoplaneten.
 Aus Sicht dieses Seminars ist vor allem der Weg bemerkenswert.
-Am Anfang stand ein reelles Integral, an dem sich die Schulanalysis
-die Zähne ausbeisst.
-In der komplexen Ebene zerfiel es in drei einfache Schritte: eine
-Substitution, eine quadratische Gleichung und eine einzige Ableitung.
+Am Anfang stand ein reelles Integral, an dem sich die Schulanalysis die Zähne ausbeisst.
+In der komplexen Ebene zerfiel es in drei einfache Schritte: eine Substitution, eine quadratische Gleichung und eine einzige Ableitung.
