@@ -10,11 +10,12 @@ $\pi$ ist definiert als die Konstante, welche
 \end{equation}
 
 \noindent
-Daraus lässt sich die Fläche einer Kreisscheibe herleiten. 
-Wenn die Breite eines Rings gegen 0 geht, verhält sich das 
-Wachtstum des Flächeninhalts gleich wie das des Umfangs des Rings,
-was eine Herleitung der Kreisscheibenfläche per Integral möglich 
-macht \eqref{gamma-eq:area}. Für eine grafische Darstellung dieser 
+Eine Kreisscheibe ist die von einem Kreisrand begrenzte, vollständig ausgefüllte Fläche eines Kreises.
+Mit Hilfe von \eqref{gamma-eq:circumference} lässt sich die Fläche einer Kreisscheibe herleiten. 
+Geht die Breite eines Rings gegen 0, verhält sich das 
+Wachtstum des Flächeninhalts gleich wie das des Umfangs des Rings.
+Das macht eine Herleitung der Kreisscheibenfläche per Integral, gezeigt in \eqref{gamma-eq:area}, möglich.
+Für eine grafische Darstellung dieser 
 Intuition siehe Abb. \ref{gamma-fig:ring-integration}.
 
 \begin{equation}
@@ -48,10 +49,10 @@ in Abb. \ref{gamma-fig:rect-integration} dargestellt.
 
 \noindent
 Das Integral aus \eqref{gamma-eq:area-pythagoras} ist nicht trivial 
-zu lösen, deswegen werden wir es vermeiden. Ein Vorteil dieses Ansatzes ist jedoch, 
-dass sich die durch den Satz des Pythagoras definierte Metrik sehr 
-einfach auf weitere Dimensionen erweitern lässt, zum Beispiel drei Dimensionen 
-wie in \eqref{gamma-eq:pythagoras-3d}.
+zu lösen und wird nicht weiter verfolgt. Ein Vorteil ist, 
+dass sich die durch den Satz des Pythagoras definierte Metrik 
+einfach auf weitere Dimensionen erweitern lässt. 
+\eqref{gamma-eq:pythagoras-3d} zeigt die Eweiterung in drei Dimensionen.
 
 \begin{equation}
 \label{gamma-eq:pythagoras-3d}
@@ -63,8 +64,8 @@ wie in \eqref{gamma-eq:pythagoras-3d}.
 
 \noindent
 Nun können wir das Volumen einer Kugel herleiten, indem wir Halbkreise entsprechender
-Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}). 
-Dabei integrieren wir entlang der $x$-Achse und innerhalb iterativ entlang der $y$-Achse. 
+Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integration}), während iterativ
+in jedem Halbkreis entlang der $y$-Achse integriert wird.
 Eine formelle Begründung für diese iterative angehensweise ist der Satz von Fubini.
 
 \input{papers/gamma/spheres_drawings.tex}
@@ -91,7 +92,7 @@ zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, wie i
 \end{equation}
 
 \noindent
-Wir haben etwas interessantes getan, nämlich haben wir unsere Berechnung für zwei Dimensionen 
+Wir haben etwas interessantes getan, nämlich die Berechnung für zwei Dimensionen 
 verwendet, um das Volumen in drei Dimensionen zu berechnen. 
 
 Auf diese Weise lässt sich also das Volumen auf beliebige Dimensionen $> 2$ erweitern, und zwar 
@@ -182,4 +183,5 @@ Wir können jetzt also wie in \eqref{gamma-eq:n-sphere-volume-even} ein Kugelvol
 \end{equation}
 
 \noindent
-Schön wäre es, das Volumen nicht nur für gerade-Dimensionale Kugeln berechnen können. Dazu müssten wir allerdings die Fakultät auf halbe Zahlen anwenden können.
+Schön wäre es, das Volumen nicht nur für gerade-Dimensionale Kugeln berechnen können. 
+Dazu müssten wir allerdings die Fakultät auf halbe Zahlen anwenden können, was einer der Gründe ist die Fakultät zu erweitern.
