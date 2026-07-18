@@ -4,7 +4,7 @@
 % (c) 2026 Prof Dr Andreas Müller
 %
 \subsection{Meromorphe Funktionen}
-Funktionen mit lauter isolierte Singulariäteten sind besonders
+Funktionen mit lauter isolierten Singularitäten sind besonders
 leicht zu behandeln und verdienen daher einen eigenen Namen.
 
 \begin{definition}[meromorphe Funktion]
@@ -19,11 +19,38 @@ Funktionen
 \[
 f(z)
 =
-\frac{f(z)}{g(z)},
+\frac{p(z)}{q(z)},
 \]
-wobei $f(z)$ und $g(z)$ Polynome sind.
+wobei $p(z)$ und $q(z)$ Polynome sind.
 \index{Singularitat@Singularität}%
-Die Singularitäten sind dann genau die Nullstellen von $g(z)$ und die
-Ordnung der Pole von $f(z)$ ist die Ordnung der Nullstellen von $g(z)$.
+Die Singularitäten sind genau die Nullstellen von $q(z)$ und die
+Ordnung der Pole von $p(z)$ ist die Ordnung der Nullstellen von $q(z)$.
+Das Residuum von $f(z)$ bei einer einfachen Nullstelle $z_0$ des Nenners
+ist
+\[
+\operatorname{res}(z_0,f)
+=
+\frac{p(z_0)}{q'(z_0)}.
+\]
 
+\begin{beispiel}
+Die rationale Funktion $\varphi(z) = 1/(z^2+1)$ wurde in
+Beispiel~\ref{buch:analytisch:laurentreihen:bsp:cauchyverteilung}
+bereits untersucht.
+Man kann sie als Quotient der Polynome
+$p(z)=1$ und $q(z)=z^2+1$ schreiben, die die Voraussetzungen
+erfüllen: die Nullstellen $\pm i$ des Nenners sind einfach.
+Es folgt, dass das Residuum
+\[
+\operatorname{res}(\pm i,\varphi)
+=
+\frac{p(\pm i)}{q'(\pm i)}
+=
+\frac{1}{2(\pm i)}
+=
+\pm\frac{1}{2i}
+\]
+ist, in Übereinstimmung mit dem Resultat von
+Beispiel~\ref{buch:analytisch:laurentreihen:bsp:cauchyverteilung}.
+\end{beispiel}
 

@@ -27,7 +27,7 @@ $k\in\mathbb{N}\setminus\{0\}$.
 
 Die erste Reihe in
 \eqref{buch:analytisch:laurent:def:laurent}
-ist eine gewöhnliche Potenzreihen, deren Konvergenzradius wir mit $r_1$
+ist eine gewöhnliche Potenzreihen, deren Konvergenzradius wir mit $r_2$
 bezeichnen.
 Die zweite Reihe können wir auch als
 \begin{equation}
@@ -37,21 +37,22 @@ Die zweite Reihe können wir auch als
 \label{buch:analytisch:laurent:def:laurent2}
 \end{equation}
 schreiben, also als Potenzreihe in $1/(a-z_0)$.
-Ist $\varrho$ der Konvergenzradius dieser Potenzreihe, dann konvergiert
-die Reihe~\eqref{buch:analytisch:laurent:def:laurent2}
-offenbar für $|a-z_0| > 1/\varrho = r_2$.
-Nach dem Satz von Cauchy-Hadamard ist die Laurent-Reihe ist also genau
-dann auf dem Ringgebiet $R(z_0;r_1,r_2)$ definiert, wenn 
+Der Konvergenzradius $\varrho$ dieser Potenzreihe kann mit der
+Cauchy-Hadamard-Formel berechnet werden.
+Die Reihe~\eqref{buch:analytisch:laurent:def:laurent2}
+konvergiert dann für $|a-z_0| > 1/\varrho = r_1$.
+Nach dem Satz von Cauchy-Hadamard ist die Laurent-Reihe ist also 
+auf dem Ringgebiet $R(z_0;r_1,r_2)$ mit den Radien
 \begin{align*}
 \frac{1}{r_1}
 &=
-\limsup_{n\to\infty}\!\sqrt[n]{|a_n|}
+\limsup_{n\to\infty}\!\sqrt[n]{|b_n|}
 &&\text{und}&
 r_2
 &=
-\limsup_{n\to\infty}\!\sqrt[n]{|b_n|}.
+\limsup_{n\to\infty}\!\sqrt[n]{|a_n|}.
 \end{align*}
-und $r_1 > r_2$.
+und $r_1 < r_2$ konvergent.
 
 \begin{satz}[Laurent-Reihe]
 \label{buch:analytisch:laurent:satz:laurentreihe}
@@ -83,28 +84,31 @@ gegeben.
 Wir berechnen jetzt die beiden Integrale in
 \eqref{buch:analytisch:laurent:eqn:zweiintegrale} separat mit
 verschiedenen Entwicklungen des Integranden.
-Das erste Integral lässt sich wie früher in eine geometrische
-Reihe
-\[
+Das erste Integral über den äusseren Randkreis $\gamma_2$ des Ringgebietes
+lässt sich wie früher in eine geometrische Reihe
+\begin{equation}
 \frac{1}{2\pi i}
-\oint_{\gamma_1}
+\oint_{\gamma_2}
 \frac{f(z)}{z-a}
 \,dz
 =
 \sum_{k=0}^\infty
 \biggl(
+\underbrace{
 \frac{1}{2\pi i}
-\oint_{\gamma_1}
+\oint_{\gamma_2}
 \frac{f(z)}{(z-z_0)^{k+1}}
 \,dz
+}_{\displaystyle =a_k}
 \biggr)
 (a-z_0)^k
 =
 \sum_{k=0}^\infty a_k(a-z_0)^k
-\]
+\label{buch:analytisch:laurent:eqn:integral1}
+\end{equation}
 entwickeln.
 
-Für das Integral über den inneren Randkreis 
+Für das Integral über den inneren Randkreis  $\gamma_1$
 verwenden wir die geometrische Reihe
 \begin{align*}
 \frac{1}{z-a\mathstrut}
@@ -123,69 +127,94 @@ verwenden wir die geometrische Reihe
 -
 \sum_{k=0}^\infty \frac{1}{(a-z_0)^{k+1}}(z-z_0)^k.
 \end{align*}
-Damit kann das Integral über $\gamma_2$ geschrieben werden als
-\begin{align*}
+Damit kann das Integral über $\gamma_1$ als
+\begin{align}
 -
 \frac{1}{2\pi i}
-\oint_{\gamma_2}
+\oint_{\gamma_1}
 \frac{f(z)}{z-a}
 \,dz
 &=
 \frac{1}{2\pi i}
-\oint_{\gamma_2}
+\oint_{\gamma_1}
 \sum_{k=0}^\infty
 f(z)(z-z_0)^k
 \frac{1}{(a-z_0)^{k+1}}
 \,dz
+\notag
 \\
 &=
 \sum_{k=0}^\infty
 \biggl(
 \frac{1}{2\pi i}
-\oint_{\gamma_2}
+\oint_{\gamma_1}
 f(z) (z-z_0)^k
 \,dz
 \biggr)
 \cdot
 \frac{1}{(a-z_0)^{k+1}}.
-\intertext{Durch Verschiebung des Summationsindex wird daraus}
+\notag
+\intertext{geschrieben werden.
+Durch Verschiebung des Summationsindex wird daraus}
+-
+\frac{1}{2\pi i}
+\oint_{\gamma_1}
+\frac{f(z)}{z-a}
+\,dz
 &=
 \sum_{k=1}^\infty
 \biggl(
+\underbrace{
 \frac{1}{2\pi i}
-\oint_{\gamma_2}
+\oint_{\gamma_1}
 f(z) (z-z_0)^{k-1}
 \,dz
+}_{\displaystyle =b_k}
 \biggr)
 \cdot
 \frac{1}{(a-z_0)^k}
-=
+\notag
+\\
+&=
 \sum_{k=1}^\infty
 b_k
 \cdot
 \frac{1}{(a-z_0)^k}.
-\end{align*}
+\label{buch:analytisch:laurent:eqn:integral2}
+\end{align}
 
-Die beiden Reihenentwicklungen können wir jetzt zusammensetzen zu
+Die beiden Reihenentwicklungen
+\eqref{buch:analytisch:laurent:eqn:integral1}
+und
+\eqref{buch:analytisch:laurent:eqn:integral2}
+können wir jetzt zu
 \begin{align*}
 f(a)
 &=
+\underbrace{
 \sum_{k=0}^\infty
 a_k
 \cdot 
 (a-z_0)^k
+}_{\displaystyle\text{\eqref{buch:analytisch:laurent:eqn:integral1}}}
 +
+\underbrace{
 \sum_{k=1}^\infty
 b_k
 \cdot 
-(a-z_0)^{-k},
+(a-z_0)^{-k}
+}_{\displaystyle\text{\eqref{buch:analytisch:laurent:eqn:integral1}}}
 \end{align*}
-die versprochene Laurent-Reihe.
+zusammensetzen, dies ist die versprochene Laurent-Reihe.
 
-Jetzt muss noch gezeigt werden, dass die Integrale über $\gamma_1$ 
-bzw.~$\gamma_2$ durch Integrale über den Weg $\gamma$ irgendwo
-im Ringgebiet ersetzt werden können.
-Die Integranden der Integrale sind im ganzen Ringgebiet holomorph.
+Jetzt muss noch gezeigt werden, dass die Integrale über $\gamma_1$
+bzw.~$\gamma_2$ durch Integrale über den Weg $\gamma$ irgendwo im
+Ringgebiet ersetzt werden können.
+Die Integranden $f(z)(z-z_0)^k$, $k\in\mathbb{Z}$, der Integrale
+sind im ganzen Ringgebiet holomorph, da $f(z)$ dort holomorph ist
+und die einzige mögliche Polstelle von $(z-z_0)^k$ im Auge des
+Ringgebietes liegt.
 Die Deformation des Weges $\gamma_1$ in den Weg $\gamma$ oder des
-Weges $\gamma_2$ in den Weg $\gamma$ ändert daher das Integral nicht.
+Weges $\gamma_2$ in den Weg $\gamma$ ändert daher das Integral
+nicht.
 \end{proof}

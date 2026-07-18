@@ -93,7 +93,7 @@ Da_{n-1} + na_n D\vartheta
 D(a_{n-1}+na_n\vartheta),
 \end{align*}
 d.~h.~$a_{n-1}+na_n\vartheta=c$ ist eine Konstante $c\in K$.
-Es folgt die Gleichung
+Die Gleichung
 \[
 na_n\cdot\vartheta
 +
@@ -156,8 +156,8 @@ Dh\cdot\vartheta^n + hn\vartheta^{n-1} \vartheta Du
 =
 (\underbrace{Dh+ hn Du}_{\displaystyle=\bar{h}}) \vartheta^n
 \]
-Wäre $\bar{h}=0$, dann würde gelten $h\vartheta^n$ eine Konstante $c\in K$,
-d.~h.~es gilt eine Gleichung der Form
+Wäre $\bar{h}=0$, dann wäre $h\vartheta^n$ eine Konstante $c\in K$,
+d.~h.~es gälte eine Gleichung der Form
 \[
 h\cdot \vartheta^n - c = 0.
 \]
@@ -239,16 +239,16 @@ g
 -
 \frac{Da_m}{a_m}
 +
-(n-m)\,Du
-\intertext{Die rechte Seite kann man auch als}
-0
-&=
-D
-\biggl(
-\frac{a_n}{a_m}
-+
-(n-m)u
-\biggr)
+(n-m)\,Du.
+%\intertext{Die rechte Seite kann man auch als}
+%0
+%&=
+%D
+%\biggl(
+%\frac{a_n}{a_m}
+%+
+%(n-m)u
+%\biggr)
 \end{align*}
 Die rechte Seite ermöglicht auch, die Ableitung
 \begin{align*}
@@ -302,17 +302,17 @@ Sei $\vartheta$ ein algebraisches Element über $F$ mit Minimalpolynom
 \begin{equation}
 0
 =
-p(\vartheta)
+m(\vartheta)
 =
-p_0 + p_1\vartheta + \ldots + p_{n-1}\vartheta^{n-1} + \vartheta^n
+m_0 + m_1\vartheta + \ldots + m_{n-1}\vartheta^{n-1} + \vartheta^n
 =
-\sum_{k=0}^n p_k\vartheta^k
+\sum_{k=0}^n m_k\vartheta^k
 \label{buch:intalg:liouville:polynome:eqn:minimal}
 \end{equation}
-mit $p_n=1$.
+mit $m_n=1$.
 \begin{enumerate}
 \item
-Die Ableitung von $\vartheta$ die Form
+Die Ableitung von $\vartheta$ hat die Form
 \[
 D\vartheta
 =
@@ -325,16 +325,19 @@ mit Polynomen
 \begin{equation}
 d(\vartheta)
 =
-\sum_{k=0}^{n-1} (Dp_k) \vartheta^k
+\sum_{k=0}^{n-1} (Dm_k) \vartheta^k
 \qquad\text{und}\qquad
 e(\vartheta)
 =
-\sum_{k=0}^{n-1} (k+1)p_{k+1} \vartheta^k.
+\sum_{k=0}^{n-1} (k+1)m_{k+1} \vartheta^k
+=
+m'(\vartheta).
 \label{buch:intalg:liouville:polynome:eqn:zaehlernenner}
 \end{equation}
 \item
 Eine rationale Funktion von $\vartheta$ mit Koeffizienten in $F$
-kann immer als Polynom vom Grad höchstens $n-1$ geschrieben werden.
+kann immer als Polynom vom Grad höchstens $n-1$ in $\vartheta$
+mit Koeffizienten in $F$ geschrieben werden.
 \end{enumerate}
 \end{satz}
 
@@ -349,27 +352,27 @@ liefert
 =
 Dp(\vartheta)
 &=
-\sum_{k=0}^n (Dp_k)\vartheta^k
+\sum_{k=0}^n (Dm_k)\vartheta^k
 +
-\biggl(\sum_{k=0}^n kp_k\vartheta^{k-1} \biggl)D\vartheta
+\biggl(\sum_{k=0}^n km_k\vartheta^{k-1} \biggl)D\vartheta
 \\
 &=
-\sum_{k=0}^{n-1} (Dp_k)\vartheta^k
+\sum_{k=0}^{n-1} (Dm_k)\vartheta^k
 +
-\biggl(\sum_{k=0}^{n-1} (k+1)p_{k+1}\vartheta^k \biggl)D\vartheta
+\biggl(\sum_{k=0}^{n-1} (k+1)m_{k+1}\vartheta^k \biggl)D\vartheta
 ,
 \end{align*}
-wobei wir $Dp_n=0$ bereits ausgenützt haben.
+wobei wir $Dm_n=0$ bereits ausgenützt haben.
 Auflösen nach $D\vartheta$ liefert
 \[
 D\vartheta
 =
 -\frac{
 \displaystyle
-\sum_{k=0}^{n-1} (Dp_k) \vartheta^k
+\sum_{k=0}^{n-1} (Dm_k) \vartheta^k
 }{
 \displaystyle
-\sum_{k=0}^{n-1} (k+1)p_{k+1} \vartheta^k
+\sum_{k=0}^{n-1} (k+1)m_{k+1} \vartheta^k
 }
 \in
 F(\vartheta).
@@ -387,14 +390,15 @@ f(\vartheta)
 ein Quotient von Polynomen mit Koeffizienten in $F$.
 Nach Reduktion mit dem Minimalpolynom darf man annehmen, dass
 der Grad von Zähler und Nenner kleiner als $n$ ist.
-Insbesondere sind $v(Z)$ und das Minimalpolynom $p(Z)$
+Insbesondere sind $v(Z)$ und das Minimalpolynom $m(Z)$
 teilerfremd.
 Nach dem erweiterten euklidischen Algorithmus gibt es
 Polynome $s(Z)$ und $t(Z)$ mit 
 \[
-s(Z)v(Z) + t(Z)p(Z) = 1.
+s(Z)v(Z) + t(Z)m(Z) = 1.
 \]
-Einsetzen von $\vartheta$ liefert
+Einsetzen von $\vartheta$ bringt den Term mit $m(\vartheta)=0$ zum
+verschwinden und liefert
 \[
 s(\vartheta)v(\vartheta) = 1
 \qquad\Rightarrow\qquad s(\vartheta) = \frac{1}{v(\vartheta)}.

@@ -7,8 +7,9 @@ dependencies-buchberger =						\
 	papers/buchberger/packages.tex					\
 	papers/buchberger/main.tex					\
 	papers/buchberger/references.bib				\
-	papers/buchberger/teil0.tex					\
-	papers/buchberger/teil1.tex					\
-	papers/buchberger/teil2.tex					\
-	papers/buchberger/teil3.tex
+	papers/buchberger/einleitung.tex					\
+	papers/buchberger/buchberger.tex					\
+	papers/buchberger/sudoku.tex		\
+	papers/buchberger/komplexitaet.tex
+			
 

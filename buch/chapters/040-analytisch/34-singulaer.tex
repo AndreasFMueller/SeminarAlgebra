@@ -10,16 +10,16 @@ Sei $U$ ein offene Teilmenge von $\mathbb{C}$ und $z_0$ ein isolierter
 Punkt von $\mathbb{C}\setminus U$.
 Ein auf $U$ definierte, holomorphe Funktion $f\colon U\to\mathbb{C}$
 ist also in jeder genügend kleinen Umgebung von $z_0$ in jedem Punkt
-definiert ausser im Punkt $a$.
+definiert ausser im Punkt $z_0$.
 Eine solche Stelle heisst ein \emph{isolierter} singulärer Punkt.
 \index{isoliert}%
 \index{singularer Punkt@singulärer Punkt}%
 
 Die Funktion $f$ ist in jedem Ringgebiet $R(z_0;r_1,r_2)$, um den Punkt
 $z_0$ definiert, sofern nur $r_1$ klein genug ist und für 
-alle inneren Radien $r_2<r_1$.
+alle inneren Radien $r_1<r_2$.
 Nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe} gibt es
-ein Laurent-Reihenentwicklung
+eine Laurent-Reihenentwicklung
 \index{Laurent-Reihe}%
 \begin{equation}
 f(z)
@@ -42,15 +42,17 @@ Am Nullpunkt ist $u(0)=0$.
 Die zweite Summe in der Laurent-Reihe
 \eqref{buch:analytisch:laurent:eqn:laurentsing}
 kann daher als $u(1/(z-z_0))$ geschrieben werden.
-Die Funktion $u(1/(z-z_0))$ heisst der \emph{singäre Teil} der Funktion $f$
-in einer Umgebung von $z_0$.
+Die Funktion $u(1/(z-z_0))$ heisst der \emph{singuläre Teil} der Funktion
+$f$ in einer Umgebung von $z_0$.
 \index{singularer Teil@singulärer Teil}%
 
 Falls $u=0$ ist, dann handelt es sich um eine \emph{hebbare} Singularität,
 \index{hebbar}%
 \index{Singularitat@Singularität}%
 \index{Singularitat, hebbar@Singularität, hebbar}%
-die Funktion kann stetig in den Punkt $z_0$ hinein fortgesetzt werden.
+die Funktion kann stetig in den Punkt $z_0$ hinein fortgesetzt werden,
+die zweite Summe in \eqref{buch:analytisch:laurent:eqn:laurentsing}
+ist nicht nötig.
 
 \begin{definition}[Ordnung eines singlären Punktes]
 Sei $z_0$ ein singulärer Punkt der Funktion $f(z)$ und $u(z)$ der 
@@ -64,11 +66,11 @@ Singularität}.
 \index{essentielle Singularitat@essentielle Singularität}%
 Falls $u=0$ ist und $a_k=0$ für $k\le n$ in 
 \eqref{buch:analytisch:laurent:eqn:laurentsing},
-dann heisst $z_0$ eine \emph{Nullstelle der Ornung $n$}.
+dann heisst $z_0$ eine \emph{Nullstelle der Ordnung $n$}.
 \index{Ordnung!Nullstelle}%
-Die Funktion $\omega(f,z_0)$ ist definiert durch
+Die Funktion $\omega(z_0,f)$ ist definiert durch
 \[
-\omega(z_0;f)
+\omega(z_0,f)
 =
 \begin{cases}
 -\infty&\qquad\text{falls $z_0$ eine essentielle Singularität von $f$ ist}\\
@@ -92,8 +94,8 @@ hebbaren Singularität an der Stelle $z_0$, die dort nicht verschwindet.
 Insbesondere ist dann auch $1/(z-z_0)^{-n}\cdot 1/f(z)$ eine in einer
 Umgebung von $z_0$ holomorphe Funktion, so dass man
 \[
-\omega(z_0;f)
+\omega(z_0,f)
 =
--\omega(z_0;1/f)
+-\omega(z_0,1/f)
 \]
 schliessen kann.

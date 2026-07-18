@@ -1,0 +1,60 @@
+%
+% 52-meromorph.tex -- Das Argumentprinzip für beliebige meromorphe Funktionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Das Argumentprinzip für beliebige meromorphe Funktionen}
+\input{chapters/040-analytisch/fig/fig-argument.tex}%
+Der Satz~\ref{buch:analytisch:argument:satz:ordnung}
+liefert Information für eine einzelne isolierte Singularität.
+Wir möchten jetzt zeigen, dass sich die Schlussfolgerung auch
+verallgemeinern lässt auf einen Weg, der mehr als eine Null-
+oder Polstelle der Funktion $f$ umschliesst.
+
+\begin{satz}[Argumentprintzip für meromorphe Funktionen]
+\label{buch:analytisch:argument:satz:argument}
+\index{Argumentprinzip!meromorphe Funktionen}%
+\index{meromorph}%
+Sei jetzt $f$ ein meromorphe Funktion und $\gamma$ ein einfach
+geschlossener Weg in $\mathbb{C}$, der keine Nullstellen oder Polstellen
+von $f$ trifft.
+Dann gilt
+\[
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f'(z)}{f(z)}
+\,dz
+=
+\sum_{\text{$a$ Singularität von $f$}}
+\omega(a;f),
+\]
+wobei die Summe über alle Null- oder Polstellen $a$ von $f$ 
+zu erstrecken ist.
+\end{satz}
+
+\begin{proof}
+Nach Satz~\ref{buch:integration:homologie:satz:pfadpunkte} ist das
+Wegintegral über $\gamma$ gleich gross wie die Summe der Integrale
+über kleine, im Gegenuhrzeigersinn durchlaufene Kreise um die einzelnen
+Singularitäten.
+Die Summanden haben nach
+Satz~\ref{buch:analytisch:argument:satz:ordnung}
+den Wert $\omega(a;f)$.
+Damit ist der Satz bewiesen.
+\end{proof}
+
+In Abbildung~\ref{buch:analytisch:fig:argument}
+wird das Bild eines Kreises unter einer Funktion $f(z)$ in Abhängigkeit
+von der Anzahl der Nullstellen und Pole, die vom Kreis umlaufen werden.
+Sie zeigt, dass die Bildkurve den Nullpunkt im Bildbereich soviele
+Male umläuft, wie die Differenz der vom Kreis umlaufenen Nullstellen und
+Pole angibt.
+
+Der Satz \ref{buch:analytisch:argument:satz:argument} ermöglicht,
+die Anzahl der Nullstellen und Polstellen einer Funktion zu zählen,
+ohne dass man wissen muss, wo sich diese befinden.
+Dies wird zum Beispiel im Algorithmus von Weyl zur numerischen
+Bestimmung der komplexen Nullstellen eines Polynoms ausgenutzt, der in
+Kapitel~\ref{chapter:weyl} beschrieben wird.
+
+

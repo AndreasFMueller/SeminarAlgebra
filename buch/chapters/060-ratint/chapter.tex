@@ -8,7 +8,8 @@
 \label{chapter:ratint}}
 \kopflinks{Integration rationaler Funktionen}
 Schon früh in der Geschichte der Analysis wurde klar, dass es für
-rationale Funktionen immer möglich ist, eine Stammfunktion anzugeben.
+rationale Funktionen immer möglich ist, eine Stammfunktion in 
+geschlossener Form anzugeben.
 Die Methode von Bernoulli, die in
 Abschnitt~\ref{buch:ratint:section:bernoulli} dargestellt wird,
 findet eine solche Stammfunktion.
@@ -19,7 +20,7 @@ Die Methode von Bernoulli ist daher im Allgemeinen für ein
 Computeralgebrasystem (CAS) nicht durchführbar.
 Das Prinzip ist aber verallgemeinerungsfähig, es muss nur eine geeignete
 Alternative zur klassischen Partialbruchzerlegung gefunden werden.
-Die quadratfreie Faktorisierung einer rationialen Funktion setzt jedoch
+Die quadratfreie Faktorisierung einer rationalen Funktion setzt jedoch
 eine effiziente Methode voraus, gemeinsame Teiler von Polynomen
 zu finden.
 Der verallgemeinerte euklidische Algorithmus für Polynome wird in
@@ -28,12 +29,15 @@ Mit der quadratfreien Faktorisierung können somit ein CAS-taugliche
 Integrationsalgorithmen konstruiert wird.
 Wir stellen die Methode von Hermite in
 Abschnitt~\ref{buch:ratint:section:hermite} dar.
+Am Ende der Rechnung stehen Partialbrüche mit einzelnen quadratfreien
+Faktoren im Nenner, dafür wird in
+Abschnitt~\ref{buch:ratint:section:rothsteintrager}
+die Methode von Rothstein-Trager präsentiert.
 
 \input{chapters/060-ratint/1-bernoulli.tex}
 \input{chapters/060-ratint/2-euklid.tex}
 \input{chapters/060-ratint/3-hermite.tex}
 \input{chapters/060-ratint/4-rothsteintrager.tex}
-
 
 \uebungsabschnitt
 
@@ -42,6 +46,7 @@ Abschnitt~\ref{buch:ratint:section:hermite} dar.
 \uebungsaufgabe{601}
 \uebungsaufgabe{602}
 \uebungsaufgabe{603}
+\uebungsaufgabe{604}
 \end{uebungsaufgaben}
 \enduebungsabschnitt
 

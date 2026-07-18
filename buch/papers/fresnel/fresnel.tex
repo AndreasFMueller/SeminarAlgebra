@@ -1,0 +1,181 @@
+%
+% beugung-herleitung.tex -- Herleitung aus WsComm2-Vorlesung
+%
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+%TODO: Einleitung besser schreiben
+% \section{Einleitung}
+% \kopfrechts{Einleitung}
+
+% Fresnel-Integrale sind häufig in der Wellenoptik und in der Analysis anzutreffen
+
+\section{Definition}
+\kopfrechts{Definition}
+
+Die beiden Fresnel-Integrale sind definiert als 
+\begin{equation}
+    C(x) 
+    = 
+    \int_{0}^{x} \cos \left(\frac{\pi}{2}t^2\right) dt
+    \quad \text{und} \quad
+    S(x) 
+    = 
+    \int_{0}^{x} \sin \left(\frac{\pi}{2}t^2\right) dt.
+    \label{fresnel:integral-C-S}
+\end{equation}
+
+Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
+
+%TODO: Plots nur positive Seite?
+\begin{figure}
+    \centering
+    \resizebox{0.8\textwidth}{!}{\input{papers/fresnel/pgf/fresnel-c-s.pgf}\unskip}
+    \caption{
+        C-S-Plot
+        \label{fresnel:C-S-Plot}
+    }
+\end{figure}
+
+Beide Integrale besitzen anscheinend graphisch einen endlichen Wert 
+und scheinen zu
+\[
+\lim\limits_{x \to \infty} C(x)
+=
+\lim\limits_{x \to \infty} S(x)
+=
+\frac{1}{2}
+\]
+zu konvergieren.
+
+Beide Integrale können auch gemeinsam als komplexe Funktion 
+\[
+F(x)
+=
+C(x) + iS(x)
+\]
+geschrieben werden. 
+Die daraus resultierende Form wird Cornu-Spirale genannt, 
+wie in Abbildung~\ref{fresnel:Cornu-Spirale} ersichtlich.
+
+\begin{figure}
+    \centering
+    \resizebox{0.8\textwidth}{!}{\input{papers/fresnel/pgf/fresnel-c-s-komplex.pgf}\unskip}
+    \caption{
+        Cornu-Spirale
+        \label{fresnel:Cornu-Spirale}
+    }
+\end{figure}
+
+
+\section{Komplexe Analysis zur Integrallösung}
+Nach der Leonhard-Euler-Formel
+\[
+e^{i\theta}
+=
+\cos \theta + i \sin \theta
+\]
+kann die vorher definierte Funktion $F(x)$ in die komplexe Form
+\[
+F(x) = \int_{0}^{\infty} e^{i \pi t^2 / 2} dt
+\]
+umgeschrieben werden, welche zugleich auch holmorph ist.
+
+Diese Umstellung erlaubt es, den Integralsatz von Cauchy anzuwenden.
+Statt auf der reellen Achse zu integrieren,
+kann der Integrationsweg umgestellt werden,
+z.B. um $45^{\circ}$ gedreht.
+
+\subsection{Drehung für Cauchy-Integral}
+Erstellt man eine Funktion
+\[
+z 
+= 
+e^{i \pi / 4} u,
+\] 
+welche eine Drehung um $45^{\circ}$ vollzieht und diese anhand
+\[
+z^2
+=
+e^{i \pi / 2} u^2
+=
+i u^2
+\]
+quadriert, kann diese wie folgt im Exponent eingesetzt werden:
+\[
+e^{i \pi z^2 / 2}
+=
+e^{-u^2 \pi / 2}.
+\]
+
+\subsection{Integrierung der Drehung}
+Aus den Umstellungen der Drehung folgt das Integral
+\[
+I(u)
+=
+e^{i \pi / 4}
+\int_{-\infty}^{\infty} e^{-\pi u^2 / 2} du.
+\]
+Das umgestellte Integral kann mittels des Gauss-Integrals
+\[
+\int_{-\infty}^{\infty} e^{-au^2} du 
+=
+\sqrt{\dfrac{\pi}{a}},
+\quad
+a > 0
+\]
+zu
+\[
+I(u)
+=
+e^{i \pi / 4}
+\sqrt{\dfrac{\pi}{\pi / 2}}
+=
+e^{i \pi / 4}\sqrt{2}
+\]
+aufgelöst werden.
+Der Term vor der Wurzel kann umgestellt werden als 
+\[
+e^{i \pi / 4}
+=
+\dfrac{1 + i}{\sqrt{2}},
+\]
+womit sich das Integral zu
+\[
+I(u)
+=
+1 + i
+\]
+vereinfacht.
+
+\subsection{Übergang zur Fresnel-Funktion}
+Schreibt man das Integral wieder anhand der Leonhard-Euler-Formel um,
+können der Realteil
+\[
+\int_{-\infty}^{\infty} \cos \left(\frac{\pi}{2}t^2\right) dt
+=
+1
+\]
+und der Imaginärteil
+\[
+\int_{-\infty}^{\infty} \sin \left(\frac{\pi}{2}t^2\right) dt
+=
+1\]
+gelöst werden.
+
+
+Da wir nur die positive Seite benötigen und 
+\[
+\int_{-\infty}^{\infty} = 2\int_{0}^{\infty},
+\]
+ist folglich
+\[
+2 C(\infty) = 1
+\] 
+und dadurch
+\[
+C(\infty) = S(\infty) = \dfrac{1}{2},
+\]
+was am Anfang graphisch schon angedeutet wurde.

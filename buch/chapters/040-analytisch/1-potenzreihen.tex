@@ -6,11 +6,44 @@
 \section{Potenzreihen holomorpher Funktionen
 \label{buch:analytisch:section:potenzreihen}}
 \kopfrechts{Potenzreihen holomorpher Funktionen}
-Der Residuensatz stellt einen Zusammenhang zwischen $f(z)$ und den
-Werten von $f(x)/(x-a)$ auf einem geschlossenen Weg her.
-Der Nenner kan mit Hilfe der geometrischen Reihe in eine Potenzreihe
+Konvergente Potenzreihen einer komplexen Variable sind holomorphe
+Funktionen.
+Da Potenzreihen gliedweise abgeleitet und integriert werden können,
+vereinfachen Aussagen über Ableitungen und Stammfunktionen.
+Es stellt sich damit die Frage, welche holomorphe Funktionen
+eine konvergente Potenzreihe haben.
+Wir geben daher der Eigenschaft, eine konvergente Potenzreihe zu haben,
+einen Namen.
+
+\begin{definition}[analytisch]
+Eine komplexe Funktion $f(z)$ heisst im Punkt $z_0$ \emph{analytisch},
+wenn sie eine konvergente Potenzreihen im Punkt $z_0$ besitzt.
+\index{analytisch}%
+Eine reelle Funktion $f(x)$ heisst im Punkt $x_0$ \emph{reell analytisch},
+wenn sie eine konvergente, reelle Potenzreihenentwicklung im Punkt $x_0$
+besitzt.
+\index{reell analytisch}%
+\end{definition}
+
+Die Frage, welche holomorphe Funktionen auch analytisch sind, wird
+in diesem Abschnitt geklärt.
+Es ist klar, dass Polynome analytisch sind, Polynome sind endliche 
+Potenzreihen.
+Mit der geometrische Reihe können auch rationale Funktion allein durch
+algebraische Operationen in Potenzreihen entwickelt werden, dies wird
+in den Abschnitten 
+\ref{buch:analytisch:potenzreihen:subsection:geometrisch}
+und
+\ref{buch:analytisch:potenzreihen:subsection:rational}
+durchgeführt.
+
+Der cauchysche Integralsatz stellt einen Zusammenhang zwischen $f(z)$
+und den Werten von $f(x)/(x-z)$ auf einem geschlossenen Weg um den
+Punkt $z$ her.
+Der Nenner kann mit Hilfe der geometrischen Reihe in eine Potenzreihe
 verwandelt werden, die sich zu einer Potenzreihe von $f(z)$ umformen
-lässt.
+lässt, dies ist das Thema von Abschnitt
+\ref{buch:analytisch:potenzreihen:subsection:analytisch}.
 
 \input{chapters/040-analytisch/11-polynome.tex}
 \input{chapters/040-analytisch/12-geometrisch.tex}

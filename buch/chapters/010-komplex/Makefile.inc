@@ -26,5 +26,13 @@ CHAPTERFILES += 							\
 	chapters/010-komplex/41-elementar.tex				\
 	chapters/010-komplex/42-matrix.tex				\
 	chapters/010-komplex/fig/table-gold.tex				\
+	chapters/010-komplex/fig/fig-farben.tex				\
+	chapters/010-komplex/fig/fig-fundamental.tex			\
+	chapters/010-komplex/fig/fig-gaussebene.tex			\
+	chapters/010-komplex/fig/fig-gausszahlen.tex			\
+	chapters/010-komplex/fig/fig-hamilton.tex			\
+	chapters/010-komplex/fig/fig-hyperbeln.tex			\
+	chapters/010-komplex/fig/fig-kehrwert.tex			\
+	chapters/010-komplex/fig/table-gold.tex				\
 	chapters/010-komplex/chapter.tex
 
