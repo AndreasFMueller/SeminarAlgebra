@@ -1,7 +1,23 @@
 % (c) 2026 Nathanael Fässler, OST Ostschweizer Fachhochschule
 
-  \begin{tikzpicture}[scale=1, text=blue!80!black]
-    \begin{scope}
+\begin{tikzpicture}[scale=1]
+
+  % Ungelöstes Sudoku
+  \begin{scope}[xshift=0cm]
+  \draw (0,0) grid(4,4);
+  \draw[very thick, scale=2] (0,0) grid (2, 2);
+
+  \setcounter{sudokuRow}{1}
+    \setrow { }{ }  {2}{ }
+    \setrow { }{ }  { }{ }
+
+    \setrow {3}{ }  { }{1}
+    \setrow { }{4}  { }{ }
+    \node[anchor=center] at (2, -0.5) {};
+  \end{scope}
+
+  % Sudoku mit Variablen
+  \begin{scope}[xshift=5cm, text=blue!80!black]
     \draw (0,0) grid(4,4);
     \draw[very thick, scale=2] (0,0) grid (2, 2);
 
@@ -13,5 +29,4 @@
       \setrow {$x_{41}$}{$x_{42}$}  {$x_{43}$}{$x_{44}$}
       \node[anchor=center] at (2, -0.5) {};
     \end{scope}
-
-  \end{tikzpicture}
+\end{tikzpicture}

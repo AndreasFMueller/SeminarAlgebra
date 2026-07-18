@@ -9,5 +9,7 @@ dependencies-buchberger =						\
 	papers/buchberger/references.bib				\
 	papers/buchberger/einleitung.tex					\
 	papers/buchberger/buchberger.tex					\
-	papers/buchberger/sudoku.tex					
+	papers/buchberger/sudoku.tex		\
+	papers/buchberger/komplexitaet.tex
+			
 
