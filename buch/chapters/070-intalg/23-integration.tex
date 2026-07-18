@@ -1,0 +1,78 @@
+%
+% Das Integrationsproblem
+%
+\subsection{Das Integrationsproblem
+\label{buch:intalg:wurzel:subsection:integration}}
+Die in Abschnitt~\ref{buch:intalg:wurzel:subsection:rationalisierung}
+erfolgte Rationalisierung zeigt, dass eine rationale Funktion der Form
+$R(x,\vartheta)$ immer in die Form \eqref{buch:intalg:wurzel:eqn:linkombtheta}
+oder \eqref{buch:intalg:wurzel:eqn:linkombthetainverse} gebracht
+werden kann.
+Es müssen also nur noch Integrale der Form
+\begin{equation*}
+\int
+p(x)+q(x)\vartheta
+\,dx
+\qquad\text{oder}\qquad
+\int
+p(x)+q(x)\frac{1}{\vartheta}
+\,dx
+\end{equation*}
+gelöst werden, wobei $p$ und $q$ rationale Funktionen in $\mathbb{Q}(x)$
+sind.
+Das Integral über den ersten Summanden ist das Integral einer rationalen
+Funktion und kann daher mit der Methode von Kapitel~\ref{chapter:ratint}
+integriert werden.
+Es bleibt daher nur noch Integrale der Form
+\begin{equation}
+\int q(x)\,\vartheta\,dx
+\qquad\text{oder}\qquad
+\int \frac{q(x)}{\vartheta}\,dx
+\label{buch:intalg:wurzel:eqn:integrand}
+\end{equation}
+zu bestimmen.
+
+
+Im Folgenden bevorzugen wir die zweite Form des Integrals in
+\eqref{buch:intalg:wurzel:eqn:integrand}.
+Um den Grund zu verstehen, betrachten wir die Ableitung
+\begin{align*}
+\vartheta^2
+&=
+ax^2+bx+c
+\\
+2\vartheta\vartheta'
+&=
+2ax + b
+\intertext{und drücken $\vartheta'$ durch $\vartheta$ als}
+\vartheta'
+&=
+\frac{2ax+b}{2\vartheta}
+=
+\frac{ax+b/2}{\vartheta}
+&&\Rightarrow&
+\frac{1}{\vartheta}
+&=
+\frac{\vartheta'}{ax+b/2}
+\end{align*}
+aus.
+Man kann also $1/\vartheta$ durch die Ableitung $\vartheta'$ ersetzen,
+was die Möglichkeit der partiellen Integration eröffnet.
+
+Die rationale Funktion $q(x)$ im rechten Integral von
+\eqref{buch:intalg:wurzel:eqn:integrand} ist ein Bruch von Polynomen
+von $x$.
+Durch Dividieren mit Rest lässt es sich als Summe
+\begin{equation}
+q(x)
+=
+\varphi(x)
++
+w(x)
+\qquad
+\varphi(x)\in\mathbb{Q}[x],
+w(x)\in\mathbb{Q}(x)
+\label{buch:intalg:wurzel:eqn:summe}
+\end{equation}
+eines Polynoms und einer vollständig gekürzten rationalen Funktion
+schreiben, deren Nenner grösseren Grad hat als der Zähler.

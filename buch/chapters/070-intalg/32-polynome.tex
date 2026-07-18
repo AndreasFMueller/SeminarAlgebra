@@ -1,0 +1,422 @@
+%
+% Polynome von Erweiterungen
+%
+\subsection{Polynome von Erweiterungen
+\label{buch:intalg:liouville:subsection:polynome}}
+Die oben formulierte Beweisstrategie für das Prinzip von Liouville
+basiert darauf, dass wir die Ableitung der Stammfunktion ausrechnen
+und dann nachweisen, dass nur logarithmische Terme als Ableitung
+Ausdrücke in $F$ ergeben.
+Dazu müssen zunächst die Ableitungen von Zähler und Nenner in
+\eqref{buch:intalg:liouville:eqn:bruch}
+verstanden werden, was in den folgenden Abschnitten geklärt werden
+soll.
+
+%
+% Polynome einer logarithmischen Erweiterung
+%
+\subsubsection{Polynome einer logarithmischen Erweiterung}
+Das Prinzip von Liouville verspricht, dass nur logarithmische Erweiterungen
+für die Stammfunktion gebraucht werden, und dass diese nur linear
+vorkommen.
+Dies wird sich darin äussern, dass die Erweiterung im rationalen Teil
+nicht vorkommen kann.
+Dies wird sich daraus ergeben, wie genau sich der Grad eines Polynoms
+in $\vartheta$ beim Ableiten ändert.
+Der folgende Satz gibt darüber Auskunft.
+
+\begin{satz}
+\label{buch:intalg:liouville:polynome:satz:logarithmisch}
+Sei $F$ ein Funktionenkörper mit Konstantenkörper $K\subset F$ und sei
+$\vartheta$ ein logarithmisch transzendentes Element über $F$ mit
+$\vartheta=\log u$ mit $u\in F$.
+Sei ausserdem
+$a(\vartheta) = a_0+a_1\vartheta+\dots+a_n\vartheta^n\in F[\vartheta]$
+ein Polynom in $\vartheta$ mit Koeffizienten in $F$.
+Dann gilt:
+\begin{enumerate}
+\item
+Die Ableitung von $a(\vartheta)$ ist ebenfalls ein Polynom mit Koeffizienten
+in $F$: $Da(\vartheta)\in F[\vartheta]$.
+\item
+Wenn der Leitkoeffizient $a_n$ eine Konstante ist, dann ist
+$\deg Da(\vartheta)=\deg a(\vartheta) -1$.
+\item
+Wenn der Leitkoeffizient $a_n$ keine Konstante ist, dann ist
+$\deg Da(\vartheta)=\deg a(\vartheta)$.
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Die Ableitung ist
+\begin{align*}
+Da(\vartheta)
+&=
+D\sum_{k=0}^n a_k\vartheta^k
+=
+\sum_{k=0}^n \bigl(Da_k\vartheta^k + a_kk\vartheta^{k-1}D\vartheta\bigr)
+\\
+&=
+\sum_{k=0}^n Da_k\vartheta^k
++
+D\vartheta \sum_{k=0}^{n-1} a_{k+1}(k+1)\vartheta^k
+\\
+&=
+\sum_{k=0}^{n-1} \bigl(Da_k+(k+1)a_{k+1}D\vartheta\bigr) \vartheta^k
++
+Da_n \vartheta^n
+\\
+&=
+\sum_{k=0}^{n-1}
+\biggl(
+\underbrace{Da_k+(k+1)a_{k+1}\frac{Du}{u}}_{\displaystyle\in F}
+\biggr) \vartheta^k
++
+Da_n \vartheta^n
+\end{align*}
+Da $Du\in F$ und $u\in F$ folgt, dass der Koeffizient in der Klammer
+ebenfalls in $F$ ist und daher ist $Da(\vartheta)\in F[\vartheta]$.
+\item
+Wenn $a_n$ eine Konstante ist, dann fällt der Term mit $\vartheta^n$ weg,
+der Grad von $Da(\vartheta)$ ist also höchstens $n-1$.
+Es ist zu zeigen, dass der Grad genau $n-1$ ist, d.~h.~dass der Koeffizient
+von $\vartheta^{n-1}$ nicht verschwindet.
+Würde dieser Koeffizient verschwinden, dann wäre wegen $Da_n=0$
+\begin{align*}
+0
+&=
+Da_{n-1} + na_n D\vartheta
+\\
+&=
+D(a_{n-1}+na_n\vartheta),
+\end{align*}
+d.~h.~$a_{n-1}+na_n\vartheta=c$ ist eine Konstante $c\in K$.
+Die Gleichung
+\[
+na_n\cdot\vartheta
++
+(\underbrace{a_{n-1}-c}_{\displaystyle\in K})
+=
+0
+\]
+bedeutet aber, dass $\vartheta$ algebraisch ist über $K$.
+Dies widerspricht der Voraussetzung, dass $\vartheta$ transzendent ist.
+Der Widerspruch zeigt, dass $\deg Da(\vartheta)=n-1$ ist.
+\item
+Wenn $a_n$ keine Konstante ist, dann ist $Da_n\ne 0$ und damit
+$\deg Da(\vartheta)=n$.
+\qedhere
+\end{enumerate}
+\end{proof}
+
+%
+% Polynome einer exponentiellen Erweiterung
+%
+\subsubsection{Polynome einer exponentiellen Erweiterung}
+Im Gegensatz zu einer logarithmischen Erweiterung nimmt der Grad
+eines Polynoms einer exponentiellen Erweiterung beim Ableiten nicht ab.
+
+\begin{satz}
+\label{buch:intalg:liouville:polynome:satz:exponentiell}
+Sei $F$ ein Funktionenkörper mit Konstantenkörper $K\subset F$ und sei
+$\vartheta$ ein exponentielles transzendentes Element über $F$ mit
+$\vartheta=\exp u$ mit $u\in F$.
+Sei ausserdem
+$a(\vartheta) = a_0+a_1\vartheta+\dots+a_n\vartheta^n\in F[\vartheta]$
+ein Polynom in $\vartheta$ mit Koeffizienten in $F$.
+Dann gilt:
+\begin{enumerate}
+\item
+Für $h\in F$ und $n\ne 0$ gilt $D(h\vartheta^n) = \bar{h}\vartheta^n$ mit
+$\bar{h}\in F$ und $\bar{h}\ne 0$.
+\item
+Für ein Polynom
+$a(\vartheta)\in F[\vartheta]$
+gilt
+$\deg Da(\vartheta) = \deg a(\vartheta)$.
+\item
+$a(\vartheta) \in F[\vartheta]$
+teilt $Da(\vartheta)$ genau dann, wenn $a(\vartheta)$ ein Monom ist,
+also $a(\vartheta)=h\vartheta^n$ mit $h\in F\setminus\{0\}$, $n\in\mathbb{Z}$.
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Die Ableitung ist
+\[
+D(h\vartheta^n)
+=
+Dh\cdot\vartheta^n + hn\vartheta^{n-1}D\vartheta
+=
+Dh\cdot\vartheta^n + hn\vartheta^{n-1} \vartheta Du
+=
+(\underbrace{Dh+ hn Du}_{\displaystyle=\bar{h}}) \vartheta^n
+\]
+Wäre $\bar{h}=0$, dann wäre $h\vartheta^n$ eine Konstante $c\in K$,
+d.~h.~es gälte eine Gleichung der Form
+\[
+h\cdot \vartheta^n - c = 0.
+\]
+Dies bedeutet, dass $\vartheta$ algebraisch ist über $F$, im Widerspruch
+zur Voraussetzung, dass $\vartheta$ transzendent ist.
+Somit folgt $\bar{h}\ne 0$.
+\item
+Die Ableitung des Terms $a_n\vartheta^n$ des Polynoms ist
+$\bar{a}_n\vartheta^n$ mit $\bar{a}_n\ne 0$.
+Somit ist $\deg Da(\vartheta) = n = \deg a(\vartheta)$.
+\item
+Wenn $a(\vartheta)$ das Monom $h\vartheta^n$ ist, dann ist
+\[
+Da(\vartheta)
+=
+\bar{h}\vartheta^n
+=
+\frac{\bar{h}}{h}
+\cdot
+h\vartheta^n
+=
+\frac{\bar{h}}{h}
+\cdot
+a(\vartheta),
+\]
+d.~h.~wegen $\bar{h}/h\in F$ ist $Da(\vartheta)$ ist ein Teiler von
+$a(\vartheta)$.
+
+Sei jetzt umgekehrt $Da(\vartheta)$ ein Teiler von $a(\vartheta)$.
+Es gibt dann ein $g\in F$ mit $Da(\vartheta)=ga(\vartheta)$.
+Sei $m$ der höchste Exponent $<n$ von $\vartheta$ im Polynom $a(\vartheta)$,
+welcher einen nicht verschwindenen Koeffizienten $a_m\ne 0$ hat.
+Das Polynom hat also die Form
+\begin{align*}
+a(\vartheta)
+&=
+a_n\vartheta^n + a_m\vartheta^m + \ldots + a_1\vartheta + a_0
+\intertext{mit der Ableitung}
+Da(\vartheta)
+&=
+\bar{a}_n\vartheta^n
++
+\bar{a}_m\vartheta^m
++
+\ldots
++
+\bar{a}_1\vartheta
++
+Da_0.
+\end{align*}
+mit $\bar{a}_k=Da_k+ka_kDu$.
+Die Teilbarkeitsbedingung bedeutet dann
+\[
+\renewcommand{\arraycolsep}{2pt}
+Da(\vartheta)
+=
+ga(\vartheta)
+\quad
+\Rightarrow
+\quad
+\left\{\;
+\begin{array}{lclclcl}
+ga_n &=& \bar{a}_n &=& Da_n &+& na_n Du \\
+ga_m &=& \bar{a}_m &=& Da_m &+& ma_m Du.
+\end{array}
+\right.
+\]
+Auflösen nach $g$ ergibt
+\begin{align*}
+g
+&=
+\frac{Da_n}{a_n} + n\,Du
+=
+\frac{Da_m}{a_m} + m\,Du.
+\intertext{Die Differenz der rechten Seiten ist}
+0
+&=
+\frac{Da_n}{a_n}
+-
+\frac{Da_m}{a_m}
++
+(n-m)\,Du.
+%\intertext{Die rechte Seite kann man auch als}
+%0
+%&=
+%D
+%\biggl(
+%\frac{a_n}{a_m}
+%+
+%(n-m)u
+%\biggr)
+\end{align*}
+Die rechte Seite ermöglicht auch, die Ableitung
+\begin{align*}
+D
+\biggl(
+\frac{a_n}{a_m}\vartheta^{n-m}
+\biggr)
+&=
+\frac{(Da_n) a_m - a_n\,Da_m}{a_m^2} \vartheta^{n-m}
++
+(n-m)\vartheta^{n-m}Du
+\\
+&=
+\frac{a_n}{a_m}
+\biggl(
+\frac{Da_n}{a_n}
+-
+\frac{Da_m}{a_m}
+-
+(n-m)Du
+\biggr)
+=
+0
+\end{align*}
+zu berechnen.
+Somit ist $(a_n/a_m)\vartheta^{n-m}$ eine Konstante, was nur für $n-m=0$
+möglich ist.
+Es gibt also gar keinen Koeffizienten $a_m\ne 0$ mit $m<n$.
+Somit ist $a(\vartheta)=a_n\vartheta^n$ ein Monom.
+\qedhere
+\end{enumerate}
+\end{proof}
+
+%
+% Polynome einer algebraischen Erweiterung
+%
+\subsubsection{Polynome einer algebraischen Erweiterung}
+Logarithmische und exponentielle transzendente Erweiterungen
+sind durch ihre Eigenschaften unter Differentiation charakterisiert.
+Damit ist bereits sichergestellt, dass die Ableitung im erweiterten
+Funktionenkörper liegt.
+Für eine algebraische Erweiterung $F(\vartheta)$ von $F$ ist dies
+jedoch nicht selbstverständlich.
+Der folgende Satz zeigt, dass auch für eine algebraische Erweiterung
+um das algebraische Element $\vartheta$ die Ableitung $D\vartheta$
+in $F(\vartheta)$ liegt.
+
+\begin{satz}
+\label{buch:intalg:liouville:polynome:satz:algebraisch}
+Sei $\vartheta$ ein algebraisches Element über $F$ mit Minimalpolynom
+\begin{equation}
+0
+=
+m(\vartheta)
+=
+m_0 + m_1\vartheta + \ldots + m_{n-1}\vartheta^{n-1} + \vartheta^n
+=
+\sum_{k=0}^n m_k\vartheta^k
+\label{buch:intalg:liouville:polynome:eqn:minimal}
+\end{equation}
+mit $m_n=1$.
+\begin{enumerate}
+\item
+Die Ableitung von $\vartheta$ hat die Form
+\[
+D\vartheta
+=
+-
+\frac{d(\vartheta)}{e(\vartheta}
+\in
+F(\vartheta)
+\]
+mit Polynomen 
+\begin{equation}
+d(\vartheta)
+=
+\sum_{k=0}^{n-1} (Dm_k) \vartheta^k
+\qquad\text{und}\qquad
+e(\vartheta)
+=
+\sum_{k=0}^{n-1} (k+1)m_{k+1} \vartheta^k
+=
+m'(\vartheta).
+\label{buch:intalg:liouville:polynome:eqn:zaehlernenner}
+\end{equation}
+\item
+Eine rationale Funktion von $\vartheta$ mit Koeffizienten in $F$
+kann immer als Polynom vom Grad höchstens $n-1$ in $\vartheta$
+mit Koeffizienten in $F$ geschrieben werden.
+\end{enumerate}
+\end{satz}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Ableiten von
+\eqref{buch:intalg:liouville:polynome:eqn:minimal}
+liefert
+\begin{align*}
+0
+=
+Dp(\vartheta)
+&=
+\sum_{k=0}^n (Dm_k)\vartheta^k
++
+\biggl(\sum_{k=0}^n km_k\vartheta^{k-1} \biggl)D\vartheta
+\\
+&=
+\sum_{k=0}^{n-1} (Dm_k)\vartheta^k
++
+\biggl(\sum_{k=0}^{n-1} (k+1)m_{k+1}\vartheta^k \biggl)D\vartheta
+,
+\end{align*}
+wobei wir $Dm_n=0$ bereits ausgenützt haben.
+Auflösen nach $D\vartheta$ liefert
+\[
+D\vartheta
+=
+-\frac{
+\displaystyle
+\sum_{k=0}^{n-1} (Dm_k) \vartheta^k
+}{
+\displaystyle
+\sum_{k=0}^{n-1} (k+1)m_{k+1} \vartheta^k
+}
+\in
+F(\vartheta).
+\]
+Zähler und Nenner sind die Polynome in
+\eqref{buch:intalg:liouville:polynome:eqn:zaehlernenner}
+\item
+Sei 
+\begin{equation}
+f(\vartheta)
+=
+\frac{u(\vartheta)}{v(\vartheta)}
+\label{buch:intalg:liouville:polyalg:eqn:bruch}
+\end{equation}
+ein Quotient von Polynomen mit Koeffizienten in $F$.
+Nach Reduktion mit dem Minimalpolynom darf man annehmen, dass
+der Grad von Zähler und Nenner kleiner als $n$ ist.
+Insbesondere sind $v(Z)$ und das Minimalpolynom $m(Z)$
+teilerfremd.
+Nach dem erweiterten euklidischen Algorithmus gibt es
+Polynome $s(Z)$ und $t(Z)$ mit 
+\[
+s(Z)v(Z) + t(Z)m(Z) = 1.
+\]
+Einsetzen von $\vartheta$ bringt den Term mit $m(\vartheta)=0$ zum
+verschwinden und liefert
+\[
+s(\vartheta)v(\vartheta) = 1
+\qquad\Rightarrow\qquad s(\vartheta) = \frac{1}{v(\vartheta)}.
+\]
+Damit ist das inverse Element von $v(\vartheta)$ als Polynom in
+$\vartheta$ ausgedrückt.
+Für den Bruch~\eqref{buch:intalg:liouville:polyalg:eqn:bruch}
+folgt daher
+\[
+f(\vartheta)
+=
+\frac{u(\vartheta)}{v(\vartheta)}
+=
+u(\vartheta)\cdot s(\vartheta).
+\]
+Die rechte Seite ist ein Polynom.
+Mit dem Minimalpolynom kann es weiter auf ein Polynom vom 
+Grad $<n$ reduziert werden.
+\qedhere
+\end{enumerate}
+\end{proof}

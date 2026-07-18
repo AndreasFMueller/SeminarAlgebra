@@ -1,0 +1,493 @@
+%
+% Reduktion des Integrals
+%
+\subsection{Reduktion des Integrals}
+Mit dem Werkzeug der quadratfreien Faktorisierung lässen sich jetzt
+die für den rationalen Teil des Integrals nötigen Schritte des Plans
+vom Ende von Abschnitt~\ref{buch:ratint:section:bernoulli} durchführen.
+Zu diesem Zwck muss erst eine Partialbruchzerlegung gefunden werden.
+Anschliessend müssen die einzelnen Terme der Partialbruchzerlegung
+integriert werden.
+
+%
+% Partialbruchzerlegung zur quadratfreien Faktorisierung
+%
+\subsubsection{Partialbruchzerlegung zur quadratfreien Faktorisierung}
+Der wesentliche Schritt zur Konstruktion der Partialbruchzerlegung
+ist der folgende Satz.
+
+\begin{satz}
+Sei 
+\[
+f(z)
+=
+\frac{p(z)}{q(z)^m r(z)},
+\]
+wobei $q(z)$ teilerfremd zu $r(z)$ ist.
+Dann gibt es 
+\[
+f(z)
+=
+f_0(z)
++
+\frac{s(z)}{r(z)}
++
+\sum_{k=1}^m \frac{t_k(z)}{q(z)^k},
+\]
+wobei $f_0(z)$ ein Polynom ist, $s(z)$ ein Polynom mit Grad
+$\deg s(z)<\deg r(z)$ und die Polynome $t_k(z)$ Grad $\deg t_k(z)<\deg q(z)$
+haben.
+\end{satz}
+
+\begin{proof}
+Da $q(z)$ und $r(z)$ teilerfremd sind, sind auch $q(z)^m$ und $r(z)$
+teilerfremd.
+Daher gibt es $s(z)$ und $t(z)$ mit
+\begin{equation}
+p(z)
+=
+s(z)q(z)^m + t(z)r(z).
+\label{buch:ratint:hermite:eqn:p=sq+tr}
+\end{equation}
+Einsetzen in den Bruch ergibt
+\begin{align}
+f(z)
+&=
+\frac{p(z)}{q(z)^m r(z)}
+=
+\frac{s(z)q(z)^m + t(z)r(z)}{q(z)^mr(z)}
+=
+\frac{s(z)}{r(z)}
++
+\frac{t(z)}{q(z)^m}.
+\label{buch:ratint:hermite:eqn:srtq}
+\end{align}
+Falls der Zähler einen Grad mindestens so gross wie der Nenner
+hat, kann durch Division des Zählers mit Rest das Polynom $f_0(z)$
+abgespaltet werden.
+
+Es muss jetzt nur noch gezeigt werden, dass der zweite Bruch in
+\eqref{buch:ratint:hermite:eqn:srtq}
+in eine Summe der verlangten Art umgeformt werden kann.
+Dazu schreibt man den Zähler mithilfe der Polynomdivision als
+\begin{equation*}
+t(z)
+=
+a_m(z) q(z) + t_{m}(z)
+\end{equation*}
+mit $\deg b(z) < \deg q(z)$.
+Dann wird
+\begin{align*}
+\frac{t(z)}{q(z)^m}
+&=
+\frac{a(z)q(z)+b(z)}{q(z)^m}
+=
+\frac{a(z)}{q(z)^{m-1}}
++
+\frac{b(z)}{q(z)^m}.
+\intertext{Durch wiederholte Anwendung dieser Beobachtung auf
+den neuen Zähler $a_m(z) = a_{m-1}(z)q(z)+t_{m-1}(z)$
+wird daraus eine Summe der Form}
+&=
+\frac{t_1(z)}{q(z)}
++
+\frac{t_2(z)}{q(z)^2}
++
+\ldots
++
+\frac{t_m(z)}{q(z)^m}.
+\end{align*}
+Damit ist der Satz vollständig bewiesen.
+\end{proof}
+
+Durch Anwendung auf eine Faktorisierung von $r(z)$ kann schrittweise
+die Partialbruchzerlegung mit den Teilnennern $q_l(z)^k$, $k\le l$
+für alle $l$ gefunden werden.
+Man beachte, dass dazu wieder nur die Polynomdivision
+und für die Identität 
+\eqref{buch:ratint:hermite:eqn:p=sq+tr}
+der euklidische Algorithmus benötigt werden.
+Beide können für Polynome in einer beliebigen Körpererweiterung
+für den Koeffizientenkörper durchgeführt werden.
+
+\begin{beispiel}
+\label{buch:ratint:hermite:bsp:partialbruch}
+Man finde die Partialbruchzerlegung von
+\[
+\frac{r(z)}{q(z)}
+\quad\text{mit}\quad
+\left\{\;
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcl}
+r(z) &=& 6651z^4 + 3969z^2 - 37338z + 21854 \\
+q(z) &=& 9z^6 + 6z^5 - 65z^4 + 20z^3 + 135z^2 - 154z + 49.
+\end{array}\right.
+\]
+Man verwendet dafür die quadratfreie Faktorisierung
+\[
+q(z)
+=
+(z-1)^4(3z+7)^2,
+\]
+die in Beispiel~\ref{buch:ratint:hermite:bsp:qf2} gefunden worden war.
+Zunächst sind die beiden Faktoren $(z-1)^4$ und $(3z+7)^2$
+teilerfremd, so dass es Polynome $s(z)$ und $t(z)$ gibt derart,
+dass
+\begin{align*}
+r(z) &= s(z)(z-1)^4 + t(z) (3z+7)^2
+\intertext{nämlich}
+s(z) &=
+	\frac{1}{50000}(3214890^5 z + 10180485 z^4 + 1928934 z^3 - 12037977 z^2
+	- 46842138 z\\
+     &\phantom{50000}\qquad + 33633306)
+\\
+t(z) &=
+	\frac{1}{50000}(357210 z^7 - 1964655 z^6 + 5056506 z^5 - 9737280 z^4
+	+ 15174810 z^3\\
+     &\phantom{50000}\qquad - 37747395 z^2  + 52924410 z - 21613606),
+\end{align*}
+wie man mit dem erweiterten euklidischen Algorithmus finden kann.
+Bildet man jetzt die Quotienten $s(z)/q(z)$ und $t(z)/q(z)$, heben sich die
+polynomiellen Teile weg und es bleibt
+\index{polynomieller Teil}%
+\[
+\frac{r(z)}{q(z)}
+=
+\frac{2646}{(3z+7)^2}
++
+\frac{441z^2-882z+392}{(z-1)^4}.
+\]
+Der zweite Term hat noch nicht die von der Partialbruchzerlegung verlangte
+Form.
+Dies wird erreicht, indem man den Zähler wiederholt mit Rest durch $z-1$
+dividiert:
+\[
+\left.
+\begin{aligned}
+441z^2-882z+392 &= (441z-441) (z-1 ) - 49 \\
+441z-441 &= 441 (z-1) + 0
+\end{aligned}\right\}
+\Rightarrow
+441z^2-882z+392 = 441 (z-1)^2 - 49.
+\]
+Daraus ergeben sich jetzt die Partialbrüche zum Teilnenner $z-1$ als
+\[
+\frac{t(z)}{(z-1)^4}
+=
+\frac{441}{(z-1)^2} - \frac{49}{(z-1)^4}.
+\]
+Insgesamt ist also
+\[
+\frac{r(z)}{q(z)}
+=
+\frac{2646}{(3z+7)^2}
++
+\frac{441}{(z-1)^2} - \frac{49}{(z-1)^4}
+\]
+die gesuchte Partialbruchzerlegung.
+\end{beispiel}
+
+
+%
+% Integration des rationalen Teils
+%
+\subsubsection{Integration des rationalen Teils}
+Ganz analog der Vorgehensweise in der Methode von Bernoulli im
+Abschnitt~\ref{buch:ratint:section:bernoulli} können auch die
+Integranden mit Potenzen quadratfreier Polynome $q(z)$ im Nenner
+auf den Nenner $q(z)$ reduziert werden.
+
+\begin{satz}[Hermite]
+\label{buch:ratint:hermite:satz:reduktion}
+\index{Satz!von Hermite}%
+Sei $q(z)$ ein quadratfreies Polynom und $p(z)$ ein beliebiges
+Polynom von kleinerem Grad $\deg q(z)<\deg p(z)$.
+Dann gibt es Polynome $s(z)$ und $t(z)$ Polynome mit
+\begin{equation}
+s(z)\cdot q(z)
++
+t(z)\cdot q'(z)
+=
+p(z),
+\label{buch:ratint:hermite:ggtsz}
+\end{equation}
+für die zudem
+\begin{align}
+\int
+\frac{p(z)}{q(z)^m}
+\,dz
+&=
+\int
+\frac{s(z)+t'(z)/(m-1)}{q(z)^{m-1}}
+\,dz
++
+\frac{t(z)}{(1-m)q(z)^{m-1}}
+\label{buch:rating:hermite:satz:hermite:eqn:int}
+\end{align}
+wird.
+\end{satz}
+
+\begin{proof}
+Da $q(z)$ quadratfrei ist sind  $q(z)$ und $q'(z)$ teilerfremd.
+Nach dem euklidischen Algorithmus für Polynome gibt es daher
+Polynome $s(z)$ und $t(z)$ derart, dass \eqref{buch:ratint:hermite:ggtsz}
+gilt.
+Einsetzen ins Integral ergibt
+\begin{align*}
+\int
+\frac{p(z)}{q(z)^m}
+\,dz
+&=
+\int
+\frac{s(z)\cdot q(z)+t(z)\cdot q'(z)}{q(z)^m}
+\,dz
+\\
+&=
+\int
+\frac{s(z)}{q(z)^{m-1}}
+\,dz
++
+\int
+t(z)
+\cdot
+\frac{q'(z)}{q(z)^m}
+\,dz
+\intertext{Auf das zweite Integral kann partielle Integration
+angewendet werden.
+Das Polynom $p(z)$  wird abgeleitet während der Bruch
+$q'(z)/q(z)^m$ integriert wird.
+So entsteht}
+&=
+\int
+\frac{s(z)}{q(z)^{m-1}}
+\,dz
++
+t(z)
+\frac{1}{(1-m)q(z)^{m-1}}
+-
+\int
+\frac{t'(z)}{(1-m)q(z)^{m-1}}
+\,dz
+\\
+&=
+\int
+\frac{s(z)+t'(z)/(m-1)}{q(z)^{m-1}}
+\,dz
++
+t(z)
+\frac{1}{(1-m)q(z)^{m-1}}.
+\end{align*}
+Damit ist der Satz bewiesen.
+\end{proof}
+
+Durch wiederholte Anwendung des
+Satzes~\ref{buch:ratint:hermite:satz:reduktion}
+kann man die Potenz des Nenners immer weiter reduzieren, bis
+nur noch das Integral
+\[
+\int
+\frac{p(z)}{q(z)}
+\,dz
+\]
+bestimmt werden muss, wobei $p(z)$ und $q(z)$ teilerfremd sind,
+$\deg p(z)<\deg q(z)$ und $q(z)$ quadratfrei.
+Dieser Teil des Integrationsproblems heisst auch der 
+\emph{logarithmische Teil} des Integrals.
+\index{logarithmischer Teil}%
+Die Methode von Hermite vermeidet eine vollständige Faktorisierung
+und ersetzt sie durch eine quadratfreie Faktorisierung.
+Sie erreicht aber auch nur eine Reduktion auf quadratfreie Nenner.
+Für die vollständig Berechnung der Stammfunktion ist nach der Methode
+von Bernoulli weiterhin eine Faktorisierung der quadratfreien Faktoren
+sein.
+Dies wird aber potentiell dadurch vereinfacht, dass alle Nullstellen
+eines quadratfreien Polynoms einfach sind.
+
+\begin{beispiel}
+Man finde die Stammfunktion
+\begin{align*}
+F(z)
+&=
+\int
+\frac{p(z)}{q(z)}\,dz
+\\
+&=
+\int
+\frac{
+441z^7 + 780z^6 - 2861z^5 + 4085z^4 + 7695z^3 + 3713z^2 - 43253z + 24500
+}{
+9z^6 + 6z^5 - 65z^4 + 20z^3 + 135z^2 - 154z + 49
+}
+\,dz
+\end{align*}
+mit den Polynomen
+\begin{align*}
+p(z)
+&=
+441z^7 + 780z^6 - 2861z^5 + 4085z^4 + 7695z^3 + 3713z^2 - 43253z + 24500
+\\
+q(z)
+&=
+9z^6 + 6z^5 - 65z^4 + 20z^3 + 135z^2 - 154z + 49.
+\end{align*}
+Zunächst muss man den Bruch mit Reset dividieren und erhält
+\[
+F(z)
+=
+\int 49z + 54\,dz
++
+\int
+\frac{6651z^4 + 3969z^2 - 37338z + 21854}{q(z)}\,dz,
+\]
+wobei wir den Zähler im zweiten Integral mit $r(z)$ bezeichnen wollen.
+Für die weitere Vereinfachung des zweiten Integrals wird jetzt die
+quadratfreie Faktorisierung von $q(z)$ benötigt.
+Sie ist
+\[
+q(z)
+=
+(z-1)^4(3z+7)^2.
+\]
+In diesem Fall hat die quadratfreie Faktorisierung eine vollständige
+Faktorisierung in Linearfaktoren geliefert.
+Damit kann jetzt auch die Partialbruchzerlegung gefunden werden,
+wie dies in Beispiel~\ref{buch:ratint:hermite:bsp:partialbruch}
+bereits geschehen ist.
+Sie ist
+\begin{equation}
+\frac{r(z)}{q(z)}
+=
+\frac{294}{(z+\frac{7}{3})^2}
++
+\frac{441}{(z-1)^2}
+-
+\frac{49}{(z-1)^4}.
+\label{buch:ratint:hermite:bps:hermite:pf}
+\end{equation}
+Für die einzelnen Summanden ist jetzt noch die Reduktion nach der Methode
+von Hermite von Satz~\ref{buch:ratint:hermite:satz:reduktion} durchzuführen.
+
+Für den ersten Term müssen mit dem euklidischen Algorithmus
+$s(z)$ und $t(z)$ gefunden werden derart, dass
+\[
+s(z)(z+{\textstyle\frac{3}{7}}) + t(z)(z+{\textstyle\frac{3}{7}})
+=
+s(z)(z+{\textstyle\frac{3}{7}}) + t(z) = 294
+\]
+gilt, nämlich $s(z)=0$ und $t(z)=294$.
+Daraus folgt das Integral für den ersten Term als
+\[
+\int \frac{294}{(z+\frac37)^2}
+=
+-\frac{294}{z+{\textstyle\frac37}},
+\]
+wie man auch von der bekannten Integrationsformel erwartet hätte.
+
+Für den zweiten Term muss man $s(z)$ und $t(z)$ finden derart, dass
+\[
+s(z)(z-1) + t(z)(z-1)' = s(z)(z-1) + t(z) = 441
+\]
+gilt.
+Der euklidische Algorithmus liefert $s(z)=0$ und $t(z)=441$ und daher
+\[
+\int \frac{441}{(z-1)^2}\,dz
+=
+-
+\frac{441}{z-1}.
+\]
+Ebenso funktioniert die Methode für den dritten Term.
+Man muss $s(z)$ und $t(z)$ finden derart, dass
+\[
+s(z)(z-1) + t(z)(z-1)' = s(z)(z-1) + t(z) = -49
+\]
+gilt.
+Es folgt $s(z)=0$ und $t(z)=-49$ und damit 
+\[
+\int \frac{-49}{(z-1)^4} \,dz
+=
+\frac{49}{3(z-1)^3}.
+\]
+Damit ist das gesuchte Integral
+\[
+F(z)
+=
+-
+\frac{294}{z+\frac{3}{7}}
+-
+\frac{441}{z-1}
++
+\frac{49}{3(z-1)^3}
+\]
+gefunden.
+\end{beispiel}
+
+\begin{beispiel}
+Man bestimme das Integral
+\[
+F(z)
+=
+\int \frac{p(z)}{q(z)} \,dz
+=
+\int \frac{z+1}{(z^2+1)^3} \,dz.
+\]
+Der Nenner liegt bereits in der quadratfreien Faktorisierung mit dem
+Faktor $q(z)=z^2+1$ vor, somit hat der Integrand bereits die Form der
+Partialbruchzerlegung, es bleibt nur noch, die Reduktion nach Hermite 
+mit $m=3$ zu finden.
+Dazu werden zunächst $s(z)$ und $t(z)$ bestimmt mit
+\[
+s(z)q(z) + t(z)q'(z) = z+1,
+\]
+man findet $s(z)=z+1$ und $t(z)=-\frac12(z^2+z)$.
+Einsetzen in die Formel~\eqref{buch:rating:hermite:satz:hermite:eqn:int}
+ergibt
+\begin{align}
+\int
+\frac{z+1}{(z+1)^3}
+\,dz
+&=
+\int \frac{2z}{3(z^2+1)^2} \,dz
++
+\frac{z^2+z}{4z^4+8z^2+4}.
+\label{buch:ratint:hermite:bsp:hermite2:eqn:i3}
+\end{align}
+Der Prozess muss jetzt für das verbleibende Integral auf der rechten
+Seite wiederholt werden.
+Diesmal findet man
+\[
+s(z)=\frac{2z+3}{4}
+\qquad\text{ und }\qquad
+t(z)=-\frac{2z^2+3}{8}
+\]
+und nach Einsetzen
+\begin{align}
+\int \frac{2z}{3(z^2+1)^2} \,dz
+&=
+\int \frac{\frac{3}{8}}{z^2+1}\,dz
++
+\frac{2z^2+3z}{8z^2+8}.
+\label{buch:ratint:hermite:bsp:hermite2:eqn:i2}
+\end{align}
+Kombiniert man
+\eqref{buch:ratint:hermite:bsp:hermite2:eqn:i3}
+und
+\eqref{buch:ratint:hermite:bsp:hermite2:eqn:i2}
+findet man
+\begin{align*}
+\int
+\frac{z+1}{(z+1)^3}\,dz
+&=
+\frac38 \int \frac{1}{z^2+1}\,dz
++
+\frac{2z^4+3z^3+4z^2+5z}{8z^4+16z^2+8}
+\\
+&=
+\arctan z
++ 
+\frac{3z^3+5z-2}{8z^4+16z^2+8}
++\frac14.
+\end{align*}
+Der Term $\frac14$ auf der echten Seite ist entstanden durch Division
+des Zählers mit Rest durch den Nenner.
+Er kann in der Integrationskonstanten absorbiert werden.
+\end{beispiel}

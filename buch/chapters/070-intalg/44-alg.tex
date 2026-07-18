@@ -1,0 +1,95 @@
+%
+% Risch-Algorithmus für algebraische Erweiterungen
+%
+\subsection{Risch-Algorithmus für algebraische Erweiterungen
+\label{buch:intalg:risch:algebraisch}}
+Die Methoden, die für logarithmische und exponentielle Erweiterungen
+konstruiert wurden, lassen sich nicht direkt auf algebraische
+Erweiterungen übertragen.
+Dies deutet sich bereits im Beweis des Liouville-Prinzips für algebraische
+Erweiterungen an.
+Dort wurde zum Beispiel das Konzept der konjugierten Elemente und andere
+rein algebraische Eigenschaften verwendet.
+
+Die bisher in Abschnitt~\ref{buch:intalg:section:risch} verwendeten
+Methoden basieren wesentlich darauf, dass sich Polynome in $\vartheta$
+auf eindeutige Art faktorisieren lassen.
+Der euklidische Algorithmus ist für alle Argumente zentral.
+Für eine algebraische Erweiterung gilt dies nicht mehr.
+
+Abschnitt~\ref{buch:intalg:section:wurzel} hat aber gezeigt, dass
+eine ähnliche Vorgehensweise denkbar ist, um ein Stammfunktion
+einer Funktion in $K(x,y)$ zu finden, wobei $y$ ein über $K(x)$
+algebraisches Element ist.
+Im einfachsten Fall erfüllt $y$ die Gleichung
+\[
+y^n - h(x) = 0
+\]
+mit $h(x) \in K(x)$, $y$ ist also eine $n$-te Wurzel einer rationalen
+Funktion.
+
+Ein Beispiel sind die in Kapitel~\ref{chapter:elliptisch} diskutierten
+\emph{elliptischen Integrale}
+\index{elliptisches Integral}%
+\[
+f(x) = \int_0^x R(t,\!\sqrt{P(t)})\,dt
+\]
+in denen $p(t)$ ein Polynom vom Grad 3 oder 4 ist.
+Der Fall eines Polynoms vom Grad 2 wurde bereits im
+Abschnitt~\ref{buch:intalg:section:wurzel} behandelt.
+
+Zunächst muss man eine gute ``Standarddarstellung'' für eine Funktion
+$f\in K(x,y)$ finden.
+Bei transzendenten Erweiterungen war die Darstellung als gekürzter Bruch
+von Polynomen in $\vartheta$ eindeutig, dies gilt für algebraische
+Funktionen nicht mehr.
+Man wird also zusätzliche Forderungen an Zähler und Nenner aufstellen
+müssen, um eine eindeutige Darstellung zu bekommen.
+
+Für die elliptischen Integrale kann man zum Beispiel zeigen, dass sich
+jedes elliptische Integral auf die grundlegenden elliptischen Integrale
+\begin{align*}
+\text{1.~Art:}&&
+F(x;k)
+&=
+\int_0^{\sin x} \frac{dt}{\!\sqrt{(1-t^2)(1-k^2t^2}}
+\\
+\text{2.~Art:}&&
+E(x;k)
+&=
+\int_0^{\sin x} \frac{\!\sqrt{1-k^2t^2}}{\!\sqrt{1-t^2}}\,dt
+\\[5pt]
+\text{3.~Art:}&&
+\Pi(n,x;k)
+&=
+\int_0^{\sin x}\frac{dt}{(1-nt^2)\!\sqrt{(1-t^2)}\!\sqrt{1-k^2t^2}}
+\end{align*}
+zurückführen lässt.
+
+Des Weiteren muss ein Reduktionsverfahren ähnlich dem Verfahren von
+Hermite gefunden werden, welches Integrale von rationalen Funktionen
+in $K(x,y)$ auf solche von Brüchen mit besonders einfachen Nennern
+reduziert.
+Die Schwierigkeit dabei ist, dass der euklidische Algorithmus, der
+in der Methode von Hermite von zentraler Bedeutung war, nicht mehr
+zur Verfügung steht.
+
+Schliesslich müssen die Koeffizienten der logarithmischen Terme
+in der Liouville-Form eines Integrals gefunden werden.
+Dazu ist ein Prinzip ähnlich der Methode von Rothstein-Trager
+nötig.
+Die dazu notwendigen Methoden basieren auf der Idee eines Divisors
+aus der algebraischen Geometrie.
+Damit würden wir aber den Bereich der Analysis auf so grundlegende
+Weise verlassen, dass wir uns mit einem Verweis auf die Literatur
+begnügen.
+\cite{buch:algorithms} enthält eine kurze Skizze der Problem, die 
+zu lösen sind und verweist auf weitere relevante Spezialliteratur.
+
+
+
+
+
+
+
+

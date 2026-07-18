@@ -1,0 +1,1086 @@
+%
+% Exponentialdarstellung der trigonometrischen Funktionen
+%
+\subsection{Exponentialdarstellung der trigonometrischen Funktionen
+\label{buch:intalg:elementar:subsection:trigo}}
+Die trigonometrischen Funktionen wurden ursprünglich für die Zwecke
+der Beschreibung der Himmelskugel entwickelt und in der ebenen
+Geometrie bei der Berechnung von Dreiecken angewendet.
+Mit der eulerschen Formel $e^{it}=\cos t + i\sin t$ wird jedoch 
+\index{eulersche Formel}%
+auch eine Beziehung zur komplexen Exponentialfunktion offengelegt.
+Sie ermöglicht, die trigonometrischen Funktionen und ihre
+Umkehrfunktionen ausschliesslich über die Exponentialfunktion und
+ihre Umkehrfunktion, den Logarithmus, zu beschreiben.
+
+%
+% Hyperbolische Funktionen
+%
+\subsubsection{Hyperbolische Funktionen}
+Bei den hyperbolischen Funktionen ist die Situation viel einfacher,
+da diese Funktionen bereits durch die reelle Exponentialfunktion
+definiert sind.
+
+\begin{definition}[Hyperbolische Funktionen]
+\label{buch:intalg:elementar:trigo:def:hyperbolisch}
+Die \emph{hyperbolischen Funktionen} sind durch
+\index{hyperbolische Funktion}%
+\begin{align*}
+\sinh x &= \frac{e^x-e^{-x}}2,
+&
+\cosh x &= \frac{e^x+e^{-x}}2,
+&
+\tanh x &= \frac{e^x-e^{-x}}{e^x+e^{-x}},
+&
+\coth x &= \frac{e^x+e^{-x}}{e^x-e^{-x}}
+\end{align*}
+für beliebige Argumente $x\in \mathbb{C}$ definiert.
+\index{sinh}%
+\index{cosh}%
+\index{tanh}%
+\index{coth}%
+\end{definition}
+
+Die hyperbolischen Funktionen sind besonderes nützlich für die Lösung
+von Differentialgleichungen zweiter Ordnung, weil sie ähnlich einfache 
+Anfangsbedingungen wie die Funktionen $\cos x$ und $\sin x$ haben.
+Die Differentialgleichung $y''=y$ hat die Exponentialfunktionen 
+$y_+(x)=e^x$ und $y_-(x)=e^{-x}$ als linear unabhängige Lösungen.
+Um jedoch eine Lösung der Differentialgleichung zu den Anfangsbedingungen
+$y(0)=y_0$ und $y'(0)=y_1$ zu finden, muss man eine Linearkombination
+\[
+y(x) = A y_+(x) + B y_-(x)
+\]
+finden, die die korrekten Anfangsbedingungen erfüllt. 
+Dazu setzt  man die Linearkombination in die Anfangsbedingungen ein
+und erhält das Gleichungssystem
+\index{lineares Gleichungssystem}%
+\[
+\renewcommand{\arraycolsep}{2pt}
+\left.
+\begin{array}{rcrcrcr}
+y(0)  &=& A y_+(0)  &+& B y_-(0)  &=& y_0 \\
+y'(0) &=& A y_+'(0) &+& B y_-'(0) &=& y_1 \\
+\end{array}
+\quad
+\right\}
+\qquad
+\Rightarrow
+\qquad
+\left\{
+\quad
+\begin{array}{rcrcl}
+A &+& B &=& y_0 \\
+A &-& B &=& y_1.
+\end{array}
+\right.
+\]
+Durch Addition bzw.~Subtraktion der beiden Gleichungen ist das 
+Gleichungssystem einfach zu lösen, man findet die Koeffizienten
+\[
+A
+=
+\frac{y_0+y_1}2
+\qquad\text{und}\qquad
+B
+=
+\frac{y_0-y_1}2
+\]
+und daraus die Lösung
+\begin{align*}
+y(x)
+=
+Ay_+(x) + By_-(x)
+&=
+\frac{y_0+y_1}2 e^x
++
+\frac{y_0-y_1}2 e^{-x}
+\\
+&=
+y_0
+\frac{e^x+e^{-x}}2
++
+y_1
+\frac{e^x-e^{-x}}2
+=
+y_0\cosh x + y_1 \sinh x
+\end{align*}
+der Differentialgleichung.
+Die hyperbolischen Funktionen tauchen also genauso natürlich in der
+Lösung der Differentialgleichung $y''=y$ auf, wie die trigonometrischen
+Funktionen in der Lösung der Schwingungsdifferentialgleichung $y''=-y$
+auftreten.
+Der Grund dafür ist natürlich, dass die Funktionen die gleichen
+Anfangsbedingungen
+\[
+\begin{aligned}
+\cos  0 &= 1,& \cos'  0 &= 0,\\
+\sin  0 &= 0,& \sin'  0 &= 1
+\end{aligned}
+\qquad\text{bzw.}\qquad
+\begin{aligned}
+\cosh 0 &= 1,& \cosh' 0 &= 0,\\
+\sinh 0 &= 0,& \sinh' 0 &= 1
+\end{aligned}
+\]
+haben.
+
+%
+% Die hyperbolischen Umkehrfunktionen
+%
+\subsubsection{Die hyperbolischen Umkehrfunktionen}
+Die Logarithmusfunktion ist die Umkehrfunktion der Exponentialfunktion.
+Mit ihr lassen sich auch die hyperbolischen Funktionen invertieren.
+
+Um die Umkehrfunktion $\operatorname{arcosh}y$ zu finden, muss die
+reelle Zahl $x$ gefunden werden, die $\cosh x = y$ gilt.
+Aus der Definition folgt die Gleichung
+\begin{align*}
+\frac{e^x + e^{-x}}2 &= y.
+\intertext{Da die Exponentialfunktion nicht verschwinden kann, verlieren
+wir nichts, wenn wir mit $e^x$ multiplizieren. 
+Dies ergibt}
+\frac{(e^x)^2 + 1}2 &= y e^x
+\intertext{oder als quadratische Gleichung für $e^x$ geschrieben:}
+(e^x)^2 - 2y e^x + 1 &= 0.
+\end{align*}
+Die Lösung der quadratischen Gleichung ist
+\begin{equation}
+e^x
+=
+y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\qquad
+\Rightarrow
+\qquad
+x
+=
+\log\Bigl(
+y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\Bigr).
+\label{buch:intalg:elementar:eqn:arcosh}
+\end{equation}
+Da $\cosh x$ eine gerade Funktion ist, gibt es zu fast allen
+$y$-Werten zwei $x$-Werte.
+Wir würden auch erwarten, dass die beiden Werte in
+\eqref{buch:intalg:elementar:eqn:arcosh} entgegengesetzt sind.
+Dazu müssen aber die Argumente des Logarithmus reziprok sein.
+Tatsächlich folgt durch Rationalisieren
+\begin{align*}
+\frac{1}{y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}}
+&=
+\frac{
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+}{
+(
+y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+)(
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+)
+}
+\\
+&=
+\frac{
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+}{
+y^2-(y^2-1)
+}
+\\
+&=
+y\mp\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}.
+\end{align*}
+Die beiden Argumente des Logarithmus sind also tatsächlich
+reziprok.
+
+Auch für die hyperbolische Sinusfunktion kann mit der gleichen
+Methode ein Ausdruck für die Umkehrfunktion gefunden werden.
+Aus
+\[
+\sinh x = y
+\qquad\Rightarrow\qquad
+\frac{e^x - e^{-x}}2 = y
+\]
+folgt durch Multiplikation mit $2e^x$
+\begin{align*}
+(e^x)^2 -2ye^x - 1 &= 0
+\notag
+\intertext{mit der Lösung}
+e^x &= y\pm\!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
+\label{buch:intalg:elementar:trig:eqn:arsinh}
+\end{align*}
+Da das negative Zeichen auf der rechten Seite zu einem negativen Wert 
+führt, bleibt nur die Lösung
+\[
+x
+=
+\log\Bigl(y+\!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}\Bigr)
+.
+\]
+
+Für die hyperbolische Tangens- und Kotangensfunktion ist der
+entsprechende Ansatz
+\begin{align*}
+\tanh x
+=
+\frac{e^x-e^{-x}}{e^x+e^{-x}}
+&=
+y
+&
+&\text{bzw.}&
+\coth x
+=
+\frac{e^x+e^{-x}}{e^x-e^{-x}}
+&=
+y
+\intertext{oder nach Multiplizieren mit dem Nenner}
+e^x-e^{-x}
+&=
+ye^x+ye^{-x}
+&
+&&
+e^x+e^{-x}
+&=
+ye^x-ye^{-x}
+\intertext{und $e^x$}
+(e^x)^2-1
+&=
+y(e^x)^2+y
+&
+&&
+(e^x)^2+1
+&=
+y(e^x)^2-y.
+\intertext{Umgeschrieben als quadratische Gleichung für $e^x$ ist dies}
+(1-y) (e^x)^2
+&=
+1 +y
+&
+&&
+(1-y) (e^x)^2
+&=
+-1-y.
+\intertext{Mit der Quadratwurzel findet man}
+e^x
+&=
+\!\sqrt{\frac{1+y}{1-y}}
+&
+&\text{bzw.}&
+e^x
+&=
+\!\sqrt{\frac{y+1}{y-1}}
+\intertext{und schliesslich mit dem Logarithmus den Wert}
+x
+=
+\operatorname{artanh}y
+&=
+\log
+\!\sqrt{\frac{1+y}{1-y}}
+&
+&\text{bzw.}&
+x
+=
+\operatorname{arcoth}y
+&=
+\log
+\!\sqrt{\frac{y+1}{y-1}}
+\\
+&=
+\frac12\log
+\frac{1+y}{1-y}
+&
+&&
+&=
+\frac12\log
+\frac{y+1}{y-1}
+\end{align*}
+der Umkehrfunktion der hyperbolischen Tangens- bzw.~Kotangensfunktion.
+\index{artanh@$\operatorname{artanh}$}%
+\index{arcoth@$\operatorname{arcoth}$}%
+
+\begin{satz}[hyperbolische Umkehrfunktionen]
+\label{buch:intalg:elementar:trigo:satz:invhyperbolisch}
+Die Umkehrfunktionen der hyperbolischen Funktionen sind
+\index{hyperbolische Funktion!Umkehrfunktion}%
+\begin{align*}
+\operatorname{arsinh}y
+&=
+\log\Bigl(
+y + \!\sqrt{\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}
+\Bigr),
+&
+\operatorname{arcosh}y
+&=
+\log\Bigl(
+y + \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
+\Bigr),
+\\
+\operatorname{artanh}y
+&=
+\frac12\log
+\frac{1+y}{1-y},
+&
+\operatorname{arcoth}y
+&=
+\frac12\log
+\frac{y+1}{y-1}.
+\end{align*}
+\index{arsinh@$\operatorname{arsinh}$}%
+\index{arcosh@$\operatorname{arcosh}$}%
+\index{artanh@$\operatorname{artanh}$}%
+\index{arcoth@$\operatorname{arcoth}$}%
+\end{satz}
+
+Der Satz zeigt also, dass nicht nur die hyperbolischen Funktionen
+sondern auch ihre Umkehrfunktionen ausschliesslich durch algebraische
+Funktionen und den Logarithmus definiert werden können.
+
+Die Funktionen $\operatorname{tanh}x$ und $\operatorname{coth}x$ sind
+reziprok.
+Die beiden Funktionen $\operatorname{artanh}y$ und
+$\operatorname{arcoth}y$
+müssen also unter der Substitution $y\to 1/y$ ineinander übergehen.
+Tatsächlich wird das Argument des Logarithmus in der Areatangensfunktion
+unter der Substitution zu
+\[
+\frac{1+y}{1-y}
+\to
+\frac{1+1/y}{1-1/y}
+=
+\frac{y+1}{y-1},
+\]
+dem Argument des Logarithmus der Areakotangensfunktion.
+
+%
+% Sinus und Kosinus
+%
+\subsubsection{Sinus und Kosinus}
+Aus der Identität
+\[
+e^{ix}
+=
+\cos x + i \sin x
+\]
+folgt zunächst mittels der Substitution $x\to -x$
+\[
+e^{-ix}
+=
+\cos x - i \sin x.
+\]
+Diese beiden Formeln bilden ein lineares Gleichungssystem
+\index{lineares Gleichungssystem}%
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcl}
+\cos x &+& i\sin x &=& e^{\phantom{-}ix} \\
+\cos x &-& i\sin x &=& e^{-ix}
+\end{array}
+\]
+für die Funktionen $\cos x$ und $\sin x$.
+\index{sin@$\sin$}%
+\index{cos@$\cos$}%
+Es kann durch Addition bzw.~Subtraktion gelöst werden.
+Die Lösungen sind
+\[
+\cos x = \frac{e^{ix}+e^{-ix}}{2}
+\qquad\text{und}\qquad
+\sin x = \frac{e^{ix}-e^{-ix}}{2i}.
+\]
+Die Funktionen können also mit der Exponentialfunktion in der gleichen
+Form ausgedrückt werden, in der die hyperbolischen Funktionen 
+definiert sind.
+Durch Vergleich mit den Formeln in der
+Definition~\ref{buch:intalg:elementar:trigo:def:hyperbolisch}
+ergeben sich die Beziehungen
+\[
+\cos x = \cosh ix
+\qquad\text{und}\qquad
+\sin x = \frac{1}{i} \sinh ix.
+\]
+Die Multiplikation mit $i$ entspricht geometrisch einer Drehung
+der komplexen Zahlenebene um $90^\circ$.
+Man kann also sagen, dass trigonometrischen Funktionen durch Drehung
+der Argumentebene um $90^\circ$ aus den hyperbolischen Funktionen
+hervorgehen.
+
+Für die Umkehrfunktionen $\arccos y$ und $\arcsin y$ sind die gleichen
+algebraischen Umformungen anwendbar, die auf die Umkehrfunktionen
+$\operatorname{arcosh}y$ und $\operatorname{arsinh}y$ der hyperbolischen
+Funktionen geführt haben.
+\index{arccos@$\arccos$}%
+\index{arcsin@$\arcsin$}%
+Aus
+\input{chapters/070-intalg/fig/fig-invcis.tex}%
+\begin{align}
+\cos x = \frac{e^{ix}+e^{-ix}}{2} &= y
+&
+&\text{bzw.}&
+\sin x = \frac{e^{ix}-e^{-ix}}{2i} &= y
+\notag
+\intertext{folgen durch Multiplikation mit dem Nenner und mit $e^{ix}$
+die quadratischen Gleichungen}
+(e^{ix})^2 -2ye^{ix} + 1 &= 0
+&
+&&
+(e^{ix})^2 - 2iy e^{ix} - 1 &= 0
+\notag
+\intertext{für $e^{ix}$ mit den Lösungen}
+e^{ix}
+&=
+y \pm \!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}
+&
+&&
+e^{ix}
+&=
+iy\pm \!\sqrt{-\smash{y^2}+1\raisebox{1.5pt}{\mathstrut}}.
+\notag
+\intertext{Da die Kosinuswerte Betrag nicht grösser als $1$ haben
+können, ist der Radikand in der linken Gleichung immer negativ.
+Wir können das Vorzeichen kehren, indem wir den Faktor $i$ vor die
+Wurzel ziehen:}
+e^{ix}
+&=
+y \pm i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+&
+&&
+e^{ix}
+&=
+iy\pm \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}.
+\label{buch:intalg:elementar:trigo:eqn:invcisrhs}
+\end{align}
+Abbildung~\ref{buch:intalg:elementar:trigo:fig:invcis} zeigt 
+in rot die rechten Seiten der Gleichungen
+\eqref{buch:intalg:elementar:trigo:eqn:invcisrhs}.
+Da die Punkte auf dem Einheitskreis liegen, ist der Logarithmus
+der in blau eingezeichnete Winkel $x$.
+
+\begin{satz}
+\label{buch:intalg:elementar:trigo:satz:trigonometrisch}
+Die trigonometrischen Funktionen
+\begin{align*}
+\cos x &= \frac{e^{ix}+e^{-ix}}{2}
+&&\text{und}&
+\sin x &= \frac{e^{ix}-e^{-ix}}{2i}
+\intertext{in Exponentialdarstellung haben die logarithmischen
+Umkehrfunktionen}
+\arccos y
+&=
+\frac{1}{i}
+\log
+\Bigl(
+y + i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+\Bigr)
+&&\text{bzw.}&
+\arcsin y
+&=
+\frac{1}{i}
+\log
+\Bigl(
+iy + \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+\Bigr).
+\end{align*}
+\end{satz}
+
+%
+% Tangens und Kotangens
+%
+\subsubsection{Tangens und Kotangens}
+Tangens und Kotangens sind Quotienten der Sinus- und Kosinusfunktionen
+\input{chapters/070-intalg/fig/fig-invtan.tex}%
+oder in Exponentialdarstellung
+\index{tan@$\tan$}%
+\index{cot@$\cot$}%
+\begin{align*}
+\tan x
+&=
+\frac1{i}\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&
+&\text{bzw.}&
+\cot x
+&=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+\end{align*}
+Für die Umkehrfunktionen setzt man wieder 
+\index{arctan}%
+\begin{align*}
+\tan x
+= 
+\frac1i\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&=
+y
+&&&
+\cot x
+=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+&=
+y
+\intertext{und multipliziert mit dem Nenner}
+e^{ix}-e^{-ix}
+&=
+iy
+(e^{ix}+e^{-ix})
+&&&
+e^{ix}+e^{-ix}
+&=
+-iy
+(e^{ix}-e^{-ix})
+\\
+(1-iy)e^{ix}
+&=
+(1+iy)e^{-ix}
+&&&
+(iy-1)e^{ix}
+&=
+-(1+iy)e^{-ix}.
+\intertext{Durch Multiplizieren mit $e^{ix}$ kann man nach $e^{2ix}$
+auflösen und findet}
+e^{2ix}
+&=
+\frac{1+iy}{1-iy}
+&&&
+e^{2ix}
+&=
+\frac{1-iy}{1+iy}
+\\
+x
+&=
+\frac1{2i}
+\log
+\frac{1+iy}{1-iy}
+&&\text{bzw.}&
+x
+&=
+\frac1{2i}
+\log
+\frac{1-iy}{1+iy}.
+\end{align*}
+In Abbildung~\ref{buch:intalg:elementar:trigo:fig:invtan} sind
+die Zahlen $1+iy$ und $1-iy$ dargestellt.
+Der gesuchte Winkel $x$ tritt beim Ursprung auf.
+Da die Multiplikation mit einer komplexen Zahl eine Drehungstreckung ist,
+muss der Quotient den Drehstreckungsfaktor zurückliefen.
+Der Quotient von $1+iy$ und $1-iy$ ist ein komplexe Zahl vom Betrag $1$,
+die Drehung von $1-iy$ auf $i+iy$ beschreibt.
+Der zugehörige Drehwinkel ist $2x$.
+Somit ist der gesuchte Winkel tatsächlich der halbe komplexe Logarithmus
+des Quotienten der beiden Zahlen.
+
+\begin{satz}
+\label{buch:intalg:elementar:satz:trigo:tancot}
+Die trigonometrischen Funktionen
+\begin{align*}
+\tan x
+&=
+\frac1{i}\frac{e^{ix}-e^{-ix}}{e^{ix}+e^{-ix}}
+&
+&\text{und}&
+\cot x
+&=
+i\frac{e^{ix}+e^{-ix}}{e^{ix}-e^{-ix}}
+\intertext{in Exponentialdarstellung haben die logarithmische Umkehrfunktion}
+\arctan y
+&=
+\frac1{2i}
+\log
+\frac{1+iy}{1-iy}
+&&\text{bzw.}&
+\operatorname{arccot} y
+&=
+\frac1{2i}
+\log
+\frac{1-iy}{1+iy}.
+\end{align*}
+\end{satz}
+
+%
+% Stammfunktion einer rationalen Funktion
+%
+\subsubsection{Stammfunktion einer rationalen Funktion}
+In Abschnitt~\ref{buch:integration:residuen:section:beispiel}
+wurde die Aufgabe gestellt, das die Stammfunktion
+\[
+\int \frac{dx}{x^2+1}
+\]
+zu bestimmen.
+Die Partialbruchzerlegung des Integranden ist
+\[
+\frac{1}{x^2+1}
+=
+\frac1{2i}
+\biggl(
+\frac{1}{x-i}
+-
+\frac{1}{x+i}
+\biggr).
+\]
+In dieser Form ist die Stammfunktion einfach zu bestimmen, sie ist
+\begin{align*}
+\int
+\frac{1}{x^2+1}
+\,dx
+&=
+\frac{1}{2i}
+\bigl(
+\log(x-i)
+-
+\log(x+i)
+\bigr)
+=
+\frac{1}{2i}
+\log
+\frac{x-i}{x+i}
+=
+\frac{1}{2i}
+\log
+\frac{1+ix}{-1+ix}.
+\intertext{%
+In dieser Form stimmt das Resultat nicht mit der Form des erwarteten
+Resultates, nämlich der Arkustangens-Funktion, überein.
+Der Nenner hat das falsche Vorzeichen.
+Multiplikation mit $-1$ im Argument des Logarithmus ändert aber den
+Wert der Logarithmusfunktion nur um die Konstante $\pi$, also kann
+man immer noch schliessen}
+&=
+\frac{1}{2i}
+\log
+\frac{1+ix}{1-ix}
++C
+=
+\arctan x + C.
+\end{align*}
+Das Beispiel illustriert, dass sich Integrale von rationalen Funktionen
+über $\mathbb{R}$ tatsächlich ausschliesslich mit der komplexen
+Logarithmus-Funktion berechnen lassen.
+
+%
+% Die Differentialkörper der hyperbolischen Funktionen
+%
+\subsubsection{Die Differentialkörper der hyperbolischen Funktionen}
+Der Körper $\mathbb{Q}(x)$ enthält weder die trigonometrischen noch
+die hyperbolischen Funktionen.
+Wie früher betrachten wir die Derivation $D$ mit $Dx=1$, die die
+Ableitung nach $x$ symbolisiert.
+
+Um die hyperbolischen Funktionen zu $\mathbb{Q}(x)$ hinzuzufügen,
+muss ein Exponentialfunktion $e(x)$ hinzugefügt werden.
+Damit lassen sich dann die Funktionen
+\[
+\cosh x
+=
+\frac12
+\biggl(
+e(x) + \frac{1}{e(x)}
+\biggr),
+\quad
+\sinh x
+=
+\frac12
+\biggl(
+e(x) - \frac{1}{e(x)}
+\biggr),
+\quad
+\tanh x
+=
+\frac{
+\displaystyle
+e(x)-\frac{1}{e(x)}
+}{
+\displaystyle
+e(x)+\frac{1}{e(x)}
+}
+=
+\frac{e(x)^2-1}{e(x)^2+1}
+.
+\]
+Die bekannte Relation
+\[
+(\cosh x)^2
+-
+(\sinh x)^2
+=
+\frac14\biggl(
+e(x)^2 + 2e(x)\frac{1}{e(x)} + \frac{1}{(e(x))^2}
+\biggr)
+-
+\frac14\biggl(
+e(x)^2 - 2e(x)\frac{1}{e(x)} + \frac{1}{(e(x))^2}
+\biggr)
+=
+1
+\]
+folgt allein durch algebraische Umformung.
+Die Ableitungseigenschaften der Funktion $e(x)$ im Differentialkörper
+als Exponentialfunktion von $x$ reichen aus, um die Ableitungsregeln
+\begin{align*}
+D\cosh x
+&=
+\frac12\biggl(
+De(x) + D\frac1{e(x)}
+\biggr)
+=
+\frac12
+\biggl(
+e(x) - \frac{1}{e(x)}
+\biggr)
+=
+\sinh x,
+\\
+D\sinh x
+&=
+\frac12
+\biggl(
+De(x) - D\frac{1}{e(x)}
+\biggr)
+=
+\frac12
+\biggl(
+e(x) + \frac{1}{e(x)}
+\biggr)
+=
+\cosh x
+\end{align*}
+für die hyperbolischen Funktionen zu verifizieren.
+Auch die Ableitungsregel für den hyperbolischen Tangens können wir
+leicht nachrechnen:
+\begin{align*}
+D\tanh x
+&=
+D
+\frac{\sinh x}{\cosh x}
+\\
+&=
+\frac{(D\sinh x)\cdot \cosh x - \sinh x\cdot(D\cosh x)}{(\cosh x)^2}
+\\
+&=
+\frac{(\cosh x)^2 - (\sinh x)^2}{(\cosh x)^2}
+\\
+&=
+\frac{1}{(\cosh x)^2}.
+\end{align*}
+Dies ist die bekannte Ableitung der hyperbolischen Tangensfunktion.
+Diese Beispiele zeigen, dass alle Eigenschaften der hyperbolischen
+Funktionen von den Details der Funktion $e(x)$ unabhängig sind.
+
+Für die hyperbolischen Umkehrfunktionen müssen gemäss den Formeln
+von Satz~\ref{buch:intalg:elementar:trigo:satz:invhyperbolisch}
+zunächst die Wurzeln
+\[
+s_+(x) = \sqrt{\smash{y^2} + 1\raisebox{1.5pt}{\mathstrut}}
+\qquad\text{und}\qquad
+s_-(x) = \sqrt{\smash{y^2} - 1\raisebox{1.5pt}{\mathstrut}}
+\]
+hinzufügen, mit denen anschliessend im Funktionenkörper
+$\mathbb{Q}(x,e(x),s_+(x),s_-(x))$
+die Funktionen
+\[
+x + s_+(x)
+\qquad\text{und}\qquad
+x + s_-(x)
+\]
+gebildet werden können.
+Indem wir die Logarithmen $\operatorname{arsinh}(x) = \log(x+s_+(x))$
+und $\operatorname{arcosh}(x) = \log(x+s_-(x))$
+hinzufügen, erhalten wir den Differentialkörper
+\[
+\mathbb{Q}(x,e(x),s_\pm(x),
+\operatorname{arsinh}(x),\operatorname{arcosh}(x)),
+\]
+die die gesuchten Umkehrfunktionen entält.
+Die hyperbolischen Funktionen und ihre Umkehrfunktionen können also
+allein durch den Prozess der algebraischen, exponentiellen oder
+logarithmischen Erweiterung erhalten werden.
+
+%
+% Die Differentialkörper der trigonometrischen Funktionen
+%
+\subsubsection{Die Differentialkörper der trigonometrischen Funktionen}
+Ein Differentialkörper für die trigonometrischen Funktionen und ihre
+Umkehrfunktionen lässt sich ganz analog zur Konstruktion für die 
+hyperbolischen Funktionen im vorangegangenen Abschnitt konstruieren.
+Damit die Konstruktion möglich wird, muss dem Körper $\mathbb{Q}(x)$
+im ersten Schritt die neue Konstante $i$ durch algebraische
+Erweiterung mit dem Minimalpolynom $x^2+1$ hinzugefügt werden.
+Der Ausgangskörper für die Konstruktion ist also $\mathbb{Q}(x,i)$.
+
+Statt der reellen Exponentialfunktion fügen wir im nächsten Schritt 
+dem Körper die Exponentialfunktion $e(x)$ von $ix$ hinzu.
+Sie erfüllt die definierende Eigenschaft $De(x) = e(x)\cdot D(ix) = ie(x)$.
+Damit können dann die trigonometrischen Funktionen
+\begin{align*}
+\sin x
+&=
+\frac12\biggl(
+e(x)+\frac{1}{e(x)}
+\biggr),
+&
+\cos x
+&=
+\frac1{2i}\biggl(
+e(x)-\frac{1}{e(x)}
+\biggr),
+&
+\tan x
+&=
+\frac{1}{i}
+\frac{
+\displaystyle e(x)-\frac{1}{e(x)}
+}{
+\displaystyle e(x)+\frac{1}{e(x)}
+}
+=
+\frac{1}{i}\frac{e(x)^2-1}{e(x)^2+1}
+\end{align*}
+durch algebraische Operationen in diesem Körper konstruiert werden.
+Der ``Satz des Pythagoras'' ist eine rein algebraische Eigenschaft,
+es gilt nämlich
+\begin{align*}
+(\sin x)^2 + (\cos x)^2
+&=
+\frac1{4i^2}
+\biggl(
+e(x)^2 - 2 + \frac{1}{e(x)^2}
+\biggr)
++
+\frac14
+\biggl(
+e(x)^2 + 2 + \frac{1}{e(x)^2}
+\biggr)
+\\
+&=
+-
+\frac1{4}
+\biggl(
+e(x)^2 - 2 + \frac{1}{e(x)^2}
+\biggr)
++
+\frac14
+\biggl(
+e(x)^2 + 2 + \frac{1}{e(x)^2}
+\biggr)
+=
+1.
+\end{align*}
+Auch die Ableitungsregeln folgen direkt aus der Definition
+\begin{align*}
+D\sin x
+&=
+\frac{1}{2i}
+\biggl(
+De(x) - D\frac{1}{e(x)}
+\biggr)
+=
+\frac{1}{2i}
+\biggl(
+ie(x) + i\frac{1}{e(x)}
+\biggr)
+=
+\cos x
+\\
+D\cos x
+&=
+\frac12
+\biggl(
+De(x) + D\frac{1}{e(x)}
+\biggr)
+=
+\frac12
+\biggl(
+ie(x) - i\frac{1}{e(x)}
+\biggr)
+=
+-
+\frac1{2i}
+\biggl(
+e(x) - \frac{1}{e(x)}
+\biggr)
+=
+-
+\sin x.
+\end{align*}
+Die Funktionen $\sin x$ und $\cos x$ sind also in der Körpererweiterung
+$\mathbb{Q}(x,i,e(x))$ enthalten.
+
+Für die Umkehrfunktionen ist nach
+Satz~\ref{buch:intalg:elementar:trigo:satz:trigonometrisch}
+zusätzlich das algebraische Element
+\[
+s(x)
+=
+\! \sqrt{1-\smash{x^2}\raisebox{1.5pt}{\mathstrut}}
+\]
+hinzuzufügen.
+Der Differentialkörper $\mathbb{Q}(x,i,s(x))$ enthält dann auch
+die Funktionen
+\[
+x+is(x)
+=
+x + i\!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}}
+\qquad
+\text{und}
+\qquad
+ix+s(x)
+=
+ix + \!\sqrt{1-\smash{y^2}\raisebox{1.5pt}{\mathstrut}},
+\]
+da sie durch algebraische Operationen entstehen.
+Schliesslich müssen nur noch die Logarithmen
+\[
+\vartheta_1(x)
+=
+\log(y+is(x))
+\qquad
+\text{und}
+\qquad
+\vartheta_2(x)
+=
+\log(iy+s(x))
+\]
+dieser Funktionen hinzugefügt werden, damit dann in
+$\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
+die Funktionen
+\[
+\arccos x = \frac{1}{i}\vartheta_1(x)
+\qquad
+\text{und}
+\qquad
+\arcsin x = \frac{1}{i}\vartheta_2(x)
+\]
+enthält.
+
+Wie bei den hyperbolischen Funktionen können wir schliessen, dass
+der Differentialkörper $\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
+die inversen trigonometrischen Funktionen enthält.
+Der hier vorgestellte rein algebraische Rahmen enthält also alle
+Funktionen, denen man im Rahmen einer Analysis-Vorlesung begegnet.
+%Die trigonometrischen Funktionen ebenso wie ihre Umkehrfunktionen
+%sind daher elementare Funktionen.
+
+%
+% Eindeutigkeit der trigonometrischen und hyperbolischen Funktionen
+%
+\subsubsection{Eindeutigkeit der trigonometrischen und hyperbolischen
+Funktionen}
+Die Definition der trigonometrischen und hyperbolischen Funktionen 
+sowie ihrer Umkehrfunktionen in einem Differentialkörper basieren
+auf einer Exponential- und Logarithmus-Funktionen.
+Da diese nicht eindeutig bestimmt sind, sind auch die
+trigonometrischen und hyperbolischen Funktionen nicht eindeutig
+bestimmt.
+Die Exponentialfunktion ist nur bis auf einen konstanten Faktor bestimmt,
+der sich natürlich auch in der Definition der trigonometrischen und
+hyperbolischen Funktionen niederschlägt.
+Dies scheint den Beziehungen
+\[
+\cos^2 x + \sin^2 x = 1
+\qquad\text{und}\qquad
+\cosh^2 x - \sinh^2 x = 1
+\]
+zu widersprechen, die für jede Wahl der Exponentialfunktion gelten.
+Wir versuchen daher für die konkrete Wahl der Exponentialfunktion $e^x$
+der klassischen Analysis den Einfluss eines Faktors auf die
+trigonometrischen und hyperbolischen Funktionen zu ermitteln.
+Im Folgenden reservieren wir daher die Notation $e^f$ und $\log f$
+für die klassische definierten Exponential- und Logarithmusfunktionen.
+Ebenso unterscheiden wir die verallgemeinerten trigonometrischen
+und hyperbolischen Funktion mithilfe eines grossen Anfangsbuchstabens
+von den klassischen Funtkionen.
+
+Wir beginnen mit den hyperbolischen Funktionen.
+Eine beliebige Exponentialfunktion $e(x)$ von $x$ ist ein Vielfaches
+$a e^x$ der klassischen Exponentialfunktion.
+Die hyperbolischen Funktionen sind dann
+\begin{align*}
+\operatorname{Cosh} x
+&=
+\frac{ae^x + e^{-x}/a}{2}
+&&\text{und}&
+\operatorname{Sinh} x
+&=
+\frac{ae^x - e^{-x}/a}{2}.
+\intertext{Mit den Exponentialgesetzen folgt}
+\operatorname{Cosh} x
+&=
+\frac{e^{x+\log a} + e^{-x-\log a}}{2}
+&& \text{und}&
+\operatorname{Sinh} x
+&=
+\frac{e^{x+\log a} - e^{-x-\log a}}{2}
+\\
+&=
+\cosh(x+\log a)
+&&&
+&=
+\sinh(x+\log a).
+\end{align*}
+Die verschiedenen möglichen hyperbolischen Funktionen entstehen 
+durch Verschiebung der unabhängigen Variablen.
+Da man die Funktionen $\operatorname{Cosh}$ und $\operatorname{Sinh}$
+\index{Cosh@$\operatorname{Cosh}$}
+\index{Sinh@$\operatorname{Sinh}$}
+\index{autonom}%
+durch eine autonome\footnote{Eine autonome Differentialgleichung ist eine Differentialgleichung der Form $y'=f(y)$, die nicht explizit von $x$ abhängt.
+Sie zeichnen sich dadurch aus, dass mit $y(x)$ auch die verschobene
+Funktion $y(x+\delta)$ eine Lösung ist.} Differentialgleichung definiert
+ansehen kann, ist nachvollziehbar, dass die Definition die verschiedenen
+möglichen Lösungen nicht unterscheiden kann.
+
+Bei den trigonometrischen Funktionen betrachten wir einen Faktor der
+Form $a=e^{i\delta}$, woraus $1/a = e^{-i\delta}$ folgt.
+Die trigonometrischen Funktionen sind dann
+\index{Cos@$\operatorname{Cos}$}
+\index{Sin@$\operatorname{Sin}$}
+\begin{align*}
+\operatorname{Cos} x
+&=
+\frac12(ae^{ix}+e^{-ix}/a)
+=
+\frac12(e^{i\delta}e^{ix}+e^{ix}e^{-i\delta})
+=
+\frac12(e^{i(x+\delta)}+e^{-i(x+\delta)})
+=
+\cos(x+\delta)
+\\
+\operatorname{Sin} x
+&=
+\frac12(ae^{ix}-e^{-ix}/a)
+=
+\frac12(e^{i\delta}e^{ix}-e^{ix}e^{-i\delta})
+=
+\frac12(e^{i(x+\delta)}-e^{-i(x+\delta)})
+=
+\sin(x+\delta).
+\end{align*}
+Multiplikation mit einem Skalenfaktor bedeutet also wieder nur eine
+Verschiebung des Arguments.
+
+Die oben durchgeführten Rechnungen funktionieren natürlich auch für
+einen komplexen Faktor, den wir $a=e^{b}$ schreiben können.
+\begin{align*}
+\operatorname{Cosh} x
+&=
+\frac12 ( ae^{x} + e^{-x}/a )
+=
+\frac12 ( e^{x+b} + e^{-x-b} )
+=
+\cosh(x+b)
+\\
+\operatorname{Sinh} x
+&=
+\frac12 ( ae^{x} - e^{-x}/a )
+=
+\frac12 ( e^{x+b} - e^{-x-b} )
+=
+\sinh(x+b).
+\end{align*}
+Entsprechende Formeln für die trigonometrischen Funktionen ergeben sich
+daraus durch Multiplikation des Argumentes mit $i$.
+In allen Fällen führen die verschiedenen Expontialfunktion zu einer
+möglicherweise um einen komplexen Summanden verschobenen Funktion.
+
+Bei den Umkehrfunktionen ist die Situation noch einfacher.
+Sie sind als ein Logarithmus definiert.
+Ein solcher ist nur bis auf einen konstanten Summanden definiert.
+Diese Beobachtung ist auch konsistent mit der Interpretation der
+Umkehrbeziehung für die Exponential- und Logarithmusfunktionen.
+Die additive Konstante, um die sich die trigonometrischen und
+hyperbolischen Umkehrfunktionen unterscheiden, ist auch die konstante
+Translation, um die sich die trigonometrischen und hyperbolischen
+Funktionen unterscheiden.

@@ -1,0 +1,184 @@
+%
+% 22-fortsetzung.tex -- Analytische Fortsetzung entlang einer Kurve
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Analytische Fortsetzung entlang einer Kurve
+\label{buch:analytisch:fortsetzung:subsection:kurve}}
+Sei $\gamma$ eine Kurve in der komplexen Ebene und $f$ eine
+Funktion, die in einer Umgebung des Punktes $\gamma(0)$ der
+Kurve holomorph ist.
+Die Funktion ist also in einem Kreis vom Radius $\varrho(\gamma(0))$
+um den Punkt $\gamma(0)$ analytisch.
+Nach \eqref{buch:analytisch:fortsetzung:eqn:taylor01}
+kann die Funktion $f(z)$ in jedem Punkt $\gamma(t)$ wieder in eine
+Potenzreihe mit Konvergenzradius $\varrho(\gamma(t))$ entwickelt
+werden, so dass die beiden Potenzreihen auf dem Schnittgebiet der
+beiden Konvergenzkreise übereinstimmen.
+Für einen Punkt $\gamma(t)$ nahe dem Rand des Konvergenzkreises 
+der Potenzreihe im Punkt $\gamma(0)$ kann der Konvergenzkreis
+der neuen Reihe über den Rand des alten Konvergenzkreises hinausragen.
+Die neue Potenzreihe erweitert also die Funktion über den ursprünglichen
+Konvergenzkreis hinaus.
+Indem dies entlang der Kurve immer wieder wiederholt wird, kann die
+Funktion auf ein Umgebung der Kurve ausgedehnt werden, wie dies zum
+für die Wurzelfunktion in
+Abbildung~\ref{buch:analytisch:fortsetzung:fig:wurzel2}
+illustriert wird.
+
+\begin{beispiel}
+Die Funktion $f(z)=\frac{1}{z}$ ist holomorph in $\mathbb{C}\setminus\{0\}$.
+Sie $\gamma(t)=e^{2\pi it}$ der Einheitskreis.
+Im Punkt $\gamma(0)=1$ kann die Funktion durch die geometrische Reihe
+\begin{equation}
+\frac{1}{z}
+=
+\frac{1}{1+(z-1)}
+=
+\sum_{k=0}^\infty (z-1)^k
+\label{buch:analytisch:fortsetzung:bsp:geom1}
+\end{equation}
+dargestellt werden, die in $B_1(1)$ konvergent ist.
+Der Punkt $\gamma(\frac{\pi}4)$ liegt innerhalb dieses Konvergenzkreises.
+Die Entwicklung
+\begin{equation}
+\frac{1}{z}
+=
+\frac{1}{a+(z-a)}
+=
+\frac1a \frac{1}{1+\displaystyle\frac{z-a\mathstrut}{a}}
+=
+\sum_{k=0}^\infty
+\frac{1}{a^k}(z-a)^k
+\label{buch:analytisch:fortsetzung:bsp:geoma}
+\end{equation}
+ist eine Potenzreihenentwicklung im Punkt $a$ mit Konvergenzradius $|a|$.
+Für $a=\gamma(\frac{\pi}4)$ ist die Reihe von
+\eqref{buch:analytisch:fortsetzung:bsp:geoma},
+die in einer Umgebung von $a$ mit der Reihe
+\eqref{buch:analytisch:fortsetzung:bsp:geom1}
+übereinstimmt.
+Der Punkt $i\in\mathbb{C}$ ist nicht im Konvergenzkreis der Reihe 
+\eqref{buch:analytisch:fortsetzung:bsp:geom1},
+der Wert $f(i)$ kann also damit nicht berechnet werden,
+wohl aber mit
+\eqref{buch:analytisch:fortsetzung:bsp:geoma}.
+\end{beispiel}
+
+Im Beispiel führt die analytische Fortsetzung entlang der Kurve 
+nach einem Umlauf wieder zur selben Entwicklung
+\eqref{buch:analytisch:fortsetzung:bsp:geom1}
+im Punkt $1$.
+Dies ist jedoch nicht selbstverständlich, wie die Beispiele
+im kommenden Abschnitt zeigen werden.
+
+
+\begin{satz}
+Seien $f(z)$ und $g(z)$ holomorphe Funktionen auf Gebieten $U$
+bzw.~$V$ die mitsamt aller ihrer Ableitungen in einem Punkt
+von $U\cap V$ übereinstimmen.
+Dann stimmen $f(z)$ und $g(z)$ auf jedem wegzusammenhängenden
+Gebiet, welches die Kurve $\gamma$ enthält, überein.
+\end{satz}
+
+\begin{proof}
+Sei $z_0$ der Punkte, in dem $f(z)$ und $g(z)$ samt ihren
+Ableitungen übereinstimmen.
+In diesem Punkt haben $f(z)$ und $g(z)$ die gleiche Potenzreihenentwicklung.
+Wir müssen zeigen, dass die Funktionen $f(z)$ und $g(z)$ auch ein einem
+Punkte $z_1$ übereinstimmen, der in einem einfach zusammenhängenden Gebiet
+$W\subset U\cap V$ enthalten ist.
+Wir konstruieren zu diesem Zweck einen differenzierbaren Weg $\gamma$
+von $z_0$ nach $z_1$ in $W$.
+Die Überlegungen von
+Abschnitt~\ref{buch:analytisch:analytisch:subsection:potenzreihe}
+zeigen dann, dass die beiden Funktionen samt ihren Ableitungen entlang
+dieses Weges ebenfalls übereinstimmen müssen.
+\end{proof}
+
+Bei der Konstruktion einer analytischen Fortsetzung muss man sich also
+nicht auf die Verwendung von Potenzreihen beschränken.
+Dies wird auch vom folgenden Beispiel illustriert.
+
+\begin{beispiel}
+Die Funktionen
+\begin{equation*}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrclcrcl}
+f
+&\colon&
+\displaystyle
+\biggl\{ re^{i\varphi}\mid r > 0\wedge -\frac{\pi}2<\varphi<\frac{3\pi}2 \biggr\}
+&\to&
+\mathbb{C}
+&:&
+z=re^{i\varphi}
+&\mapsto&
+\sqrt{r}e^{i\varphi/2}
+\\[7pt]
+g
+&\colon&
+\displaystyle
+\biggl\{ re^{i\varphi}\mid r > 0\wedge -\frac{3\pi}2<\varphi<\frac{\pi}2 \biggr\}
+&\to&
+\mathbb{C}
+&:&
+z=re^{i\varphi}
+&\mapsto&
+\sqrt{r}e^{i\varphi/2}
+\end{array}
+\end{equation*}
+sind so definiert sein, dass das Argument $\varphi$ auf den jeweiligen
+Definitionsgebieten stetig ist.
+Beide Funktionen haben die Eigenschaft
+\[
+f(z)^2
+=
+re^{i\varphi} = z
+=
+g(z)^2,
+\]
+sie sind also Wurzelfunktionen.
+
+Die Definitionsgebiete bestehen jeweils aus der komplexen Ebene, aus der
+ein Teil der imaginären Achse entfernt worden ist.
+Konkret ist
+\[
+U = \mathbb{C}\setminus\{-iy\mid y\ge 0\}
+\qquad\text{und}\qquad
+V = \mathbb{C}\setminus\{+iy\mid y\ge 0\}.
+\]
+Die Schnittmenge ist 
+\[
+U\cap V
+=
+\{x+iy\in\mathbb{C}\mid x < 0\}
+\cup
+\{x+iy\in\mathbb{C}\mid x > 0\}.
+\]
+An der Stelle $z=1$ ist $r=1$ und $\varphi=0$ für beide Funktionen,
+die Funktionswerte und die Ableitungen stimmen also überein.
+Es folgt, dass die beiden Funktionen für $\operatorname{Re}z>0$
+und damit auch auf jedem wegzusammenhängenden Teilgebiet davon
+übereinstimmen werden.
+
+Andererseits gilt für Punkte auf der negativen reellen Achse
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclclcr}
+f(-x) &=& f(xe^{i\pi})  &=& \!\sqrt{x}e^{i\pi/2} &=& i\!\sqrt{x},\\
+g(-x) &=& g(xe^{-i\pi}) &=& \!\sqrt{x}e^{i\pi/2} &=& -i\!\sqrt{x}.
+\end{array}
+\]
+Es gibt aber auch kein wegzusammenhängendes Teilgebiet von $U\cap V$,
+welches den Punkt $z=1$ und einen Teil der negativen reellen Achse
+enthält.
+\end{beispiel}
+
+Auch in diesem Beispiel ist des die Singularität der Wurzelfunktion
+an der Stelle $0$, die eine eindeutige Definition verhindert.
+Der Satz zeigt aber noch etwas mehr.
+Er garantiert nämlich, dass man eine Funktion eindeutig auf ein
+grösseres Gebiet ausdehnen kann, wenn man sicherstellen kann,
+dass es nur einen Weg zu einem der neuen Punkte gibt.
+

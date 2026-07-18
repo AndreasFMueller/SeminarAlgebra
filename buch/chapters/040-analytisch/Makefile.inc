@@ -6,15 +6,41 @@
 
 AUFGABENFILES +=							\
 	chapters/040-analytisch/uebungsaufgaben/401.tex			\
-	chapters/040-analytisch/uebungsaufgaben/402.tex			\
-	chapters/040-analytisch/uebungsaufgaben/403.tex
+	chapters/040-analytisch/uebungsaufgaben/402.tex
 
 CHAPTERFILES += 							\
 	chapters/040-analytisch/1-potenzreihen.tex			\
-	chapters/040-analytisch/2-rational.tex				\
-	chapters/040-analytisch/3-fortsetzung.tex			\
-	chapters/040-analytisch/4-laurentreihen.tex			\
-	chapters/040-analytisch/5-ganz.tex				\
-	chapters/040-analytisch/6-argument.tex				\
+	chapters/040-analytisch/11-polynome.tex				\
+	chapters/040-analytisch/12-geometrisch.tex			\
+	chapters/040-analytisch/13-rational.tex				\
+	chapters/040-analytisch/14-integration.tex			\
+	chapters/040-analytisch/15-analytisch.tex			\
+	chapters/040-analytisch/16-reellanalytisch.tex			\
+	chapters/040-analytisch/2-fortsetzung.tex			\
+	chapters/040-analytisch/21-definition.tex			\
+	chapters/040-analytisch/22-fortsetzung.tex			\
+	chapters/040-analytisch/23-ueberlagerung.tex			\
+	chapters/040-analytisch/3-laurentreihen.tex			\
+	chapters/040-analytisch/31-ring.tex				\
+	chapters/040-analytisch/32-laurent.tex				\
+	chapters/040-analytisch/33-residuum.tex				\
+	chapters/040-analytisch/34-singulaer.tex			\
+	chapters/040-analytisch/35-meromorph.tex			\
+	chapters/040-analytisch/4-ganz.tex				\
+	chapters/040-analytisch/41-definition.tex			\
+	chapters/040-analytisch/42-cauchyliouville.tex			\
+	chapters/040-analytisch/43-fundamentalsatz.tex			\
+	chapters/040-analytisch/5-argument.tex				\
+	chapters/040-analytisch/51-argument.tex				\
+	chapters/040-analytisch/52-integral.tex				\
+	chapters/040-analytisch/53-meromorph.tex			\
+	chapters/040-analytisch/54-verallgemeinert.tex			\
+	chapters/040-analytisch/fig/fig-argument.tex			\
+	chapters/040-analytisch/fig/fig-integral.tex			\
+	chapters/040-analytisch/fig/fig-nichtanalytisch.tex		\
+	chapters/040-analytisch/fig/fig-ring.tex			\
+	chapters/040-analytisch/fig/fig-wurzel.tex			\
+	chapters/040-analytisch/fig/fig-wurzel2.tex			\
+	chapters/040-analytisch/fig/fig-zweipunkte.tex			\
 	chapters/040-analytisch/chapter.tex
 

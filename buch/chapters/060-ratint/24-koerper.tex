@@ -1,0 +1,59 @@
+%
+% 24-koerper.tex -- Körperkoeffizienten
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Polynome mit Koeffizienten in einem beliebigen Körper}
+Der euklidische Algorithmus, wie er in
+Abschnitt~\ref{buch:ratint:euklid:subsection:polynome}
+für Polynome mit Koeffizienten in $\mathbb{Q}$ oder $\mathbb{C}$
+vorstellt wurde, ist in keiner Weise auf solche Zahlkörper beschränkt.
+Damit die Polynomdivision und damit die Bestimmung des Rests
+in jedem Schritt des euklidischen Algorithmus durchgeführt werden kann,
+ist nur nötig, dass die Koeffizienten aus einem Körper stammen.
+Die Diskussion der Eigenschaften euklidischer Ringe in
+Abschnitt~\ref{buch:ratint:euklid:subsection:ringe} hat dies
+gezeigt.
+
+Ist $K$ ein Körper, dann ist auch die Menge $F=K(x)$ der rationalen Funktionen
+in der Variablen $x$ ein Körper.
+$F$ ist ein euklidischer Ring.
+Für Polynome mit Koeffizienten in $F$ gilt daher ebenfalls der
+euklidische Algorithmus.
+
+Eine Funktion wie
+\[
+f(z)
+=
+\frac{2z\log z + 9}{\frac1z-\log z}
+\]
+kann als rationale Funktion in der Variablen $\vartheta=\log z$
+mit Koeffizienten im Körper $\mathbb{Q}(z)$ der rationalen Funktionen
+in der Variablen $z$ betrachtet werden.
+Zähler und Nenner sind Polynome
+\[
+2z\vartheta + 9
+\qquad\text{und}\qquad
+\frac1z -\vartheta
+\]
+in $\vartheta$ mit rationalen Funktionen als Koeffizienten.
+Die Schreibweise
+\[
+f(z)
+=
+\frac{2z\vartheta - 9}{\frac1z-\vartheta}
+\]
+mit $\vartheta$ macht dies deutlich.
+Wir werden dies im Kapitel~\ref{chapter:intalg} wiederholt ausnutzen,
+um einen Integrationsalgorithmus zu konstruieren.
+Wir werden dazu den Grundkörper der rationalen Funktionen in $z$ 
+durch weitere Funktionen wie $\vartheta$ erweitern.
+Die Erweiterung verlangt nur, dass wir mit rationalen Funktionen
+umgehen können müssen.
+Zwar ergeben sich zusätzliche Erschwernisse dadurch, dass die Koeffizienten
+nicht konstant sind, aber die prinzipielle Vorgehensweise von
+Abschnitt~\ref{buch:ratint:bernoulli:subsection:prinzip}
+bleibt gültig.
+
+
+

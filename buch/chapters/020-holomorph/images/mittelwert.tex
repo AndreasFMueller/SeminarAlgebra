@@ -1,0 +1,83 @@
+%
+% mittelwert.tex -- Illustration des Mittelwertsatzes
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\skala{1}
+\def\a{1}
+\def\b{7}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+f(\X) = 0.15*(\X-2)*(\X-6)*(\X-4)+0.3*\X+1;
+}]
+
+\pgfmathparse{atan(21/20)}
+\xdef\w{\pgfmathresult}
+
+\pgfmathparse{4-sqrt(3)}
+\xdef\xone{\pgfmathresult}
+
+\draw[color=blue] (\xone,{f(\xone)}) -- ++(\w:1.5);
+\draw[color=blue] (\xone,{f(\xone)}) -- ++({180+\w}:1.5);
+
+\pgfmathparse{4+sqrt(3)}
+\xdef\xtwo{\pgfmathresult}
+
+\draw[color=blue] (\xtwo,{f(\xtwo)}) -- ++(\w:1.5);
+\draw[color=blue] (\xtwo,{f(\xtwo)}) -- ++({180+\w}:1.5);
+
+\draw (\a,-0.05) -- ++(0,0.1);
+\draw (\b,-0.05) -- ++(0,0.1);
+\draw[line width=0.2pt] (\a,0) -- (\a,{f(\a)});
+\draw[line width=0.2pt] (\b,0) -- (\b,{f(\b)});
+
+\draw[color=darkred,line width=1.2pt] plot[domain=1:7,samples=100]
+	({\x},{f(\x)});
+
+\draw (\xone,-0.05) -- ++(0,0.1);
+\draw[line width=0.2pt] (\xone,0) -- (\xone,{f(\xone)});
+\node at (\xone,0) [below] {$\xi_1$};
+\node[color=darkred] at ({\xone+0.1},{f(\xone)-0.1}) [above left] {$f(\xi_1)$};
+\node[color=blue] at ({\xone-0.8},{f(\xone)-1.0}) [above left] {$f'(\xi_1)$};
+
+\draw (\xtwo,-0.05) -- ++(0,0.1);
+\draw[line width=0.2pt] (\xtwo,0) -- (\xtwo,{f(\xtwo)});
+\node at (\xtwo,0) [below] {$\xi_2$};
+\node[color=darkred] at ({\xtwo+0.1},{f(\xtwo)-0.1}) [above left] {$f(\xi_2)$};
+\node[color=blue] at ({\xtwo-1.2},{f(\xtwo)-1}) [below right] {$f'(\xi_2)$};
+
+\fill[color=white] (\xone,{f(\xone)}) circle[radius=0.05];
+\draw[color=darkred] (\xone,{f(\xone)}) circle[radius=0.05];
+\fill[color=white] (\xtwo,{f(\xtwo)}) circle[radius=0.05];
+\draw[color=darkred] (\xtwo,{f(\xtwo)}) circle[radius=0.05];
+
+\draw[color=blue] (\a,{f(\a)}) -- (\b,{f(\b)});
+
+\fill[color=white] (\a,{f(\a)}) circle[radius=0.05];
+\draw[color=darkred] (\a,{f(\a)}) circle[radius=0.05];
+\node at (\a,0) [above] {$a$};
+\node at (\a,{f(\a)}) [left] {$f(a)$};
+
+\fill[color=white] (\b,{f(\b)}) circle[radius=0.05];
+\draw[color=darkred] (\b,{f(\b)}) circle[radius=0.05];
+\node at (\b,0) [below] {$b$};
+\node at (\b,{f(\b)}) [right] {$f(b)$};
+
+\draw[->] (-0.1,0) -- (8.3,0) coordinate[label={$x$}];
+\draw[->] (0,-1) -- (0,5.7) coordinate[label={right:$y$}];
+
+\node[color=blue] at ($0.2*(\a,{f(\a)})+0.8*(\b,{f(\b)})+(0.2,-0.2)$)
+	[above left] {$\displaystyle\frac{f(b)-f(a)}{b-a}$};
+
+\end{tikzpicture}
+\end{document}
+

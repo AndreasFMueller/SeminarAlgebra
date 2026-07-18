@@ -1,0 +1,93 @@
+%
+% fourier.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{document}
+\def\ys{0.5}
+\pgfmathparse{3.1415*3.1415}
+\xdef\piq{\pgfmathresult}
+\def\skala{0.933}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+f0(\X) = 3.2899;
+f1(\X) = 3.2899 + 4*(-1)*cos(deg(\X));
+f2(\X) = 3.2899 + 4*(-1)*cos(deg(\X)) + 4*(0.25)*cos(deg(2*\X));
+f3(\X) = 3.2899 + 4*(-1)*cos(deg(\X)) + 4*(0.25)*cos(deg(2*\X))
+     + 4*(-0.1111)*cos(deg(3*\X));
+}]
+
+%\draw[color=gray,dashed] (3.1415,0) -- ++(0,{\ys*\piq});
+%\draw[dashed,color=gray] (0,{\ys*\piq}) -- ++(3.1415,0);
+\foreach \y in {2,4,6,8,10}{
+	\draw (-0.05,{\ys*\y}) -- ++(0.1,0);
+	\node at (0,{\ys*\y}) [left] {$\y$};
+}
+%\draw (-0.05,{\ys*\piq}) -- ++(0.1,0);
+%\node at (0,{\ys*\piq}) [left] {$\pi^2$};
+
+\begin{scope}
+	\clip (-6.28318,-0.2) rectangle (6.28318,{\ys*\piq});
+	\draw[color=gray!50,line width=1.2pt]
+		plot[domain=-3.1415:3.1415,samples=300] ({\x},{\ys*\x*\x)});
+
+	\begin{scope}[xshift=6.28318cm]
+		\draw[color=gray!50,line width=1.2pt]
+			plot[domain=-3.1415:3.1415,samples=300]
+				({\x},{\ys*\x*\x)});
+	\end{scope}
+
+	\begin{scope}[xshift=-6.28318cm]
+		\draw[color=gray!50,line width=1.2pt]
+			plot[domain=-3.1415:3.1415,samples=300]
+				({\x},{\ys*\x*\x)});
+	\end{scope}
+\end{scope}
+%\node[color=gray!50] at (-3.1415,{\ys*\piq+0.1}) [right] {$y=x^2$};
+%\draw (3.1415,{\ys*\piq}) circle[radius=0.1];
+\node[color=gray!50] at (-3.1415,{\ys*\piq+0.1}) [right] {$y=x^2$};
+
+\draw[->] (-6.4,0) -- (6.6,0) coordinate[label={$x$}];
+\draw[->] (0,-0.5) -- (0,{\ys*11.0}) coordinate[label={right:$y$}];
+
+\draw[color=blue!50,dashed,line width=1.2pt]
+	plot[domain=-6.3:6.3,samples=30] ({\x},{\ys*f0(\x)});
+\draw[color=cyan,line width=1.2pt]
+	plot[domain=-6.3:6.3,samples=300] ({\x},{\ys*f1(\x)});
+\draw[color=orange,line width=1.2pt]
+	plot[domain=-6.3:6.3,samples=300] ({\x},{\ys*f2(\x)});
+\draw[color=darkred,line width=1.2pt]
+	plot[domain=-6.3:6.3,samples=300] ({\x},{\ys*f3(\x)});
+
+\node[color=darkred] at (3.4,{\ys*(6.28-3.4)*(6.28-3.4)-0.1})
+	[above right] {$y=F_3(x)$};
+
+\node[color=orange] at (3.8,{\ys*(6.28-3.8)*(6.28-3.8)})
+	[above right] {$y=F_2(x)$};
+
+\node[color=cyan] at (4.5,{\ys*(6.28-4.4)*(6.28-4.4)})
+	[above right] {$y=F_1(x)$};
+
+\node[color=blue!50] at (-3.1415,{\ys*f0(0)}) [below]
+	{$y=F_0(x)$};
+
+\node at (3.1415,-0.25) [below] {$\pi\mathstrut$};
+\node at ({2*3.1415},-0.25) [below] {$2\pi\mathstrut$};
+\draw (3.1415,-0.05) -- ++(0,0.1);
+\draw ({2*3.1415},-0.05) -- ++(0,0.1);
+\node at (-3.1415,-0.25) [below] {$-\pi\mathstrut$};
+\node at ({-2*3.1415},-0.25) [below] {$-2\pi\mathstrut$};
+\draw (-3.1415,-0.05) -- ++(0,0.1);
+\draw ({-2*3.1415},-0.05) -- ++(0,0.1);
+
+\end{tikzpicture}
+\end{document}
+

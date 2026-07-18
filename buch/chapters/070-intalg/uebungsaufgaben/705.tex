@@ -1,0 +1,52 @@
+Entscheiden Sie, ob die folgenden Funktionen eine elementare Stammfunktion
+haben und finden Sie sie, falls sie existiert.
+\begin{teilaufgaben}
+\item
+$\displaystyle \int \frac{dx}{x\log(x)^2}$
+\item
+$\displaystyle \int \frac{dx}{x^2\log(x)}$
+\end{teilaufgaben}
+
+\begin{loesung}
+Beide Teilaufgaben verlangen nach einer Stammfunktion in $\mathbb{Q}(x,\vartheta)$ mit $\vartheta=\log x$.
+Der Integrand ist ein rationaler Teil mit $a(\vartheta)=1$.
+\begin{teilaufgaben}
+\item Für $b(\vartheta)=x\vartheta^2$ wird die Methode von Rothstein-Trager
+angewendet.
+Dazu müssen nichttriviale gemeinsame Teiler von
+\[
+a(\vartheta)-c\cdot Db(\vartheta)
+=
+1-c\cdot (\vartheta + 1)
+\qquad\text{und}\qquad
+x\vartheta^2
+\]
+gefunden werden.
+Nur für $c_1=1$ bleibt vom linken Term nur $\vartheta$, welches auch
+gleichzeitig der grösste gemeinsame Teiler $v_1(\vartheta)=\vartheta$ ist.
+Es folgt
+\[
+\int \frac{dx}{x\log(x)^2}
+=
+\log v_1(\vartheta)
+=
+\log(\log(x)).
+\]
+\item
+In diesem Fall ist $b(\vartheta)=x^2\vartheta$ mit $Db(\vartheta) = 2x\vartheta + x$.
+Gesucht sind nichttriviale gemeinsame Teiler von
+\[
+a(\vartheta)-c\cdot Db(\vartheta)
+=
+1-c\cdot (2\vartheta+1)x
+=
+(1-cx) -2c\vartheta
+\qquad\text{und}\qquad
+x^2\vartheta.
+\]
+Ein nichttrivialer gemeinsamer Teiler ist nur möglich, wenn $1-cx=0$ ist
+oder $c=1/x$.
+Da $c$ nicht konstant ist, ist das Integral nicht elementar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}

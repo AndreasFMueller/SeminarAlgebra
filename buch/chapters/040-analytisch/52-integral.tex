@@ -1,0 +1,239 @@
+%
+% 51-integral.tex -- Das Argumentintegral für f(z) = z^n
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Auswertung des Argumentintegrals
+\label{buch:analytisch:argument:subsection:zn}}
+In diesem Abschnitt soll die Verbindung zwischen dem Argumentintegral
+\eqref{buch:analytisch:argument:eqn:argumentintegral0}
+und dem früher eingeführten Begriff der Ordnung einer Nullstelle
+oder eines Pols hergestellt werden.
+Zu diesem Zweck wird zunächst die Funktion $f(z)=z^n$ 
+betrachtet und später auf eine beliebige Nullstelle oder einen
+Pol einer Funktion verallgemeinern.
+
+%
+% Geometrische Interpretation
+%
+\subsubsection{Geometrische Interpretation}
+Das Argumentintegral
+\eqref{buch:analytisch:argument:eqn:argumentintegral0}
+berechnet die Änderung des Argumentes von $f(z)$, wenn man
+einer geschlossenen Kurve folgt.
+Für eine Funktion $f(z)$, die in $z=0$ weder einen Nullpunkt noch
+einen Pol hat, und eine geschlossene Kurve $\gamma$, die den
+Nullpunkte einmal in positiver Richtung einmal umläuft, ist
+$f(\gamma(t))$ eine Kurve, entlang der sich das Argument um ein ganzzahliges
+Vielfaches von $2\pi$ ändert.
+Die ganze Zahl $k$, die in der Formel
+\eqref{buch:analytisch:argument:eqn:argumentintegral} auftritt
+ist also die Windungszahl des Weges $f(\gamma(t))$.
+
+%
+% Berechnung des Integrals
+%
+\subsubsection{Berechnung des Integrals für $f(z)=z^n$}
+Wir betrachten zunächst die Funktionen $f(z)=z^n$ und berechnen 
+das Integral
+\begin{equation}
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{nz^{n-1}}{z^n}
+\,dz
+=
+n\cdot
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{1}{z}
+\,dz
+\label{buch:analytisch:argument:eqn:argumentintegral2}
+\end{equation}
+für eine Kurve $\gamma$, die den Nullpunkt nicht trifft und ihn
+genau einmal im Gegenuhrzeigersinn umläuft.
+Da $f'(z)/f(z)$ ausserhalb des Nullpunkts holomorph ist, können
+wir den Weg auch durch den Einheitskreis $t\mapsto e^{2\pi it}$
+ersetzen und werden den gleichen Wert für das Integral erhalten,
+nämlich
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz
+&=
+n\cdot
+\frac{1}{2\pi i}
+\int_0^1
+\frac{1}{e^{2\pi it}}
+2\pi ie^{2\pi it}
+\,dt
+=
+n
+\int_0^1\,dt
+=
+n.
+\end{align*}
+Das Argumentintegral
+\eqref{buch:analytisch:argument:eqn:argumentintegral2}
+liefert also die Ordnung eines Poles oder einer Nullstelle.
+
+%
+% Argumentintegral für eine Funktion mit f(0)=0
+%
+\subsubsection{Argumentintegral für eine Funktion mit $f(0)=0$}
+Die letzte Beobachtung soll noch etwas vertieft werden.
+Wir betrachten eine holomorphe Funktion $f(z)$ mit einem
+singulären Punkt endlicher Ordnung in $0$.
+Für eine Nullstelle der Ordnung $n$ kann die Funktion $f$
+als
+\[
+f(z)
+=
+z^n\, g(z)
+\]
+geschrieben, werden, wobei $g(z)$ eine holomorphe Funktion
+ist, die im Nullpunkt nicht verschwindet.
+Da Nullstellen isoliert sind, verschwindet $g(z)$ auch in
+einer genügend kleinen Umgebung von $0$ nicht.
+
+Die Ableitung
+\[
+f'(z)
+=
+nz^{n-1}g(z) + z^ng'(z).
+\]
+ist eine holomorphe Funktion.
+Das Argumentintegral über einen kleine Kreis $\gamma$ um den
+Nullpunkt ist
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f'(z)}{f(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{nz^{n-1}g(z)+z^ng'(z)}{z^ng(z)}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{n}{z}
++
+\frac{g'(z)}{g(z)}
+\,dz.
+\intertext{Der zweite Term im Integral ist eine holomorphe Funktion
+auch im Punkt $0$, der Weg $\gamma$ ist also in im Definitionsgebiet
+von $g'(z)/g(z)$ zusammenziehbar und das Integral verschwindet.
+Es bleibt daher}
+&=
+n\cdot
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z}
+\,dz
+=
+n,
+\end{align*}
+wie früher bereits ausgerechnet wurde.
+
+%
+% Argumentintegral für eine Polstelle
+%
+\subsubsection{Argumentintegral für eine Polstelle}
+Hat die Funktion $f(z)$ einen Pol der Ordnung $n$, dann kann sie als
+\[
+f(z) = \frac{1}{z^n}g(z)
+\]
+geschrieben werden, wobei $g$ eine in einer Umgebung von $0$ holomorphe
+Funktion ist, die keine Nullstellen oder Pole nahe bei $0$ hat.
+Die Ableitung von $f$ ist
+\[
+f'(z)
+=
+-
+\frac{n}{z^{n+1}}g(z)
++
+\frac{1}{z^n}g'(z).
+\]
+Für diese Funktion ist das Argumentintegral
+\begin{align*}
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{f'(z)}{f(z)}
+\,dz
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{
+-
+nz^{-(n+1)}g(z)
++
+z^{-n}g'(z)
+}{
+z^{-n}\,g(z)
+}
+\,dz
+\\
+&=
+\frac{1}{2\pi i}
+\oint_\gamma
+-
+\frac{n}{z}
++
+\frac{g'(z)}{g(z)}
+\,dz.
+\intertext{Wie im Fall einer Nullstelle ist der Weg $\gamma$
+im Definitionsbereich des zweiten Terms Integranden zusammenziehbar,
+der zweite Term trägt daher nichts zum Integral bei.
+Für den ersten Term findet man}
+&=
+-n\cdot
+\frac{1}{2\pi i}
+\oint_\gamma
+\frac{1}{z}
+\,dz.
+\end{align*}
+
+%
+% Argumentintegral und Ordnung
+%
+\subsubsection{Argumentintegral und Ordnung}
+Die Berechnungen der vorangegangenen Abschnitte zeigen, dass
+der Wert des Argumentintegrals für Nullstellen und Pole 
+immer durch die Ordnung
+\[
+\omega(0;f)
+=
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz
+\]
+ausgedrückt werden kann.
+Wir haben damit den folgenden Satz bewiesen.
+
+\begin{satz}[Ordnung]
+\label{buch:analytisch:argument:satz:ordnung}
+Sei $f$ eine holomorphe Funktion mit einer isolierten Singularität
+an der Stelle $a\in\mathbb{C}$.
+\index{Singularitat@Singularität}%
+Sei $\gamma$ ein kleiner Kreis, der den Punkt $z_0$ einmal im
+Gegenuhrzeigersinn umläuft.
+Er sei zudem so klein, dass er keine anderen Null- oder Polstellen
+von $f$ als $z_0$ enthält.
+Dann gilt
+\[
+\omega(z_0;f)
+=
+\frac{1}{2\pi i}
+\oint_{\gamma}
+\frac{f'(z)}{f(z)}
+\,dz.
+\]
+\end{satz}
