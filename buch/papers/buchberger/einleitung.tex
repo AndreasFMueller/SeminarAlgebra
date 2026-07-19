@@ -1,0 +1,60 @@
+%
+% einleitung.tex
+%
+% (c) 2026 Nathanael Fässler, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Lineare Gleichungssysteme
+\label{buchberger:section:teil0}}
+\kopfrechts{Lineare Gleichungssysteme}
+Viele Elemente des Gauss-Algorithmus werden in einer ähnlichen Form im Abschnitt zum Buchberger-Algorithmus~\ref{buchberger:section:buchberger} wiederkehren.
+Daher ist es empfehlenswert die Grundideen des Lösens eines linearen Gleichungssystems zu repetieren.
+
+Das Gleichungssystem
+\begin{equation}
+  \left\{ % macht auf linker Seite die grosse geschweifte Klammer (darum das \{)
+  \renewcommand{\arraycolsep}{2pt} % überschreibt Spaltenabstand in Tabelle auf 2pt, sonst wären sie zu gross
+  \begin{array}{rcrcr} % Array == Tabelle. rcrcr definiert die 5 Spalten. r = rechtsbündig, c = centered. Z.B. x und 3x zentrieren sich nach rechts zum +
+    x &+& 2y &=& 3 \\
+    3x &-& y &=& 15
+  \end{array}
+  \right. % macht auf rechter Seite keine Klammer, darum der Punkt.
+  \label{buchberger:lineares-gleichungssystem-1}
+\end{equation}
+
+lässt sich bekanntlich mit dem Gauss-Algorithmus lösen.
+Das Vorgehen ist wie folgt:
+\begin{enumerate}
+\item
+Die Gleichungen werden in eine passende Form gebracht:
+
+Alle Terme mit einer Variablen werden auf die linke Seite verschoben, während auf der rechten Seite der konstante Wert steht.
+Die Reihenfolge der Variablen muss einer festgelegten Ordnung folgen, damit der Algorithmus deterministisch ist.
+Das Gleichungssystem~\eqref{buchberger:lineares-gleichungssystem-1} ist bereits in dieser Form, wobei die Ordnung dadurch gegeben ist, dass $x$ vor $y$ steht.
+\item
+Mit iterativen Gleichungsumformungen, die hier nicht weiter relevant sind, wird das Gleichungssystem in eine treppenartige Form gebracht.
+\begin{equation}
+  \left\{
+  \renewcommand{\arraycolsep}{2pt}
+  \begin{array}{rcrcr}
+  x &+& 2y &=& 3 \\
+     &&  y &=& -\frac{6}{7}
+  \end{array}
+  \right.
+  \label{buchberger:lineares-gleichungssystem-2}
+\end{equation}
+\item
+Aus dem Gleichungssystem~\eqref{buchberger:lineares-gleichungssystem-2} lässt sich direkt die Lösung für $y$ ablesen, welche $-\frac{6}{7}$ beträgt.
+Diese Lösung für $y$ lässt sich in die obere Gleichung einsetzen.
+Dabei ensteht eine Gleichung, die nur noch $x$ enthält. Das Auflösen nach $x$ ist trivial.
+\end{enumerate}
+
+Der Algorithmus lässt sich auf beliebig grosse Gleichungssysteme anwenden:
+
+Bei einem Gleichungssystem mit den Variablen $x_{0}, x_{1}, \dots, x_{n}$ erhält man nach der Vorwärtsreduktionsphase des Gauss-Algorithmus eine Zeilenstufenform,
+wobei in der untersten Gleichung nur noch die Variable $x_{n}$ vorkommt und deren Lösung sich direkt ablesen lässt.
+Die nächsthöhere Gleichung lässt sich dann iterativ lösen, indem man immer die Lösungen der bereits fixierten Variablen einsetzt.\footnote{Diese letzte Phase des Gauss-Algorithmus nennt sich das \emph{Rückwärtseinsetzen}.}
+
+Bemerkenswert ist, dass ein zunächst schwer lösbares Gleichungssystem in ein äquivalentes\footnote{Zwei Gleichungssysteme sind äquivalent, wenn sie exakt dieselbe Lösungsmenge besitzen.} Gleichungssystem umgewandelt wird, welches einfacher lösbar ist.

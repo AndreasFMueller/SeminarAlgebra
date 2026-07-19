@@ -1,0 +1,111 @@
+%
+% komplexitaet.tex -- Beispiel-File für Teil 3
+%
+% (c) 2026 Nathanael Fässler, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Komplexität}
+Dieser Abschnitt setzt theoretische Grundlagen zur \emph{Komplexitätstheorie} voraus, die sehr gut von Müller in seinem Buch~\cite{buchberger:automaten-und-sprachen} erklärt werden.
+Bekanntlich ist das Lösen eines Sudokus ein NP-vollständiges Problem.
+Als \emph{NP-vollständig} bezeichnet man die Klasse der Probleme die sich von einer nichtdeterministischen Maschine\footnote{Leider existieren deterministische Maschinen nur in der Theorie, 
+und daher lassen sich diese Probleme in der Praxis nur in exponentieller Zeit lösen.} 
+in polynomieller Zeit lösen lassen.
+Es stellt sich die Frage ob das Lösen von Polynomgleichungssystemen auch NP-vollständig ist.
+
+\subsection{Entscheidungsprobleme}
+Formell lässt sich Sudoku als das Entscheidungsproblem
+\begin{equation}
+  \begin{split}
+    \text{SUDOKU} = \{ \langle \mathcal{S} \rangle \mid & \mathcal{S} \text{ ist ein Sudoku mit vorgegeben Zahlen, welches eine Lösung besitzt,} \\
+    & \text{welches die bekannten Sudoku-Regeln erfüllt.} \}
+  \end{split}
+  \label{buchberger:sudoku-problem}
+\end{equation}
+definieren.
+Das Entscheidungsproblem beantwortet nur die Frage ob es eine Lösung für das Sudoku gibt oder nicht. Es findet nicht die Lösung selbst.
+Es wurde jedoch bewiesen, dass das Entscheiden der Existenz einer Lösung in der gleichen Komplexitätsklasse liegt wie das finden der Lösung.
+
+Für das Problem der Polynomgleichungssysteme wird das Entscheidungsproblem
+\begin{equation}
+  \begin{split}
+    \text{POLYNOM} = \{ \langle \mathcal{P} \rangle \mid & \mathcal{P} \text{ ist ein System von Polynomgleichungen,} \\
+    & \text{welches mindestens eine Lösung besitzt.} \}
+  \end{split}
+  \label{buchberger:polynom-problem}
+\end{equation}
+definiert.
+
+\subsection{$POLYNOM$ ist NP-vollständig}
+\begin{theorem}
+  $POLYNOM$ ist NP-vollständig.
+\end{theorem}
+
+\subsubsection{Reduktion}
+Wie gezeigt, lässt sich $SUDOKU$ durch $POLYNOM$ lösen.
+Somit ist $POLYNOM$ mindestens so schwierig wie $SUDOKU$.
+Dieser Sachverhalt lässt sich durch die Reduktion
+$SUDOKU \leq_{\mathrm{p}} POLYNOM$
+ausdrücken.
+
+Dies genügt nicht um zu beweisen, dass $POLYNOM$ NP-vollständig ist.
+Es könnte ja sein, dass $POLYNOM$ noch schwieriger ist als NP.
+
+\subsubsection{NP-Zugehörigkeit}
+
+Das Problem $POLYNOM$ lässt sich in polynomieller Zeit verifizieren.
+Das heisst es gibt einen Algorithmus, mit dem man in polynomieller Zeit prüfen kann ob eine vorgeschlagene Lösung tatsächlich eine Lösung des Gleichungssystems ist.
+
+Folgender Algorithmus ist ein solcher Entscheider:
+\begin{enumerate}
+  \item
+  Der Algorithmus erhält ein Gleichungssystem und eine Lösung in der Form $x_1 = 5, \dots x_n = 12$.
+  \item
+  Setze in jeder Gleichung für jede Variable den in der Lösung angegebenen Wert ein.
+  \item
+  Rechne in jeder Gleichung die Zahlen aus.
+  \item
+  Überprüfe für jede Gleichung ob der Wert auf der linken und rechten Seite identisch ist.
+\end{enumerate}
+Die Laufzeit hängt von den Anzahl Gleichungen $n$, den Anzahl Variablen $v$ und der höchsten Potenz $p$ ab.
+Schritt 2 besitzt die Laufzeit $O(n \cdot v)$.
+Das ausrechnen der Zahlen in Schritt 3 hat Laufzeit $O(n \cdot v \cdot p)$. Das ausrechnen einer Potenz $x^p$ benötigt $p$ Multiplikationen, welche polynomielle Laufzeit haben.
+Der letzte Schritt besitzt die Laufzeit $O(n)$.
+
+Somit ergibt sich die Gesamtlaufzeit
+\begin{equation}
+O(n \cdot v) + O(n \cdot v \cdot p) + O(n) = O(n \cdot v \cdot p)
+,
+\end{equation}
+welche polynomiell ist.
+
+Daraus folgt, dass $POLYNOM$ in NP liegt und nicht ausserhalb.
+
+\begin{proof}
+Die NP-vollständigen Probleme sind die Klasse der schwierigsten Probleme innerhalb von NP und sind alle gleich schwierig.
+Durch die beiden Resultate
+\begin{enumerate}
+  \item
+  $POLYNOM$ ist mindestens so schwierig wie $SUDOKU$.
+  \item
+  $POLYNOM$ liegt in NP
+\end{enumerate}
+lässt sich schlussfolgern, dass $POLYNOM$ gleich schwierig ist wie $SUDOKU$.
+Dies lässt sich durch
+$SUDOKU \equiv_{\mathrm{P}} POLYNOM$
+ausdrücken.
+Somit ist bewiesen, dass $POLYNOM$ NP-vollständig ist.
+\end{proof}
+
+\subsection{P vs. NP}
+Eines der Millennium-Probleme\footnote{Die Milennium-Probleme umfassen eine Liste von ungelösten mathematischen Problemen.
+Wer eines davon löst wird mit einer Million US-Dollar belohnt.} 
+ist die Frage $P \stackrel{?}{=} NP$, also ob die Komplexitätsklassen P und NP verschieden sind, was von den meisten Mathematikern vermutet wird.
+Falls sich herausstellen würde, dass $P = NP$ gilt, würde es bedeuten, dass es für alle NP-vollständigen Probleme einen Algorithmus gibt der das Problem in polynomieller Zeit löst.
+Wenn also jemand es schafft einen allgemeinen Algorithmus zu finden der Sudokus oder Polynomgleichungssysteme, welche wie besprochen NP-vollständig sind, löst, hätte das $P = NP$ bewiesen.
+Dies hätte schwerwiegende Auswirkungen zum Beispiel auf die Kryptographie:
+Die meisten Kryptographischen Systeme basieren auf einer langen Rechenzeit um einen unbekannten \emph{Key} zu berechnen.
+Der beste Weg so einen Key zu berechnen ist meistens durch Bruteforcing\footnote{Alle möglichen Varianten ausprobieren.}.
+Wenn es auf einmal einen Weg gibt Keys in polynomieller Zeit zu berechnen, wären viele kryptographische Systeme nicht mehr sicher.
