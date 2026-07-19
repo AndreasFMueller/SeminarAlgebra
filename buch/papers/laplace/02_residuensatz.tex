@@ -1,0 +1,168 @@
+%
+% Teil 2: Auswertung des Bromwich-Integrals mit dem Residuensatz
+% und dem Lemma von Jordan (Schliessen der Kontur ueber den im Ursprung
+% zentrierten Kreisbogen, D-Kontur)
+%
+\subsection{Auswertung mit dem Residuensatz: die geschlossene D-Kontur}
+\label{laplace:subsection:residuensatz}
+
+Mit Gleichung~\eqref{laplace:eq:bromwich_integral} ist die Inversion zwar
+formal gelöst, praktisch stehen wir aber vor einem unendlich langen
+Integrationsweg mitten in der komplexen Ebene.
+Der Schlüssel zur konkreten Auswertung ist der Residuensatz, der im ersten
+Teil dieses Buches ausführlich hergeleitet wurde und dessen Anwendung auf
+Konturintegrale beispielsweise in \cite{laplace:ablowitz2003} vertieft wird.
+Ist $G(s)$ innerhalb einer geschlossenen, positiv orientierten Kurve $C$
+holomorph bis auf endlich viele isolierte Singularitäten $s_1,\dots,s_n$,
+so gilt
+\begin{equation}
+    \oint_C G(s) \, ds
+    =
+    2\pi i \sum_{k=1}^{n} \operatorname{Res}\bigl(G(s), s_k\bigr).
+    \label{laplace:eq:residuensatz}
+\end{equation}
+Entscheidend ist dabei ein oft übersehenes Detail:
+Nur die von der Kurve \emph{eingeschlossenen} Singularitäten tragen zum
+Integral bei.
+Eine Polstelle, die auch nur knapp ausserhalb der Kontur liegt, ist für das
+Integral schlicht unsichtbar.
+Abbildung~\ref{laplace:fig:pol_auswahl} veranschaulicht diese Auswahlregel.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/pol_auswahl.tex}
+    \caption{Auswahlregel des Residuensatzes:
+    Nur die von der geschlossenen Kontur $C$ eingeschlossenen Polstellen
+    (rot) liefern einen Beitrag $2\pi i \operatorname{Res}$ zum
+    Konturintegral.
+    Die Polstelle ausserhalb der Kontur (grau) ist für das Integral
+    unsichtbar.}
+    \label{laplace:fig:pol_auswahl}
+\end{figure}
+
+Der Residuensatz verlangt allerdings eine \emph{geschlossene} Kurve, während
+der Bromwich-Pfad eine offene, unendlich lange Gerade ist.
+Wir müssen die Gerade also künstlich schliessen, und zwar so, dass der
+hinzugefügte Wegabschnitt im Grenzfall nichts zum Integral beiträgt.
+Die Richtung des Schliessens gibt der Faktor $e^{st}$ vor.
+Wegen
+\begin{equation}
+    \bigl| e^{st} \bigr|
+    =
+    e^{t \, \text{Re}(s)}
+    \label{laplace:eq:betrag_est}
+\end{equation}
+fällt der Integrand für $t > 0$ exponentiell ab, sobald wir uns in die linke
+Halbebene $\text{Re}(s) < 0$ begeben, und er explodiert in der rechten.
+Wir schliessen die Kontur daher nach links, und zwar über einen grossen,
+im Ursprung zentrierten Kreisbogen $\Gamma_R$, wie ihn auch
+\cite{laplace:carslaw1959} verwendet.
+Da sämtliche Singularitäten von $F(s)$ links der Geraden
+$\text{Re}(s) = \gamma$ liegen, fängt die geschlossene Kurve sie für
+hinreichend grosses $R$ alle ein.
+Zusammen mit dem vertikalen Geradenstück, das als Sehne des Kreises
+zwischen den beiden Schnittpunkten mit dem Bogen verläuft, entsteht die
+in Abbildung~\ref{laplace:fig:d_kontur} gezeigte geschlossene Kurve, die
+wegen ihrer Form als \emph{D-Kontur} bezeichnet wird.
+Dass der ursprungszentrierte Bogen dabei im Streifen
+$0 < \text{Re}(s) < \gamma$ ein kleines Stück in die rechte Halbebene
+hineinragt, wird sich gleich als harmlos erweisen.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/d_kontur.tex}
+    \caption{Die geschlossene D-Kontur:
+    Der vertikale Bromwich-Pfad bildet die Sehne eines im Ursprung
+    zentrierten Kreises, dessen grosser Bogen $\Gamma_R$ die Kurve nach
+    links schliesst und dabei im Streifen $0 < \text{Re}(s) < \gamma$
+    leicht in die rechte Halbebene hineinragt.
+    Für $R \to \infty$ umschliesst die Kurve alle Singularitäten von
+    $F(s)$, während der Beitrag des Bogens nach dem Lemma von Jordan
+    verschwindet.}
+    \label{laplace:fig:d_kontur}
+\end{figure}
+
+Dass der Bogenbeitrag tatsächlich verschwindet, ist keineswegs
+selbstverständlich, denn die Bogenlänge wächst proportional zu $R$ ins
+Unendliche.
+Tief in der linken Halbebene ist das unkritisch:
+Dort erdrückt der exponentielle Abfall von $e^{st}$ aus
+Gleichung~\eqref{laplace:eq:betrag_est} das nur lineare Anwachsen der
+Weglänge mühelos.
+Kritisch sind allein die Bogenstücke nahe der imaginären Achse und im
+schmalen Streifen bis $\text{Re}(s) = \gamma$, wo
+$|e^{st}| \leq e^{\gamma t}$ lediglich beschränkt ist; dort muss der
+gleichmässige Abfall der Bildfunktion einspringen.
+Genau das leistet das \emph{Lemma von Jordan} in der für die
+Laplace-Inversion passenden Form, wie sie etwa in
+\cite{laplace:doetsch1961} als Satz 34.2 bewiesen wird:
+Strebt $F(s)$ auf den Bögen für $|s| \to \infty$ gleichmässig gegen
+null, so gilt für $t > 0$
+\begin{equation}
+    \lim_{R \to \infty} \int_{\Gamma_R} e^{st} F(s) \, ds
+    =
+    0.
+    \label{laplace:eq:jordan}
+\end{equation}
+Das Resultat deckt auch die rechts der imaginären Achse liegenden
+Bogenstücke ab, denn deren geometrische Länge bleibt für $R \to \infty$
+beschränkt:
+Jedes der beiden Bogenstücke durchquert den Streifen
+$0 < \text{Re}(s) < \gamma$ nahezu senkrecht, und seine Länge
+$R \arcsin(\gamma/R)$ strebt für $R \to \infty$ gegen den festen Wert
+$\gamma$.
+Auf einem Wegstück beschränkter Länge, auf dem $|e^{st}| \leq e^{\gamma t}$
+gilt, löscht der gleichmässige Abfall von $F(s)$ den Beitrag ebenfalls
+aus.
+Für die in der Praxis auftretenden Bildfunktionen, etwa gebrochen rationale
+Funktionen mit Nennergrad grösser als Zählergrad, ist diese Voraussetzung
+stets erfüllt.
+
+Damit fällt das Puzzle zusammen.
+Lassen wir in der D-Kontur den Radius $R$ gegen unendlich streben, so
+verschwindet der Bogenbeitrag nach
+Gleichung~\eqref{laplace:eq:jordan}, das vertikale Geradenstück wird zum
+Bromwich-Integral, und der Residuensatz
+\eqref{laplace:eq:residuensatz} liefert die bemerkenswert kompakte
+Inversionsformel
+\begin{equation}
+    f(t)
+    =
+    \frac{1}{2\pi i} \int_{\gamma - i\infty}^{\gamma + i\infty}
+    F(s) e^{st} \, ds
+    =
+    \sum_{k} \operatorname{Res}\bigl(F(s) e^{st}, s_k\bigr).
+    \label{laplace:eq:inversion_residuen}
+\end{equation}
+Das unendliche Linienintegral ist zu einer endlichen Summe über die
+Singularitäten von $F(s)$ geschrumpft.
+Die gesamte Information über den zeitlichen Verlauf von $f(t)$ steckt also
+in der Lage und Art der Singularitäten der Bildfunktion.
+
+Ein kurzer Test an einem bekannten Korrespondenzpaar zeigt, dass die Formel
+hält, was sie verspricht.
+Die Bildfunktion $F(s) = \frac{1}{s-a}$ besitzt einen einfachen Pol bei
+$s = a$ mit dem Residuum
+\begin{equation}
+    \operatorname{Res}\left(\frac{e^{st}}{s-a}, a\right)
+    =
+    \lim_{s \to a} (s-a) \frac{e^{st}}{s-a}
+    =
+    e^{at}.
+    \label{laplace:eq:beispiel_exponential}
+\end{equation}
+Gleichung~\eqref{laplace:eq:inversion_residuen} liefert also
+$f(t) = e^{at}$ und reproduziert damit exakt den Eintrag der
+Exponentialfunktion aus Tabelle~\ref{laplace:tab:korrespondenzen}.
+Was dort als auswendig gelernte Korrespondenz stand, ist jetzt das Residuum
+eines Konturintegrals.
+
+So elegant dieser Mechanismus ist, er trägt eine versteckte Voraussetzung
+in sich:
+$F(s)$ muss in der ganzen linken Halbebene eine \emph{eindeutige},
+meromorphe Funktion sein, denn nur dann dürfen wir die D-Kontur überhaupt
+zuziehen.
+Genau diese Eindeutigkeit geht verloren, sobald Wurzeln oder Logarithmen
+der Variablen $s$ auftreten.
+Warum das bei physikalisch völlig harmlosen Problemen passiert und wie die
+Kontur dann repariert werden muss, ist das Thema des nächsten Abschnitts.

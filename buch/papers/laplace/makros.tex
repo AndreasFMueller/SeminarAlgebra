@@ -19,4 +19,8 @@
   \mathrel{\bullet}\joinrel\relbar\joinrel\relbar\joinrel\mathrel{\circ}%
 }
 
-
+\tikzset{
+    ->-/.style={decoration={
+        markings,
+        mark=at position #1 with {\arrow{Stealth[length=3mm, width=2mm]}}},postaction={decorate}}
+}

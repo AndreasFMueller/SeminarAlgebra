@@ -1,0 +1,222 @@
+%
+% Teil 3: Verzweigungspunkte und Verzweigungsschnitte am Beispiel
+% des halbunendlichen Waermeleiters; Schluesselloch-Kontur (Keyhole)
+%
+\subsection{Verzweigungsschnitte und die Schlüsselloch-Kontur}
+\label{laplace:subsection:verzweigung}
+
+Wie schnell mehrdeutige Funktionen auftreten, zeigt das Paradebeispiel der
+instationären Wärmeleitung.
+Ein halbunendlicher Stab $x \geq 0$ mit Anfangstemperatur null wird durch
+die normierte Wärmeleitungsgleichung
+\begin{equation}
+    \frac{\partial^2 U}{\partial x^2}
+    =
+    \frac{\partial U}{\partial t}
+    \label{laplace:eq:waermeleitung}
+\end{equation}
+beschrieben, wobei am Ende $x = 0$ eine vorgegebene Randtemperatur
+$A_0(t)$ eingeprägt wird und die verschwindende Anfangstemperatur formal
+durch die Anfangsbedingung
+\begin{equation}
+    U(x, 0)
+    =
+    0
+    \label{laplace:eq:anfangsbedingung}
+\end{equation}
+ausgedrückt wird.
+Die Laplace-Transformation bezüglich der Zeit macht aus der Zeitableitung
+gemäss der Ableitungsregel aus
+Tabelle~\ref{laplace:tab:korrespondenzen} eine Multiplikation,
+\begin{equation}
+    \mathcal{L}\left\{\frac{\partial U}{\partial t}\right\}
+    =
+    s \, u(x,s) - U(x,0)
+    =
+    s \, u(x,s),
+    \label{laplace:eq:ableitungsregel}
+\end{equation}
+wobei der Anfangswertterm genau wegen
+Gleichung~\eqref{laplace:eq:anfangsbedingung} entfällt.
+Aus der partiellen Differentialgleichung wird so eine gewöhnliche
+Differentialgleichung für die Bildfunktion
+$u(x,s) = \mathcal{L}\{U(x,t)\}$, nämlich
+\begin{equation}
+    \frac{d^2 u}{d x^2}
+    =
+    s \, u,
+    \label{laplace:eq:bildgleichung}
+\end{equation}
+mit der allgemeinen Lösung
+$u(x,s) = c_1 e^{x\sqrt{s}} + c_2 e^{-x\sqrt{s}}$.
+Da die Temperatur für $x \to \infty$ beschränkt bleiben muss, scheidet der
+anwachsende Anteil aus; das setzt allerdings $\text{Re}\sqrt{s} > 0$
+voraus, denn nur dann wächst $e^{x\sqrt{s}}$ tatsächlich an, während
+$e^{-x\sqrt{s}}$ beschränkt bleibt.
+Auf dem gleich eingeführten Hauptzweig der Wurzel ist genau das der Fall,
+sodass $c_1 = 0$ folgt.
+Mit der transformierten Randbedingung
+$a_0(s) = \mathcal{L}\{A_0(t)\}$ erhalten wir
+\begin{equation}
+    u(x,s)
+    =
+    a_0(s) \, u_0(x,s),
+    \qquad
+    u_0(x,s)
+    =
+    e^{-x\sqrt{s}},
+    \label{laplace:eq:halbunendlich_loesung}
+\end{equation}
+wie in \cite{laplace:doetsch1961} im Detail hergeleitet wird.
+Die Lösung zerfällt also in die transformierte Randanregung $a_0(s)$ und
+eine \emph{Basislösung} $u_0(x,s)$, die am Rand $x = 0$ den Wert eins
+annimmt und das reine Ortsprofil beschreibt; dieselbe Aufspaltung wird uns
+beim Stab endlicher Länge wieder begegnen.
+Die Geometrie des halbunendlichen Gebietes hat uns also zwangsläufig eine
+Wurzel $\sqrt{s}$ eingebrockt.
+
+Diese Wurzel ist keine harmlose Funktion, sondern \emph{mehrdeutig}.
+Zu jedem $s \neq 0$ existieren zwei Werte $w$ mit $w^2 = s$, und welcher
+davon gemeint ist, hängt vom gewählten Zweig ab.
+Schreiben wir $s = r e^{i\theta}$ und umlaufen den Ursprung einmal, indem
+$\theta$ von $0$ bis $2\pi$ wächst, so geht
+$\sqrt{s} = \sqrt{r}\, e^{i\theta/2}$ in
+$\sqrt{r}\, e^{i\pi} = -\sqrt{r}$ über:
+Die Funktion kehrt nicht zu ihrem Ausgangswert zurück, sondern wechselt
+das Vorzeichen \cite{laplace:ablowitz2003}.
+Der Ursprung $s = 0$ ist deshalb ein \emph{Verzweigungspunkt} von
+$\sqrt{s}$.
+Für den Residuensatz ist das fatal, denn er setzt eine eindeutige,
+holomorphe Funktion voraus.
+Der Ausweg besteht darin, geschlossene Umläufe um den Verzweigungspunkt von
+vornherein zu verbieten:
+Wir schlitzen die Ebene entlang eines \emph{Verzweigungsschnittes} auf, der
+den Verzweigungspunkt $s = 0$ mit dem zweiten Verzweigungspunkt
+$s = \infty$ verbindet, und arbeiten auf dem Hauptzweig
+$-\pi < \arg s < \pi$.
+Der Schnitt liegt dann auf der negativen reellen Achse, und diese Wahl ist
+kein Zufall.
+Auf dem Hauptzweig gilt nämlich $\text{Re}\sqrt{s} \geq 0$, sodass
+$|e^{-x\sqrt{s}}| \leq 1$ beschränkt bleibt, was genau der physikalischen
+Beschränktheit der Temperatur entspricht.
+Ausserdem bleibt die rechte Halbebene mitsamt dem Bromwich-Pfad
+unangetastet.
+
+Nur dürfen wir die D-Kontur aus
+Abschnitt~\ref{laplace:subsection:residuensatz} jetzt nicht mehr einfach
+zuziehen, denn ihr Kreisbogen würde den Schnitt bei $s = -R$ einmal
+durchstossen.
+Die Kontur muss dem Schnitt ausweichen:
+Sie läuft von oben kommend bis knapp an die negative reelle Achse heran,
+folgt ihr oberhalb des Schnittes nach innen, umrundet den
+Verzweigungspunkt auf einem kleinen Kreis $\Gamma_\rho$ und kehrt
+unterhalb des Schnittes wieder nach aussen zurück.
+Das Ergebnis ist die berühmte \emph{Schlüsselloch-Kontur}, die in
+Abbildung~\ref{laplace:fig:keyhole_kontur} dargestellt ist.
+Innerhalb dieser Kurve ist der Integrand eindeutig und holomorph bis auf
+isolierte Pole, sodass der Residuensatz wieder anwendbar ist.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/keyhole_kontur.tex}
+    \caption{Die Schlüsselloch-Kontur für Bildfunktionen mit
+    Verzweigungspunkt bei $s = 0$.
+    Der Verzweigungsschnitt (rote Wellenlinie) auf der negativen reellen
+    Achse wird von den beiden horizontalen Wegen $L_+$ und $L_-$
+    eingerahmt, der kleine Kreis $\Gamma_\rho$ umgeht den
+    Verzweigungspunkt.
+    Innerhalb der Kontur ist $\sqrt{s}$ eindeutig, und der Residuensatz
+    erfasst nur die eingeschlossenen Pole, hier $s = \pm i\omega$.}
+    \label{laplace:fig:keyhole_kontur}
+\end{figure}
+
+Wie diese Kontur konkret arbeitet, zeigt das klassische Beispiel aus
+\cite{laplace:doetsch1961}, bei dem das Stabende mit der Temperatur
+$A_0(t) = \cos \omega t$ angeregt wird.
+Wegen $\mathcal{L}\{\cos \omega t\} = \frac{s}{s^2 + \omega^2}$ lautet die
+Bildfunktion
+\begin{equation}
+    u(x,s)
+    =
+    \frac{s}{s^2 + \omega^2} \, e^{-x\sqrt{s}},
+    \label{laplace:eq:keyhole_beispiel}
+\end{equation}
+mit einfachen Polen bei $s = \pm i\omega$ und dem Verzweigungspunkt bei
+$s = 0$.
+Der Residuensatz auf der Schlüsselloch-Kontur liefert $2\pi i$ mal die
+Residuen an den beiden eingeschlossenen Polen.
+Im Grenzübergang verschwinden die grossen Bögen nach dem Lemma von Jordan,
+denn $\frac{s}{s^2+\omega^2}$ fällt wie $\frac{1}{s}$ ab und
+$|e^{-x\sqrt{s}}| \leq 1$ stört dabei nicht.
+Auch der kleine Kreis $\Gamma_\rho$ trägt nichts bei, weil der Integrand
+dort beschränkt ist und die Weglänge gegen null schrumpft.
+Die Residuen selbst rechnen wir in zwei Schritten aus.
+Am einfachen Pol $s = i\omega$ liefert die Grenzwertformel zunächst
+\begin{equation}
+    \operatorname{Res}\bigl(u(x,s)e^{st}, i\omega\bigr)
+    =
+    \lim_{s \to i\omega}
+    (s - i\omega) \,
+    \frac{s \, e^{st - x\sqrt{s}}}{(s - i\omega)(s + i\omega)}
+    =
+    \frac{i\omega \, e^{i\omega t - x\sqrt{i\omega}}}{2 i\omega}
+    =
+    \frac{1}{2} \, e^{i\omega t - x\sqrt{i\omega}}.
+    \label{laplace:eq:keyhole_grenzwert}
+\end{equation}
+Die verbleibende Wurzel werten wir in Polarform aus.
+Wegen $i = e^{i\pi/2}$ ist
+$\sqrt{i\omega}
+= \sqrt{\omega} \, e^{i\pi/4}
+= \sqrt{\omega} \, \frac{1 + i}{\sqrt{2}}
+= \sqrt{\tfrac{\omega}{2}} \, (1 + i)$,
+und am Pol $s = -i\omega$ ergibt sich völlig analog der konjugierte
+Wert.
+Zusammengefasst lauten die beiden Residuen also
+\begin{equation}
+    \operatorname{Res}\bigl(u(x,s)e^{st}, \pm i\omega\bigr)
+    =
+    \frac{1}{2} \,
+    e^{-x\sqrt{\omega/2}} \,
+    e^{\pm i\left(\omega t - x\sqrt{\omega/2}\right)},
+    \label{laplace:eq:keyhole_residuen}
+\end{equation}
+und ihre Summe ergibt den reellen Ausdruck
+$e^{-x\sqrt{\omega/2}} \cos\bigl(\omega t - x\sqrt{\omega/2}\bigr)$.
+
+Der eigentliche Clou passiert aber am Schnitt.
+Oberhalb gilt $s = r e^{i\pi}$ und damit $\sqrt{s} = i\sqrt{r}$, unterhalb
+dagegen $s = r e^{-i\pi}$ und $\sqrt{s} = -i\sqrt{r}$.
+Die Integranden auf $L_+$ und $L_-$ sind also verschieden, die beiden
+Wegintegrale heben sich \emph{nicht} auf, und genau ihre Differenz bleibt
+als reelles Integral übrig.
+Sortiert man alle Beiträge, so entsteht die Lösung
+\begin{equation}
+    U(x,t)
+    =
+    e^{-x\sqrt{\omega/2}}
+    \cos\Bigl(\omega t - x\sqrt{\tfrac{\omega}{2}}\Bigr)
+    -
+    \frac{1}{\pi}
+    \int_0^\infty
+    e^{-rt} \, \frac{r}{r^2 + \omega^2} \, \sin\bigl(x \sqrt{r}\bigr)
+    \, dr.
+    \label{laplace:eq:keyhole_loesung}
+\end{equation}
+Diese Formel erzählt die ganze Physik des Problems.
+Der erste Term stammt von den Polen und beschreibt den eingeschwungenen
+Zustand:
+Eine Temperaturwelle dringt in den Stab ein, wird dabei exponentiell
+gedämpft und läuft der Anregung mit wachsender Tiefe zunehmend hinterher.
+Der zweite Term stammt vom Verzweigungsschnitt und ist ein transienter
+Einschwingvorgang, der wegen des Faktors $e^{-rt}$ für grosse Zeiten
+abklingt.
+Während isolierte Pole diskrete Beiträge $e^{s_k t}$ liefern, wirkt der
+Schnitt wie ein \emph{Kontinuum} von Abklingraten $e^{-rt}$, über das
+integriert werden muss.
+
+Damit drängt sich eine Frage auf.
+Der Verzweigungsschnitt kam über die Wurzel $\sqrt{s}$ ins Spiel, und die
+Wurzel kam über das halbunendliche Gebiet.
+Was passiert, wenn der Stab eine endliche Länge $l$ besitzt?
+Die Antwort ist verblüffend und der schönste Aha-Moment dieser Arbeit.
