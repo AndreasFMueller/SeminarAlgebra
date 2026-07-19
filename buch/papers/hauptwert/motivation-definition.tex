@@ -76,6 +76,53 @@ Der Grenzwert $\epsilon \to 0^+$, $R \to \infty$ existiert somit und ist $0$,
 im Gegensatz zum unabhängigen Grenzwert aus
 \eqref{hauptwert:equation:aufteilung}, welcher nicht existiert.
 
+\subsection{Definition}
+Die symmetrische Annäherung lässt sich für beliebige Integranden
+formalisieren.
+Es gibt zwei Fälle zu unterscheiden --- Der erste Fall
+(Definition~\ref{hauptwert:definition:pol}) betrifft eine
+Divergenz in der Mitte des Integranden in Form einer Singularität.
+Definition~\ref{hauptwert:definition:unendlich} betrifft eine
+Divergenz an den unendlichen Integrationsgrenzen $\pm\infty$.
+
+\begin{definition}
+\label{hauptwert:definition:pol}
+Sei $f$ auf $[a,b]\setminus\{x_0\}$ stetig mit einer Singularität
+an der inneren Stelle $x_0 \in (a,b)$.
+Der \emph{Cauchy-Hauptwert} des Integrals von $f$ über $[a,b]$ ist
+\begin{equation*}
+\pv\int_a^b f(x)\,dx
+= \lim_{\epsilon\to 0^+}
+\biggl(
+\int_a^{x_0-\epsilon} f(x)\,dx + \int_{x_0+\epsilon}^{b} f(x)\,dx
+\biggr),
+\end{equation*}
+sofern dieser Grenzwert existiert.
+\end{definition}
+
+\begin{definition}
+\label{hauptwert:definition:unendlich}
+Sei $f$ auf $\mathbb{R}$ stetig.
+Der \emph{Cauchy-Hauptwert} des Integrals von $f$ über $\mathbb{R}$ ist
+\begin{equation*}
+\pv\int_{-\infty}^{\infty} f(x)\,dx
+= \lim_{R\to\infty} \int_{-R}^{R} f(x)\,dx,
+\end{equation*}
+sofern dieser Grenzwert existiert.
+\end{definition}
+
+Treten wie bei $f(x) = 1/x$ beide Arten der Divergenz gleichzeitig auf,
+werden beide Regularisierungen kombiniert:
+\begin{equation}
+\pv\int_{-\infty}^{\infty} \frac{1}{x}\,dx
+= \lim_{\substack{\epsilon\to 0^+\\ R\to\infty}}
+\biggl(
+\int_{-R}^{-\epsilon} \frac{dx}{x} + \int_{\epsilon}^{R} \frac{dx}{x}
+\biggr)
+= 0.
+\label{hauptwert:equation:kombiniert}
+\end{equation}
+
 \subsection{Ein weiteres Beispiel in der reellen Analysis}
 Als zweites Beispiel betrachten wir die Funktion $f(x) = \frac{x + 1}{1 + x^2}$
 und deren uneigentliches Integral $\int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx$.
