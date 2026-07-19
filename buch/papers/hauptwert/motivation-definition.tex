@@ -77,25 +77,32 @@ im Gegensatz zum unabhängigen Grenzwert aus
 \eqref{hauptwert:equation:aufteilung}, welcher nicht existiert.
 
 \subsection{Ein weiteres Beispiel in der reellen Analysis}
-Als zweites Beispiel betrachten wir die Funktion $f(x) = \frac{x}{1 + x^2}$
-und deren uneigentliches Integral $\int_{-\infty}^{\infty} \frac{x}{1 + x^2}\,dx$.
-\input{papers/hauptwert/fig/ungerade.tex}
-Abbildung \ref{hauptwert:figure:ungerade} zeigt den Graphen des Integranden.
+Als zweites Beispiel betrachten wir die Funktion $f(x) = \frac{x + 1}{1 + x^2}$
+und deren uneigentliches Integral $\int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx$.
+\input{papers/hauptwert/fig/nichtungerade.tex}
+Abbildung \ref{hauptwert:figure:nichtungerade} zeigt den Graphen des Integranden.
 Versucht man wieder asymmetrisch von $-\infty$ nach $\infty$ zu integrieren,
 erhält man
 \begin{equation}
 \begin{aligned}
-  \int_{-\infty}^{\infty} \frac{x}{1 + x^2}\,dx
-  &= \Bigl[\tfrac{1}{2}\ln(1 + x^2)\Bigr]_{-\infty}^{\infty} \\
-  &= \lim_{x\to\infty} \tfrac{1}{2}\ln(1 + x^2)
-   - \lim_{x\to-\infty} \tfrac{1}{2}\ln(1 + x^2),
+  \int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx
+  &= \int_{-\infty}^{\infty}
+     \biggl(\frac{x}{1 + x^2} + \frac{1}{1 + x^2}\biggr)\,dx \\
+  &= \Bigl[\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr]_{-\infty}^{\infty} \\
+  &= \lim_{x\to\infty} \Bigl(\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr)
+   - \lim_{x\to-\infty} \Bigl(\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr),
 \end{aligned}
 \end{equation}
-also wieder den unbestimmten Ausdruck $\infty - \infty$:
-Das uneigentliche Integral existiert nicht.
-Da der Integrand aber ungerade ist, heben sich die Flächen links und
-rechts vom Ursprung bei symmetrischen Grenzen $\pm R$ exakt auf,
-der Cauchy-Hauptwert existiert also und ist
+also wieder den unbestimmten Ausdruck $\infty - \infty$.
+Das uneigentliche Integral existiert also nicht.
+Da der Integrand aber wieder ungerade ist, liefert die symmetrische
+Annäherung nach Cauchy den Hauptwert
 \begin{equation}
-\pv\int_{-\infty}^{\infty} \frac{x}{1 + x^2}\,dx = 0.
+\begin{aligned}
+  \pv \int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx
+  &= \lim_{R\to\infty}
+     \Bigl[\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr]_{-R}^{R} \\
+  &= \lim_{R\to\infty} 2\arctan R \\
+  &= \pi.
+\end{aligned}
 \end{equation}
