@@ -23,7 +23,6 @@ Das Gleichungssystem
   \right. % macht auf rechter Seite keine Klammer, darum der Punkt.
   \label{buchberger:lineares-gleichungssystem-1}
 \end{equation}
-
 lässt sich bekanntlich mit dem Gauss-Algorithmus lösen.
 Das Vorgehen ist wie folgt:
 \begin{enumerate}
@@ -52,9 +51,10 @@ Dabei ensteht eine Gleichung, die nur noch $x$ enthält. Das Auflösen nach $x$ 
 \end{enumerate}
 
 Der Algorithmus lässt sich auf beliebig grosse Gleichungssysteme anwenden:
-
 Bei einem Gleichungssystem mit den Variablen $x_{0}, x_{1}, \dots, x_{n}$ erhält man nach der Vorwärtsreduktionsphase des Gauss-Algorithmus eine Zeilenstufenform,
 wobei in der untersten Gleichung nur noch die Variable $x_{n}$ vorkommt und deren Lösung sich direkt ablesen lässt.
-Die nächsthöhere Gleichung lässt sich dann iterativ lösen, indem man immer die Lösungen der bereits fixierten Variablen einsetzt.\footnote{Diese letzte Phase des Gauss-Algorithmus nennt sich das \emph{Rückwärtseinsetzen}.}
+Die nächsthöhere Gleichung lässt sich dann iterativ lösen, indem man immer die Lösungen der bereits fixierten Variablen einsetzt.
+Diese letzte Phase des Gauss-Algorithmus nennt sich das \emph{Rückwärtseinsetzen}.
 
-Bemerkenswert ist, dass ein zunächst schwer lösbares Gleichungssystem in ein äquivalentes\footnote{Zwei Gleichungssysteme sind äquivalent, wenn sie exakt dieselbe Lösungsmenge besitzen.} Gleichungssystem umgewandelt wird, welches einfacher lösbar ist.
+Bemerkenswert ist, dass ein zunächst schwer lösbares Gleichungssystem in ein äquivalentes Gleichungssystem umgewandelt wird, welches einfacher lösbar ist.
+Zwei Gleichungssysteme werden als äquivalent bezeichnet, wenn sie exakt dieselbe Lösungsmenge besitzen.
