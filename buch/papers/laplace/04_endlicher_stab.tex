@@ -1,0 +1,214 @@
+%
+% Teil 4: Der Stab endlicher Laenge -- keine Verzweigung, sondern
+% unendlich viele Pole auf der negativen reellen Achse;
+% Residuenreihe (Fourier-Reihe) und Grenzuebergang l -> unendlich
+%
+\section{Der Stab endlicher Länge: unendlich viele Pole statt
+Verzweigungsschnitt}
+\label{laplace:subsection:endlicher_stab}
+
+Wir betrachten nun denselben Wärmeleiter, aber mit endlicher Länge $l$.
+Am linken Ende $x = 0$ wird die Temperatur $A_0(t)$ eingeprägt, das rechte
+Ende $x = l$ wird auf null gehalten, und die Anfangstemperatur verschwindet.
+Die Bildgleichung~\eqref{laplace:eq:bildgleichung} bleibt unverändert, nur
+treten an die Stelle der Beschränktheitsforderung jetzt zwei
+Randbedingungen.
+Wie beim halbunendlichen Stab spalten wir die Lösung in die Randanregung
+$a_0(s)$ und eine Basislösung $u_0$ auf, die am linken Rand den Wert eins
+und am rechten den Wert null annimmt.
+Die Basislösung gewinnen wir aus der allgemeinen exponentiellen Lösung
+$c_1 e^{x\sqrt{s}} + c_2 e^{-x\sqrt{s}}$ von
+Gleichung~\eqref{laplace:eq:bildgleichung}:
+Die Randbedingung bei $x = l$ erzwingt die antisymmetrische Kombination
+$\sinh\bigl((l-x)\sqrt{s}\bigr)
+= \tfrac{1}{2}\bigl(e^{(l-x)\sqrt{s}} - e^{-(l-x)\sqrt{s}}\bigr)$,
+die dort verschwindet, und die Normierung auf den Wert eins bei $x = 0$
+liefert den Nenner $\sinh\bigl(l\sqrt{s}\bigr)$.
+So ergibt sich
+\begin{equation}
+    u(x,s)
+    =
+    a_0(s) \, u_0(x,s),
+    \qquad
+    u_0(x,s)
+    =
+    \frac{\sinh\bigl((l-x)\sqrt{s}\bigr)}{\sinh\bigl(l\sqrt{s}\bigr)},
+    \label{laplace:eq:stab_bildfunktion}
+\end{equation}
+wie ebenfalls in \cite{laplace:doetsch1961} vorgerechnet wird.
+Um die Formeln übersichtlich zu halten, setzen wir im Folgenden $l = \pi$;
+der allgemeine Fall entsteht daraus durch einfache Skalierung.
+
+Wieder steht $\sqrt{s}$ in der Bildfunktion, und nach dem letzten Abschnitt
+erwarten wir reflexartig einen Verzweigungsschnitt.
+Doch die Erwartung trügt.
+Ersetzen wir probeweise $\sqrt{s}$ durch $-\sqrt{s}$, was genau dem
+Wechsel auf den anderen Zweig der Wurzel entspricht, so wechseln wegen
+$\sinh(-z) = -\sinh(z)$ Zähler und Nenner \emph{gleichzeitig} das
+Vorzeichen:
+\begin{equation}
+    \frac{\sinh\bigl(-(\pi-x)\sqrt{s}\bigr)}
+         {\sinh\bigl(-\pi\sqrt{s}\bigr)}
+    =
+    \frac{-\sinh\bigl((\pi-x)\sqrt{s}\bigr)}
+         {-\sinh\bigl(\pi\sqrt{s}\bigr)}
+    =
+    u_0(x,s).
+    \label{laplace:eq:eindeutigkeit}
+\end{equation}
+Die Funktion $u_0$ merkt vom Zweigwechsel überhaupt nichts, sie ist
+\emph{eindeutig}.
+Noch deutlicher wird das in der Potenzreihe, denn $\sinh$ ist ungerade, und
+deshalb enthält
+\begin{equation}
+    \sinh\bigl(a\sqrt{s}\bigr)
+    =
+    \sqrt{s}
+    \left(
+        a + \frac{a^3}{3!}\,s + \frac{a^5}{5!}\,s^2 + \cdots
+    \right)
+    \label{laplace:eq:sinh_reihe}
+\end{equation}
+die Wurzel nur als gemeinsamen Vorfaktor, der sich im Quotienten
+$u_0(x,s)$ herauskürzt.
+Übrig bleibt eine Potenzreihe in $s$ selbst.
+Das ist der angekündigte Aha-Moment:
+Die endliche Geometrie hat den Verzweigungsschnitt zum Verschwinden
+gebracht, und $u_0$ ist eine meromorphe Funktion, deren einzige
+Singularitäten isolierte Pole sind.
+
+Diese Pole sind die Nullstellen des Nenners.
+Der komplexe Sinus Hyperbolicus hängt über die Identität
+$\sinh(z) = -i \sin(iz)$ mit dem Sinus zusammen; seine Nullstellen liegen
+deshalb sämtlich auf der imaginären Achse, bei $z = i\nu\pi$ mit
+ganzzahligem $\nu$.
+Aus $\sinh(\pi\sqrt{s}) = 0$ folgt somit $\pi\sqrt{s} = i\nu\pi$, also
+\begin{equation}
+    s_\nu
+    =
+    -\nu^2,
+    \qquad
+    \nu = 1, 2, 3, \dots,
+    \label{laplace:eq:polstellen}
+\end{equation}
+wobei $s = 0$ ausscheidet, weil dort auch der Zähler verschwindet und die
+Singularität hebbar ist.
+Die Bildfunktion besitzt somit \emph{unendlich viele} einfache Pole, die
+sich mit quadratisch wachsenden Abständen auf der negativen reellen Achse
+aufreihen, wie Abbildung~\ref{laplace:fig:pol_kette} zeigt.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/pol_kette.tex}
+    \caption{Die Singularitäten des Stabes endlicher Länge:
+    unendlich viele einfache Pole bei $s_\nu = -\nu^2$ auf der negativen
+    reellen Achse.
+    Die Abstände wachsen quadratisch, die Wellenlinie deutet die
+    Fortsetzung der Kette bis zum $n$-ten Pol und darüber hinaus an.
+    Die gestrichelten Bögen $C_n$ verlaufen jeweils zwischen zwei Polen
+    und schliessen den Bromwich-Pfad für die Residuenauswertung.}
+    \label{laplace:fig:pol_kette}
+\end{figure}
+
+Die Residuen an diesen Polen berechnen wir mit der Quotientenregel:
+Hat $f_2$ bei $s_0$ eine einfache Nullstelle und ist $f_1(s_0) \neq 0$, so
+ist das Residuum von $\frac{f_1}{f_2}$ dort gleich
+$\frac{f_1(s_0)}{f_2'(s_0)}$.
+Mit $f_2(s) = \sinh(\pi\sqrt{s})$ und
+$f_2'(s) = \frac{\pi}{2\sqrt{s}}\cosh(\pi\sqrt{s})$ ergibt sich nach
+kurzer Rechnung mit $\sqrt{s_\nu} = i\nu$ das erfreulich einfache Resultat
+\begin{equation}
+    \operatorname{Res}\bigl(u_0(x,s), -\nu^2\bigr)
+    =
+    \frac{2}{\pi} \, \nu \sin(\nu x).
+    \label{laplace:eq:stab_residuen}
+\end{equation}
+
+Für die Inversion können wir die D-Kontur nicht mehr in einem Zug
+schliessen, denn jeder feste Kreisbogen würde nur endlich viele der
+unendlich vielen Pole erfassen, und ein Bogen durch einen Pol hindurch ist
+verboten.
+Stattdessen schliessen wir den Bromwich-Pfad durch eine \emph{Folge} von
+wiederum im Ursprung zentrierten Bögen $C_n$, deren Radien
+\begin{equation}
+    R_n
+    =
+    \Bigl(n + \tfrac{1}{2}\Bigr)^2
+    \label{laplace:eq:bogenradien}
+\end{equation}
+zwischen den Polen $-n^2$ und $-(n+1)^2$ hindurchlaufen.
+Exakt mittig liegt der Radius dabei nur im transformierten
+$\sqrt{s}$-Raum, wo $\sqrt{R_n} = n + \tfrac{1}{2}$ die Nullstellen $n$
+und $n+1$ halbiert; in der $s$-Ebene selbst liegt
+$R_n = n^2 + n + \tfrac{1}{4}$ etwas näher am inneren Pol, was für das
+Argument aber keine Rolle spielt.
+Der $n$-te Bogen schliesst die ersten $n$ Pole ein:
+Für jedes feste $n$ liefert der Residuensatz auf der geschlossenen Kurve
+aus Geradenstück und Bogen $C_n$ die endliche Partialsumme der ersten $n$
+Residuen.
+Es wird also nichts von den Bögen \emph{subtrahiert} -- ihr Beitrag geht
+für $n \to \infty$ schlicht gegen null, und die Partialsummen konvergieren
+gegen die unendliche Residuenreihe.
+Für die Anregung mit einem Wärmeimpuls $A_0(t) = \delta(t)$, also
+$a_0(s) = 1$, erhalten wir so
+\begin{equation}
+    U_0(x,t)
+    =
+    \lim_{n \to \infty}
+    \frac{2}{\pi}
+    \sum_{\nu=1}^{n}
+    \nu \sin(\nu x) \, e^{-\nu^2 t}
+    =
+    \frac{2}{\pi}
+    \sum_{\nu=1}^{\infty}
+    \nu \sin(\nu x) \, e^{-\nu^2 t}.
+    \label{laplace:eq:stab_loesung}
+\end{equation}
+Ein Wort zur Sorgfalt ist hier angebracht.
+Der Nachweis, dass die Bogenintegrale tatsächlich verschwinden, ist der
+entscheidende und in technischen Texten am häufigsten unterschlagene
+Schritt; ohne ihn hat die Reihe nur heuristischen Charakter, wie
+\cite{laplace:doetsch1961} mit Nachdruck betont.
+Das Lemma von Jordan aus
+Abschnitt~\ref{laplace:subsection:residuensatz} greift hier nämlich nicht
+unmittelbar:
+Es verlangt, dass die Bildfunktion für $|s| \to \infty$
+\emph{gleichmässig} gegen null strebt, doch wegen der unendlich vielen
+Pole kommt der Nenner $\sinh(\pi\sqrt{s})$ in jeder noch so weit
+draussen liegenden Umgebung der negativen reellen Achse seinen
+Nullstellen beliebig nahe -- von gleichmässigem Abfall kann keine Rede
+sein.
+Der Nachweis muss deshalb gezielt auf den Radien $R_n$ geführt werden,
+die den Polen ausweichen und auf denen $|\sinh(\pi\sqrt{s})|$ nach unten
+beschränkt bleibt.
+Für die hier auftretenden Bildfunktionen lässt sich der Nachweis führen,
+und die entsprechenden Abschätzungen auf den grossen Kreisbögen werden in
+\cite{laplace:carslaw1959} für eine ganze Klasse von
+Wärmeleitungsproblemen sauber ausgearbeitet.
+
+Das Ergebnis~\eqref{laplace:eq:stab_loesung} verdient einen zweiten Blick,
+denn wir kennen es bereits aus einem ganz anderen Kontext.
+Es ist exakt die Fourier-Reihe, die die klassische Separation der
+Variablen liefert:
+Eigenmoden $\sin(\nu x)$ des endlichen Stabes, die mit den Raten
+$e^{-\nu^2 t}$ abklingen.
+Die Pole der Bildfunktion sind nichts anderes als die Eigenwerte des
+räumlichen Problems, und die Residuen sind die zugehörigen Eigenmoden.
+Der Residuensatz hat die Modalzerlegung nicht vorausgesetzt, sondern
+selbstständig wiederentdeckt.
+
+Damit klärt sich auch der Unterschied zum halbunendlichen Stab endgültig.
+Für allgemeine Länge $l$ liegen die Pole bei
+$s_\nu = -\frac{\nu^2\pi^2}{l^2}$, ihr Abstand ist also von der Ordnung
+$\frac{\pi^2}{l^2}$.
+Lassen wir $l$ wachsen, so rücken die Pole immer dichter zusammen, und im
+Grenzfall $l \to \infty$ verschmilzt die diskrete Polkette zu einem
+Kontinuum auf der negativen reellen Achse, eben dem Verzweigungsschnitt
+aus Abschnitt~\ref{laplace:subsection:verzweigung}.
+Gleichzeitig geht die Residuenreihe über die Raten $e^{-\nu^2\pi^2 t/l^2}$
+in das Schnittintegral über die Raten $e^{-rt}$ aus
+Gleichung~\eqref{laplace:eq:keyhole_loesung} über.
+Diskretes Spektrum bei endlicher Geometrie, kontinuierliches Spektrum bei
+unendlicher Geometrie:
+Die komplexe $s$-Ebene bildet die Physik des Problems mit bestechender
+Klarheit ab.

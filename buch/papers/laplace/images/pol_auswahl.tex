@@ -1,0 +1,72 @@
+\scalebox{0.85}{
+\begin{tikzpicture}
+
+% ==============================
+% 1. FARBEN DEFINIEREN
+% ==============================
+\definecolor{plotblue}{RGB}{0, 0, 200}
+\definecolor{plotred}{RGB}{220, 30, 30}
+\definecolor{plotgray}{RGB}{140, 140, 140}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+
+% ==============================
+% 2. ACHSEN
+% ==============================
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (-4.2, 0) -- (4.5, 0) node[right] {\textbf{Re}$(s)$};
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (0, -4.2) -- (0, 4.2) node[above] {\textbf{Im}$(s)$};
+
+% ==============================
+% 3. KONTUR C
+% ==============================
+% Geschlossene, organische Blob-Form, positiv orientiert
+\draw[thick, plotblue, decoration={markings, mark=at position 0.25 with {\arrow{Stealth[length=3mm, width=2mm]}},
+                          mark=at position 0.60 with {\arrow{Stealth[length=3mm, width=2mm]}},
+                          mark=at position 0.90 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (-0.5, 0) .. controls (1, 3) and (3, 1) .. 
+    (2, -1) .. controls (1.5, -3) and (-3, -3) .. 
+    (-2.5, -1) .. controls (-2, 1) and (-1, -1.5) .. (-0.5, 0);
+
+% Label C aussen
+\node[plotblue, font=\large] at (1.8, 1.8) {$C$};
+
+% ==============================
+% 4. POLE (Kreuze)
+% ==============================
+\newcommand{\pole}[3][plotred]{
+    \draw[thick, #1, line cap=round] (#2-0.12,#3-0.12) -- (#2+0.12,#3+0.12);
+    \draw[thick, #1, line cap=round] (#2-0.12,#3+0.12) -- (#2+0.12,#3-0.12);
+}
+
+% Innere Pole (rot)
+\pole{0.8}{0.8}
+\pole{0.0}{-1.8}
+\pole{-1.0}{-1.2}
+
+% Aeussere Pole (grau)
+\pole[plotgray]{3.0}{2.0}
+\pole[plotgray]{-2.8}{-2.0}
+
+% ==============================
+% 5. LEGENDE
+% ==============================
+\node[draw, thick, rounded corners=3pt, fill=white, inner xsep=5pt, inner ysep=4pt, anchor=north west] at (-4.0, 4.0) {
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{@{}c l@{}}
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotred, line cap=round] (-0.1,-0.1) -- (0.1,0.1) (-0.1,0.1) -- (0.1,-0.1);
+        } & Relevant \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotgray, line cap=round] (-0.1,-0.1) -- (0.1,0.1) (-0.1,0.1) -- (0.1,-0.1);
+        } & Irrelevant \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotblue, ->-=0.6] (-0.3, 0) -- (0.3, 0);
+        } & Kontur $C$ \\
+        
+    \end{tabular}
+};
+
+\end{tikzpicture}
+}
