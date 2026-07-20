@@ -15,59 +15,78 @@ Auch Leonhard Euler und James Stirling steuern im Laufe der Jahrhunderte ihre ei
 
 \subsection{Bohr-Mullerup Theorem}
 
-Um eine Funktion zu finden, welche die Fakultät erweitert, wird das Bohr-Mullerup Theorem verwendet.
-Erfüllt eine Funktion Eigenschaften \eqref{gamma-eq:bm-1}, \eqref{gamma-eq:bm-2} und \eqref{gamma-eq:bm-3}, kann sie als Erweiterung der Fakultät für nicht natürliche Zahlen betrachtet werden.
+Um eine Funktion zu finden, welche die Fakultät erweitert, wird das Bohr-Mollerup Theorem\cite{mollerup1922laerebog} verwendet. Es werden folgende Eigenschaften definiert:
 
-\begin{equation}\label{gamma-eq:bm-1}f(1) = 1\end{equation}
-\begin{equation}\label{gamma-eq:bm-2}f(x+1) = x \cdot f(x), x > 0\end{equation}
-\begin{equation}\label{gamma-eq:bm-3}f(x) \text{ ist logarithmisch konvex}\end{equation} 
+\begin{enumerate}
+\item\label{gamma-eq:bm-1}$f(1) = 1$
+\item\label{gamma-eq:bm-2}$f(x+1) = x \cdot f(x), x > 0$
+\item\label{gamma-eq:bm-3}$f(x) \text{ ist logarithmisch konvex}$
+\end{enumerate}
 
 \noindent
-Die Eigenschaft \eqref{gamma-eq:bm-1} ist selbsterklärend.
-Die Eigenschaft \eqref{gamma-eq:bm-2} verlangt, dass die Funktion rekursiv definiert werden kann. 
+Eine Funktion, welche die Eigenschaften~\ref{gamma-eq:bm-1},~\ref{gamma-eq:bm-2} und~\ref{gamma-eq:bm-3} erfüllt,
+kann als Erweiterung der Fakultät für nicht natürliche Zahlen betrachtet werden.
+
+Die Eigenschaft~\ref{gamma-eq:bm-1} ist selbsterklärend.
+Die Eigenschaft~\ref{gamma-eq:bm-2} verlangt, dass die Funktion rekursiv definiert werden kann.
 Die Fakultät erfüllt das, da $5! = 5 \cdot 4!$ ist.
-Die Eigenschaft \eqref{gamma-eq:bm-3} verlangt logarithmische Konvexität, was auch als ``wächst schnell'' verstanden werden kann.
+Die Eigenschaft~\ref{gamma-eq:bm-3} verlangt logarithmische Konvexität, was informell als ``wächst schnell'' verstanden werden kann.
 
 \subsubsection{Logarithmische Konvexität}
 
-Eine Kurve ist konvex, wenn diese wie in $f(x) = x^2$ nach oben geöffnet ist. 
-Von logarithmischer Konvexität spricht man, wenn nach der Anwendung des Logarithmus, die resultierende Funktion auch konvex ist.
-Gezeigt in Abb. \ref{gamma-fig:logConvex} anhand der Funktion $g(x) = e^{x^2}$.
+Eine Kurve ist konvex, wenn diese wie $f(x) = x^2+1$ nach oben geöffnet ist.
+Von logarithmischer Konvexität spricht man wenn, nach der Anwendung des Logarithmus, die resultierende Funktion auch konvex ist. Die Funktion $f$ ist zum Beispiel nicht logarithmisch konvex, denn die zweite Ableitung des Logarithmus ist stellenweise negativ, wie die Abb. \ref{gamma-fig:nonLogConvex} aufzeigt.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{papers/gamma/img/log_nonconvex.png}
+  \caption{Visualisierung der nicht erfüllten logarithmischen Konvexität von $f(x) = x^2+1$.}
+\label{gamma-fig:nonLogConvex}
+\end{figure}
+
+Ein Beispiel einer logarithmisch konvexen Funktion ist
 \begin{equation}
   \label{gamma-eq:logConvex}
-  g(x) = e^{x^2} \Rightarrow \ln(g(x)) = \ln\left(e^{x^2}\right) = x^2
+  g(x) = e^{x^2} \quad \Rightarrow \quad \ln(g(x)) = \ln\left(e^{x^2}\right) = x^2
 \end{equation}
-
-Die Funktion $x^2$ ist weiterhin nach oben geöffnet, womit $g(x)$ logarithmisch konvex ist.
+deren logarithmische Konvexität auch in~\ref{gamma-fig:logConvex} dargestellt wird.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{papers/gamma/img/log_convex_3.png}
   \caption{Visualisierung der logarithmischen Konvexität von $g(x) = e^{x^2}$.}
-  \label{gamma-fig:logConvex}
+\label{gamma-fig:logConvex}
 \end{figure}
 
 \subsubsection{Suche nach einer passenden Funktion}
 
-Eine Funktion welche Eigenschaften \eqref{gamma-eq:bm-1} und \eqref{gamma-eq:bm-2} erfüllt, lässt sich verhältnismässig leicht finden.
-Als Beispiel, nimmt man die Funktion \eqref{gamma-eq:sinusFunction}, wird Eigenschaft \eqref{gamma-eq:bm-1} durch den Shift nach rechts und die \eqref{gamma-eq:bm-2} durch die Periode des Sinus erfüllt.
-
+Eine Funktion, welche Eigenschaften \ref{gamma-eq:bm-1} und \ref{gamma-eq:bm-2} erfüllt, lässt sich verhältnismässig leicht finden.
+Als Beispiel, nimmt man die Funktion
 \begin{equation}
-  \label{gamma-eq:sinusFunction}
-  f(x) = 2\sin(2 \pi x)+1
+\label{gamma-eq:sinusFunction}
+    f : \interval[open left, soft open fences]{0}{1} \to \mathbb{R} \quad x \mapsto 2\sin(2 \pi x)+1
 \end{equation}
+wird Eigenschaft~\ref{gamma-eq:bm-1} durch die Verschiebung nach rechts bereits erfüllt. Sie kann dann gemäss Eigenschaft~\ref{gamma-eq:bm-2} rekursiv auf
+\begin{equation}
+\label{gamma-eq:rec-sinus-function}
+    f' : \mathbb{R} \to \mathbb{R} \quad x \mapsto \begin{cases}
+        x^{-1} \cdot f(x+1) & x \leq 0 \\
+        2\sin(2 \pi x)+1   & 0 < x \leq 1 \\
+        x \cdot f(x-1)     & x > 1
+\end{cases}
+\end{equation}
+erweitert werden und erfüllt somit diese auch.
 
-Wie die Grafik \ref{gamma-fig:almostGammaFunction} zeigt, geht \eqref{gamma-eq:sinusFunction} durch die bekannten Fakultät-Werte.
-Die Ausschläge nach unten und oben zeigen grafisch, dass die logarithmische Konvexität \eqref{gamma-eq:bm-3} für diese Funktion nicht gegeben sein kann.
+Wie die Grafik~\ref{gamma-fig:almostGammaFunction} zeigt, nimmt~\eqref{gamma-eq:rec-sinus-function} die bekannten Fakultätswerte an.
+Die Ausschläge nach unten und oben zeigen grafisch, dass die logarithmische Konvexität (Eigenschaft~\ref{gamma-eq:bm-3}) für diese Funktion nicht gegeben sein kann.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{papers/gamma/img/sin_extended.png}
-  \caption{Funktion $f(x)$, welche zwei (\eqref{gamma-eq:bm-1} und \eqref{gamma-eq:bm-2}) von drei Eigenschaften erfüllt.}
-  \label{gamma-fig:almostGammaFunction}
+  \caption{Funktion $f(x)$, welche zwei (\ref{gamma-eq:bm-1} und~\ref{gamma-eq:bm-2}) von drei Eigenschaften erfüllt.}
+\label{gamma-fig:almostGammaFunction}
 \end{figure}
 
-Gesucht wird eine Funktion, welche alle Eigenschaften \eqref{gamma-eq:bm-1}, \eqref{gamma-eq:bm-2} und \eqref{gamma-eq:bm-3} der Fakultät respektive des Bool-Mullerup-Theorems erfüllt. 
-Diese Herleitung ist nicht trivial und wird deshalb weggelassen. 
-Lediglich die $\Gamma$-Funktion erfüllt alle Eigenschaften und ist somit die Erweiterung der Fakultät. 
+Gesucht wird eine Funktion, welche alle Eigenschaften, welche als Teil des Bohr-Mollerup-Theorems definiert wurden, erfüllt.
+Diese Herleitung ist nicht trivial und wird deshalb weggelassen.
+Interessant ist aber die Hauptaussage des Theorems: die $\Gamma$-Funktion erfüllt als einzige Funktion alle Eigenschaften und ist somit die eindeutige Erweiterung der Fakultät\cite{mollerup1922laerebog}.
