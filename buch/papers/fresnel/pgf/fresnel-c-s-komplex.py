@@ -41,5 +41,8 @@ ax.spines['left'].set_position(('data',0))
 ax.text(0.81,0,'$C(v)$')
 ax.text(0, 0.81, '$jS(v)$', horizontalalignment='center')
 
+# Aspect ratio 1:1
+ax.set_aspect('equal')
+
 # plt.show()
-plt.savefig('./tikz/fresnel-c-s-komplex.pgf')
+plt.savefig('./buch/papers/fresnel/pgf/fresnel-c-s-komplex.pgf')
