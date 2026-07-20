@@ -1,0 +1,119 @@
+\scalebox{0.8}{
+\begin{tikzpicture}
+
+% ==============================
+% 1. FARBEN DEFINIEREN
+% ==============================
+\definecolor{plotblue}{RGB}{0, 0, 200}
+\definecolor{plotred}{RGB}{220, 30, 30}
+\definecolor{plotgray}{RGB}{140, 140, 140}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+\definecolor{plotorange}{RGB}{230, 140, 0}
+\definecolor{plotgreen}{RGB}{0, 150, 80}
+\definecolor{plotpurple}{RGB}{140, 60, 180}
+
+% ==============================
+% 2. ACHSEN UND SCHNITT
+% ==============================
+% Verzweigungsschnitt (Wellenlinie)
+\draw[thick, plotred, decorate, decoration={snake, amplitude=0.8mm, segment length=3mm}] (-5.1, 0) -- (0, 0);
+
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (-5.5, 0) -- (2.5, 0) node[right] {\textbf{Re}$(s)$};
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (0, -5.0) -- (0, 5.0) node[above] {\textbf{Im}$(s)$};
+
+% Verzweigungspunkt
+\fill[plotred] (0,0) circle (2.5pt);
+
+% ==============================
+% 3. KONTUR-SEGMENTE
+% ==============================
+% 1. Bromwich-Pfad (Blau)
+\draw[thick, plotblue, decoration={markings, mark=at position 0.6 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (1.2, -4.025) -- (1.2, 4.025);
+\draw[thick] (1.2, 0.1) -- (1.2, -0.1) node[below right, inner sep=2pt] {$\boldsymbol{\gamma}$};
+
+% 2. Gamma_R oben (Orange)
+\draw[thick, plotorange, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (1.2, 4.025) arc (73.39:177.95:4.2);
+\node[plotorange, font=\large] at (-3.5, 3.5) {$\Gamma_R$};
+
+% 3. L_+ (Gruen)
+\draw[thick, plotgreen, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (-4.197, 0.15) -- (-0.37, 0.15);
+\node[plotgreen, anchor=south] at (-2.0, 0.65) {$L_+$};
+
+% 4. Gamma_rho (Violett)
+\draw[thick, plotpurple, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (-0.37, 0.15) arc (157.98:-157.98:0.4);
+\node[plotpurple, font=\large] at (0.7, 0.5) {$\Gamma_\rho$};
+
+% 5. L_- (Gruen)
+\draw[thick, plotgreen, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (-0.37, -0.15) -- (-4.197, -0.15);
+\node[plotgreen, anchor=north] at (-2.0, -0.65) {$L_-$};
+
+% 6. Gamma_R unten (Orange)
+\draw[thick, plotorange, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (-4.197, -0.15) arc (182.05:286.61:4.2);
+
+% ==============================
+% 4. ZWEIG-BESCHRIFTUNGEN
+% ==============================
+\node[plotgray, font=\small, anchor=south] at (-2.0, 0.2) {$s=re^{i\pi},\ \sqrt{s}=i\sqrt{r}$};
+\node[plotgray, font=\small, anchor=north] at (-2.0, -0.2) {$s=re^{-i\pi},\ \sqrt{s}=-i\sqrt{r}$};
+
+% ==============================
+% 5. POLE (Kreuze)
+% ==============================
+\newcommand{\pole}[3][plotred]{
+    \draw[thick, #1, line cap=round] (#2-0.15,#3-0.15) -- (#2+0.15,#3+0.15);
+    \draw[thick, #1, line cap=round] (#2-0.15,#3+0.15) -- (#2+0.15,#3-0.15);
+}
+
+% Pole auf imag. Achse
+\pole{0.0}{2.2}
+\node[plotred, right] at (0.15, 2.2) {$i\omega$};
+
+\pole{0.0}{-2.2}
+\node[plotred, right] at (0.15, -2.2) {$-i\omega$};
+
+% ==============================
+% 6. LEGENDE
+% ==============================
+\node[draw, thick, rounded corners=3pt, fill=white, inner xsep=5pt, inner ysep=4pt, anchor=west] at (3.8, 0) {
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{@{}c l@{}}
+        
+        \tikz[baseline=-0.6ex]{
+            \fill[plotred] (0,0) circle (2pt);
+        } & Verzweigungspunkt \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotred] (-0.45, 0) .. controls (-0.35, 0.2) and (-0.25, -0.2) .. (-0.15, 0) .. controls (-0.05, 0.2) and (0.05, -0.2) .. (0.15, 0) .. controls (0.25, 0.2) and (0.35, -0.2) .. (0.45, 0);
+        } & Verzweigungsschnitt \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotred, line cap=round] (-0.1,-0.1) -- (0.1,0.1) (-0.1,0.1) -- (0.1,-0.1);
+        } & Polstelle \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotblue, ->-=0.55] (-0.3,0) -- (0.3,0);
+        } & Bromwich-Pfad \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotorange, ->-=0.55] (-0.3,0) -- (0.3,0);
+        } & Kreisbogen $\Gamma_R$ \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotgreen, ->-=0.55] (-0.3,0) -- (0.3,0);
+        } & Ufer $L_+, L_-$ \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotpurple, ->-=0.55] (-0.3,0) -- (0.3,0);
+        } & Kreisbogen $\Gamma_\rho$ \\
+        
+    \end{tabular}
+};
+
+\end{tikzpicture}
+}

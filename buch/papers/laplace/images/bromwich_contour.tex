@@ -1,0 +1,86 @@
+\begin{figure}
+\centering
+\scalebox{0.85}{
+\begin{tikzpicture}
+
+% ==============================
+% 1. FARBEN DEFINIEREN
+% ==============================
+\definecolor{plotblue}{RGB}{0, 0, 200}
+\definecolor{plotred}{RGB}{220, 30, 30}
+\definecolor{plotgray}{RGB}{140, 140, 140}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+
+% ==============================
+% 2. HINTERGRUND (Konvergenzbereich)
+% ==============================
+\fill[plotbg] (1.5, -4.8) rectangle (5.0, 4.8);
+
+% ==============================
+% 3. ACHSEN
+% ==============================
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (-5.2, 0) -- (5.5, 0) node[right] {\textbf{Re}$(s)$};
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (0, -5.2) -- (0, 5.2) node[above] {\textbf{Im}$(s)$};
+
+% ==============================
+% 4. LINIEN & BESCHRIFTUNGEN
+% ==============================
+% Konvergenzabszisse (\gamma_0)
+\draw[thick, plotgray, dashed] (1.5, -4.8) -- (1.5, 4.8);
+\draw[thick] (1.5, 0.15) -- (1.5, -0.15) node[below right, inner sep=2pt] {$\boldsymbol{\gamma_0}$};
+
+% Bromwich-Pfad (\gamma)
+\draw[thick, plotblue, ->-=0.55] (2.5, -4.8) -- (2.5, 4.8);
+\draw[thick] (2.5, 0.15) -- (2.5, -0.15) node[below right, inner sep=2pt] {$\boldsymbol{\gamma}$};
+
+% Text im Konvergenzbereich
+\node[plotblue, align=center, font=\small] at (3.75, 3) {Konvergenz-\\bereich};
+
+% ==============================
+% 5. POLE (Rote Kreuze)
+% ==============================
+\newcommand{\pole}[2]{
+    \draw[thick, plotred, line cap=round] (#1-0.12,#2-0.12) -- (#1+0.12,#2+0.12);
+    \draw[thick, plotred, line cap=round] (#1-0.12,#2+0.12) -- (#1+0.12,#2-0.12);
+}
+
+% Pole platzieren
+\pole{1.5}{0}
+\pole{0}{0}
+\pole{0}{2}
+\pole{0}{-2}
+\pole{-1.2}{1.5}
+\pole{-1.2}{-1.5}
+\pole{-2}{0}
+\pole{-3}{0}
+
+% ==============================
+% 6. LEGENDE
+% ==============================
+\node[draw, thick, rounded corners=3pt, fill=white, inner xsep=5pt, inner ysep=4pt, anchor=north west] at (-5.0, 4.8) {
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{@{}c l@{}}
+        
+        % Symbol 1: Polstelle
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotred, line cap=round] (-0.1,-0.1) -- (0.1,0.1) (-0.1,0.1) -- (0.1,-0.1);
+        } & Polstelle \\
+        
+        % Symbol 2: Konvergenzabszisse (etwas verlängert auf -0.3 bis 0.3)
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotgray, dashed] (-0.3, 0) -- (0.3, 0);
+        } & Konvergenzabszisse \\
+        
+        % Symbol 3: Bromwich-Pfad (Mit Dekoration für perfekten Strich)
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotblue, ->-=0.6] (-0.3, 0) -- (0.3, 0); % Durchgehender Strich
+        } & Bromwich-Pfad \\
+        
+    \end{tabular}
+};
+
+\end{tikzpicture}
+}
+\caption{Die Bromwich-Kontur in der komplexen $s$-Ebene. Die Integrationsgerade (blau) liegt rechts von der Konvergenzabszisse $\gamma_0$ und allen Singularitäten (rote Kreuze).}
+\label{laplace:fig:bromwich}
+\end{figure}

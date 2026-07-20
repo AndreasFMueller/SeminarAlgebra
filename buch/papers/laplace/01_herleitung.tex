@@ -1,0 +1,53 @@
+\section{Herleitung aus der Fourier-Transformation}
+\label{laplace:subsection:herleitung}
+
+Um die Natur der inversen Laplace-Transformation zu verstehen, lohnt sich ein kurzer Blick auf ihren Ursprung: die Fourier-Transformation.
+Die Fourier-Transformation zerlegt ein Signal in seine Frequenzanteile, setzt jedoch voraus, dass das Signal absolut integrierbar ist.
+Viele physikalisch relevante Funktionen, wie etwa exponentiell wachsende Signale, erfüllen diese Bedingung nicht; ihr Fourier-Integral divergiert.
+
+Um dieses Konvergenzproblem zu lösen, bedient man sich eines eleganten Tricks.
+Man multipliziert die ursprüngliche Funktion $f(t)$ mit einem exponentiellen Dämpfungsfaktor $e^{-\gamma t}$, wobei $\gamma$ eine reelle Konstante ist.
+Wählt man $\gamma$ gross genug, wird das Wachstum von $f(t)$ unterdrückt.
+Wir definieren also eine gedämpfte Hilfsfunktion
+\begin{equation}
+    g(t) = f(t) e^{-\gamma t}.
+    \label{laplace:eq:hilfsfunktion}
+\end{equation}
+Für diese gedämpfte Funktion existiert nun die Fourier-Transformation $G(\omega) = \mathcal{F}\{g(t)\}$:
+\begin{equation}
+    G(\omega) = \int_{-\infty}^{\infty} \left( f(t) e^{-\gamma t} \right) e^{-i\omega t} \, dt = \int_{-\infty}^{\infty} f(t) e^{-(\gamma + i\omega)t} \, dt.
+    \label{laplace:eq:fourier_g}
+\end{equation}
+An dieser Stelle kommt uns die Physik zu Hilfe.
+Die von uns betrachteten Vorgänge beginnen zu einem definierten Zeitpunkt, den wir als $t = 0$ wählen; für $t < 0$ setzen wir $f(t) = 0$ und nennen ein solches Signal \emph{kausal}.
+Für kausale Funktionen verschwindet der Integrand in Gleichung~\eqref{laplace:eq:fourier_g} für alle negativen Zeiten, sodass sich das Integral effektiv nur noch von $0$ bis $\infty$ erstreckt.
+Führen wir nun die komplexe Variable $s = \gamma + i\omega$ ein, so entspricht dieses Integral exakt der Definition der Laplace-Transformation von $f(t)$.
+Es gilt also $G(\omega) = F(s)$.
+
+Um nun $f(t)$ zurückzugewinnen, wenden wir die inverse Fourier-Transformation auf $G(\omega)$ an:
+\begin{equation}
+    g(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} G(\omega) e^{i\omega t} \, d\omega.
+    \label{laplace:eq:inv_fourier_g}
+\end{equation}
+Setzen wir in diese Gleichung $g(t) = f(t) e^{-\gamma t}$ wieder ein und multiplizieren beide Seiten mit $e^{\gamma t}$, erhalten wir
+\begin{equation}
+    f(t) = \frac{e^{\gamma t}}{2\pi} \int_{-\infty}^{\infty} G(\omega) e^{i\omega t} \, d\omega 
+         = \frac{1}{2\pi} \int_{-\infty}^{\infty} G(\omega) e^{(\gamma + i\omega)t} \, d\omega.
+    \label{laplace:eq:rueck_1}
+\end{equation}
+Im letzten Schritt ersetzen wir die Integrationsvariable $\omega$ wieder durch unsere komplexe Variable $s$.
+Mit $s = \gamma + i\omega$ und konstantem $\gamma$ folgt für das Differential $ds = i \, d\omega$, also $d\omega = \frac{ds}{i}$.
+Da $\omega$ von $-\infty$ bis $\infty$ läuft, bewegt sich $s$ entlang einer vertikalen Geraden in der komplexen Ebene von $\gamma - i\infty$ bis $\gamma + i\infty$.
+Setzen wir dies sowie $G(\omega) = F(s)$ in Gleichung~\eqref{laplace:eq:rueck_1} ein, so erhalten wir die fundamentale Formel für die inverse Laplace-Transformation:
+\begin{equation}
+    f(t) = \frac{1}{2\pi i} \int_{\gamma - i\infty}^{\gamma + i\infty} F(s) e^{st} \, ds.
+    \label{laplace:eq:bromwich_integral}
+\end{equation}
+
+Dieses komplexe Linienintegral wird als \emph{Bromwich-Integral} bezeichnet.
+Abbildung~\ref{laplace:fig:bromwich} veranschaulicht die geometrische Situation in der komplexen Ebene.
+Die vertikale Integrationsgerade $\text{Re}(s) = \gamma$ wird dabei stets so gewählt, dass sie rechts von allen Singularitäten der Bildfunktion $F(s)$ liegt.
+Man nennt den minimalen Wert, für den das Integral noch konvergiert, die Konvergenzabszisse $\gamma_0$.
+Für alle $\gamma > \gamma_0$ liefert das Integral die eindeutige Lösung.
+
+\input{papers/laplace/images/bromwich_contour.tex}

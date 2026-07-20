@@ -1,0 +1,111 @@
+% ============================================================================
+% PLATZHALTER -- Bild 6: Heatmap |e^{st} F(s)| mit Bromwich- und
+%                        Talbot-Pfad
+% ============================================================================
+% REGIEANWEISUNG FUER DIE GRAFIK-TOOLCHAIN (matplotlib empfohlen,
+% Export als PDF; Schrift Times 10pt; KEINE transparenten PNG-Teile):
+%
+% DATENGRUNDLAGE (F(s)=1/s, t=1):
+% - Gitter der s-Ebene: Re(s) in [-15, 5], Im(s) in [-12, 12],
+%   Aufloesung >= 800x800.
+% - Farbwert: log10( |e^{s*t} / s| ), geclippt auf z.B. [-8, 2].
+%
+% DARSTELLUNG:
+% - 2D-CONTOUR-HEATMAP (pcolormesh oder contourf mit vielen Stufen),
+%   sequentielle Colormap (z.B. viridis); COLORBAR rechts mit
+%   Beschriftung "$\log_{10}|e^{st}F(s)|$".
+% - Zusaetzlich duenne weisse Konturlinien bei ganzzahligen log10-Stufen,
+%   damit die "Landschaft" (Bergkamm rechts, Tal links) plastisch wird.
+% - SINGULARITAET s=0: kleines weisses/rotes Kreuz mit Label "Pol".
+% - BROMWICH-PFAD: vertikale ROTE Linie bei Re(s)=1 ueber die volle
+%   Bildhoehe, Pfeilspitze nach oben, Label "$\Gamma_B$" (rot).
+% - TALBOT-PFAD: BLAUE Kurve s(theta)=sigma+lambda(theta*cot(theta)
+%   + i*beta*theta) mit denselben Parametern wie in Bild 5 (sigma=0,
+%   lambda=2, beta=1; Formparameter beta, nicht nu beschriften),
+%   Pfeilspitzen in Durchlaufrichtung (von unten nach
+%   oben), Label "$\Gamma_T$" (blau).
+%   Die Kurve muss erkennbar ins dunkle "Tal" links abtauchen und den
+%   Pol rechts umschliessen.
+% - Textannotation "Tal: $|e^{st}|$ exponentiell klein" im linken
+%   Bildbereich (weiss, small); optional "Bergkamm" rechts.
+% - Achsenbeschriftung "Re(s)", "Im(s)"; kein Bildtitel.
+%
+% ALTERNATIVE (falls 3D gewuenscht): 3D-Surface derselben Daten mit
+% Blick von schraeg oben, Pfade auf die Flaeche projiziert; 2D-Version
+% ist fuer den Druck aber besser lesbar und wird bevorzugt.
+%
+% GROESSE: ca. 11cm x 8cm inkl. Colorbar, 300dpi falls Rasterexport.
+% ============================================================================
+\scalebox{0.85}{
+\begin{tikzpicture}
+
+% ==============================
+% 1. FARBEN DEFINIEREN
+% ==============================
+\definecolor{plotblue}{RGB}{0, 0, 200}
+\definecolor{plotred}{RGB}{220, 30, 30}
+\definecolor{plotgray}{RGB}{140, 140, 140}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+
+% PGFPLOTS SETUP
+\pgfplotsset{table/search path={papers/laplace/images/,images}}
+
+\begin{axis}[
+    width=11cm,
+    height=9.5cm,
+    enlargelimits=false,
+    axis on top,
+    xlabel={$\operatorname{Re}(s)$},
+    ylabel={$\operatorname{Im}(s)$},
+    xmin=-15, xmax=5,
+    ymin=-12, ymax=12,
+    tick label style={font=\small},
+    label style={font=\normalsize},
+    colorbar,
+    colormap/viridis,
+    point meta min=-8,
+    point meta max=2,
+    colorbar style={
+        ylabel={$\log_{10}|e^{st}F(s)|$},
+        ytick={-8,-6,-4,-2,0,2},
+        ylabel style={font=\normalsize},
+        tick label style={font=\small}
+    }
+]
+
+% Hintergrund-Heatmap (Bild, darauf projiziert)
+\addplot graphics [xmin=-15, xmax=5, ymin=-12, ymax=12] {papers/laplace/images/heatmap_bg.png};
+
+% Singularitaet s=0 (Pol)
+\draw[thick, white, line cap=round] (axis cs:-0.4,-0.4) -- (axis cs:0.4,0.4) (axis cs:-0.4,0.4) -- (axis cs:0.4,-0.4);
+\draw[thick, plotred, line cap=round] (axis cs:-0.2,-0.2) -- (axis cs:0.2,0.2) (axis cs:-0.2,0.2) -- (axis cs:0.2,-0.2);
+\node[white, left, font=\small, xshift=-2pt] at (axis cs:-0.2, 0) {\textbf{Pol}};
+
+% Bromwich-Gerade (rot)
+\draw[thick, plotred, decoration={markings, mark=at position 0.65 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (axis cs:1, -12) -- (axis cs:1, 12);
+\node[plotred, right, font=\large] at (axis cs:1.2, 9) {$\Gamma_B$};
+
+% Talbot-Kontur (blau)
+\addplot[
+    thick, plotblue,
+    decoration={markings, mark=at position 0.35 with {\arrow{Stealth[length=3mm, width=2mm]}}},
+    decoration={markings, mark=at position 0.65 with {\arrow{Stealth[length=3mm, width=2mm]}}},
+    postaction={decorate}
+] table[col sep=comma, x=re, y=im] {talbot_contour_heatmap.csv};
+\node[plotblue, left, font=\large] at (axis cs:-3, 6) {$\Gamma_T$};
+
+% Annotation Tal removed
+
+% ==============================
+% 2. LEGENDE
+% ==============================
+\filldraw[fill=white, draw=black, thick, rounded corners=3pt] (axis cs:-14.5, 11.5) rectangle (axis cs:-2.5, 8.5);
+\draw[thick, plotred, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] (axis cs:-14.0, 10.5) -- (axis cs:-12.5, 10.5);
+\node[right] at (axis cs:-12.0, 10.5) {Bromwich-Gerade $\Gamma_B$};
+\draw[thick, plotblue, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] (axis cs:-14.0, 9.5) -- (axis cs:-12.5, 9.5);
+\node[right] at (axis cs:-12.0, 9.5) {Talbot-Kontur $\Gamma_T$};
+
+\end{axis}
+\end{tikzpicture}
+}
