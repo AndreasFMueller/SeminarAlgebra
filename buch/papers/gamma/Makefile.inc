@@ -3,12 +3,11 @@
 #
 # (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
-dependencies-gamma =						\
+dependencies-gamma =							\
 	papers/gamma/packages.tex					\
-	papers/gamma/main.tex					\
-	papers/gamma/references.bib				\
-	papers/gamma/teil0.tex					\
-	papers/gamma/teil1.tex					\
-	papers/gamma/teil2.tex					\
-	papers/gamma/teil3.tex
-
+	papers/gamma/main.tex						\
+	papers/gamma/references.bib					\
+	papers/gamma/fakultaet.tex					\
+	papers/gamma/spheres.tex					\
+	papers/gamma/spheres_drawings.tex				\
+	papers/gamma/spheres_with_gamma.tex

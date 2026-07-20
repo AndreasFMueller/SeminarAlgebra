@@ -1,0 +1,112 @@
+
+% ============================================================================
+% Bild 7: Konvergenzvergleich (Fehler vs. Stuetzstellen), nativ in pgfplots
+% ============================================================================
+% DATEN: data_konvergenz.csv, erzeugt von generate_konvergenz_data.py
+% (Testproblem F(s) = 1/s, exakt f(t) = 1, t = 1.5).
+%
+%   * BROMWICH: Mittelpunktsregel auf s = 1 + i*omega, |omega| <= 2*sqrt(N).
+%     Der Abschneidefehler ~ e^{gamma t}/(pi*t*Omega) ~ N^(-1/2) dominiert
+%     (der Aliasing-Anteil faellt wie e^{-(pi/2)*sqrt(N)} weg):
+%     langsame, leicht oszillierende algebraische Konvergenz.
+%   * TALBOT: Mittelpunktsregel auf der Weideman-Kontur (Trefethen/
+%     Weideman/Schmelzer 2006, Gl. (3.3), skaliert mit N/t).
+%     Geometrische Konvergenz O(3.89^-N) bis ~3e-14 bei N ~ 28; DANACH
+%     steigt der Fehler wieder an: der Konturscheitel liegt bei
+%     Re(st) ~ 0.171*N, also verstaerkt der Faktor e^{st} den Rundungs-
+%     fehler wie eps*e^{0.171*N} (Talbots Fehlerterm E_r) -- bei N = 100
+%     sind das ~5e-9. Dieses V-foermige Verhalten ist ECHT und wird
+%     bewusst gezeigt (Annotation "Rundungsfehler").
+%
+% DESIGN-ENTSCHEIDUNGEN:
+%   * table/search path deckt beide Build-Kontexte ab: Buch-Build
+%     (cwd = Latex/, Pfad images/...) und test_render.py (cwd =
+%     Projektwurzel, Pfad Latex/images/...).
+%   * Referenzgerade 0.5*3.89^(-N) nur bis N = 26 gezeichnet -- ab N = 28
+%     ist sie in den Daten auf 1e-16 gesaettigt und wuerde sonst als
+%     horizontale Linie auf dem Boden weiterlaufen.
+%   * Umlaute als \"u-Escapes (test_render.py liest die Datei ohne
+%     explizites Encoding; rohe UTF-8-Bytes wuerden verstuemmelt).
+%   * 17 Dekaden (1e-17..1e0), Ticks alle 4 Dekaden; Maschinengenauigkeit
+%     als gepunktete Linie bei eps ~ 1e-16 knapp ueber dem Achsenboden.
+% ============================================================================
+\begin{tikzpicture}
+
+% ==============================
+% 1. FARBEN DEFINIEREN
+% ==============================
+\definecolor{plotblue}{RGB}{0, 0, 200}
+\definecolor{plotred}{RGB}{220, 30, 30}
+\definecolor{plotgray}{RGB}{140, 140, 140}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+
+% CSV in beiden Build-Kontexten auffindbar machen.
+% REIHENFOLGE WICHTIG: Latex/images VOR images, denn im Werkstatt-Root
+% existiert ein aelterer images/-Ordner mit veralteten Daten, der sonst
+% die frische CSV verschatten wuerde. Beim Buch-Build (cwd = Latex/)
+% existiert Latex/images nicht und es greift automatisch images/.
+\pgfplotsset{table/search path={papers/laplace/images/,images}}
+
+\begin{semilogyaxis}[
+    width=10.5cm,
+    height=7.5cm,
+    xlabel={Anzahl der St\"utzstellen $N$},
+    ylabel={Absoluter Fehler $|f_{\text{num}} - 1|$},
+    xmin=0, xmax=104,
+    ymin=1e-17, ymax=1e0,
+    xtick={0,20,40,60,80,100},
+    ytick={1e0,1e-4,1e-8,1e-12,1e-16},
+    grid=both,
+    grid style={line width=.1pt, draw=gray!20},
+    major grid style={line width=.2pt, draw=gray!50},
+    legend cell align={left},
+    legend style={at={(0.97,0.82)}, anchor=north east,
+        nodes={scale=0.9, transform shape}, draw=black!30,
+        rounded corners=2pt, inner xsep=4pt, inner ysep=3pt},
+    tick label style={font=\footnotesize},
+    label style={font=\small}
+]
+
+    % Maschinengenauigkeit (eps ~ 1e-16)
+    \draw[black, thick, densely dotted]
+        (axis cs:0, 1e-16) -- (axis cs:104, 1e-16);
+    \node[black, above right, font=\footnotesize]
+        at (axis cs:2, 1.3e-16) {Maschinengenauigkeit};
+
+    % Referenzgerade O(3.89^-N), nur bis N = 24: danach ist sie in den
+    % Daten gesaettigt UND wuerde unten in den Schriftzug
+    % "Maschinengenauigkeit" hineinlaufen
+    \addplot[plotgray, thick, dashed, forget plot]
+        table [col sep=comma, x=N, y=err_ref,
+               restrict x to domain=4:24] {data_konvergenz.csv};
+    % Label rechts oberhalb der Referenzgeraden im leeren Keil zwischen
+    % Bromwich-Kurve (oben) und Talbot-Abfall (unten); die fruehere
+    % Position am V-Boden (27, 1.5e-15) kollidierte optisch mit den
+    % blauen Quadraten bei N = 24-28 und dem Schriftzug
+    % "Maschinengenauigkeit"
+    \node[plotgray, anchor=west, font=\footnotesize]
+        at (axis cs:19, 2e-9) {$\mathcal{O}(3{,}89^{-N})$};
+
+    % Bromwich-Gerade: langsame algebraische Konvergenz (rot, Kreise)
+    \addplot[
+        thick, plotred,
+        mark=o, mark options={solid, scale=0.8}
+    ] table [col sep=comma, x=N, y=err_bromwich] {data_konvergenz.csv};
+    \addlegendentry{Bromwich-Gerade}
+
+    % Talbot-Kontur: geometrischer Abfall, dann Rundungsfehler-Anstieg
+    % (blau, Quadrate)
+    \addplot[
+        thick, plotblue,
+        mark=square, mark options={solid, scale=0.8}
+    ] table [col sep=comma, x=N, y=err_talbot] {data_konvergenz.csv};
+    \addlegendentry{Talbot-Kontur}
+
+    % Annotation am wieder ansteigenden Ast: eps * e^{0.171 N}
+    % (etwas oberhalb der Kurve, damit die blauen Marker bei N ~ 76-84
+    % nicht in den Schriftzug laufen)
+    \node[plotgray, anchor=south, font=\footnotesize]
+        at (axis cs:70, 8e-10) {Rundungsfehler};
+
+\end{semilogyaxis}
+\end{tikzpicture}
