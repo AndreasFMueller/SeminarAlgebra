@@ -1,15 +1,20 @@
 \section{Die Laplace-Transformation}
 \label{laplace:section:intro}
+\kopfrechts{Die Laplace-Transformation}%
 
 Die Laplace-Transformation ist ein unverzichtbares Werkzeug in der angewandten Mathematik und den Ingenieurwissenschaften.
 Ihre wahre Stärke entfaltet sie bei der Lösung linearer partieller Differentialgleichungen, wie etwa der Wärmeleitungsgleichung.
+\index{Warmeleitungsgleichung@Wärmeleitungsgleichung}%
 Durch die Transformation werden zeitliche Ableitungen in einfache algebraische Multiplikationen überführt.
 Was im Zeitbereich eine komplexe Differentialgleichung ist, wird im Bildbereich zu einer deutlich einfacheren algebraischen Gleichung.
 
-In der ingenieurmässigen und physikalischen Praxis berechnet man die Laplace-Transformation $\mathcal{L}\{f(t)\}$ fast nie von Hand über das definierende Integral.
+In der ingenieurmässigen und physikalischen Praxis berechnet man die Laplace-Trans\-formation $\mathcal{L}\{f(t)\}$ fast nie von Hand über das definierende Integral.
 Stattdessen nutzt man \emph{Korrespondenztabellen}, die vorberechnete Paare von Zeitfunktionen $f(t)$ und zugehörigen Bildfunktionen $F(s)$ auflisten.
+\index{Korrespondenztabelle}%
 Hat man die algebraische Gleichung im Bildbereich gelöst, reicht oft ein einfacher Blick in die Tabelle, um die physikalische Lösung $f(t)$ im Zeitbereich zu finden.
+\index{algebraische Gleichung}%
 Einige der wichtigsten Korrespondenzpaare sind in Tabelle~\ref{laplace:tab:korrespondenzen} zusammengefasst.
+\index{Korrespondenzpaare}%
 
 \begin{table}[htbp]
     \centering
@@ -36,9 +41,15 @@ Einige der wichtigsten Korrespondenzpaare sind in Tabelle~\ref{laplace:tab:korre
 
 Das Konzept der Tabellen stösst jedoch schnell an seine Grenzen.
 Was passiert bei komplexen physikalischen Systemen, wie etwa der instationären Wärmeleitung in einem Stab?
-Die sich dort ergebenden Gleichungen liefern Bildfunktionen $F(s)$, die so kompliziert sind -- oft behaftet mit Wurzeln oder hyperbolischen Funktionen --, dass sie in keiner Tabelle zu finden sind.
+\index{instationar@instationär}%
+Die sich dort ergebenden Gleichungen liefern Bildfunktionen $F(s)$, die so kompliziert sind --- oft behaftet mit Wurzeln oder hyperbolischen Funktionen ---, dass sie in keiner Tabelle zu finden sind.
 In genau diesen Fällen, wenn das einfache Nachschlagen versagt, müssen wir die Transformation mathematisch streng umkehren.
 Wir sind gezwungen, die komplexe Zahlenebene zu betreten und das sogenannte \emph{Bromwich-Integral} direkt auszuwerten.
+\index{Bromwich-Integral}%
 
 Dieses Paper widmet sich exakt diesem Problem:
 Wir leiten die fundamentale Inversionsformel her, untersuchen, wie man komplexe Singularitäten wie Verzweigungsschnitte und unendlich viele Pole mathematisch sicher umgeht, und schliessen mit der hochmodernen numerischen Inversion über die Talbot-Kontur ab.
+\index{Inversionsformel}%
+\index{Verzweigungsschnitt}%
+\index{Pol}%
+\index{Talbot-Kontur}%

@@ -4,6 +4,7 @@
 %
 \section{Verzweigungsschnitte und die Schlüsselloch-Kontur}
 \label{laplace:subsection:verzweigung}
+\kopfrechts{Verzweigungsschnitte und die Schlüsselloch-Kontur}%
 
 Wie schnell mehrdeutige Funktionen auftreten, zeigt das Paradebeispiel der
 instationären Wärmeleitung.
@@ -70,12 +71,14 @@ $a_0(s) = \mathcal{L}\{A_0(t)\}$ erhalten wir
 wie in \cite{laplace:doetsch1961} im Detail hergeleitet wird.
 Die Lösung zerfällt also in die transformierte Randanregung $a_0(s)$ und
 eine \emph{Basislösung} $u_0(x,s)$, die am Rand $x = 0$ den Wert eins
+\index{Basislosung@Basislösung}%
 annimmt und das reine Ortsprofil beschreibt; dieselbe Aufspaltung wird uns
 beim Stab endlicher Länge wieder begegnen.
 Die Geometrie des halbunendlichen Gebietes hat uns also zwangsläufig eine
 Wurzel $\sqrt{s}$ eingebrockt.
 
 Diese Wurzel ist keine harmlose Funktion, sondern \emph{mehrdeutig}.
+\index{mehrdeutig}%
 Zu jedem $s \neq 0$ existieren zwei Werte $w$ mit $w^2 = s$, und welcher
 davon gemeint ist, hängt vom gewählten Zweig ab.
 Schreiben wir $s = r e^{i\theta}$ und umlaufen den Ursprung einmal, indem
@@ -85,12 +88,14 @@ $\sqrt{r}\, e^{i\pi} = -\sqrt{r}$ über:
 Die Funktion kehrt nicht zu ihrem Ausgangswert zurück, sondern wechselt
 das Vorzeichen \cite{laplace:ablowitz2003}.
 Der Ursprung $s = 0$ ist deshalb ein \emph{Verzweigungspunkt} von
+\index{Verzeigungspunkt}%
 $\sqrt{s}$.
 Für den Residuensatz ist das fatal, denn er setzt eine eindeutige,
 holomorphe Funktion voraus.
 Der Ausweg besteht darin, geschlossene Umläufe um den Verzweigungspunkt von
 vornherein zu verbieten:
 Wir schlitzen die Ebene entlang eines \emph{Verzweigungsschnittes} auf, der
+\index{Verzweigungsschnitt}%
 den Verzweigungspunkt $s = 0$ mit dem zweiten Verzweigungspunkt
 $s = \infty$ verbindet, und arbeiten auf dem Hauptzweig
 $-\pi < \arg s < \pi$.
@@ -112,6 +117,7 @@ folgt ihr oberhalb des Schnittes nach innen, umrundet den
 Verzweigungspunkt auf einem kleinen Kreis $\Gamma_\rho$ und kehrt
 unterhalb des Schnittes wieder nach aussen zurück.
 Das Ergebnis ist die berühmte \emph{Schlüsselloch-Kontur}, die in
+\index{Schlusselloch-Kontur@Schlüsselloch-Kontur}%
 Abbildung~\ref{laplace:fig:keyhole_kontur} dargestellt ist.
 Innerhalb dieser Kurve ist der Integrand eindeutig und holomorph bis auf
 isolierte Pole, sodass der Residuensatz wieder anwendbar ist.
@@ -213,6 +219,7 @@ Einschwingvorgang, der wegen des Faktors $e^{-rt}$ für grosse Zeiten
 abklingt.
 Während isolierte Pole diskrete Beiträge $e^{s_k t}$ liefern, wirkt der
 Schnitt wie ein \emph{Kontinuum} von Abklingraten $e^{-rt}$, über das
+\index{Kontinuum}%
 integriert werden muss.
 
 Damit drängt sich eine Frage auf.

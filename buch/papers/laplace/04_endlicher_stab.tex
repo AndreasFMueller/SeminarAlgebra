@@ -6,6 +6,7 @@
 \section{Der Stab endlicher Länge: unendlich viele Pole statt
 Verzweigungsschnitt}
 \label{laplace:subsection:endlicher_stab}
+\kopfrechts{Der Stab endlicher Länge: unendlich viele Pole statt Verzweigungsschnitt}%
 
 Wir betrachten nun denselben Wärmeleiter, aber mit endlicher Länge $l$.
 Am linken Ende $x = 0$ wird die Temperatur $A_0(t)$ eingeprägt, das rechte
@@ -78,7 +79,7 @@ gebracht, und $u_0$ ist eine meromorphe Funktion, deren einzige
 Singularitäten isolierte Pole sind.
 
 Diese Pole sind die Nullstellen des Nenners.
-Der komplexe Sinus Hyperbolicus hängt über die Identität
+Der komplexe Sinus hyperbolicus hängt über die Identität
 $\sinh(z) = -i \sin(iz)$ mit dem Sinus zusammen; seine Nullstellen liegen
 deshalb sämtlich auf der imaginären Achse, bei $z = i\nu\pi$ mit
 ganzzahligem $\nu$.
@@ -112,10 +113,14 @@ aufreihen, wie Abbildung~\ref{laplace:fig:pol_kette} zeigt.
 
 Die Residuen an diesen Polen berechnen wir mit der Quotientenregel:
 Hat $f_2$ bei $s_0$ eine einfache Nullstelle und ist $f_1(s_0) \neq 0$, so
-ist das Residuum von $\frac{f_1}{f_2}$ dort gleich
-$\frac{f_1(s_0)}{f_2'(s_0)}$.
+ist das Residuum
+\[
+\operatorname{Res}\biggl(\frac{f_1}{f_2}, s_0\biggr)
+=
+\frac{f_1(s_0)}{f_2'(s_0)}.
+\]
 Mit $f_2(s) = \sinh(\pi\sqrt{s})$ und
-$f_2'(s) = \frac{\pi}{2\sqrt{s}}\cosh(\pi\sqrt{s})$ ergibt sich nach
+$f_2'(s) = (\pi/2\!\sqrt{s})\cosh(\pi\sqrt{s})$ ergibt sich nach
 kurzer Rechnung mit $\sqrt{s_\nu} = i\nu$ das erfreulich einfache Resultat
 \begin{equation}
     \operatorname{Res}\bigl(u_0(x,s), -\nu^2\bigr)
@@ -129,6 +134,7 @@ schliessen, denn jeder feste Kreisbogen würde nur endlich viele der
 unendlich vielen Pole erfassen, und ein Bogen durch einen Pol hindurch ist
 verboten.
 Stattdessen schliessen wir den Bromwich-Pfad durch eine \emph{Folge} von
+\index{Folge}%
 wiederum im Ursprung zentrierten Bögen $C_n$, deren Radien
 \begin{equation}
     R_n
@@ -146,7 +152,7 @@ Der $n$-te Bogen schliesst die ersten $n$ Pole ein:
 Für jedes feste $n$ liefert der Residuensatz auf der geschlossenen Kurve
 aus Geradenstück und Bogen $C_n$ die endliche Partialsumme der ersten $n$
 Residuen.
-Es wird also nichts von den Bögen \emph{subtrahiert} -- ihr Beitrag geht
+Es wird also nichts von den Bögen \emph{subtrahiert} --- ihr Beitrag geht
 für $n \to \infty$ schlicht gegen null, und die Partialsummen konvergieren
 gegen die unendliche Residuenreihe.
 Für die Anregung mit einem Wärmeimpuls $A_0(t) = \delta(t)$, also
@@ -176,7 +182,7 @@ Es verlangt, dass die Bildfunktion für $|s| \to \infty$
 \emph{gleichmässig} gegen null strebt, doch wegen der unendlich vielen
 Pole kommt der Nenner $\sinh(\pi\sqrt{s})$ in jeder noch so weit
 draussen liegenden Umgebung der negativen reellen Achse seinen
-Nullstellen beliebig nahe -- von gleichmässigem Abfall kann keine Rede
+Nullstellen beliebig nahe --- von gleichmässigem Abfall kann keine Rede
 sein.
 Der Nachweis muss deshalb gezielt auf den Radien $R_n$ geführt werden,
 die den Polen ausweichen und auf denen $|\sinh(\pi\sqrt{s})|$ nach unten

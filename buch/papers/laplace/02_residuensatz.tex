@@ -3,8 +3,9 @@
 % und dem Lemma von Jordan (Schliessen der Kontur ueber den im Ursprung
 % zentrierten Kreisbogen, D-Kontur)
 %
-\section{Auswertung mit dem Residuensatz: die geschlossene D-Kontur}
+\section{Auswertung mit dem Residuensatz: Die geschlossene D-Kontur}
 \label{laplace:subsection:residuensatz}
+\kopfrechts{Auswertung mit dem Residuensatz: Die geschlossene D-Kontur}
 
 Mit Gleichung~\eqref{laplace:eq:bromwich_integral} ist die Inversion zwar
 formal gelöst, praktisch stehen wir aber vor einem unendlich langen
@@ -12,6 +13,7 @@ Integrationsweg mitten in der komplexen Ebene.
 Der Schlüssel zur konkreten Auswertung ist der Residuensatz, der im ersten
 Teil dieses Buches ausführlich hergeleitet wurde und dessen Anwendung auf
 Konturintegrale beispielsweise in \cite{laplace:ablowitz2003} vertieft wird.
+\index{Konturintegral}%
 Ist $G(s)$ innerhalb einer geschlossenen, positiv orientierten Kurve $C$
 holomorph bis auf endlich viele isolierte Singularitäten $s_1,\dots,s_n$,
 so gilt
@@ -27,6 +29,7 @@ Integral bei.
 Eine Polstelle, die auch nur knapp ausserhalb der Kontur liegt, ist für das
 Integral schlicht unsichtbar.
 Abbildung~\ref{laplace:fig:pol_auswahl} veranschaulicht diese Auswahlregel.
+\index{Auswahlregel}%
 
 \begin{figure}
     \centering
@@ -47,7 +50,7 @@ hinzugefügte Wegabschnitt im Grenzfall nichts zum Integral beiträgt.
 Die Richtung des Schliessens gibt der Faktor $e^{st}$ vor.
 Wegen
 \begin{equation}
-    \bigl| e^{st} \bigr|
+    | e^{st} |
     =
     e^{t \, \text{Re}(s)}
     \label{laplace:eq:betrag_est}
@@ -64,6 +67,7 @@ Zusammen mit dem vertikalen Geradenstück, das als Sehne des Kreises
 zwischen den beiden Schnittpunkten mit dem Bogen verläuft, entsteht die
 in Abbildung~\ref{laplace:fig:d_kontur} gezeigte geschlossene Kurve, die
 wegen ihrer Form als \emph{D-Kontur} bezeichnet wird.
+\index{D-Kontur}%
 Dass der ursprungszentrierte Bogen dabei im Streifen
 $0 < \text{Re}(s) < \gamma$ ein kleines Stück in die rechte Halbebene
 hineinragt, wird sich gleich als harmlos erweisen.
@@ -84,6 +88,7 @@ hineinragt, wird sich gleich als harmlos erweisen.
 
 Dass der Bogenbeitrag tatsächlich verschwindet, ist keineswegs
 selbstverständlich, denn die Bogenlänge wächst proportional zu $R$ ins
+\index{Bogenlange@Bogenlänge}%
 Unendliche.
 Tief in der linken Halbebene ist das unkritisch:
 Dort erdrückt der exponentielle Abfall von $e^{st}$ aus
@@ -94,7 +99,10 @@ schmalen Streifen bis $\text{Re}(s) = \gamma$, wo
 $|e^{st}| \leq e^{\gamma t}$ lediglich beschränkt ist; dort muss der
 gleichmässige Abfall der Bildfunktion einspringen.
 Genau das leistet das \emph{Lemma von Jordan} in der für die
+\index{Jordan, Lemma von}%
+\index{Lemma!von Jordan}%
 Laplace-Inversion passenden Form, wie sie etwa in
+\index{Laplace-Inversion}%
 \cite{laplace:doetsch1961} als Satz 34.2 bewiesen wird:
 Strebt $F(s)$ auf den Bögen für $|s| \to \infty$ gleichmässig gegen
 null, so gilt für $t > 0$
