@@ -12,16 +12,19 @@
 
 Das Gleichungssystem
 \begin{equation}
-  \begin{cases}
-  x^2 -y = 0 \\
-  x + y^2 = 3
-  \end{cases}
+  \left\{
+  \renewcommand{\arraycolsep}{2pt}
+  \begin{array}{rcrcrcr}
+    x^2 &-& y &=& 0 \\
+    x &+& y^2 &=& 3
+  \end{array}
+  \right.
   \label{buchberger:polynom-gleichungssystem-1}
 \end{equation}
 lässt sich nicht mehr mit dem Gauss-Algorithmus lösen.
 Der Grund ist, dass es Variablen mit Potenzen $> 1$ beinhaltet, also nicht linear ist.
 
-Um solche nonlineare multivariate\footnote{Multivariat bedeutet, dass mehrere Variablen vorkommen.} Gleichungssysteme zu lösen eignet sich der Buchberger-Algorithmus.
+Um solche nichtlineare multivariate\footnote{Multivariat bedeutet, dass mehrere Variablen vorkommen.} Gleichungssysteme zu lösen, eignet sich der Buchberger-Algorithmus.
 Ein Gleichungssystem wie
 \begin{equation}
   \left\{
@@ -38,7 +41,7 @@ lässt sich damit auch lösen.
 \subsection{Geschichte}
 \label{buchberger:subsection:geschichte}
 Im Jahre 1965 hat der österreichische Mathematikstudent Bruno Buchberger in seiner Dissertation die Gröbner-Basis entwickelt.
-Er hat sie nach seinem Professor Wolfgang Gröbner benannt.
+Er hat sie nach seinem Doktorvater Wolfgang Gröbner benannt.
 Seine Dissertation enthält auch den Buchberger-Algorithmus mit dem man Gröbner-Basen berechnen kann.
 Der Algorithmus wurde zu einem wichtigen Bestandteil von Computeralgebrasystemen.
 
@@ -46,7 +49,7 @@ Der Algorithmus wurde zu einem wichtigen Bestandteil von Computeralgebrasystemen
 \subsubsection{Input des Buchberger-Algorithmus vorbereiten}
 \begin{beispiel}
 Terme mit mehreren Variablen wie $5xy$ sind hier im Gegensatz zu linearen Gleichungen erlaubt.
-Die Klammern der letzten Gleichung stellen kein neues Problem dar, da sie beim ausmultiplizieren auch in die bekannte Koeffizientenform gebracht werden können.
+Die Klammern der letzten Gleichung stellen kein neues Problem dar, da sie beim Ausmultiplizieren auch in die bekannte Koeffizientenform gebracht werden können.
 
 Wie beim Gauss-Algorithmus müssen die Gleichungen zunächst in eine geeignete Form gebracht werden.
 Die Gleichungen werden in Polynome umgewandelt, wobei sie vorher auf die Form $p(x) = 0$ umgestellt werden müssen.
@@ -76,10 +79,11 @@ Der Teil $= 0$ wird entfernt, aber immer noch impliziert, wenn man ein Polynom a
 Diese Umwandlung von Gleichungen zu Polynomen ist nötig, da man mit Polynomen einfacher rechnen kann als mit Gleichungen.
 Der Output des Buchberger-Algorithmus ist auch eine Menge von Polynomen, welche dann zu einem Gleichungssystem rekonstruiert werden kann, indem an jedes Polynom das $= 0$ wieder angehängt wird.
 
-Dabei ist wichtig, dass alle Polynome eine eindeutige Ordnung der Terme besitzen.
+Dabei ist wichtig, dass alle Polynome eine eindeutige Ordnung der Terme besitzen~ref{buch:komplex:symmetrisch:subsection:fundamentalsatz}.
 Zum Beispiel legt die lexikographische Ordnung fest, dass zuerst alle Terme mit dem höchsten Grad bezüglich $x$ stehen.
 Wenn dies auf mehrere Terme zutrifft, wird innerhalb dieser Gruppe bezüglich des Grads von $y$ sortiert und dann bezüglich $z$ und so weiter bis zur letzen Variablen.
-Dies ist nötig, da der Buchberger-Algorithmus eine spezielle Variante der Polynomdivision verwendet, wobei der leitende Term bekannt sein muss.
+Dies ist nötig, da der Buchberger-Algorithmus eine spezielle Variante der Polynomdivision verwendet, wobei der führende Term bekannt sein muss.
+Mehr zur Monomordnung ist in~ref{buch:komplex:symmetrisch:subsection:fundamentalsatz} zu finden, wobei sie für den Fundamentalsatz für symmetrische Polynome eine Rolle spielt.
 \end{beispiel}
 
 \subsubsection{Buchberger-Algorithmus ausführen}
@@ -115,13 +119,13 @@ Die erste Gleichung beinhaltet nur noch die Variable $x$.
 Eine Gleichung mit nur einer Variablen lässt sich numerisch lösen mit z. B. dem \emph{Newton-Verfahren}.
 Wie beim Gauss-Algorithmus erhält man beim Buchberger-Algorithmus eine Zeilenstufenform, 
 wobei sich immer die Ergebnisse der vorherigen Gleichungen in die nächste einsetzen lassen.
-Weil es sich hier um nonlineare Gleichungen handelt, kann eine Gleichung mehrere Lösungen für eine Variable ergeben.
+Weil es sich hier um nichtlineare Gleichungen handelt, kann eine Gleichung mehrere Lösungen für eine Variable ergeben.
 Beim Rückwärtseinsetzen müssen dann alle Kombinationen der bisherigen Lösungen eingesetzt werden.
-
 
 \subsection{Funktionsweise des Buchberger-Algorithmus}
 
 \floatname{algorithm}{Algorithmus}
+\setcounter{algorithm}{0}
 
 \begin{algorithm}[t]
 \caption{Pseudocode des Buchberger-Algorithmus in C++/Java ähnlichem Style
@@ -159,20 +163,20 @@ Mit einer speziellen Polynomdivision \texttt{spezialDivision}
   Sobald es nicht mehr möglich ist eine solche Division ohne Rest durchzuführen, endet \texttt{spezialDivision}.
   Mehr dazu in~\cite{buchberger:computer-algebra}.
 }(Zeile 7), die jeweils eines der Paare als Dividend und die ganze Basis als Divisor einbezieht, wird ein Quotient mit Rest berechnet.
-Dabei will der Algorithmus herausfinden ob jeweils zwei Polynome als Paar eine Information tragen, die in der Basis noch nicht enthalten ist.
+Dabei will der Algorithmus herausfinden, ob jeweils zwei Polynome als Paar eine Information tragen, die in der Basis noch nicht enthalten ist.
 Darum ist auch in einer dieser Polynomdivision-Operationen immer ein Paar und die ganze Basis beteiligt.
 
-Die neue Information die bei dieser Polynomdivision gewonnen wurde ist der Rest der Division.
+Die neue Information, die bei dieser Polynomdivision gewonnen wurde, ist der Rest der Division.
 Dieser Rest wird als Polynom zur Basis hinzugefügt, um somit die neu gewonnene Information zu behalten (Zeile 9).
 Durch die Vergrösserung der Basis haben sich auch neue Polynom-Paare ergeben.
 Diese neuen Paare werden auch den Polynomdivisions-Schritt durchlaufen.
 
 Wenn ein Paar keine neuen Informationen liefert, zeigt sich das daran, dass das Paar durch die Basis teilbar ist ohne Rest.
-Also wenn der Rest $0$ ist, war das Paar nutzlos (Zeile 8).
+Wenn der Rest $0$ ist, war das Paar nutzlos (Zeile 8).
 Die Tatsache, dass das Polynom $0$ keine Information liefert, macht durchaus Sinn:
 Wenn man das Polynom $0$ als Gleichung $0 = 0$ interpretiert, erhält man eine Gleichung die immer wahr ist, und keine Information liefert.
 
-Die Prozedur wird solange wiederholt bis keine neuen Polynome zur Basis hinzugefügt werden können (Zeile 4).
+Die Prozedur wird solange wiederholt, bis keine neuen Polynome zur Basis hinzugefügt werden können (Zeile 4).
 Das Resultat ist eine Basis mit mindestens so vielen Polynomen wie die ursprüngliche Basis (Zeile 13).
 Der Grund ist, dass nur Polynome hinzugefügt, aber nie entfernt wurden.
 
@@ -185,8 +189,8 @@ Im letzten Schritt, der hier nicht genauer erklärt wird, und auch nicht im Pseu
 \centering
 \includegraphics[width=0.7\textwidth]{papers/buchberger/images/equationSystem1.png}
 \caption{Visualisierung des Gleichungssystems \protect\eqref{buchberger:polynom-gleichungssystem-1}
-  \textcolor{red}{Rot: $x^2 - y = 0$},
-  \textcolor{blue}{Blau: $x + y^2 = 3$}
+  \textcolor{red}{Rot: $x + y^2 = 3$},
+  \textcolor{blue}{Blau: $x^2 -y = 0$}.
   \label{buchberger:equationVisual1}}
 \end{figure}
 
@@ -199,8 +203,9 @@ Die Schnittpunkte der Graphen ergeben gerade die Lösungen des Gleichungssystems
 \centering
 \includegraphics[width=0.7\textwidth]{papers/buchberger/images/equationSystem2.png}
 \caption{Visualisierung des Gleichungssystems \protect\eqref{buchberger:polynom-gleichungssystem-6}
-  \textcolor{red}{Rot: $x^4 + x = 3$},
-  \textcolor{blue}{Blau: $x^2 - y = 0$}
+  \textcolor{red}{Rot: $x^4 + x - 3 = 0$},
+  \textcolor{blue}{Blau: $x^2 - y = 0$},
+  \textcolor{gray}{Grau: $x + y^2 = 3$}.
 \label{buchberger:equationVisual2}}
 \end{figure}
 Auf dem Plot~\ref{buchberger:equationVisual2}
@@ -210,3 +215,4 @@ Die Eigenschaft, dass die erste Gleichung nur die Variable $x$ beinhaltet, wird 
 Die Gleichung besteht nur noch aus vertikalen Geraden.
 Das erklärt sich dadurch, dass die Gleichung nicht mehr von $y$ abhängt und somit die $y$-Achse nicht mehr relevant ist für die Gleichung.
 Die Gleichung wurde sozusagen auf eine Dimension reduziert.
+Die beiden Lösungen haben sich nicht verändert, was ersichtlich ist da die alte Gleichung, welche grau eingezeichnet ist, die gleichen Schnittpunkte wie die neuen Gleichungen hat.
