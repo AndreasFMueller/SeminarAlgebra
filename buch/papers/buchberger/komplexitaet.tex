@@ -10,22 +10,22 @@
 \section{Komplexität}
 Dieser Abschnitt setzt theoretische Grundlagen zur \emph{Komplexitätstheorie} voraus, die sehr gut von Müller in seinem Buch~\cite{buchberger:automaten-und-sprachen} erklärt werden.
 Bekanntlich ist das Lösen eines Sudokus ein NP-vollständiges Problem.
-Die Klasse \emph{NP} beinhaltet alle entscheidbaren Sprachen, die sich von einer nichtdeterministischen Maschine\footnote{Leider existieren nichtdeterministische Maschinen nur in der Theorie, 
-und daher lassen sich diese Probleme in der Praxis nur in exponentieller Zeit lösen.} 
-in polynomieller Zeit lösen lassen.
-Als \emph{NP-vollständig} bezeichnet man die Klasse der schwierigsten Probleme innerhalb von NP.
+Die Klasse \text{NP} beinhaltet alle entscheidbaren Sprachen, die sich von einer nichtdeterministischen Maschine in polynomieller Zeit lösen lassen.
+Leider existieren nichtdeterministische Maschinen nur in der Theorie,
+und daher lassen sich diese Probleme in der Praxis nur in exponentieller Zeit lösen.
+Als \emph{NP-vollständig} bezeichnet man die Klasse der schwierigsten Probleme innerhalb von \text{NP}.
 Es stellt sich die Frage, ob das Lösen von Polynomgleichungssystemen auch NP-vollständig ist.
 
 \subsection{Entscheidungsprobleme}
-Formell lässt sich Sudoku als das Entscheidungsproblem
+Formal lässt sich Sudoku als das Entscheidungsproblem
 \begin{equation}
   \begin{split}
-    \text{SUDOKU} =
+    \textit{SUDOKU} =
     \left\{
       \langle\mathcal{S}\rangle
       \;\left|\;
         \begin{minipage}{7cm}\raggedright
-          $\mathcal{S}$ ist ein Sudoku mit vorgegebenen Zahlen, welches eine Lösung besitzt, welche die bekannten Sudoku-Regeln erfüllt.
+          $\mathcal{S}$ ist ein $n^2 \times n^2$ Sudoku mit vorgegebenen Zahlen, welches eine Lösung besitzt, welche die bekannten Sudoku-Regeln erfüllt.
         \end{minipage}
       \right.
     \right\}
@@ -33,18 +33,18 @@ Formell lässt sich Sudoku als das Entscheidungsproblem
   \label{buchberger:sudoku-problem}
 \end{equation}
 definieren.
-Das Entscheidungsproblem beantwortet nur die Frage, ob es eine Lösung für das Sudoku gibt oder nicht. Es findet nicht die Lösung selbst.
-Es wurde jedoch bewiesen, dass das Entscheiden der Existenz einer Lösung in der gleichen Komplexitätsklasse liegt wie das Finden der Lösung.
+Das Entscheidungsproblem beantwortet nur die Frage, ob es eine ganzzahlige Lösung für das Sudoku gibt oder nicht. Es findet nicht die Lösung selbst.
+Es wurde jedoch bewiesen, dass das Entscheiden über die Existenz einer Lösung in der gleichen Komplexitätsklasse liegt wie das Finden der Lösung.
 
 Für das Problem der Polynomgleichungssysteme wird das Entscheidungsproblem
 \begin{equation}
   \begin{split}
-    \text{POLYNOM} =
+    \textit{POLYNOM} =
     \left\{
-      \langle\mathcal{P}\rangle
+      \langle\mathcal{P}, p\rangle
       \;\left|\;
         \begin{minipage}{7cm}\raggedright
-          $\mathcal{P}$ ist ein System von Polynomgleichungen über dem endlichen Körper $\mathbb{F}_p$, welches mindestens eine Lösung besitzt.
+          $\mathcal{P}$ ist ein System von Polynomgleichungen über einem endlichen Körper $\mathbb{F}_p$, welches mindestens eine Lösung besitzt.
         \end{minipage}
       \right.
     \right\}
@@ -52,95 +52,99 @@ Für das Problem der Polynomgleichungssysteme wird das Entscheidungsproblem
   \label{buchberger:polynom-problem}
 \end{equation}
 definiert.
-Die Einschränkung auf Polynomgleichungen über dem endlichen Körper $\mathbb{F}_p$ ist hier sinnvoll, da der Körper ausreicht um die Zahlen eines Sudokus zu codieren.
-Für unendliche Zahlenbereiche ist es komplizierter, wie das zehnte hilbertsche Problem zeigt.
+Die Einschränkung auf Polynomgleichungen über einem endlichen Körper $\mathbb{F}_p$ ist hier sinnvoll, da der Körper ausreicht, um die Zahlen eines Sudokus zu codieren.
+Für unendliche Zahlenbereiche ist es komplizierter, wie das 10. hilbertsche Problem zeigt.
 
-\subsection{Ist $POLYNOM$ NP-vollständig?}
+\subsection{Ist $\textit{POLYNOM}$ NP-vollständig?}
 \begin{theorem}
-  $POLYNOM$ ist NP-vollständig.
+  $\textit{POLYNOM}$ ist NP-vollständig.
 \end{theorem}
 
 \subsubsection{Reduktion}
-Wie gezeigt, lässt sich $SUDOKU$ durch $POLYNOM$ lösen.
-Somit ist $POLYNOM$ mindestens so schwierig wie $SUDOKU$.
+In Abschnitt~\ref{buchberger:section:sudoku} wurde gezeigt, dass sich ein $4 \times 4$- bzw. $2^2 \times 2^2$-Sudoku durch ein Polynomgleichungssystem beschreiben und lösen lässt.
+Um die Reduktion von $\textit{SUDOKU}$ auf $\textit{POLYNOM}$ durchzuführen, muss das Problem noch auf beliebig grosse Sudokus verallgemeinert werden:
+Die gezeigte Idee, die Sudoku-Regeln als Gleichungen zu codieren, funktioniert für beliebig grosse Sudokus, wobei die Anzahl der Gleichungen polynomiell wächst.
+Für ein $n^2 \times n^2$-Sudoku werden $n^4 \cdot 4$ Gleichungen benötigt und die $n^4$ Variablen müssen Werte zwischen $1$ und $n^2$ annehmen.
+Für den endlichen Körper $\mathbb{F}_p$ von $\textit{POLYNOM}$ wird dann einfach eine Primzahl $p$ gewählt, so dass $p > n^2$ gilt.
+Somit ist $\textit{POLYNOM}$ mindestens so schwierig wie $\textit{SUDOKU}$.
 Dieser Sachverhalt lässt sich durch die Reduktion
-$SUDOKU \leq_{\mathrm{p}} POLYNOM$
+$\textit{SUDOKU} \le_P \textit{POLYNOM}$
 ausdrücken.
 
-Dies genügt nicht, um zu beweisen, dass $POLYNOM$ NP-vollständig ist.
-Es könnte ja sein, dass $POLYNOM$ noch schwieriger ist als NP.
+Dies genügt nicht, um zu beweisen, dass $\textit{POLYNOM}$ NP-vollständig ist.
+Es könnte ja sein, dass $\textit{POLYNOM}$ noch schwieriger ist als \text{NP}.
 
 \subsubsection{Entscheidbarkeit}
 Ein Entscheidungsproblem gilt als entscheidbar, wenn es möglich ist, das Problem in endlicher Zeit zu entscheiden.
-Da $POLYNOM$ auf den endlichen Körper $\mathbb{F}_p$ eingeschränkt ist, gibt es nur endlich viele Kombinationen aller Variablen und Zahlen, welche einfach durchprobiert werden können.
-Somit ist $POLYNOM$ entscheidbar.
+Da $\textit{POLYNOM}$ auf einen endlichen Körper $\mathbb{F}_p$ eingeschränkt ist, gibt es nur endlich viele Kombinationen aller Variablen und Zahlen, welche einfach durchprobiert werden können.
+Somit ist $\textit{POLYNOM}$ entscheidbar.
 
-\subsubsection{NP-Zugehörigkeit}
+\subsubsection{\text{NP}-Zugehörigkeit}
 
-Das Problem $POLYNOM$ lässt sich in polynomieller Zeit verifizieren.
-Das heisst es gibt einen Algorithmus, mit dem man in polynomieller Zeit prüfen kann ob eine vorgeschlagene Lösung tatsächlich eine Lösung des Gleichungssystems ist.
+Das Problem $\textit{POLYNOM}$ lässt sich in polynomieller Zeit verifizieren.
+Das heisst, es gibt einen Algorithmus, mit dem man in polynomieller Zeit prüfen kann, ob eine vorgeschlagene Lösung tatsächlich eine Lösung des Gleichungssystems ist.
 
 Folgender Algorithmus ist ein solcher Verifizierer:
 \begin{enumerate}
   \item
-  Der Algorithmus erhält ein Gleichungssystem und eine Lösung in der Form $x_1 = 5, \dots x_n = 12$.
+  Der Algorithmus erhält ein Gleichungssystem und eine Lösung in der Form $x_1 = 5, \dots, x_n = 12$.
   \item
   Setze in jeder Gleichung für jede Variable den in der Lösung angegebenen Wert ein.
   \item
   Rechne in jeder Gleichung die Zahlen aus.
   \item
-  Überprüfe für jede Gleichung ob der Wert auf der linken und rechten Seite identisch ist.
+  Überprüfe für jede Gleichung, ob der Wert auf der linken und rechten Seite identisch ist.
 \end{enumerate}
-Die Laufzeit hängt von den Anzahl Gleichungen $n$, den Anzahl Variablen $v$ und der höchsten Potenz $p$ ab.
-Schritt 2 besitzt die Laufzeit $O(n \cdot v)$.
-Das Ausrechnen der Zahlen in Schritt 3 hat Laufzeit $O(n \cdot v \cdot p)$. Das Ausrechnen einer Potenz $x^p$ benötigt $p$ Multiplikationen, welche polynomielle Laufzeit haben.
-Der letzte Schritt besitzt die Laufzeit $O(n)$.
+Die Laufzeit hängt von der Anzahl der Gleichungen $m$, der Anzahl der Variablen $v$, der höchsten Potenz $q$ und der Feldgrösse $p$ ab.
+Schritt 2 besitzt die Laufzeit $O(m \cdot v)$.
+Das Ausrechnen der Zahlen in Schritt 3 hat Laufzeit $O(m \cdot v \cdot q \cdot \log^2 p)$. Das Ausrechnen einer Potenz $x^q$ benötigt $q$ Multiplikationen, welche in $\mathbb{F}_p$ jeweils eine Laufzeit von $O(\log^2 p)$ haben.
+Der letzte Schritt besitzt die Laufzeit $O(m)$.
 
 Somit ergibt sich die Gesamtlaufzeit
 \begin{equation}
-O(n \cdot v) + O(n \cdot v \cdot p) + O(n) = O(n \cdot v \cdot p)
+O(m \cdot v) + O(m \cdot v \cdot q \cdot \log^2 p) + O(m) = O(m \cdot v \cdot q \cdot \log^2 p)
 ,
 \end{equation}
 welche polynomiell ist.
 
-Zusammen mit der zuvor gezeigten Entscheidbarkeit zeigt dieser Algorithmus, dass $POLYNOM$ in NP liegt und nicht ausserhalb.
+Zusammen mit der zuvor gezeigten Entscheidbarkeit zeigt dieser Algorithmus, dass $\textit{POLYNOM}$ in \text{NP} liegt und nicht ausserhalb.
 
 \begin{proof}
-Die NP-vollständigen Probleme sind die Klasse der schwierigsten Probleme innerhalb von NP und sind alle gleich schwierig.
+Die NP-vollständigen Probleme bilden die Klasse der schwierigsten Probleme innerhalb von \text{NP} und sind alle gleich schwierig.
 Durch die beiden Resultate
 \begin{enumerate}
   \item
-  $POLYNOM$ ist mindestens so schwierig wie $SUDOKU$.
+  $\textit{SUDOKU}$ ist NP-vollständig und $\textit{POLYNOM}$ ist mindestens so schwierig wie $\textit{SUDOKU}$.
   \item
-  $POLYNOM$ liegt in NP
+  $\textit{POLYNOM}$ liegt in \text{NP}.
 \end{enumerate}
-lässt sich schlussfolgern, dass $POLYNOM$ gleich schwierig ist wie $SUDOKU$.
+lässt sich schlussfolgern, dass $\textit{POLYNOM}$ gleich schwierig ist wie $\textit{SUDOKU}$.
 Dies lässt sich durch
-$SUDOKU \equiv_{\mathrm{P}} POLYNOM$
+$\textit{SUDOKU} \equiv_{\mathrm{P}} \textit{POLYNOM}$
 ausdrücken.
-Somit ist bewiesen, dass $POLYNOM$ NP-vollständig ist.
+Somit ist bewiesen, dass $\textit{POLYNOM}$ NP-vollständig ist.
 \end{proof}
 
 \subsubsection{Polynomgleichungssysteme über den ganzen Zahlen}
-Die Frage zur NP-vollständigkeit grösserer Zahlenbereiche als $\mathbb{F}_p$ ist kompliziert.
-Zum Beispiel bei einem Polynomgleichungssystem über $\mathbb{Z}$ ist die Frage, ob eine Lösung existiert, nicht entscheidbar.
-Dies war der Inhalt des 10. Hilbertschen Problems, welches fragte, ob es möglich ist für jede Polynomgleichung zu entscheiden, ob es eine Lösung gibt.
-1970 wurde das Problem gelöst, mit der Antwort, dass es keinen solchen Entscheider geben kann.
-Somit ist das Entscheidungsproblem der Polynomgleichungssysteme über $\mathbb{Z}$ ausserhalb von NP, also schwieriger, und somit nicht NP-vollständig.
+Die Frage zur NP-Vollständigkeit von $\textit{POLYNOM}$ für grössere Zahlenbereiche als $\mathbb{F}_p$ ist kompliziert.
+Zum Beispiel bei einem Polynomgleichungssystem über $\mathbb{Z}$ ist die Frage, ob eine ganzzahlige Lösung existiert, nicht entscheidbar.
+Dies war der Inhalt des 10. hilbertschen Problems, welches fragte, ob es möglich ist, für jede Polynomgleichung zu entscheiden, ob es eine ganzzahlige Lösung gibt.
+1970 wurde das Problem von Yuri Matiyasevich~\cite{buchberger:matiyasevich} gelöst mit der Antwort, dass es keinen solchen Entscheider geben kann.
+Somit ist das Entscheidungsproblem der Polynomgleichungssysteme über $\mathbb{Z}$ ausserhalb von \text{NP}, also schwieriger, und somit nicht NP-vollständig.
 
 \subsubsection{Polynomgleichungssysteme über den reellen Zahlen}
 Bei Polynomgleichungssystemen über $\mathbb{R}$ ist die Frage, ob es eine Lösung gibt, erstaunlicherweise entscheidbar, wie Tarski bewies.
-Allerdings ist das Problem nicht verifizierbar, aufgrund der unendlich langen Dezimalbrüche.
-Ein Verifizierer bräuchte unendlich lange Rechenzeit schon nur um eine irrationale Zahl einzulesen.
+Allerdings ist das Problem aufgrund unendlich langer Dezimalbrüche nicht verifizierbar.
+Ein Verifizierer bräuchte unendlich lange Rechenzeit, nur um eine irrationale Zahl einzulesen.
 
 
-\subsection{P vs. NP}
+\subsection{\text{P} vs. \text{NP}}
 Die Millennium-Probleme umfassen eine Liste von ungelösten mathematischen Problemen.
-Wer eines davon löst wird mit einer Million US-Dollar belohnt.
-Eines der Millennium-Probleme ist die Frage $\text{P} \stackrel{?}{=} \text{NP}$, also ob die Komplexitätsklassen P und NP verschieden sind, was von den meisten Mathematikern vermutet wird.
+Wer eines davon löst, wird mit einer Million US-Dollar belohnt.
+Eines der Millennium-Probleme ist die Frage $\text{P} \stackrel{?}{=} \text{NP}$, also ob die Komplexitätsklassen \text{P} und \text{NP} verschieden sind, was von den meisten Mathematikern vermutet wird.
 Falls sich herausstellen würde, dass $\text{P} = \text{NP}$ gilt, würde es bedeuten, dass es für alle NP-vollständigen Probleme einen Algorithmus gibt, der das Problem in polynomieller Zeit löst.
-Wenn also jemand es schafft, einen allgemeinen Algorithmus zu finden der Sudokus oder Polynomgleichungssysteme, welche wie besprochen NP-vollständig sind, löst, hätte $\text{P} = \text{NP}$ bewiesen.
+Wenn also jemand es schafft, einen allgemeinen Algorithmus zu finden, der Sudokus oder Polynomgleichungssysteme, welche wie besprochen NP-vollständig sind, in polynomieller Zeit löst, hätte man $\text{P} = \text{NP}$ bewiesen.
 Dies hätte schwerwiegende Auswirkungen zum Beispiel auf die Kryptographie:
-Die meisten kryptographischen Systeme basieren auf einer langen Rechenzeit um einen unbekannten \emph{Schlüssel} zu berechnen.
-Der beste Weg so einen Key zu berechnen ist meistens durch Bruteforcing\footnote{Alle möglichen Varianten ausprobieren.}.
-Wenn es auf einmal einen Weg gibt Keys in polynomieller Zeit zu berechnen, wären viele kryptographische Systeme nicht mehr sicher.
+Die meisten kryptographischen Systeme basieren auf einer langen Rechenzeit, um einen unbekannten \emph{Schlüssel} zu berechnen.
+Der beste Weg, so einen Schlüssel zu berechnen, ist meistens, alle Möglichkeiten auszuprobieren.
+Wenn es auf einmal einen Weg gibt, Schlüssel in polynomieller Zeit zu berechnen, wären viele kryptographische Systeme nicht mehr sicher.

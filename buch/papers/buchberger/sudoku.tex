@@ -29,12 +29,12 @@
 Ein Sudoku ist ein bekanntes Ausfüllrätsel, bei dem in jedes leere Feld eine Ziffer eingetragen werden muss.
 Das Sudoku gilt als gelöst, wenn bestimmte Regeln erfüllt sind.
 
-Das abgebildete $4\times4$ Sudoku
+Das abgebildete $4 \times 4$-Sudoku
 \footnote{
-  Ein $4\times4$ Sudoku wird auch Shidoku genannt.
+  Ein $4 \times 4$-Sudoku wird auch Shidoku genannt.
   Der Name Shidoku ist ein Wortspiel aus dem Wort Sudoku und dem japanischen Zahlenwort \begin{CJK}{UTF8}{min}四\end{CJK} für die Zahl 4, welches shi ausgesprochen wird. % 四
 }
-ist eine kleinere Form des üblichen $9\times9$ Sudokus.
+ist eine kleinere Form des üblichen $9 \times 9$-Sudokus.
 Die Regeln sind gleich, aber auf die kleinere Form angepasst.
 
 Die Struktur und Regeln eines Sudokus lassen sich mathematisch mit Gleichungen einfach modellieren.
@@ -53,9 +53,9 @@ Deshalb bietet es sich an, die Anwendung des Buchberger-Algorithmus anhand eines
 \end{figure}
 
 Zunächst müssen die Variablen des Gleichungssystems definiert werden.
-Für jedes Feld im Sudoku gibt es eine Variable $x_{ij}$ mit den Indizes $i, j \in \{1, 2, 3, 4\}$, wobei $i$ die Spalte und $j$ die Zeile identifiziert.
+Für jedes Feld im Sudoku gibt es eine Variable $x_{ij}$ mit den Indizes $i, j \in \{1, 2, 3, 4\}$, wobei $i$ die Zeile und $j$ die Spalte identifiziert.
 In Abbildung~\ref{buchberger:sudoku-combined} ist jede Variable in ihrem Feld eingezeichnet.
-Der Wert einer Variablen steht für die Ziffer, die an ihrem Feld eingetragen werden soll.
+Der Wert einer Variablen steht für die Ziffer, die in ihr Feld eingetragen werden soll.
 
 \subsection{Gleichungen des Sudokus
 \label{buchberger:subsection:gleichungen-des-sudokus}}
@@ -74,9 +74,9 @@ Dies wird durch die Gleichung
   (x_{11} - 1)\,(x_{11} - 2)\,(x_{11} - 3)\,(x_{11} - 4) = 0
   \label{buchberger:sudoku-gleichung-1}
 \end{equation}
-erzwungen. Wenn einer der 4 Faktoren 0 ergibt, wird die ganze Gleichung erfüllt.
+erzwungen, denn wenn einer der vier Faktoren 0 ergibt, wird die ganze Gleichung erfüllt.
 
-Wenn man diese Idee noch für die restlichen 15 Variablen anwendet ergeben sich die Gleichungen
+Wenn man diese Idee noch für die restlichen 15 Variablen anwendet, ergeben sich die Gleichungen
 \begin{equation}
 \left.
   \begin{aligned}
@@ -116,7 +116,7 @@ Die Gleichungen
 \label{buchberger:sudoku-gleichung-3}
 \end{equation}
 sind trivial.
-Dadurch wurden die vier Gleichungen aus~\eqref{buchberger:sudoku-gleichung-2} redundant, welche $x_{13}$, $x_{31}$, $x_{34}$ bzw. $x_{42}$ betreffen.
+Dadurch werden die vier Gleichungen aus~\eqref{buchberger:sudoku-gleichung-2}, welche $x_{13}$, $x_{31}$, $x_{34}$ bzw. $x_{42}$ betreffen, redundant.
 Dies ist jedoch kein Problem, da redundante Gleichungen keine Widersprüche erzeugen und am Schluss ohnehin entfernt werden.
 
 \subsubsection{Regel 3: In jeder Zeile muss jede Zahl genau einmal stehen.}
@@ -144,11 +144,11 @@ Die Gleichungen
 stellen sicher, dass auch die Zahlen 2, 3 und 4 in der obersten Zeile vorkommen.
 
 Der aufmerksame Leser hat vielleicht gemerkt, dass die Teilregel nur verlangt, dass eine Zahl mindestens einmal vorkommt und nicht, dass eine Zahl genau einmal vorkommt.
-Somit ist z. B. die Gleichung \eqref{buchberger:sudoku-gleichung-4} auch erfüllt, wenn die ganze obere Zeile nur aus Einsen besteht.
+Somit ist z.~B. die Gleichung~\eqref{buchberger:sudoku-gleichung-4} auch erfüllt, wenn die ganze obere Zeile nur aus Einsen besteht.
 Jedoch erfüllen die vier Gleichungen der Zeile zusammen trotzdem die Regel.
-Der einzige Weg alle vier Gleichungen gleichzeitig zu erfüllen besteht darin, dass jede Zahl genau einmal vorkommt.
-Wenn z. B. zwei Einsen in der obersten Zeile stünden, würde zwangsläufig eine andere Gleichung verletzt werden, da z. B. die Vier fehlt.
-Der Buchberger-Algorithmus wird gezwungen eine Lösung zu finden wo jede Zahl genau einmal vorkommt, sonst kann er nicht alle Gleichungen gleichzeitig erfüllen.
+Der einzige Weg, alle vier Gleichungen gleichzeitig zu erfüllen, besteht darin, dass jede Zahl genau einmal vorkommt.
+Wenn z.~B. zwei Einsen in der obersten Zeile stünden, würde zwangsläufig eine andere Gleichung verletzt werden, da z.~B. die Vier fehlt.
+Der Buchberger-Algorithmus wird gezwungen, eine Lösung zu finden, in der jede Zahl genau einmal vorkommt, sonst kann er nicht alle Gleichungen gleichzeitig erfüllen.
 
 Die restlichen Gleichungen folgen dem gleichen System:
 \begin{equation}
@@ -199,8 +199,8 @@ Diese Regel funktioniert analog zu Regel 3.
 \label{buchberger:sudoku-gleichung-7}
 \end{equation}
 
-\subsubsection{Regel 5: In jedem $2\times2$ Block muss jede Zahl genau einmal stehen.}
-Diese Regel funktioniert auch wie die Regeln 3 und 4, aber anstatt Zeilen oder Spalten wird in jeder Gleichung einer der $2\times2$ Blöcke isoliert betrachtet.
+\subsubsection{Regel 5: In jedem $2 \times 2$-Block muss jede Zahl genau einmal stehen.}
+Diese Regel funktioniert auch wie die Regeln 3 und 4, aber anstatt Zeilen oder Spalten wird in jeder Gleichung einer der $2 \times 2$-Blöcke isoliert betrachtet.
 \begin{equation}
 \left.
   \begin{aligned}
@@ -234,11 +234,11 @@ Diese Regel funktioniert auch wie die Regeln 3 und 4, aber anstatt Zeilen oder S
   \caption{Das vom Buchberger-Algorithmus gelöste Sudoku.
   \label{buchberger:sudokuSolved}}
 \end{figure}
-Der Autor hat das Gleichungssystem mithilfe des Open-Source Computeralgebrasystems (CAS) \emph{Maxima} gelöst.
+Der Autor hat das Gleichungssystem mithilfe des Open-Source-Computeralgebrasystems (CAS) \emph{Maxima}~\cite{buchberger:maxima-github} gelöst.
 Dafür wurden zuerst alle 68 Gleichungen in die Nullstellenform gebracht und dann als Menge von Polynomen eingegeben.
 Der Buchberger-Algorithmus wurde durch die Funktion \texttt{poly\_reduced\_grobner()} mit den 68 Polynomen ausgeführt.
 Dabei wurde eine lexikographische Ordnung verwendet.
-Die Funktion \texttt{poly\_reduced\_grobner()} führt den Buchberger Algorithmus aus und räumt auch direkt die redundanten Polynome auf.
+Die Funktion \texttt{poly\_reduced\_grobner()} führt den Buchberger-Algorithmus aus und räumt auch direkt die redundanten Polynome auf.
 Der Output der Funktion ist die Gröbner-Basis
 \[
 \begin{aligned}
@@ -274,7 +274,7 @@ Indem man die Polynome sortiert, normiert und $= 0$ anfügt, erhält man das Gle
   \right\}
   \label{buchberger:sudoku-end-loesung}
 \end{equation}
-Daraus lassen sich die Lösungen direkt ablesen und in das Sudoku~\ref{buchberger:sudokuSolved} eintragen.
+Daraus lassen sich die Lösungen direkt ablesen und in das Sudoku in Abbildung~\ref{buchberger:sudokuSolved} eintragen.
 
 Damit ist die Demonstration abgeschlossen.
 Es ist erstaunlich, dass man ein Sudoku durch ein Gleichungssystem beschreiben und mit dem Buchberger-Algorithmus lösen kann.
