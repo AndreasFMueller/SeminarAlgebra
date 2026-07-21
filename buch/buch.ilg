@@ -1,0 +1,12 @@
+This is makeindex, version 2.18 [MiKTeX 26.2].
+Scanning input file buch.idx....
+!! Input index error (file = buch.idx, line = 168):
+   -- Extra `@' at position 4 of first argument.
+
+!! Input index error (file = buch.idx, line = 238):
+   -- Illegal null field.
+done (779 entries accepted, 2 rejected).
+Sorting entries.........done (8146 comparisons).
+Generating output file buch.ind....done (727 lines written, 0 warnings).
+Output written in buch.ind.
+Transcript written in buch.ilg.
