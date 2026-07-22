@@ -8,7 +8,7 @@
 %
 
 \section{Komplexität}
-Dieser Abschnitt setzt theoretische Grundlagen zur \emph{Komplexitätstheorie} voraus, die sehr gut von Müller in seinem Buch~\cite{buchberger:automaten-und-sprachen} erklärt werden.
+Dieser Abschnitt setzt theoretische Grundlagen zur \emph{Komplexitätstheorie} voraus, die sehr gut von Andreas Müller in seinem Buch~\cite{buchberger:automaten-und-sprachen} erklärt werden.
 Bekanntlich ist das Lösen eines Sudokus ein NP-vollständiges Problem.
 Die Klasse \text{NP} beinhaltet alle entscheidbaren Sprachen, die sich von einer nichtdeterministischen Maschine in polynomieller Zeit lösen lassen.
 Leider existieren nichtdeterministische Maschinen nur in der Theorie,
@@ -33,7 +33,7 @@ Formal lässt sich Sudoku als das Entscheidungsproblem
   \label{buchberger:sudoku-problem}
 \end{equation}
 definieren.
-Das Entscheidungsproblem beantwortet nur die Frage, ob es eine ganzzahlige Lösung für das Sudoku gibt oder nicht. Es findet nicht die Lösung selbst.
+Das Entscheidungsproblem beantwortet nur die Frage, ob es eine Lösung für das Sudoku gibt oder nicht. Es findet nicht die Lösung selbst.
 Es wurde jedoch bewiesen, dass das Entscheiden über die Existenz einer Lösung in der gleichen Komplexitätsklasse liegt wie das Finden der Lösung.
 
 Für das Problem der Polynomgleichungssysteme wird das Entscheidungsproblem
@@ -95,7 +95,7 @@ Folgender Algorithmus ist ein solcher Verifizierer:
   \item
   Überprüfe für jede Gleichung, ob der Wert auf der linken und rechten Seite identisch ist.
 \end{enumerate}
-Die Laufzeit hängt von der Anzahl der Gleichungen $m$, der Anzahl der Variablen $v$, der höchsten Potenz $q$ und der Feldgrösse $p$ ab.
+Die Laufzeit hängt von der Anzahl der Gleichungen $m$, der Anzahl der Variablen $v$, der höchsten Potenz $q$ und der Körpergrösse $p$ ab.
 Schritt 2 besitzt die Laufzeit $O(m \cdot v)$.
 Das Ausrechnen der Zahlen in Schritt 3 hat Laufzeit $O(m \cdot v \cdot q \cdot \log^2 p)$. Das Ausrechnen einer Potenz $x^q$ benötigt $q$ Multiplikationen, welche in $\mathbb{F}_p$ jeweils eine Laufzeit von $O(\log^2 p)$ haben.
 Der letzte Schritt besitzt die Laufzeit $O(m)$.
@@ -143,7 +143,7 @@ Die Millennium-Probleme umfassen eine Liste von ungelösten mathematischen Probl
 Wer eines davon löst, wird mit einer Million US-Dollar belohnt.
 Eines der Millennium-Probleme ist die Frage $\text{P} \stackrel{?}{=} \text{NP}$, also ob die Komplexitätsklassen \text{P} und \text{NP} verschieden sind, was von den meisten Mathematikern vermutet wird.
 Falls sich herausstellen würde, dass $\text{P} = \text{NP}$ gilt, würde es bedeuten, dass es für alle NP-vollständigen Probleme einen Algorithmus gibt, der das Problem in polynomieller Zeit löst.
-Wenn also jemand es schafft, einen allgemeinen Algorithmus zu finden, der Sudokus oder Polynomgleichungssysteme, welche wie besprochen NP-vollständig sind, in polynomieller Zeit löst, hätte man $\text{P} = \text{NP}$ bewiesen.
+Wenn also jemand es schafft, einen allgemeinen Algorithmus zu finden, der $\textit{SUDOKU}$ oder $\textit{POLYNOM}$, welche wie besprochen NP-vollständig sind, in polynomieller Zeit löst, hätte man $\text{P} = \text{NP}$ bewiesen.
 Dies hätte schwerwiegende Auswirkungen zum Beispiel auf die Kryptographie:
 Die meisten kryptographischen Systeme basieren auf einer langen Rechenzeit, um einen unbekannten \emph{Schlüssel} zu berechnen.
 Der beste Weg, so einen Schlüssel zu berechnen, ist meistens, alle Möglichkeiten auszuprobieren.

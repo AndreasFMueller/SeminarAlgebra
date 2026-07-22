@@ -14,9 +14,9 @@ Das Gleichungssystem
 \begin{equation}
   \left\{
   \renewcommand{\arraycolsep}{2pt}
-  \begin{array}{rcrcrcr}
-    x^2 &-& y &=& 0 \\
-    x &+& y^2 &=& 3
+  \begin{array}{rlcrlcr}
+    & x^2 &-& & y   &=& 0 \\
+    & x   &+& & y^2 &=& 3
   \end{array}
   \right.
   \label{buchberger:polynom-gleichungssystem-1}
@@ -31,12 +31,14 @@ Ein Gleichungssystem wie
   \begin{aligned}
   5xy + 2y^3 +  5y^8z + z^3 &= 100 \\
   3x^2y^4z^9 + 2z^2 &= 1 \\
-  (x-1)\,(y-2)\,(z-3) &= 0 \\
+  (x-1)\,(y-2)\,(z-3) &= 0
   \end{aligned}
   \right.
   \label{buchberger:polynom-gleichungssystem-2}
 \end{equation}
 lässt sich damit auch lösen.
+Terme mit mehreren Variablen wie $5xy$ sind hier im Gegensatz zu linearen Gleichungen erlaubt.
+Die Klammern der letzten Gleichung stellen kein neues Problem dar, da sie beim Ausmultiplizieren auch in die bekannte Koeffizientenform gebracht werden können.
 
 \subsection{Geschichte}
 \label{buchberger:subsection:geschichte}
@@ -48,18 +50,15 @@ Der Algorithmus wurde zu einem wichtigen Bestandteil von Computeralgebrasystemen
 \subsection{Anwenden des Buchberger-Algorithmus}
 \subsubsection{Input des Buchberger-Algorithmus vorbereiten}
 \begin{beispiel}
-Terme mit mehreren Variablen wie $5xy$ sind hier im Gegensatz zu linearen Gleichungen erlaubt.
-Die Klammern der letzten Gleichung stellen kein neues Problem dar, da sie beim Ausmultiplizieren auch in die bekannte Koeffizientenform gebracht werden können.
-
 Wie beim Gauss-Algorithmus müssen die Gleichungen zunächst in eine geeignete Form gebracht werden.
 Die Gleichungen werden in Polynome umgewandelt, wobei sie vorher auf die Form $p(x) = 0$ umgestellt werden müssen.
 Das Gleichungssystem
 \begin{equation}
   \left\{
   \renewcommand{\arraycolsep}{2pt}
-  \begin{array}{rcrcrcr}
-  x^2 &-&y     &&  &=& 0 \\
-  x   &+& y^2 &-&3 &=& 0
+  \begin{array}{rlcrlcrcr}
+  & x^2 &-& &y     &&  &=& 0 \\
+  & x   &+& &y^2  &-&3 &=& 0
   \end{array}
   \right.
   \label{buchberger:polynom-gleichungssystem-3}
@@ -79,11 +78,11 @@ Der Teil $= 0$ wird entfernt, aber immer noch impliziert, wenn man ein Polynom a
 Diese Umwandlung von Gleichungen zu Polynomen ist nötig, da man mit Polynomen einfacher rechnen kann als mit Gleichungen.
 Der Output des Buchberger-Algorithmus ist auch eine Menge von Polynomen, welche dann zu einem Gleichungssystem rekonstruiert werden kann, indem an jedes Polynom das $= 0$ wieder angehängt wird.
 
-Dabei ist wichtig, dass alle Polynome eine eindeutige Ordnung der Terme besitzen~\ref{buch:komplex:symmetrisch:subsection:fundamentalsatz}.
+Dabei ist wichtig, dass alle Polynome eine eindeutige Ordnung der Terme besitzen.
 Zum Beispiel legt die lexikographische Ordnung fest, dass zuerst alle Terme mit dem höchsten Grad bezüglich $x$ stehen.
-Wenn dies auf mehrere Terme zutrifft, wird innerhalb dieser Gruppe bezüglich des Grads von $y$ sortiert und dann bezüglich $z$ und so weiter bis zur letzten Variablen.
+Haben mehrere Terme denselben Grad bezüglich $x$, wird innerhalb dieser Gruppe nach dem Grad von $y$ sortiert und dann bezüglich $z$ und so weiter bis zur letzten Variablen.
 Dies ist nötig, da der Buchberger-Algorithmus eine spezielle Variante der Polynomdivision verwendet, wobei der führende Term bekannt sein muss.
-Mehr zur Monomordnung ist in~\ref{buch:komplex:symmetrisch:subsection:fundamentalsatz} zu finden, wobei sie für den Fundamentalsatz für symmetrische Polynome eine Rolle spielt.
+Mehr zur Monomordnung ist in Abschnitt~\ref{buch:komplex:symmetrisch:subsection:fundamentalsatz} zu finden, wobei sie für den Fundamentalsatz für symmetrische Polynome eine Rolle spielt.
 \end{beispiel}
 
 \subsubsection{Buchberger-Algorithmus ausführen}
@@ -148,23 +147,22 @@ Beim Rückwärtseinsetzen müssen dann alle Kombinationen der bisherigen Lösung
 \end{algorithmic}
 \end{algorithm}
 
-Dieser Abschnitt soll dem Leser eine Idee geben, wie der Buchberger-Algorithmus funktioniert und wie man ihn anwendet.
-Wie der Algorithmus genau funktioniert, erklärt Lamagna in seinem Buch~\cite{buchberger:computer-algebra} in Kapitel 8.%cite{buchberger:computer-algebra}
+Dieser Abschnitt soll dem Leser eine Idee geben, wie der Buchberger-Algorithmus funktioniert.
+Wie und warum der Algorithmus genau funktioniert, erklärt Edmund Lamagna in seinem Buch~\cite{buchberger:computer-algebra} in Kapitel 8.
 
 Der Pseudocode des Algorithmus~\ref{buchberger:pseudo-code} zeigt vereinfacht den Ablauf auf.
 Die Funktion \texttt{spezialDivision} ist in sich selbst ein komplizierter Algorithmus und wird im Folgenden nur grob erklärt.
 Der Algorithmus startet mit einer Menge von Polynomen, welche die Basis genannt wird (Zeile 2).
-Aus den Polynomen der Basis werden alle möglichen Paare gebildet (Zeile 4).
-Mit einer speziellen Polynomdivision \texttt{spezialDivision}
-\footnote{Die Funktion, die hier \texttt{spezialDivision} genannt wird, besteht eigentlich aus zwei Schritten:
+Aus den Polynomen der Basis werden alle möglichen Paare gebildet (Zeile 6).
+Mit einer speziellen Polynomdivision \texttt{spezialDivision}\footnote{Die Funktion, die hier \texttt{spezialDivision} genannt wird, besteht eigentlich aus zwei Schritten:
   Die Funktion bildet zuerst ein sogenanntes S-Polynom aus dem Polynom-Paar \texttt{(p, q)} und führt darauf eine spezielle Polynomdivision aus,
   wobei nicht durch ein einzelnes Polynom dividiert wird, sondern durch eine Menge von Polynomen, hier die \texttt{alteBasis}.
   Dabei wird iterativ versucht, den führenden Term des S-Polynoms durch den führenden Term eines der Polynome der Basis zu dividieren.
   Sobald es nicht mehr möglich ist, eine solche Division ohne Rest durchzuführen, endet \texttt{spezialDivision}.
   Mehr dazu in~\cite{buchberger:computer-algebra}.
-}(Zeile 7), die jeweils eines der Paare als Dividend und die ganze Basis als Divisor einbezieht, wird ein Quotient mit Rest berechnet.
+} (Zeile 7), die jeweils eines der Paare als Dividend und die ganze Basis als Divisor einbezieht, wird ein Quotient mit Rest berechnet.
 Dabei will der Algorithmus herausfinden, ob jeweils zwei Polynome als Paar eine Information tragen, die in der Basis noch nicht enthalten ist.
-Darum sind auch in einer dieser Polynomdivision-Operationen immer ein Paar und die ganze Basis beteiligt.
+Darum sind auch an einer dieser Polynomdivision-Operationen immer ein Paar und die ganze Basis beteiligt.
 
 Die neue Information, die bei dieser Polynomdivision gewonnen wurde, ist der Rest der Division.
 Dieser Rest wird als Polynom zur Basis hinzugefügt, um somit die neu gewonnene Information zu behalten (Zeile 9).
@@ -174,7 +172,7 @@ Diese neuen Paare werden auch den Polynomdivisions-Schritt durchlaufen.
 Wenn ein Paar keine neuen Informationen liefert, zeigt sich das daran, dass das Paar durch die Basis ohne Rest teilbar ist.
 Wenn der Rest $0$ ist, war das Paar nutzlos (Zeile 8).
 Die Tatsache, dass das Polynom $0$ keine Information liefert, ergibt durchaus Sinn:
-Wenn man das Polynom $0$ als Gleichung $0 = 0$ interpretiert, erhält man eine Gleichung, die immer wahr ist und keine Information liefert.
+Wenn man das Polynom $0$ als Gleichung $0 = 0$ interpretiert, erhält man eine Gleichung, die immer wahr ist und somit keine Information liefert.
 
 Die Prozedur wird so lange wiederholt, bis keine neuen Polynome zur Basis hinzugefügt werden können (Zeile 4).
 Das Resultat ist eine Basis mit mindestens so vielen Polynomen wie die ursprüngliche Basis (Zeile 13).
@@ -212,7 +210,7 @@ Auf dem Plot~\ref{buchberger:equationVisual2}
 ist das Gleichungssystem der Gröbner-Basis \eqref{buchberger:polynom-gleichungssystem-6}
 dargestellt.
 Die Eigenschaft, dass die erste Gleichung nur die Variable $x$ beinhaltet, wird hier auf interessante Weise sichtbar:
-Die Gleichung besteht nur noch aus vertikalen Geraden.
+Der Graph der Gleichung besteht nur noch aus vertikalen Geraden.
 Das erklärt sich dadurch, dass die Gleichung nicht mehr von $y$ abhängt und somit die $y$-Achse für die Gleichung nicht mehr relevant ist.
 Die Gleichung wurde sozusagen auf eine Dimension reduziert.
 Die beiden Lösungen haben sich nicht verändert, was ersichtlich ist, da die alte Gleichung, welche grau eingezeichnet ist, die gleichen Schnittpunkte wie die neuen Gleichungen hat.
