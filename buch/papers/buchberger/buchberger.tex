@@ -112,7 +112,7 @@ woraus sich das Gleichungssystem
 konstruieren lässt.
 \end{beispiel}
 
-\subsubsection{Output des Buchberger-Algorithmus}
+\subsubsection{Ausgabe des Buchberger-Algorithmus}
 Das Gleichungssystem~\eqref{buchberger:polynom-gleichungssystem-6} ist zwar noch nicht gelöst, aber es besitzt eine nützliche Eigenschaft:
 Die erste Gleichung beinhaltet nur noch die Variable $x$.
 Eine Gleichung mit nur einer Variablen lässt sich numerisch lösen mit z.~B. dem \emph{Newton-Verfahren}.
@@ -127,7 +127,7 @@ Beim Rückwärtseinsetzen müssen dann alle Kombinationen der bisherigen Lösung
 \setcounter{algorithm}{0}
 
 \begin{algorithm}[t]
-\caption{Pseudocode des Buchberger-Algorithmus in C++/Java ähnlichem Style
+\caption{Pseudocode des Buchberger-Algorithmus in C++/Java ähnlichem Stil
 \label{buchberger:pseudo-code}}
 \begin{algorithmic}[1]
   \State \textbf{function} Buchberger(Menge$<$Polynom$>$ startPolynome) \{
@@ -151,7 +151,7 @@ Dieser Abschnitt soll dem Leser eine Idee geben, wie der Buchberger-Algorithmus 
 Wie und warum der Algorithmus genau funktioniert, erklärt Edmund Lamagna in seinem Buch~\cite{buchberger:computer-algebra} in Kapitel 8.
 
 Der Pseudocode des Algorithmus~\ref{buchberger:pseudo-code} zeigt vereinfacht den Ablauf auf.
-Die Funktion \texttt{spezialDivision} ist in sich selbst ein komplizierter Algorithmus und wird im Folgenden nur grob erklärt.
+Die Funktion \texttt{spezialDivision}, die in Zeile 7 benutzt wird, ist in sich selbst ein komplizierter Algorithmus und wird im Folgenden nur grob erklärt.
 Der Algorithmus startet mit einer Menge von Polynomen, welche die Basis genannt wird (Zeile 2).
 Aus den Polynomen der Basis werden alle möglichen Paare gebildet (Zeile 6).
 Mit einer speziellen Polynomdivision \texttt{spezialDivision}\footnote{Die Funktion, die hier \texttt{spezialDivision} genannt wird, besteht eigentlich aus zwei Schritten:
@@ -167,7 +167,7 @@ Darum sind auch an einer dieser Polynomdivision-Operationen immer ein Paar und d
 Die neue Information, die bei dieser Polynomdivision gewonnen wurde, ist der Rest der Division.
 Dieser Rest wird als Polynom zur Basis hinzugefügt, um somit die neu gewonnene Information zu behalten (Zeile 9).
 Durch die Vergrösserung der Basis haben sich auch neue Polynom-Paare ergeben.
-Diese neuen Paare werden auch den Polynomdivisions-Schritt durchlaufen.
+Diese neuen Paare werden ebenfalls den Polynomdivisions-Schritt durchlaufen.
 
 Wenn ein Paar keine neuen Informationen liefert, zeigt sich das daran, dass das Paar durch die Basis ohne Rest teilbar ist.
 Wenn der Rest $0$ ist, war das Paar nutzlos (Zeile 8).
@@ -176,7 +176,7 @@ Wenn man das Polynom $0$ als Gleichung $0 = 0$ interpretiert, erhält man eine G
 
 Die Prozedur wird so lange wiederholt, bis keine neuen Polynome zur Basis hinzugefügt werden können (Zeile 4).
 Das Resultat ist eine Basis mit mindestens so vielen Polynomen wie die ursprüngliche Basis (Zeile 13).
-Der Grund ist, dass nur Polynome hinzugefügt, aber nie entfernt wurden.
+Der Grund ist, dass Polynome nur hinzugefügt, aber nie entfernt wurden.
 
 Im letzten Schritt, der hier nicht genauer erklärt wird und auch nicht im Pseudocode~\ref{buchberger:pseudo-code} enthalten ist, werden redundante Polynome entfernt und das Ergebnis ist eine sogenannte \emph{Gröbner-Basis}.
 
