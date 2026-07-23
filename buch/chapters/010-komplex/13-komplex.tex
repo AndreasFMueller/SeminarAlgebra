@@ -1,0 +1,468 @@
+%
+% 13-komplex.tex -- Der Körper der komplexenzahlen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Der Körper der komplexen Zahlen}
+In der bisherigen Entwicklung haben wir uns vor allem um einzelne
+Zahlen gekümmert.
+Der Menge der Zahlen als Ganzes und die darauf definierten 
+Rechenoperationen haben wir uns nur indirekt angenommen.
+
+%
+% Was ist ein Körper
+%
+\subsubsection{Was ist ein Körper?}
+Die moderne Mathematik hat die möglichen Strukturen von Zahlenmengen und
+ihren Operationen im Detail studiert und entsprechend ihren Eigenschaften
+klassifiziert.
+Die einfachste Art einer Struktur geht von nur einer Operation aus.
+Die zugehörige Struktur ist die einer Gruppe.
+
+\begin{definition}[Gruppe]
+Eine \emph{Gruppe} ist eine Menge $G$ mit einer zweistelligen Operation
+\index{Gruppe}%
+\[
+\cdot
+:
+G\times G \to G
+:
+(g,h) \mapsto gh
+\]
+mit den folgenden Eigenschaften.
+\begin{enumerate}
+\item
+Die Operation ist \emph{assoziativ}: $(gh)l = g(hl)$ für alle $g,h,l\in G$.
+\index{assoziativ}%
+\item
+Es gibt ein \emph{neutrales Element} $e\in G$, es gilt $ea=a$ für alle $a\in G$.
+\index{neutrales Element}%
+\index{Element!neutral}%
+\item
+Zu jedem Element $g\in G$ gibt es ein inverses Element $g^{-1}\in G$
+mit $g^{-1}g=e$.
+\end{enumerate}
+Die Gruppe heisst \emph{kommutativ}
+\index{kommutativ!Gruppe}%
+\index{Gruppe!kommutativ}%
+oder \emph{abelsch},
+\index{abelsch}%
+wenn die Gruppenoperation kommutativ ist.
+In einer abelschen Gruppe wird die Gruppenoperation oft additiv geschrieben
+und das neutrale Element mit $0$ bezeichnet.
+\end{definition}
+
+\begin{beispiel}
+Auf der Menge $\mathbb{N}$ ist die Addition definiert und $0\in\mathbb{N}$ 
+\index{N@$\mathbb{N}$}%
+ist das neutrale Element bezüglich der Addition.
+Trotzdem ist $\mathbb{N}$ keine Gruppe, da kein von 0 verschiedenes Element
+ein Inverses hat.
+In der Menge $\mathbb{Z}$ gibt es zu jeder Zahl $n\in\mathbb{N}$ das
+\index{Z@$\mathbb{Z}$}%
+inverse Element $-n\in\mathbb{Z}$, daher ist $\mathbb{Z}$ eine
+abelsche Gruppe bezüglich der Addition.
+\end{beispiel}
+
+\begin{beispiel}
+Die reellen Zahlen $\mathbb{R}$ bilden bezüglich der Addition eine
+\index{R@$\mathbb{R}$}%
+abelsche Gruppe mit dem neutralen Element $0\in\mathbb{R}$.
+Die positiven reellen Zahlen $\mathbb{R}^+$ bilden bezüglich der
+Multiplikation eine abelsche Gruppe mit neutralem Element
+$1\in\mathbb{R}^+$.
+Die Exponentialfunktion
+\index{Exponentialfunktion}%
+\index{exp@$\operatorname{exp}(z)$}%
+\index{ez@@$e^z$}%
+\[
+\exp
+\colon
+\mathbb{R}\to\mathbb{R}^+
+:
+x\mapsto e^x
+\]
+bildet die Addition in $\mathbb{R}$ in die Multiplikation in $\mathbb{R}^+$
+ab, es gilt
+\begin{align*}
+\exp(a+b) &= \exp(a)\exp(b),
+&
+\exp(0)&=1
+&&\text{und}
+&
+\exp(a)^{-1} &= \exp(-a).
+\end{align*}
+Eine solche Abbildung heisst ein \emph{Gruppenhomomorphismus}.
+\index{Homomorphismus!Gruppen-}%
+\index{Gruppenhomomorphismus}%
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge 
+\[
+\operatorname{GL}_n(\mathbb{R})
+=
+\{
+A\in M_{n\times n}(\mathbb{R})
+\mid
+\text{$A$ ist invertierbar}
+\}
+\]
+der invertierbaren $n\times n$-Matrizen ist eine Gruppe bezüglich
+der Matrizenmultiplikation mit der Einheitsmatrix $I$ als neutralem
+Element.
+\index{Einheitsmatrix}%
+Da die Matrizenmultiplikation für $n>1$ nicht kommutativ ist,
+ist $\operatorname{GL}_n(\mathbb{R})$ im Allgemeinen keine abelsche
+Gruppe.
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge der Matrizen
+\[
+\operatorname{SL}_n(\mathbb{R})
+=
+\{
+A\in M_{n\times n}(\mathbb{R})
+\mid
+\det A=1
+\}
+\]
+mit Determinante $1$ ist eine Gruppe, da alle Matrizen mit Determinante
+$\ne 0$ invertierbar sind.
+\index{Determinante}%
+Es ist also 
+$
+\operatorname{SL}_n(\mathbb{R})
+\subset
+\operatorname{GL}_n(\mathbb{R})
+$.
+
+Sogar die Menge
+\[
+\operatorname{SL}_n(\mathbb{Z})
+=
+\{
+A\in M_{n\times n}(\mathbb{Z})
+\mid
+\det A = 1
+\}
+\]
+ist eine Gruppe, denn die Einträge der inversen Matrix haben den gemeinsamen
+Nenner $\det A$, während der Zähler die Determinante einer Minormatrix ist.
+\index{Minormatrix}%
+Wegen $\det A=1$ folgt, dass die Einträge von $A^{-1}$ ebenfalls ganzahlig
+sind.
+\end{beispiel}
+
+Die vertrauten Zahlenmengen zeichnen sich dadurch aus, dass sie nicht
+nur eine Operation tragen, sondern zusätzlich zur Addition auch
+eine Multiplikation.
+
+\begin{definition}[Ring]
+\index{Ring}%
+Ein \emph{Ring} ist eine Menge $R$ mit zwei Operationen,
+der Addition $+$ und der Multiplikation $\cdot$, mit den folgenden
+Eigeschaften:
+\begin{enumerate}
+\item
+Es gibt ein neutrales Element $0\in R$ der Addition so, dass $R$
+bezüglich der Addition eine abelsche Gruppe ist.
+\item
+Die Multiplikation ist assoziativ und \emph{distributiv}:
+\index{distributiv}%
+\begin{align*}
+a(bc) &= (ab)c
+\\
+a(b+c)&= ab + ac & (a+b)c &= ac + bc.
+\end{align*}
+\item
+$R$ heisst \emph{Ring mit Eins}, wenn es in $R^*=R\setminus\{0\}$ ein
+ein neutrales Element $1\in R^*$ der Multiplikation gibt.
+\item
+Der Ring $R$ heisst \emph{kommutativ}, wenn die Multiplikation kommutativ ist.
+\index{kommutativ}%
+\item
+Eine \emph{Einheit} in $R$ ist eine Element $u\in R^*$, welches bezüglich
+\index{Einheit}%
+der Multiplikation ist.
+\item
+Ein Element $a\in R^*$ heisst ein \emph{Nullteiler}, wenn es ein Element
+\index{Nullteiler}%
+$b\in R^*$ gibt, sodass $ab=0$ ist.
+\end{enumerate}
+\end{definition}
+
+Nullteiler sind Elemente in $R^*$, die bezüglich der Multiplikation
+nicht invertierbar sind.
+Ist nämlich $ab=0$ und wäre $a^{-1}$ ein zu $a$ inverses Element, dann
+wäre
+\[
+0
+=
+a^{-1}0
+=
+a^{-1}ab
+=
+b,
+\]
+ein Widerspruch zu $b\in R^*$.
+
+\begin{beispiel}
+Die Menge $\mathbb{Z}$ der ganzen Zahlen ist ein Ring mit Eins.
+Die einzigen Elemente, die bezüglich der Multiplikation invertierbar
+sind, sind $\pm 1$.
+In $\mathbb{Z}$ gibt es keine Nullteiler.
+\end{beispiel}
+
+\begin{beispiel}
+Sei $n\in\mathbb{N}$ eine natürliche Zahl und
+\[
+\mathbb{Z}_n
+=
+\{
+0,\dots, n-1
+\}
+\]
+die Menge der Reste bei Teilung durch $n$.
+Die Addition und die Multiplikation von ganzen Zahlen überträgt sich
+entsprechende Operationen auf $\mathbb{Z}_n$, sodass $\mathbb{Z}_n$
+ebenfalls ein kommutativer Ring mit $1$ ist.
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge $M_{n\times n}(\mathbb{R})$ der $n\times n$-Matrizen mit
+reellen Einträgen ist ein Ring mit Eins bezüglich der Addition und
+Multiplikation von Matrizen.
+Für $n>1$ ist die Matrizenmultiplikation nicht kommutativ, daher
+ist $M_{n\times n}(\mathbb{R})$ ein nicht-kommutativer Ring.
+
+Für $n>1$ hat $M_{n\times n}(\mathbb{R})$ viele Nullteiler,
+Zum Beispiel gilt
+\[
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0\\
+0&0
+\end{pmatrix}
+\]
+die beiden Matrizen links sind also Nullteiler und können nicht
+invertiert werden.
+\end{beispiel}
+
+Die Mengen $\mathbb{R}$ und $\mathbb{F}_p$ zeichen sich dadurch
+aus, dass nicht nur jedes Element ein additives Inverses hat, sondern
+auch jedes von $0$ verschiedene Element ein multiplikatives Inverses hat.
+Eine solche Menge heisst ein Körper.
+
+\begin{definition}[Körper]
+\index{Körper}%
+Ein Körper $K$ ist ein Ring mit Eins derart, dass $K^*$ eine abelsche
+Gruppe bezüglich der Multiplikation ist.
+\end{definition}
+
+\begin{beispiel}
+Die Menge $\mathbb{Q}$ der rationalen Zahlen ist ein Körper.
+\index{Q@$\mathbb{Q}$}%
+\index{rationale Zahlen}%
+\end{beispiel}
+
+\begin{beispiel}
+Die Menge $\mathbb{F}_p$ ist für jede Primzahl ein Körper.
+\end{beispiel}
+
+%
+% Körperaxiome für R
+%
+\subsubsection{Körperaxiome für $\mathbb{R}$}
+Die reellen Zahlen wurden als Grenzwerte von Cauchy-Folgen von
+rationalen Zahlen konstruiert.
+Sind $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ zwei
+Cauchy-Folgen von rationalen Zahlen mit Grenzwerten $a$ bzw.~$b\in\mathbb{R}$.
+In der Analysis lernt man, dass
+\begin{align*}
+\lim_{n\to\infty} (a_n+b_n)
+&=
+\lim_{n\to\infty} a_n + \lim_{n\to\infty} b_n
+=
+a+b
+\\
+\lim_{n\to\infty} (a_nb_n)
+&=
+\Bigl(\lim_{n\to\infty} a_n\Bigr) \cdot \Bigl(\lim_{n\to\infty} b_n\Bigr)
+=
+ab
+\intertext{und falls $b_n\ne 0$ und $b\ne 0$ gilt auch}
+\lim_{n\to\infty} \frac{1}{b_n}
+&=
+\frac{1}{\displaystyle\lim_{n\to\infty}b_n}
+=
+\frac{1}{b}
+\\
+\lim_{n\to\infty}\frac{a_n}{b_n}
+&=
+\frac{\displaystyle\lim_{n\to\infty} a_n}{\displaystyle\lim_{n\to\infty}b_n}
+=
+\frac{a}{b}.
+\end{align*}
+Diese Gleichungen zeigen, dass die Grenzwertbildung, durch die $\mathbb{R}$
+definiert wird, mit den arithmetischen Operationen kompatibel sind.
+In der Analysis spricht man davon, dass die arithmetischen Operationen
+stetig sind.
+Insbesondere folgt, dass $\mathbb{R}$ bezüglich der Addition eine
+abelsche Gruppe ist und $\mathbb{R}^*$ bezüglich der Multiplikation
+eine multiplikative Gruppe.
+$\mathbb{R}$ ist also ein Körper, der die rationalen Zahlen als
+echten Teilkörper enthält.
+
+%
+% Körperaxiome für eine algebraische Erweiterung
+%
+\subsubsection{Körperaxiome für eine algebraische Erweiterung}
+Sei $K$ ein Körper und $m(X)\in K[X]$ ein irreduzibles 
+Polynom, welches 
+\[
+m(X)
+=
+X^n + m_{n-1}X^{n-1} + \dots + m_1X + m_0
+\]
+geschrieben werden soll.
+Der Körper $K$ kann durch ein Element $\alpha$, welches die
+Identität
+\begin{equation}
+m(\alpha)
+=
+\alpha^n
++
+m_{n-1}\alpha^{n_1}
++
+\dots
++
+m_1\alpha
++
+m_0
+\label{buch:komplex:zahlen:eqn:alphaidentitaet}
+\end{equation}
+erfüllt, erweitert werden.
+Dazu werden die Rechenregeln von Polynomen in $\alpha$ mit Koeffizienten
+aus $K$ mit der Identität~\eqref{buch:komplex:zahlen:eqn:alphaidentitaet}
+reduziert.
+Wie früher gezeigt wurde, entsteht so die Menge
+\[
+K(\alpha)
+=
+\{
+a_0+a_1\alpha + \dots a_{n-1}\alpha^{n-1}
+\mid
+a_0,\dots,a_{n-1}\in K
+\},
+\]
+die ein $n$-dimensionalers Vektorraum über dem Körper $K$.
+Die bereits früher konstruierte Definition der Multiplikation
+macht aus $K(\alpha)$ eine Körper, in dem $\alpha$ eine Nullstelle
+des Polynoms $m$ ist.
+
+%
+% Der Körper C = R(i)
+%
+\subsubsection{Die Körper $\mathbb{C}=\mathbb{R}(i)$ und $\mathbb{Q}(i)$}
+Sei $m(X) = X^2 + 1 \in\mathbb{R}[X]$.
+Dieses Polynom ist irreduzibel und definiert daher eine algebraische
+Erweiterung von $\mathbb{R}$, die mit $\mathbb{R}(i)$ bezeichnet wird.
+Das Element $i$ ist eine Nullstelle von $m$, es gilt also $i^2+1=0$.
+Als algebraische Erweiterung von $\mathbb{R}$ ist $\mathbb{R}(i)$ ein
+Körper, er heisst der \emph{Körper der komplexen Zahlen}.
+\index{komplexe Zahlen}%
+Das Element $i$ heisst die \emph{imaginäre Einheit}.
+\index{imaginäre Einheit}%
+\index{i@$i$}%
+
+Die Menge $\mathbb{R}(i)$ besteht aus den Zahlen
+\[
+\mathbb{R}(i)
+=
+\{
+a+bi
+\mid
+a,b\in\mathbb{R}
+\}
+\]
+mit den Ringoperationen
+\begin{align*}
+\text{Addition:}&&
+(a+bi) \pm (c+di)
+&=
+(a\pm c) + (b\pm d)i
+\\
+\text{Multiplikation:}&&
+(a+bi)(c+di)
+&=
+ac-bd + (ad+bd)i.
+\end{align*}
+Für das zu $c+di$ inverse Element muss man wie früher gezeigt
+mit $c-di$ erweitern und erhält
+\begin{align*}
+\frac{1}{c+di}
+&=
+\frac{1}{c+di}\cdot\frac{c-di}{c-di}
+=
+\frac{c-di}{c^2+d^2}
+=
+\frac{c}{c^2+d^2}
++
+\frac{-d}{c^2+d^2}i
+\\
+\text{und}
+\qquad
+\frac{a+bi}{c+di}
+&=
+\frac{ac+bd + (-ad+bc)i}{c^2+d^2}
++
+\frac{ac+bd}{c^2+d^2}
++
+\frac{-ad+bc}{c^2+d^2}i
+.
+\end{align*}
+Die Operationen zur Berechnung des inversen Elementes sind 
+für sich genommen nützlich, wir geben ihnen in der folgenden
+Definition einen Namen.
+
+\begin{definition}[konjugiert komplexe Zahl]
+Für $z=a+bi\in\mathbb{C}$ heisst
+$\bar z = a-bi$ die zu $z$ \emph{konjugiert komplexe} Zahl.
+\index{konjugiert komplex}%
+\end{definition}
+
+Das Polynom $m(X)=X^2+1\in\mathbb{Q}[X]$ ist natürlich auch als
+Polynom mit rationalen Koeffizienten irreduzibel.
+Daher lässt sich auch $\mathbb{Q}$ durch die imaginäre Einheit
+$i$ algebraisch zum Körper $\mathbb{Q}(i)$ erweitern.
+Im Gegensatz zu $\mathbb{C}$ lässt sich in $\mathbb{Q}(i)$
+exakt rechnen, es ist daher für Computeralgebrasysteme 
+unerlässlich.
+
+Die Gleichung $x^2+2=0$ hat in $\mathbb{C}$ die Lösungen
+\[
+x=
+\pm
+i
+\!\sqrt{2}
+\in\mathbb{C},
+\]
+die allerdings nicht in $\mathbb{Q}(i)$ ist.
+Daher muss der Körper $\mathbb{Q}(i)$ erst um $\!\sqrt{2}$ 
+algebraisch zu $\mathbb{Q}(i,\!\sqrt{2})$ erweitert werden.
+In diesem Körper findet man die beiden Lösungen der Gleichung $x^2-2=0$.
+
+Man beachte, dass sich die Zahlen $i$ und $-i$ mit algebraischen
+Mitteln nicht unterscheiden lassen.
+Für Zahlen mit reeller Quadratwurzel kann man dank der Ordnungsrelation
+in $\mathbb{R}$ die postive von der negativen Quadratwurzel unterschieden.
+Für komplexe Zahlen gibt es keine Vergleichsrelation.
+

@@ -1,0 +1,13 @@
+/*
+ * arctan.maxima
+ *
+ * (c) 2026 Prof Dr Andreas Müller
+ */
+
+zeta: (2 * z + beta) / sqrt(4*gamma - beta^2);
+
+ratsimp(zeta+%i);
+ratsimp(zeta-%i);
+
+ratsimp((zeta+%i)*(zeta-%i));
+

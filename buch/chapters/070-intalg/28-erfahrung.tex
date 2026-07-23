@@ -1,0 +1,72 @@
+%
+% 28-erfahrung.tex -- Erkenntnisse
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Erkenntnisse}
+Aus den langwierigen Rechnungen für das Integrationsproblem in
+$\mathbb{Q}(x,\vartheta)$ mit $\vartheta=\!\sqrt{ax^2+bx+c}$
+können wir einige Beobachtungen ableiten,
+die auch für das Integrationsproblem für beliebige elementare
+Funktionen gelten könnten.
+\begin{enumerate}
+\item 
+Das Integrationsproblem spielt sich in einem Körper ab, der als
+Erweiterung der rationalen Funktionen $K=\mathbb{Q}(x)$ um ein weiteres 
+Element $\vartheta$ erweitert worden ist.
+Der Integrand ist also eine rationale Funktion $f\in K(\vartheta)$, sie
+kann als rationale Funktion 
+\[
+f
+=
+\frac{p(\vartheta)}{q(\vartheta)}
+\qquad
+\text{mit}
+\qquad
+p(\vartheta),q(\vartheta)
+\in
+\mathbb{Q}(x)[\vartheta]
+=
+K[\vartheta]
+\]
+geschrieben werden.
+\item
+Mit der Polynomdivision kann man das Integral in einen polynomiellen
+und einen rationalen Teil aufteilen:
+\[
+\int f
+=
+\underbrace{
+\int \text{Polynom in $\vartheta$}
+}_{
+\displaystyle\text{polynomieller Teil}
+}
++
+\underbrace{
+\int\frac{\text{Rest}(\vartheta)}{q(\vartheta)}
+}_{
+\displaystyle\text{rationaler Teil}
+}.
+\]
+Die Koeffizienten der Polynome sind rationale Funktionen in $K$.
+\item
+Die Partialbruchzerlegung kann dazu verwendet werden, den rationalen
+Teil auf eine kleine Menge einfacher Grundintegrale für diese
+Art von Erweiterung zu reduzieren.
+Im Kapitel~\ref{chapter:ratint} war dies die Methode von Hermite.
+\item
+Es braucht ein spezielle Methode, um die Grundintegrale zu bestimmen.
+Im Kapitel~\ref{chapter:ratint} war dies die Methode von Rothstein-Trager.
+\item
+Die entstehenden Stammfunktionen haben eine gemeinsame Struktur.
+Sie bestehen aus einer rationalen Funktion von $\vartheta$ und
+einer Linearkombination von Logarithmusfunktionen, deren Argumente
+lineare Funktionen von $\vartheta$ mit Koeffizienten in $K$ sind.
+\end{enumerate}
+Im nächsten Abschnitt soll gezeigt, werden, dass die in Beobachtung~5
+festgestellte allgemein Form der Stammfunktion tatsächlich 
+immer dann vorliegt, wenn die Stammfunktion elementar ist.
+Sie ist unter dem Namen Liouville-Prinzip bekannt.
+
+
+

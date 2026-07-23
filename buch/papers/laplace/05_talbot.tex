@@ -1,0 +1,303 @@
+%
+% Teil 5: Numerische Inversion -- Oszillationsproblem des
+% Bromwich-Integrals, Pfaddeformation nach Cauchy, Talbot-Kontur,
+% Trapezregel und Konvergenzvergleich
+%
+\section{Numerische Inversion: Talbots Weg ins Tal des Integranden}
+\label{laplace:subsection:talbot}
+\kopfrechts{Numerische Inversion: Talbots Weg ins Tal des Integranden}%
+
+In der Praxis endet die analytische Inversion schnell in einer Sackgasse.
+Viele Bildfunktionen besitzen keine geschlossen darstellbare
+Originalfunktion, oder die gefundenen Reihen und Integrale konvergieren
+für die interessierenden Zeiten quälend langsam.
+Gefragt ist dann eine numerische Auswertung des Bromwich-Integrals, und
+der naheliegendste Versuch wäre eine \emph{Quadratur}, also eine
+\index{Quadratur}%
+numerische Integration über gewichtete Funktionswerte an endlich vielen
+Stützstellen, direkt entlang der Bromwich-Geraden.
+Dieser Versuch scheitert spektakulär.
+Auf der Geraden $s = \gamma + i\omega$ gilt
+$e^{st} = e^{\gamma t} \left( \cos \omega t + i \sin \omega t \right)$;
+der Betrag des Exponentialfaktors ist konstant, und der Integrand
+oszilliert unablässig, während er nur so langsam abklingt, wie es die
+Bildfunktion $F(s)$ selbst vorgibt.
+Die Quadratur muss dann riesige, sich fast vollständig auslöschende
+Beiträge aufsummieren, und die Genauigkeit wächst mit der Zahl der
+Stützstellen nur schleppend.
+Abbildung~\ref{laplace:fig:integrand_vergleich} zeigt dieses Verhalten für
+das einfachste denkbare Beispiel $F(s) = \frac{1}{s}$.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/integrand_vergleich.tex}
+    \caption{Der entlang der Bogenlänge entrollte Realteil des
+    Inversionsintegranden für $F(s) = \frac{1}{s}$ bei festem $t$.
+    Auf der Bromwich-Geraden (rot) oszilliert die Funktion mit nur
+    langsam abfallender Amplitude, auf der Talbot-Kontur (blau) ist sie
+    eine glatte, rasch abklingende Kurve, die sich mit wenigen
+    Stützstellen präzise integrieren lässt.}
+    \label{laplace:fig:integrand_vergleich}
+\end{figure}
+
+Die Rettung liegt in einer Freiheit, die wir längst besitzen, aber bisher
+nur zum Schliessen der Kontur genutzt haben.
+Nach dem Cauchyschen Integralsatz dürfen wir den Integrationsweg beliebig
+deformieren, solange wir dabei keine Singularität von $F(s)$ überstreichen
+und $F(s)$ im überstrichenen Gebiet gleichmässig gegen null abfällt; der
+Wert des Integrals bleibt dabei exakt gleich.
+Diese Idee ist alt, denn schon \cite{laplace:carslaw1959} verformt den
+Bromwich-Pfad zu Kurven, die links im Unendlichen beginnen und enden, um
+die Konvergenz der Integrale nachzuweisen.
+Talbot hat daraus in seiner wegweisenden Arbeit
+\index{Talbot, Alan}%
+\cite{laplace:talbot1979} ein numerisches Verfahren gemacht.
+Sein Gedanke:
+Man biege die beiden Enden des Pfades in die linke Halbebene, sodass
+$\text{Re}(s) \to -\infty$ läuft.
+Dort fällt der Faktor $|e^{st}| = e^{t\,\text{Re}(s)}$ exponentiell ab, der
+Integrand wird winzig, und die Oszillationen verlieren jede Bedeutung.
+Anschaulich verlässt der Pfad den Bergkamm der Betragsfläche
+$|e^{st}F(s)|$ und steigt ins \emph{Tal} der linken Halbebene hinab.
+\index{Tal}%
+In der logarithmischen Farbskala von
+Abbildung~\ref{laplace:fig:betrags_landschaft} wird dieser Abstieg
+unmittelbar sichtbar:
+Die Bromwich-Gerade verharrt in den hellen Zonen konstanter Höhe,
+während die Talbot-Kontur beidseitig in die dunklen Bereiche des
+\index{Talbot-Kontur}%
+exponentiell kleinen Betrags eintaucht.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/betrags_landschaft.tex}
+    \caption{Betragslandschaft $|e^{st}F(s)|$ über der komplexen
+    $s$-Ebene für $F(s) = \frac{1}{s}$ zur Zeit $t = 1$ in
+    logarithmischer Farbskala.
+    Die Bromwich-Gerade (rot) verläuft auf konstanter Höhe durch das
+    oszillierende Gebiet, während die Talbot-Kontur (blau) die
+    Singularität umschliesst und beidseitig ins exponentiell tiefe Tal
+    der linken Halbebene abtaucht.}
+    \label{laplace:fig:betrags_landschaft}
+\end{figure}
+
+Konkret verwendet Talbot die Kontur
+\begin{equation}
+    s(\theta)
+    =
+    \sigma + \lambda \, s_{\beta}(\theta),
+    \qquad
+    s_{\beta}(\theta)
+    =
+    \theta \cot \theta + i \beta \theta,
+    \qquad
+    -\pi < \theta < \pi,
+    \label{laplace:eq:talbot_kontur}
+\end{equation}
+mit reellen Parametern $\lambda > 0$, $\beta > 0$ und einer Verschiebung
+$\sigma$; für den Formparameter schreibt die Originalliteratur meist
+$\nu$, was wir hier vermeiden, weil dieser Buchstabe in
+Abschnitt~\ref{laplace:subsection:endlicher_stab} bereits als Polindex
+vergeben ist.
+Die Verschiebung $\sigma$ übernimmt dabei die Rolle der
+Bromwich-Konstanten $\gamma$ aus
+Gleichung~\eqref{laplace:eq:bromwich_integral}; die Umbenennung folgt der
+numerischen Literatur und bezeichnet denselben Rechtsversatz des
+Integrationsweges.
+Für $\theta \to \pm\pi$ strebt $\theta \cot\theta \to -\infty$, die Kurve
+öffnet sich also wie gewünscht nach links und legt sich um die negative
+reelle Achse herum; sämtliche Singularitäten unserer
+Wärmeleitungsbeispiele, ob Polkette oder Verzweigungsschnitt, werden von
+ihr umschlossen.
+Setzt man die Parametrisierung in das Bromwich-Integral ein, so entsteht
+das Integral über ein endliches Intervall
+\begin{equation}
+    f(t)
+    =
+    \frac{\lambda e^{\sigma t}}{2\pi i}
+    \int_{-\pi}^{\pi}
+    e^{\lambda t s_{\beta}(\theta)}
+    \,
+    F\bigl(\sigma + \lambda s_{\beta}(\theta)\bigr)
+    \,
+    s_{\beta}'(\theta)
+    \, d\theta.
+    \label{laplace:eq:talbot_integral}
+\end{equation}
+Der Integrand ist analytisch in $\theta$ und verschwindet an beiden
+Intervallenden samt allen Ableitungen exponentiell.
+Für genau solche Integranden ist die einfachste aller Quadraturformeln,
+die Trapezregel, nicht etwa grob, sondern \emph{geometrisch konvergent}:
+\index{geometrisch konvergent}%
+Jede zusätzliche Stützstelle multipliziert den Fehler mit einem festen
+Faktor kleiner als eins \cite{laplace:trefethen2006}.
+Der Grund dafür steckt in der Euler-Maclaurin-Formel, nach der der
+\index{Euler-Maclaurin-Formel}%
+Trapezfehler aus Randtermen mit den Ableitungen des Integranden an den
+Intervallenden besteht:
+Da unser Integrand bei $\theta = \pm\pi$ samt allen Ableitungen
+abstirbt, verschwinden diese Randterme allesamt, und übrig bleibt nur
+ein exponentiell kleiner Rest.
+Mit $n$ äquidistanten Knoten $\theta_j = \frac{j\pi}{n}$ und unter
+Ausnutzung der Symmetrie der Kontur zur reellen Achse ergibt sich die
+Näherung
+\begin{equation}
+    \tilde{f}(t)
+    =
+    \frac{\lambda e^{\sigma t}}{n}
+    \sum_{j=0}^{n-1}
+    \operatorname{Re}
+    \left[
+        e^{\lambda t s_{\beta}(\theta_j)}
+        \,
+        F\bigl(\sigma + \lambda s_{\beta}(\theta_j)\bigr)
+        \,
+        \frac{s_{\beta}'(\theta_j)}{i}
+    \right],
+    \label{laplace:eq:talbot_summe}
+\end{equation}
+wobei der Summand für $j = 0$ mit dem Faktor $\frac{1}{2}$ gewichtet wird
+\cite{laplace:murli1990}.
+Der Randknoten $j = n$, also $\theta = \pi$, fehlt in der Summe nicht aus
+Nachlässigkeit:
+Dort strebt $\text{Re}\,s_{\beta}(\theta) \to -\infty$, und der Integrand
+verschwindet exakt, sodass sein Beitrag zur Trapezsumme entfällt.
+Der Realteil-Operator und die halbierten Summationsgrenzen sind dabei
+kein Formalismus, sondern gezielte Ausnutzung der Kontursymmetrie:
+Weil die Kontur spiegelsymmetrisch zur reellen Achse verläuft und für
+reelles $f(t)$ die Beziehung $F(\bar{s}) = \overline{F(s)}$ gilt, liefern
+die Stützstellen mit negativem $\theta_j$ exakt die konjugierten Beiträge
+ihrer Spiegelpartner.
+Statt über alle $2n$ Knoten des vollen Intervalls $(-\pi, \pi)$ zu
+summieren, genügen daher die $n$ Knoten mit $\theta_j \geq 0$; die
+Paarbildung steckt im Realteil, und der Rechenaufwand halbiert sich.
+Die gesamte Inversion schrumpft damit auf eine Handvoll Auswertungen der
+Bildfunktion an komplexen Stützstellen zusammen.
+
+Die Parameter sind dabei nicht frei wählbar, sondern müssen zum Problem
+passen.
+Die Verschiebung $\sigma$ wird rechts der Realteile aller Singularitäten
+gewählt, damit die Kontur die Singularitäten tatsächlich umschliesst.
+Entscheidend ist die Skalierung von $\lambda$:
+Damit die geometrische Konvergenz greift, muss die Kontur mit der
+Stützstellenzahl wachsen und mit der Inversionszeit schrumpfen, also
+$\lambda \propto \frac{N}{t}$, wobei $N = 2n$ die Gesamtzahl der
+Stützstellen auf der vollen Kontur bezeichnet, von denen
+Gleichung~\eqref{laplace:eq:talbot_summe} dank der Symmetrie nur die
+Hälfte auswertet.
+In der von Weideman \cite{laplace:weideman2006}
+optimierten Form lautet die Kontur beispielsweise
+\begin{equation}
+    s(\theta)
+    =
+    \frac{N}{t}
+    \bigl(
+        0{,}5017 \, \theta \cot(0{,}6407\,\theta)
+        - 0{,}6122
+        + 0{,}2645 \, i\theta
+    \bigr),
+    \label{laplace:eq:weideman_kontur}
+\end{equation}
+mit der die Rate $O(3{,}89^{-N})$ erreicht wird.
+Man beachte, dass hier die \emph{gesamte} Kontur --- Verschiebung und
+Skalierung gleichermassen --- mit dem Faktor $\frac{N}{t}$ wächst.
+Genau diese Kopplung von Konturgrösse, Stützstellenzahl und
+Inversionszeit ist der Kern der Parameterwahl und der Garant für die
+geometrische Konvergenz; mit einer festen, von $N$ und $t$ unabhängigen
+Kontur ginge sie verloren.
+Die Kopplung hat aber auch eine praktische Konsequenz:
+Die Stützstellen hängen von $t$ ab, sodass für jeden neuen Zeitpunkt die
+Bildfunktion an neuen Punkten ausgewertet werden muss
+\cite{laplace:trefethen2006}.
+
+Wie gut das funktioniert, ist verblüffend.
+Bereits mit $n = 11$ Stützstellen erreicht Talbots Verfahren typischerweise
+Fehler der Ordnung $10^{-6}$, mit $n = 20$ etwa $10^{-11}$ und mit
+$n = 35$ in doppelter Genauigkeit rund $10^{-20}$
+\cite{laplace:talbot1979}.
+Die sorgfältige Software-Implementierung von Murli und Rizzardi
+\cite{laplace:murli1990}
+bestätigt
+diese Zahlen und zeigt in direkten Vergleichen, dass Fourier-basierte
+Verfahren für dieselbe Genauigkeit ein Vielfaches an Funktionsauswertungen
+benötigen.
+Die moderne Analyse von Trefethen, Weideman und Schmelzer ordnet die
+Talbot-Kontur in die Familie der \emph{Hankel-Konturen} ein.
+\index{Hankel-Kontur}%
+Der Begriff ist dabei ein topologischer Überbegriff:
+Er bezeichnet jede Kurve, die aus dem dritten Quadranten von
+$\text{Re}(s) = -\infty$ kommend die negative reelle Achse umschlingt
+und im zweiten Quadranten wieder nach $\text{Re}(s) = -\infty$
+verschwindet --- die Schlüsselloch-Kontur aus
+Abschnitt~\ref{laplace:subsection:verzweigung} gehört ebenso dazu wie
+Parabeln, Hyperbeln oder Talbots Kotangens-Kontur.
+Innerhalb dieser Familie beziffert die Analyse die Konvergenzraten mit
+optimierten Parametern:
+Parabeln erreichen $O(2{,}85^{-N})$, Hyperbeln $O(3{,}20^{-N})$ und
+Talbots Kotangens-Konturen $O(3{,}89^{-N})$ bei $N$ Stützstellen
+\cite{laplace:trefethen2006}; die zugrunde liegende Parameteroptimierung
+stammt aus \cite{laplace:weideman2006}.
+Diese Raten sind keine Eigenheit des Testbeispiels $F(s) = \frac{1}{s}$,
+sondern theoretische Schranken, die für die gesamte Klasse von
+Bildfunktionen mit Singularitäten auf oder nahe der negativen reellen
+Achse gelten --- also für alle unsere Wärmeleitungsprobleme, ob Polkette
+oder Verzweigungsschnitt.
+Mit $N = 32$ ist damit Maschinengenauigkeit erreicht.
+Abbildung~\ref{laplace:fig:konvergenz_vergleich} stellt dieses
+geometrische Konvergenzverhalten der langsamen Konvergenz auf der
+Bromwich-Geraden gegenüber.
+
+\begin{figure}
+    \centering
+    \input{papers/laplace/images/konvergenz_vergleich.tex}
+    \caption{Konvergenzvergleich der numerischen Inversion für
+    $F(s) = \frac{1}{s}$ bei festem $t$:
+    absoluter Fehler gegen die Anzahl der Stützstellen $N$ in
+    halblogarithmischer Darstellung.
+    Die Quadratur auf der Bromwich-Geraden (rot) verbessert sich nur
+    langsam, während die Trapezregel auf der Talbot-Kontur (blau)
+    geometrisch mit der Rate $O(3{,}89^{-N})$ konvergiert und um
+    $N \approx 30$ nahe an die Maschinengenauigkeit herankommt.
+    Für noch grössere $N$ steigt der Fehler wieder leicht an, weil der
+    Faktor $e^{st}$ am Konturscheitel den Rundungsfehler wie
+    $\varepsilon \, e^{0{,}17 N}$ verstärkt.}
+    \label{laplace:fig:konvergenz_vergleich}
+\end{figure}
+
+Zwei Einschränkungen gehören der Vollständigkeit halber dazu.
+Erstens muss $|F(s)|$ für $|s| \to \infty$ gleichmässig abfallen, damit
+die Pfaddeformation erlaubt ist.
+Zweitens müssen die Imaginärteile aller Singularitäten beschränkt sein,
+denn die Kontur kann nur Singularitäten umschliessen, die nicht beliebig
+weit nach oben oder unten ausweichen \cite{laplace:talbot1979}.
+Und selbst innerhalb dieser Grenzen kostet jede Abweichung von der
+reellen Achse:
+Liegen Singularitäten mit grossem Imaginärteil $q_d$ vor, muss sich die
+Kontur weit öffnen, um sie zu umschliessen, und die benötigte
+Stützstellenzahl wächst proportional zum Produkt $v = q_d \, t$
+\cite{laplace:talbot1979}.
+Da die Lage der Singularitäten $q_d$ vom Problem fest vorgegeben ist,
+wächst $v$ mit fortschreitender physikalischer Zeit $t$ zwangsläufig an
+--- bei Schwingungsproblemen verliert das Verfahren seine Effizienz also
+nicht durch einen behebbaren Defekt, sondern durch die Zeit selbst.
+Unsere Wärmeleitungsprobleme mit ihren Polen und Schnitten auf der
+negativen reellen Achse sind damit der Idealfall des Verfahrens, während
+etwa die Schwingungsgleichung mit ihrer unendlichen Polkette auf der
+imaginären Achse ausserhalb seines Anwendungsbereichs liegt.
+Innerhalb dieses Bereichs ist die Methode jedoch so leistungsfähig, dass
+sie heute weit über die Laplace-Inversion hinaus eingesetzt wird, etwa zur
+Berechnung von Matrix-Exponentialfunktionen und zur Zeitintegration
+parabolischer partieller Differentialgleichungen
+\cite{laplace:trefethen2006}.
+
+Damit schliesst sich der Bogen dieser Arbeit.
+Aus der Korrespondenztabelle wurde das Bromwich-Integral, aus dem Integral
+eine Residuensumme, aus dem Umgang mit Verzweigungsschnitten und
+Polketten ein Verständnis dafür, wie die Geometrie des physikalischen
+Problems die Singularitäten in der $s$-Ebene formt.
+Die Talbot-Kontur schliesslich zeigt, dass dieselbe Funktionentheorie, die
+die analytische Inversion trägt, auch das effizienteste numerische
+Verfahren begründet:
+Man muss das Bromwich-Integral nicht dort auswerten, wo es definiert
+wurde, sondern darf es dorthin verschieben, wo es am schnellsten
+verschwindet.

@@ -54,12 +54,12 @@ $(workdir)/$(seminar).pdf:	$(buch).tex $(ALLTEXFILES) $(workdir)/$(buch).ind $(S
 	$(pdflatex) $(buch).tex
 	cd $(workdir); $(bibtex) $(buch)
 
+$(workdir)/$(buch).ind:	$(workdir)/$(buch).idx
+	cd $(workdir); $(makeindex) $(buch).idx
+
 $(workdir)/$(buch).idx:	$(workdir) $(buch).tex $(ALLTEXFILES) images
 	$(touch) $(workdir)/$(buch).ind
 	$(pdflatex) $(buch).tex
-
-$(workdir)/$(buch).ind:	$(workdir)/$(buch).idx
-	cd $(workdir); $(makeindex) $(buch).idx
 
 ##
 ## Einzelnes Kapitel/Paper

@@ -1,0 +1,77 @@
+%
+% Rationalisierung
+%
+\subsection{Rationalisierung
+\label{buch:intalg:wurzel:subsection:rationalisierung}}
+Die Darstellung~\eqref{buch:algint:wurzel:eqn:funktion} der Funktion kann
+weiter vereinfacht werden, mit potenzieller Vereinfachung der Berechnung
+der Stammfunktion.
+Dazu wird \eqref{buch:algint:wurzel:eqn:funktion} mit
+$q_0-q_1\vartheta$ zu
+\begin{align}
+f
+&=
+\frac{p_0+p_1\vartheta}{q_0+q_1\vartheta}
+\cdot
+\frac{q_0-q_1\vartheta}{q_0-q_1\vartheta}
+\notag
+\\
+&=
+\frac{
+p_0q_0 +(p_0q_1+p_1q_0)\vartheta + p_1q_1\vartheta^2
+}{
+q_0^2-q_1^2\vartheta^2
+}
+\notag
+\\
+&=
+\frac{
+p_0q_0+p_1q_1(ax^2+bx+c)
+}{
+q_0^2-q_1^2(ax^2+bx+c)
+}
++
+\frac{
+p_0q_1+p_1q_0
+}{
+q_0^2-q_1^2(ax^2+bx+c)
+}
+\vartheta
+\notag
+\\
+&=
+p + q\vartheta
+\label{buch:intalg:wurzel:eqn:linkombtheta}
+\end{align}
+erweitert.
+Daraus liest man ab, dass der Funktionenkörper sogar als
+\[
+\mathbb{Q}(x,\vartheta)
+=
+\{
+p+q\vartheta
+\mid
+p,q\in\mathbb{Q}(x)
+\}
+\]
+geschrieben werden kann.
+
+Die Relation $\vartheta^2-(ax^2+bx+c)=0$ für das algebraische Element
+$\vartheta$ bedeutet auch, dass
+\[
+\vartheta
+=
+\frac{ax^2+bx+c}{\vartheta}
+\]
+und damit, dass der Funktionenkörper auch aus den Linearkombinationen
+\begin{equation}
+\mathbb{Q}(x,\vartheta)
+=
+\biggl\{
+p+q\frac{1}{\vartheta}
+\bigg|
+p,q\in\mathbb{Q}(x)
+\biggr\}
+\label{buch:intalg:wurzel:eqn:linkombthetainverse}
+\end{equation}
+von $1$ und $1/\vartheta$ mit Koeffizienten in $\mathbb{Q}(x)$ besteht.

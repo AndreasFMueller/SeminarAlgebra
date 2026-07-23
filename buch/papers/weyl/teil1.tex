@@ -1,58 +1,184 @@
 %
-% teil1.tex -- Beispiel-File für das Paper
-%
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
-%
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 1
-\label{weyl:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
+%
+% teil1.tex -- Mathematische Werkzeuge
+%
+% Ziel: zeigen, wie Wegintegral, Cauchy-Integralsatz und Argumentprinzip
+% im Algorithmus zusammenspielen. Die Grundlagen selbst werden im Buch
+% an anderer Stelle eingeführt.
+%
+\section{Mathematische Werkzeuge%
+\label{weyl:section:grundlagen}}
+\kopfrechts{Mathematische Werkzeuge}
+Weyls Algorithmus stützt sich auf drei eng verwandte Resultate aus der komplexen
+Analysis: den \emph{Cauchy-Integralsatz}, die \emph{Cauchy-Integralformel}
+und das daraus abgeleitete \emph{Argumentprinzip}.
+Die ersten beiden werden in den vorangehenden Kapiteln dieses Buches 
+behandelt, weshalb wir sie hier nur knapp in Erinnerung rufen und konzentrieren uns darauf,
+wie diese Sätze im Algorithmus zusammenwirken und das Zählen von Nullstellen
+überhaupt möglich machen.
+
+\subsection{Wegintegral und Cauchy-Integralsatz%
+\label{weyl:subsection:cauchy}}
+Sei $D \subseteq \mathbb{C}$ ein kompaktes Gebiet mit stückweise glattem,
+positiv orientiertem Rand $\partial D$ und sei $g\colon D \to \mathbb{C}$ eine
+holomorphe Funktion auf einer offenen Umgebung von $D$.
+Der Cauchy-Integralsatz besagt dann
+\index{Cauchy-Integralsatz}%
 \begin{equation}
-\int_a^b x^2\, dx
+\oint_{\partial D} g(z)\, dz
 =
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{weyl:equation1}
+0
+\label{weyl:eq:cauchy-integralsatz}
 \end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+und seine geringfügige Verallgemeinerung --- die Cauchy-Integralformel --- liefert
+\index{Cauchy-Integralformel}%
+für einen Punkt $z_0$ im Inneren von $D$
+\begin{equation}
+g(z_0)
+=
+\frac{1}{2\pi i}
+\oint_{\partial D}
+\frac{g(z)}{z - z_0}
+\, dz
+.
+\label{weyl:eq:cauchy-integralformel}
+\end{equation}
+Die zweite Formel wird uns gleich besonders nützlich sein, da sie zeigt, dass
+$\oint \frac{1}{z - z_0} dz = 2\pi i$ ist, wenn der Weg $z_0$ einmal positiv umläuft, und
+$0$, wenn $z_0$ ausserhalb liegt.
+Das Wegintegral ``spürt'' also einzelne Singularitäten der Form $\frac{1}{z - z_0}$
+auf, wobei genau diese Eigenschaft der Schlüssel zum Algorithmus ist.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
+\subsection{Die Kernidee: Faktorisieren macht Nullstellen zu Polen%
+\label{weyl:subsection:kernidee}}
+Sei nun $f$ ein Polynom vom Grad $n$ mit den Nullstellen $\alpha_1, \dots, \alpha_n \in \mathbb{C}$
+(mit Vielfachheit aufgeführt).
+Nach dem Fundamentalsatz der Algebra dürfen wir schreiben
+\index{Fundamentalsatz der Algebra}%
+\begin{equation}
+f(z)
+=
+a_n (z - \alpha_1)(z - \alpha_2) \cdots (z - \alpha_n)
+.
+\label{weyl:eq:faktorisierung}
+\end{equation}
+Die entscheidende Beobachtung ist nun die folgende: bildet man die
+\emph{logarithmische Ableitung} von $f$, also den Quotienten
+\index{logarithmische Ableitung}%
+$f'(z)/f(z)$, so verwandeln sich die Nullstellen von $f$ in Polstellen vom Typ
+$1/(z - \alpha_k)$, die das Wegintegral nach Gleichung~\eqref{weyl:eq:cauchy-integralformel}
+gerade erkennt.
+Konkret folgt aus \eqref{weyl:eq:faktorisierung} mit der Produktregel
+\index{Produktregel}%
+\begin{equation}
+\frac{f'(z)}{f(z)}
+=
+\frac{1}{z - \alpha_1}
++
+\frac{1}{z - \alpha_2}
++
+\dots
++
+\frac{1}{z - \alpha_n}
+.
+\label{weyl:eq:logarithmische-ableitung}
+\end{equation}
+Jeder Summand $1/(z - \alpha_k)$ trägt zum Wegintegral $\oint_{\partial D} f'/f \, dz$ den
+Wert $2\pi i$ bei, falls $\alpha_k$ im Inneren von $D$ liegt und $0$ sonst.
+Liegt keine Nullstelle auf dem Rand $\partial D$, so summieren sich diese Beiträge auf
+$2\pi i \cdot N(D)$, wobei $N(D)$ die Anzahl der Nullstellen von $f$ im Inneren von
+$D$ bezeichnet.
+\index{N(D)@$N(D)$}%
+Nach Division durch $2\pi i$ erhalten wir das zentrale Resultat, auf dem Weyls
+Algorithmus aufbaut.
 
-\subsection{De finibus bonorum et malorum
-\label{weyl:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{weyl:equation1}.
+\begin{satz}[Lokalisieren der Nullstellen]
+\label{weyl:satz:nullstellen-zaehlen}
+Sei $f$ ein Polynom und $D \subseteq \mathbb{C}$ ein kompaktes Gebiet mit stückweise
+glattem Rand, auf dem $f$ keine Nullstellen hat.
+Dann gilt
+\begin{equation}
+N(D)
+=
+\frac{1}{2\pi i}
+\oint_{\partial D}
+\frac{f'(z)}{f(z)}
+\, dz
+,
+\label{weyl:eq:nullstellen-zaehlen}
+\end{equation}
+wobei $N(D)$ die Anzahl der Nullstellen von $f$ im Inneren von $D$ ist, jede mit ihrer
+Vielfachheit gezählt.
+\end{satz}
 
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{weyl:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{weyl:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
+Dies ist der polynomielle Spezialfall des allgemeinen Argumentprinzips für
+meromorphe Funktionen. Im allgemeinen Fall zählt das Integral die Anzahl der
+Nullstellen minus die Anzahl der Polstellen im Inneren von $D$, jeweils mit
+Vielfachheit beziehungsweise Ordnung. Das Argumentprinzip folgt wiederum aus dem
+Residuensatz (vgl.~\cite{weyl:eisermann}). Für unsere Zwecke genügt die
+polynomielle Variante.
 
+Die Formel \eqref{weyl:eq:nullstellen-zaehlen} ist auf den ersten Blick erstaunlich.
+Sie liefert die Anzahl der Nullstellen, ohne dass wir auch nur eine einzige davon kennen
+müssten.
+Die Frage, wie viele Nullstellen in $D$ liegen, ist algebraischer Natur.
+Die Antwort erhalten wir aber durch eine analytische Grösse, nämlich durch ein
+Wegintegral, das sich berechnen lässt.
+Besonders bemerkenswert ist dabei, dass dieses Integral nur auf dem
+\emph{Rand} $\partial D$ ausgewertet wird.
+\index{Rand}%
+Damit zeigt sich im Kleinen genau jenes Zusammenspiel von Algebra und Analysis,
+das zu den Leitmotiven dieses Buches gehört.
+
+\subsection{Geometrische Anschauung: das Argument dreht sich%
+\label{weyl:subsection:argument}}
+Hinter der Formel steckt eine schöne geometrische Anschauung, die auch den Namen
+``Argumentprinzip'' erklärt.
+\index{Argumentprinzip}%
+Mit der Identität $f'/f = (\log f)'$ können wir das Integral umschreiben als
+\begin{equation}
+\frac{1}{2\pi i}
+\oint_{\partial D}
+\frac{f'(z)}{f(z)}
+\, dz
+=
+\frac{1}{2\pi i}
+\bigl[\log f(z)\bigr]_{\partial D}
+=
+\frac{1}{2\pi}
+\bigl[\arg f(z)\bigr]_{\partial D}
+.
+\label{weyl:eq:argumentdrehung}
+\end{equation}
+Der Realteil von $\log f$ (also $\log|f|$) ändert sich auf einem geschlossenen Weg
+nicht, der Imaginärteil $\arg f$ hingegen schon. Er misst, wie oft sich der Bildpunkt
+$f(z)$ um den Ursprung dreht, während $z$ einmal positiv um $\partial D$ läuft.
+Diese Drehzahl heisst \emph{Windungszahl} der Bildkurve $f(\partial D)$ um $0$ und
+ist nach \eqref{weyl:eq:argumentdrehung} gleich der Anzahl der Nullstellen in $D$.
+
+\input{papers/weyl/fig/argument.tex}
+
+Anschaulich umrundet die Bildkurve $f(\partial D)$ den Ursprung genau so oft, wie $f$
+Nullstellen in $D$ besitzt (siehe Abbildung~\ref{weyl:fig:argument}).
+Hat $D$ keine Nullstelle, so umschliesst die Bildkurve $0$ gar nicht. Bei einer
+Nullstelle dreht sie sich einmal um den Ursprung, bei $k$ Nullstellen $k$-mal.
+Diese geometrische Lesart macht klar, warum das Integral nur ganzzahlige Werte
+annimmt und warum auf dem Rand $\partial D$ keine Nullstelle liegen darf, andernfalls
+würde die Bildkurve durch den Ursprung gehen und ihre Drehzahl wäre nicht wohldefiniert.
+
+\subsection{Vom Wegintegral zum Nullstellentest%
+\label{weyl:subsection:zusammenfassung-grundlagen}}
+\index{Nullstellentest}%
+Mit Satz~\ref{weyl:satz:nullstellen-zaehlen} haben wir genau den Test gewonnen, der uns für die
+komplexe Bisektion gefehlt hat: Für ein geeignetes Gebiet $D \subseteq \mathbb{C}$
+können wir die Anzahl der darin enthaltenen Nullstellen durch ein Wegintegral
+berechnen, das nur auf dem Rand ausgewertet werden muss.
+Das Wegintegral ersetzt das Vorzeichen aus dem reellen Fall, und die logarithmische
+Ableitung $f'/f$ ist die Brücke zwischen Polynom und Wegintegral: sie verwandelt die
+verborgenen Nullstellen in sichtbare Polstellen, deren Beiträge das Integral zählen
+kann.
+Damit liegen alle Bausteine für den eigentlichen Algorithmus bereit.
 

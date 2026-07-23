@@ -1,0 +1,238 @@
+%
+% 55-dimension.tex -- Homologie in höheren Dimensionen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Homologie in anderen Dimensionen}
+Die Homologiegruppe $H_1(U)$ von $U$ gibt Information über die 
+Zusammenziehbarkeit von geschlossenen Kurven.
+Damit lässt sich aber noch nicht entscheiden, ob $U$ aus verschiedenen,
+nicht verbundenen Komponenten besteht.
+Die Homologiegruppe $H_0$ löst dieses Problem.
+Im dreidmensionalen Raum $U=\mathbb{R}^3\setminus\{0\}$ ohne den
+Nullpunkt ist jede Kurve zusammeziehbar, die Homologiegruppe $H_1$
+kann also das Fehlen des Nullpunktes nicht detektieren.
+Dazu brauchte es die höhere Homologiegruppe $H_2(U)$.
+
+%
+% H_0: die Zusammenhangskomponenten von U
+%
+\subsubsection{$H_0(U)$: Die Zusammenhangskomponenten von $U$}
+Eine zur Konstruktion der Homologiegruppe $H_1(U)$ analoge Konstruktion
+kann auch eine Dimension tiefer durchgeführt werden.
+In Definition~\ref{buch:integration:homologie:definition:randoperator}
+wurden bereits die $0$-Ketten definiert und es wurde illustriert,
+wie der Randoperator aus einer $1$-Kette eine $0$-Kette macht.
+Die Menge
+\[
+B_0(U)
+=
+\{
+\partial c
+\mid
+c\in C_1(U)
+\}
+\]
+wird erzeugt von Paaren von Punkten, die durch eine Kurve 
+verbunden sind.
+Wir sagen wieder, zwei $0$-Ketten sind homolog, wenn sie sich
+um den Rand einer $1$-Kette unterscheiden.
+Damit lässt sich wieder eine Gruppe
+\[
+H_0(U)
+=
+C_0(U) / B_0(U)
+=
+c + B_0(U)
+=
+\{
+c + \partial d
+\mid
+d\in C_1(U)
+\}
+\]
+konstruieren.
+Sie wird erzeugt von homologen Punkten.
+
+\begin{satz}[Wegzusammenhang]
+Wenn zu zwei beliebigen Punkten $P_1,P_2\in U$ die $0$-Kette
+$P_2-P_1$ ein Rand einer $1$-Kette $c$ ist, dann gibt es einen Weg
+zwischen $P_1$ und $P_2$.
+Eine Teilmenge $U$ von $\mathbb{C}$ ist genau dann wegzusammenhängend,
+\index{wegzusammenhangend@wegzusammenhängend}%
+wenn es eine $1$-Kette $c \in C_1(U)$ gibt mit
+$\partial c=P_2-P_1$.
+\end{satz}
+
+\begin{proof}
+Wenn es einen Weg $\gamma$ zwischen $P_1$ und $P_2$ gibt, z.~B.~weil $U$
+wegzusammenhängend ist, dann hat die
+$1$-Kette $c=\gamma$ den verlangten Rand $\partial c = P_2-P_1$.
+
+Wenn es eine $1$-Kette
+\[
+c
+=
+\sum_k
+c_k\gamma_k
+\]
+mit $\partial c = P_2-P_1$ gibt, dann lassen sich die $\gamma_k$ zu einem
+Weg zusammensetzen, der in $P_1$ beginnt und in $P_2$ endet.
+Nicht unbeding alle Wege der Kette werden verwendet.
+Einige Wege in der Kette bilden geschlossene Wege, die ignoriert
+werden können.
+Die Verkettung der Wege ist ein möglicherweise nicht differenzierbarer
+Weg, somit liegen $P_1$ und $P_2$ in der gleichen Wegzusammenhangskomponente.
+\end{proof}
+
+Die Homologiegruppe $H_0(U)$ wird erzeugt von den
+Zusammenhangskomponenten.
+Natürlich enthält auch $H_1(U)$ Information über die
+Zusammenhangskomponenten, da geschlossene Wege jeweils in einer
+einzelnen Zusammenhangskomponente enthalten sind und daher
+Wege in verschiedenen Zusammenhangskomponenten nicht homolog sein
+können.
+
+%
+% Höhere Homologiegruppen
+%
+\subsubsection{Höhere Homologiegruppen}
+Die Konstruktionen, die zur Homologiegruppe $H_1$ geführt haben,
+lassen sich in jeder beliebigen Dimension durchführen.
+Im folgenden sei daher $k>1$ eine natürliche Zahl.
+Eine $k$-dimensionale Kette ist eine formale Linearkombination
+von Abbildungen des $k$-dimensionalen Einheitswürfels
+\[
+\Gamma
+\colon
+I^k
+\to
+U
+:
+(t_1,\dots,t_k)
+\mapsto
+\Gamma(t_1,\dots,t_k).
+\]
+Die $(k-1)$-dimensionalen Seitenflächen des Würfels sind Abbildungen
+der Form
+\begin{align*}
+\Gamma_i^0
+&
+\colon I^{k-1}\to U
+:
+(s_1,\dots,s_{k-1})
+\mapsto
+\Gamma(s_1,\dots,s_{i-1},0,s_{i},\dots,s_{k-1})
+\intertext{und}
+\Gamma_i^1
+&
+\colon I^{k-1}\to U
+:
+(s_1,\dots,s_{k-1})
+\mapsto
+\Gamma(s_1,\dots,s_{i-1},1,s_{i},\dots,s_{k-1})
+\end{align*}
+für $i=1,\dots,k-1$.
+Der Randoperator ist wieder die lineare Abbildung, die auf $\Gamma$
+als eine Linearkombination von $\Gamma^0_i$ und $\Gamma^1_i$ 
+mit Koeffizienten $\pm1$.
+
+Ein $k$-dimensionaler Zyklus ist eine $k$-dimensionale Kette $c$ mit
+der Eigenschaft $\partial c=0$.
+Die Menge der $k$-dimensionalen Zyklen wird mit
+\[
+Z_k
+=
+Z_k(U)
+=
+\{
+c\in C_k(U)
+\mid
+\partial c=0
+\}
+\]
+bezeichnet.
+
+Der Randoperator auf $C_{k+1}$ liefert zu einem $(k+1)$-dimensionalen
+Würfel die Oberfläche des Würfels, bestehend aus $k$-dimensionalen
+Würfeln.
+Die Menge der $k$-dimensionalen Ränder ist
+\[
+B_k
+=
+B_k(U)
+=
+\partial C_k(U).
+\]
+Zwei $k$-dimensionale Zyklen heissen homolog, wenn sie sich um
+einen $k$-dimensionalen Rand unterscheiden, wir können daher auch
+eine $k$-dimensionale Homologiegruppe
+\[
+H_k(U)
+=
+Z_k(U) / B_k(U)
+=
+\{
+c + B_k(U)
+\mid
+c\in Z_k(U)
+\}
+\]
+konstruieren.
+
+%
+% Homologiegruppen und Homotopie
+%
+\subsubsection{Homologiegruppen und Homotopie}
+Man kann jeweils eines der Argument einer Abbildung $\Gamma$
+eines $k$-dimensionalen Würfels als den Homotopieparameter
+betrachten.
+Die Abbildung wird dann als eine Homotopie zwischen zwei
+$(k-1)$-dimensionalen Würfeln interpretiert.
+Die Homologiegruppe betrachtet daher homotope $(k-1)$-dimensionale
+Zyklen als homolog, wenn sie homotop sind.
+
+Die Menge $U=\mathbb{R}^3$ ist zusammenziehbar, jeder Abbildung $\Gamma$
+ist daher homotop zur konstanten Abbildung in den Nullpunkt.
+Daher sind alle $k$-dimensionalen Zyklen auch Ränder und alle
+Elemente in $Z_k(U)$ sind homolog.
+Die Homologiegruppen sind daher $H_k(\mathbb{R})=\{0\}$.
+
+%
+% Homologiegruppen und Löcher
+%
+\subsubsection{Homologiegruppen und ``Löcher''}
+Die Homologiegruppe $H_1(U)$ erkennt die Löcher in einem zweidimensionalen
+Gebiet $U$.
+Die Homologiegruppen $H_k$ mit $k>1$ erkennen höherdimensionale ``Löcher''.
+
+Als Beispiel untersuchen wir die die Menge $U=\mathbb{R}\setminus \{0\}$.
+Die Abbildung
+\[
+\Gamma
+\colon
+I^3
+\to
+\mathbb{R}^3
+:
+(t_1,t_2,t_3)
+\mapsto
+(
+t_1-{\textstyle\frac12},
+t_2-{\textstyle\frac12},
+t_3-{\textstyle\frac12}
+)
+\]
+ist keine Abbildung in $U$, da der Punkt $(\frac12,\frac12,\frac12)$ auf
+den Nullpunkt abgebildet wird, der nicht in $U$ ist.
+Der Randoperator liefert aber eine Linearkombination der Randquadrate,
+die in $U$ enthalten sind.
+Sie bilden einen Zyklus, da die Ränder der einzelnen Quadrate alle
+in beiden Richtungen durchlaufen werden.
+Dieser Zyklus ist also nicht in $B_2(U)$ enthalten.
+Jede Abbildung von $I^3\to \mathbb{R}^3$, die den Nullpunkt trifft,
+hat als Rand einen Zyklus in $U$, der nicht ein Rand sein kann.
+Somit gibt es in der Homologiegruppe $H_2$ genau einen Zyklus, der
+nicht homolog zur konstanten Abbildung ist.
+Somit ist $H_2(U)=\mathbb{Z}$.
+Die Homologiegruppe $H_2(U)$ hat also das Loch im Nullpunkt erkannt.

@@ -1,0 +1,97 @@
+%
+% 03_einfache_Herleitung.tex -- Das dritte Gesetz im Spezialfall der
+% Kreisbahn, einmal elementar und einmal als Spezialfall des Integrals
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Der Spezialfall der Kreisbahn
+\label{kepler:section:kreisbahn}}
+
+Wir wagen uns noch nicht direkt an die allgemeine Herleitung für Ellipsen.
+Zuerst betrachten wir den Spezialfall einer perfekten Kreisbahn.
+Dieser Fall lässt sich mit elementarer Mechanik behandeln.
+Er dient uns später als Kontrolle für das allgemeine Resultat.
+Auf einer Kreisbahn ist der Abstand zur Sonne konstant.
+Die grosse Halbachse $a$ stimmt dann mit dem Radius $r$ überein.
+
+\subsection{Herleitung aus dem Kräftegleichgewicht
+\label{kepler:subsection:kraeftegleichgewicht}}
+
+Ein Planet der Masse $m$ soll auf einer Kreisbahn mit Radius $r$ bleiben.
+Dazu muss die Gravitationskraft der Sonne genau die nötige Zentripetalkraft aufbringen.
+Mit der Winkelgeschwindigkeit $\omega=2\pi/T$ lautet diese Bedingung
+\begin{equation}
+G\,\frac{mM}{r^2}
+=
+m\,\omega^2 r
+=
+m\,\frac{4\pi^2}{T^2}\,r.
+\label{kepler:eqn:gleichgewicht}
+\end{equation}
+Die Planetenmasse $m$ kürzt sich auf beiden Seiten heraus.
+Dann bringen wir die Bahndaten $T$ und $r$ auf eine Seite.
+Das ergibt
+\begin{equation}
+\frac{T^2}{r^3}
+=
+\frac{4\pi^2}{GM}
+=
+\text{konstant}.
+\label{kepler:eqn:kreisbahn}
+\end{equation}
+Das ist das dritte keplersche Gesetz für Kreisbahnen.
+Der Quotient $T^2/r^3$ hängt nur von der Masse $M$ des Zentralgestirns ab.
+Vom umlaufenden Körper hängt er nicht ab.
+
+Diese Rechnung ist einfach.
+Für reale Planeten beweist sie aber wenig, denn deren Bahnen sind keine Kreise.
+Kepler fand seine Gesetze an den Bahndaten des Mars.
+Schon dessen Bahn hat die Exzentrizität $E\approx 0.09$.
+Bei Kometen kann die Exzentrizität sogar nahe bei $1$ liegen.
+Ein allgemeiner Beweis braucht deshalb die Umlaufzeit auf einer Ellipse.
+Wir müssen also das Integral in \eqref{kepler:eqn:tintegral} auswerten.
+
+\subsection{Die Kreisbahn als Spezialfall des Integrals
+\label{kepler:subsection:integralspezialfall}}
+
+Als Vorbereitung lösen wir das Integral in \eqref{kepler:eqn:tintegral} zuerst für die Kreisbahn.
+Das ist gleichzeitig ein Konsistenztest.
+Eine Kreisbahn hat die Exzentrizität $E=0$.
+Der Integrand wird dadurch konstant und das Integral trivial:
+\[
+\int_0^{2\pi}
+\frac{1}{(1+0\cdot\cos(\vartheta))^2}
+\,d\vartheta
+=
+\int_0^{2\pi} 1\,d\vartheta
+=
+2\pi.
+\]
+Aus \eqref{kepler:eqn:tintegral} wird damit
+\[
+T
+=
+\frac{m\,p^2}{L}\cdot 2\pi.
+\]
+Nun ersetzen wir den Drehimpuls mit der Beziehung \eqref{kepler:eqn:drehimpulsgeometrie} durch $L=m\sqrt{GMp}$.
+Die Planetenmasse kürzt sich wieder heraus:
+\[
+T
+=
+\frac{m\,p^2}{m\sqrt{GMp}}\cdot 2\pi
+=
+\frac{2\pi\,p^{\frac{3}{2}}}{\sqrt{GM}}.
+\]
+Auf einer Kreisbahn sind beide Halbachsen und der Halbparameter gleich dem Radius.
+Es gilt also $p=r$.
+Quadrieren liefert
+\[
+T^2
+=
+\frac{4\pi^2}{GM}\,r^3,
+\]
+in Übereinstimmung mit \eqref{kepler:eqn:kreisbahn}.
+Der Integralansatz führt für $E=0$ also auf dieselbe Konstante wie das Kräftegleichgewicht.
+Offen bleibt der Fall $0<E<1$.
+Dort müssen wir zeigen: mit der grossen Halbachse $a$ anstelle von $r$ gilt das Gesetz weiterhin.

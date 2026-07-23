@@ -1,0 +1,94 @@
+\scalebox{0.85}{
+\begin{tikzpicture}
+
+% ==============================
+% 1. FARBEN DEFINIEREN
+% ==============================
+\definecolor{plotblue}{RGB}{0, 0, 200}
+\definecolor{plotred}{RGB}{220, 30, 30}
+\definecolor{plotgray}{RGB}{140, 140, 140}
+\definecolor{plotorange}{RGB}{240, 140, 0}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+
+% ==============================
+% 2. HINTERGRUND FUELLEN
+% ==============================
+%\fill[plotbg] (1.5, -3.923) -- (1.5, 3.923) arc (69.07:290.93:4.2) -- cycle;
+
+% ==============================
+% 3. ACHSEN
+% ==============================
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (-5.5, 0) -- (3.5, 0) node[right] {\textbf{Re}$(s)$};
+\draw[thick, -{Stealth[length=3.5mm, width=2.5mm]}] (0, -5.0) -- (0, 5.5) node[above] {\textbf{Im}$(s)$};
+
+% ==============================
+% 4. D-KONTUR
+% ==============================
+
+% Bromwich-Pfad (Sehne)
+\draw[thick, plotblue, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=3mm, width=2mm]}}}, postaction={decorate}] 
+    (1.5, -3.923) -- (1.5, 3.923);
+
+% Gamma Tick
+\draw[thick] (1.5, 0.1) -- (1.5, -0.1) node[below right, inner sep=2pt] {$\boldsymbol{\gamma}$};
+
+% Ticks an den Enden des Bromwich-Pfades
+% (Schnittpunkte Sehne/Kreis pythagoreisch exakt: gamma +- i*sqrt(R^2-gamma^2);
+%  fuer R -> infty naehern sie sich gamma +- iR an)
+\draw[thick] (1.35, 3.923) -- (1.65, 3.923) node[right, text=black] {$\gamma + i\sqrt{R^2 - \gamma^2}$};
+\draw[thick] (1.35, -3.923) -- (1.65, -3.923) node[right, text=black] {$\gamma - i\sqrt{R^2 - \gamma^2}$};
+
+% Kreisbogen Gamma_R
+\draw[thick, plotorange, decoration={markings, 
+        mark=at position 0.3 with {\arrow{Stealth[length=3mm, width=2mm]}},
+        mark=at position 0.7 with {\arrow{Stealth[length=3mm, width=2mm]}}}, 
+        postaction={decorate}] 
+    (1.5, 3.923) arc (69.07:290.93:4.2);
+
+\node[plotorange, font=\large] at (-4.6, 1.8) {$\Gamma_R$};
+
+% Markierung fuer den Bereich in der rechten Halbebene
+% Ragt in rechte Halbebene (entfernt)
+
+% Radiuspfeil
+\draw[thick, plotgray, dashed, -{Stealth[length=2.5mm, width=2mm]}] (0,0) -- (-2.97, 2.97) node[midway, below left] {$R\to\infty$};
+
+% ==============================
+% 5. POLE (Kreuze)
+% ==============================
+\newcommand{\pole}[3][plotred]{
+    \draw[thick, #1, line cap=round] (#2-0.12,#3-0.12) -- (#2+0.12,#3+0.12);
+    \draw[thick, #1, line cap=round] (#2-0.12,#3+0.12) -- (#2+0.12,#3-0.12);
+}
+
+% Innere Pole (rot)
+\pole{0.0}{2.0}
+\pole{0.0}{-2.0}
+\pole{-1.2}{0.9}
+\pole{-2.0}{-0.5}
+\pole{-0.5}{0.0}
+
+% ==============================
+% 6. LEGENDE
+% ==============================
+\node[draw, thick, rounded corners=3pt, fill=white, inner xsep=5pt, inner ysep=4pt, anchor=north west] at (-5.3, 5.3) {
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{@{}c l@{}}
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotred, line cap=round] (-0.1,-0.1) -- (0.1,0.1) (-0.1,0.1) -- (0.1,-0.1);
+        } & Polstelle \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotblue, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=2mm, width=1.5mm]}}}, postaction={decorate}] (-0.3, 0) -- (0.3, 0);
+        } & Bromwich-Pfad \\
+        
+        \tikz[baseline=-0.6ex]{
+            \draw[thick, plotorange, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=2mm, width=1.5mm]}}}, postaction={decorate}] (-0.3, 0) -- (0.3, 0);
+        } & Kreisbogen $\Gamma_R$ \\
+        
+    \end{tabular}
+};
+
+\end{tikzpicture}
+}

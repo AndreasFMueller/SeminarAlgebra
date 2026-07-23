@@ -1,0 +1,869 @@
+%
+% Übersicht über den Algorithmus
+%
+\subsection{Übersicht über den Algorithmus
+\label{buch:intalg:risch:uebersicht}}
+Bevor wir die notwendigerweise unterschiedlichen Vorgehensweisen 
+für logarithmische, exponentielle und algebraische Erweiterungen
+im Detail betrachten, wollen wir in diesem Abschnitt die für alle
+Fälle gemeinsame prinzipielle Vorgehensweise
+des Algorithmus skizzieren.
+
+%
+% Die Aufgabenstellung
+%
+\subsubsection{Die Aufgabenstellung}
+Es ist ein Algorithmus zu entwickeln, der zu einer elementaren Funktion
+eine elementare Stammfunktion findet, sofern eine solche existiert.
+Falls keine elementare Stammfunktion existiert, soll der Algorithmus
+einen Beweis für diese Tatsache konstruieren.
+Um dieses Ziel zu erreichen, muss zunächst klargestellt werden, welche
+Funktionen als Integranden in Frage kommen sollen.
+
+Zu den Funktionen, die als Stammfunktionen zugelassen werden sollen,
+sollen mindestens alle rationalen Funktionen mit rationalen Koeffizienten
+gehören.
+Wir gehen also von einem Funktionenkörper aus, der eine Erweiterung
+von $\mathbb{Q}$ um ein transzendentes Element $x$ ist, welches die
+Eigenschaft $Dx=1$ hat.
+Dieser Körper wird auch mit $\mathbb{Q}(x)$ bezeichnet.
+
+Ein typisches Computeralgebrasystem wird noch weitere Konstanten
+als Koeffizienten der rationalen Funktionen zulassen, zum Beispiel
+Naturkonstanten wie $g$ oder $c$, denen man zwar auch einen numerischen
+Wert zuordnen kann, aber man interessiert sich durchaus auch dafür, 
+wie solche Konstanten in die Stammfunktion eingehen können.
+Solche Konstanten können als transzendente Erweiterungen des Körpers
+$\mathbb{Q}$ angesehen werden, die zusätzlich die Eigenschaft haben,
+dass ihre Ableitung verschwindet.
+Weiter ist es möglich, dass zusätzliche mathematische Konstanten
+benötigt werden.
+Diese können sowohl transzendente Erweiterungen sein wie $\pi$, $e$,
+$\zeta(2)=\pi^2/6$ oder $\zeta(3)$, oder sie können algebraisch sein wie
+$\!\sqrt{2}$ oder $\sqrt[3]{7}$.
+Die algebraische Abhängigkeit dieser Konstanten untereinander wird
+nicht weiter untersucht und hat auch keinen Einfluss auf das
+Integrationsproblem.
+
+Innerhalb des Konstantenkörpers kann es durchaus passieren, dass eine
+transzendente Konstante in einer algebraischen Erweiterung von
+$\mathbb{Q}$ liegt.
+Dies passiert zum Beispiel für die transzendente Konstate $\pi$,
+$\mathbb{Q}\subset \mathbb{Q}(\pi)$ ist eine transzendente Erweiterung.
+Sie enthält auch $\zeta(2) = \pi^2/6$.
+Andererseits ist $\mathbb{Q}(\zeta(2)) \subset \mathbb{Q}(\zeta(2),\pi)$
+eine algebraische Erweiterung, da $\pi$ eine Nullstelle des Polynoms
+\[
+p(X)
+=
+X^2 - 6\zeta(2)
+=
+X^2 - \pi^2
+\qquad
+\Rightarrow
+\qquad
+p(\pi)=0
+\]
+ist.
+Während $\mathbb{Q}(\pi)$ auch $\zeta(2)$ bereits enthält, braucht
+es eine algebraische Erweiterung von $\mathbb{Q}(\zeta(2))$, um $\pi$
+zu finden.
+Im Folgenden nehmen wir an, dass alle nötigen Konstanten von Anfang
+an dem Körper $\mathbb{Q}$ hinzugefügt worden sind und den Konstantenkörper
+$K$ bilden.
+
+Es ist auch denkbar, dass während der Bestimmung der Stammfunktion weitere
+Konstanten benötig werden. 
+Zum Beispiel kann es nötig sein, ein Polynom zu faktorisieren.
+Die dabei gefundenen Nullstellen sind algebraische Konstanten über
+dem Körper $K$.
+Dazu gehört insbesondere auch das Element $i$ mit $i^2=-1$, welches
+zum Beispiel für die Konstruktion der trigonometrischen Funktionen
+benötigt wird.
+Auch diese Konstanten sollen von Anfang an in $K$ enthalten sein, so
+dass es später nicht mehr nötig ist, den Konstantenkörper zu erweitern.
+
+Die Konstruktion des differentiellen Funktionenkörpers beginnt daher
+mit dem trans\-zen\-den\-ten Element $x$ und dem Körper $F=K(x)$ der rationalen
+Funktionen in $x$ mit Koeffizienten in $K$.
+Diesem Körper werden jetzt weiter drei Arten von Funktionen hinzugefügt:
+\begin{itemize}
+\item
+Logarithmische transzendente Erweiterungen: Dies sind Funktionen $\vartheta=\log u$,
+die durch die Eigenschaft $D\vartheta= Du/u$ bis auf eine Konstante
+definiert sind.
+\item
+Exponentielle transzendente Erweiterungen: Dies sind Funktionen $\vartheta=e^u$,
+die durch die Eigenschaft $D\vartheta = \vartheta\cdot Du$ bis auf einen
+skalaren Faktor definiert sind.
+\item
+Algebraische Elemente: Dies sind Funktionen $\vartheta$, die eine algebraische
+Gleichung
+\[
+a_n\vartheta^n + a_{n-1}\vartheta^{n-1} + \dots + a_1\vartheta + a_0 = 0
+\]
+erfüllen.
+\end{itemize}
+Um einen zulässigen Integranden oder eine Stammfunktion zu konstruieren,
+kann es notwendig sein, mehrere solche Erweiterungen hinzufügen, die auch
+von verschiedener Art sein können.
+Wir haben also mit einer Folge von Erweiterungen
+\[
+F
+\subset
+\underbrace{
+F(\vartheta_1)
+}_{\displaystyle = F_1}
+\subset
+\underbrace{
+F(\vartheta_1,\vartheta_2)
+}_{\displaystyle = F_2}
+\subset
+\dots
+\subset
+\underbrace{
+F(\vartheta_1,\vartheta_2,\dots,\vartheta_n)
+}_{\displaystyle=F_n}
+\]
+zu tun.
+Insbesondere ist auch
+\[
+F_n = F_{n-1}(\vartheta_n)=F(\vartheta_1,\dots,\vartheta_{n-1})(\vartheta_n).
+\]
+Dieser Aufbau des Funktionenkörpers durch wiederholte Adjunktion von 
+logarithmischen, exponentiellen oder algebraischen Elementen war auch
+bereits der Rahmen, in dem das Liouville-Prinzip formuliert und im
+Abschnitt~\ref{buch:intalg:liouville:subsection:allgemein}
+bewiesen wurde.
+
+Mit den Differentialkörpern $F_k$ kann jetzt die Aufgabenstellung 
+genauer formuliert werden.
+Zu einer Funktion $f\in F_n$ soll der Algorithmus eine Stammfunktion
+$g\in F_n$ finden, also eine Funktion $Dg=f$.
+Falls keine solche Funktion existiert, soll er einen Beweis dafür
+konstruieren.
+
+%
+% Der polynomielle und der rationale Teil
+%
+\subsubsection{Der polynomielle und der rationale Teil}
+Wir betrachten eine Funktion $f\in F_n = F_{n-1}(\vartheta_n)$ und
+versuchen die Frage zu beantworten, ob $f$ eine Stammfunktion in
+$F_n$ hat.
+Dies bedeutet, dass $f$ als eine rationale Funktion der Form
+\begin{equation}
+f
+= 
+\frac{p(\vartheta_n)}{q(\vartheta_n)},
+\qquad
+p(\vartheta_n), q(\vartheta_n)\in F_{n-1}[\vartheta_n]
+\label{buch:intalg:risch:uebersicht:eqn:integrand}
+\end{equation}
+geschrieben werden kann.
+Im Gegensatz zur Situation in Kapitel~\ref{chapter:ratint}, wo rationale
+Funktionen mit konstanten Koeffizienten untersucht wurden, haben
+die Polynome $p(\vartheta_n)$ und $q(\vartheta_n)$ Koeffizienten
+in $F_{n-1}$, sind also selbst Funktionen.
+
+Auf die Polynome im Integranden
+\eqref{buch:intalg:risch:uebersicht:eqn:integrand}
+kann der Polynomdivisionsalgorithmus angewendet werden, was auf die
+Zerlegung
+\[
+\frac{p(\vartheta_n)}{q(\vartheta_n)}
+=
+s(\vartheta_n)
++
+\frac{r(\vartheta_n)}{q(\vartheta_n)},
+\qquad
+s(\vartheta_n), q(\vartheta_n) \in F_{n-1}[\vartheta_n],
+\]
+führt.
+Das Polynom $r(\vartheta_n)$ hat Grad
+$\deg r(\vartheta_n) < \deg q(\vartheta_n)$.
+Wir nennen $s(\vartheta_n)$ den polynomiellen Teil und den Bruch
+den rationalen Teil.
+
+Das gesuchte Integral kann jetzt in die zwei Integrale
+\[
+\int f
+=
+\int
+\frac{p(\vartheta_n)}{q(\vartheta_n)}
+=
+\underbrace{
+\int s(\vartheta_n)
+}_{\displaystyle\text{polynomieller Teil\strut}}
++
+\underbrace{
+\int
+\smash{\frac{r(\vartheta_n)}{q(\vartheta_n)}}.
+}_{\displaystyle\text{rationaler Teil\strut}}
+\]
+zerlegt werden.
+Im Falle rationaler Funktionen war der polynomielle Teil sehr einfach
+auszuführen, da $\int z^n=z^{n+1}/(n+1)$.
+Im vorliegenden, allgemeineren Fall wird eine neue Methode nötig.
+Schon das einfache Polynom $s(\vartheta_n) = \vartheta_n$ führt auf
+das nichttriviale Integral $\int s(\vartheta_n) = \int\vartheta_n$.
+Wegen der sehr unterschiedlichen Eigenschaften der verschiedenen Arten
+von Erweiterungen wird dies jeweils unterschiedliche Vorgehensweisen
+erfordern, die in den nachfolgenen Abschnitten für jede Erweiterung
+separat entwickelt werden müssen.
+Die in Kapitel~\ref{chapter:ratint} mit einer Randbemerkung erledigte
+Behandlung des polynomiellen Teils muss daher nochmals neu aufgerollt
+werden und wird zu zusätzlichen Einschränkungen für die Existenz
+einer Stammfunktion führen.
+
+Für den rationalen Teil können wir ebenfalls versuchen, die
+bereits bekannten Techniken anzuwenden.
+Wir können eine quadratfreie Faktorisierung des Nenners $q(\vartheta_n)$
+in Faktoren $b_k(\vartheta_n)\in F_{n-1}[\vartheta_n]$ vornehmen und
+damit den Bruch in Partialbrüche aufteilen.
+Weiter können wir die Methode von Hermite auf die Partialbrüche 
+anwenden und damit den Nennerexponenten auf $1$ reduzieren.
+Schliesslich können wir die Methode von Rothstein-Trager anwenden,
+um die Koeffizienten $c_i$ und die Funktion $v_i\in F_{n-1}$ für
+die Liouville-Darstellung der Stammfunktion zu finden.
+Dabei wird sich allerdings eine neue Einschränkung ergeben, die darauf
+beruht, dass die $c_i$, die die Methode von Rothstein-Trager findet,
+Konstanten sein müssen.
+Da die Koeffizienten der Zähler- und Nennerpolynome nicht konstant sein
+müssen, könnten sich auch nicht konstante $c_i$ ergeben, was dann
+beweist, dass die Stammfunktion nicht existieren kann.
+
+Der Integrationsalgorithmus in $F_n$ folgt also ziemlich genau der
+Vorgehensweise des Integrationsalgorithmus in $K(z)$.
+Um die Notation zu vereinfachen, ist es daher angebracht, $F=F_{n-1}$
+und $\vartheta=\vartheta_{n}$ zu setzen.
+Zu $f\in F(\vartheta)=F_{n-1}(\vartheta_n)=F_n$ ist dann eine Stammfunktion
+in $F(\vartheta)$ gesucht.
+Im Gegensatz zur Situation in Kapitel~\ref{chapter:ratint} ist
+aber nicht garantiert, dass die Stammfunktion tatsächlich existiert.
+
+%
+% Die Methode von Hermite
+%
+\subsubsection{Die Methode von Hermite}
+Die Methode von Hermite verwendet eine quadratfreie Faktorisierung 
+\[
+q(\vartheta)
+=
+b_1(\vartheta) b_2(\vartheta)^2 \cdots b_m(\vartheta)^m,
+\]
+in der jeder Faktor $b_k(\vartheta)$ quadratfrei ist.
+Zu dieser Faktorisierung gibt es immer eine Partialbruchzerlegung
+\begin{equation}
+\frac{r(\vartheta)}{q(\vartheta)}
+=
+\sum_{i=1}^m \sum_{k=1}^i \frac{a_{ik}(\vartheta)}{b_i(\vartheta)^k}
+\end{equation}
+mit $a_{ik}(\vartheta)\in F[\vartheta]$ und
+$\deg a_{ik}(\vartheta)<\deg b_i(\vartheta)$.
+Das Integral des rationalen Teils ist damit
+\begin{equation}
+\int
+\frac{r(\vartheta)}{q(\vartheta)}
+=
+\sum_{i=1}^m \sum_{k=1}^i
+\int \frac{a_{ik}(\vartheta)}{b_i(\vartheta)^k}.
+\end{equation}
+Es ist also nötig, Integrale der Form
+\begin{equation}
+\int \frac{a(\vartheta)}{b(\vartheta)^k}
+\qquad
+\text{mit $
+a(\vartheta), b(\vartheta)\in F[\vartheta]
+$}
+\label{buch:intalg:risch:eqn:ratpart}
+\end{equation}
+zu bestimmen, mit dem quadratfreien Nennerpolynom
+$b(\vartheta)$ mit $\deg a(\vartheta) < \deg b(\vartheta)$.
+Die Methode von Hermite versucht, die
+Integrale~\eqref{buch:intalg:risch:eqn:ratpart}
+zu vereinfachen, indem der Nennerexponent $k$ reduziert wird.
+
+Da $b(\vartheta)$ quadratfrei ist, sind $b(\vartheta)$ und $Db(\vartheta)$
+in den meisten Fällen teilerfremd.
+Die Fälle von Faktoren $\vartheta$ des Nennerpolynoms, in denen dies nicht
+zutrifft, hängen von der Art der Erweiterung $\vartheta$ ab und werden
+später separat diskutiert.
+Teilerfremdheit hat zur Folge, dass es Polynome $s(\vartheta)$ und
+$t(\vartheta)$ gibt mit
+\[
+a(\vartheta)
+=
+s(\vartheta) b(\vartheta)
++
+t(\vartheta) Db(\vartheta).
+\]
+Damit wird das Integral zu
+\begin{align*}
+\int
+\frac{a(\vartheta)}{b(\vartheta)^k}
+&=
+\int
+\frac{s(\vartheta)}{b(\vartheta)^{k-1}}
++
+\int t(\vartheta)\frac{Db(\vartheta)}{b(\vartheta)^k}
+\intertext{und mit partieller Integration wird daraus}
+&=
+\int
+\frac{s(\vartheta)-Dt(\vartheta)/(k-1)}{b(\vartheta)^{k-1}}
++
+\frac{t(\vartheta)/(k-1)}{b(\vartheta)^{k-1}}.
+\end{align*}
+Der Zähler des ersten Integrals hat möglicherweise grösseren Grad
+als $b(\vartheta)$.
+Die Polynomdivision macht daraus einen zusätzlichen Beitrag zum polynomiellen
+Teil.
+Es bleibt das Problem, Integrale der Form~\eqref{buch:intalg:risch:eqn:ratpart}
+mit $k-1$ anstelle von $k$ zu bestimmen.
+
+Durch wiederholte Anwendung dieser Methode ist das Problem damit reduziert
+auf Integrale der Form
+\[
+\int\frac{a(\vartheta)}{b(\vartheta)},
+\qquad
+a(\vartheta), b(\vartheta) \in F[\vartheta],
+\]
+wobei $b(\vartheta)$ quadratfrei ist.
+
+%
+% b(\vartheta) und Db(\vartheta)
+%
+\subsubsection{$b(\vartheta)$ und $Db(\vartheta)$}
+Der entscheidende Schritt für die Durchführbarkeit der Methode von Hermite 
+war die Garantie, dass
+\[
+a(\vartheta)
+=
+s(\vartheta) b(\vartheta)
++
+t(\vartheta) Db(\vartheta)
+\]
+geschrieben werden kann.
+Falls $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind, dann gilt
+dies nach dem erweiterten euklidischen Algorithmus tatsächlich.
+Für ein quadratfreies Polynom in $u(X)\in K[X]$ wissen wir auch bereits,
+dass $u(X)$ und das abgeleitete Polynom $u'(X)$
+(siehe Definition~\ref{buch:intalg:elementar:def:abgeleitetespolynom})
+teilerfremd sind.
+Bei der Ableitung $Db(\vartheta)$ werden aber nicht nur die Potenzen
+$\vartheta^k$ abgeleitet, sondern auch die Koeffizienten des Polynoms.
+
+Man beachte, dass $Db(\vartheta)$ und $b'(\vartheta)$ verschieden sind.
+Nach Definition~\ref{buch:intalg:elementar:def:abgeleitetespolynom} gilt
+\begin{align*}
+Db(\vartheta)
+&=
+\sum_{k=0}^m
+D(b_k\vartheta^k)
+\\
+&=
+\sum_{k=0}^m
+\Bigl(
+Db_k\vartheta^k
++
+b_kk D\vartheta\cdot \vartheta^{k-1}
+\Bigr)
+\\
+&=
+\sum_{k=1}^m (Db_k)\vartheta^k
++
+b'(\vartheta) D\vartheta.
+\end{align*}
+Da $D\vartheta$ auf der rechten Seite vorkommt, ist zunächst nicht einmal
+klar, dass die rechte Seite auch wieder ein Polynom in $\vartheta$ mit
+Koeffizienten in $F$ ist.
+Dies muss später für jede Art von Erweiterung einzeln nachgeprüft werden.
+
+Aus der Quadratfreiheit von $b(\vartheta)$ als Polynom in $F[\vartheta]$
+folgt nur, dass $b(\vartheta)$ und $b'(\vartheta)$ teilerfremd sind.
+Damit die Methode von Hermite durchführbar wird, muss also untersucht
+werden, ob aus der Teilerfreiheit von $b(\vartheta)$ und $b'(\vartheta)$
+auch folgt, dass $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind.
+Dies wird für logarithmische Erweiterungen in
+Lemma~\ref{buch:intalg:risch:log:lemma:bDb} und für exponentielle
+Erweiterungen in
+Lemma~\ref{buch:intalg:risch:exp:lemma:bDb} durchgeführt.
+
+%
+% Standardform der Stammfunktion
+%
+\subsubsection{Standardform der Stammfunktion}
+Die Methode von Rothstein-Trager von
+Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
+bestimmt die Stammfunktion einer rationalen Funktion mit quadratfreiem
+Nenner und einem Zähler kleineren Grades und integriert damit den
+rationalen Teil eines rationalen Integranden.
+Die Methode soll auf Funktionen 
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+\qquad \text{mit}\quad \left\{
+\begin{array}{l}
+a(\vartheta),b(\vartheta)\in F[\vartheta],\\
+\text{$a(\vartheta)$ und $b(\vartheta)$ teilerfremd,}\\
+\text{$b(\vartheta)$ quadratfrei und normiert,}\\
+\deg a(\vartheta) < \deg b(\vartheta)\\
+\end{array}
+\right.
+\label{buch:intalg:risch:eqn:a(theta)/b(theta)}
+\end{equation}
+ausgedehnt werden.
+Möglicherweise müssen die zulässigen Nenner $b(\vartheta)$ weiter
+eingeschränkt werden.
+Zum Beispiel wird sich herausstellen, dass bei einer exponentiellen
+Erweiterung $\vartheta$ für den rationalen Teil eines
+Integrals nur Nenner $b(\vartheta)$ zulässig sind, die nicht durch
+$\vartheta$ teilbar sind.
+Wir sagen, dass \eqref{buch:intalg:risch:eqn:a(theta)/b(theta)}
+ein \emph{rationaler Teil} für die Körpererweiterung $F\subset F(\vartheta)$
+ist, wenn $b(\vartheta)$ ein zulässiger Nenner ist.
+
+Nach dem Liouville-Prinzip muss die Stammfunktion, falls sie elementar ist,
+die Form
+\begin{equation}
+\int
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_k c_k\log v_k(\vartheta)
+\label{buch:intalg:risch:rt:eqn:liouvilleint}
+\end{equation}
+haben.
+Für den Integranden muss entsprechend gelten, dass
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+Dv_0(\vartheta)
++
+\sum_k c_k\frac{D v_k(\vartheta)}{v_k(\vartheta)}
+\label{buch:intalg:risch:rt:eqn:liouvillediff}
+\end{equation}
+ist.
+Darin sind die $c_k$ Konstanten und $v_k(\vartheta)\in F(\vartheta)$.
+Die Methode von Rothstein-Trager findet die $c_k$ und die $v_k(\vartheta)$.
+
+Die Darstellung
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+der Stammfunktion ist nicht die einzig mögliche.
+Auch bei der Integration rationaler Funktionen waren Umformungen
+verwendet worden, um der Stammfunktion genau die Form zu geben,
+die die Methode von Rothstein-Trager später fand.
+Im Folgenden sollen ähnliche Vereinheitlichungen für die Darstellung
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+vorgenommen werden.
+
+In der Darstellung \eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+der Stammfunktion sind die $v_k(\vartheta) \in F(\vartheta)$ rationale
+Funktionen von $\vartheta$.
+Im Beweis des
+Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
+über die Stammfunktion rationaler Funktionen
+wurde das Wissen aus der Methode von Bernoulli verwendet, dass die
+\index{Bernoulli, Methode von}%
+\index{Methode von Bernoulli}%
+\index{Bernoulli, Johann}%
+$v_k$ auch als normierte Polynome gewählt werden können.
+Dies trifft aber auch im vorliegenden Fall zu.
+Sind nämlich die $v_k(\vartheta)$ Brüche
+\[
+v_k(\vartheta)
+=
+\frac{z_k(\vartheta)}{w_k(\vartheta)}
+\]
+von Zähler $z_k(\vartheta)$ und Nenner $w_k(\vartheta)$
+mit $z_k(\vartheta), w_k(\vartheta)\in F[\vartheta]$, dann können
+wir \eqref{buch:intalg:risch:rt:eqn:liouvilleint} in der Form
+\begin{equation*}
+\int
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_k c_k\log v_k(\vartheta)
+=
+v_0(\vartheta)
++
+\sum_k c_k\log z_k(\vartheta)
+-
+\sum_k c_k\log w_k(\vartheta)
+\end{equation*}
+schreiben.
+Die Argumente der Logarithmen sind jetzt sogar Polynome $\vartheta$.
+Dies zeigt, dass man annehmen darf, dass in
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+$v_k(\vartheta)\in F[\vartheta]$ gilt.
+
+Wir möchten zeigen, dass man annehmen darf, dass $v_k(\vartheta)$
+normiert ist.
+Dazu schreiben wir
+$v_k(\vartheta) = v_{\deg v_0(\vartheta)} \bar{v}_k(\vartheta)$, worin
+$\bar{v}_k(\vartheta)$ ein normiertes Polynom ist.
+Dann ist
+\[
+c_k\log v_k(\vartheta)
+=
+c_k\log v_{\deg v_k(\vartheta)}
++
+c_k\log \bar{v}_k(\vartheta).
+\]
+Indem wir den Ausdruck $c_k\log v_{\deg v_k(\vartheta)}\in F$ zu
+$v_0(\vartheta)$ hinzufügen, können wir annehmen, das $v_k(\vartheta)$
+\emph{normiert} ist.
+
+Falls mehrere der Koeffizienten $c_k$ gleich sind, dann können wir 
+die zugehörigen Funktionen $v_k$ zusammenfassen.
+Zu gegebenem $c$ schreiben wir daher
+\[
+v(\vartheta) = \prod_{c_k=c} v_k(\vartheta).
+\]
+Dann ist
+\begin{align*}
+c \log v(\vartheta)
+&=
+c
+\log\biggl(\prod_{c_k=c} v_k(\vartheta)\biggr)
+=
+\sum_{c_k=c} c_k \log v_k(\vartheta)
+\intertext{mit der Ableitung}
+c \frac{Dv(\vartheta)}{v(\vartheta)}
+&=
+D(c\log v(\vartheta))
+=
+\sum_{c_k=c} c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}.
+\end{align*}
+Man darf also immer annehmen, dass die $c_k$ in der Liouville-Form der
+Stammfunktion alle \emph{verschieden} sind.
+
+Falls zwei Polynome $v_k(\vartheta)$ und $v_l(\vartheta)$ einen nichttrivialen
+gemeinsamen Faktor haben, dann können wir mit
+$g(\vartheta)=\operatorname{ggT}(v_k(\vartheta),v_l(\vartheta))$
+\[
+v_k(\vartheta) = w_k(\vartheta) g(\vartheta)
+\qquad\text{und}\qquad
+v_l(\vartheta) = w_l(\vartheta) g(\vartheta)
+\]
+schreiben.
+Es gilt dann
+\[
+c_i\log v_i(\vartheta) + c_j\log v_j(\vartheta)
+=
+c_i\log w_i(\vartheta) + c_j \log w_j(\vartheta) + (c_i+c_j)\log g(\vartheta).
+\]
+Die Argumente der Logarithmen auf der rechten Seite haben keine 
+gemeinsamen Faktoren.
+Man darf also annehmen, dass die $v_k(\vartheta)$ \emph{teilerfremd} sind.
+
+Falls $v_k(\vartheta)$ mehrfache Faktoren hat, können diese wie folgt
+eliminiert werden.
+In der quadratfreien Faktorisierung
+\[
+v_k(\vartheta) = p_0 p_1(\vartheta) p_2(\vartheta)^2 \dots p_l(\vartheta)^l
+\]
+von $v_k(\vartheta)$ sind alle Faktoren $p_i(\vartheta)\in F[\vartheta]$
+quadratfrei.
+Der Logarithmus ist
+\[
+\log v_k(\vartheta)
+=
+\log p_0
++
+\log p_1(\vartheta)
++
+2 \log p_2(\vartheta)
++
+\dots
++
+l\log p_l(\vartheta)
+\]
+ein Summe mit lauter quadratfreien Argumenten des Logarithmus.
+Man darf also annehmen, dass die $v_k(\vartheta)$ sogar \emph{quadratfrei} sind.
+
+Der Term $v_0(\vartheta)$ kam in der Methode von Rothstein-Trager für
+rationale Funktionen nicht vor, da diese nur den logarithmischen Teil
+geliefert hat.
+Im vorliegenden Fall ist die Sachlage etwas komplizierter.
+Sie wird geklärt durch die folgenden zwei Lemmata, sie später
+in den Abschnitten~\ref{buch:intalg:risch:logarithmisch}
+und \ref{buch:intalg:risch:exponentiell}
+für logarithmische bzw.~exponentielle Erweiterungen bewiesen.
+
+\begin{lemma}
+\label{buch:intalg:risch:lemma:v0log}
+Ist $\vartheta$ eine logarithmische Körpererweiterung von $F$, dann ist
+in der Stammfunktion 
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+eines rationalen Teils immer $v_0(\vartheta)=0$.
+\end{lemma}
+
+\begin{lemma}
+\label{buch:intalg:risch:lemma:v0exp}
+Ist $\vartheta$ eine exponentielle Körpererweiterung von $F$ mit
+$D\vartheta = \vartheta Du$, dann ist in der Stammfunktion 
+\eqref{buch:intalg:risch:rt:eqn:liouvilleint}
+eines rationalen Teils immer $v_0(\vartheta)\in F$.
+\end{lemma}
+
+Mit diesen zwei Lemmata ausgerüstet können wir jetzt wieder zeigen,
+dass die $v_k(\vartheta)$ so gewählt werden können, dass $b(\vartheta)$
+das Produkt der $v_k(\vartheta)$ ist.
+Zu diesem Zweck nehmen wir an, dass
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0 + \sum_{i=1}^m c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)},
+\label{buch:intalg:risch:uebersicht:eqn:stammfunktion}
+\end{equation}
+und
+verwenden wir die Notation
+\[
+u_k(\vartheta)
+=
+\prod_{\scriptstyle i=1\atop\scriptstyle i\ne k} v_i(\vartheta)
+\qquad\text{und}\qquad
+v(\vartheta)
+=
+\prod_{i=1} v_i(\vartheta).
+\]
+Wir wollen zeigen, dass $b(\vartheta)=v(\vartheta)$.
+
+Wir multiplizieren \eqref{buch:intalg:risch:uebersicht:eqn:stammfunktion}
+mit $b(\vartheta)$ und $v(\vartheta)$ und erhalten
+\[
+a(\vartheta) v(\vartheta)
+=
+v_0 b(\vartheta) \prod_{i=1}^m v_i(\vartheta)
++
+\sum_{i=1}^m Dv_i(\vartheta) u_i(\vartheta) b(\vartheta).
+\]
+$b(\vartheta)$ teilt jeden Term auf der rechten Seite, ist aber teilerfremd
+zu $a(\vartheta)$, also muss $b(\vartheta)\mid a(\vartheta)$ teilen.
+Andererseits teilt $v_k(\vartheta)$ die linke Seite, den ersten Term
+auf der rechten Seite und alle Terme der Summe ausser dem Term mit $i=k$.
+Daher muss $v_k(\vartheta)$ auch letzteren Term
+\[
+c_k Dv_k(\vartheta) u_k(\vartheta) b(\vartheta)
+\]
+teilen.
+
+Für logarithmische Erweiterungen folgt jetzt bereits aus der Quadratfreiheit
+von $v_k(\vartheta)$, dass $v_k(\vartheta) \mid b(\vartheta)$.
+Für exponentielle Erweiterungen könnte $v_k(\vartheta)$ auch ein
+Teiler von $Dv_k(\vartheta)$ sein.
+Dann müsste aber $v_k(\vartheta)$ ein Monom sein, was nicht zulässig
+ist, weil der Faktor $\vartheta$ von $b(\vartheta)$ für exponentielle
+Erweiterungen ausgeschlossen wurde.
+Da jeder Faktor $v_k(\vartheta)$ ein Teiler ist, gilt auch
+$v(\vartheta)\mid b(\vartheta)$.
+Da sowohl $b(\vartheta)$ wie auch $v(\vartheta)$ normiert sind, folgt
+$b(\vartheta) = v(\vartheta)$.
+
+Wir fassen die gefundenen Standardisierungen der Stammfunktion im folgenden
+Satz zusammen.
+
+\begin{satz}[Standardform]
+\label{buch:intalg:risch:satz:standardform}
+\index{Satz!über die Standardform}%
+Sei $\vartheta$ eine logarithmische oder exponentielle Erweiterung.
+Falls der rationale Teil $a(\vartheta)/b(\vartheta)$ eine elementare
+Stammfunktion hat, dann gibt es $v_0\in F$ und normierte, quadratfreie,
+paarweise teilerfremde Polynome $v_k(\vartheta)\in F[\vartheta]$ mit
+\begin{equation}
+\frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0 + \sum_{k=1}^m \frac{Dv_k(\vartheta)}{v_k(\vartheta)}
+\qquad\text{und}\qquad
+b(\vartheta)
+=
+\prod_{k=1}^m v_k(\vartheta).
+\label{buch:intalg:risch:satz:eqn:standardform}
+\end{equation}
+Für eine logarithmische Erweiterung ist $v_0=0$.
+\end{satz}
+
+%
+% Die Methode von Rothstein-Trager
+%
+\subsubsection{Die Methode von Rothstein-Trager}
+Um die Methode von Rothstein-Trager auf die vorliegende Situation
+zu übertragen, übersetzen wir das Resultat des
+Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}.
+Gesucht sind die verschiedenen Elemente $c_k$, für die 
+\[
+a(\vartheta) - c_k \cdot Db(\vartheta)
+\qquad\text{und}\qquad
+b(\vartheta)
+\]
+einen nichttrivialen gemeinsamen Teiler in $F[\vartheta]$ haben und
+wir schreiben
+\[
+v_k(\vartheta)
+=
+\operatorname{ggT}(a(\vartheta)-c_k\cdot Db(\vartheta), b(\vartheta))
+\in
+F[\vartheta]
+\]
+für den grössten gemeinsamen Teiler.
+Wir vermuten dann, dass die Summe der $c_k\log v_k(\vartheta)$ die
+Stammfunktion
+\[
+\int
+\frac{a(\vartheta)}{b(\vartheta)}
+\overset{?}{=}
+\sum_{k} c_k \log v_k(\vartheta)
+\]
+ist oder
+\[
+\frac{a(\vartheta)}{b(\vartheta)}
+\overset{?}{=}
+\sum_{k} D\biggl(c_k \log v_k(\vartheta)\biggr)
+=
+\sum_{k}\biggl(
+Dc_k \log v_k(\vartheta)
++
+c_k \frac{Dv_k(\vartheta)}{v_k(\vartheta)}
+\biggr).
+\]
+Wenn dies tatsächlich die Stammfunktion in der Form sein soll, die
+das Liouville-Prinzip verspricht, dann dürfen die Logarithmus-Terme
+nicht vorkommen, d.~h.~es muss $Dc_k=0$ sein oder $c_k$ muss konstant
+sein.
+
+\begin{satz}[Rothstein-Trager]
+\label{buch:intalg:risch:satz:rothstein-trager-allgemein}
+\index{Satz!von Rothstein-Trager}
+Gegeben ist eine logarithmische oder exponentielle Körpererweiterung
+$F\subset F(\vartheta)$ und ein rationaler Teil wie in 
+\eqref{buch:intalg:risch:eqn:a(theta)/b(theta)}.
+\begin{enumerate}
+\item Wenn die Stammfunktion von $a(\vartheta)/b(\vartheta)$ elementar ist,
+dann sind die einzigen Elemente $c\in F$, für die
+\[
+a(\vartheta)-c\cdot Db(\vartheta)
+\qquad\text{und}\qquad
+b(\vartheta)
+\]
+einen nichttrivialen gemeinsamen Teiler haben, Konstanten.
+\item
+Falls die einzigen Elemente $c\in F$, für die 
+$a(\vartheta)-c\cdot Db(\vartheta)$
+und
+$b(\vartheta)$
+einen nichttrivialen gemeinsamen Teiler in $F[\vartheta]$ haben,
+Konstanten sind, dann sind die Polynome
+\begin{equation}
+v_k(\vartheta)
+=
+\operatorname{ggT}(
+a(\vartheta) - c_k\cdot Db(\vartheta), b(\vartheta)
+).
+\label{buch:intalg:risch:rothsteintrager:eqn:vk}
+\end{equation}
+teilerfremd und haben das Produkt
+\[
+b(\vartheta) = \prod_{k=1}^m v_k(\vartheta).
+\]
+\end{enumerate}
+\end{satz}
+
+Man beachte, dass dieser Satz noch nicht die ganze Aussage des
+Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager} auf den
+Fall einer Erweiterung $F\subset F(\vartheta)$ verallgemeinert.
+Es fehlt noch die Aussage, dass sich aus den Elementen $v_k(\vartheta)$
+und Konstanten $c_k$ tatsächlich die Stammfunktion konstruieren lässt.
+Im Fall einer exponentiellen Erweiterung ist auch $v_0$ noch nicht definiert.
+Der Beweis dieser Aussagen ist jedoch von der Art der Erweiterung abhängig
+und wird daher später für jede Art von Erweiterung separat nachgeholt.
+
+\begin{proof}
+Wir orientieren uns für den Beweis an der Vorgehensweise im Beweis von
+Satz~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager} über die
+Methode von Rothstein-Trager für rationale Funktionen.
+
+Falls die Stammfunktion elementar ist, dann hat sie nach 
+Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
+die Form
+\[
+\int \frac{a(\vartheta)}{b(\vartheta)}
+=
+v_0(\vartheta)
++
+\sum_{k=1}^m c_k\log v_k(\vartheta)
+\]
+mit $v_0(\vartheta)\in F(\vartheta)$ und $v_k(\vartheta)\in F[\vartheta]$.
+Nach Lemma~\ref{buch:intalg:risch:lemma:v0log} und
+\ref{buch:intalg:risch:lemma:v0exp}
+muss $v_0(\vartheta)=0$ bzw.~$v_0(\vartheta)\in F$ sein.
+
+Seien jetzt die $c_k$ die einzigen Elemente $c\in F$, für die
+$a(\vartheta)-c\cdot Db(\vartheta)$ und $b(\vartheta)$ einen nichttrivialen
+gemeinsamen Teiler in $F[\vartheta]$ haben, und $v_k(\vartheta)$ wie in
+\eqref{buch:intalg:risch:rothsteintrager:eqn:vk} definiert.
+
+Ist $w=\operatorname{ggT}(v_i(\vartheta),v_j(\vartheta))$ mit $i\ne j$, dann
+ist 
+\begin{align*}
+w&\mid (a(\vartheta)-c_i\cdot Db(\vartheta))\\
+w&\mid (a(\vartheta)-c_j\cdot Db(\vartheta))\\
+w&\mid \phantom{(}b(\vartheta).\phantom{)}
+\end{align*}
+Folglich ist $w$ auch ein Teiler von $(c_i-c_j) Db(\vartheta)\ne 0$.
+Da $b(\vartheta)$ quadratfrei ist, können $b(\vartheta)$ und $Db(\vartheta)$
+keinen gemeinsamen Teiler haben, also muss $w=1$ sein.
+Die Polynome $v_k(\vartheta)$ sind also teilerfremd.
+
+Wir betrachten jetzt das Produkt
+\[
+r(\vartheta) = \prod_{k=1}^m v_k(\vartheta).
+\]
+Da $v_k(\vartheta)\mid b(\vartheta)$ ist, gibt es ein Polynom $s(\vartheta)$
+derart, dass
+\begin{equation}
+b(\vartheta) = r(\vartheta) s(\vartheta).
+\label{buch:intalg:risch:rt:eqn:b=rs}
+\end{equation}
+Wir wollen zeigen, dass $s(\vartheta)=1$ ist.
+Falls der Grad $\deg s(\vartheta)>0$ ist, suchen wir Elemente $z_0$, für
+die 
+$a(\vartheta) - z\cdot Db(\vartheta)$ und $s(\vartheta)$ einen nichttrivialen
+gemeinsamen Teiler $t(\vartheta)$ haben.
+Ein solcher Teiler müsste auch ein Teiler von $b(\vartheta)$ sein.
+Die einzigen Zahlen $z$, für die dies möglich ist, müssten die Zahlen
+$c_k$ sein, $z_0$ ist also eines der $c_k$.
+Dann ist aber $t(\vartheta)$ ein Teiler von $v_k(\vartheta)$ und von
+$s(\vartheta)$, er kommt somit im Produkt 
+\eqref{buch:intalg:risch:rt:eqn:b=rs}
+zweimal vor, im Widerspruch zur Tatsache, dass $b(\vartheta)$ quadratfrei
+ist.
+Der Widerspruch zeigt, dass $\deg s(\vartheta)=0$ ist und dass
+$b(\vartheta)=r(\vartheta)$.
+\end{proof}
+
+Die von Satz~\ref{buch:intalg:risch:satz:rothstein-trager-allgemein}
+formulierte Bedingung zur Bestimmung der Koeffizienten ist noch nicht
+optimal.
+Die Durchführung des euklidischen Algorithmus liefert aber tatsächlich
+algebraische Gleichungen zur Bestimmung von $c_k$, wie spätere Beispiele
+zeigen werden.
+In Kapitel~\ref{chapter:resultante} wird mit der Resultanten ausserdem
+ein elegantes algebraisches Werkzeug zur Bestimmung der Koeffizienten
+angegeben.
+
+
+%
+% Hindernisse zur Existenz einer elementaren Stammfunktion
+%
+\subsubsection{Hindernisse zur Existenz einer elementaren Stammfunktion}
+Die Skizze des Algorithmus im vorangegangenen Abschnitt hat gezeigt,
+dass die Erweiterung der Vorgehensweise von Kapitel~\ref{chapter:ratint}
+Hindernisse für die Existenz einer Stammfunktion finden wird.
+Die Forderung, dass die Methode von Rothstein-Trager Konstanten
+finden muss, obwohl die Koeffizienten der beteiligten Polynome
+nichtkonstante Funktionen sein können, ist ein solches Hindernis.
+
+Der polynomielle Teil wird weitere Hindernisse zutage fördern.
+Ob die Stammfunktion des polynomiellen Teils existiert, hängt von
+den Koeffizienten von $s(\vartheta)$ ab.

@@ -7,18 +7,18 @@
 % !TEX encoding = UTF-8
 %
 \section{Eulers Produktdarstellung des Sinus}
-\rhead{Euler und das Basler Problem}
+\kopfrechts{Eulers Produktdarstellung des Sinus}
 
 \subsection{Der Ansatz}
 
 Euler beobachtete, dass die Nullstellen von $\sin(x)$ genau die Punkte
 $x = n\pi$, $n \in \mathbb{Z}$, sind.
-Analog zur Polynomfaktorisierung schrieb er -- zunächst formal und ohne
-Konvergenzbedenken -- einen Ansatz der Form
+Analog zur Polynomfaktorisierung schrieb er einen formalen Ansatz ohne Konvergenzbedenken.
+Sein Ansatz hatte die Form
 \begin{equation}
 \sin(x)
 =
-x \cdot \prod_{n=1}^{\infty} \left(1 - \frac{x^2}{n^2 \pi^2}\right).
+x \cdot \prod_{n=1}^{\infty} \biggl(1 - \frac{x^2}{n^2 \pi^2}\biggr).
 \end{equation}
 Jeder Faktor $(1 - x^2/n^2\pi^2)$ hat genau die Nullstellen $x = \pm n\pi$.
 Der Vorfaktor $x$ erzeugt die Nullstelle bei $x = 0$.
@@ -27,10 +27,13 @@ da jeder Faktor für $x = 0$ den Wert $1$ annimmt.
 
 Eulers Argument stützte sich auf die Analogie mit Polynomen und auf die
 Übereinstimmung der Nullstellenstruktur.
-Einen strengen Beweis lieferte er nicht -- dieser wurde erst durch Weierstraß erbracht.
+Einen strengen Beweis lieferte er nicht, dieser wurde erst durch Weierstraß erbracht.
 
-\subsection{Das Basler Problem}
+\subsection{Das Basel-Problem}
 
+Dieser Abschnitt behandelt das Basel-Problem nur oberflächlich.
+\index{Basel-Problem}%
+Für eine detaillierte Analyse siehe Kapitel \ref{chapter:basel}.
 Ein bemerkenswertes Nebenresultat ergibt sich durch Koeffizientenvergleich.
 Die Taylorreihe des Sinus liefert den Koeffizienten von $x^3$ als $-1/6$.
 Multipliziert man das unendliche Produkt formal aus, trägt jeder Faktor
@@ -42,42 +45,46 @@ Gleichsetzen liefert das berühmte Resultat:
 =
 \frac{\pi^2}{6}.
 \end{equation}
-Dieses Resultat -- das sogenannte Basler Problem -- war seit Jahrzehnten offen
+Dieses, als Basel-Problem bekannte Resultat, war seit Jahrzehnten offen
 und hatte namhafte Mathematiker wie die Bernoullis beschäftigt.
+\index{Bernoulli}%
 Der Schritt ist analog zur endlichen Situation:
 Multipliziert man $(1+a_1)(1+a_2)\cdots$ aus, so liefert jeder Faktor genau
 einen linearen Beitrag $a_i$;
 Produkte mehrerer solcher Terme tragen zu höheren Potenzen bei und spielen
 beim Vergleich des $x^2$-Koeffizienten keine Rolle.
-Eulers Lösung war eine Sensation.
-Stein und Shakarchi bemerken in \textit{Complex Analysis} treffend,
+Eulers Lösung, beschrieben in \cite{produkt:euler}, war eine Sensation.
+Stein und Shakarchi bemerken in \textit{Complex Analysis} \cite{produkt:steinShakarchi} treffend,
 dass Eulers Herleitung zwar nicht rigoros war, aber den richtigen Weg wies,
-der später durch die Weierstraß-Theorie vollständig gerechtfertigt werden sollte
-\cite{produkt:steinShakarchi}.
+der später durch die Weierstraß-Theorie vollständig gerechtfertigt werden sollte.
 
 \section{Das Problem der Konvergenz}
-\rhead{Konvergenz}
+\kopfrechts{Das Problem der Konvergenz}
 
 Eulers Vorgehen war kühn, aber mathematisch nicht gesichert.
 Zwei wesentliche Fragen bleiben offen.
 
-Erstens: \textit{Konvergiert das unendliche Produkt
+\begin{enumerate}
+\item \emph{Konvergiert das unendliche Produkt
 $\prod(1 - x^2/n^2\pi^2)$ überhaupt?}
+\index{Konvergenz}%
 Im vorliegenden Fall lässt sich dies bejahen, da $\sum 1/n^2$ konvergiert.
 Im Allgemeinen konvergiert ein unendliches Produkt $\prod(1+a_n)$ unter
 geeigneten Bedingungen (etwa wenn $\sum |a_n|$ konvergiert) gegen einen Wert $\neq 0$;
-die einfache Äquivalenz zur Konvergenz von $\sum a_n$ gilt nur in dieser Einschränkung.
+die einfache Äquivalenz zur Konvergenz von $\sum a_n$ gilt nur in dieser
+Einschränkung \cite{produkt:remmert}.
 
-Zweitens: \textit{Folgt aus gleichen Nullstellen auch Gleichheit der Funktionen?}
+\item \emph{Folgt aus gleichen Nullstellen auch Gleichheit der Funktionen?}
 Besitzen zwei ganze Funktionen dieselben Nullstellen (inklusive ihrer Vielfachheiten),
 so ist ihr Quotient eine nullstellenfreie ganze Funktion.
 Nach den Sätzen der Funktionentheorie lässt sich eine solche stets in der Form
 $e^{g(z)}$ schreiben, wobei $g$ eine ganze Funktion ist.
 Zwei ganze Funktionen mit denselben Nullstellen unterscheiden sich folglich
 nur um diesen nullstellenfreien Faktor $e^{g(z)}$.
-Euler nutzte implizit, dass dieser Faktor für den Sinus gleich $1$ ist --
+Euler nutzte implizit, dass dieser Faktor für den Sinus gleich $1$ ist,
 was er durch das Verhalten für $x \to 0$ heuristisch erschloss,
 aber nicht rigoros begründete.
+\end{enumerate}
 
 Diese Lücken machen deutlich, dass eine allgemeine Theorie benötigt wird:
 eine Theorie, die präzise angibt, wann und wie eine ganze Funktion als Produkt

@@ -1,0 +1,223 @@
+%
+% 22-polynome.tex -- Der euklidische Algorithmus für Polynome
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Der euklidische Algorithmus für Polynome
+\label{buch:ratint:euklid:subsection:polynome}}
+Der euklidische Algorithmus funktioniert auch für Polynome.
+Dies ermöglicht, rationale Funktionen effizient zu kürzen.
+Später werden wir den erweiterten euklidischen Algorithmus
+auch verwenden, um die quadratfreie Faktorisierung und die 
+zugehörige Partialbruchzerlegung einer rationalen Funktion
+zu finden und um Integrale von rationalen Funktionen auf 
+einfachere Form zu reduzieren.
+
+%
+% Polynomdivision
+%
+\subsubsection{Polynomdivision}
+Auch für Polynome gibt es eine Division mit Rest.
+Zu zwei Polynomen $a(x)$ und $b(x)$ gibt es Polynome $q(x)$ und $r(x)$,
+für die
+\[
+a(x) = b(x)q(x)+r(x)
+\]
+gilt.
+Ausserdem muss der Grad des Restpolynoms $r(x)$ kleiner sein als
+der Grad von $b(x)$: $\deg r(x) < \deg b()$.
+
+\begin{beispiel}
+\label{buch:ratint:euklid:bsp:polynomdivision}
+Der Divisionsalgorithmus liefert für die Polynome
+\[
+a(x)
+=
+x^4+x^3-4x^2+x-6
+\qquad\text{und}\qquad
+b(x)
+=
+x^2+5x+6
+\]
+die folgende Rechnung:
+\[
+\renewcommand{\arraycolsep}{1.2pt}
+\begin{array}{rcrcrcrcrcrcrcrcrcrcr}
+x^4&+&  x^3&-& 5x^2&+&  x&-& 6&:& x^2&+& 5x&+& 6 &=& x^2 &-& 4x&+& 9\\
+x^4&+& 5x^3&+& 6x^2& &   & &  & &    & &   & &   & &     & &   & &  \\
+\cline{1-5}
+   &-& 4x^3&-&11x^2&+&  x& &  & &    & &   & &   & &     & &   & &  \raisebox{4pt}{\mathstrut}\\
+   &-& 4x^3&-&20x^2&-&24x& &  & &    & &   & &   & &     & &   & &  \\
+\cline{2-7}
+   & &     & & 9x^2&+&25x&-& 6& &    & &   & &   & &     & &   & &  \raisebox{4pt}{\mathstrut}\\
+   & &     & & 9x^2&+&45x&+&54& &    & &   & &   & &     & &   & &  \\
+\cline{5-9}
+   & &     & &     &-&20x&-&60& &    & &   & &   & &     & &   & &  \raisebox{3pt}{\mathstrut}\\
+\cline{6-9}
+\end{array}
+\]
+Somit ist der Quotient $q(x)=x^2-4x+9$ und der Rest $r(x)=-20x-60$.
+\end{beispiel}
+
+Die Division von Polynomen ist die Basis des Algorithmus zur Bestimmung
+des grössten gemeinsamen Teilers.
+Es ist aber zu beachten, dass die Division einen Rest liefert,
+der nicht unbedingt ein normiertes Polynom ist.
+Es kann daher nötig sein, den Rest zu normieren.
+Im Beispiel ist der normierte Rest $x+3$.
+
+%
+% Gemeinsame Teiler für Polynome
+%
+\subsubsection{Gemeinsame Teiler für Polynome}
+Der euklidische Algorithmus für den grössten gemeinsamen Teiler
+funktioniert unverändert auch für Polynome.
+Der Polynomgrad des Restes nimmt dabei ständig ab, bis der Rest
+0 wird.
+
+\begin{beispiel}
+Man finde den grössten gemeinsamen Teiler der Polynome
+\[
+a(x)
+=
+x^4+x^3-5x^2+x-6
+\qquad\text{und}\qquad
+b(x)
+=
+x^2+5x+6.
+\]
+Dazu müssen die Quotienten und Reste berechnet werden, der
+erste wurde bereits im
+Beispiel~\ref{buch:ratint:euklid:bsp:polynomdivision}
+berechnet:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}|>{$}l<{$}>{$}l<{$}|>{$}l<{$}>{$}l<{$}|}
+\hline
+ k & a_k              & b_k      & q_k                & r_k
+\raisebox{2.5pt}{\mathstrut}\\[1pt]
+\hline
+ 0 & x^4+x^3-5x^2+x-6 & x^2+5x+6 & x^2-4x+9           & -20x-60
+\raisebox{3pt}{\mathstrut}\\
+ 1 & x^2+5x+6         & -20x-60  & -\frac{1}{20}(x+2) &       0
+\\[2pt]
+\hline
+\end{tabular}
+\end{center}
+In der zweiten Zeile lässt sich ablesen, dass der Rest $=0$ ist,
+daher ist der grösste gemeinsame Teiler $-20x-60$.
+Dieses Polynom ist nicht normiert, da die Koeffizienten rational sind,
+kann man durch $-20$ teilen und erhält das normierte Polynom $x+3$.
+\end{beispiel}
+
+Das Beispiel zeigt auch, dass der gefundene grösste gemeinsame Teiler
+nicht ein normiertes Polynom ist.
+Da wir nur an Polynomen mit rationalen Koeffizienten interessiert
+sind, kann immer durch den Leitkoeffizient geteilt werden.
+Arbeitet man dagegen nur mit ganzzahligen Koeffizienten, wird im 
+Beispiel bereits der Schritt $k=2$ nicht mehr durchführbar.
+
+%
+% Der erweiterte euklidische Algorithmus für Polynome
+%
+\subsubsection{Der erweiterte euklidische Algorithmus für Polynome}
+Auch der erweiterte euklidische Algorithmus lässt sich übertragen.
+
+\begin{beispiel}
+Für die Polynome $a(x) = x^3+2x^2-x-2$ und $b(x)=x^2-x-2$
+finde man Polynome $s(x)$ und $t(x)$ mit
+$\operatorname{ggT}(a,b)=s(x)a(x)+t(x)b(x)$.
+\begin{center}
+\renewcommand{\arraycolsep}{1.2pt}
+\begin{tabular}{|>{$}r<{$}|>{$}l<{$}>{$}l<{$}|>{$}l<{$}>{$}l<{$}|>{$}l<{$}>{$}l<{$}|}
+\hline
+  k & a_k(x)        & b_k(x)  & q_k(x)       & r_k(x) & s_k(x) & t_k(x) \raisebox{2.5pt}{\mathstrut}\\[1pt]
+\hline
+ -1 &               &         &              &        &             1 &                0 \\
+ -2 &               &         &              &        &             0 &                1 \\
+  0 & x^3+2x^2-2x-2 & x^2-x-2 & x+3          & 4x + 4 &             1 &             -x-3 \\
+  1 & x^2-x-2       & 4x+4    & \frac14(x-2) & 0      & -\frac14(x-2) & \frac14(x^2+x-2) \\[2pt]
+\hline
+\end{tabular}
+\end{center}
+Tatsächlich können wir nachrechnen, dass
+\begin{align*}
+s_0(x)
+\cdot
+a(x)
++
+t_0(x)
+\cdot
+b(x)
+&=
+1
+\cdot
+(x^3+2x^2-x-2)
+-
+(x+3)
+\cdot
+(x^2-x-2)
+\\
+&=
+(x^3+2x^2-x-2)
+-
+(x^3+2x^2-5x-6)
+\\
+&=
+4x+4
+\intertext{und}
+s_1(x)
+\cdot
+a(x)
++
+t_1(x)
+\cdot
+b(x)
+&=
+-
+\frac14(x-2)
+\cdot
+(x^3+2x^2-x-2)
++
+\frac14(x^2+x-2)
+\cdot
+(x^2-x-2)
+\\
+&=
+-
+\frac14(x^4-5x^2+4)
++
+\frac14(x^4-5x^2+4)
+\\
+&=0.
+\end{align*}
+Verlangt man ein normiertes Polynom für den grössten gemeinsamen Teiler,
+kann man die Koeffizienten in $\mathbb{Q}$ durch $4$ dividieren und 
+erhält $\operatorname{ggT}(a,b)=x+1$.
+Die Faktoren $s(x)$ und $t(x)$ müssen ebenfalls durch 4 geteilt werden
+und es gilt
+\[
+\frac14
+\cdot
+(x^3+2x^2-x-2)
+-\frac14(x+3)
+(x^2-x-2)
+=
+x+1.
+\]
+
+Den grössten gemeinsamen Teiler kann man auch mithilfe der Faktorisierung
+\begin{align*}
+a(x)
+&=
+(x-1){\color{darkred}(x+1)}(x+2)
+\\
+b(x)
+&=
+(x-2){\color{darkred}(x+1)}
+\end{align*}
+der Polynome finden.
+Der einzige gemeinsame Faktor ist $\operatorname{ggT}(a,b)={\color{darkred}x+1}$.
+Aus der Faktorisierung sind jedoch die Faktoren $s(x)$ unt $t(x)$
+nicht direkt ablesbar.
+\end{beispiel}
+

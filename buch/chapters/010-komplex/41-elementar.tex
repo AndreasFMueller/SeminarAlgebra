@@ -1,0 +1,905 @@
+%
+% 41-elementar.tex -- Elementarsymmetrische Polynome und der Fundamentalsatz
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Elementarsymmetrische Polynome und der Fundamentalsatz
+\label{buch:komplex:symmetrisch:subsection:fundamentalsatz}}
+Der Fundamentalsatz der Algebra besagt, dass sich ein Polynom in
+Linearfaktoren zerlegen lässt.
+Multipliziert man die Linearfaktoren aus, entstehen die Koeffizienten
+des ursprünglichen Polynoms durch algebraische Ausdrücke aus den
+Nullstellen.
+In diesem Abschnitt soll untersucht werden, wie diese algebraischen
+Ausdrücke entstehen.
+
+%
+% Permutationen
+%
+\subsubsection{Permutationen}
+Im Folgenden soll untersucht werden, wie sich ein Polynom von mehreren
+Variablen ändert, wenn die Variablen vertauscht werden.
+Wir benötigen dazu die folgenden Notationen.
+
+\begin{definition}[Permutation]
+Eine \emph{Permutation} $\sigma$ von $n$ Elementen ist eine bijektive Abbildung
+\index{Permutation}%
+$\pi\colon [n]\to[n]$.
+Die Menge aller Permutationen von $n$ Elementen bilden die
+\emph{symmetrische Gruppe} $S_n$.
+\index{symmetrische Gruppe}%
+\index{Gruppe!symmetrisch}%
+\index{Sn@$S_n$}%
+\end{definition}
+
+Sei jetzt $f(X_1,\dots,X_n)$ eine Funktion der $n$ Variablen 
+$X_1,\dots,X_n$.
+Die Vertauschung der Variablen mit einer Permutation $\pi\in S_n$
+ergibt eine neue Funktion $f^\pi$, die durch
+\[
+f^\pi(X_1,X_2,\dots,X_n)
+=
+f(X_{\pi(1)},X_{\pi(2)},\dots,X_{\pi(n)})
+\]
+definiert ist.
+
+\begin{beispiel}
+Die Funktion $f(X_1,X_2) = \cos X_1\sin X_2 - \sin X_1\cos X_2$ ist eine
+Funktion von zwei Variablen.
+Die Gruppe $S_2$ enthält nur zwei Elemente, das neutrale Element und
+die Vertauschung $\sigma\in S_2$ der beiden Variablen.
+Die Funktion
+\begin{align*}
+f^\sigma(X_1,X_2)
+&=
+f(X_{\pi(1)},X_{\pi(2)})
+=
+f(X_2,X_1)
+\\
+&=
+\cos X_2\sin X_1 - \sin X_2\cos X_1
+\\
+&=
+-\cos X_1\sin X_2 + \sin X_1\cos X_2
+=
+-f(X_1,X_2),
+\end{align*}
+es ist also $f^\sigma=-f$.
+Diese Aussage könnte man auch mit dem Additionstheorem bekommen, welches
+\index{Additionstheorem}%
+\begin{align*}
+f(X_1,X_2)&=\sin(X_1-X_2)
+\\
+\Rightarrow\qquad
+f^\sigma(X_1,X_2)
+&=
+\sin(X_2-X_1)
+=
+-\sin(X_1-X_2)
+=
+-f(X_1,X_2)
+\end{align*}
+garantiert.
+\end{beispiel}
+
+%
+% Symmetrische Polynome
+%
+\subsubsection{Symmetrische Polynome}
+Die Reihenfolge der Linearfaktoren, in die ein Polynom zerfällt, spielt
+keine Rolle.
+Jede Reihenfolge führt auf das gleiche ausmultiplizierte Polynom.
+Um die Entstehung der Koeffizienten zu verstehen, müssen daher nur
+algebraische Ausdrücke in den Nullstellen studiert werden, die sich nicht
+ändern, wenn man die Nullstellen vertauscht.
+Da beim Ausmultiplizieren nur Multiplikation und Addition verwendet
+werden, müssen wir also Polynome in mehreren Variablen studieren, die
+sich nicht ändern, wenn man die Variablen vertauscht.
+
+\begin{definition}[symmetrisches Polynom]
+\index{symmetrisches Polynom}%
+Ein Polynom $p(X_1,\dots,X_n)$ in den Variablen $X_1,\dots,X_n$
+heisst \emph{symmetrisch}, wenn jede Permutation $\sigma\in S_n$
+der Variablen das gleiche Polynom ergibt.
+Es gilt also
+\[
+p(X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+p(X_1,\dots,X_n)
+\]
+für alle Permutationen $\sigma\in S_n$.
+\end{definition}
+
+\begin{beispiel}
+\label{buch:komplex:fundamental:symmetrisch:bsp:n=2}
+Wir bestimmen die symmetrischen Polynome für $n=2$.
+Es gibt nur zwei Permutationen für $n=2$, nämlich die identische
+Permutation und die Vertauschung $1\leftrightarrow 2$.
+
+Das Polynom $p(X_1,X_2)=X_1$ ist nicht symmetrisch, da die Vertauschung
+$1\leftrightarrow 2$ daraus das Polynom $X_2\ne p(X_1,X_2)$ macht.
+Erst die Kombination $\sigma_1(X_1,X_2)=X_1+X_2$ ist unter der Vertauschung
+invariant.
+
+Symmetrische Polynome zweiten Grades sind zum Beispiel
+$\sigma_2(X_1,X_2)=X_1X_2$, aber auch
+\begin{align*}
+q(X_1,X_2)
+&=
+X_1^2+X_2^2.
+\intertext{Allerdings ist dies kein ``neues'' Polynom, denn es ist}
+X_1^2+X_2^2
+&=
+(X_1+X_2)^2 - 2X_1X_2
+\\
+&=
+\sigma_1(X_1,X_2)^2 - 2 \sigma_2(X_1,X_2).
+\end{align*}
+Das Polynom $X_1^2+X_2^2$ kann also durch $\sigma_1(X_1,X_2)$ und
+$\sigma_2(X_1,X_2)$ ausgedrückt werden.
+
+Auch für symmetrische Polynome dritten Grades können wir Beispiele
+finden.
+In allen Fällen lassen sich diese Polynome durch die
+$\sigma_k(X_1,X_2)$, $k=1,2$, ausdrücken:
+\begin{align*}
+X_1^2X_2 + X_1X_2^2
+&=
+(X_1+X_2)X_1X_2
+=
+\sigma_1(X_1,X_2)\cdot\sigma_2(X_1,X_2),
+\\
+X_1^3 + X_2^3
+&=
+(X_1+X_2)^3 - 3X_1^2X_2 - 3X_1X_2^2
+\\
+&=
+(X_1+X_2)^3 - 3(X_1^2X_2 + X_1X_2^2)
+\\
+&=
+\sigma_1(X_1,X_2)^3 - 3\sigma_1(X_1,X_2)\cdot \sigma_2(X_1,X_2).
+\intertext{Dasselbe gilt für symmetrische Polynome vom Grad 4:}
+X_1^2 X_2^2
+&=
+\sigma_2(X_1,X_2)^2
+\\
+X_1^3X_2+X_1X_2^3
+&=
+X_1X_2(X_1^2+X_2^2)
+\\
+&=
+\sigma_2(X_1,X_2)\bigl(\sigma_1(X_1,X_2)^2-2\sigma_2(X_1,X_2)\bigr)
+\\
+&=
+\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
+-2
+\sigma_2(X_1,X_2)^2
+\\
+X_1^4+X_2^4
+&=
+\sigma_1(X_1,X_2)^4
+-
+4\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
++8
+\sigma_2(X_1,X_2)^2
+-
+6\sigma_2(X_1,X_2)^2
+\\
+&=
+\sigma_1(X_1,X_2)^4
+-
+4\sigma_1(X_1,X_2)^2 \sigma_2(X_1,X_2)
++2
+\sigma_2(X_1,X_2)^2.
+\end{align*}
+Keines der symmetrischen Polynome dritten oder vierten Grades enthält
+Information, die sich nicht auch schon aus den beiden speziellen
+Polynomen $\sigma_1(X_1,X_2)$ und $\sigma_2(X_1,X_2)$ ablesen lässt.
+\end{beispiel}
+
+Im Beispiel wurden zwei Polynome gefunden, mit denen sich alle 
+anderen symmetrischen Polynome ausdrücken liessen.
+Dies sind die sogenannten elemetarsymmetrischen Polynome,
+die im nächsten Abschnitt eingeführt werden.
+
+%
+% Elementarsymmetrische Polynome
+%
+\subsubsection{Elementarsymmetrische Polynome}
+Wir betrachten das Polynom
+\[
+p(T,X_1,\dots,X_n)
+=
+(T+X_1)\cdot\ldots\cdot (T+X_n)
+\]
+in den Variablen $T,X_1,\dots,X_n$.
+Da das Produkt kommutativ ist, ist dieses Polynom symmetrisch in den
+Variablen $X_1,\dots,X_n$.
+Multipliziert man das Polynom aus und fasst die Terme mit gleicher
+Potenz von $T$ zusammen erhält man
+\begin{equation}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rclclclcl}
+p(T,X_1,\dots,X_n)
+&=&
+T^n
+&+&
+\sigma_1(X_1,\dots,X_n)
+T^{n-1}
+&+&
+\sigma_2(X_1,\dots,X_n)
+T^{n-2}
+&+&
+\ldots
+\\
+& &
+\ldots
+&+&
+\sigma_{n-1}(X_1,\dots,X_n) T
+&+&
+\sigma_n(X_1,\dots,X_n)
+\\
+&=&
+\rlap{$\displaystyle \sum_{k=0}^n \sigma_k(X_1,\dots,X_n) T^{n-k} $}
+\end{array}
+\label{buch:komplex:symmetrisch:eqn:definition}
+\end{equation}
+mit Polynomen $\sigma_k(X_1,\dots,X_n)$, $k=0,\dots,n$.
+Da $p(T,X_1,\dots,X_n)$ symmetrisch ist, gilt
+\[
+p(T,X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+p(T,X_1,\dots,X_n)
+\] 
+für jede Permutation $\sigma\in S_n$.
+Durch Koeffizientenvergleich folgt, dass
+\[
+\sigma_k(X_{\sigma(1)},\dots,X_{\sigma(n)})
+=
+\sigma_k(X_1,\dots,X_n)
+\]
+für jeden Koeffizienten $\sigma_k$, $k=1,\dots,n$, und für jede
+Permutation $\sigma\in S_n$.
+Insbesondere sind die $\sigma_k(X_1,\dots,X_n)$ alle symmetrische
+Polynome.
+
+\begin{definition}[Elementarsymmetrische Polynome]
+\label{buch:komplex:fundamental:def:elementarsymmetrisch}
+Die durch \eqref{buch:komplex:symmetrisch:eqn:definition} definierten
+Polynome $\sigma_k(X_1,\dots,X_n)\in \mathbb{Z}[X_1,\dots,X_n]$ 
+heissen die \emph{elementarsymmetrischen Polynome}.
+\index{elementarsymmetrische Polynome}%
+\end{definition}
+
+\begin{beispiel}
+Für $n=2$ entstehen die elementarsymmetrischen Polynome aus dem
+Produkt
+\[
+(T+X_1)(T+X_2)
+=
+T^2 +(X_1+X_2)T+X_1X_2
+\quad\Rightarrow\quad
+\left\{
+\begin{aligned}
+\sigma_1(X_1,X_2) &= X_1+X_2 \\
+\sigma_2(X_1,X_2) &= X_1X_2.
+\end{aligned}
+\right.
+\]
+Dies sind genau die Polynome, die im
+Beispiel~\ref{buch:komplex:fundamental:symmetrisch:bsp:n=2}
+gefunden wurden.
+\end{beispiel}
+
+\begin{beispiel}
+Für $n=3$ 
+kann man aus dem Produkt
+\[
+(T+X_1)
+(T+X_2)
+(T+X_3)
+=
+T^3
++
+(X_1+X_2+X_3)T^2
++(X_1X_2+X_1X_3+X_2X_3)T
++
+X_1X_2X_3
+\]
+die elementarsymmetrischen Polynome
+\begin{equation}
+\begin{aligned}
+\sigma_1(X_1,X_2,X_3) &= X_1+X_2+X_3\\
+\sigma_2(X_1,X_2,X_3) &= X_1X_2 + X_1X_3 + X_2X_3\\
+\sigma_3(X_1,X_2,X_3) &= X_1X_2X_3
+\end{aligned}
+\label{buch:komplex:fundamental:bsp:elementar3}
+\end{equation}
+ablesen.
+\end{beispiel}
+
+Die Beispiele zeigen auch, dass für beliebiges $n$ die
+elementarsymmetrischen Polynome für $k=0$, $k=1$ und 
+$k=n$
+die besonders einfache Form
+\begin{align*}
+\sigma_0(X_1,\dots,X_n) &= 1 \\
+\sigma_1(X_1,\dots,X_n) &= X_1+\ldots + X_n \\
+\sigma_n(X_1,\dots,X_n) &= X_1 \cdots X_n
+\end{align*}
+haben.
+Die anderen elementarsymmetrischen Polynome können als
+\[
+\sigma_k(X_1,\dots,X_n)
+=
+\sum_{1\le i_1<i_2<\dots<i_k\le n}
+X_{i_1}
+X_{i_2}
+\cdots
+X_{i_k}
+\]
+geschrieben werden.
+
+Die elementarsymmetrischen Polynome können dazu verwendet werden, die
+Koeffizienten eines Polynoms aus den Nullstellen zu berechnen.
+Die Nullstellen eines solchen Polynoms sind algebraische Zahlen über
+dem Koeffizientenkörper.
+Oft sind alle Nullstellen ausserhalb des Koeffzientenkörpers.
+Trotzdem sind die Werte der elementarsymmetrischen Funktionen, ausgewertet
+auf den Nullstellen des Polynoms, wieder im Koeffizientenkörper.
+
+\begin{beispiel}
+Das Polynom $p(X) = X^2+pX+q$ hat die Nullstellen
+\[
+\alpha_{\pm}
+=
+-\frac{p}{2}
+\pm
+\!
+\sqrt{ \frac{p^2}{4}-q }.
+\]
+Setzt man diese Nullstellen in die elementarsymmetrischen Funktionen
+für $n=2$ ein, erhält man
+\[
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rccclcl}
+\sigma_1(\alpha_+,\alpha_-)
+&=&
+\alpha_++\alpha_-
+&=&
+\displaystyle
+-\frac{p}{2}
++
+\!\sqrt{ \frac{p^2}{4}-q }
++
+-\frac{p}{2}
+-
+\!\sqrt{ \frac{p^2}{4}-q }
+&=&
+-p,
+\\[7pt]
+\sigma_2(\alpha_+,\alpha_-)
+&=&
+\alpha_+\cdot \alpha_-
+&=&
+\displaystyle
+\biggl(
+-\frac{p}{2}
++
+\!\sqrt{ \frac{p^2}{4}-q }
+\biggr)
+\biggl(
+-\frac{p}{2}
+-
+\!\sqrt{ \frac{p^2}{4}-q }
+\biggr)
+\\[7pt]
+& &
+&=&
+\displaystyle
+\biggl(-\frac{p}{2}\biggr)^2
+-
+\biggl(
+\!\sqrt{ \frac{p^2}{4}-q }
+\biggr)^2
+\\[7pt]
+& &
+&=&
+\displaystyle
+\frac{p^2}{4}
+-
+\frac{p^2}{4}+q
+&=&
+q.
+\end{array}
+\]
+Die Werte der elementarsymmetrischen Funktionen von $\alpha_{\pm}$ sind
+also wieder im Koeffizientenkörper.
+\end{beispiel}
+
+\begin{satz}
+Sei $p(X) = p_0+p_1X+\dots +p_{n-1}X^{n-1} + X^n\in K[X]$ ein normiertes
+mit Koeffizienten in einem Körper $K$ und seien $\alpha_1,\dots,\alpha_n$
+alle Nullstellen, so dass 
+\[
+p(X)
+=
+(X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_n) =
+\prod_{k=1}^n (X-\alpha_k).
+\]
+Dann ist 
+\[
+(-1)^k
+\sigma_k(\alpha_1,\dots,\alpha_n) 
+=
+p_k
+\]
+für $k=1,\dots,n$ oder
+\[
+p(X)
+=
+\sum_{k=0}^n
+(-1)^k
+\sigma_k(\alpha_1,\dots,\alpha_n) X^{n-k}.
+\]
+Ausserdem ist
+\[
+\sigma_k(\alpha_1,\dots,\alpha_n) \in K
+\]
+für $k=1,\dots,n$.
+\end{satz}
+
+\begin{beispiel}
+Für das Polynom $p(X) = X^5 + 2X^4+3X^3+4X^2+5X+6\in\mathbb{Z}[X]$
+kann man numerisch (zum Beispiel mit Maxima) die Nullstellen
+\[
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rcrcl}
+\alpha_1 &=&  0.5516854634589816 &+& 1.2533488602772058 i\\
+\alpha_2 &=&  0.5516854634589816 &-& 1.2533488602772058 i\\
+\alpha_3 &=& -0.8057864693890309 &+& 1.2229047133744104 i\\
+\alpha_4 &=& -0.8057864693890309 &-& 1.2229047133744104 i\\
+\alpha_5 &=& -1.4917979881399015 & &
+\end{array}
+\]
+finden.
+Die Werte der elementarsymmetrischen Polynome müssen wieder
+ganze Zahlen ergeben. 
+Das Polynom $\sigma_1(X_1,\dots,X_5)$ ist die Summe
+und $\sigma_5(X_1,\dots,X_5)$ ist das Produkt der Argumente.
+Tatsächlich sind Summe und Produkt
+\[
+\renewcommand{\arraycolsep}{1.5pt}
+\begin{array}{rcccl}
+\sigma_1(\alpha_1,\dots,\alpha_5)
+&=&
+\displaystyle
+\sum_{k=1}^5 \alpha_k
+&=&
+-2
+\\
+\sigma_5(\alpha_1,\dots,\alpha_5)
+&=&
+\displaystyle
+\prod_{k=1}^5 \alpha_k
+&=&
+-6.000000000000004 + 3.525489416408166\cdot 10^{-16}i
+\end{array}
+\]
+mit Maschinengenauigkeit bis auf das Vorzeichen die Koeffizienten
+des Polynoms $p(X)$.
+\end{beispiel}
+
+%
+% Der Fundamentalsatz für symmetrische Polynome
+%
+\subsubsection{Der Fundamentalsatz für symmetrische Polynome}
+Die elementarsymmetrischen Polynome sind in einem gewissen Sinne
+die einzigen symmetrischen Polynome, die man braucht.
+Dies ist der Inhalt des folgenden Fundamentalsatzes für
+symmetrische Polynome: jedes symmetrische Polynom lässt sich
+als Polynom in den elementarsymmetrischen Polynomen ausdrücken.
+
+\begin{satz}[Fundamentalsatz für symmetrische Polynome]
+\label{buch:komplex:fundamental:satz:fundamentalpolynom}
+Ist $p(X_1,\dots,X_n)\in K[X_1,\dots,X_n]$ ein symmetrisches
+Polynom von $n$ Variablen, dann gibt es genau ein Polynom
+$q(S_1,\dots,S_n)\in K[S_1,\dots,S_n]$ derart, dass
+\index{Fundamentalsatz für symmetrische Polynome}%
+\[
+p(X_1,\dots,X_n)
+=
+q\bigl(\sigma_1(X_1,\dots,X_n),\dots,\sigma_n(X_1,\dots,X_n)\bigr).
+\qedhere
+\]
+\end{satz}
+
+Nicht nur gibt es das Polynom $q$, wir werden einen Beweis
+geben, der das Polynom sogar rekursiv konstruiert.
+Wir illustrieren die Idee am Beispiel eines symmetrischen
+Polynoms $q(X_1,X_2)$ dritten Grades in $X_1$ und $X_2$.
+Es muss mindestens einen der Terme
+\[
+X_1^3,\;
+X_1^2X_2,\;
+X_1X_2^2,\;
+X_2^3
+\]
+dritten Grades enthalten.
+Falls der Term $cX_1^3$ in $q$ vorkommt, dann muss auch der Term $cX_2^3$
+vorkommen.
+Mit dem elementarsymmetrischen Polynom $\sigma_1(X_1,X_2)$ können
+wir ebenfalls ein Polynom dritten Grades konstruieren, welches
+$cX_1^3$ und $cX_2^3$ enthält, nämlich $c\sigma_1(X_1,X_2)^3$.
+Die Differenz $q_1(X_1,X_2)=q(X_1,X_2)-c\sigma_1(X_1,X_2)^3$ enthält die
+Terme $X_1^3$ und $X_2^3$ nicht mehr.
+
+$q_1(X_1,X_2)$ kann aber immer noch $c_1X_1^2X_2$ enthalten.
+Symmetrie verlangt dann, dass es auch $c_1X_1X_2^2$ enthält.
+Mit den elementarsymmetrischen Polynomen können wir 
+\[
+c_1\sigma_1(X_1,X_2)\sigma_2(X_1,X_2)
+=
+c_1(X_1+X_2)(X_1X_2)
+=
+c_1(X_1^2X_2+X_1X_2^2)
+\]
+konstruieren, welches die gleichen Terme enthält.
+Das neue Polynom
+$q_2(X_1,X_2) = q_1(X_1,X_2) - c_1\sigma_1(X_1,X_2)\sigma_2(X_1,X_2)$
+enthält dann auch diese Terme nicht mehr.
+
+Da es keine weiteren Terme dritten Grades gibt, ist $q_2$ jetzt nur noch
+ein Polynom zweiten Grades.
+Falls es den Term $c_2X_1^2$ enthält, können wir diesen durch
+$q_3(X_1,X_2)=q_2(X_1,X_2)-c_2\sigma_1(X_1,X_2)^2$ eliminieren.
+Falls dann noch ein Term $c_3X_1X_2$ bleibt, wird dieser durch
+$q_4(X_1,X_2)=q_3(X_1,X_2)-c_3\sigma_2(X_1,X_2)$ eliminiert.
+
+$q_4(X_1,X_2)$ ist ein Polynom ersten Grades und kann daher sofort
+als Linearkombination von $\sigma_1(X_1,X_2)=X_1+X_2$ und
+$\sigma_0(X_1,X_2)=1$ dargestellt werden.
+
+Der Algorithmus eliminiert also die verschiedenen Arten von Monomen, die
+in $q(X_1,X_2)$ vorkommen können dadurch, dass ein geeignetes Produkt von 
+elementarsymmetrischen Polynomen subtrahiert wird.
+Dabei ist in einer Reihenfolge vorzugehen, die verhindert, dass bereits
+eliminierte Terme wieder hinzugefügt werden.
+Es muss also als vor allem eine geeignete Anordnung der Monome definiert
+werden.
+
+Um die Ordnung zweier Monome gleichen Grades zu definieren, kürzen wir 
+das Monom $X_1^{a_1}\dots X_n^{a_n}$ durch das $n$-Tupel
+\[
+e(X_1^{a_1}\cdots X_n^{a_n})
+=
+(a_n,a_{n-1},\dots,a_2,a_1)
+\]
+ab.
+Die Funktion $e$ extrahiert also die Exponenten der einzelnen 
+Variablen und ordnet sie nach absteigendem Index der Variablen an.
+Zum $n$-Tupel $(a_n,\dots,a_1)$ ist $m=X_1^{a_1}\cdots X_n^{a_n}$
+das Monom mit $e(m)=(a_n,\dots,a_1)$.
+
+\begin{definition}[umgekehrt lexikographische Ordnung]
+\label{buch:komplex:symmetrisch:def:ulexiko}
+\index{umgekehrt lexikographische Ordnung}%
+Die umgekehrt lexikographische Ordnung von $n$-Tupeln ist definiert durch
+\[
+(a_n,\dots,a_1) < (b_n,\dots,b_1)
+\quad
+:\Leftrightarrow
+\quad
+\renewcommand{\arraycolsep}{2pt}
+\left\{\begin{array}{rclcl}
+a_n &>& b_n	&\quad&\text{falls $a_n\ne b_n$}\\
+a_{n-1} &>& b_{n-1}&&\text{falls $a_{n-1}\ne b_{n-1}$ und $a_n=b_n$}\\[-2pt]
+&\vdots&        &&\vdots\\
+a_2 &>& b_2	&&\text{falls $a_2\ne b_2$ und $a_k=b_k$ für $k\ge 3$}\\
+a_1 &>& b_1	&&\text{falls $a_1\ne b_1$ und $a_k=b_k$ für $k\ge 2$.}
+\end{array}
+\right.
+\]
+Zwei Monome $m_1$ und $m_2$ gleichen Grades erfüllen $m_1 < m_2$, wenn
+$e(m_1) < e(m_2)$.
+\end{definition}
+
+Die umgekehrt lexikographische Ordnung der Tripel vom Grad 3 ist
+\index{lexikographisch}%
+\begin{equation}
+\begin{aligned}
+(3,0,0)
+&<
+(2,1,0)
+<
+(2,0,1)
+<
+(1,2,0)
+<
+(1,1,1)
+\\
+&<
+(1,0,2)
+<
+(0,3,0)
+<
+(0,2,1)
+<
+(0,1,2)
+<
+(0,0,3).
+\end{aligned}
+\label{buch:komplex:symmetrisch:eqn:3tupelordnung}
+\end{equation}
+``Grosse'' Elemente im Sinn der umgekehrt lexikographischen Ordnung
+haben also möglichst grosse Komponenten $a_i$ mit kleinem Index $i$.
+
+\begin{lemma}
+\label{buch:komplex:symmetrisch:lemma:maximal}
+Ein $n$-Tupel $(a_n,\dots,a_1)$ ist genau dann das grösste im Sinne
+der umgekehrt lexikographischen Ordnung, wenn
+$a_n\le a_{n-1}\le \ldots \le a_1$
+ist.
+\end{lemma}
+
+\begin{proof}
+Wäre $a_{i+1} > a_i$, dann liesse sich ein grösseres $n$-Tupel durch
+Vertauschen von $a_i$ und $a_{i+1}$ finden:
+\[
+(a_n,\dots,a_{i+1},a_i,\dots,a_1)
+<
+(a_n,\dots,a_i,a_{i+1},\dots,a_1).
+\]
+Dies zeigt, dass das $n$-Tupel $(a_n,\dots,a_1)$ nicht das grösste sein 
+kann, wenn die $a_k$ nicht monoton sind.
+\end{proof}
+
+Ein $n$-Tupel wie in Lemma~\ref{buch:komplex:symmetrisch:lemma:maximal}
+wird auch ein \emph{maximales $n$-Tupel} genannt.
+\index{maximales n-Tupel@maximales $n$-Tupel}%
+
+\begin{definition}[Monomordnung]
+\index{Monomordnung}%
+Für zwei beliebige Monome $m_1$ und $m_2$ von möglicherweise verschiedenem
+Grad wird die Ordnung durch
+\[
+m_1 < m_2
+\quad
+:\Leftrightarrow
+\quad
+\begin{cases}
+\deg m_1 < \deg m_2&\qquad\text{falls $\deg m_1\ne \deg m_2$}\\
+m_1 < m_2&\qquad\text{falls $\deg m_1 = \deg m_2$}
+\end{cases}
+\]
+definiert, wobei die Ordnung gleichgradiger Monome im zweiten Fall
+die ungekehrt lexikographische Ordnung von
+Definition~\ref{buch:komplex:symmetrisch:def:ulexiko} ist.
+\end{definition}
+
+Für zwei Variablen $X_1$ und $X_2$ ergeben sich bis zum Grad 3 die folgenden 
+Reihenfolgen:
+\begin{align}
+&\text{Grad 1:} & &X_1 < X_2
+\notag
+\\
+&\text{Grad 2:} & &X_1^2 < X_1X_2 < X_2^2
+\notag
+\\
+&\text{Grad 3:} & &
+X_3^3
+<
+X_3^2 X_2
+<
+X_3^2 X_1
+<
+X_3 X_2^2
+<
+X_3 X_2 X_1
+<
+X_3 X_1^2
+<
+X_2^3
+<
+X_2^2
+X_1
+<
+X_2
+X_1^2
+<
+X_1^3
+\label{buch:komplex:symmetrisch:eqn:3monomordung}
+\end{align}
+wobei sich
+\eqref{buch:komplex:symmetrisch:eqn:3monomordung}
+aus
+\eqref{buch:komplex:symmetrisch:eqn:3tupelordnung}
+ergibt.
+
+\begin{definition}[führendes Monom, führender Koeffizient]
+Das \emph{führende Monom} oder \emph{leading monimial}
+$\operatorname{LM}(p)$ eines Polynoms $p$ ist
+\index{fuhrendes Monom@führendes Monom}%
+\index{leading monomial}%
+\index{LM}%
+\index{Monom!fuhrend@Monom!führend}%
+das grösste Monom, welches in $p$ vorkommt.
+Der \emph{führende Koeffizient} oder \emph{leading coefficient}
+$\operatorname{LC}(p)$ von $p$ 
+ist der Koeffizient des führenden Monoms in $p$.
+\index{fuhrendes Koeffizient@führendes Koeffizient}%
+\index{leading coefficient}%
+\index{LC}%
+\index{Koeffizient!fuhrend@Koeffizient!führend}%
+\end{definition}
+
+\begin{lemma}
+Für $k=1,\dots,n$ gilt
+\[
+\operatorname{LM}(\sigma_k(X_1,\dots,X_n))
+=
+X_1\cdots X_k
+\quad\text{mit}\quad
+e(\operatorname{LM}(\sigma_k(X_1,\dots,X_n)))
+=
+(\underbrace{0,\dots,0}_{n-k},\underbrace{1,\dots,1}_{k}).
+\]
+\end{lemma}
+
+\begin{proof}
+Die Monome eines elementarsymmetrischen Polynoms enthalten keine
+höheren als erste Potenzen jeder Variable.
+In der definierten Ordnung hat das führend Monom daher nur die $k$
+``grössten'' Variablen.
+\end{proof}
+
+\begin{lemma}
+Ist $(a_n,\dots,a_1)$ ein maximales $n$-Tupel, dann ist
+\[
+m
+=
+\operatorname{LM}(
+\sigma_1^{a_1-a_2}
+\sigma_2^{a_2-a_3}
+\cdots
+\sigma_{n-1}^{a_{n-1}-a_n}
+\sigma_{n}^{a_n}
+)
+\]
+ein Monom mit $e(m)=(a_n,\dots,a_1)$.
+\end{lemma}
+
+\begin{proof}
+Statt mit den Monomen zu rechnen, können wir mit den $n$-Tupeln rechnen:
+\begin{align*}
+\left.
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{crcl}
+ & (0,\dots,0,0,1) &\cdot & (a_1-a_2)     \\
++& (0,\dots,0,1,1) &\cdot & (a_2-a_3)     \\
++& (0,\dots,1,1,1) &\cdot & (a_3-a_4)     \\[-2pt]
+ &		   &\vdots&               \\
++& (0,\dots,1,1,1) &\cdot & (a_{n-1}-a_n) \\
++& (1,\dots,1,1,1) &\cdot & \phantom{(}a_n\\
+\end{array}
+\right\}
+&=
+\left\{
+\renewcommand{\arraycolsep}{1pt}
+%\begin{array}{clccclclcll}
+\begin{array}{ccccccccccl}
+ &(0       &,& \dots &,& 0           &,&       0     &,& a_1-a_2     &)\\
+ &(0       &,& \dots &,& 0           &,& a_2-a_3     &,& a_2-a_3     &)\\
+ &(0       &,& \dots &,& a_3-a_2     &,& a_3-a_4     &,& a_3-a_4     &)\\[-2pt]
+ &\;\vdots & & \vdots& & \vdots      & & \vdots      & & \vdots      & \\
+ &(0       &,& \dots &,& a_{n-1}-a_n &,& a_{n-1}-a_n &,& a_{n-1}-a_n &)\\
+ &(a_n     &,& \dots &,& a_n         &,&  a_n        &,& a_n         &)
+\end{array}
+\right.
+\\
+&=
+(a_n,\dots,a_3,a_2,a_1),
+\end{align*}
+wie verlangt.
+\end{proof}
+
+Nach diesen Vorbereitungen sind wir jetzt in der Lage, den
+Satz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+dadurch zu beweisen, dass wir den in den Vorbemerkungen zum Beweis
+skizzierten Algorithmus ausformulieren.
+
+\begin{proof}[Beweis von Satz~\ref{buch:komplex:fundamental:satz:fundamentalpolynom}]
+Das Polynom $q$ wird iterativ durch den folgenden Algorithmus bestimmt:
+\begin{enumerate}
+\item Setze $q=0$.
+\item Setze $a=e(\operatorname{LM}(p))$.
+\item Ersetze $p$ und $q$ durch
+\begin{align*}
+p&\leftarrow
+p - \operatorname{LC}(p) 
+\sigma_1^{a_2-a_1}\sigma_2^{a_3-a_1}\cdots\sigma_{n-1}^{a_n-a_{n-1}},
+\\
+q&\leftarrow
+q+ \operatorname{LC}(p) 
+\sigma_1^{a_2-a_1}\sigma_2^{a_3-a_1}\cdots\sigma_{n-1}^{a_n-a_{n-1}}.
+\end{align*}
+\item Falls $p\ne 0$ weiter bei 2.
+\end{enumerate}
+Im Schritt~3 wird $p$ durch ein Polynom mit kleinerem führendem 
+Monom ersetzt.
+Nach endlich vielen Schritten terminiert der Algorithmus daher und
+$q$ ist das gesuchte Polynom in den elementarsymmetrischen Funktionen.
+\end{proof}
+
+\begin{beispiel}
+Wir führen den Algorithmus im Fall $n=3$ für das Polynom
+\[
+p(X_1,X_2,X_3) = {\color{darkred}X_1^3} + X_2^3 + X_3^3
+\]
+durch.
+\smallskip
+
+\noindent
+Das führende Monom von $p$ ist 
+\(
+\operatorname{LM}(p) = {\color{darkred}X_1^3}
+\)
+mit führendem Koeffizienten $\operatorname{LC}(p)=1$,
+somit sind die neuen Polynome $p$ und $q$
+\begin{align*}
+p
+&\leftarrow
+p-\sigma_1^3
+= 
+- 6 X_3 X_2 X_1
+- 3(
+  X_3^2 X_2
++ X_3^2 X_1
++ X_3 X_2^2
++ X_3 X_1^2
++ X_2^2 X_1
++ {\color{darkred}X_2 X_1^2}
+)
+\\
+q
+&\leftarrow
+\sigma_1^3.
+\intertext{Für das neue Polynom ist das führende Monom das rot
+hervorgehobene $\operatorname{LM}(p)=X_2X_1^2$, mit
+führendem Koeffizienten $\operatorname{LC}(p)=-3$, es muss als im nächsten
+Schritt $3\sigma_1\sigma_2$ addiert werden:}
+p
+&\leftarrow
+p+3\sigma_1\sigma_2
+=
+3 {\color{darkred}X_3X_2X_1}
+\\
+q
+&\leftarrow
+\sigma_1^3-3\sigma_1\sigma_2.
+\intertext{Das führende Monom von $p$ ist jetzt
+$\operatorname{LM}(p)={\color{darkred}X_3X_2X_1}=\sigma_3$ mit
+führendem Koeffizienten $\operatorname{LC}(p)=3$,
+sodass im nächsten Schritt $3\sigma_3$
+subtrahiert werden muss:}
+p
+&\leftarrow
+p - 3\sigma_3 = 0
+\\
+q
+&\leftarrow
+\sigma_1^3-3\sigma_1\sigma_2+3\sigma_3.
+\end{align*}
+Damit haben wir
+\begin{equation}
+X_1^3+X_2^3+X_3^3
+=
+\sigma_1(X_1,X_2,X_3)^3
+-
+3\sigma_1(X_1,X_2,X_3)\sigma_2(X_1,X_2,X_3)
++
+3\sigma_3(X_1,X_2,X_3)
+\label{buch:komplex:symmetrisch:eqn:X33}
+\end{equation}
+gefunden.
+\end{beispiel}

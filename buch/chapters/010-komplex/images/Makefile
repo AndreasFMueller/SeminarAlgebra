@@ -3,7 +3,12 @@
 #
 # (c) 2026 Prof Dr Andreas Müller
 #
-all:	gausszahlen.pdf gaussebene.pdf kehrwert.pdf hyperbeln.pdf farben.pdf
+all:	gausszahlen.pdf							\
+	gaussebene.pdf							\
+	kehrwert.pdf							\
+	hyperbeln.pdf							\
+	farben.pdf							\
+	fundamental.pdf
 
 gausszahlen.pdf:	gausszahlen.tex
 	pdflatex gausszahlen.tex
@@ -28,3 +33,10 @@ farben.jpg:	farben.png Makefile
 
 farben.pdf:	farben.tex farben.jpg
 	pdflatex farben.tex
+
+fundamental.pdf:	fundamental.tex zerocurves.tex
+	pdflatex fundamental.tex
+
+zerocurves.tex:	zerocurves.m
+	octave zerocurves.m
+

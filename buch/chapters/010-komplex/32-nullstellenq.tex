@@ -1,0 +1,163 @@
+%
+% 32-nullstellenq.tex -- Nullstellen von Polynomen über Q
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Nullstellen von Polynomen über $\mathbb{Q}$}
+Der Fundamentalsatz der Algebra löst das Problem der Faktorisierung
+ein einem einzigen Körper.
+Jedes Polynom $p(Z)\in \mathbb{C}[Z]$ lässt sich in Linearfaktoren
+zerlegen.
+Dies ermöglicht zum Beispiel die Partialbruchzerlegung rationaler
+Funktionen und steht damit am Anfang der Lösung des Integrationsproblem
+für rationale Funktionen, welches in Kapitel~\ref{chapter:ratint}
+gelöst wird.
+\index{Partialbruchzerlegung}%
+Jede rationale Funktion mit komplexen Koeffizienten hat eine
+Stammfunktion, die sich als rationale Funktion und eine Linearkombination
+von Logarithmusfunktionen der Form $\log(z-\alpha_i)$ ist, wobei die
+$\alpha_i\in\mathbb{C}$ die Nullstellen des Nennerpolynoms sind.
+
+Trotz dem unbestreitbaren Erfolg der komplexen Zahlen bleibt ein
+grundlegendes Problem für die Anwendung in der Computeralgebra.
+\index{Computeralgebra}%
+Nicht jede komplexe Zahl hat eine exakte Darstellung in einem Computersystem.
+Da $\mathbb{C}=\mathbb{R}(i)$ eine algebraische Erweiterung der 
+überabzählbar unendlichen Menge der reellen Zahlen ist, gibt es
+überabzählbar unendlich viele komplexe Zahlen.
+In einem Computer kann man aber prinzipiell nur abzählbar unendlich
+viele Zahlen exakt darstellen.
+Gleitkomma-Arithmetik löst das Problem dadurch, dass reelle Zahlen
+\index{Gleitkomma-Arithmetik}%
+und damit auch komplexe Zahlen approximiert werden.
+Die meisten Zahlen, die in numerischen Rechnungen auftreten, sind
+daher nur Approximationen und man kann nicht erwarten, die Nullstellen
+eines Polynoms exakt zu bestimmen, selbst bei Polynomen mit
+rationalen Koeffizienten, die eine endliche Spezifikation haben.
+
+Ein Computeralgebrasystem möchte entscheiden können, ob eine Gleichung
+exakt erfüllt ist.
+Dazu ist eine Approximation nicht ausreichen.
+Es muss ein Zahlenbereich gefunden werden, in dem solche exakten Aussagen
+möglich sind.
+Er muss die arithmetische Grundoperationen ermöglichen, d.~h.~er muss
+die rationalen Zahlen enthalten.
+Die verbreitete freie Softwarebibliothek GMP \cite{buch:gmp} realisiert
+\index{GMP}%
+die Arithmetik mit rationalen Zahlen mit beliebig grossen Zählern und
+Nennern, solange diese im Speicher Platz haben.
+Man kann zwar nicht jede rationale Zahl im Computer darstellen, aber
+man kann jede Zahl, die man im Laufe einer Berechnung antrifft, exakt
+darstellen.
+
+In einem Computeralgebrasystem muss man also nicht für jedes mathematische
+Objekt von Anfang an eine exakte Darstellung haben, aber man muss
+jedes Objekt, das im Laufe einer Rechnunung auftritt, exakt darstellen
+können.
+Möchte man eine quadratische Gleichung lösen, braucht es im Allgemeinen
+eine Darstellung für jede beliebige Quadratwurzel von rationalen
+Zahlen.
+Ein Computeralgebrasystem führt dazu neue Symbole mit geeigneten
+Rechenregeln ein.
+Um mit der Wurzel $\!\sqrt{2}$ rechnen zu können, muss man dem
+Computeralgebrasystem ein neues Objekt \texttt{sqrt(2)} hinzufügen,
+welches die Eigenschaft $\texttt{sqrt(2)}^2 = 2$ hat.
+Diese Konstruktion kann iteriert werden, \text{sqrt(sqrt(2))} ist
+ein Objekt welches die algebraischen Eigenschaften einer vierten Wurzel
+hat.
+
+Der Fundamentalsatz der Algebra erhält in diesem Zusammenhang eine
+neue Rolle.
+Er garantiert, dass jedes komplexe Polynome eine Nullstelle hat, die
+man bei Bedarf auch numerisch berechnen kann.
+Für eine algebraisch exakte Darstellung ist diese numerische Darstellung
+aber nicht nötig.
+Viel wichtiger es, eine solche Nullstelle als ein Element zu interpretieren,
+um das der Körper $\mathbb{Q}$ erweitert werden muss, damit die Rechnung
+weitergeführt werden kann.
+
+Die Berechnung in einem Computeralgebrasystem beginnt also mit den rationalen
+Zahlen $\mathbb{Q}$.
+Jedesmal, wenn eine Wurzel oder eine Nullstelle eines Polynoms auftritt,
+wird der Körper der darstellbaren Zahlen um das algebraische Element
+$\alpha$ erweitert.
+Die weiteren Rechnungen finden im erweiterten Körper $K=\mathbb{Q}(\alpha)$
+statt.
+Die algebraischen Eigenschaften des Elements $\alpha$ sind Teil der
+Spezifikation von $\alpha$.
+Auch die imaginäre Einheit ist von dieser Art.
+
+Ein Computeralgebrasystem muss aber auch mit anderen Grössen umgehen
+können, zum Beispiel mit der Kreiszahl $\pi$ oder der Basis $e$
+\index{Kreiszahl}%
+\index{pi@$\pi$}%
+\index{e@$e$}%
+der natürlichen Logarithmen.
+Auch diese Zahlen existieren als Elemente in $\mathbb{C}$.
+Für die Rechnung in einem Computeralgebrasystem ist die Darstellung von $\pi$
+oder $e$ als Gleitkommazahl nicht ausreichend.
+Aber auch diese Zahlen können durch ihre algebraischen Eigenschaften
+charakterisiert werden.
+Es gibt zwar kein Polynom in $\mathbb{Q}[z]$, das $\pi$ oder $e$ als
+Nullstelle hat, da diese Zahlen transzendent sind.
+Die Potenzen $\pi^k$, $k\in\mathbb{N}$ sind über $\mathbb{Q}$ linear
+unabhängig.
+Das bedeutet aber nur, dass man eine Potenz von $\pi$ niemals
+durch niedrigere Potenzen wird ausdrücken können, wie das bei den
+algebraischen Elementen der Fall ist.
+Dafür gibt es Beziehungen wie $e^{i\pi}=-1$, mit denen Exponentialausdrücke
+vereinfacht werden können, die $\pi$ im Exponenten enthalten.
+Für die praktischen Zwecke eines Computeralgebrasystems genügt dies.
+Für jeden im Laufe der Rechnung auftretenden Ausdruck lässt sich eine
+Darstellung im Computer finden.
+
+In der Analysis lernt man, dass für die Definition der Ableitung einer
+Funktion ein Grenzwert in $\mathbb{R}$ nötig ist.
+In Abschnitt~\ref{buch:holomorph:section:holomorph} werden wir zeigen,
+wie sich die Ableitung auf komplexe Funktionen ausdehnen lässt.
+Auch in diesem Szenario garantieren die analytischen Eigenschaften des
+Körpers $\mathbb{C}$, dass die Ableitung als Zahl in $\mathbb{C}$ existiert.
+Es ist zwar möglich, Ableitungen numerisch zu berechnen, eine besonders
+elegante Methode wird in Kapitel~\ref{chapter:step} beschrieben.
+Dies ist aber wieder nicht die Art und Weise, wie ein Computeralgebrasystem
+mit der Ableiltung umgeht.
+Hierfür werden die algebraischen Eigenschaften des Ableitungsoperators
+verwendet, die man als die Ableitungsregeln aus der Analysis kennt.
+Sie ermöglichen, die Ableitung beliebig komplizierter Ausdrücke
+zu berechnen, sofern man nur die Ableitungsregeln für die Komponenten
+des Ausdrucks kennt.
+Man muss zum Beispiel nicht wissen, wie man einen Wert von $f(x)=e^{1291x}$
+berechnen kann, um die Ableitung zu berechnen.
+Die Ableitungsregeln sagen $f'(x)=1291 e^{1291x}$.
+Abschnitt~\ref{buch:intalg:section:elementar} wird dies formalisieren.
+
+Auch die Definition des Integrals verwendet die analytische
+Vollständigkeit von $\mathbb{C}$.
+Die Existenz von Werten eines Integrals ist dadurch gesichert.
+Ein Computeralgebrasystem ist jedoch nicht an Werten interessiert,
+sondern an algebraischen Ausdrücken für die Stammfunktion.
+Um einen solchen zu finden, ist die Definition des Riemann-Integrals
+\index{Riemann-Integral}%
+\index{Integral, Riemann-}%
+als Grenzwert einer Summe von Rechteckflächen nicht zweckmässig.
+Die Lösung wird durch den Hauptsatz der Infinitesimalrechnung gegeben.
+\index{Hauptsatz}%
+Die Stammfunktion ist durch die rein algebraische Eigenschaft
+charakterisiert, dass der Ableitungsoperator aus der Stammfunktion
+den Integranden produziert.
+Auch das Integrationsproblem ist damit auf ein rein algebraisches
+Problem reduziert, welches in Kapitel~\ref{chapter:intalg}
+studiert wird.
+
+
+
+
+
+
+
+
+
+
+
+
+

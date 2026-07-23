@@ -23,7 +23,7 @@ f(x) = \frac{ax + b}{cx + d}.
 Dabei werden reelle Zahlen wieder auf reelle Zahlen abgebildet (sofern \(cx + d \neq 0\)).
 \medskip
 \\
-\emph{Interpretation der Parameter:}
+\subsection{Interpretation der Parameter}
 Die Parameter \(a, b, c, d\) bestimmen die Art der Transformation:
 \begin{itemize}
 	\item \(a\): bewirkt eine Skalierung (Streckung im reellen Fall)
@@ -32,15 +32,14 @@ Die Parameter \(a, b, c, d\) bestimmen die Art der Transformation:
 	\item \(d\): beeinflusst die Lage der Polstelle (Singularität)
 \end{itemize}
 \medskip
-\emph{Wichtige Eigenschaft:}
-Alle Punkte bleiben auf der reellen Achse, das heißt:
+Eine wichtige Eigenschaft ist, dass alle Punkte bleiben auf der reellen Achse, das heisst:
 \[
 f : \mathbb{R} \to \mathbb{R} \cup \{\infty\}.
 \]
 Die Transformation ist also eine Abbildung der erweiterten reellen Zahlengeraden.
 \medskip
 \\
-\emph{Geometrische Interpretation:}
+\subsection{Geometrische Interpretation}
 Während Möbius-Transformationen in der komplexen Ebene Kreise und Geraden
 ineinander überführen, reduziert sich dies im reellen Fall auf Transformationen der Geraden.
 Es entstehen keine Kreise in der Ebene, da nur eine Dimension betrachtet wird.
@@ -51,6 +50,7 @@ x^2 + y^2 = r^2,
 benötigt also zwei Dimensionen. Für reelle Zahlen gilt jedoch \(y = 0\),
 sodass alle Punkte auf der \(x\)-Achse liegen.
 Möbius-Transformationen auf der reellen Achse sind gebrochen-rationale Funktionen der Form
+\index{gebrochen-rational}%
 \[
 f(x) = \frac{ax + b}{cx + d}, \quad ad - bc \neq 0,
 \]
@@ -59,8 +59,9 @@ Diese Transformationen bilden die Grundlage der projektiven Geometrie auf der re
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{papers/moebius/bild10.pdf}
-	\caption{Spezialfall reelle Zahlen}
+	\caption{Spezialfall reelle Zahlen (erstellt mit GeoGebra)}
 \end{figure}
 Die Eingabewerte \(x \in \mathbb{R}\) liegen auf der x-Achse, während die Funktionswerte durch eine gebrochen-rationale Funktion beschrieben werden. 
 Die Funktion besitzt eine Polstelle bei \(x = -\frac{d}{c}\), an der sie gegen \(\infty\) divergiert (falls \(c \neq 0\)). 
-Für große Beträge von \(x\) nähert sich der Funktionsgraph der horizontalen Asymptote \(y = \frac{a}{c}\).
+\index{Polstelle}%
+Für grosse Beträge von \(x\) nähert sich der Funktionsgraph der horizontalen Asymptote \(y = \frac{a}{c}\).

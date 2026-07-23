@@ -12,7 +12,27 @@ Die im ersten Teil dargelegten mathematischen Methoden und
 grundlegenden Modelle werden dabei verfeinert, verallgemeinert
 und auch numerisch überprüft.
 
+%
+% Basel-Problem
+%
+Das Basel-Problem hat die besten Mathematiker des 17.~und 18.~Jahrhunderts
+herausgefordert.
+\index{Basel-Problem}%
+Erst Leonhard Euler fand die korrekte Summe der reziproken Quadrate der
+\index{Euler, Leonhard}%
+natürlichen Zahlen.
+\emph{Jan Gachnang}
+und
+\emph{Etienne Schafflützel}
+präsentieren in Kapitel~\ref{chapter:basel} Eulers klassische Lösung,
+die allerdings modernen Standards nicht genügt.
+Strenge Beweise werden ebenfalls dargelegt.
+
+%
+% Konstruktion
+%
 Mit komplexen Zahlen lassen sich geometrische Konstruktionen in
+\index{Konstruktion, geometrisch}%
 der Ebene besonders einfach beschreiben.
 \emph{Timon Gnehm}
 \index{Gnehm, Timon}%
@@ -24,4 +44,116 @@ und
 stellen in Kapitel~\ref{chapter:konstruktion} den Satz von Napoleon
 \index{Satz!von Napoleon}%
 vor.
+
+%
+% Produktdarstellungen
+%
+Polynome sind bis auf einen Vorfaktor durch die Nullstellen
+festgelegt.
+Ob dies auch für beliebige ganze Funktionen gilt, diskutieren
+\emph{Simon Köpfli}
+\index{Kopfli, Simon@Köpfli, Simon}%
+\index{Simon Kopfli@Simon Köpfli}%
+und
+\emph{Florian von Wyl}
+\index{von Wyl, Florian}%
+\index{Florian von Wyl}%
+in Kapitel~\ref{chapter:produkt}.
+Da es ganze Funktionen mit unendlich vielen Nullstellen gibt, muss
+man dazu unendlichen Produkten einen Sinn geben.
+\index{Produkt, unendlich}%
+Dabei treten zunächst Konvergenzfragen als Hindernis auf, die durch
+die weierstraßschen Elementarfaktoren beantwortet werden.
+Dies genügt aber nicht.
+Die Exponentialfunktion $e^{g(z)}$ einer ganzen Funktion $g(z)$ hat
+keine Nullstellen, die möglicherweise verschiedenen Funktionen $f(z)$
+und $e^{g(z)}f(z)$ haben daher die gleichen Nullstellen, es können
+aber im Allgemeinen nicht beide Funktionen Polynome sein.
+
+%
+% Julia-Mengen und Mandelbrot-Menge
+%
+Die Theorie der dynamischen System befasst sich mit dem Verhalten
+von Iterationsfolgen.
+Holomorphe Funktionen sind in diesem Zusammenhang besonders interessant,
+da sie zu winkeltreuen Abbildungen der komplexen Ebene gehören.
+\emph{Nicola Dall'Acqua} zeigt in Kapitel~\ref{chapter:julia}, wie
+\index{Nicola Dall'Acqua}%
+\index{Dall'Acqua, Nicola}%
+die Julia- und Fatou-Mengen Punkte der komplexen Ebene anhand des
+\index{Julia-Menge}%
+\index{Fatou-Menge}%
+Konvergenzverhaltens der zugehörigen Iterationsfolge klassifizieren.
+Für holomorphe Funktionen entstehen filigrane selbstähnlichen Strukturen,
+die diesen Mengen auch eine besondere ästhetische Qualität geben.
+Die Mandelbrot-Menge im Parameterraum für quadratische Abbildungen
+\index{Mandelbrot-Menge}%
+wird ebenfalls eingeführt.
+
+%
+% Die Laplace-Inversion.
+%
+Die Laplace-Transformation ist ein besonders nützliches Werkzeug, mit dem
+Ingenieure gewöhnliche Differentialgleichungen lösen können.
+Der schwierigste Schritt darin ist die Umkehrung, die in der Praxis oft
+Probleme bereitet. 
+\emph{Noel Karlsson}
+\index{Noel Karlsson}%
+\index{Karlsson, Noel}%
+und
+\emph{Simon Widmer}
+\index{Simon Widmer}%
+\index{Widmer, Simon}%
+zeigen, wie die Laplace-Inversion ausgehend von der Fourier-Umkehr auf das
+\index{Fourier-Umkehr}%
+Bromwich-Integral führt.
+Die komplexe Analysis ermöglicht dann, aus diesem Integral eine effiziente
+numerische Lösungsmethode zu finden, indem der Integrationspfad des
+Bromwich-Integrals in die nach ihrem Erfinder die Talbot-Kontur genannt wird.
+\index{Bromwich-Integral}%
+\index{Talbot-Kontur}%
+
+%
+% Möbius-Transformationen
+%
+Die Bewegungen der ebenen euklidischen Geometrie können in der 
+komplexen Ebene breiter gefasst werden.
+Indem die komplexe Ebene zur riemannschen Zahlenkugel erweitert wird,
+\index{Zahlenkugel, riemannsch}%
+können gebrochen rationale Transformationen, auch Möbius-Transformationen
+\index{Mobius-Transformation@Möbius-Transformation}%
+genannt, als Transformationsgruppe verwendet werden.
+Sie sind zwar nicht mehr längentreu, aber immer noch winkeltreu.
+\emph{Tom Dawson}
+\index{Tom Dawson}%
+\index{Dawson, Tom}%
+zeigt in Kapitel~\ref{chapter:moebius}, wie man man Möbius-Transformationen
+finden, analysieren und damit rechnen kann.
+Insbesondere zeigt sich, dass die Zusammensetzung von Möbius-Transformationen
+durch die Matrixmultiplikation beschrieben werden kann.
+
+%
+% Complex Step Derivative
+%
+In der reellen numerischen Analysis ist die Bestimmung zuverlässiger
+Werte für die Ableitung ein besonderes Problem.
+Ursache dafür sind die unterschiedlichen Grössenordnungen von Koordinaten
+und Koordinatendifferenzen.
+\index{finite Differenz}%
+\index{Differenz, finite}%
+Bei der Berechnung der Ableitung mit finiten Differenzen wird die
+Genauigkeit durch starke Auslöschung reduziert.
+\index{Ausloschung@Auslöschung}%
+\emph{Selina Malacarne} zeigt in Kapitel~\ref{chapter:step}, wie die
+\index{Selina Malacarne}%
+\index{Malacarne, Selina}%
+Ableitung in imaginärer Richtung für holomorphe Funktionen auf natürliche
+Art die Trennung von Koordinaten und Koordinatendifferenz ermöglicht
+und so das Problem der Auslöschung umgeht.
+Eingeführt wird die Idee mithilfe der dualen Zahlen, die als eine
+\index{duale Zahlen}%
+Vorstufe der Methoden der Nichtstandard-Analysis zur Berechnung der
+\index{Nichtstandard-Analysis}%
+Ableitung angesehen werden können.
+
 

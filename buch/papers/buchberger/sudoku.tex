@@ -1,0 +1,280 @@
+%
+% sudoku.tex
+%
+% (c) 2026 Nathanael Fässler, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+% Hilfsfunktion um Sudokus zu zeichnen
+\newcounter{sudokuRow}
+\newcounter{sudokuCol}
+
+\newcommand\setrow[4]{
+  \setcounter{sudokuCol}{1}
+  \foreach \n in {#1, #2, #3, #4} {
+    \edef\x{\value{sudokuCol} - 0.5}
+    \edef\y{4.5 - \value{sudokuRow}}
+    \node[anchor=center, font=\Large] at (\x, \y) {\n};
+    \stepcounter{sudokuCol}
+  }
+  \stepcounter{sudokuRow}
+}
+
+\section{Sudoku
+\label{buchberger:section:sudoku}}
+\kopfrechts{Sudoku}
+
+Ein Sudoku ist ein bekanntes Ausfüllrätsel, bei dem in jedes leere Feld eine Ziffer eingetragen werden muss.
+Das Sudoku gilt als gelöst, wenn bestimmte Regeln erfüllt sind.
+
+Das abgebildete $4\times4$ Sudoku
+\footnote{
+  Ein $4\times4$ Sudoku wird auch Shidoku genannt.
+  Der Name Shidoku ist ein Wortspiel aus dem Wort Sudoku und dem japanischen Zahlenwort \begin{CJK}{UTF8}{min}四\end{CJK} für die Zahl 4, welches shi ausgesprochen wird. % 四
+}
+ist eine kleinere Form des üblichen $9\times9$ Sudokus.
+Die Regeln sind gleich, aber auf die kleinere Form angepasst.
+
+Die Struktur und Regeln eines Sudokus lassen sich mathematisch mit Gleichungen einfach modellieren.
+Deshalb bietet es sich an, die Anwendung des Buchberger-Algorithmus anhand eines Sudokus zu demonstrieren.
+
+\subsection{Variablen des Sudokus
+\label{buchberger:subsection:variablen-des-sudokus}}
+
+\begin{figure}
+  \centering
+  \input{papers/buchberger/images/sudokuCombined.tex}
+  
+  \caption{Sudoku mit Variablen für alle 16 Felder.
+  \label{buchberger:sudoku-combined}
+  }
+\end{figure}
+
+Zunächst müssen die Variablen des Gleichungssystems definiert werden.
+Für jedes Feld im Sudoku gibt es eine Variable $x_{ij}$ mit den Indizes $i, j \in \{1, 2, 3, 4\}$, wobei $i$ die Spalte und $j$ die Zeile identifiziert.
+In Abbildung~\ref{buchberger:sudoku-combined} ist jede Variable in ihrem Feld eingezeichnet.
+Der Wert einer Variablen steht für die Ziffer, die an ihrem Feld eingetragen werden soll.
+
+\subsection{Gleichungen des Sudokus
+\label{buchberger:subsection:gleichungen-des-sudokus}}
+Die Spielregeln von Sudoku müssen jetzt in algebraische Gleichungen der Variablen $x_{ij}$ übersetzt werden.
+\subsubsection{Regel 1: Jedes Feld muss entweder 1, 2, 3 oder 4 sein.}
+Um diese Regel mit Gleichungen darzustellen, wird zunächst das Problem in kleinere Teilprobleme zerlegt.
+Wenn man nur $x_{11}$ isoliert betrachtet, kann man festhalten:
+Das Feld $x_{11}$ muss 1, 2, 3 oder 4 sein.
+Es wird also eine Gleichung benötigt, welche die Lösungsmenge
+\[
+L = \{1, 2, 3, 4\}
+\]
+hat.
+Dies wird durch die Gleichung
+\begin{equation}
+  (x_{11} - 1)\,(x_{11} - 2)\,(x_{11} - 3)\,(x_{11} - 4) = 0
+  \label{buchberger:sudoku-gleichung-1}
+\end{equation}
+erzwungen. Wenn einer der 4 Faktoren 0 ergibt, wird die ganze Gleichung erfüllt.
+
+Wenn man diese Idee noch für die restlichen 15 Variablen anwendet ergeben sich die Gleichungen
+\begin{equation}
+\left.
+  \begin{aligned}
+  (x_{12} - 1)\,(x_{12} - 2)\,(x_{12} - 3)\,(x_{12} - 4) &= 0 \\
+  (x_{13} - 1)\,(x_{13} - 2)\,(x_{13} - 3)\,(x_{13} - 4) &= 0 \\
+  (x_{14} - 1)\,(x_{14} - 2)\,(x_{14} - 3)\,(x_{14} - 4) &= 0 \\
+  (x_{21} - 1)\,(x_{21} - 2)\,(x_{21} - 3)\,(x_{21} - 4) &= 0 \\
+  (x_{22} - 1)\,(x_{22} - 2)\,(x_{22} - 3)\,(x_{22} - 4) &= 0 \\
+  (x_{23} - 1)\,(x_{23} - 2)\,(x_{23} - 3)\,(x_{23} - 4) &= 0 \\
+  (x_{24} - 1)\,(x_{24} - 2)\,(x_{24} - 3)\,(x_{24} - 4) &= 0 \\
+  (x_{31} - 1)\,(x_{31} - 2)\,(x_{31} - 3)\,(x_{31} - 4) &= 0 \\
+  (x_{32} - 1)\,(x_{32} - 2)\,(x_{32} - 3)\,(x_{32} - 4) &= 0 \\
+  (x_{33} - 1)\,(x_{33} - 2)\,(x_{33} - 3)\,(x_{33} - 4) &= 0 \\
+  (x_{34} - 1)\,(x_{34} - 2)\,(x_{34} - 3)\,(x_{34} - 4) &= 0 \\
+  (x_{41} - 1)\,(x_{41} - 2)\,(x_{41} - 3)\,(x_{41} - 4) &= 0 \\
+  (x_{42} - 1)\,(x_{42} - 2)\,(x_{42} - 3)\,(x_{42} - 4) &= 0 \\
+  (x_{43} - 1)\,(x_{43} - 2)\,(x_{43} - 3)\,(x_{43} - 4) &= 0 \\
+  (x_{44} - 1)\,(x_{44} - 2)\,(x_{44} - 3)\,(x_{44} - 4) &= 0 .
+  \end{aligned}
+\quad % Leerzeichen zwischen den =0 und }, weil es sonst zu eng ist
+\right\}
+\label{buchberger:sudoku-gleichung-2}
+\end{equation}
+
+\subsubsection{Regel 2: Die vorgegebenen Felder dürfen nicht verändert werden.}
+Die Gleichungen
+\begin{equation}
+\left.
+  \begin{aligned}
+  x_{13} &= 2 \\
+  x_{31} &= 3 \\
+  x_{34} &= 1 \\
+  x_{42} &= 4
+  \end{aligned}
+\quad % Leerzeichen zwischen den =0 und }, weil es sonst zu eng ist
+\right\}
+\label{buchberger:sudoku-gleichung-3}
+\end{equation}
+sind trivial.
+Dadurch wurden die vier Gleichungen aus~\eqref{buchberger:sudoku-gleichung-2} redundant, welche $x_{13}$, $x_{31}$, $x_{34}$ bzw. $x_{42}$ betreffen.
+Dies ist jedoch kein Problem, da redundante Gleichungen keine Widersprüche erzeugen und am Schluss ohnehin entfernt werden.
+
+\subsubsection{Regel 3: In jeder Zeile muss jede Zahl genau einmal stehen.}
+Auch hier behilft man sich, indem nur ein Teilproblem auf einmal gelöst wird:
+Zum Beispiel muss in der obersten Zeile die Zahl 1 mindestens einmal vorkommen.
+Die Gleichung
+\begin{equation}
+  (x_{11} - 1)\,(x_{12} - 1)\,(x_{13} - 1)\,(x_{14} - 1) = 0
+  \label{buchberger:sudoku-gleichung-4}
+\end{equation}
+bewirkt dies.
+
+Die Gleichungen
+\begin{equation}
+\left.
+  \begin{aligned}
+  (x_{11} - 2)\,(x_{12} - 2)\,(x_{13} - 2)\,(x_{14} - 2) &= 0 \\
+  (x_{11} - 3)\,(x_{12} - 3)\,(x_{13} - 3)\,(x_{14} - 3) &= 0 \\
+  (x_{11} - 4)\,(x_{12} - 4)\,(x_{13} - 4)\,(x_{14} - 4) &= 0
+  \end{aligned}
+\quad % Leerzeichen zwischen den =0 und }, weil es sonst zu eng ist
+\right\}
+\label{buchberger:sudoku-gleichung-5}
+\end{equation}
+stellen sicher, dass auch die Zahlen 2, 3 und 4 in der obersten Zeile vorkommen.
+
+Der aufmerksame Leser hat vielleicht gemerkt, dass die Teilregel nur verlangt, dass eine Zahl mindestens einmal vorkommt und nicht, dass eine Zahl genau einmal vorkommt.
+Somit ist z. B. die Gleichung \eqref{buchberger:sudoku-gleichung-4} auch erfüllt, wenn die ganze obere Zeile nur aus Einsen besteht.
+Jedoch erfüllen die vier Gleichungen der Zeile zusammen trotzdem die Regel.
+Der einzige Weg alle vier Gleichungen gleichzeitig zu erfüllen besteht darin, dass jede Zahl genau einmal vorkommt.
+Wenn z. B. zwei Einsen in der obersten Zeile stünden, würde zwangsläufig eine andere Gleichung verletzt werden, da z. B. die Vier fehlt.
+Der Buchberger-Algorithmus wird gezwungen eine Lösung zu finden wo jede Zahl genau einmal vorkommt, sonst kann er nicht alle Gleichungen gleichzeitig erfüllen.
+
+Die restlichen Gleichungen folgen dem gleichen System:
+\begin{equation}
+\left.
+  \begin{aligned}
+  (x_{21} - 1)\,(x_{22} - 1)\,(x_{23} - 1)\,(x_{24} - 1) &= 0 \\
+  (x_{21} - 2)\,(x_{22} - 2)\,(x_{23} - 2)\,(x_{24} - 2) &= 0 \\
+  (x_{21} - 3)\,(x_{22} - 3)\,(x_{23} - 3)\,(x_{24} - 3) &= 0 \\
+  (x_{21} - 4)\,(x_{22} - 4)\,(x_{23} - 4)\,(x_{24} - 4) &= 0 \\[5pt]
+  (x_{31} - 1)\,(x_{32} - 1)\,(x_{33} - 1)\,(x_{34} - 1) &= 0 \\
+  (x_{31} - 2)\,(x_{32} - 2)\,(x_{33} - 2)\,(x_{34} - 2) &= 0 \\
+  (x_{31} - 3)\,(x_{32} - 3)\,(x_{33} - 3)\,(x_{34} - 3) &= 0 \\
+  (x_{31} - 4)\,(x_{32} - 4)\,(x_{33} - 4)\,(x_{34} - 4) &= 0 \\[5pt]
+  (x_{41} - 1)\,(x_{42} - 1)\,(x_{43} - 1)\,(x_{44} - 1) &= 0 \\
+  (x_{41} - 2)\,(x_{42} - 2)\,(x_{43} - 2)\,(x_{44} - 2) &= 0 \\
+  (x_{41} - 3)\,(x_{42} - 3)\,(x_{43} - 3)\,(x_{44} - 3) &= 0 \\
+  (x_{41} - 4)\,(x_{42} - 4)\,(x_{43} - 4)\,(x_{44} - 4) &= 0
+  \end{aligned}
+\quad % Leerzeichen zwischen den =0 und }, weil es sonst zu eng ist
+\right\}
+\label{buchberger:sudoku-gleichung-6}
+\end{equation}
+
+\subsubsection{Regel 4: In jeder Spalte muss jede Zahl genau einmal stehen.}
+Diese Regel funktioniert analog zu Regel 3.
+\begin{equation}
+\left.
+  \begin{aligned}
+  (x_{11} - 1)\,(x_{21} - 1)\,(x_{31} - 1)\,(x_{41} - 1) &= 0 \\
+  (x_{11} - 2)\,(x_{21} - 2)\,(x_{31} - 2)\,(x_{41} - 2) &= 0 \\
+  (x_{11} - 3)\,(x_{21} - 3)\,(x_{31} - 3)\,(x_{41} - 3) &= 0 \\
+  (x_{11} - 4)\,(x_{21} - 4)\,(x_{31} - 4)\,(x_{41} - 4) &= 0 \\[5pt]
+  (x_{12} - 1)\,(x_{22} - 1)\,(x_{32} - 1)\,(x_{42} - 1) &= 0 \\
+  (x_{12} - 2)\,(x_{22} - 2)\,(x_{32} - 2)\,(x_{42} - 2) &= 0 \\
+  (x_{12} - 3)\,(x_{22} - 3)\,(x_{32} - 3)\,(x_{42} - 3) &= 0 \\
+  (x_{12} - 4)\,(x_{22} - 4)\,(x_{32} - 4)\,(x_{42} - 4) &= 0 \\[5pt]
+  (x_{13} - 1)\,(x_{23} - 1)\,(x_{33} - 1)\,(x_{43} - 1) &= 0 \\
+  (x_{13} - 2)\,(x_{23} - 2)\,(x_{33} - 2)\,(x_{43} - 2) &= 0 \\
+  (x_{13} - 3)\,(x_{23} - 3)\,(x_{33} - 3)\,(x_{43} - 3) &= 0 \\
+  (x_{13} - 4)\,(x_{23} - 4)\,(x_{33} - 4)\,(x_{43} - 4) &= 0 \\[5pt]
+  (x_{14} - 1)\,(x_{24} - 1)\,(x_{34} - 1)\,(x_{44} - 1) &= 0 \\
+  (x_{14} - 2)\,(x_{24} - 2)\,(x_{34} - 2)\,(x_{44} - 2) &= 0 \\
+  (x_{14} - 3)\,(x_{24} - 3)\,(x_{34} - 3)\,(x_{44} - 3) &= 0 \\
+  (x_{14} - 4)\,(x_{24} - 4)\,(x_{34} - 4)\,(x_{44} - 4) &= 0
+  \end{aligned}
+\quad % Leerzeichen zwischen den =0 und }, weil es sonst zu eng ist
+\right\}
+\label{buchberger:sudoku-gleichung-7}
+\end{equation}
+
+\subsubsection{Regel 5: In jedem $2\times2$ Block muss jede Zahl genau einmal stehen.}
+Diese Regel funktioniert auch wie die Regeln 3 und 4, aber anstatt Zeilen oder Spalten wird in jeder Gleichung einer der $2\times2$ Blöcke isoliert betrachtet.
+\begin{equation}
+\left.
+  \begin{aligned}
+  (x_{11} - 1)\,(x_{12} - 1)\,(x_{21} - 1)\,(x_{22} - 1) &= 0 \\
+  (x_{11} - 2)\,(x_{12} - 2)\,(x_{21} - 2)\,(x_{22} - 2) &= 0 \\
+  (x_{11} - 3)\,(x_{12} - 3)\,(x_{21} - 3)\,(x_{22} - 3) &= 0 \\
+  (x_{11} - 4)\,(x_{12} - 4)\,(x_{21} - 4)\,(x_{22} - 4) &= 0 \\[5pt]
+  (x_{13} - 1)\,(x_{14} - 1)\,(x_{23} - 1)\,(x_{24} - 1) &= 0 \\
+  (x_{13} - 2)\,(x_{14} - 2)\,(x_{23} - 2)\,(x_{24} - 2) &= 0 \\
+  (x_{13} - 3)\,(x_{14} - 3)\,(x_{23} - 3)\,(x_{24} - 3) &= 0 \\
+  (x_{13} - 4)\,(x_{14} - 4)\,(x_{23} - 4)\,(x_{24} - 4) &= 0 \\[5pt]
+  (x_{31} - 1)\,(x_{32} - 1)\,(x_{41} - 1)\,(x_{42} - 1) &= 0 \\
+  (x_{31} - 2)\,(x_{32} - 2)\,(x_{41} - 2)\,(x_{42} - 2) &= 0 \\
+  (x_{31} - 3)\,(x_{32} - 3)\,(x_{41} - 3)\,(x_{42} - 3) &= 0 \\
+  (x_{31} - 4)\,(x_{32} - 4)\,(x_{41} - 4)\,(x_{42} - 4) &= 0 \\[5pt]
+  (x_{33} - 1)\,(x_{34} - 1)\,(x_{43} - 1)\,(x_{44} - 1) &= 0 \\
+  (x_{33} - 2)\,(x_{34} - 2)\,(x_{43} - 2)\,(x_{44} - 2) &= 0 \\
+  (x_{33} - 3)\,(x_{34} - 3)\,(x_{43} - 3)\,(x_{44} - 3) &= 0 \\
+  (x_{33} - 4)\,(x_{34} - 4)\,(x_{43} - 4)\,(x_{44} - 4) &= 0 \\
+  \end{aligned}
+\quad % Leerzeichen zwischen den =0 und }, weil es sonst zu eng ist
+\right\}
+\label{buchberger:sudoku-gleichung-8}
+\end{equation}
+
+\subsection{Sudoku lösen
+\label{buchberger:subsection:sudoku-loesen}}
+\begin{figure}
+  \centering
+  \input{papers/buchberger/images/sudokuSolved.tex}
+  \caption{Das vom Buchberger-Algorithmus gelöste Sudoku.
+  \label{buchberger:sudokuSolved}}
+\end{figure}
+Der Autor hat das Gleichungssystem mithilfe des Open-Source Computeralgebrasystems (CAS) \emph{Maxima} gelöst.
+Dafür wurden zuerst alle 68 Gleichungen in die Nullstellenform gebracht und dann als Menge von Polynomen eingegeben.
+Der Buchberger-Algorithmus wurde durch die Funktion \texttt{poly\_reduced\_grobner()} mit den 68 Polynomen ausgeführt.
+Dabei wurde eine lexikographische Ordnung verwendet.
+Die Funktion \texttt{poly\_reduced\_grobner()} führt den Buchberger Algorithmus aus und räumt auch direkt die redundanten Polynome auf.
+Der Output der Funktion ist die Gröbner-Basis
+\[
+\begin{aligned}
+  G = \{ & x_{13} - 2, \; x_{31} - 3, \; x_{34} - 1, \; x_{42} - 4, \; x_{44} - 2, \; x_{43} - 3, \; 4 - x_{24}, \; 1 - x_{23}, \\
+         & x_{12} - 1, \; x_{11} - 4, \; 2 - x_{32}, \; x_{41} - 1, \; 3 - x_{14}, \; 2 - x_{21}, \; 4 - x_{33}, \; 3 - x_{22} \}.
+\end{aligned}
+\]
+Die Reihenfolge der Gleichungen und die Anordnung der Monome scheinen willkürlich.
+Sie resultieren aus der Arbeitsweise des Algorithmus und der gewählten lexikographischen Ordnung.
+
+Indem man die Polynome sortiert, normiert und $= 0$ anfügt, erhält man das Gleichungssystem
+\begin{equation}
+  \left.
+  \begin{aligned}
+    x_{11} - 4 &= 0 \\
+    x_{12} - 1 &= 0 \\
+    x_{13} - 2 &= 0 \\
+    x_{14} - 3 &= 0 \\
+    x_{21} - 2 &= 0 \\
+    x_{22} - 3 &= 0 \\
+    x_{23} - 1 &= 0 \\
+    x_{24} - 4 &= 0 \\
+    x_{31} - 3 &= 0 \\
+    x_{32} - 2 &= 0 \\
+    x_{33} - 4 &= 0 \\
+    x_{34} - 1 &= 0 \\
+    x_{41} - 1 &= 0 \\
+    x_{42} - 4 &= 0 \\
+    x_{43} - 3 &= 0 \\
+    x_{44} - 2 &= 0 .
+  \end{aligned}
+  \quad
+  \right\}
+  \label{buchberger:sudoku-end-loesung}
+\end{equation}
+Daraus lassen sich die Lösungen direkt ablesen und in das Sudoku~\ref{buchberger:sudokuSolved} eintragen.
+
+Damit ist die Demonstration abgeschlossen.
+Es ist erstaunlich, dass man ein Sudoku durch ein Gleichungssystem beschreiben und mit dem Buchberger-Algorithmus lösen kann.
