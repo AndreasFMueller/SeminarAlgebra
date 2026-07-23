@@ -56,9 +56,10 @@ Die Einschränkung auf Polynomgleichungen über einem endlichen Körper $\mathbb
 Für unendliche Zahlenbereiche ist es komplizierter, wie das 10. hilbertsche Problem zeigt.
 
 \subsection{Ist $\textit{POLYNOM}$ NP-vollständig?}
-\begin{theorem}
+\begin{satz}
+  \label{buchberger:polynom-np-satz}
   $\textit{POLYNOM}$ ist NP-vollständig.
-\end{theorem}
+\end{satz}
 
 \subsubsection{Reduktion}
 In Abschnitt~\ref{buchberger:section:sudoku} wurde gezeigt, dass sich ein $4 \times 4$- bzw. $2^2 \times 2^2$-Sudoku durch ein Polynomgleichungssystem beschreiben und lösen lässt.
@@ -109,7 +110,7 @@ welche polynomiell ist.
 
 Zusammen mit der zuvor gezeigten Entscheidbarkeit zeigt dieser Algorithmus, dass $\textit{POLYNOM}$ in \text{NP} liegt und nicht ausserhalb.
 
-\begin{proof}
+\begin{proof}[Beweis von Satz~\ref{buchberger:polynom-np-satz}]
 Die NP-vollständigen Probleme bilden die Klasse der schwierigsten Probleme innerhalb von \text{NP} und sind alle gleich schwierig.
 Durch die beiden Resultate
 \begin{enumerate}
