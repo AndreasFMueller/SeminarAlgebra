@@ -38,6 +38,8 @@ Diese Darstellung ist der Ausgangspunkt für alles Weitere.
 \node[color=blue] at (1.85,2.3) {Planet};
 \draw (2.5,0) arc[start angle=0,end angle=98,radius=0.7];
 \node at (2.55,0.75) {$\vartheta$};
+\draw[<->, color=red] (0,-0.25) -- (1.8,-0.25) node[midway,below] {$c$};
+\draw[<->, color=red] (1.8,0) -- (1.8,1.92) node[midway,right] {$p$};
 \end{tikzpicture}
 \caption{Bahnellipse eines Planeten mit grosser Halbachse $a$ und
 kleiner Halbachse $b$.
@@ -53,7 +55,7 @@ Sie besitzt zwei Brennpunkte.
 Diese liegen auf der grossen Achse im Abstand $c=\sqrt{a^2-b^2}$ vom Mittelpunkt (Abbildung~\ref{kepler:figure:ellipse}).
 Das Verhältnis
 \begin{equation}
-E
+\varepsilon
 =
 \frac{c}{a}
 =
@@ -62,10 +64,10 @@ E
 \end{equation}
 heisst \emph{numerische Exzentrizität}.
 Es misst die Abweichung von der Kreisform.
-Für eine Ellipse gilt $0\le E<1$.
-Der Grenzfall $E=0$ ergibt einen Kreis.
-Wir schreiben die Exzentrizität mit einem grossen $E$.
-Das kleine $e$ bleibt so für die Eulersche Zahl reserviert.
+Für eine Ellipse gilt $0\le \varepsilon<1$.
+Der Grenzfall $\varepsilon=0$ ergibt einen Kreis.
+Wir schreiben die Exzentrizität mit dem griechischen Buchstaben $\varepsilon$.
+Das reguläre $e$ bleibt so für die Eulersche Zahl reserviert.
 
 Für die Rechnung eignen sich Polarkoordinaten $(r,\vartheta)$ am besten.
 Die Sonne liegt dabei im Ursprung, also in einem Brennpunkt.
@@ -73,13 +75,13 @@ In diesen Koordinaten lautet die Gleichung der Ellipse
 \begin{equation}
 r(\vartheta)
 =
-\frac{p}{1+E\cos(\vartheta)}
+\frac{p}{1+\varepsilon\cos(\vartheta)}
 \qquad\text{mit}\qquad
 p
 =
 \frac{b^2}{a}
 =
-a(1-E^2).
+a(1-\varepsilon^2).
 \label{kepler:eqn:ellipse}
 \end{equation}
 Die Grösse $p$ heisst Halbparameter der Ellipse.
@@ -204,16 +206,17 @@ Dann dividieren wir durch $-L^2u^2/m^2$.
 \end{equation}
 Sie ist in der Mechanik als Binet-Gleichung bekannt
 \cite{kepler:goldstein}.
-Ihre allgemeine Lösung besteht aus zwei Teilen.
+
+Die allgemeine Lösung der Binet-Gleichung \eqref{kepler:eqn:binet} besteht aus zwei Teilen.
 Der erste Teil ist die konstante partikuläre Lösung $GMm^2/L^2$.
 Der zweite Teil ist die harmonische Lösung der homogenen Gleichung.
 Zusammen ergibt das
 \[
 u(\vartheta)
 =
-\frac{GMm^2}{L^2}\bigl(1+E\cos(\vartheta-\vartheta_0)\bigr)
+\frac{GMm^2}{L^2}\bigl(1+\varepsilon\cos(\vartheta-\vartheta_0)\bigr)
 \]
-mit den Integrationskonstanten $E\ge 0$ und $\vartheta_0$.
+mit den Integrationskonstanten $\varepsilon\ge 0$ und $\vartheta_0$.
 Wir legen die Richtung $\vartheta_0=0$ auf den sonnennächsten Punkt.
 Dann kehren wir zu $r=1/u$ zurück.
 So entsteht genau die Ellipsengleichung \eqref{kepler:eqn:ellipse}
@@ -228,9 +231,9 @@ L
 m\sqrt{GMp}.
 \label{kepler:eqn:drehimpulsgeometrie}
 \end{equation}
-Für $0\le E<1$ ist die Bahn eine Ellipse.
+Für $0\le \varepsilon<1$ ist die Bahn eine Ellipse.
 Das beweist das erste keplersche Gesetz.
-Für $E\ge 1$ entstehen Parabeln und Hyperbeln.
+Für $\varepsilon\ge 1$ entstehen Parabeln und Hyperbeln.
 Das sind offene Bahnen von Körpern, die nicht an die Sonne gebunden sind.
 Für Planeten spielen sie keine Rolle.
 Die Beziehung \eqref{kepler:eqn:drehimpulsgeometrie} ist bemerkenswert.
@@ -261,7 +264,7 @@ T
 =
 \frac{m\,p^2}{L}
 \int_0^{2\pi}
-\frac{1}{(1+E\cos(\vartheta))^2}
+\frac{1}{(1+\varepsilon\cos(\vartheta))^2}
 \,d\vartheta.
 \label{kepler:eqn:tintegral}
 \end{equation}

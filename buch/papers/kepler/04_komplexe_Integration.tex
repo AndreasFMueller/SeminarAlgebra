@@ -8,7 +8,7 @@
 \section{Elliptische Bahnen und komplexe Integration
 \label{kepler:section:komplex}}
 
-In diesem Abschnitt werten wir das Integral in \eqref{kepler:eqn:tintegral} für beliebige Exzentrizität $0<E<1$ aus.
+In diesem Abschnitt werten wir das Integral in \eqref{kepler:eqn:tintegral} für beliebige Exzentrizität $0<\varepsilon<1$ aus.
 Dazu verwandeln wir das reelle Integral in ein Wegintegral über den komplexen Einheitskreis.
 Diese Methode gehört zu den klassischen Anwendungen der Funktionentheorie \cite{kepler:freitagbusam}.
 Eine unterhaltsame historische Einordnung findet sich bei Nahin \cite{kepler:nahin}.
@@ -42,36 +42,36 @@ d\vartheta
 \]
 Vor dem Einsetzen bringen wir den Nenner des Integranden auf einen gemeinsamen Bruch:
 \[
-1+E\cdot\frac12\biggl(z+\frac{1}{z}\biggr)
+1+\varepsilon\cdot\frac12\biggl(z+\frac{1}{z}\biggr)
 =
-\frac{Ez^2+2z+E}{2z}.
+\frac{\varepsilon z^2+2z+\varepsilon}{2z}.
 \]
 Damit wird aus dem reellen Integral das Wegintegral
 \[
 \int_0^{2\pi}
-\frac{1}{(1+E\cos(\vartheta))^2}
+\frac{1}{(1+\varepsilon\cos(\vartheta))^2}
 \,d\vartheta
 =
 \oint_C
-\frac{4z^2}{(Ez^2+2z+E)^2}
+\frac{4z^2}{(\varepsilon z^2+2z+\varepsilon)^2}
 \cdot
 \frac{dz}{iz}
 =
 \frac{4}{i}
 \oint_C
-\frac{z}{(Ez^2+2z+E)^2}
+\frac{z}{(\varepsilon z^2+2z+\varepsilon)^2}
 \,dz.
 \]
-Im Nenner klammern wir noch $E^2$ aus.
+Im Nenner klammern wir noch $\varepsilon^2$ aus.
 So entsteht die Form
 \begin{equation}
 \int_0^{2\pi}
-\frac{1}{(1+E\cos(\vartheta))^2}
+\frac{1}{(1+\varepsilon\cos(\vartheta))^2}
 \,d\vartheta
 =
-\frac{4}{iE^2}
+\frac{4}{i\varepsilon^2}
 \oint_C
-\frac{z}{\bigl(z^2+\frac{2}{E}z+1\bigr)^2}
+\frac{z}{\bigl(z^2+\frac{2}{\varepsilon}z+1\bigr)^2}
 \,dz.
 \label{kepler:eqn:wegintegral}
 \end{equation}
@@ -83,20 +83,33 @@ Mit ihr arbeiten wir im Folgenden.
 \begin{figure}
 \centering
 \begin{tikzpicture}[>=latex,thick]
-\draw[->] (-3.8,0) -- (1.9,0) coordinate[label={$\operatorname{Re}$}];
-\draw[->] (0,-1.5) -- (0,1.7) coordinate[label={left:$\operatorname{Im}$}];
+
+\draw[->] (-4.5,0) -- (1.9,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-1.8) -- (0,1.7) coordinate[label={left:$\operatorname{Im}$}];
+
+
 \draw[color=blue] (0,0) circle[radius=1];
 \node[color=blue] at (0.85,0.95) {$C$};
+
+
 \fill[color=red] (-0.3333,0) circle[radius=0.05];
 \node[color=red] at (-0.3333,0.3) {$z_+$};
 \fill[color=red] (-3,0) circle[radius=0.05];
 \node[color=red] at (-3,0.3) {$z_-$};
+
+
+\draw[->, color=red] (-3.2, -0.25) -- (-4.3, -0.25) node[midway, below] {\scriptsize $\varepsilon \to 0^+$};
+\draw[->, color=red] (-2.8, -0.25) -- (-1.15, -0.25) node[midway, below] {\scriptsize $\varepsilon \to 1^-$};
+
+
+\draw[->, color=red] (-0.45, -0.25) -- (-0.88, -0.25) node[midway, below] {\scriptsize $\varepsilon \to 1^-$};
+\draw[->, color=red] (-0.2, -0.65) -- (0.1, -0.65) node[midway, below] {\scriptsize $\varepsilon \to 0^+$};
 \end{tikzpicture}
 \caption{Lage der beiden Polstellen relativ zum Integrationsweg $C$.
-Gezeichnet ist der Fall $E=0.6$.
+Gezeichnet ist der Fall $\varepsilon=0.6$.
 Beide Polstellen liegen auf der negativen reellen Achse, hier bei $z_+=-\frac13$ und $z_-=-3$.
 Nur $z_+$ liegt im Inneren des Einheitskreises.
-Nur dieser Pol trägt zum Wegintegral bei.
+Nur dieser Pol trägt zum Wegintegral bei. Die roten Pfeile deuten das Verhalten bei Veränderung von $\varepsilon$ an.
 \label{kepler:figure:polstellen}}
 \end{figure}
 
@@ -104,15 +117,15 @@ Der Wert eines Wegintegrals wird durch die Singularitäten im Inneren der Kurve 
 Wir suchen deshalb die Nullstellen des Nenners.
 Dazu lösen wir die quadratische Gleichung
 \[
-z^2+\frac{2}{E}z+1
+z^2+\frac{2}{\varepsilon}z+1
 =
 0
 \qquad\Longrightarrow\qquad
 z_{\pm}
 =
--\frac{1}{E}\pm\sqrt{\frac{1}{E^2}-1}.
+-\frac{1}{\varepsilon}\pm\sqrt{\frac{1}{\varepsilon^2}-1}.
 \]
-Wegen $0<E<1$ ist der Radikand positiv.
+Wegen $0<\varepsilon<1$ ist der Radikand positiv.
 Beide Nullstellen sind also reell und negativ.
 Der Integrand hat in $z_+$ und $z_-$ je einen Pol zweiter Ordnung.
 Auf dem Integrationsweg selbst liegen keine Pole.
@@ -120,28 +133,20 @@ Auf dem Integrationsweg selbst liegen keine Pole.
 Die Wurzelausdrücke sehen kompliziert aus.
 Sie werden sich später aber stark vereinfachen.
 Im Moment interessiert nur eine Frage: welcher Pol liegt innerhalb von $C$?
-Die Antwort auf diese Frage bekommen wir mittels Grenzwertbetrachtungen.
-\[
-\lim_{E \to 1^-} \frac{-1}{E}+\sqrt{\frac{1}{E^2}-1}
-=
--1
-\]
-\[
-\lim_{E \to 0^+} \frac{-1}{E}+\sqrt{\frac{1}{E^2}-1}
-=
-0
-\]
-\[
-\lim_{E \to 1^-} \frac{-1}{E}-\sqrt{\frac{1}{E^2}-1}
-=
--1
-\]
-\[
-\lim_{E \to 0^+} \frac{-1}{E}-\sqrt{\frac{1}{E^2}-1}
-=
--\infty
-\]
-Wie wir sehen liegt der Pol $z_+$ innerhalb des Einheitskreises.
+Die Antwort auf diese Frage bekommen wir mittels Grenzwertbetrachtungen für $z_+$ und $z_-$.
+
+Für die Nullstelle $z_-$ ausserhalb des Einheitskreises gilt:
+\begin{align*}
+\lim_{\varepsilon \to 0^+} z_- &= \lim_{\varepsilon \to 0^+} \biggl(-\frac{1}{\varepsilon}-\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -\infty, \\
+\lim_{\varepsilon \to 1^-} z_- &= \lim_{\varepsilon \to 1^-} \biggl(-\frac{1}{\varepsilon}-\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -1.
+\end{align*}
+Für die Nullstelle $z_+$ im Inneren des Einheitskreises verhalten sich die Grenzwerte folgendermassen:
+\begin{align*}
+\lim_{\varepsilon \to 0^+} z_+ &= \lim_{\varepsilon \to 0^+} \biggl(-\frac{1}{\varepsilon}+\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = 0, \\
+\lim_{\varepsilon \to 1^-} z_+ &= \lim_{\varepsilon \to 1^-} \biggl(-\frac{1}{\varepsilon}+\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -1.
+\end{align*}
+
+Wie wir sehen, liegt der Pol $z_+$ innerhalb des Einheitskreises.
 Der Pol $z_-$ liegt ausserhalb.
 
 \subsection{Auswertung mit der Cauchy-Formel für Ableitungen
@@ -154,7 +159,7 @@ Nur der Pol im Inneren soll noch explizit auftreten.
 Mit der Faktorisierung des Nenners ist
 \[
 \oint_C
-\frac{z}{\bigl(z^2+\frac{2}{E}z+1\bigr)^2}
+\frac{z}{\bigl(z^2+\frac{2}{\varepsilon}z+1\bigr)^2}
 \,dz
 =
 \oint_C
@@ -190,45 +195,45 @@ f'(z)
 -\frac{z+z_-}{(z-z_-)^3}.
 \]
 Jetzt setzen wir die Stelle $z_+$ ein.
-Zähler und Nenner lassen sich direkt durch die Vieta-Beziehungen \eqref{kepler:eqn:vieta} ausdrücken.
-Im Zähler steht die Summe $z_++z_-=-2/E$.
-Im Nenner steht die Differenz $z_+-z_-=2\sqrt{1/E^2-1}$.
+Zähler und Nenner lassen sich direkt durch die Vieta-Beziehungen der quadratischen Gleichung $z^2+\frac{2}{\varepsilon}z+1=0$ ausdrücken.
+Im Zähler steht die Summe $z_++z_-=-2/\varepsilon$.
+Im Nenner steht die Differenz $z_+-z_-=2\sqrt{1/\varepsilon^2-1}$.
 Die unhandlichen Wurzelterme kombinieren sich dadurch zu
 \[
 f'(z_+)
 =
 -\frac{z_++z_-}{(z_+-z_-)^3}
 =
-\frac{2/E}{8\bigl(\frac{1}{E^2}-1\bigr)^{\frac{3}{2}}}
+\frac{2/\varepsilon}{8\bigl(\frac{1}{\varepsilon^2}-1\bigr)^{\frac{3}{2}}}
 =
-\frac{1}{4E}
+\frac{1}{4\varepsilon}
 \cdot
-\biggl(\frac{E^2}{1-E^2}\biggr)^{\frac{3}{2}}
+\biggl(\frac{\varepsilon^2}{1-\varepsilon^2}\biggr)^{\frac{3}{2}}
 =
-\frac{E^2}{4\,(1-E^2)^{\frac{3}{2}}}.
+\frac{\varepsilon^2}{4\,(1-\varepsilon^2)^{\frac{3}{2}}}.
 \]
 Dieses Resultat setzen wir über \eqref{kepler:eqn:ableitungsformel}
 in \eqref{kepler:eqn:wegintegral} ein.
-Der Faktor $E^2$ und die imaginäre Einheit heben sich weg.
+Der Faktor $\varepsilon^2$ und die imaginäre Einheit heben sich weg.
 Es bleibt der reelle Wert
 \begin{equation}
 \int_0^{2\pi}
-\frac{1}{(1+E\cos(\vartheta))^2}
+\frac{1}{(1+\varepsilon\cos(\vartheta))^2}
 \,d\vartheta
 =
-\frac{4}{iE^2}
+\frac{4}{i\varepsilon^2}
 \cdot
 2\pi i
 \cdot
-\frac{E^2}{4\,(1-E^2)^{\frac{3}{2}}}
+\frac{\varepsilon^2}{4\,(1-\varepsilon^2)^{\frac{3}{2}}}
 =
-\frac{2\pi}{(1-E^2)^{\frac{3}{2}}}.
+\frac{2\pi}{(1-\varepsilon^2)^{\frac{3}{2}}}.
 \label{kepler:eqn:integralwert}
 \end{equation}
 Am Ende kommt also eine reelle Zahl heraus.
 Das ist eine willkommene Kontrolle, denn das Ausgangsintegral war reell.
 Auch der Grenzfall stimmt.
-Für $E\to 0$ liefert \eqref{kepler:eqn:integralwert} den Wert $2\pi$.
+Für $\varepsilon\to 0$ liefert \eqref{kepler:eqn:integralwert} den Wert $2\pi$.
 Denselben Wert haben wir in
 Abschnitt~\ref{kepler:subsection:integralspezialfall} für die
 Kreisbahn direkt berechnet.
@@ -244,7 +249,7 @@ T
 =
 \frac{m\,p^2}{L}
 \cdot
-\frac{2\pi}{(1-E^2)^{\frac{3}{2}}}.
+\frac{2\pi}{(1-\varepsilon^2)^{\frac{3}{2}}}.
 \]
 Den Drehimpuls ersetzen wir mit
 \eqref{kepler:eqn:drehimpulsgeometrie} durch $L=m\sqrt{GMp}$.
@@ -254,20 +259,20 @@ T
 =
 \frac{p^2}{\sqrt{GMp}}
 \cdot
-\frac{2\pi}{(1-E^2)^{\frac{3}{2}}}
+\frac{2\pi}{(1-\varepsilon^2)^{\frac{3}{2}}}
 =
 \frac{2\pi}{\sqrt{GM}}
 \cdot
-\frac{p^{\frac{3}{2}}}{(1-E^2)^{\frac{3}{2}}}.
+\frac{p^{\frac{3}{2}}}{(1-\varepsilon^2)^{\frac{3}{2}}}.
 \]
-Nach \eqref{kepler:eqn:ellipse} ist $p=a(1-E^2)$.
-Der Faktor $(1-E^2)$ fällt damit vollständig aus der Formel heraus:
+Nach \eqref{kepler:eqn:ellipse} ist $p=a(1-\varepsilon^2)$.
+Der Faktor $(1-\varepsilon^2)$ fällt damit vollständig aus der Formel heraus:
 \[
 T
 =
 \frac{2\pi}{\sqrt{GM}}
 \cdot
-\frac{a^{\frac{3}{2}}(1-E^2)^{\frac{3}{2}}}{(1-E^2)^{\frac{3}{2}}}
+\frac{a^{\frac{3}{2}}(1-\varepsilon^2)^{\frac{3}{2}}}{(1-\varepsilon^2)^{\frac{3}{2}}}
 =
 \frac{2\pi\,a^{\frac{3}{2}}}{\sqrt{GM}}.
 \]
@@ -282,7 +287,7 @@ Quadrieren liefert das dritte keplersche Gesetz in seiner üblichen Form
 \text{konstant}.
 \label{kepler:eqn:keplerdrei}
 \end{equation}
-Für $E=0$ und $a=r$ enthält es das Resultat
+Für $\varepsilon=0$ und $a=r$ enthält es das Resultat
 \eqref{kepler:eqn:kreisbahn} für Kreisbahnen als Spezialfall.
 
 \subsection{Plausibilisierung anhand realer Bahndaten
@@ -291,7 +296,7 @@ Für $E=0$ und $a=r$ enthält es das Resultat
 \begin{table}
 \centering
 \begin{tabular}{lrrrr}
-Körper & $E$ & $a$ in $\text{m}$ & $T$ in $\text{s}$
+Körper & $\varepsilon$ & $a$ in $\text{m}$ & $T$ in $\text{s}$
 & $T^2/a^3$ in $\text{s}^2\text{m}^{-3}$
 \\
 \hline
@@ -307,7 +312,7 @@ Mars   & $0.094$ & $2.279\cdot 10^{11}$ & $5.935\cdot 10^{7}$
 \caption{Bahndaten der Erde, des Mars und des Kometen
 67P/Tschurjumow-Gerassimenko nach \cite{kepler:nasafactsheet} und
 \cite{kepler:jplsbdb}.
-Die Exzentrizitäten $E$ der drei Körper sind sehr unterschiedlich.
+Die Exzentrizitäten $\varepsilon$ der drei Körper sind sehr unterschiedlich.
 Trotzdem stimmt der Quotient $T^2/a^3$ überall auf drei Stellen mit
 dem theoretischen Wert
 $4\pi^2/GM_{\odot}=2.975\cdot 10^{-19}\,\text{s}^2\text{m}^{-3}$
@@ -319,7 +324,7 @@ Zum Schluss prüfen wir das Resultat \eqref{kepler:eqn:keplerdrei} an realen Dat
 Tabelle~\ref{kepler:table:plausibilisierung} vergleicht die Erde, den Mars und den Kometen 67P/Tschurjumow-Gerassimenko.
 Der Komet ist durch die Rosetta-Mission bekannt geworden.
 Als Testfall ist er besonders interessant.
-Seine Bahn hat die Exzentrizität $E\approx 0.641$.
+Seine Bahn hat die Exzentrizität $\varepsilon\approx 0.641$.
 Sie ist damit weit von einer Kreisbahn entfernt.
 Die Kreisbahn-Herleitung aus Abschnitt~\ref{kepler:subsection:kraeftegleichgewicht} macht über ihn deshalb keine Aussage.
 Die Bahndaten stammen aus \cite{kepler:nasafactsheet} und \cite{kepler:jplsbdb}.
