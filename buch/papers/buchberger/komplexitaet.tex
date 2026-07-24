@@ -69,6 +69,7 @@ Für unendliche Zahlenbereiche ist es komplizierter, wie das 10.~hilbertsche Pro
 \end{satz}
 
 \subsubsection{Reduktion}
+\index{Reduktion}%
 In Abschnitt~\ref{buchberger:section:sudoku} wurde gezeigt, dass sich ein $4 \times 4$- bzw. $2^2 \times 2^2$-Sudoku durch ein Polynomgleichungssystem beschreiben und lösen lässt.
 Um die Reduktion von $\textit{SUDOKU}$ auf $\textit{POLYNOM}$ durchzuführen, muss das Problem noch auf beliebig grosse Sudokus verallgemeinert werden:
 Die gezeigte Idee, die Sudoku-Regeln als Gleichungen zu codieren, funktioniert für beliebig grosse Sudokus, wobei die Anzahl der Gleichungen polynomiell wächst.
@@ -78,6 +79,7 @@ Für den endlichen Körper $\mathbb{F}_p$ von $\textit{POLYNOM}$ wird dann einfa
 Somit ist $\textit{POLYNOM}$ mindestens so schwierig wie $\textit{SUDOKU}$.
 Dieser Sachverhalt lässt sich durch die Reduktion
 $\textit{SUDOKU} \le_P \textit{POLYNOM}$
+\index{<=_P@$\le_P$}%
 ausdrücken.
 
 Dies genügt nicht, um zu beweisen, dass $\textit{POLYNOM}$ NP-vollständig ist.
@@ -88,6 +90,7 @@ Es könnte ja sein, dass $\textit{POLYNOM}$ noch schwieriger ist als \text{NP}.
 Ein Entscheidungsproblem gilt als entscheidbar, wenn es möglich ist, das Problem in endlicher Zeit zu entscheiden.
 Da $\textit{POLYNOM}$ auf einen endlichen Körper $\mathbb{F}_p$ eingeschränkt ist, gibt es nur endlich viele Kombinationen aller Variablen und Zahlen, welche einfach durchprobiert werden können.
 Somit ist $\textit{POLYNOM}$ entscheidbar.
+\index{entscheidbar}%
 
 \subsubsection{\text{NP}-Zugehörigkeit}
 
@@ -126,14 +129,15 @@ Die NP-vollständigen Probleme bilden die Klasse der schwierigsten Probleme inne
 Durch die beiden Resultate
 \begin{enumerate}
   \item
-  $\textit{SUDOKU}$ ist NP-vollständig und $\textit{POLYNOM}$ ist mindestens so schwierig wie {\it SU\-DO\-KU}.
+  $\textit{SUDOKU}$ ist NP-vollständig und $\textit{POLYNOM}$ ist mindestens so schwierig wie {\it SU\-DO\-KU} und
   \item
-  $\textit{POLYNOM}$ liegt in \text{NP}.
+  $\textit{POLYNOM}$ liegt in \text{NP}
 \end{enumerate}
 lässt sich schlussfolgern, dass $\textit{POLYNOM}$ gleich schwierig ist wie {\it SUDOKU}.
 Dies lässt sich durch
 $\textit{SUDOKU} \equiv_{P} \textit{POLYNOM}$
 ausdrücken.
+\index{=_P@$\equiv_P$}%
 Somit ist bewiesen, dass $\textit{POLYNOM}$ NP-vollständig ist.
 \end{proof}
 
@@ -164,7 +168,7 @@ Falls sich herausstellen würde, dass $\text{P} = \text{NP}$ gilt, würde es bed
 Wenn also jemand es schafft, einen allgemeinen Algorithmus zu finden, der $\textit{SUDOKU}$ oder $\textit{POLYNOM}$, welche wie besprochen NP-vollständig sind, in polynomieller Zeit löst, hätte man $\text{P} = \text{NP}$ bewiesen.
 Dies hätte schwerwiegende Auswirkungen zum Beispiel auf die Kryptographie:
 \index{Kryptographie}%
-Die meisten kryptographischen Systeme basieren auf einer langen Rechenzeit, um einen unbekannten \emph{Schlüssel} zu berechnen.
+Die meisten kryptographischen Systeme basieren auf einer langen Rechenzeit, um einen unbekannten Schlüssel zu berechnen.
 Der beste Weg, so einen Schlüssel zu berechnen, ist meistens, alle Möglichkeiten auszuprobieren.
 \index{Schlussel@Schlüssel}%
 Wenn es auf einmal einen Weg gibt, Schlüssel in polynomieller Zeit zu berechnen, wären viele kryptographische Systeme nicht mehr sicher.
