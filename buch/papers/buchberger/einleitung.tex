@@ -15,8 +15,8 @@ Daher ist es empfehlenswert, die Grundideen des Lösens eines linearen Gleichung
 \begin{beispiel}
 Das Gleichungssystem
 \begin{equation}
-  \left\{ % macht auf linker Seite die grosse geschweifte Klammer (darum das \{)
-  \renewcommand{\arraycolsep}{2pt} % überschreibt Spaltenabstand in Tabelle auf 2pt, sonst wären sie zu gross
+  \left\{\quad % macht auf linker Seite die grosse geschweifte Klammer (darum das \{)
+  \renewcommand{\arraycolsep}{1.5pt} % überschreibt Spaltenabstand in Tabelle auf 2pt, sonst wären sie zu gross
   \begin{array}{rcrcr} % Array == Tabelle. rcrcr definiert die 5 Spalten. r = rechtsbündig, c = centered. Z.B. x und 3x zentrieren sich nach rechts zum +
     x &+& 2y &=& 3 \\
     3x &-& y &=& 15
@@ -36,11 +36,11 @@ Das Gleichungssystem~\eqref{buchberger:lineares-gleichungssystem-1} ist bereits 
 \item
 Mit iterativen Gleichungsumformungen, die hier nicht weiter relevant sind, wird das Gleichungssystem in eine treppenartige Form gebracht.
 \begin{equation}
-  \left\{
-  \renewcommand{\arraycolsep}{2pt}
+  \left\{\quad
+  \renewcommand{\arraycolsep}{1.5pt}
   \begin{array}{rcrcr}
-  x &+& 2y &=& 3 \\
-     &&  y &=& -\frac{6}{7}
+  x &+& 2y &=& 3\phantom{.}\\
+     &&  y &=& -\frac{6}{7}.
   \end{array}
   \right.
   \label{buchberger:lineares-gleichungssystem-2}
@@ -49,6 +49,7 @@ Mit iterativen Gleichungsumformungen, die hier nicht weiter relevant sind, wird 
 Aus dem Gleichungssystem~\eqref{buchberger:lineares-gleichungssystem-2} lässt sich direkt die Lösung für $y$ ablesen, welche $-\frac{6}{7}$ beträgt.
 Diese Lösung für $y$ lässt sich in die obere Gleichung einsetzen.
 Dabei entsteht eine Gleichung, die nur noch $x$ enthält. Das Auflösen nach $x$ ist trivial.
+\qedhere
 \end{enumerate}
 \end{beispiel}
 

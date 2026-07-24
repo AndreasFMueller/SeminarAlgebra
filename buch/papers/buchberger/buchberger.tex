@@ -12,11 +12,11 @@
 
 Das Gleichungssystem
 \begin{equation}
-  \left\{
-  \renewcommand{\arraycolsep}{2pt}
-  \begin{array}{rlcrlcr}
-    & x^2 &-& & y   &=& 0 \\
-    & x   &+& & y^2 &=& 3
+  \left\{\quad
+  \renewcommand{\arraycolsep}{1.5pt}
+  \begin{array}{lclcr}
+    x^2 &-&y   &=& 0 \\
+    x   &+&y^2 &=& 3
   \end{array}
   \right.
   \label{buchberger:polynom-gleichungssystem-1}
@@ -27,7 +27,7 @@ Der Grund ist, dass es Variablen mit Potenzen $> 1$ beinhaltet, also nicht linea
 Um solche nichtlinearen multivariaten\footnote{Multivariat bedeutet, dass mehrere Variablen vorkommen.} Gleichungssysteme zu lösen, eignet sich der Buch\-berger-Algorithmus.
 Ein Gleichungssystem wie
 \begin{equation}
-  \left\{
+  \left\{\quad
   \begin{aligned}
   5xy + 2y^3 +  5y^8z + z^3 &= 100 \\
   3x^2y^4z^9 + 2z^2 &= 1 \\
@@ -54,11 +54,11 @@ Wie beim Gauss-Algorithmus müssen die Gleichungen zunächst in eine geeignete F
 Die Gleichungen werden in Polynome umgewandelt, wobei sie vorher auf die Form $p(x) = 0$ umgestellt werden müssen.
 Das Gleichungssystem
 \begin{equation}
-  \left\{
-  \renewcommand{\arraycolsep}{2pt}
-  \begin{array}{rlcrlcrcr}
-  & x^2 &-& &y     &&  &=& 0 \\
-  & x   &+& &y^2  &-&3 &=& 0
+  \left\{\quad
+  \renewcommand{\arraycolsep}{1.5pt}
+  \begin{array}{lclcrcr}
+  x^2 &-&y   & &  &=& 0 \\
+  x   &+&y^2 &-&3 &=& 0
   \end{array}
   \right.
   \label{buchberger:polynom-gleichungssystem-3}
@@ -100,11 +100,11 @@ anwendet, erhält man die Gröbner-Basis
 \end{equation}
 woraus sich das Gleichungssystem
 \begin{equation}
-  \left\{
-  \renewcommand{\arraycolsep}{2pt}
+  \left\{\quad
+  \renewcommand{\arraycolsep}{1.5pt}
   \begin{array}{rcrcrcr}
-  x^4 &+& x &-& 3 &=& 0 \\
-  x^2 &-& y &&    &=& 0
+  x^4 &+& x &-& 3&=& 0 \\
+  x^2 &-& y & &  &=& 0
   \end{array}
   \right.
   \label{buchberger:polynom-gleichungssystem-6}
@@ -124,7 +124,7 @@ Beim Rückwärtseinsetzen müssen dann alle Kombinationen der bisherigen Lösung
 \subsection{Funktionsweise des Buchberger-Algorithmus}
 
 \begin{algorithm}[t]
-\caption{Pseudocode des Buchberger-Algorithmus in C++/Java ähnlichem Stil
+\caption{Pseudocode des Buchberger-Algorithmus in C++/Java ähnlichem Stil\raisebox{1pt}{\strut}%
 \label{buchberger:pseudo-code}}
 \begin{algorithmic}[1]
   \State \textbf{function} Buchberger(Menge$<$Polynom$>$ startPolynome) \{
