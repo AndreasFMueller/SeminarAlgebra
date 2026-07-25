@@ -46,14 +46,14 @@ Abbildung \ref{hauptwert:figure:pol-innen} zeigt den Graphen des Integranden.
 \begin{equation}
 \begin{aligned}
 \pv\int_0^3 \frac{dx}{x-1}
-  &= \lim_{\epsilon \to 0^+}
+  &= \lim_{\varepsilon \to 0^+}
      \biggl(
-     \int_{0}^{1 - \epsilon} \frac{dx}{x - 1} + \int_{1 + \epsilon}^{3} \frac{dx}{x - 1}
+     \int_{0}^{1 - \varepsilon} \frac{dx}{x - 1} + \int_{1 + \varepsilon}^{3} \frac{dx}{x - 1}
      \biggr) \\
-  &= \lim_{\epsilon \to 0^+}
-     \Bigl(\bigl[\ln|x - 1|\bigr]_{0}^{1 - \epsilon} + \bigl[\ln|x - 1|\bigr]_{1 + \epsilon}^{3}\Bigr) \\
-  &= \lim_{\epsilon \to 0^+} \bigl(\ln\epsilon - \ln 1 + \ln 2 - \ln\epsilon\bigr) \\
-  &= \ln 2
+  &= \lim_{\varepsilon \to 0^+}
+     \Bigl(\bigl[\ln|x - 1|\bigr]_{0}^{1 - \varepsilon} + \bigl[\ln|x - 1|\bigr]_{1 + \varepsilon}^{3}\Bigr) \\
+  &= \lim_{\varepsilon \to 0^+} \bigl(\ln\varepsilon - \ln 1 + \ln 2 - \ln\varepsilon\bigr) \\
+  &= \ln 2.
 \label{hauptwert:equation:beispiel-pol-innen}
 \end{aligned}
 \end{equation}

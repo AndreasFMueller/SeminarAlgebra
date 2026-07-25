@@ -1,0 +1,36 @@
+%
+% hauptwerte-residuen.tex -- Hauptwerte mit dem Residuentheorem
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Hauptwerte mit dem Residuentheorem
+\label{hauptwert:section:hauptwerte-residuen}}
+\kopfrechts{Hauptwerte mit dem Residuentheorem}
+
+\subsection{Ein Integral ohne Polstelle auf der Achse
+\label{hauptwert:subsection:aufwaermbeispiel}}
+
+\subsection{Satz vom kleinen Kreisbogen
+\label{hauptwert:subsection:halbresiduen}}
+\input{papers/hauptwert/fig/eingebuchtete-kontur.tex}
+Man betrachte ein Integral von einer beliebigen reellen Funktion mit einer
+Singularität an einem Punkt $x_0$ (z.B. $\int_{a}^{b} \frac{1}{x}\,dx$). Da das
+direkte Integrieren durch $x_0$ nicht funktioniert, weicht man über die
+komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
+(Abbildung~\ref{hauptwert:figure:eingebuchtete-kontur}).
+\begin{lemma}
+\label{hauptwert:lemma:halbresiduen}
+Man integriere eine Funktion $f(z)$ mit Polstelle erster Ordnung in $x_0$
+entlang einer Kurve $C_\varepsilon$, wobei $C_\varepsilon$ einen kleinen Halbkreis
+über die Polstelle an $x_0$ von $x_0-\varepsilon$ nach $x_0+\varepsilon$ macht.
+Es gilt
+\begin{equation}
+  \lim_{\varepsilon \to 0^+} \int_{C_\varepsilon} f(z)\,dz = -i\pi \res(x_0;f).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+% Beweis hier
+\end{proof}
+

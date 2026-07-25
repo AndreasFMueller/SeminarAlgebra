@@ -9,7 +9,7 @@ dependencies-hauptwert =						\
 	papers/hauptwert/references.bib				\
 	papers/hauptwert/motivation-definition.tex			\
 	papers/hauptwert/reelle-beispiele.tex				\
-	papers/hauptwert/teil2.tex					\
+	papers/hauptwert/hauptwerte-residuen.tex			\
 	papers/hauptwert/teil3.tex					\
 	papers/hauptwert/fig/kehrwert.tex				\
 	papers/hauptwert/fig/kehrwert-symmetrisch.tex			\
