@@ -33,7 +33,7 @@ e^{i\vartheta}
 \frac12\biggl(z+\frac{1}{z}\biggr).
 \]
 Der Winkel $\vartheta$ läuft von $0$ bis $2\pi$.
-Die Variable $z$ durchläuft dabei den Einheitskreis $C=\{z\in\mathbb{C}\,|\,|z|=1\}$ genau einmal im positiven Umlaufsinn.
+Die Variable $z$ durchläuft dabei den Einheitskreis $C=\{z\in\mathbb{C}\mid |z|=1\}$ genau einmal im positiven Umlaufsinn.
 Aus $dz=ie^{i\vartheta}\,d\vartheta$ folgt für das Differential
 \[
 d\vartheta
@@ -93,6 +93,9 @@ Mit ihr arbeiten wir im Folgenden.
 \draw[color=blue] (0,0) circle[radius=2];
 \node[color=blue] at (1.72,1.88) {$C$};
 
+\draw (-2,-0.14) -- (-2,0.14);
+\node[anchor=south east] at (-2.04,0.1) {$-1$};
+
 
 \fill[color=red] (-0.6667,0) circle[radius=0.07];
 \node[color=red] at (-0.6667,0.42) {$z_+$};
@@ -117,6 +120,7 @@ Beide Polstellen liegen auf der negativen reellen Achse, hier bei $z_+=-\frac13$
 Nur $z_+$ liegt im Inneren des Einheitskreises.
 Nur dieser Pol trägt zum Wegintegral bei.
 Die roten Pfeile deuten das Verhalten bei Veränderung von $\varepsilon$ an.
+Für $\varepsilon\to 1^-$ streben beide Pole gegen den Punkt $-1$ auf dem Einheitskreis.
 \label{kepler:figure:polstellen}}
 \end{figure}
 
@@ -148,20 +152,27 @@ Für die Nullstelle $z_-$ gilt:
 \lim_{\varepsilon \to 0^+} z_- &= \lim_{\varepsilon \to 0^+} \biggl(-\frac{1}{\varepsilon}-\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -\infty, \\
 \lim_{\varepsilon \to 1^-} z_- &= \lim_{\varepsilon \to 1^-} \biggl(-\frac{1}{\varepsilon}-\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -1.
 \end{align*}
-Der Pol $z_-$ liegt also für alle Werte von $\varepsilon$ ausserhalb des Einheitskreises.
+Der Pol $z_-$ liegt also ausserhalb des Einheitskreises.
 
 Für die Nullstelle $z_+$ verhalten sich die Grenzwerte folgendermassen:
 \begin{align*}
 \lim_{\varepsilon \to 0^+} z_+ &= \lim_{\varepsilon \to 0^+} \biggl(-\frac{1}{\varepsilon}+\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = 0, \\
 \lim_{\varepsilon \to 1^-} z_+ &= \lim_{\varepsilon \to 1^-} \biggl(-\frac{1}{\varepsilon}+\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -1.
 \end{align*}
-Wie wir sehen, liegt der Pol $z_+$ für alle Werte von $\varepsilon$ innerhalb des Einheitskreises.
+Wie wir sehen, liegt der Pol $z_+$ innerhalb des Einheitskreises.
+Die Grenzwerte beschreiben allerdings nur die Ränder des Intervalls $0<\varepsilon<1$.
+Den Nachweis für das ganze Intervall liefert der Satz von Vieta.
+Nach ihm ist das Produkt der beiden Nullstellen $z_+z_-=1$.
+Beide sind negativ, und wegen $z_-<z_+$ ist $|z_+|<|z_-|$.
+Zusammen mit $|z_+|\,|z_-|=1$ folgt daraus $|z_+|<1<|z_-|$.
+Für jede Exzentrizität $0<\varepsilon<1$ liegt also genau ein Pol im Inneren des Einheitskreises, nämlich $z_+$.
 
 \subsection{Auswertung mit der Cauchy-Formel für Ableitungen
 \label{kepler:subsection:cauchy}}
 
 Wir wollen die Cauchy-Integralformel von
-Satz~\ref{buch:integration:satz:residuensatz} anwenden.
+Satz~\ref{buch:integration:satz:residuensatz} anwenden, genauer ihre
+Verallgemeinerung für Ableitungen.
 Dazu schreiben wir den Integranden passend um.
 Nur der Pol im Inneren soll noch explizit auftreten.
 Mit den beiden Nullstellen $z_+$ und $z_-$ zerfällt der Nenner in die Linearfaktoren
@@ -266,7 +277,7 @@ T
 \frac{2\pi}{(1-\varepsilon^2)^{\frac{3}{2}}}.
 \]
 Den Drehimpuls ersetzen wir mit
-\eqref{kepler:eqn:drehimpulsgeometrie} durch $L=m\sqrt{GMp}$.
+\eqref{kepler:eqn:drehimpulsgeometrie} durch $L=m\sqrt{GMp\mathstrut}$.
 Die Planetenmasse $m$ kürzt sich dabei wie schon im Kreisfall heraus:
 \[
 T

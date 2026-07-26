@@ -14,7 +14,7 @@ Die zweite Zutat ist die Geschwindigkeit, mit der der Planet diese Bahn durchlä
 Die Form liefert das erste keplersche Gesetz.
 Die Geschwindigkeit liefert das zweite.
 In diesem Abschnitt beschreiben wir zuerst die Ellipse in Polarkoordinaten.
-Dann leiten wir beide Gesetze aus der Newtonschen Mechanik her.
+Dann leiten wir beide Gesetze aus der newtonschen Mechanik her.
 Daraus gewinnen wir eine Integraldarstellung der Umlaufzeit.
 Diese Darstellung ist der Ausgangspunkt für alles Weitere.
 
@@ -33,6 +33,7 @@ Diese Darstellung ist der Ausgangspunkt für alles Weitere.
 \draw[<->] (0,0) -- (3.24,0) node[midway,below] {$c$};
 \draw[<->] (3.24,0) -- (3.24,3.456);
 \node[rotate=-90] at (3.52,2.2) {$p$};
+\fill (0,0) circle[radius=0.08];
 \fill (-3.24,0) circle[radius=0.08];
 \node at (-3.24,0.45) {$F_2$};
 \fill[color=orange] (3.24,0) circle[radius=0.16];
@@ -48,8 +49,9 @@ Diese Darstellung ist der Ausgangspunkt für alles Weitere.
 kleiner Halbachse $b$.
 Die Sonne steht im Brennpunkt $F_1$.
 Der zweite Brennpunkt $F_2$ bleibt leer.
+Die Brennpunkte liegen im Abstand $c$ vom Mittelpunkt der Ellipse.
 Der Halbparameter $p$ wird senkrecht zur grossen Achse gemessen.
-Die durchgezogene vertikale Gerade macht diesen rechten Winkel aus der Symmetrie ersichtlich.
+Die durchgezogene Sehne durch $F_1$ liegt symmetrisch zur grossen Achse und steht deshalb senkrecht auf ihr.
 Der Ort des Planeten wird durch den Abstand $r$ zur Sonne und den Polarwinkel $\vartheta$ beschrieben.
 Der Winkel wird vom sonnennächsten Punkt aus gemessen.
 \label{kepler:figure:ellipse}}
@@ -72,7 +74,7 @@ Sie misst die Abweichung von der Kreisform.
 Für eine Ellipse gilt $0\le \varepsilon<1$.
 Der Grenzfall $\varepsilon=0$ ergibt einen Kreis.
 Wir schreiben die Exzentrizität mit dem griechischen Buchstaben $\varepsilon$.
-Das reguläre $e$ bleibt so für die Eulersche Zahl reserviert.
+Das reguläre $e$ bleibt so für die eulersche Zahl reserviert.
 
 Für die Rechnung eignen sich Polarkoordinaten $(r,\vartheta)$ am besten.
 Die Sonne liegt dabei im Ursprung, also im Brennpunkt $F_1$.
@@ -113,7 +115,7 @@ Der Vektor $\hat{r}$ ist der Einheitsvektor von der Sonne zum Planeten.
 Die Gravitation ist eine Zentralkraft.
 Sie wirkt immer entlang der Verbindungslinie von Sonne und Planet.
 Deshalb verschwindet das Drehmoment bezüglich der Sonne: Wegen
-$\vec{F}\parallel\vec{r}$ gilt $\vec{M}=\vec{r}\times\vec{F}=0$.
+$\vec{F}\parallel\vec{r}$ gilt $\vec{r}\times\vec{F}=0$.
 Das Drehmoment ist die zeitliche Änderung des Drehimpulses.
 Der Drehimpuls
 \begin{equation}
@@ -210,7 +212,7 @@ Wir setzen beides zusammen mit $r=1/u$ und $\dot{\vartheta}=Lu^2/m$ in
 \]
 Beide Terme auf der linken Seite haben nun denselben Koeffizienten
 $-L^2u^2/m^2$.
-Wir dividieren die ganze Gleichung dadurch.
+Wir dividieren die ganze Gleichung durch diesen Koeffizienten.
 Übrig bleibt die lineare Differentialgleichung
 \begin{equation}
 \frac{d^2u}{d\vartheta^2}+u
@@ -248,8 +250,9 @@ m\sqrt{GMp\mathstrut}.
 Für $0\le \varepsilon<1$ ist die Bahn eine Ellipse.
 Das beweist das erste keplersche Gesetz.
 Für $\varepsilon\ge 1$ entstehen Parabeln und Hyperbeln.
-Das sind offene Bahnen von Körpern, die nicht an die Sonne gebunden sind, wie zum Beispiel Oumuamua, dem ersten interstellaren Objekt, das 2017 im Sonnensystem entdeckt worden ist.
-Oumuamua hat eine Bahnexzentrizität von $\varepsilon\approx 1.2$ \cite{kepler:oumuamua}.
+Das sind offene Bahnen von Körpern, die nicht an die Sonne gebunden sind.
+Ein Beispiel ist Oumuamua, das erste interstellare Objekt, das 2017 im Sonnensystem entdeckt worden ist.
+Seine Bahn hat die Exzentrizität $\varepsilon\approx 1.2$ \cite{kepler:oumuamua}.
 Für Planeten spielen solche Bahnen keine Rolle.
 Die Beziehung \eqref{kepler:eqn:drehimpulsgeometrie} ist bemerkenswert.
 Sie drückt den Drehimpuls allein durch die Massen und die Geometrie der Bahn aus.
@@ -286,8 +289,6 @@ T
 Damit ist das Problem auf ein bestimmtes Integral zurückgeführt.
 Das Integral sieht harmlos aus.
 Mit reellen Methoden ist es aber unangenehm.
-% Die übliche Weierstrass-Substitution $t=\tan(\vartheta/2)$ führt zwar zum Ziel.
-% Sie artet aber in eine lange Bruchrechnung aus.
 Wir werten das Integral in Abschnitt~\ref{kepler:section:komplex} deshalb mit komplexer Integration aus.
 Zuerst betrachten wir aber den Spezialfall der Kreisbahn.
 Dort erhält man das dritte keplersche Gesetz auch ohne dieses Integral.
