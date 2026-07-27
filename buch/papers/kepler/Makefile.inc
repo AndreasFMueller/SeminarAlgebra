@@ -4,6 +4,7 @@
 # (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
 dependencies-kepler =						\
+	papers/kepler/fig/fig-polstellen.tex			\
 	papers/kepler/packages.tex				\
 	papers/kepler/main.tex					\
 	papers/kepler/references.bib				\

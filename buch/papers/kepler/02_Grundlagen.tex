@@ -7,6 +7,7 @@
 %
 \section{Geometrische und physikalische Grundlagen
 \label{kepler:section:grundlagen}}
+\kopfrechts{Geometrische und physikalische Grundlagen}%
 
 Für die Umlaufzeit eines Planeten brauchen wir zwei Zutaten.
 Die erste Zutat ist die geometrische Form der Bahn.
@@ -21,63 +22,37 @@ Diese Darstellung ist der Ausgangspunkt für alles Weitere.
 \subsection{Die Ellipse in Polarkoordinaten
 \label{kepler:subsection:ellipse}}
 
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=latex,thick]
-\draw (0,0) ellipse (5.4 and 4.32);
-\draw[dashed] (-6.1,0) -- (6.1,0);
-\draw[dashed] (0,-4.7) -- (0,4.7);
-\draw[thin] (3.24,-3.456) -- (3.24,3.456);
-\draw[<->] (-5.4,0) -- (0,0) node[midway,below] {$a$};
-\draw[<->] (0,0) -- (0,4.32) node[midway,right] {$b$};
-\draw[<->] (0,0) -- (3.24,0) node[midway,below] {$c$};
-\draw[<->] (3.24,0) -- (3.24,3.456);
-\node[rotate=-90] at (3.52,2.2) {$p$};
-\fill (0,0) circle[radius=0.08];
-\fill (-3.24,0) circle[radius=0.08];
-\node at (-3.24,0.45) {$F_2$};
-\fill[color=orange] (3.24,0) circle[radius=0.16];
-\node[anchor=north east] at (3.05,-0.22) {$F_1$};
-\node[anchor=north west] at (3.43,-0.22) {Sonne};
-\draw[color=blue] (3.24,0) -- (2.7,3.7404) node[midway,left] {$r$};
-\fill[color=blue] (2.7,3.7404) circle[radius=0.1];
-\node[color=blue] at (3.33,4.16) {Planet};
-\draw (4.14,0) arc[start angle=0,end angle=98,radius=0.9];
-\node at (4.06,0.94) {$\vartheta$};
-\end{tikzpicture}
-\caption{Bahnellipse eines Planeten mit grosser Halbachse $a$ und
-kleiner Halbachse $b$.
-Die Sonne steht im Brennpunkt $F_1$.
-Der zweite Brennpunkt $F_2$ bleibt leer.
-Die Brennpunkte liegen im Abstand $c$ vom Mittelpunkt der Ellipse.
-Der Halbparameter $p$ wird senkrecht zur grossen Achse gemessen.
-Die durchgezogene Sehne durch $F_1$ liegt symmetrisch zur grossen Achse und steht deshalb senkrecht auf ihr.
-Der Ort des Planeten wird durch den Abstand $r$ zur Sonne und den Polarwinkel $\vartheta$ beschrieben.
-Der Winkel wird vom sonnennächsten Punkt aus gemessen.
-\label{kepler:figure:ellipse}}
-\end{figure}
+\input{papers/kepler/fig/fig-bahn.tex}
 
 Eine Ellipse hat eine grosse Halbachse $a$ und eine kleine Halbachse $b$.
+\index{Halbachse}%
 Sie besitzt zwei Brennpunkte $F_1$ und $F_2$.
-Diese liegen auf der grossen Achse im Abstand $c=\sqrt{a^2-b^2}$ vom Mittelpunkt (Abbildung~\ref{kepler:figure:ellipse}).
+\index{Brennpunkt}%
+Diese liegen auf der grossen Achse im Abstand $c=\!\sqrt{a^2-b^2}$ vom Mittelpunkt (Abbildung~\ref{kepler:figure:ellipse}).
 Das Verhältnis
 \begin{equation}
 \varepsilon
 =
 \frac{c}{a}
 =
-\sqrt{1-\frac{b^2}{a^2}}
+\!\sqrt{1-\frac{b^2}{a^2}}
 \label{kepler:eqn:exzentrizitaet}
 \end{equation}
 heisst \emph{numerische Exzentrizität}.
+\index{Exzentriztität, numerisch}%
 Sie misst die Abweichung von der Kreisform.
 Für eine Ellipse gilt $0\le \varepsilon<1$.
 Der Grenzfall $\varepsilon=0$ ergibt einen Kreis.
 Wir schreiben die Exzentrizität mit dem griechischen Buchstaben $\varepsilon$.
+\index{epsilon@$\varepsilon$}%
 Das reguläre $e$ bleibt so für die eulersche Zahl reserviert.
+\index{e@$e$}%
+\index{eulersche Zahl}%
 
 Für die Rechnung eignen sich Polarkoordinaten $(r,\vartheta)$ am besten.
+\index{Polarkoordinaten}%
 Die Sonne liegt dabei im Ursprung, also im Brennpunkt $F_1$.
+\index{Sonne}%
 In diesen Koordinaten lautet die Gleichung der Ellipse
 \begin{equation}
 r(\vartheta)
@@ -91,7 +66,9 @@ p
 a(1-\varepsilon^2).
 \label{kepler:eqn:ellipse}
 \end{equation}
-Die Grösse $p$ heisst Halbparameter der Ellipse.
+Die Grösse $p$ heisst \emph{Halbparameter} der Ellipse.
+\index{Halbparameter}%
+\index{p@$p$}%
 Sie ist der Abstand von der Sonne zur Bahn senkrecht zur grossen Achse.
 Der Winkel $\vartheta$ wird vom sonnennächsten Punkt aus gemessen.
 Für $\vartheta=0$ ist der Nenner maximal und der Abstand $r$ minimal.
@@ -113,11 +90,14 @@ Nach Newton \cite{kepler:principia} ist die Gravitationskraft
 Dabei ist $G$ die Gravitationskonstante.
 Der Vektor $\hat{r}$ ist der Einheitsvektor von der Sonne zum Planeten.
 Die Gravitation ist eine Zentralkraft.
+\index{Zentralkraft}%
 Sie wirkt immer entlang der Verbindungslinie von Sonne und Planet.
 Deshalb verschwindet das Drehmoment bezüglich der Sonne: Wegen
 $\vec{F}\parallel\vec{r}$ gilt $\vec{r}\times\vec{F}=0$.
 Das Drehmoment ist die zeitliche Änderung des Drehimpulses.
+\index{Drehmoment}%
 Der Drehimpuls
+\index{Drehimpuls}%
 \begin{equation}
 \vec{L}
 =
@@ -130,6 +110,7 @@ bleibt deshalb während der ganzen Bewegung erhalten.
 Daraus folgt auch, dass die Bahn eben ist.
 Der Ortsvektor $\vec{r}$ steht nämlich immer senkrecht auf dem festen Vektor $\vec{L}$.
 Wir können die Bewegung deshalb vollständig in der Bahnebene beschreiben.
+\index{Bahnebene}%
 Dazu verwenden wir die Polarkoordinaten aus Abschnitt~\ref{kepler:subsection:ellipse}.
 
 In Polarkoordinaten hat die Geschwindigkeit zwei Komponenten.
@@ -144,7 +125,9 @@ m\,r^2\,\dot{\vartheta}.
 \label{kepler:eqn:drehimpuls}
 \end{equation}
 Diese Beziehung enthält bereits das zweite keplersche Gesetz.
+\index{keplersches Gesetz!zweites}%
 In einem kurzen Zeitintervall $dt$ überstreicht der Fahrstrahl näherungsweise ein schmales Dreieck.
+\index{Fahrstrahl}%
 Das Dreieck hat die Seiten $r$ und $r\,d\vartheta$, also die Fläche $dA=\frac12 r^2\,d\vartheta$.
 Mit \eqref{kepler:eqn:drehimpuls} folgt für die
 Flächengeschwindigkeit
@@ -170,6 +153,7 @@ Damit können wir später die Umlaufzeit als Integral über den Winkel schreiben
 Jetzt begründen wir das erste keplersche Gesetz.
 Dabei finden wir auch den Zusammenhang zwischen dem Drehimpuls $L$ und der Bahngeometrie.
 Diesen Zusammenhang brauchen wir später.
+
 Die Bewegungsgleichung lautet $m\ddot{\vec{r}}=\vec{F}$.
 Ihre radiale Komponente ist in Polarkoordinaten
 \begin{equation}
@@ -220,7 +204,8 @@ Wir dividieren die ganze Gleichung durch diesen Koeffizienten.
 \frac{GMm^2}{L^2}.
 \label{kepler:eqn:binet}
 \end{equation}
-Sie ist in der Mechanik als Binet-Gleichung bekannt
+Sie ist in der Mechanik als \emph{Binet-Gleichung} bekannt
+\index{Binet-Gleichung}%
 \cite{kepler:goldstein}.
 
 Die allgemeine Lösung der Binet-Gleichung \eqref{kepler:eqn:binet} besteht aus zwei Teilen.
@@ -249,9 +234,13 @@ m\sqrt{GMp\mathstrut}.
 \end{equation}
 Für $0\le \varepsilon<1$ ist die Bahn eine Ellipse.
 Das beweist das erste keplersche Gesetz.
+\index{keplersches Gesetz!erstes}%
 Für $\varepsilon\ge 1$ entstehen Parabeln und Hyperbeln.
+\index{Parabel}%
+\index{Hyperbel}%
 Das sind offene Bahnen von Körpern, die nicht an die Sonne gebunden sind.
 Ein Beispiel ist Oumuamua, das erste interstellare Objekt, das 2017 im Sonnensystem entdeckt worden ist.
+\index{Oumuamua}%
 Seine Bahn hat die Exzentrizität $\varepsilon\approx 1.2$ \cite{kepler:oumuamua}.
 Für Planeten spielen solche Bahnen keine Rolle.
 Die Beziehung \eqref{kepler:eqn:drehimpulsgeometrie} ist bemerkenswert.

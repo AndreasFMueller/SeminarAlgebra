@@ -1,0 +1,50 @@
+%
+% polstellen.tex -- Lage der Polstellen in Abhängigkeit von \varepsilon
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\draw[->] (-8.5,0) -- (3.2,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-2.9) -- (0,2.9) coordinate[label={left:$\operatorname{Im}$}];
+
+
+\draw[color=blue] (0,0) circle[radius=2];
+\node[color=blue] at (1.52,1.68) {$C$};
+
+%\draw (-2,-0.14) -- (-2,0.14);
+\fill[color=blue] (-2,0) circle[radius=0.07];
+\node[color=blue,anchor=south east] at (-1.92,0.1) {$-1$};
+
+
+\fill[color=darkred] (-0.6667,0) circle[radius=0.07];
+\node[color=darkred] at (-0.6667,0.32) {$z_+$};
+\fill[color=darkred] (-6,0) circle[radius=0.07];
+\node[color=darkred] at (-6,0.32) {$z_-$};
+
+
+\draw[->, color=darkred, line width=1.1pt] (-6.3,0) -- (-8.2,0);
+\node[color=darkred, anchor=north] at (-7.15,-0.00) {$\varepsilon \to 0^+$};
+\draw[->, color=darkred, line width=1.1pt] (-5.7,0) -- (-2.3,0);
+\node[color=darkred, anchor=north] at (-4.0,-0.00) {$\varepsilon \to 1^-$};
+
+
+\draw[->, color=darkred, line width=1.1pt] (-0.9,0) -- (-1.95,0);
+\node[color=darkred, anchor=north] at (-1.35,-0.00) {$\varepsilon \to 1^-$};
+\draw[->, color=darkred, line width=1.1pt] (-0.45,0) -- (-0.05,0);
+\node[color=darkred, anchor=north west] at (-0.35,-0.00) {$\varepsilon \to 0^+$};
+
+\end{tikzpicture}
+\end{document}
+
