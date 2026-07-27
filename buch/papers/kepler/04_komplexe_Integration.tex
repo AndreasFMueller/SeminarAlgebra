@@ -33,7 +33,7 @@ e^{i\vartheta}
 \frac12\biggl(z+\frac{1}{z}\biggr).
 \]
 Der Winkel $\vartheta$ läuft von $0$ bis $2\pi$.
-Die Variable $z$ durchläuft dabei den Einheitskreis $C=\{z\in\mathbb{C}\,|\,|z|=1\}$ genau einmal im positiven Umlaufsinn.
+Die Variable $z$ durchläuft dabei den Einheitskreis $C=\{z\in\mathbb{C}\mid |z|=1\}$ genau einmal im positiven Umlaufsinn.
 Aus $dz=ie^{i\vartheta}\,d\vartheta$ folgt für das Differential
 \[
 d\vartheta
@@ -42,6 +42,8 @@ d\vartheta
 \]
 Vor dem Einsetzen bringen wir den Nenner des Integranden auf einen gemeinsamen Bruch:
 \[
+1+\varepsilon\cos(\vartheta)
+=
 1+\varepsilon\cdot\frac12\biggl(z+\frac{1}{z}\biggr)
 =
 \frac{\varepsilon z^2+2z+\varepsilon}{2z}.
@@ -84,32 +86,41 @@ Mit ihr arbeiten wir im Folgenden.
 \centering
 \begin{tikzpicture}[>=latex,thick]
 
-\draw[->] (-4.5,0) -- (1.9,0) coordinate[label={$\operatorname{Re}$}];
-\draw[->] (0,-1.8) -- (0,1.7) coordinate[label={left:$\operatorname{Im}$}];
+\draw[->] (-8.5,0) -- (3.2,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-2.9) -- (0,2.9) coordinate[label={left:$\operatorname{Im}$}];
 
 
-\draw[color=blue] (0,0) circle[radius=1];
-\node[color=blue] at (0.85,0.95) {$C$};
+\draw[color=blue] (0,0) circle[radius=2];
+\node[color=blue] at (1.72,1.88) {$C$};
+
+\draw (-2,-0.14) -- (-2,0.14);
+\node[anchor=south east] at (-2.04,0.1) {$-1$};
 
 
-\fill[color=red] (-0.3333,0) circle[radius=0.05];
-\node[color=red] at (-0.3333,0.3) {$z_+$};
-\fill[color=red] (-3,0) circle[radius=0.05];
-\node[color=red] at (-3,0.3) {$z_-$};
+\fill[color=red] (-0.6667,0) circle[radius=0.07];
+\node[color=red] at (-0.6667,0.42) {$z_+$};
+\fill[color=red] (-6,0) circle[radius=0.07];
+\node[color=red] at (-6,0.42) {$z_-$};
 
 
-\draw[->, color=red] (-3.2, -0.25) -- (-4.3, -0.25) node[midway, below] {\scriptsize $\varepsilon \to 0^+$};
-\draw[->, color=red] (-2.8, -0.25) -- (-1.15, -0.25) node[midway, below] {\scriptsize $\varepsilon \to 1^-$};
+\draw[->, color=red, line width=1pt] (-6.3,0) -- (-8.2,0);
+\node[color=red, anchor=north] at (-7.25,-0.18) {\scriptsize $\varepsilon \to 0^+$};
+\draw[->, color=red, line width=1pt] (-5.7,0) -- (-2.3,0);
+\node[color=red, anchor=north] at (-4.0,-0.18) {\scriptsize $\varepsilon \to 1^-$};
 
 
-\draw[->, color=red] (-0.45, -0.25) -- (-0.88, -0.25) node[midway, below] {\scriptsize $\varepsilon \to 1^-$};
-\draw[->, color=red] (-0.2, -0.65) -- (0.1, -0.65) node[midway, below] {\scriptsize $\varepsilon \to 0^+$};
+\draw[->, color=red, line width=1pt] (-0.9,0) -- (-1.95,0);
+\node[color=red, anchor=north] at (-1.45,-0.18) {\scriptsize $\varepsilon \to 1^-$};
+\draw[->, color=red, line width=1pt] (-0.45,0) -- (-0.05,0);
+\node[color=red, anchor=north west] at (0.15,-0.18) {\scriptsize $\varepsilon \to 0^+$};
 \end{tikzpicture}
 \caption{Lage der beiden Polstellen relativ zum Integrationsweg $C$.
 Gezeichnet ist der Fall $\varepsilon=0.6$.
 Beide Polstellen liegen auf der negativen reellen Achse, hier bei $z_+=-\frac13$ und $z_-=-3$.
 Nur $z_+$ liegt im Inneren des Einheitskreises.
-Nur dieser Pol trägt zum Wegintegral bei. Die roten Pfeile deuten das Verhalten bei Veränderung von $\varepsilon$ an.
+Nur dieser Pol trägt zum Wegintegral bei.
+Die roten Pfeile deuten das Verhalten bei Veränderung von $\varepsilon$ an.
+Für $\varepsilon\to 1^-$ streben beide Pole gegen den Punkt $-1$ auf dem Einheitskreis.
 \label{kepler:figure:polstellen}}
 \end{figure}
 
@@ -120,7 +131,7 @@ Dazu lösen wir die quadratische Gleichung
 z^2+\frac{2}{\varepsilon}z+1
 =
 0
-\qquad\Longrightarrow\qquad
+\qquad\Rightarrow\qquad
 z_{\pm}
 =
 -\frac{1}{\varepsilon}\pm\sqrt{\frac{1}{\varepsilon^2}-1}.
@@ -132,31 +143,45 @@ Auf dem Integrationsweg selbst liegen keine Pole.
 
 Die Wurzelausdrücke sehen kompliziert aus.
 Sie werden sich später aber stark vereinfachen.
-Im Moment interessiert nur eine Frage: welcher Pol liegt innerhalb von $C$?
+Im Moment interessiert nur eine Frage: Welcher Pol liegt innerhalb von $C$?
 Die Antwort auf diese Frage bekommen wir mittels Grenzwertbetrachtungen für $z_+$ und $z_-$.
+Die roten Pfeile in Abbildung~\ref{kepler:figure:polstellen} zeigen, wie sich die beiden Pole dabei bewegen.
 
-Für die Nullstelle $z_-$ ausserhalb des Einheitskreises gilt:
+Für die Nullstelle $z_-$ gilt:
 \begin{align*}
 \lim_{\varepsilon \to 0^+} z_- &= \lim_{\varepsilon \to 0^+} \biggl(-\frac{1}{\varepsilon}-\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -\infty, \\
 \lim_{\varepsilon \to 1^-} z_- &= \lim_{\varepsilon \to 1^-} \biggl(-\frac{1}{\varepsilon}-\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -1.
 \end{align*}
-Für die Nullstelle $z_+$ im Inneren des Einheitskreises verhalten sich die Grenzwerte folgendermassen:
+Der Pol $z_-$ liegt also ausserhalb des Einheitskreises.
+
+Für die Nullstelle $z_+$ verhalten sich die Grenzwerte folgendermassen:
 \begin{align*}
 \lim_{\varepsilon \to 0^+} z_+ &= \lim_{\varepsilon \to 0^+} \biggl(-\frac{1}{\varepsilon}+\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = 0, \\
 \lim_{\varepsilon \to 1^-} z_+ &= \lim_{\varepsilon \to 1^-} \biggl(-\frac{1}{\varepsilon}+\sqrt{\frac{1}{\varepsilon^2}-1}\biggr) = -1.
 \end{align*}
-
 Wie wir sehen, liegt der Pol $z_+$ innerhalb des Einheitskreises.
-Der Pol $z_-$ liegt ausserhalb.
+Die Grenzwerte beschreiben allerdings nur die Ränder des Intervalls $0<\varepsilon<1$.
+Den Nachweis für das ganze Intervall liefert der Satz von Vieta.
+Nach ihm ist das Produkt der beiden Nullstellen $z_+z_-=1$.
+Beide sind negativ, und wegen $z_-<z_+$ ist $|z_+|<|z_-|$.
+Zusammen mit $|z_+|\,|z_-|=1$ folgt daraus $|z_+|<1<|z_-|$.
+Für jede Exzentrizität $0<\varepsilon<1$ liegt also genau ein Pol im Inneren des Einheitskreises, nämlich $z_+$.
 
 \subsection{Auswertung mit der Cauchy-Formel für Ableitungen
 \label{kepler:subsection:cauchy}}
 
 Wir wollen die Cauchy-Integralformel von
-Satz~\ref{buch:integration:satz:residuensatz} anwenden.
+Satz~\ref{buch:integration:satz:residuensatz} anwenden, genauer ihre
+Verallgemeinerung für Ableitungen.
 Dazu schreiben wir den Integranden passend um.
 Nur der Pol im Inneren soll noch explizit auftreten.
-Mit der Faktorisierung des Nenners ist
+Mit den beiden Nullstellen $z_+$ und $z_-$ zerfällt der Nenner in die Linearfaktoren
+\[
+z^2+\frac{2}{\varepsilon}z+1
+=
+(z-z_+)(z-z_-).
+\]
+Damit ist
 \[
 \oint_C
 \frac{z}{\bigl(z^2+\frac{2}{\varepsilon}z+1\bigr)^2}
@@ -195,9 +220,9 @@ f'(z)
 -\frac{z+z_-}{(z-z_-)^3}.
 \]
 Jetzt setzen wir die Stelle $z_+$ ein.
-Zähler und Nenner lassen sich direkt durch die Vieta-Beziehungen der quadratischen Gleichung $z^2+\frac{2}{\varepsilon}z+1=0$ ausdrücken.
+Zähler und Nenner lassen sich direkt durch die Vieta-Beziehungen der quadratischen Gleichung $z^2+\smash{\frac{2}{\varepsilon}}z+1=0$ ausdrücken.
 Im Zähler steht die Summe $z_++z_-=-2/\varepsilon$.
-Im Nenner steht die Differenz $z_+-z_-=2\sqrt{1/\varepsilon^2-1}$.
+Im Nenner steht die Differenz $z_+-z_-=2\smash{\sqrt{1/\varepsilon^2-1}}$.
 Die unhandlichen Wurzelterme kombinieren sich dadurch zu
 \[
 f'(z_+)
@@ -252,16 +277,16 @@ T
 \frac{2\pi}{(1-\varepsilon^2)^{\frac{3}{2}}}.
 \]
 Den Drehimpuls ersetzen wir mit
-\eqref{kepler:eqn:drehimpulsgeometrie} durch $L=m\sqrt{GMp}$.
+\eqref{kepler:eqn:drehimpulsgeometrie} durch $L=m\sqrt{GMp\mathstrut}$.
 Die Planetenmasse $m$ kürzt sich dabei wie schon im Kreisfall heraus:
 \[
 T
 =
-\frac{p^2}{\sqrt{GMp}}
+\frac{p^2}{\sqrt{GMp\mathstrut}}
 \cdot
 \frac{2\pi}{(1-\varepsilon^2)^{\frac{3}{2}}}
 =
-\frac{2\pi}{\sqrt{GM}}
+\frac{2\pi}{\sqrt{GM\mathstrut}}
 \cdot
 \frac{p^{\frac{3}{2}}}{(1-\varepsilon^2)^{\frac{3}{2}}}.
 \]
@@ -270,11 +295,11 @@ Der Faktor $(1-\varepsilon^2)$ fällt damit vollständig aus der Formel heraus:
 \[
 T
 =
-\frac{2\pi}{\sqrt{GM}}
+\frac{2\pi}{\sqrt{GM\mathstrut}}
 \cdot
 \frac{a^{\frac{3}{2}}(1-\varepsilon^2)^{\frac{3}{2}}}{(1-\varepsilon^2)^{\frac{3}{2}}}
 =
-\frac{2\pi\,a^{\frac{3}{2}}}{\sqrt{GM}}.
+\frac{2\pi\,a^{\frac{3}{2}}}{\sqrt{GM\mathstrut}}.
 \]
 Die Umlaufzeit hängt also weder von der Masse des Planeten noch von der Exzentrizität seiner Bahn ab.
 Sie hängt nur von der grossen Halbachse und der Masse des Zentralgestirns ab.
