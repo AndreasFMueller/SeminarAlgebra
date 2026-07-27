@@ -1,4 +1,26 @@
+%
+% konvergenz_vergleich.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\usetikzlibrary{arrows.meta, decorations.markings, decorations.pathmorphing, positioning, patterns}
+\usetikzlibrary{calc,intersections,through,backgrounds,graphs,positioning,shapes,arrows,fit,math}
+\usetikzlibrary{patterns,decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.misc}
 
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
 % ============================================================================
 % Bild 7: Konvergenzvergleich (Fehler vs. Stuetzstellen), nativ in pgfplots
 % ============================================================================
@@ -30,7 +52,6 @@
 %   * 17 Dekaden (1e-17..1e0), Ticks alle 4 Dekaden; Maschinengenauigkeit
 %     als gepunktete Linie bei eps ~ 1e-16 knapp ueber dem Achsenboden.
 % ============================================================================
-\begin{tikzpicture}
 
 % ==============================
 % 1. FARBEN DEFINIEREN
@@ -109,4 +130,7 @@
         at (axis cs:70, 8e-10) {Rundungsfehler};
 
 \end{semilogyaxis}
+
 \end{tikzpicture}
+\end{document}
+

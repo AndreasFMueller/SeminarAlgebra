@@ -1,3 +1,31 @@
+%
+% pol_kette.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\usetikzlibrary{arrows.meta, decorations.markings, decorations.pathmorphing, positioning, patterns}
+\usetikzlibrary{calc,intersections,through,backgrounds,graphs,positioning,shapes,arrows,fit,math}
+\usetikzlibrary{patterns,decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows,intersections}
+\usetikzlibrary{shapes.misc}
+
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{0.85}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+
+
 % ============================================================================
 % Bild 4: Bemasste "technische Zeichnung" der unendlichen Pol-Kette
 % ============================================================================
@@ -36,8 +64,6 @@
 % * Bei s = 0 KEIN Pol (hebbare Singularitaet, Zaehler verschwindet
 %   mit): offener Kreis statt Kreuz, graue Annotation "hebbar".
 % ============================================================================
-\scalebox{0.85}{
-\begin{tikzpicture}
 
 % ==============================
 % 1. FARBEN DEFINIEREN
@@ -124,7 +150,8 @@
         } & Hebbare Singularit\"at \\
 
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotblue, ->-=0.6] (-0.3, 0) -- (0.3, 0);
+            \draw[thick, plotblue] (-0.3, 0) -- (0.3, 0);
+            \draw[thick, plotblue, -{Stealth[length=2.5mm, width=1.8mm]}] (-0.3, 0) -- (0.15, 0);
         } & Bromwich-Pfad \\
 
         \tikz[baseline=-0.6ex]{
@@ -135,4 +162,6 @@
 };
 
 \end{tikzpicture}
-}
+\end{document}
+
+

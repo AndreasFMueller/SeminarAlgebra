@@ -1,15 +1,28 @@
-\begin{figure}
-\centering
-\scalebox{0.85}{
-\begin{tikzpicture}
+%
+% bromwich_contour.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\usetikzlibrary{arrows.meta, decorations.markings, decorations.pathmorphing, positioning, patterns}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{decorations.markings}
 
-% ==============================
-% 1. FARBEN DEFINIEREN
-% ==============================
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{plotbg}{RGB}{244, 244, 252}
+\definecolor{plotgray}{RGB}{140, 140, 140}
 \definecolor{plotblue}{RGB}{0, 0, 200}
 \definecolor{plotred}{RGB}{220, 30, 30}
-\definecolor{plotgray}{RGB}{140, 140, 140}
-\definecolor{plotbg}{RGB}{244, 244, 252}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
 
 % ==============================
 % 2. HINTERGRUND (Konvergenzbereich)
@@ -30,11 +43,13 @@
 \draw[thick] (1.5, 0.15) -- (1.5, -0.15) node[below right, inner sep=2pt] {$\boldsymbol{\gamma_0}$};
 
 % Bromwich-Pfad (\gamma)
-\draw[thick, plotblue, ->-=0.55] (2.5, -4.8) -- (2.5, 4.8);
+%\draw[thick, plotblue, ->-=0.55] (2.5, -4.8) -- (2.5, 4.8);
+\draw[thick, plotblue] (2.5, -4.8) -- (2.5, 4.8);
+\draw[thick,plotblue, -{Stealth[length=3.5mm, width=2.5mm]}] (2.5,-4.8) -- (2.5,0.5);
 \draw[thick] (2.5, 0.15) -- (2.5, -0.15) node[below right, inner sep=2pt] {$\boldsymbol{\gamma}$};
 
 % Text im Konvergenzbereich
-\node[plotblue, align=center, font=\small] at (3.75, 3) {Konvergenz-\\bereich};
+\node[plotblue, align=center] at (3.75, 3) {Konvergenz-\\bereich};
 
 % ==============================
 % 5. POLE (Rote Kreuze)
@@ -73,14 +88,13 @@
         
         % Symbol 3: Bromwich-Pfad (Mit Dekoration für perfekten Strich)
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotblue, ->-=0.6] (-0.3, 0) -- (0.3, 0); % Durchgehender Strich
+            \draw[thick, plotblue] (-0.3, 0) -- (0.3, 0); % Durchgehender Strich
+	    \draw[plotblue, -{Stealth[length=3.5mm, width=2.5mm]}] (-0.3,0) -- (0.15,0);
         } & Bromwich-Pfad \\
         
     \end{tabular}
 };
 
 \end{tikzpicture}
-}
-\caption{Die Bromwich-Kontur in der komplexen $s$-Ebene. Die Integrationsgerade (blau) liegt rechts von der Konvergenzabszisse $\gamma_0$ und allen Singularitäten (rote Kreuze).}
-\label{laplace:fig:bromwich}
-\end{figure}
+\end{document}
+
