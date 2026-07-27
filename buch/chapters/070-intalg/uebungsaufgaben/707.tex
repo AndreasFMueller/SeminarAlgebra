@@ -17,7 +17,7 @@ als gekürzten Bruch $q_1(x)=a(x)/b(x)$ schreiben, wobei
 $b(x)$ normiert ist.
 Wir erhalten dann nach Einsetzen und Multiplizieren mit $b(x)^2$
 \begin{align*}
-Da(x)\cdot b(x) - a(x) \cdot Db(x) + a(x) b(x) &= \frac{1}{x}b(x)^2
+Da(x)\cdot b(x) - a(x) \cdot Db(x) + a(x) b(x) &= \frac{1}{x}b(x)^2.
 \end{align*}
 Alle Terme ausser dem zweiten sind offensichtlich durch $b(x)$ teilbar,
 also muss auch $Db(x)$ durch $b(x)$ teilbar sein.
@@ -26,20 +26,37 @@ Konstante $b(x)=b_0$.
 Da $b(x)$ normiert ist, folgt ausserdem $b_0=1$.
 Es bleibt daher
 \begin{align*}
-Da(x) + a(x) &= \frac{1}{x}
+Da(x) + a(x) &= \frac{1}{x}.
 \end{align*}
 Auf der linken Seite steht ein Polynom, auf der rechten jedoch nicht.
 Dieser Widerspruch zeigt, dass $q_1(x)$ in der verlangten Form nicht
 existieren kann und daher die Stammfunktion nicht elementar ist.
 \end{loesung}
 
+\input{chapters/070-intalg/fig/fig-ei.tex}%
+
 \begin{diskussion}
 Die Funktion
-\[
+\begin{equation}
 \operatorname{Ei}(x)
 =
 \int_{-\infty}^x \frac{e^t}{t}\,dt
-\]
+\label{buch:intalg:risch:eqn:integralexponential}
+\end{equation}
 heisst die \emph{Integralexponentialfunktion}.
 \index{Integralexponentialfunktion}%
+
+Der Graph der Integralexponentialfunktion ist in
+Abbildung~\ref{buch:intalg:604:ei} dargestellt.
+$\operatorname{Ei}(x)$ ist nahe mit dem Integrallogarithmus
+von Definition~\ref{buch:intalg:risch:def:integrallogarithmus}
+verwandt, es gilt nämlich
+\[
+\operatorname{li}(x) = \operatorname{Ei}(\log x)
+\qquad\Leftrightarrow\qquad
+\operatorname{li}(e^x) = \operatorname{Ei}(x).
+\]
+Wie beim Integrallogarithmus muss die Singularität des Integranden in
+\eqref{buch:intalg:risch:eqn:integralexponential}
+bei $t=0$ mit dem Hauptwert überbrückt werden.
 \end{diskussion}

@@ -1,0 +1,301 @@
+%
+% 32-fuchs.tex -- Fuchssche Gleichung
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Fuchssche Gleichung mit nicht konstanten Funktionen
+$p(x)$ und $q(x)$
+\label{buch:differentialgleichungen:fuchs:subsection:nichtkonstant}}
+In diesem Abschnitt lösen wir die Differentialgleichung
+\eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
+für nicht konstanten, aber analytischen Koeffizientenfunktionen
+$p(x)$ und $q(x)$.
+Letztere lassen sich also in Potenzreihen
+\[
+p(x)
+=
+\sum_{l=0}^\infty p_lx^l
+\qquad
+\text{und}
+\qquad
+q(x)
+=
+\sum_{l=0}^\infty q_lx^l
+\]
+entwickeln.
+Die Lösung setzen wir in der Form einer verallgemeinerten Potenzreihe
+\[
+y(x)
+=
+\sum_{k=0}^\infty
+a_kx^{k+\varrho}
+\]
+an, wobei nach Definition einer verallgemeinerten Potenzreihe $a_0\ne 0$
+sein muss.
+Man beachte aber, dass im Gegensatz zu einer gewöhnlichen Potenzreihe,
+der Koeffizienten $a_0$ nicht der Anfangswert für $x=0$ ist.
+
+\subsubsection{Differentialgleichung und Koeffizientenvergleich}
+Die Einsetzen von $y(x)$ in die Differentialgleichung ergibt
+\begin{align*}
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}
++
+\sum_{k=0}^\infty
+\sum_{l=0}^\infty
+(k+\varrho)a_kp_l x^{k+\varrho+l}
++
+\sum_{k=0}^\infty
+\sum_{l=0}^\infty
+a_kq_l x^{k+\varrho+l}
+&=
+0
+\\
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}
++
+\sum_{k=0}^\infty
+\sum_{s=0}^k
+(k-s+\varrho)a_{k-s}p_s x^{k+\varrho}
++
+\sum_{k=0}^\infty
+\sum_{s=0}^k
+a_{k-s}q_s x^{k+\varrho}
+&=
+0
+\\
+\sum_{k=0}^\infty
+\biggl(
+(k+\varrho)(k+\varrho-1)a_k
++
+\sum_{s=0}^k
+(k-s+\varrho)a_{k-s}p_s
++
+\sum_{s=0}^k
+a_{k-s}q_s
+\biggr)
+x^{k+\varrho}
+&=
+0.
+\end{align*}
+Ein Koeffizientenvergleich liefert jetzt die Bedingungen
+\begin{equation}
+(k+\varrho)(k+\varrho-1)a_k
++
+\sum_{s=0}^k
+(k-s+\varrho)a_{k-s}p_s
++
+\sum_{s=0}^k
+a_{k-s}q_s
+=
+0,
+\label{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+\end{equation}
+die für beliebige $k\in\mathbb{>N}$ erfüllt sein muss.
+
+%
+% Indexgleichung
+%
+\subsubsection{Indexgleichung}
+Der Fall $k=0$ der Bedingungen
+\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+ist
+\[
+(
+\varrho(\varrho-1)
++
+\varrho p_0
++
+q_0
+)
+a_0
+=
+0,
+\]
+was wegen $a_0\ne 0$ die Gleichung
+\begin{equation}
+\varrho(\varrho-1)
++
+\varrho p_0
++
+q_0
+=
+0
+\end{equation}
+gelten muss, die auch die \emph{Indexgleichung}
+\index{Indexgleichung}%
+genannt wird.
+Eine Lösung in Form einer verallgemeinerten Potenzreihe ist also
+nur möglich, wenn $\varrho$ eine Nullstelle der Indexgleichung ist.
+
+Für spätere Verwendung schreiben wir die linke Seite der Indexgleichung
+als Funktion
+\[
+F(\varrho)
+=
+\varrho(\varrho-1)
++
+\varrho p_0
++
+q_0
+=
+\varrho^2
++
+(p_0-1)\varrho
++
+q_0.
+\]
+Diese Funktion wird im folgenden Abschnitt bei der rekursiven
+Bestimmung der Koeffizienten $a_n$ nützlich sein.
+
+%
+% Rekursive Bestimmung der a_n
+%
+\subsubsection{Rekursive Bestimmung der $a_n$}
+Die Bedingungen~\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+können jetzt verwendet werden, um alle Koeffizienten $a_n$ für $n>0$
+aus $a_0$ zu bestimmen.
+Dazu spalten wir in der Gleichung
+\eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}
+für $k=n$ von den Summen den $a_n$ enthaltenden ersten Term mit $s=0$ ab
+und erhalten
+\begin{equation*}
+(n+\varrho)(n+\varrho+1)
+a_n
++
+(n+\varrho)a_np_0
++
+\sum_{s=1}^n
+(n-s+\varrho)a_{k-s}p_s
++
+a_nq_0
++
+\sum_{s=1}^n
+a_{n-s}q_s
+=
+0.
+\end{equation*}
+Wir bringen die Terme mit $a_n$ auf die linke Seite 
+von
+\begin{equation}
+\bigl(
+(n+\varrho)(n+\varrho+1)
++
+(n+\varrho)p_0
++
+q_0
+\bigr)
+a_n
+=
+-
+\sum_{s=1}^n
+\Bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\Bigr)
+a_{n-s}
+\label{buch:differentialgleichungen:fuchs:eqn:anrekursion}
+\end{equation}
+oder
+\begin{align}
+a_n
+&=
+-
+\frac{1}{
+(n+\varrho)(n+\varrho+1)
++
+(n+\varrho)p_0
++
+q_0
+}
+\sum_{s=1}^n
+\bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\bigr)
+a_{n-s}
+\notag
+\\
+&=
+-
+\frac{1}{F(n+\varrho)}
+\sum_{s=1}^n
+\bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\bigr)
+a_{n-s}.
+\label{buch:differentialgleichungen:fuchs:eqn:rekursionan}
+\end{align}
+Die rechte Seite hängt nur von den Termen $a_0,\dots,a_{n-1}$ ab.
+
+%
+% Lösung
+%
+\subsubsection{Lösung}
+Um die Lösung der Differentialgleichung zu finden, muss jetzt also
+erst die Indexgleichung gelöst werden, um die möglichen Exponenten
+$\varrho$ zu bestimmen.
+Diese zwei Werte werden zwei linear unabhängige Lösungen der
+ursprünglichen Differentialgleichungen ergben.
+
+Dann werden die Rekursionsgleichungen 
+\eqref{buch:differentialgleichungen:fuchs:eqn:rekursionan}
+verwendet, um die Koeffizienten für die Potenzreihe zu bestimmen.
+Dabei werden einzelne Koeffizienten frei gewählt werden können.
+
+Schliesslich können die beiden gefundenen Lösungen linear kombiniert
+werden, um die allgemeine Lösung der Differentialgleichung zu finden.
+Die Anfangs- oder Randbedingungen bestimmen dann die Koeffizienten
+der Linearkombination.
+
+%
+% Nullstellen von F
+%
+\subsubsection{Nullstellen von $F$}
+Die Rekursionsformel
+\eqref{buch:differentialgleichungen:fuchs:eqn:rekursionan}
+offenbart aber noch eine weitere Schwierigkeit.
+Wenn $n+\varrho$ eine Nullstelle der Funktion $F$ ist, dann verschwindet
+die linke Seite von
+\eqref{buch:differentialgleichungen:fuchs:eqn:anrekursion},
+es muss also auch die rechte verschwinden, wenn es eine Lösung
+geben soll.
+
+Dies auferlegt die zusätzliche Bedingung
+\[
+-
+a_n
+F(n+\varrho)
+=
+\sum_{s=1}^n
+\bigl(
+(n-s+\varrho)p_s
+-
+q_s
+\bigr)
+a_{n-s}
+=
+0,
+\]
+die Koeffizienten können also nicht beliebig gewählt werden.
+
+Das Verschwinden von $F(n+\varrho)$ ist unvermeidlich, wenn sich die
+beiden Nullstellen der Indexgleichung um eine ganze Zahl unterscheiden.
+Für die Differenz $n=\varrho_2-\varrho_1$ der beiden Nullstellen gilt
+dann $F(n+\varrho_1)=F(\varrho_2)=0$.
+In diesem Fall kann es schwierig sein, zwei unabhängige Lösungen zu
+finden.
+
+Bei der Bessel-Gleichung ist es zum Beispiel nicht möglich, 
+zwei unabhängig Lösungen finden, wenn die Lösungen der Indexgleichung
+ganz- oder halbzahlig sind.
+Man findet dann nur die sogenannten Bessel-Funktionen erster Art.
+Erst durch analytische Fortsetzung der Lösungsfunktion um die
+Singularität an der Stelle $x=0$ kann eine linear unabhängige
+Lösungsfunktion gefunden werden, die Bessel-Funktionen zweiter Art.
+
+

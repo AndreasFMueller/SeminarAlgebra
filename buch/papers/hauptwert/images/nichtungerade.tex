@@ -1,0 +1,48 @@
+%
+% nichtungerade.tex -- Graph der Funktion f(x) = (x+1)/(1+x^2)
+%
+% (c) 2026 Damien Flury, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,math}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,yscale=1.5]
+
+% Flächen unter dem Integranden, Nullstelle bei x = -1
+\fill[darkgreen!30,opacity=0.5]
+	(-4,0) -- plot[domain=-4:-1,samples=100] ({\x},{(\x+1)/(1+\x*\x)}) -- cycle;
+\fill[darkgreen!30,opacity=0.5]
+	(-1,0) -- plot[domain=-1:4,samples=200] ({\x},{(\x+1)/(1+\x*\x)}) -- (4,0) -- cycle;
+
+% Achsen
+\draw[->] (-4.3,0) -- (4.5,0) coordinate[label={$x$}];
+\draw[->] (0,-0.6) -- (0,1.5) coordinate[label={right:$y$}];
+
+% Achsenbeschriftung
+\foreach \x in {-4,-3,-2,-1,1,2,3,4}{
+	\draw (\x,-0.033) -- (\x,0.033);
+}
+\foreach \x in {-4,-3,-2}{
+	\node at (\x,0) [below] {$\x$};
+}
+\node at (-1,0) [below right] {$-1$};
+\foreach \x in {1,2,3,4}{
+	\node at (\x,0) [below] {$\x$};
+}
+\draw (-0.05,1) -- (0.05,1);
+\node at (0,1) [above left] {$1$};
+
+% Graph
+\draw[color=darkgreen,line width=1.4pt]
+	plot[domain=-4.2:4.2,samples=200] ({\x},{(\x+1)/(1+\x*\x)});
+
+\node[color=darkgreen] at (3.0,0.85) {$f(x)=\dfrac{x+1}{1+x^2}$};
+
+\end{tikzpicture}
+\end{document}

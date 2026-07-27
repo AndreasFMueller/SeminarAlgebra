@@ -8,15 +8,16 @@
 Die Homotpieeigenschaft des Wegintegrals hat gezeigt, dass sich der
 Wert eines Wegintegrals einer holomorphen Funktion nicht ändert, wenn
 man den Weg stetig deformiert.
-Dies wurde zum Beispiel in Abbildung~\ref{buch:integration:homologie:fig:residuum}
+Dies wurde zum Beispiel in
+Abbildung~\ref{buch:integration:homologie:fig:residuum}
 verwendet, um zu zeigen, dass der Weg $\gamma$ und der kleine Kreis
 um den Punkt $z_0$ zu den gleichen Werten der Wegintegrale führen.
 Diese Äquivalenz von Ketten, die zu gleichen Wegintegralen führen,
 verdient einen eigenen Namen.
 
 \begin{definition}[homolog]
-Die Ketten $c_1$ und $c_2$ heissen \emph{homolog} in $U$, in Zeichen
-$c_1\sim c_2$ oder $c_1\sim_{U}c_2$, wenn
+Die geschlossene Ketten $c_1$ und $c_2$ heissen \emph{homolog} in $U$,
+in Zeichen $c_1\sim c_2$ oder $c_1\sim_{U}c_2$, wenn
 \index{homolog}%
 für jeden Punkt $a\in \mathbb{C}\setminus U$ ausserhalb von $U$
 die Umlaufzahlen
@@ -35,16 +36,191 @@ Für homologe Ketten ist nicht nur die Umlaufzahl gleich, sondern
 jedes Integral einer holomorphen Funktion über die Ketten.
 
 \begin{satz}
+\label{buch:integration:homologie:satz:cauchyketten}
+Sei $U$ ein Gebiet in $\mathbb{C}$ und
+$c$ eine Kette, die homolog zu $0$ ist.
+Dann ist
+\[
+\int_c f(z)\,dz = 0
+\]
+für jede in $U$ holomorphe Funktion.
+\end{satz}
+
+Aus diesem Satz folgt sofort das folgende Korollar.
+Es zeigt, dass es bei Kettenintegralen von holomorphen Funktionen
+nur auf die Homologieklasse der Kette ankommt, über die integriert
+wird.
+Sind Ketten homolog, ergibt sich auch der gleiche Wert des Integrals.
+
+\begin{korollar}
 Sind die Ketten $c_1$ und $c_2$ homolog, dann ist
 \[
 \int_{c_1} f(z)\,dz
 =
 \int_{c_2} f(z)\,dz.
 \]
-\end{satz}
+\end{korollar}
 
 \begin{proof}
-TODO
+Die Kette $c=c_1-c_2$ ist homolog zu 0 und daher
+\[
+0
+=
+\int_c f(z)\,dz
+=
+\int_{c_1}f(z)\,dz - \int_{c_2}f(z)\,dz
+\qquad\Rightarrow\qquad
+\int_{c_1}f(z)\,dz = \int_{c_2}f(z)\,dz.
+\qedhere
+\]
+\end{proof}
+
+Der Satz~\ref{buch:integration:homologie:satz:cauchyketten}
+macht keine Voraussetzung weiteren Voraussetzungen an die Funktion
+als dass sie in $U$ holomorph sein muss.
+Die Funktionen $z\mapsto 1/(z-z_0)$ mit $z_0\in\mathbb{C}\setminus U$
+sind alle holomorph in $U$.
+Die Integrale über die Kette ergeben die Umlaufzahlen.
+Da die Ketten 0-homolog sind, müssen alle diese Umlaufzahlen 0
+ergeben.
+
+Für beliebige Funktionen $f(z)$ können wir in der Umgebung eines
+Punktes immer eine lokale Stammfunktion finden, die ausserdem
+unabhängig ist vom Weg.
+Zum Beispiel wissen wir schon, dass Wegintegrale über den Rand
+von Rechtecke immer verschwinden, wenn $f(z)$ holomorph ist im
+ganzen Rechteck.
+Auch wissen wir dies bereits für geschlossene und zusammenziehbare
+Wege.
+Die Hauptaufgabe des Beweises ist also, diese Erkenntnisse auf 
+Ketten zu verallgemeinern, die weit auseinanderliegende Komponenten
+haben können.
+
+Um den Satz zu beweisen, verfolgen wir die folgende Strategie.
+\begin{enumerate}
+\item
+Zunächst approximieren wir die Kette durch eine Kette, deren
+Wege alle aus achsenparallelen Segmenten bestehen.
+Die Kettenintegrale ändern sich dadurch nicht.
+\item
+Wir zerlegen den achsenparallelen Weg in eine Summe von Rändern
+von Rechtecken, die vollständig in $U$ enthalten sind.
+\item 
+Wir berechnen das Integral über die Kette als Summe über die Integrale
+über die Ränder der Rechtecke.
+\end{enumerate}
+
+\input{chapters/030-integration/fig/fig-treppe.tex}%
+
+\input{chapters/030-integration/fig/fig-gitterapprox.tex}%
+
+\begin{proof}[Beweis von Satz~\ref{buch:integration:homologie:satz:cauchyketten}]
+\begin{enumerate}
+\item
+Approximation des Weges $\gamma$.
+
+Die Kette $c$ besteht aus einzelnen differenzierbaren Wegen $\gamma$.
+Mit jedem Punkt einer Kurve ist auch eine genügend kleine Kreisscheibe
+um den Punkt in $U$ enthalten (Abbildung~\ref{buch:integration:fig:treppe}).
+Da die Kurve kompakt ist, kann man sie mit endlich vielen solchen Kreisen
+abdecken.
+In jeder Kreisscheibe kann man auf dem Weg Punkte auswählen, so dass 
+zu jeweils zwei aufeinanderfolgenden Punkten auf dem Weg auch das von
+den Punkte aufgespannte Rechteck in $U$ ist.
+Der Weg kann also durch Teile des Randes dieser Rechtecke ersetzt werden.
+Die Umlaufzahlen und Integrale ändern sich dabei nicht, da die 
+Rechtecke so klein sind, dass das die Funktionen eine Stammfunktion haben.
+Wir ersetzen die Ketten durch eine Kette bestehend aus diesen Randsegmenten.
+
+\item
+Aufteilung der Ebene in Rechtecke.
+
+Wir zerlegen die komplexe Ebene durch achsparallele Geraden durch
+alle Eckpunkte, die bei der Unterteilung der Kette gefunden wurden
+(Abbildung~\ref{buch:integration:fig:gitterapprox}).
+Dadurch werden einige der achsparallelen Segmente weiter unterteilt.
+Wir bezeichnen die Rechtecke mit $R_i$ und ersetzen die Kette
+durch Randsegmente dieser Rechecke.
+
+\item
+Selektion der Rechtecke.
+
+In jedem Rechteck wählen wir einen Punkt $\alpha_i\in R_i$ und berechnen
+die Umlaufzahl $m_i=\operatorname{ind}_\gamma(\alpha_i)$.
+Die Umlaufzahl ist im Inneren jedes Rechtecks konstant.
+Wenn $m_i\ne 0$ ist, dann muss $R_i\in U$ sein, denn Punkte ausserhalb
+von $U$ würden eine Umlaufzahl $0$ geben, weil $c$ nullhomolog ist.
+
+\item $\displaystyle c=\sum_i m_i\partial R_i$.
+
+\input{chapters/030-integration/fig/fig-nachbar.tex}
+
+Angenommen, eine Kante $\sigma$ eines der Rechtecke ist nicht mit der korrekten
+Anzahl in $c$ (Abbildung~\ref{buch:integration:fig:nachbar}).
+Sei $R_k$ dieses Rechteck.
+Dann gibt es eine ganze Zahl $m$ derart, dass
+\[
+C
+=
+c-\sum_i m_i\partial R_i - m\partial R_k
+\]
+die Kante nicht mehr enthält.
+Sei $R_j$ das ebenfalls an die Kante $\sigma$ angrenzende Rechteck und
+$\alpha'$ ein Punkt in diesem Rechteck.
+Da $\sigma$ in $C$ nicht mehr vorkommt, kann man einen Punkt stetig von $\alpha_k$
+nach $\alpha'$ verschieben, ohne $C$ zu kreuzen.
+Die Umlaufzahl von $C$ kann sich dabei nicht ändern, also muss $C$ gleiche
+Umlaufzahlen um  $\alpha_k$ und $\alpha'$ haben.
+Andererseits ist die Umlaufzahl linear, d.~h. 
+\begin{align*}
+\operatorname{ind}_C(\alpha_k)
+&=
+\operatorname{ind}_{c-\sum_i m_i\partial R_i - m\partial R_k}(\alpha_k)
+\\
+&=
+\operatorname{ind}_c(\alpha_k)
+-
+\sum_i m_i\operatorname{ind}_{\partial R_i}(\alpha_k)
+-
+m\operatorname{ind}_{\partial R_k}(\alpha_k)
+\\
+&=
+\operatorname{ind}_c(\alpha_k)
+-
+\sum_i m_i\delta_{ik}
+-
+m.
+\intertext{Der erste Term ist nach der Definition der Zahlen $m_i$}
+&= m_k - m_k - m.
+\end{align*}
+Andererseits ist $\operatorname{ind}_C(\alpha')$ zu bestimmen.
+Falls $\alpha'$ in einem unendlichen Rechteck liegt, ist 
+$\operatorname{ind}_C(\alpha')=0$.
+Falls $R_j$ ein endliches Rechteck ist, dann ist
+$\operatorname{ind}_{c}(\alpha')=\operatorname{ind}_c(\alpha_j)$
+und es folgt
+\begin{align*}
+\operatorname{ind}_C(\alpha')
+&=
+\operatorname{ind}_{c-\sum_i m_i\partial R_i - m\partial R_k}(\alpha_j)
+\\
+&=
+\operatorname{ind}_{c}(\alpha_j)
+-
+\sum_i m_i\operatorname{ind}_{\partial R_i}(\alpha_j)
+-
+m\operatorname{ind}_{\partial R_k}(\alpha_j)
+\\
+&=
+m_j - \sum_i m_i\delta_{ij}
+=
+m_j-m_j 0 0.
+\end{align*}
+In beiden Fällen ist $\operatorname{ind}_C(\alpha')=0$ und es folgt,
+dass $m=0$, d.~h.~$\sigma$ kam in der Kette gar nicht mit der falschen
+Anzahl vor.
+\qedhere
+\end{enumerate}
 \end{proof}
 
 Wir betrachten jetzt einen später besonders nützlichen Spezialfall.

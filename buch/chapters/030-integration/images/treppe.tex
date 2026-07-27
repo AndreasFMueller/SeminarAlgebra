@@ -1,0 +1,108 @@
+%
+% treppe.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\def\punkt#1{
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw #1 circle[radius=0.05];
+}
+\def\umgebung#1{
+	\fill[color=darkgreen!20,opacity=0.5] #1 circle[radius=1];
+}
+\def\weiss#1{
+	\fill[color=white] #1 circle[radius=1];
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\clip (-0.2,-0.6) rectangle (8.2,5.5);
+\fill[color=gray!20] (-1,-1) rectangle (9,8);
+\fill[color=white] (5.5,1.1) ellipse(2cm and 0.8cm);
+\fill[color=white] (-1,2) to[out=50,in=-140] (3,3.5) to[out=40] (7,7) -- (-1,7) -- cycle;
+\node at (7.5,2.4) {$U$};
+
+\coordinate (A0) at (0,-0.4);
+\coordinate (A1) at (1,0.8);
+\coordinate (A2) at (1.6,1.3);
+\coordinate (A3) at (2.4,1.7);
+\coordinate (A4) at (5.5,3.4);
+\coordinate (A5) at (6,3.8);
+\coordinate (A6) at (6.7,4.3);
+\coordinate (A7) at (8,4.9);
+
+\weiss{(A1)}
+\weiss{(A2)}
+\weiss{(A3)}
+\weiss{(A4)}
+\weiss{(A5)}
+\weiss{(A6)}
+
+\umgebung{(A1)}
+\umgebung{(A2)}
+\umgebung{(A3)}
+\umgebung{(A4)}
+\umgebung{(A5)}
+\umgebung{(A6)}
+
+\draw[color=darkred,line width=1.2pt]
+	($(A0)+(-0.5,-0.5)$) --
+	(A0) to[out=45,in=-120]
+	(A1) to[out=60,in=-150]
+	(A2) to[out=30,in=-145]
+	(A3) to[out=35,in=-130]
+	(A4) to[out=50,in=-150]
+	(A5) to[out=30,in=-140]
+	(A6) to[out=40,in=155]
+	(A7) -- ++(-25:1);
+
+\draw[color=blue,line width=1.2pt] (A0) -- ++(0.5,0);
+\draw[color=blue,dotted] ($(A0)+(0.5,0)$) -- ($(A1)+(0,-0.5)$);
+\draw[color=blue,line width=1.2pt]
+	($(A1)+(0,-0.5)$) --
+	(A1) -- ++(0.6,0) -- 
+	(A2) -- ++(0.8,0) --
+	(A3) -- ++(0.5,0.0);
+\draw[color=blue,dotted] ($(A3)+(0.5,0)$) -- ($(A4)+(0,-0.5)$);
+\draw[color=blue,line width=1.2pt]
+	($(A4)+(0,-0.5)$) --
+	(A4) -- ++(0.5,0) --
+	(A5) -- ++(0.7,0) --
+	(A6) -- ++(0.5,0);
+\draw[color=blue,line width=1.2pt]
+	($(A7)+(0,-0.5)$) -- (A7);
+\draw[color=blue,dotted] ($(A6)+(0.5,0)$) -- ($(A7)+(0,-0.5)$);
+
+\punkt{(A0)}
+\punkt{(A1)}
+\punkt{(A2)}
+\punkt{(A3)}
+\punkt{(A4)}
+\punkt{(A5)}
+\punkt{(A6)}
+\punkt{(A7)}
+
+\node at (A1) [left] {$\gamma(t_{k-1})$};
+\node at ($(A2)+(0.1,-0.1)$) [above left] {$\gamma(t_{k})$};
+\node at ($(A3)+(0.1,-0.1)$) [above left] {$\gamma(t_{k+1})$};
+
+\node at (A4) [left] {$\gamma(t_{l-1})$};
+\node at ($(A5)+(0.1,-0.1)$) [above left] {$\gamma(t_{l})$};
+\node at ($(A6)+(0.1,-0.05)$) [above left] {$\gamma(t_{l+1})$};
+
+\node[color=darkred] at ($0.5*(A3)+0.5*(A4)$) {$\gamma$};
+\node[color=blue] at ($(A2)+(0.5,0)$) [below] {$\tilde{c}$};
+
+\end{tikzpicture}
+\end{document}
+

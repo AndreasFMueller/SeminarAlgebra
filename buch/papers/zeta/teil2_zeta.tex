@@ -32,8 +32,6 @@ So nimmt sie für bestimmte Argumente konkrete Werte an:
 		\hline
 		$4$ & $\pi^4/90$ & $\approx 1{,}0823$ \\
 		\hline
-		$-1$ & $-1/12$ & (analytische Fortsetzung) \\
-		\hline
 		$0$ & $-1/2$ & (analytische Fortsetzung) \\
 		\hline
 	\end{tabular}
@@ -42,12 +40,22 @@ So nimmt sie für bestimmte Argumente konkrete Werte an:
 \end{table}
 
 Besonders bemerkenswert ist hier der Wert $\zeta$(2) = $\frac{\pi^2}{6}$, den Euler bereits 1735 nachwies, bekannt als das Basler Problem. 
-Die letzen beiden Zeilen der Tabelle gehören jedoch nicht zum ursprünglichen Definitionsbereich (s > 1), sondern sind nur durch analytische Fortsetzung erreichbar. 
+Die letze Zeile der Tabelle gehört jedoch nicht zum ursprünglichen Definitionsbereich (s > 1), sondern ist nur durch analytische Fortsetzung erreichbar. 
+
+Ein besonders interessanter Fall ist $s = -1$.
+Setzt man diesen Wert formal in die Reihendefinition ein, so erhält man
+\[
+\zeta(-1) \overset{?}{=} \sum_{n=1}^{\infty} \frac{1}{n^{-1}} = \sum_{n=1}^{\infty} n = 1 + 2 + 3 + \ldots,
+\]
+also genau die Summe aller natürlichen Zahlen.
+Dieses Einsetzen ist jedoch nicht zulässig: Die Reihe $\sum_{n=1}^{\infty} n^{-s}$ konvergiert nur für $\operatorname{Re}(s) > 1$, für $s = -1$ ist sie schlicht divergent und die Reihendefinition liefert keinen Wert.
+Der Wert von $\zeta(-1)$ kann also nicht direkt aus der Reihe berechnet werden, sondern muss auf anderem Weg gewonnen werden.
+Wie dies mit Hilfe der analytischen Fortsetzung gelingt, wird in Abschnitt~\ref{Analytische Fortsetzung} gezeigt.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{papers/zeta/Abbildung_Zeta.png}
-	\caption{}
+	\caption{Zeta-Funktion in der komplexen Ebene}
 	\label{fig:abbildungzeta}
 \end{figure}
 
@@ -63,15 +71,12 @@ beschreibt eine geometrische Reihe,welche den Zusammenhang aller Primzahlen aufz
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{papers/zeta/Primzahlen.png}
-	\caption{}
+	\caption{Primzahlzählfunktion}
 	\label{fig:primzahlen}
 \end{figure}
 
-Die blaue Treppenkurve in Abbildung \ref{fig:primzahlen} zeigt die Primzahlzählfunktion $\pi$(x), welche für jede reelle Zahl x angibt, wie viele Primzahlen kleiner oder gleich x existieren. Die orangefarbene Kurve stellt den Logarithmischen Integralausdruch Li(x) dar. Das ist eine von Riemann entwickelte Näherungsformel für $\pi$(x), die direkt aus der Zeta-Funktion abgeleitet wird. Man erkennt deutlich, wie eng beide Kurven beieinander liegen: Li(x) approximiert die Verteilung der Primzahlen mit bemerkenswertet Genauigkeit, selbst für kleine Werte von x.
-
-
-
-% Für was wird die Zeta-funktion angewendet in der Praxis? -> Verteilung von Primzahlen, analytische Zahlentheorie, mathematische Physik und Wahrscheinlichkeit und Statistik
-% Text zum Bild schreiben
-% Abstimmen auf Text vom Theorieteil des Buches von Herr Müller. Erweiterung mit Primzahl-Funktion. 
+Die blaue Treppenkurve in Abbildung \ref{fig:primzahlen} zeigt die Primzahlzählfunktion $\pi(x)$, welche für jede reelle Zahl $x$ angibt, wie viele Primzahlen kleiner oder gleich $x$ existieren.
+Die orangefarbene Kurve stellt den logarithmischen Integralausdruck $\operatorname{Li}(x)$ dar, eine glatte, sprungfreie Funktion.
+Das ist eine von Riemann entwickelte Näherungsformel für $\pi(x)$, die direkt aus der Zeta-Funktion abgeleitet wird.
+Man erkennt, wie eng beide Kurven beieinander liegen: $\operatorname{Li}(x)$ approximiert die Verteilung der Primzahlen, wobei die relative Genauigkeit dieser Näherung mit wachsendem $x$ zunimmt.
 
