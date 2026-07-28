@@ -19,6 +19,8 @@ I
 Es tritt zum Beispiel auf bei der Berechnung der Normierungskonstanten
 der Cauchy-Verteilung, die die Wahrscheinlichkeitsdichte
 \[
+\varphi(x)
+=
 \frac{1}{\pi\gamma
 \biggl(
 \displaystyle
@@ -116,9 +118,10 @@ hat den Wert
 \,dz.
 \intertext{Da die Kurve den Punkt $-i$ nicht umläuft, verschwindet
 das zweite Integral.
-Das erste Integral kann ersetzt werden durch ein Integral eines 
+Das erste Integral kann
+durch ein Integral eines 
 kleinen Kreises mit der Parameterdarstellung $\gamma(t)=i+r e^{2\pi it}$
-um den Punkt $+i$}
+um den Punkt $+i$ ersetzt werden und ergibt}
 &=
 \frac{1}{2i}
 \int_0^1
@@ -161,7 +164,8 @@ Als Parametrisierungen für diese Wege kann man
 verwenden.
 Das Integral über diesen Pfad setzt sich zusammen aus den Integralen
 über die beiden Teilpfade:
-\begin{align*}
+\begin{equation}
+\begin{aligned}
 \pi
 =
 \oint_\gamma f(z)\,dz
@@ -174,7 +178,9 @@ Das Integral über diesen Pfad setzt sich zusammen aus den Integralen
 \int_{-R}^R \frac{1}{z^2+1} \,dz
 +
 \int_0^{\pi} \frac{1}{R^2e^{2i\varphi}+1}\cdot iRe^{i\varphi}\,d\varphi.
-\end{align*}
+\end{aligned}
+\label{buch:integration:residuen:beispiel:eqn:cauchypfade}
+\end{equation}
 Das erste Integral konvergiert für $R\to\infty$ gegen das gesuchte
 Integral~\eqref{buch:integration:residuen:eqn:cauchyintegral},
 es ist also nur noch zu überlegen, was der Grenzwert des zweiten
@@ -224,8 +230,8 @@ Wir wollen das Integral
 \label{buch:integration:residuen:eqn:ecos}
 \end{equation}
 für $t>0$ berechnen.
-Es tritt zum Beispiel auf bei der Berechnung des Erwartungswertes 
-$E(\cos(X))$ einer Cauchy-verteilten Zufallsvariable $X$.
+Es tritt zum Beispiel bei der Berechnung des Erwartungswertes 
+$E(\cos(X))$ einer Cauchy-verteilten Zufallsvariable $X$ auf.
 Um es mit der oben skizzierten Methode berechnen zu können,
 müssen wir den Integranden erst in eine holomorphe Funktion
 umwandeln.
@@ -234,7 +240,7 @@ auf der reellen Achse gilt also
 \[
 \frac{\cos x}{x^2+1}
 =
-\operatorname{e^{itx}}{x^2+1}
+\operatorname{Re}\frac{e^{itx}}{x^2+1}
 \qquad
 \text{für $x\in\mathbb{R}$}.
 \]
@@ -247,7 +253,9 @@ f(z)
 \end{equation}
 verwenden.
 
-Mit dem gleichen Weg wie vorhin können wir versuchen, das Integral
+Mit dem gleichen Weg
+\eqref{buch:integration:residuen:beispiel:eqn:cauchypfade}
+wie vorhin können wir versuchen, das Integral
 \begin{align*}
 \oint_\gamma
 \frac{e^{itz}}{z^2+1}
@@ -293,7 +301,7 @@ an der Stelle $z=i$ ersetzt werden kann:}
 =
 \pi e^{-t}.
 \end{align*}
-Um zu ziegen, dass dies
+Um zu zeigen, dass dies
 der gesuchte Wert des Integrals ist, müssen wir den Weg wieder in
 die beiden Teile $\gamma_1$ und $\gamma_2$ zerlegen.
 \begin{align*}

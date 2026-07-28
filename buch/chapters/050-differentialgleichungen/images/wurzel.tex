@@ -1,0 +1,58 @@
+%
+% wurzel.tex -- Wurzel
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{4}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+fzero(\X) = 1;
+fone(\X) = fzero(\X) + (1/2)*\X;
+ftwo(\X) = fone(\X) - (1/8)*\X*\X;
+fthree(\X) = ftwo(\X) + (1/16)*\X*\X*\X;
+ffour(\X) = fthree(\X) - (5/128)*\X*\X*\X*\X;
+ffive(\X) = ffour(\X) + (7/256)*\X*\X*\X*\X*\X;
+}]
+
+%\draw[color=blue,line width=1pt] plot[domain=-1.1:1.1,samples=100]
+%	({\x},{fzero(\x)});
+%\draw[color=blue,line width=1pt] plot[domain=-1.1:1.1,samples=100]
+%	({\x},{fone(\x)});
+%\draw[color=blue,line width=1pt] plot[domain=-1.1:1.1,samples=100]
+%	({\x},{ftwo(\x)});
+%\draw[color=blue,line width=1pt] plot[domain=-1.1:1.1,samples=100]
+%	({\x},{fthree(\x)});
+\begin{scope}
+\clip (-1.025,0) rectangle (1.1,1.5);
+
+\draw[color=blue,line width=1pt] plot[domain=-1.1:1.1,samples=100]
+	({\x},{ffour(\x)});
+
+\draw[color=darkred,line width=1.2pt] plot[domain=0:1.5,samples=100]
+	({\x*\x-1},{\x});
+
+\end{scope}
+
+\draw[color=blue,line width=0.4pt] (0.9,{ffour(0.9)}) -- (0.9,0.6);
+\node[color=blue] at (1.0,0.6) [below left] {$y=
+1 + \frac12x -\frac18x^2 +\frac1{16}x^3 -\frac{5}{128}x^4+\frac{7}{256}x^5$};
+
+\draw[color=darkred,line width=0.4pt] ({0.2*0.2-1},0.2) -- (-0.8,0.2);
+\node[color=darkred] at (-0.8,0.2) [right] {$y(x)=\!\sqrt{1+x}$};
+
+\draw[->] (-1.025,0) -- (1.1,0) coordinate[label={$x$}];
+\draw[->] (0,-0.025) -- (0,1.5) coordinate[label={right:$y$}];
+
+\end{tikzpicture}
+\end{document}
+

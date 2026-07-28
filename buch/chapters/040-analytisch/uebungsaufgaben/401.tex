@@ -40,4 +40,26 @@ durch $z$ dividieren und erhält die gesuchte Potenzreihe
 \]
 Da die Funktion $f(z)$ in ganz $\mathbb{C}$ definiert ist, ist
 der Konvergenzradius $\infty$.
+
+Da alle Koeffizienten von $0$ verschieden sind, kann der
+Konvergenzradius auch mit dem Quotientenkriterium gefunden werden.
+Tatsächlich ist
+\[
+\varrho
+=
+\lim_{n\to\infty}
+\biggl|\frac{a_n}{a_{n+1}}\biggr|
+=
+\lim_{n\to\infty}
+\frac{1/(n+1)!}{1/(n+2)!}
+=
+\lim_{n\to\infty}
+\frac{(n+2)!}{(n+1)!}
+=
+\lim_{n\to\infty}
+(n+2)
+=
+\infty.
+\qedhere
+\]
 \end{loesung}

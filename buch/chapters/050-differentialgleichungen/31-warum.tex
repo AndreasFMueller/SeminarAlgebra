@@ -1,0 +1,181 @@
+%
+% 31-warum.tex -- Warum Potenzreihen nicht immer reichen
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Warum Potenzreihen nicht immer reichen
+\label{buch:differentialgleichungen:fuchs:subsection:warum}}
+Löst man die Differentialgleichung
+\eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
+nach $y''$ auf, erhält man
+\[
+y''
+=
+-
+\frac{p(x)}{x}y'
+-
+\frac{q(x)}{x^2}y
+\]
+und kann erkennen, dass schon für konstante Funktionen $p(x)$ und
+$q(x)$ die zweite Ableitung $y''$ an der Stelle $x=0$ eine
+Singulartität haben muss, die sich mit einer gewöhnlichen
+Potenzreihe nicht darstellen lässt.
+Nimmt man eine physikalische Anwendung an, dann haben
+$x^2y''$, $xy'$ und $y$ alle die gleiche Masseinheit, so dass
+die Funktionen $p(x)$ und $q(x)$ dimensionslos sein können.
+
+%
+% Konstante Koeffizienten
+%
+\subsubsection{Konstante Koeffizienten
+\label{buch:differentialgleichungen:fuchs:subsection:konstant}}
+Noch etwas expliziter kann man versuchen, die Differentialgleichung
+mit $p(x)=p_0$ und $q(x)=q_0$ mit einem Ansatz
+\[
+y(x) = \sum_{k=0}a_kx^k
+\]
+zu lösen.
+Setzt man den Ansatz in die Gleichung ein, erhält man
+\begin{align*}
+x^2
+\sum_{k=0}^\infty k(k-1) a_k x^{k-2}
++
+p_0x\sum_{k=0}^\infty ka_k x^{k-1}
++
+q_0\sum_{k=0}^\infty a_kx^k
+&=
+0
+\\
+\sum_{k=0}^\infty k(k-1) a_k x^k
++
+p_0\sum_{k=0}^\infty ka_k x^k
++
+q_0\sum_{k=0}^\infty a_kx^k
+&=
+0
+\\
+\sum_{k=0}^\infty
+\bigl(
+k(k-1) + p_0k + q_0
+\bigr)
+a_k
+x^k
+&=
+0.
+\end{align*}
+Damit die Reihe verschwindet, müssen alle Koeffizienten verschwinden,
+es gilt also entweder 
+\[
+k(k-1)+p_0k+q_0
+=
+k^2+(p_0-1)k+q_0
+=
+0
+\qquad\text{oder}\qquad
+a_k=0
+\]
+für alle $k\ge 0$ gelten.
+Für $k=0$ besagt die Gleichung, dass $q_0=0$ oder $a_0=0$ sein
+muss.
+Für $k=1$ folgt, dass $p_0-1+q_0=0$ oder $a_1=0$ sein muss.
+Auf der linken Seite steht eine quadratische Gleichung für $k$, diese 
+Bedingung kann also höchstens für zwei Koeffizienten erfüllt sein,
+entsprechend können höchstens zwei der Koeffizienten der Potenzreihe
+$y(x)$ von $0$ verschieden sein.
+Sind $k_1$ und $k_2$ die zugehörigen Koeffizienten, dann muss
+\[
+k_1k_2 = q_0
+\qquad\text{und}\qquad
+k_1+k_2
+=
+1-p_0
+\]
+sein.
+Ausser für diese speziellen Werte von $p_0$ und $q_0$ ist
+die quadratische Gleichung nie erfüllt, entsprechend müssen
+alle Koeffizienten $a_k=0$ sein und damit ist $y(x)=0$
+die triviale Lösung.
+
+Der Lösungsansatz mit einer Potenzreihe führt also nicht zu einer
+nichttrivialen Lösung.
+
+%
+% Lösungsversuch mit einer verallgemeinerten Potenzreihe
+%
+\subsubsection{Lösungsversuch mit einer verallgemeinerten Potenzreihe}
+Wir versuchen die Differentialgleichung 
+\eqref{buch:differentialgleichungen:fuchs:eqn:dgl}
+mit konstanten Koeffizienten $p(x)=p_0$ und $q(x)=q_0$
+mithilfe einer verallgemeinerten Potenzreihe
+\begin{align*}
+y(x)
+&=
+\sum_{k=0}^\infty
+a_k x^{k+\varrho}
+\intertext{zu lösen.
+Die Ableitungsterme sind}
+p_0xy'(x)
+&=
+\sum_{k=0}^\infty
+p_0
+(k+\varrho)
+a_k x^{k+\varrho}
+\\
+x^2y''
+&=
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)a_kx^{k+\varrho}.
+\end{align*}
+Setzt man diese in die Differentialgleichung ein, entsteht die Gleichung
+\begin{align*}
+\sum_{k=0}^\infty
+(k+\varrho)(k+\varrho-1)
+a_kx^{k+\varrho}.
++
+\sum_{k=0}^\infty
+p_0
+(k+\varrho)
+a_k x^{k+\varrho}
++
+\sum_{k=0}^\infty
+q_0
+a_k x^{k+\varrho}
+&=
+0
+\\
+\sum_{k=0}^\infty
+\bigl(
+(k+\varrho)(k+\varrho-1)
++
+p_0
+(k+\varrho)
++
+q_0
+\bigr)
+a_k x^{k+\varrho}
+&=
+0.
+\end{align*}
+Durch Koeffizientenvergleich folgt, dass
+\[
+\bigl((k+\varrho)^2+(p_0-1)(k+\varrho) + q_0\bigr) a_k = 0
+\]
+für alle $k$ sein muss.
+Dies ist eine quadratische Gleichung, es 
+folgt also wieder, dass höchstens zwei der Koeffizienten $a_k$ von $0$
+verschieden sein können, die Lösung müsste also von der Form
+\[
+y(x)
+=
+A x^{\lambda_1} + B x^{\lambda_2}
+\]
+sein, wobei $\lambda_1$ und $\lambda_2$ Lösungen der quadratischen
+Gleichung
+\[
+\lambda^2 +(p_0-1)\lambda + q_0
+=
+0
+\]
+ist.
+Diese Lösung kann man natürlich auch direkt aus einem
+Potenzansatz erhalten.

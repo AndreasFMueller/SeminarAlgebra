@@ -1,7 +1,7 @@
 #
 # Makefile -- build stuff used in subdirectories
 #
-# (c) 2022 Prof Dr Andreas Müller, Hochschule Rapperswil
+# (c) 2026 Prof Dr Andreas Müller, Hochschule Rapperswil
 # 
 CHAPTERS =								\
 
@@ -17,3 +17,7 @@ images:
 			fi;						\
 		);							\
 	done
+
+teilnehmer.tex:	teilnehmer.sh
+	bash teilnehmer.sh > teilnehmer.tex
+

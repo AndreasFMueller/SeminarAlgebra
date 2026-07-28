@@ -1,0 +1,10 @@
+Ziel: Auftriebskraft mittels Zirkulation berechnen.
+
+
+
+1. Einleitung zur Thematik. 
+2. Physikalische und Mathematische Voraussetzungen
+3. Mathemathische beschreibung, was ist auftrieb und was hat die Rotation damit zu tun.
+4. Wie vereinfacht sich die berechnung der Rotation mithilfe der Komplexen analysis.
+5. Wie kann die "fehlende" konstante mithilfe numerische berechnung und graifscher auswertung bestimmt werden.
+6. Rechenbeispiel

@@ -3,15 +3,19 @@
 %
 % (c) 2026 Prof Dr Andreas Müller
 %
-\subsection{Integration der geometrischen Reihe}
+\subsection{Integration der geometrischen Reihe
+\label{buch:analytisch:potenzreihen:subsection:integration}}
 Durch Integration der geometrischen Reihe entlang einer Kurve
-$\gamma$, kann eine auf dem Bild $\operatorname{im}\gamma = \gamma(I)$
-definierte Funktion $f\colon\gamma(I)\to\mathbb{C}$ zu einer
-Funktion erweitert werden, die automatisch holomorph und analytisch
-ist.
+$\gamma$, die nicht geschlossen zu sein braucht, kann eine auf
+dem Bild $\operatorname{im}\gamma = \gamma(I)$
+definierte Funktion $g\colon\gamma(I)\to\mathbb{C}$ zu einer
+Funktion $f(z)$ erweitert werden, die automatisch im holomorph und
+analytisch ist.
+Die Situation ist in Abbildung~\ref{buch:analytisch:fig:integral}
+dargestellt.
 
 \begin{satz}
-Sie $\gamma\colon I\to\mathbb{C}$ eine differenzierbare Kurve und $g$
+Sei $\gamma\colon I\to\mathbb{C}$ eine differenzierbare Kurve und $g$
 eine auf dem Bild $\operatorname{im}(\gamma)=\gamma(I)$ definierte 
 stetige komplexe Funktion.
 Dann ist die auf $\mathbb{C}\setminus\operatorname{im}\gamma$ definierte
@@ -55,6 +59,7 @@ Insbesondere ist $f(z)$ komplex differenzierbar und damit $f$ holomorph.
 
 Andererseits kann man den Integranden mit der geometrischen Reihe
 entwickeln und termweise integrieren.
+\input{chapters/040-analytisch/fig/fig-integral.tex}%
 Dazu verwenden wir
 \eqref{buch:analytisch:eqn:geometrisch1}
 und
@@ -65,7 +70,7 @@ f(z)
 &=
 \frac{1}{2\pi i}
 \int_\gamma
-\frac{g(x)}{x-a}
+\frac{g(x)}{x-z_0}
 \cdot
 \frac{1}{\displaystyle1-\frac{z-a\mathstrut}{x-a\mathstrut}}
 \,dx
@@ -74,10 +79,10 @@ f(z)
 &=
 \frac{1}{2\pi i}
 \int_\gamma
-\frac{g(x)}{x-a}
+\frac{g(x)}{x-z_0}
 \sum_{k=0}^\infty
 \biggl(
-\frac{z-a\mathstrut}{x-a\mathstrut}
+\frac{z-z_0\mathstrut}{x-z_0\mathstrut}
 \biggr)^k
 \,dx
 \notag
@@ -87,10 +92,10 @@ f(z)
 \biggl(
 \frac{1}{2\pi i}
 \int_\gamma
-\frac{g(x)}{(x-a)^{k+1}}
+\frac{g(x)}{(x-z_0)^{k+1}}
 \,dx
 \biggr)
-(z-a)^k.
+(z-z_0)^k.
 \label{buch:analytisch:eqn:reihe}
 \end{align}
 Damit ist eine Potenzreihe im Punkt $a$ für die Funktion
@@ -98,35 +103,37 @@ $f(z)$ gefunden.
 Sie ist konvergent, solange 
 \[
 \biggl|
-\frac{z-a}{x-a}
+\frac{z-z_0}{x-z_0}
 \biggr|
 =
-\frac{|z-a|}{|x-a|}
+\frac{|z-z_0|}{|x-z_0|}
 <
 1
 \qquad\Rightarrow\qquad
-|z-a| < |x-a|
+|z-z_0| < |x-z_0|
 \]
 für alle $x$ entlang des Weges $\gamma$ gilt.
 Dies wird erreicht, wenn 
 \[
-|z-a| < \inf_{\gamma} |x-a|,
+|z-z_0| < \inf_{\gamma} |x-z_0|,
 \]
 auf der rechten Seite steht der kleinste Abstand des Punktes $a$ vom
 Weg $\gamma$.
 Wir fassen dieses Resultat im folgenden Satz zusammen.
 
 \begin{satz}
+\label{buch:analytisch:potenzreihen:satz:integralanalytisch}
 Sei $\gamma\colon I\to\mathbb{C}$ eine Kurve in $\mathbb{C}$ und
 $f$ eine stetige Funktion auf dem Bild $\gamma(I)=\operatorname{im}\gamma$
 der Kurve.
 Dann ist die Funktion 
-\[
+\begin{equation}
 f(z)
 =
 \int_{\gamma} \frac{g(x)}{x-z}\,dx
-\]
-analytisch und hat im Punkt $a\in\mathbb{C}\setminus \operatorname{im}\gamma$
+\label{buch:analytisch:potenzreihen:eqn:fzintegral}
+\end{equation}
+analytisch und hat im Punkt $z_0 \in\mathbb{C}\setminus \operatorname{im}\gamma$
 die Potenzreihenentwicklung
 \[
 f(z)
@@ -134,14 +141,14 @@ f(z)
 \sum_{k=0}^\infty
 \biggl(
 \frac1{2\pi i}
-\int_\gamma \frac{g(x)}{(x-a)^{k+1}}\,dx
+\int_\gamma \frac{g(x)}{(x-z_0)^{k+1}}\,dx
 \biggr)
-(z-a)^k
+(z-z_0)^k
 \]
 mit Konvergenzradius
 \[
-\varrho(a)
+\varrho(z_0)
 =
-\inf\{ |\gamma(t)-a|\mid t\in I\}.
+\inf\{ |\gamma(t)-z_0|\mid t\in I\}.
 \]
 \end{satz}

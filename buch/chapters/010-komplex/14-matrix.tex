@@ -6,16 +6,16 @@
 \subsection{Matrixschreibweise für komplexe Zahlen
 \label{buch:komplex:subsection:matrixschreibweise}}
 In der Konstruktion der Körpererweiterung $\mathbb{Q}(\alpha)$
-mit einer Nullstelle $\alpha$ des Minimalpolynoms $m\in\mathbb{Q}[x]$ 
+mit einer Nullstelle $\alpha$ des Minimalpolynoms $m(X)\in\mathbb{Q}[X]$ 
 wurde nie die Frage gestellt, woher $\alpha$ eigentlich kommt.
-Für $m=x^2-2$ kann sich $\alpha$ als die Quadratwurzel
+Für $m=X^2-2$ kann sich $\alpha$ als die Quadratwurzel
 $\!\sqrt{2}\in\mathbb{R}$ vorstellen, aber für die Körpererweiterung
-von $\mathbb{F}_5$ um eine Nullstelle von $x^2-2\in\mathbb{F}_5[x]$
+von $\mathbb{F}_5$ um eine Nullstelle von $X^2-2\in\mathbb{F}_5[X]$
 gibt es keinen solchen Überkörper, der alle denkbaren Wurzeln
 enthält.
 Und bei der Erweiterung $\mathbb{R}\subset \mathbb{R}(i)=\mathbb{C}$
 wird $\mathbb{R}$ die imaginäre Einheit $i$ hinzugefügt, für die es
-ebenfalls keine Realisierung gibt.
+ebenfalls keine Realisierung in $\mathbb{R}$ gibt.
 Schlimmer noch: die imaginäre Einheit hat Eigenschaften, die den 
 Eigenschaften aller bisher bekannten Zahlen widerspricht, nämlich
 die Eigenschaft, dass das Quadrat einer Zahl immer $\ge 0$ ist.
@@ -27,7 +27,7 @@ Anleitung zur Algebra}
 \begin{quote}
 Daher bedeuten alle diese Ausdrücke $\!\sqrt{-1}$, $\!\sqrt{-2}$,
 $\!\sqrt{-3}$, $\!\sqrt{-4}$, etc. solche unmögliche oder
-Imaginärezahlen, weil dadurch Quadratwurzeln von Negativzahlen
+Imaginärzahlen, weil dadurch Quadratwurzeln von Negativzahlen
 angezeigt werden.
 
 Von diesen behauptet man also mit allem Rechte, dass sie weder
@@ -73,7 +73,7 @@ um Nullstellen von Polynomen beliebigen Grades funktioniert diese
 Intuition jedoch nicht mehr.
 Gesucht ist daher eine allgemeine Konstruktion eines Modells für 
 algebraische Körpererweiterungen $K(\alpha)$ für Nullstellen beliebiger
-Minimalpolynome $m\in K[x]$.
+Minimalpolynome $m(X)\in K[X]$.
 Im Folgenden soll gezeigt werden, wie ein solches Modell innerhalb
 der Matrizenalgebra konstruiert werden kann.
 
@@ -265,7 +265,7 @@ X
 \]
 Tatsächlich ist
 \begin{align*}
-X^2 + px + q
+X^2 + pX + qI
 &=
 \begin{pmatrix}
 -p & -q \\
@@ -311,11 +311,11 @@ Element definiert.
 
 \begin{satz}
 \label{buch:komplex:zahlen:satz:matrixalgebraisch}
-Ist $a = x^n + a_{n-1}x^{n-1}+\dots + a_1x+a_0 \in K[x]$ ein
+Ist $a(X) = X^n + a_{n-1}X^{n-1}+\dots + a_1X+a_0 \in K[X]$ ein
 normiertes Polynom vom Grad $n$ mit Koeffizienten im Körper $K$,
 dann ist die Matrix
 \[
-X
+A
 =
 \begin{pmatrix}
 -a_{n-1} & -a_{n-2} & \dots  &  -a_1   &  -a_0   \\
@@ -325,7 +325,7 @@ X
     0    &     0    & \dots  &    1    &    0 
 \end{pmatrix}
 \]
-eine Nullstelle des Polynoms, also $a(X)=0$.
+eine Nullstelle des Polynoms, also $a(A)=0$.
 \end{satz}
 
 \begin{proof}
@@ -334,7 +334,7 @@ des laplaceschen Entwicklungssatzes, indem wir nach der ersten Spalte
 entwickeln.
 Zur Vereinfachung schreiben wir
 \[
-X_{k}
+A_{k}
 =
 \begin{pmatrix}
     -a_{k-1}     & -a_{k-2} & \dots  &  -a_1   &  -a_0   \mathstrut\\
@@ -346,10 +346,10 @@ X_{k}
 \in
 M_{k\times k}(K).
 \]
-Für die Determinante von $X_k$ folgt durch Entwicklung nach der ersten
+Für die Determinante von $A_k$ folgt durch Entwicklung nach der ersten
 Spalte die Rekursionsformel
 \begin{align}
-\det X_k
+\det A_k
 &=
 -a_{k-1}
 \left|
@@ -375,10 +375,10 @@ Spalte die Rekursionsformel
 \\
 &=
 -a_{k-1}(-\lambda)^{k-1}
--\det X_{k-2}
+-\det A_{k-2}
 \label{buch:komplex:zahlen:eqn:xkrekursion}
 \intertext{und die Anfangsbedingung}
-\det X_2
+\det A_2
 &=
 \biggl|
 \begin{matrix}
@@ -395,44 +395,44 @@ Durch wiederholte Anwendung der Rekursionsformel
 ausgehend vom Anfangswert
 \eqref{buch:komplex:zahlen:eqn:xkstart}
 \begin{align*}
-\det X_3
+\det A_3
 &=
--a_2(-\lambda)^2 - \det X_2
+-a_2(-\lambda)^2 - \det A_2
 &&=
 -a_2\lambda^2 -a_1\lambda - a_0
 \\
-\det X_4
+\det A_4
 &=
--a_3(-\lambda)^3 - \det X_3
+-a_3(-\lambda)^3 - \det A_3
 &&=
 a_3 \lambda^3 + a_2\lambda^2 + a_1\lambda + a_0
 \\
-\det X_5
+\det A_5
 &=
--a_4(-\lambda)^4 - \det X_4
+-a_4(-\lambda)^4 - \det A_4
 &&=
 -a_4\lambda^4
 -a_3\lambda^3 - a_2\lambda^2 -a_1\lambda - a_0
 \\
 &\phantom{n}\vdots
 \\
-\det X_k
+\det A_k
 &=
 -a_{k-1}(-\lambda)^{k-1}
--\det X_{k-1}
+-\det A_{k-1}
 &&=
 (-1)^k\bigl(
 a_{k-1}\lambda^{k-1} + \dots + a_1\lambda + a_0
 \bigr)
 \end{align*}
-findet man Ausdrücke für die Determinante $\det X_k$.
+findet man Ausdrücke für die Determinante $\det A_k$.
 
 Damit kann man jetzt auch das charakteristische Polynom bestimmen.
 Dieses ist
 \begin{align}
-\chi_X(\lambda)
+\chi_A(\lambda)
 &=
-\det (X-\lambda I)
+\det (A-\lambda I)
 \notag
 \\
 &=
@@ -459,7 +459,7 @@ Dieses ist
 &=
 (-a_{n-1}-\lambda)(-\lambda)^{n-1}
 -
-\det X_{n-2}
+\det A_{n-2}
 \\
 &=
 (-1)^{n-2}
@@ -497,24 +497,24 @@ a_0
 \label{buch:komplex:zahlen:eqn:charmin}
 \end{align}
 Das charakteristische Polynom ist also bis auf ein Vorzeichen das
-ursprüngliche Polynom $a\in K[x]$.
+ursprüngliche Polynom $a(X)\in K[x]$.
 
 Der Satz von Cayley-Hamilton \cite[Satz 13.23]{buch:linalg} besagt, dass 
 \index{Cayley-Hamilton, Satz von}%
 \index{Satz!von Cayley-Hamilton}%
 jede Matrix Nullstelle ihres charakteristischen Polynoms ist, dass also
-$\chi_X(X)=0$ ist.
-Es flogt daher aus \eqref{buch:komplex:zahlen:eqn:charmin},
+$\chi_A(A)=0$ ist.
+Es folgt daher aus \eqref{buch:komplex:zahlen:eqn:charmin},
 dass auch $m(X)=0$ ist.
 Damit ist der Satz vollständig bewiesen.
 \end{proof}
 
 \begin{beispiel}
-Für das irreduzible Polynom $a(x) = x^2-2$ ist
+Für das irreduzible Polynom $a(X) = X^2-2$ ist
 $a_1=0$ und $a_0=-2$.
 Die Formel des Satzes liefert daher für 
 \[
-X
+A
 =
 \begin{pmatrix}
 -a_1&-a_0\\
@@ -536,7 +536,7 @@ als Quadratwurzel von $2$ vorgeschlagen wurde.
 %
 \subsubsection{Die imaginäre Einheit als Matrix}
 Die imaginäre Einheit ist Nullstelle des irreduziblen Polynoms
-$x^2+1$.
+$X^2+1$.
 Nach Satz~\ref{buch:komplex:zahlen:satz:matrixalgebraisch} kann
 die imaginäre Einheit durch die $2\times 2$-Matrix
 \[
@@ -583,7 +583,7 @@ J^k
 \end{align*}
 wie man dies von $i$ erwartet.
 
-Die komplexe $z=a+bi$ wird also durch die Matrix
+Die komplexe Zahl $z=a+bi$ wird also durch die Matrix
 \[
 Z = aI+bJ
 =
@@ -599,7 +599,7 @@ Die inverse Matrix ist
 \begin{align*}
 Z^{-1}
 &=
-\frac{a}{\det Z}
+\frac{1}{\det Z}
 \begin{pmatrix*}[r]
  a & b \\
 -b & a

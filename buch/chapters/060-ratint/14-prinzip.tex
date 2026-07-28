@@ -15,6 +15,8 @@ die mit einer leichter zu findenden Faktorisierung des Nenners
 arbeiten kann.
 Die Faktorisierung muss immer noch einige Eigenschaften erfüllen,
 damit die einzelnen Schritte verallgemeinert werden können.
+Die folgenden Schritt müssen auf die neue Art der Faktorisierung
+verallgemeinert werden.
 
 \begin{enumerate}
 \item
@@ -27,7 +29,17 @@ des Nenners vor.
 Wie in der Darstellung der Partialbruchzerlegung angedeutet
 wurde, müssen die Faktoren teilerfremd sein.
 \item
-Für den Reduktionsschritt von ist eine Rekursionsformel
+Für den Reduktionsschritt
+\[
+\frac{A}{(z-\alpha)^l}
+\quad\to\quad
+\frac{\tilde{A}}{(z-\alpha)^{l-1}}
+\qquad\text{bzw.}\qquad
+\frac{a(z)}{q(z)^l}
+\quad\to\quad
+\frac{\tilde{a}(z)}{q(z)^{l-1}}
+\]
+ist eine Rekursionsformel
 nötig, die den Exponenten im Nenner reduziert.
 \index{Reduktion}%
 Wie sich später zeigen wird, beruht sie darauf, dass der

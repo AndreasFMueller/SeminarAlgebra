@@ -9,9 +9,9 @@ Geometrie bei der Berechnung von Dreiecken angewendet.
 Mit der eulerschen Formel $e^{it}=\cos t + i\sin t$ wird jedoch 
 \index{eulersche Formel}%
 auch eine Beziehung zur komplexen Exponentialfunktion offengelegt.
-Sie ermöglicht die trigonometrischen Funktionen und ihre Umkehrfunktionen
-ausschliesslich die Exponentialfunktion und ihre Umkehrfunktion, den
-Logarithmus, zu beschreiben.
+Sie ermöglicht, die trigonometrischen Funktionen und ihre
+Umkehrfunktionen ausschliesslich über die Exponentialfunktion und
+ihre Umkehrfunktion, den Logarithmus, zu beschreiben.
 
 %
 % Hyperbolische Funktionen
@@ -34,7 +34,7 @@ Die \emph{hyperbolischen Funktionen} sind durch
 &
 \coth x &= \frac{e^x+e^{-x}}{e^x-e^{-x}}
 \end{align*}
-definiert für beliebige Argumente $x\in \mathbb{C}$.
+für beliebige Argumente $x\in \mathbb{C}$ definiert.
 \index{sinh}%
 \index{cosh}%
 \index{tanh}%
@@ -52,7 +52,7 @@ $y(0)=y_0$ und $y'(0)=y_1$ zu finden, muss man eine Linearkombination
 y(x) = A y_+(x) + B y_-(x)
 \]
 finden, die die korrekten Anfangsbedingungen erfüllt. 
-Dazu setzt  man die Linearkombination in die Anfangsbedinungen ein
+Dazu setzt  man die Linearkombination in die Anfangsbedingungen ein
 und erhält das Gleichungssystem
 \index{lineares Gleichungssystem}%
 \[
@@ -159,13 +159,12 @@ y\pm \!\sqrt{\smash{y^2}-1\raisebox{1pt}{\mathstrut}}
 \Bigr).
 \label{buch:intalg:elementar:eqn:arcosh}
 \end{equation}
-Da $\cosh x$ eine gerade Funktion ist, gibt es zu den meisten
+Da $\cosh x$ eine gerade Funktion ist, gibt es zu fast allen
 $y$-Werten zwei $x$-Werte.
-Da $\cosh x$ eine gerade Funktion ist, würden wir erwarten,
-dass die beiden Werte in \eqref{buch:intalg:elementar:eqn:arcosh}
-entgegengesetzt sind.
+Wir würden auch erwarten, dass die beiden Werte in
+\eqref{buch:intalg:elementar:eqn:arcosh} entgegengesetzt sind.
 Dazu müssen aber die Argumente des Logarithmus reziprok sein.
-Tatsächlich
+Tatsächlich folgt durch Rationalisieren
 \begin{align*}
 \frac{1}{y\pm\!\sqrt{\smash{y^2}-1\raisebox{1.5pt}{\mathstrut}}}
 &=
@@ -530,7 +529,7 @@ e^{ix}+e^{-ix}
 &&&
 (iy-1)e^{ix}
 &=
--(1+iy)e^{-ix}
+-(1+iy)e^{-ix}.
 \intertext{Durch Multiplizieren mit $e^{ix}$ kann man nach $e^{2ix}$
 auflösen und findet}
 e^{2ix}
@@ -561,7 +560,7 @@ muss der Quotient den Drehstreckungsfaktor zurückliefen.
 Der Quotient von $1+iy$ und $1-iy$ ist ein komplexe Zahl vom Betrag $1$,
 die Drehung von $1-iy$ auf $i+iy$ beschreibt.
 Der zugehörige Drehwinkel ist $2x$.
-Somit ist der gesuchte Winkel tatsächlich der halbe Logarithmus
+Somit ist der gesuchte Winkel tatsächlich der halbe komplexe Logarithmus
 des Quotienten der beiden Zahlen.
 
 \begin{satz}
@@ -634,7 +633,7 @@ In dieser Form ist die Stammfunktion einfach zu bestimmen, sie ist
 \frac{1+ix}{-1+ix}.
 \intertext{%
 In dieser Form stimmt das Resultat nicht mit der Form des erwarteten
-Resultates, nämlich der Arkustangens-Funktion überein.
+Resultates, nämlich der Arkustangens-Funktion, überein.
 Der Nenner hat das falsche Vorzeichen.
 Multiplikation mit $-1$ im Argument des Logarithmus ändert aber den
 Wert der Logarithmusfunktion nur um die Konstante $\pi$, also kann
@@ -648,8 +647,8 @@ man immer noch schliessen}
 \arctan x + C.
 \end{align*}
 Das Beispiel illustriert, dass sich Integrale von rationalen Funktionen
-über $\mathbb{R}$ tatsächlich nur mit der komplexen Logarithmus-Funktion
-berechnen lassen.
+über $\mathbb{R}$ tatsächlich ausschliesslich mit der komplexen
+Logarithmus-Funktion berechnen lassen.
 
 %
 % Die Differentialkörper der hyperbolischen Funktionen
@@ -899,7 +898,7 @@ e(x) - \frac{1}{e(x)}
 Die Funktionen $\sin x$ und $\cos x$ sind also in der Körpererweiterung
 $\mathbb{Q}(x,i,e(x))$ enthalten.
 
-Für die Umkehrfunktionen sind nach
+Für die Umkehrfunktionen ist nach
 Satz~\ref{buch:intalg:elementar:trigo:satz:trigonometrisch}
 zusätzlich das algebraische Element
 \[
@@ -907,7 +906,7 @@ s(x)
 =
 \! \sqrt{1-\smash{x^2}\raisebox{1.5pt}{\mathstrut}}
 \]
-hinzufügen.
+hinzuzufügen.
 Der Differentialkörper $\mathbb{Q}(x,i,s(x))$ enthält dann auch
 die Funktionen
 \[
@@ -947,10 +946,12 @@ die Funktionen
 enthält.
 
 Wie bei den hyperbolischen Funktionen können wir schliessen, dass
-den Differentialkörper $\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
-die inversen trigonometrischen Funktionen entält.
-Die trigonometrischen Funktionen ebenso wie ihre Umkehrfunktionen
-sind daher elementare Funktionen.
+der Differentialkörper $\mathbb{Q}(x,i,s(x),\vartheta_1(x),\vartheta_2(x))$
+die inversen trigonometrischen Funktionen enthält.
+Der hier vorgestellte rein algebraische Rahmen enthält also alle
+Funktionen, denen man im Rahmen einer Analysis-Vorlesung begegnet.
+%Die trigonometrischen Funktionen ebenso wie ihre Umkehrfunktionen
+%sind daher elementare Funktionen.
 
 %
 % Eindeutigkeit der trigonometrischen und hyperbolischen Funktionen
@@ -1009,14 +1010,17 @@ Die hyperbolischen Funktionen sind dann
 &=
 \sinh(x+\log a).
 \end{align*}
-Die verschiedenen möglichen hyperbolischen Funktionen entstehen daher
+Die verschiedenen möglichen hyperbolischen Funktionen entstehen 
 durch Verschiebung der unabhängigen Variablen.
 Da man die Funktionen $\operatorname{Cosh}$ und $\operatorname{Sinh}$
 \index{Cosh@$\operatorname{Cosh}$}
 \index{Sinh@$\operatorname{Sinh}$}
-als durch eine autonome Differentialgleichung definiert ansehen kann,
-ist nachvollziehbar, dass die Definition die verschiedenen möglichen
-Lösungen nicht unterscheiden kann.
+\index{autonom}%
+durch eine autonome\footnote{Eine autonome Differentialgleichung ist eine Differentialgleichung der Form $y'=f(y)$, die nicht explizit von $x$ abhängt.
+Sie zeichnen sich dadurch aus, dass mit $y(x)$ auch die verschobene
+Funktion $y(x+\delta)$ eine Lösung ist.} Differentialgleichung definiert
+ansehen kann, ist nachvollziehbar, dass die Definition die verschiedenen
+möglichen Lösungen nicht unterscheiden kann.
 
 Bei den trigonometrischen Funktionen betrachten wir einen Faktor der
 Form $a=e^{i\delta}$, woraus $1/a = e^{-i\delta}$ folgt.

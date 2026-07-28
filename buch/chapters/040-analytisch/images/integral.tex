@@ -1,0 +1,56 @@
+%
+% integral.tex -- Integration der geometrischen Reihe
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\pgfmathparse{atan(4/3)}
+\xdef\w{\pgfmathresult}
+\def\punkt#1#2{
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw[color=#2] #1 circle[radius=0.05];
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\coordinate (A) at (3,3);
+\coordinate (c) at (0.9,1.2);
+\coordinate (d) at (-1,-0.5);
+
+\fill[color=gray!10] (A) circle[radius=1.5];
+\draw[->,line width=0.6pt] (A) -- ($(A)+(c)$);
+\node at ($(A)+0.7*(c)$) [left] {$\varrho$};
+\draw[color=blue,line width=0.4pt] (A) -- ++(d);
+
+\node at (A) [below] {$z_0$};
+\node[color=blue] at ($(A)+(d)$) [below] {$z$};
+
+\coordinate (B1) at (2,0.8);
+\coordinate (B2) at (5,2);
+\coordinate (B3) at (1,4);
+
+\draw[color=darkred,line width=1.2pt] (B1) to[out=135,in=-120]
+	(B2) to[out=60,in={\w-90}]
+	($(A)+(c)$) to[out={90+\w},in=90]
+	(B3);
+
+\punkt{(A)}{black}
+\punkt{($(A)+(c)$)}{darkred}
+\punkt{($(A)+(d)$)}{blue}
+
+\node[color=darkred] at (4.7,3.6) [right] {$x=\gamma(t)$};
+
+\draw[->] (-0.1,0) -- (6.3,0) coordinate[label={$\operatorname{Re}$}];
+\draw[->] (0,-0.1) -- (0,5.3) coordinate[label={right:$\operatorname{Im}$}];
+
+\end{tikzpicture}
+\end{document}
+

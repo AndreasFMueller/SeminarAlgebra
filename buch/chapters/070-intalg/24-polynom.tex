@@ -49,9 +49,9 @@ erhält man die Gleichung
 &=
 \psi'\vartheta^2 + \psi (ax+b/2) + A
 \\
-\varphi
+%\varphi
 &=
-\psi' (ax^2+bx+c) + \psi (ax+b/2) + A
+\psi' (ax^2+bx+c) + \psi (ax+b/2) + A.
 \end{align*}
 Um diese Differentialgleichung für die Funktion $\psi$ zu lösen, verwenden
 wir Ansätze der Form
@@ -59,7 +59,7 @@ wir Ansätze der Form
 \renewcommand{\arraycolsep}{1pt}
 \begin{array}{rcrcrcrcrcccrcr}
 \varphi&=& \varphi_mx^m &+& \varphi_{m-1}x^{m-1} &+&   \varphi_{m-2}x^{m-2} &+&   \varphi_{m-3}x^{m-3} &+& \ldots &+& \varphi_1 x &+& \varphi_0\phantom{.}\\
-\psi   &=&              & &    \psi_{m-1}x^{m-1} &+&      \psi_{m-2}x^{m-2} &+&      \psi_{m-3}x^{m-3} &+& \ldots &+&    \psi_1 x &+&    \psi_1\phantom{.}\\
+\psi   &=&              & &    \psi_{m-1}x^{m-1} &+&      \psi_{m-2}x^{m-2} &+&      \psi_{m-3}x^{m-3} &+& \ldots &+&    \psi_1 x &+&    \psi_0\phantom{.}\\
 \psi'  &=&              & &                      & & (m-1)\psi_{m-1}x^{m-2} &+& (m-2)\psi_{m-2}x^{m-3} &+& \ldots &+&   2\psi_2 x &+&    \psi_1.
 \end{array}
 \]
@@ -107,7 +107,7 @@ Daraus kann man Rekursionsformeln für die Koeffizienten $\psi_k$ ableiten:
 \frac{1}{(m-1)a}\biggl(
 \varphi_{m-1}
 -
-((2(m-1)+1)b/2)\psi_{m-1}
+\frac{(2(m-1)+1)b}{2}\psi_{m-1}
 \biggr)
 \\
 \psi_{m-3}
@@ -115,33 +115,33 @@ Daraus kann man Rekursionsformeln für die Koeffizienten $\psi_k$ ableiten:
 \frac{1}{(m-2)a}\biggl(
 \varphi_{m-2}
 -
-((2(m-1)+1)b/2)\psi_{m-2}
+\frac{(2(m-1)+1)b}{2}\psi_{m-2}
 -
 (m-1)c\psi_{m-1}
 \biggr)
-\\
+\\[-5pt]
 &\phantom{a}\vdots
-\\
+\\[-3pt]
 \psi_{k}
 &=
 \frac{1}{(k+1)a}
 \biggl(
 \varphi_{k+1}
 -
-((2(k+1)+1)b/2)\psi_{k+1}
+\frac{(2(k+1)+1)b}{2}\psi_{k+1}
 -
 (k+2)
 \psi_{k+2}
 \biggr)
-\\
+\\[-5pt]
 &\phantom{a}\vdots
-\\
+\\[-3pt]
 \psi_0
 &=
 \frac{1}{a}\biggl(
 \varphi_1
 -
-3b/2\psi_1
+\frac{3b}{2}\psi_1
 -
 2c\psi_2
 \biggr)
@@ -159,7 +159,9 @@ Konstanten $A$ beweist.
 Der Satz besagt, dass der erste Summand in~\eqref{buch:intalg:wurzel:eqn:summe}
 zu einem Integranden führt, dessen Integral sich auf das Integral von
 $1/\vartheta$ reduzieren lässt.
-Diese Art von Integral tritt auch bei der Berechnung des zweiten Summanden
-auf und wird im
-Abschnitt~\ref{buch:intalg:wurzel:subsection:stammfunktiontheta}
+Bei der Berechnung des zweiten Summanden treten noch weitere Arten
+solcher spezieller Integrale auf.
+Diese werden in Abschnitt~\ref{buch:intalg:wurzel:pol:subsection:ktheta}
+auf ein Integral mit einem Integranden der Form $1/\vartheta$ zurückgeführt
+und im Abschnitt~\ref{buch:intalg:wurzel:subsection:stammfunktiontheta}
 berechnet.

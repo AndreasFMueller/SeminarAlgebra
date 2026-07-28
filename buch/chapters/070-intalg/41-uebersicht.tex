@@ -42,7 +42,8 @@ Diese können sowohl transzendente Erweiterungen sein wie $\pi$, $e$,
 $\zeta(2)=\pi^2/6$ oder $\zeta(3)$, oder sie können algebraisch sein wie
 $\!\sqrt{2}$ oder $\sqrt[3]{7}$.
 Die algebraische Abhängigkeit dieser Konstanten untereinander wird
-nicht weiter untersucht und hat auch keinen Einfluss das Integrationsproblem.
+nicht weiter untersucht und hat auch keinen Einfluss auf das
+Integrationsproblem.
 
 Innerhalb des Konstantenkörpers kann es durchaus passieren, dass eine
 transzendente Konstante in einer algebraischen Erweiterung von
@@ -80,7 +81,7 @@ Dazu gehört insbesondere auch das Element $i$ mit $i^2=-1$, welches
 zum Beispiel für die Konstruktion der trigonometrischen Funktionen
 benötigt wird.
 Auch diese Konstanten sollen von Anfang an in $K$ enthalten sein, so
-dass es später nicht mehr nötig ist, den Körper zu erweitern.
+dass es später nicht mehr nötig ist, den Konstantenkörper zu erweitern.
 
 Die Konstruktion des differentiellen Funktionenkörpers beginnt daher
 mit dem trans\-zen\-den\-ten Element $x$ und dem Körper $F=K(x)$ der rationalen
@@ -88,11 +89,11 @@ Funktionen in $x$ mit Koeffizienten in $K$.
 Diesem Körper werden jetzt weiter drei Arten von Funktionen hinzugefügt:
 \begin{itemize}
 \item
-Logarithmische Erweiterungen: Dies sind Funktionen $\vartheta=\log u$,
-die durch die Eigenschaft $D\vartheta= Du/u$ bis auf einen Konstanten
+Logarithmische transzendente Erweiterungen: Dies sind Funktionen $\vartheta=\log u$,
+die durch die Eigenschaft $D\vartheta= Du/u$ bis auf eine Konstante
 definiert sind.
 \item
-Exponentielle Erweiterungen: Dies sind FUnktionen $\vartheta=e^u$,
+Exponentielle transzendente Erweiterungen: Dies sind Funktionen $\vartheta=e^u$,
 die durch die Eigenschaft $D\vartheta = \vartheta\cdot Du$ bis auf einen
 skalaren Faktor definiert sind.
 \item
@@ -219,7 +220,7 @@ bereits bekannten Techniken anzuwenden.
 Wir können eine quadratfreie Faktorisierung des Nenners $q(\vartheta_n)$
 in Faktoren $b_k(\vartheta_n)\in F_{n-1}[\vartheta_n]$ vornehmen und
 damit den Bruch in Partialbrüche aufteilen.
-Weiter können wir die Methode von Hermite die Partialbrüche 
+Weiter können wir die Methode von Hermite auf die Partialbrüche 
 anwenden und damit den Nennerexponenten auf $1$ reduzieren.
 Schliesslich können wir die Methode von Rothstein-Trager anwenden,
 um die Koeffizienten $c_i$ und die Funktion $v_i\in F_{n-1}$ für
@@ -231,14 +232,14 @@ Da die Koeffizienten der Zähler- und Nennerpolynome nicht konstant sein
 müssen, könnten sich auch nicht konstante $c_i$ ergeben, was dann
 beweist, dass die Stammfunktion nicht existieren kann.
 
-Der Integrationsalgorithmus in $F_n$ folgt also ziemlich genau die
+Der Integrationsalgorithmus in $F_n$ folgt also ziemlich genau der
 Vorgehensweise des Integrationsalgorithmus in $K(z)$.
 Um die Notation zu vereinfachen, ist es daher angebracht, $F=F_{n-1}$
 und $\vartheta=\vartheta_{n}$ zu setzen.
 Zu $f\in F(\vartheta)=F_{n-1}(\vartheta_n)=F_n$ ist dann eine Stammfunktion
 in $F(\vartheta)$ gesucht.
-Im Gegensatz zur Situation in Kapitel~\ref{chapter:ratint} ist es
-aber möglich, dass die Stammfunktion tatsächlich existiert.
+Im Gegensatz zur Situation in Kapitel~\ref{chapter:ratint} ist
+aber nicht garantiert, dass die Stammfunktion tatsächlich existiert.
 
 %
 % Die Methode von Hermite
@@ -280,15 +281,15 @@ zu bestimmen, mit dem quadratfreien Nennerpolynom
 $b(\vartheta)$ mit $\deg a(\vartheta) < \deg b(\vartheta)$.
 Die Methode von Hermite versucht, die
 Integrale~\eqref{buch:intalg:risch:eqn:ratpart}
-zu vereinfachen.
+zu vereinfachen, indem der Nennerexponent $k$ reduziert wird.
 
 Da $b(\vartheta)$ quadratfrei ist, sind $b(\vartheta)$ und $Db(\vartheta)$
 in den meisten Fällen teilerfremd.
 Die Fälle von Faktoren $\vartheta$ des Nennerpolynoms, in denen dies nicht
 zutrifft, hängen von der Art der Erweiterung $\vartheta$ ab und werden
 später separat diskutiert.
-Teilerfremdheit bedeutet, dass es Polynome $s(\vartheta)$ und $t(\vartheta)$
-gibt mit
+Teilerfremdheit hat zur Folge, dass es Polynome $s(\vartheta)$ und
+$t(\vartheta)$ gibt mit
 \[
 a(\vartheta)
 =
@@ -317,7 +318,7 @@ als $b(\vartheta)$.
 Die Polynomdivision macht daraus einen zusätzlichen Beitrag zum polynomiellen
 Teil.
 Es bleibt das Problem, Integrale der Form~\eqref{buch:intalg:risch:eqn:ratpart}
-zu bestimmen $k-1$ anstelle von $k$.
+mit $k-1$ anstelle von $k$ zu bestimmen.
 
 Durch wiederholte Anwendung dieser Methode ist das Problem damit reduziert
 auf Integrale der Form
@@ -344,40 +345,15 @@ t(\vartheta) Db(\vartheta)
 geschrieben werden kann.
 Falls $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind, dann gilt
 dies nach dem erweiterten euklidischen Algorithmus tatsächlich.
-Für ein quadratfreies Polynom in $u(z)\in K[z]$ wissen wir auch bereits,
-dass $u(z)$ und die Ableitung $u'(z)$ teilerfremd sind.
+Für ein quadratfreies Polynom in $u(X)\in K[X]$ wissen wir auch bereits,
+dass $u(X)$ und das abgeleitete Polynom $u'(X)$
+(siehe Definition~\ref{buch:intalg:elementar:def:abgeleitetespolynom})
+teilerfremd sind.
 Bei der Ableitung $Db(\vartheta)$ werden aber nicht nur die Potenzen
 $\vartheta^k$ abgeleitet, sondern auch die Koeffizienten des Polynoms.
-Wir führen zur Unterscheidung die Notation des \emph{abgeleiteten Polynoms}
-gemäss der folgenden Definition ein.
-
-\begin{definition}[Abgeleitetes Polynom]
-\label{buch:intalg:risch:definition:abgeleitetespolynom}
-Sei $b(\vartheta)\in F[\vartheta]$ ein Polynom vom Grad $n$ mit
-Koeffizienten $b_k$ in $F$.
-Es kann in der
-\[
-b(\vartheta)
-=
-b_0 + b_1\vartheta + \dots + b_{m-1}\vartheta^{m-1} + b_m\vartheta^m
-=
-\sum_{k=0}^m b_k\vartheta^k.
-\]
-Das \emph{abgeleitete Polynom} von $b(\vartheta)$ ist
-\[
-b'(\vartheta)
-=
-b_1 + 2b_2\vartheta + \dots + (m-1)b_{m-1}\vartheta^{m-2} + mb_m\vartheta^{m-1}
-=
-\sum_{k=1}^m kb_k\vartheta^k.
-\]
-Die Koeffizienten des abgeleiteten Polynoms werden nicht abgeleitet.
-\end{definition}
 
 Man beachte, dass $Db(\vartheta)$ und $b'(\vartheta)$ verschieden sind.
-Mit der Notation der
-Definition~\ref{buch:intalg:risch:definition:abgeleitetespolynom}
-gilt
+Nach Definition~\ref{buch:intalg:elementar:def:abgeleitetespolynom} gilt
 \begin{align*}
 Db(\vartheta)
 &=
@@ -407,6 +383,10 @@ folgt nur, dass $b(\vartheta)$ und $b'(\vartheta)$ teilerfremd sind.
 Damit die Methode von Hermite durchführbar wird, muss also untersucht
 werden, ob aus der Teilerfreiheit von $b(\vartheta)$ und $b'(\vartheta)$
 auch folgt, dass $b(\vartheta)$ und $Db(\vartheta)$ teilerfremd sind.
+Dies wird für logarithmische Erweiterungen in
+Lemma~\ref{buch:intalg:risch:log:lemma:bDb} und für exponentielle
+Erweiterungen in
+Lemma~\ref{buch:intalg:risch:exp:lemma:bDb} durchgeführt.
 
 %
 % Standardform der Stammfunktion
@@ -433,7 +413,8 @@ a(\vartheta),b(\vartheta)\in F[\vartheta],\\
 ausgedehnt werden.
 Möglicherweise müssen die zulässigen Nenner $b(\vartheta)$ weiter
 eingeschränkt werden.
-Zum Beispiel wird sich herausstellen, dass für den rationalen Teil eines
+Zum Beispiel wird sich herausstellen, dass bei einer exponentiellen
+Erweiterung $\vartheta$ für den rationalen Teil eines
 Integrals nur Nenner $b(\vartheta)$ zulässig sind, die nicht durch
 $\vartheta$ teilbar sind.
 Wir sagen, dass \eqref{buch:intalg:risch:eqn:a(theta)/b(theta)}
@@ -481,14 +462,13 @@ Funktionen von $\vartheta$.
 Im Beweis des
 Satzes~\ref{buch:ratint:rothsteintrager:satz:rothsteintrager}
 über die Stammfunktion rationaler Funktionen
-wurde das Wissen aus der Methode von Bernoulli verwendet, dass sich die
+wurde das Wissen aus der Methode von Bernoulli verwendet, dass die
 \index{Bernoulli, Methode von}%
 \index{Methode von Bernoulli}%
 \index{Bernoulli, Johann}%
 $v_k$ auch als normierte Polynome gewählt werden können.
 Dies trifft aber auch im vorliegenden Fall zu.
-Ist nämlich die $v_k(\vartheta)$
-als Brüche
+Sind nämlich die $v_k(\vartheta)$ Brüche
 \[
 v_k(\vartheta)
 =
@@ -852,9 +832,9 @@ $a(\vartheta) - z\cdot Db(\vartheta)$ und $s(\vartheta)$ einen nichttrivialen
 gemeinsamen Teiler $t(\vartheta)$ haben.
 Ein solcher Teiler müsste auch ein Teiler von $b(\vartheta)$ sein.
 Die einzigen Zahlen $z$, für die dies möglich ist, müssten die Zahlen
-$c_k$ sein, $z_0$ ist als eines der $c_k$.
+$c_k$ sein, $z_0$ ist also eines der $c_k$.
 Dann ist aber $t(\vartheta)$ ein Teiler von $v_k(\vartheta)$ und von
-$s(\vartheta)$, er kommt also im Produkt 
+$s(\vartheta)$, er kommt somit im Produkt 
 \eqref{buch:intalg:risch:rt:eqn:b=rs}
 zweimal vor, im Widerspruch zur Tatsache, dass $b(\vartheta)$ quadratfrei
 ist.

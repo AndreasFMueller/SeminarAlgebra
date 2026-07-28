@@ -48,6 +48,7 @@ function retval = curve(start, direction)
 		i = i + 1;
 		t = t + dt;
 	end
+	retval
 end
 
 function drawcurve(fn, name, data, idx)
@@ -118,6 +119,32 @@ w = f(z);
 w1 = 0.4;
 w2 = 0.9;
 r = 1.8;
+
+tmax = 1.4;
+d = exp(1i * w1 * pi/2)
+curve1 = curve(z, d);
+
+fprintf(fn, "\\def\\kurvea{\n");
+p = curve1(1,1);
+fprintf(fn, "\t({%.4f*\\dx},{%.4f*\\dy})", real(p), imag(p));
+n = size(curve1)(2)
+for i = (2:n)
+	p = curve1(1,i);
+	fprintf(fn, "\n\t-- ({%.4f*\\dx},{%.4f*\\dy})", real(p), imag(p));
+end
+fprintf(fn, "\n}\n");
+
+d = exp(1i * w2 * pi/2)
+curve2 = curve(z, d);
+fprintf(fn, "\\def\\kurveb{\n");
+p = curve2(1,1);
+fprintf(fn, "\t({%.4f*\\dx},{%.4f*\\dy})", real(p), imag(p));
+n = size(curve2)(2)
+for i = (2:n)
+	p = curve2(1,i);
+	fprintf(fn, "\n\t-- ({%.4f*\\dx},{%.4f*\\dy})", real(p), imag(p));
+end
+fprintf(fn, "\n}\n");
 
 fprintf(fn, "\\def\\winkel{\n");
 	fprintf(fn, "\\node at ({%.4f*\\dx},{%.4f*\\dy}) ", real(w), imag(w));

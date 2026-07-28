@@ -12,8 +12,8 @@ stetige Abbildung
 \]
 für ein Intervall $I=[a,b]$.
 Der Weg heisst \emph{geschlossen}, wenn Anfangs- und Endpunkt übereinstimmen,
-\index{Weg!geschlossen}!
-\index{geschlossener Weg}!
+\index{Weg!geschlossen}%
+\index{geschlossener Weg}%
 wenn also $\gamma(a)=\gamma(b)$ gilt.
 Ein Weg heisst \emph{differenzierbarer Weg}, wenn die Funktion $\gamma$
 \index{Weg!differenzierbar}
@@ -32,8 +32,56 @@ t
 =
 \frac{d\gamma}{dt}(t)
 \]
-heisst auch der Tangentialvektor des Weges im PUnkt $\gamma(t)$.
+heisst auch der Tangentialvektor des Weges im Punkt $\gamma(t)$.
 
+%
+% Parametertransformation auf Standardintervalle
+%
+\subsubsection{Parametertransformation auf Standardintervalle}
+Manchmal ist es nützlich, spezielle Parameterintervalle zu verwenden.
+Die Parametertransformation
+\begin{equation}
+t
+\colon
+[0,1] \to [a,b]
+:
+s
+\mapsto
+a + s (b-a)
+=
+(1-s)a
++
+sb
+\label{buch:integration:wegintegral:eqn:transformation}
+\end{equation}
+transformiert den Weg $\gamma\colon[a,b]\to \mathbb{R}^n$
+auf den Weg $\gamma\circ t\colon [0,1]\to\mathbb{R}^n$.
+Der Tangentialvektor ist nach der Kettenregel
+\[
+\frac{d}{ds}(\gamma\circ t)(s)
+=
+\dot{\gamma}(t(s))\cdot \frac{dt}{ds}
+=
+\dot{\gamma}(t(s))\cdot (b-a).
+\]
+Er wird also mit dem gleichen Faktor $b-a$ skaliert wie der Parameter.
+
+Mit der Transformation
+\eqref{buch:integration:wegintegral:eqn:transformation}
+kann jeder Wege auf das Standardintervall $[0,1]$ transformiert werden.
+Durch Zusammensetzung solcher Transformationen und ihrere Inversen
+kann als ein Weg mit jedem beliebigen Parameterintervall
+parametrisiert werden.
+Wir können daher im Folgenden jederzeit annehmen, dass das Parameterintervall
+das Einheitsintervall oder auch jedes beliebige andere Intervall ist.
+Wir werden daher meistens das Intervall nicht im Detail spezifizieren
+und es dem Leser überlassen, das Intervall aus dem Kontext abzuleiten,
+sofern die Wahl des Intervalls überhaupt von Bedeutung ist.
+
+%
+% Differenzierbare Wege in C^2
+%
+\subsubsection{Differenzierbare Wege in $\mathbb{C}^2$}
 Da $\mathbb{C}$ als zweidimensionaler reeller Vektorraum betrachtet
 werden kann, ist ein Weg in $U\subset\mathbb{C}$ eine Abbildung
 von einem Intervall $I$ nach $U$:
@@ -65,6 +113,10 @@ t
 heisst wieder Tangentialvektor, er ist jetzt aber auch eine komplexe 
 Zahl.
 
+%
+% Real- und Imaginärteil des Weges
+%
+\subsubsection{Real- und Imaginärteil des Weges}
 Ein Weg in $\mathbb{R}^2$ entsteht dadurch, dass man den Vektor aus
 Real- und Imaginärteil von $\gamma(t)$ bildet:
 \[
@@ -134,7 +186,7 @@ r_0
 (e^{2\pi int} - 1)
 \]
 ein kreisförmiger Weg mit Radius $r_0$, der $n$ Mal durchlaufen wird.
-Fügt man diesen Weg und zustzlich den Summanden $i\sin \pi t$ zum Weg
+Fügt man diesen Weg und zusätzlich den Summanden $i\sin \pi t$ zum Weg
 $\gamma(t)$ hinzu, erhält man den Weg
 \[
 \gamma_1(t)
@@ -148,7 +200,7 @@ i\sin \pi t,
 \]
 der in Abbildung~\ref{buch:integration:wege:fig:wege}~a)
 {\color{darkgreen}grün} eingezeichnet ist.
-Der zugehörige Geschwindigkeitsvektor 
+Der zugehörige Geschwindigkeitsvektor ist
 \[
 \dot{\gamma}_1(t)
 =

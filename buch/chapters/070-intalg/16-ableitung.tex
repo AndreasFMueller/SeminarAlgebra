@@ -60,35 +60,37 @@ festgelegt und damit $\tilde{D}$ auf ganz $F(\vartheta)$.
 Für eine exponentielle Erweiterung $\vartheta=e^u$ mit $u\in F$ gilt
 $\tilde{D}\vartheta=\tilde{D}e^u = e^uu =\vartheta u$.
 Auch in diesem Fall ist die Ableitung von $\vartheta$ eindeutig
-festgelegt und damit $\tilde{D}$ auf ganz $F(\vartheta)$.
+festgelegt.
+Es folgt, dass es genau eine Erweiterung der Deriviation $D$ auf
+$F$ zu einer Derivation $\tilde{D}$ auf ganz $F(\vartheta)$ gibt.
 
 %
 % Algebraische Erweiterungen
 %
 \subsubsection{Algebraische Erweiterungen}
 Sei $\vartheta$ eine algebraische Erweiterung mit dem Minimalpolynom
-$p(X) \in F[X]$ mit Koeffizienten in $F$.
+$m(X) \in F[X]$ mit Koeffizienten in $F$.
 Auch in diesem Fall stellt sich die Frage, ob die Ausdehnung $\tilde{D}$
 auf $F(\vartheta)$ eindeutig bestimmt ist.
-Die Rechnungen im Fall einertranszendenten Erweiterung folgt auch hier,
-dass die Derivation eindeutig festgelegt ist, wenn $\tilde{D}\vartheta$
-festgelegt wird.
+Mit zum Fall einer transzendenten Erweiterung analogen Rechnungen folgt
+auch hier, dass die Derivation eindeutig festgelegt ist, sobald
+$\tilde{D}\vartheta$ festgelegt wird.
 Durch Ableiten der Definitionsgleichung
 \begin{align}
-\sum_{k=0}^m p_k\vartheta^k
+\sum_{k=0}^n m_k\vartheta^k
 &=
 0
 \intertext{erhält man die Gleichung}
-\sum_{k=0}^m Dp_k\vartheta^k
+\sum_{k=0}^n Dm_k\vartheta^k
 +
-\sum_{k=0}^m p_k k\vartheta^{k-1}\tilde{D}\vartheta
+\sum_{k=0}^n m_k k\vartheta^{k-1}\tilde{D}\vartheta
 &=
 0
 \notag
 \\
-\sum_{k=0}^m Dp_k\vartheta^k
+\sum_{k=0}^n Dm_k\vartheta^k
 +
-\biggl(\sum_{k=0}^m p_k k\vartheta^{k-1}\biggr)\tilde{D}\vartheta
+\biggl(\sum_{k=0}^n m_k k\vartheta^{k-1}\biggr)\tilde{D}\vartheta
 &=
 0,
 \notag
@@ -96,9 +98,9 @@ Durch Ableiten der Definitionsgleichung
 \tilde{D}\vartheta
 &=
 -\frac{\displaystyle
-\sum_{k=0}^m Dp_k \cdot \vartheta^k
+\sum_{k=0}^n Dm_k \cdot \vartheta^k
 }{\displaystyle
-\sum_{k=0}^m p_kk\vartheta^{k-1}
+\sum_{k=0}^n m_kk\vartheta^{k-1}
 }
 \label{buch:intalg:elementar:Derweiterung:alg}
 \end{align}
@@ -106,14 +108,16 @@ auflösen kann.
 Dies zeigt, dass $\tilde{D}\vartheta$ eindeutig festgelegt ist.
 
 Die zusätzliche Schwierigkeit in diesem Fall ist, dass es mehrere
-Funktionen $\vartheta$ gibt, die die Gleichung $p(\vartheta)=0$ erfüllen.
+Funktionen $\vartheta$ gibt, die die Gleichung $m(\vartheta)=0$ erfüllen.
+Zum Beispiel definiert das Minimalpolynom $m(X) = X^2-f$ zwei Wurzeln
+$\!\sqrt{f}$ und $-\!\sqrt{f}$.
 Wir müssen in diesem Fall zusätzlich zeigen, dass
 unsere Konstruktion von $\tilde{D}\vartheta$ nicht von der Wahl der
-Lösung von $p(\vartheta)=0$ abhängt.
+Lösung von $m(\vartheta)=0$ abhängt.
 Die Formel~\eqref{buch:intalg:elementar:Derweiterung:alg} zeigt aber,
 dass die Ableitung vollständig durch die Koeffizienten des
-Minimalpolynoms $p$ festgelegt wird.
-Ersetzt man also $\vartheta$ durch eine andere Nullstelle von $p$,
+Minimalpolynoms $m$ festgelegt wird.
+Ersetzt man also $\vartheta$ durch eine andere Nullstelle von $m$,
 hat die resultierende Ableitung die gleichen algebraischen Eigenschaften.
 
 

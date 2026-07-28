@@ -17,11 +17,15 @@ all:									\
 	lochgebiet.pdf							\
 	merohomolog.pdf							\
 	methode.pdf							\
+	nachbar.pdf							\
 	paar.pdf							\
 	raender.pdf							\
 	rechteck.pdf							\
 	residuum.pdf							\
-	wege.pdf
+	treppe.pdf							\
+	wege.pdf							\
+	sinxx.pdf							\
+	gitterapprox.pdf
 
 wege.pdf:	wege.tex
 	pdflatex wege.tex
@@ -76,3 +80,21 @@ hauptwert.pdf:	hauptwert.tex
 
 methode.pdf:	methode.tex
 	pdflatex methode.tex
+
+sinxx.pdf:	sinxx.tex sinxxdata.tex
+	pdflatex sinxx.tex
+
+sinxxdata.tex:	sinxx.m
+	octave sinxx.m
+
+gitterapprox.pdf:	gitterapprox.tex gitter.tex
+	pdflatex gitterapprox.tex
+
+gitter.tex:	gitter.m
+	octave gitter.m
+
+treppe.pdf:	treppe.tex
+	pdflatex treppe.tex
+
+nachbar.pdf:	nachbar.tex
+	pdflatex nachbar.tex

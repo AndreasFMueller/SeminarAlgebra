@@ -96,6 +96,13 @@ declare function = {
 	\fill[color=white] (0,0.4) [rotate=-30] ellipse(0.5cm and 0.3cm);
 \end{scope}
 
+\draw[->,line width=0.5pt] (C) -- ++(-148:\rtwo);
+\node at ($(C)+(-155:{0.65*\rtwo})$) {$r_2$};
+
+\draw[->,line width=0.5pt] (C) -- ++(150:\rone);
+\node at ($(C)+(165:{0.7*\rone})$) {$r_1$};
+
+
 \draw[color=darkred,line width=1.2pt]
 	(C) circle[radius=\rone];
 
@@ -136,8 +143,8 @@ declare function = {
 \draw (C) circle[radius=0.05];
 \node at (C) [below] {$z_0$};
 
-\node[color=darkred] at ($(C)+(270:\rone)$) [below] {$-\gamma_2$};
-\node[color=darkred] at ($(C)+(110:\rtwo)$) [above left] {$\gamma_1$};
+\node[color=darkred] at ($(C)+(270:\rone)+(0,0.05)$) [below] {$\gamma_1^{-1}$};
+\node[color=darkred] at ($(C)+(110:\rtwo)+(0,-0.1)$) [above left] {$\gamma_2$};
 
 \draw[->] (-0.1,0) -- (10.3,0) coordinate[label={$\operatorname{Re}$}];
 \draw[->] (0,-0.1) -- (0,8.3) coordinate[label={right:$\operatorname{Im}$}];

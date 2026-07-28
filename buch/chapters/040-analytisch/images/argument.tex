@@ -1,0 +1,149 @@
+%
+% argument.tex -- Argumentpfad
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\input{argumentpfad.tex}
+\def\l{0.10}
+\def\punkt#1{
+	\fill[color=blue!20] #1 circle[radius=\l];
+	\fill[color=white] #1 circle[radius={0.5*\l}];
+	\draw[color=blue] #1 circle[radius={0.5*\l}];
+}
+\def\kreuz#1{
+	\fill[color=blue!20] #1 circle[radius=\l];
+	\foreach \w in {45,135,...,360}{
+		\draw[color=blue] #1 -- ++(\w:\l);
+	}
+}
+\def\achsen{
+	\draw[->] (-1.6,0) -- (1.7,0)
+		coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-1.6) -- (0,1.6)
+		coordinate[label={right:$\operatorname{Im}$}];
+}
+\def\f{
+	\draw[->] (-0.5,0) -- ++(1.2,0);
+	\node at (0.1,0) [above] {$f(z)$};
+}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+%
+% 1 Nullstelle
+%
+\begin{scope}[yshift=14.0cm]
+	\begin{scope}[xshift=-2.8cm]
+		\achsen
+		\draw[color=darkred,line width=1.2pt] (0,0) circle[radius=\r];
+		\punkt{\nullstelleeins}
+	\end{scope}
+	\f
+	\begin{scope}[xshift=2.8cm]
+		\achsen
+		\begin{scope}[scale=\scaleA]
+			\draw[color=darkred,line width=1.2pt] \bildkurveA;
+		\end{scope}
+		%\node at (1.6,-1.6) [above left] {$n=1$};
+	\end{scope}
+\end{scope}
+
+%
+% 2 Nullstellen
+%
+\begin{scope}[yshift=10.5cm]
+	\begin{scope}[xshift=-2.8cm]
+		\achsen
+		\draw[color=darkred,line width=1.2pt] (0,0) circle[radius=\r];
+		\punkt{\nullstelleeins}
+		\punkt{\nullstellezwei}
+	\end{scope}
+	\f
+	\begin{scope}[xshift=2.8cm]
+		\achsen
+		\begin{scope}[scale=\scaleB]
+			\draw[color=darkred,line width=1.2pt] \bildkurveB;
+		\end{scope}
+		%\node at (1.6,-1.6) [above left] {$n=3$};
+	\end{scope}
+\end{scope}
+
+%
+% 3 Nullstellen
+%
+\begin{scope}[yshift=7.0cm]
+	\begin{scope}[xshift=-2.8cm]
+		\achsen
+		\draw[color=darkred,line width=1.2pt] (0,0) circle[radius=\r];
+		\punkt{\nullstelleeins}
+		\punkt{\nullstellezwei}
+		\punkt{\nullstelledrei}
+	\end{scope}
+	\f
+	\begin{scope}[xshift=2.8cm]
+		\achsen
+		\begin{scope}[scale=\scaleC]
+			\draw[color=darkred,line width=1.2pt] \bildkurveC;
+		\end{scope}
+		%\node at (1.6,-1.6) [above left] {$n=3$};
+	\end{scope}
+\end{scope}
+
+%
+% 3 Nullstelle, 1 Polstelle innerhalb
+%
+\begin{scope}[yshift=3.5cm]
+	\begin{scope}[xshift=-2.8cm]
+		\achsen
+		\draw[color=darkred,line width=1.2pt] (0,0) circle[radius=\r];
+		\punkt{\nullstelleeins}
+		\punkt{\nullstellezwei}
+		\punkt{\nullstelledrei}
+		\kreuz{\poleins}
+	\end{scope}
+	\f
+	\begin{scope}[xshift=2.8cm]
+		\achsen
+		\begin{scope}[scale=\scaleD]
+			\draw[color=darkred,line width=1.2pt] \bildkurveD;
+		\end{scope}
+		%\node at (1.6,-1.6) [above left] {$n=2$};
+	\end{scope}
+\end{scope}
+
+%
+% 3 Nullstelle, 1 Polstelle innerhalb, 1 Polstelle ausserhalb
+%
+\begin{scope}
+	\begin{scope}[xshift=-2.8cm]
+		\achsen
+		\draw[color=darkred,line width=1.2pt] (0,0) circle[radius=\r];
+		\punkt{\nullstelleeins}
+		\punkt{\nullstellezwei}
+		\punkt{\nullstelledrei}
+		\kreuz{\poleins}
+		\kreuz{\polzwei}
+	\end{scope}
+	\f
+	\begin{scope}[xshift=2.8cm]
+		\achsen
+		\begin{scope}[scale=\scaleE]
+			\draw[color=darkred,line width=1.2pt] \bildkurveE;
+		\end{scope}
+		%\node at (1.6,-1.6) [above left] {$n=2$};
+	\end{scope}
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
+

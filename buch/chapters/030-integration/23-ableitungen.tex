@@ -21,7 +21,7 @@ f'(z_0)
 \frac{d}{dz_0}f(z_0)
 &=
 \frac{1}{2\pi i}
-\oint
+\oint_{\gamma}
 \frac{d}{dz_0}
 \frac{f(z)}{z-z_0}
 \,dz
@@ -29,7 +29,7 @@ f'(z_0)
 \\
 &=
 \frac{1}{2\pi i}
-\oint
+\oint_{\gamma}
 \frac{f(z)}{(z-z_0)^2}
 \,dz.
 \label{buch:integration:eqn:ableitung2}
@@ -37,7 +37,7 @@ f'(z_0)
 Wie erwartet kann die Ableitung von $f$ ebenfalls durch ein einfaches
 Wegintegral berechnet werden.
 Durch wiederholtes Ableiten kann man auch höhere Ableitungen finden,
-wie sie der folgende Satz zeigt.
+wie der folgende Satz zeigt.
 
 \begin{satz}[Cauchy-Formel für Ableitungen]
 \label{buch:integration:satz:ableitungn}
@@ -52,7 +52,7 @@ Dann gilt
 f^{(n)}(z_0)
 =
 \frac{n!}{2\pi i}
-\oint
+\oint_{\gamma}
 \frac{f(z)}{(z-z_0)^{n+1}}
 \,dz.
 \label{buch:integration:eqn:ableitungn}
@@ -107,3 +107,27 @@ f^{(n)}(z_0)
 \end{align*}
 Damit ist \eqref{buch:integration:eqn:ableitungn} bewiesen.
 \end{proof}
+
+Die Werte und alle Ableitungen einer holomorphen Funktion in der Umgebung
+eines Punktes können also durch Berechnung von Integralen der Form
+\eqref{buch:integration:eqn:ableitungn}
+über einen Weg, der die Umgebung umschliesst, berechnet werden.
+Da der Integrand entlang des Weges stetig ist, sind diese Integrale
+alle wohldefiniert.
+Da das Bild des Weges kompakt ist, sind die Integrale als Funktionen
+von $z_0$ stetig.
+Wir erhalten damit das folgende überraschende Resultat.
+
+\begin{korollar}
+Eine holomorphe Funktion $f\colon U\to\mathbb{C}$ ist beliebig oft stetig
+differenzierbar.
+\end{korollar}
+
+Einmalige komplexe Differenzierbarkeit hat also automatisch beliebige
+stetige Differenzierbarkeit zur Folge.
+Dies steht in krassem Gegensatz zur Situation reeller Funktionen,
+wo Beispiele von einmal stetig differenzierbaren Funktionen konstruiert
+worden sind, die nicht beliebig oft differenzierbar sind.
+Die komplexe Differenzierbarkeit ist also eine sehr viel stärkere
+Einschränkung als reelle Differenzierbarkeit.
+

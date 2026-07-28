@@ -3,6 +3,7 @@
 %
 \subsection{Cauchy-Riemann-Differentialgleichung}
 Die komplexe Ableitung $f'(z)$ einer komplexen Funktion $f(z)$
+nach Definition~\ref{buch:holomorph:diffbar:def:komplexeableitung}
 ist eine komplexe Zahl, mit der $\Delta z$ multipliziert werden muss.
 Diese Multiplikation kann als Multiplikation der Matrix
 \[
@@ -114,7 +115,7 @@ Drehungen des Raumes invariant ist.
 Zum Beispiel erfüllt das Potential $u$ einer Ladungsverteilung $\varrho$ im
 \index{Potential}%
 \index{Ladungsverteilung}%
-Vakuum die Laplace-Gleichung
+Vakuum die Laplace-Glei\-chung
 \[
 \Delta u = 4\pi \varrho.
 \]
@@ -129,8 +130,9 @@ $u\colon\mathbb{R}^n\to\mathbb{R}$, die $\Delta u = 0$ erfüllt.
 \end{definition}
 
 Harmonische Funktionen erfüllen also eine sehr spezielle partielle
-Differentialgleichung und es ist auf den ersten Blick ganz und gar 
-unklar, ob es überhaupt solche Funktionen gibt.
+Differentialgleichung.
+Es ist auf den ersten Blick ganz und gar unklar, ob es überhaupt
+solche Funktionen gibt.
 Es zeigt sich aber, dass die Theorie der holomorphen Funktionen
 dank des folgenden Satzes eine sehr grosse Zahl solcher Funktionen
 liefert.
@@ -169,7 +171,7 @@ $y$ und der zweiten nach $x$
 \frac{\partial^2 u}{\partial x\,\partial y}
 =
 \frac{\partial^2 v}{\partial y^2}
-\quad\text{und}\partial
+\quad\text{und}\quad
 \frac{\partial^2 u}{\partial x\,\partial y}
 =
 -
@@ -200,7 +202,7 @@ Wir prüfen dies am Beispiel $k=3$ nach, in diesem Fall ist
 \begin{equation*}
 (x+iy)^3
 =
-x^3 +3ix2^y - 3xy^2 -iy^3
+x^3 +3ix^2y - 3xy^2 -iy^3
 \qquad\Rightarrow\qquad
 \left\{
 \begin{aligned}
@@ -219,14 +221,15 @@ Funktionen und erhalten
 \begin{align*}
 &\left.
 \begin{aligned}
-\frac{\partial u}{\partial x} &= 3x^2 -3y^2
+\frac{\partial u}{\partial x} &= 3x^2 -3y^2,
 &
-\frac{\partial^2 u}{\partial x^2} &= 6x
+\frac{\partial^2 u}{\partial x^2} &= 6x,
 \\
-\frac{\partial u}{\partial y} &= -6xy
+\frac{\partial u}{\partial y} &= -6xy,
 &
 \frac{\partial^2 u}{\partial y^2} &= -6x
 \end{aligned}
+\quad
 \right\}
 &&\Rightarrow&
 \Delta u
@@ -239,14 +242,15 @@ Funktionen und erhalten
 \\
 &
 \left.\begin{aligned}
-\frac{\partial v}{\partial x} &= 6xy
+\frac{\partial v}{\partial x} &= 6xy,
 &
-\frac{\partial^2 v}{\partial x^2} &= 6y
+\frac{\partial^2 v}{\partial x^2} &= 6y,
 \\
-\frac{\partial v}{\partial y} &= 3x^2-3y^2
+\frac{\partial v}{\partial y} &= 3x^2-3y^2,
 &
 \frac{\partial v}{\partial y^2} &= -6y
 \end{aligned}
+\quad
 \right\}
 &&\Rightarrow&
 \Delta v
@@ -318,7 +322,7 @@ v_0
 \,d\xi}
 =
 v_0
-{\color{darkred}-
+{\color{darkred}\mathstrut-
 \int_{x_0}^x
 \frac{\partial u}{\partial y}(\xi,y_0)
 \,d\xi}
@@ -345,7 +349,7 @@ v(x,y_0) +
 \\
 &=
 v_0
-{\color{darkred}
+{\color{darkred}\mathstrut
 -
 \int_{x_0}^x \frac{\partial u}{\partial y}(\xi,y_0)\,d\xi
 }
@@ -497,7 +501,7 @@ v_0
 -
 y^3.
 \end{align*}
-Bis den Klammerausdruck, der eine Konstante ist, wird also der
+Bis auf den Klammerausdruck, der eine Konstante ist, wird also der
 Ausdruck $3x^2y-y^3$ gefunden, der auch schon in
 Beispiel~\ref{buch:holomorph:holomorph:bsp:zkholomorph}
 aufgetreten ist.

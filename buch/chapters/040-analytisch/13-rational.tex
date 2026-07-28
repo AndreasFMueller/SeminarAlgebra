@@ -68,7 +68,7 @@ Ein Summand mit Nennergrad 1 hat die geometrische Reihe
 &=
 -\frac{A}{\alpha}
 \cdot
-\frac{1}{1-\frac{z}{\alpha}}
+\frac{1}{\displaystyle 1-\frac{z\mathstrut}{\alpha}}
 =
 -\frac{A}{\alpha}
 \sum_{i=0}^\infty \frac{z^i}{\alpha^i}
@@ -85,16 +85,26 @@ Für Nennergrad $l>1$ ist
 =
 (-1)^l
 \frac{A}{\alpha^l}
-\biggl(
-\frac{1}{1-\frac{z}{\alpha}}
-\biggr)^l
+\cdot
+\raisebox{-6pt}{$\displaystyle
+\left(
+\raisebox{6pt}{$\displaystyle
+\frac{1}{\displaystyle 1-\frac{z\mathstrut}{\alpha}}
+$}
+\right)^l
+$}
 =
 (-1)^l
 \frac{A}{\alpha^l}
+\cdot
 \biggl(
 \sum_{i=0}^\infty \frac{z^i}{\alpha^i}
 \biggr)^l.
 \]
 Das Produkt von Potenzreihen ist wieder eine Potenzreihe, somit
 sind auch rationale Funktionen analytisch.
+Ausserdem kann die Potenzreihe durch rein algebraische Umformung
+gewonnen werden.
+Die Tatsache, dass es sich auch um die Taylor-Reihe handelt,
+spielt dabei keine Rolle.
 

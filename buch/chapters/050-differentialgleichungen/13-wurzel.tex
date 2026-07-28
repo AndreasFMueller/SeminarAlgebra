@@ -1,0 +1,251 @@
+%
+% 13-wurzel.tex -- Die Wurzelfunktion
+%
+% (c) 2026 Prof Dr Andreas Müller
+%
+\subsection{Die Wurzelfunktion}
+Die Wurzelfunktion ist eine Lösung der algebraischen Gleichung $y^2=x$.
+Durch Ableiten nach $x$ wird daraus die nichtlineare Differentialgleichung
+\begin{equation}
+2yy'=1.
+\label{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+\end{equation}
+Mit der Funktion
+\[
+F(x,y,y')
+=
+2yy'-1
+\]
+kann die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+in der Form
+\eqref{buch:differentialgleichungen:potenzreihenansatz:eqn:dgl}
+geschrieben werden.
+Die Funktion $F$ ist eine Polynom in den Variablen $y$ und $y'$ und
+ist damit insbesondere auch für komplexe Argumente definiert.
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+ist eine komplexe Differentialgleichung für die Wurzelfunktion
+und sollte daher eine komplexe Potenzreihe für die Wurzelfunktion
+zu liefern in der Lage sein.
+
+%
+% Potenzreihenlösung für die Wurzelfunktion
+%
+\subsubsection{Potenzreihenlösung für die Wurzelfunktion}
+Wir schreiben die Lösung als
+\[
+y(x)
+=
+\sum_{k=0}^\infty a_kx^k
+\qquad\Rightarrow\qquad
+y'(x)
+=
+\sum_{k=1}^\infty ka_kx^{k-1}
+=
+\sum_{l=0}^\infty (l+1)a_{l+1}x^l
+\]
+und setzen in die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+ein.
+Es entsteht die Gleichung
+\begin{align}
+\frac12
+&=
+\sum_{k=0}^\infty \sum_{l=0}^\infty a_k(l+1)a_{l+1}x^{k+l}
+=
+\sum_{n=0}^\infty
+\biggl(
+\sum_{l=0}^n (l+1)a_{n-l}a_{l+1}
+\biggr)
+x^n.
+\end{align}
+Durch Koeffizientenvergleich können wir jetzt die Koeffizienten $a_k$
+bestimmen.
+
+
+Der Koeffizient für $n=0$ ist $a_0a_1=\frac12$ oder $a_1=\frac{1}{2a_0}$.
+Die Koeffizienten von $x^n$ mit $n>0$ müssen alle verschwinden, es muss
+also
+\begin{align*}
+0
+&=
+\sum_{l=0}^n (l+1)a_{n-l}a_{l+1}
+&&\Rightarrow&
+(n+1)a_0a_{n+1}
+&=
+-
+\sum_{l=0}^{n-1} (l+1)a_{n-l}a_{l+1}
+\\
+&
+&&\Rightarrow&
+a_{n+1}
+&=
+\frac{1}{(n+1)a_0}
+\sum_{l=0}^{n-1} (l+1)a_{n-l}a_{l+1}.
+\end{align*}
+Dies ist eine Rekursionsformel, die den Koeffizienten $a_{n+1}$ aus
+den Koeffizienten $a_0,\dots,a_n$ bestimmt.
+Alle Koeffizienten hängen also vom Wert $a_0$ ab.
+
+%
+% Der Spezialfall a_0=1
+%
+\subsubsection{Der Spezialfall $a_0=1$}
+Um die Rechnung zu vereinfachen, berechnen wir die Koeffizienten nur für 
+den Fall $a_0=1$, also für den Fall einer Wurzelfunktion, die für $x=0$
+den Wert $1$ ergibt.
+Um die Koeffizienten besser auseinanderzuhalten, bezeichnen wir die
+Koeffizienten für diesen Spezialfall mit $b_k$.
+\input{chapters/050-differentialgleichungen/fig/fig-wurzel.tex}%
+Wir erwarten also eine Potenzreihenentwicklung für die Funktion
+$y(x)=\!\sqrt{1+x}$.
+Die Rechnung ergibt
+\begin{align*}
+n&=0: &&&
+1 &=
+b_0{\color{darkred}b_1}
+\\
+&&&\Rightarrow&
+b_1
+&=
+\frac{1}{2b_0}
+&&=
+\frac12
+\\
+n&=1: &&&
+0 &=
+b_1^2+2b_0{\color{darkred}b_2}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_2}
+&= 
+-\frac{b_1^2}{2b_0}
+&&=
+-\frac{1}{8}
+\\
+n&=2: &&&
+0 &=
+b_2b_1+2b_1b_2+3b_0{\color{darkred}b_3}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_3}
+&=
+-\frac{1}{3b_0}(3b_1b_2)
+&&=
+\frac{1}{16}
+\\
+n&=3: &&&
+0 &=
+b_3b_1+2b_2^2+3b_1b_3+4b_0{\color{darkred}b_4}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_4}
+&=
+-
+\frac{1}{4b_0}(4b_3b_1+2b_2^2)
+&&=
+-\frac{5}{128}
+\\
+n&=4: &&&
+0 &=
+b_4b_1+2b_3b_2+3b_2b_3+4b_1b_4+5b_0{\color{darkred}b_5}
+\\
+&&&\Rightarrow&
+{\color{darkred}b_5}
+&=
+-\frac{1}{5b_0}(5b_1b_4+5b_2b_3)
+&&=
+\frac{7}{256}
+\end{align*}
+Die Lösung hat also die Potenzreihe
+\begin{align}
+\!\sqrt{1+x}
+&=
+\frac12
+-\frac{1}{8}x
++\frac{1}{16}x^2
+-\frac{5}{128}x^3
++\frac{7}{256}x^4
+-\dots
+\label{buch:differentialgleichungen:potenzreihen:wurzelapprox}
+\end{align}
+Die Abbildung~\ref{buch:differentialgleichungen:fig:wurzel}
+zeigt die exakte Lösung $\!\sqrt{1+x}$ im Vergleich zur Approximation
+\eqref{buch:differentialgleichungen:potenzreihen:wurzelapprox}.
+
+%
+% Der allgemeine Fall
+%
+\subsubsection{Der allgemeine Fall}
+Die Differentialgleichung
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:wurzeldgl}
+hat als allgemeine Lösung die Funktion $y(x)=\!\sqrt{x-C}$.
+Die Wahl $a_0=1$ entspricht daher dem Wert $C=-1$.
+Für beliebiges $a_0$ findet man
+\[
+y(x)
+=
+\!\sqrt{x+a_0^2}
+=
+\frac{1}{a_0}
+\sqrt{1+\frac{x\mathstrut}{a_0^2\mathstrut}}
+=
+\frac{1}{a_0}
+\sum_{k=0}^\infty b_k\biggl(\frac{x\mathstrut}{{a_0}^2\mathstrut}\biggr)^k
+\]
+als Lösung.
+Daraus können wir ablesen, dass
+\[
+a_k
+=
+\frac{b_k}{a_0^{2k+1}}
+\]
+ist.
+
+%
+% Die binomische Reihe
+%
+\subsubsection{Die binomische Reihe}
+Für die Funktion $f(x) = (1+x)^\alpha$ ist auch die binomische Formel
+\begin{align*}
+(1+x)^\alpha
+&=
+\sum_{k=0}^\infty \binom{\alpha}{k}x^k
+=
+\sum_{k=0}^\infty \frac{\alpha(\alpha-1)\cdot\ldots\cdot (\alpha-k+1)}{k!}x^k
+\end{align*}
+bekannt
+Im Spezialfall $\alpha=\frac12$ kann man die Binomialkoeffizienten
+explizit ausrechnen.
+Dazu erweitern wir den Bruch
+\begin{align}
+\binom{\frac12}{k}
+&=
+\frac{\frac12\cdot(-\frac12)\cdot(-\frac32)\cdot\ldots\cdot(-\frac{2k-3}{2})}{k!}
+=
+(-1)^{k-1}
+\frac{1\cdot 3 \cdot\ldots\cdot(2k-3)}{2^k\cdot k!}
+\intertext{mit $2^k\cdot k!=2\cdot 4 \cdot \ldots\cdot (2k)$ und erhalten}
+&=
+(-1)^{k-1}
+\frac{1\cdot 2\cdot 3 \cdot 4 \cdot\ldots\cdot(2k-3)\cdot(2k-2)\cdot 2k}{(2^k\cdot k!)^2}
+\notag
+\\
+&=
+(-1)^{k-1}
+\frac{(2k)!}{2^{2k}\cdot (k!)^2\cdot(2k-1)}
+=
+(-1)^{k-1}
+\frac{1}{2^{2k}}
+\binom{2k}{k}.
+\label{buch:differentialgleichungen:potenzreihen:eqn:koeffizient}
+\end{align}
+Tatsächlich bekommt
+\eqref{buch:differentialgleichungen:potenzreihen:eqn:koeffizient}
+für die ersten paar $k$ die Werte der Koeffizienten der
+Tabelle~\ref{buch:differentialgleichungen:tab:wurzel}.
+\input{chapters/050-differentialgleichungen/fig/tab-wurzel.tex}%
+Sie stimmen mit den Koeffizienten in
+\eqref{buch:differentialgleichungen:potenzreihen:wurzelapprox}
+überein.
+

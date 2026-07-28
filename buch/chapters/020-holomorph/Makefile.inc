@@ -23,5 +23,10 @@ CHAPTERFILES += 							\
 	chapters/020-holomorph/3-nichtholomorph.tex			\
 	chapters/020-holomorph/31-zbarz.tex				\
 	chapters/020-holomorph/32-komplexj.tex				\
+	chapters/020-holomorph/fig/fig-imaginaerteil.tex		\
+	chapters/020-holomorph/fig/fig-konform.tex			\
+	chapters/020-holomorph/fig/fig-mittelwert.tex			\
+	chapters/020-holomorph/fig/fig-polynome.tex			\
+	chapters/020-holomorph/fig/fig-rekursion.tex			\
 	chapters/020-holomorph/chapter.tex
 

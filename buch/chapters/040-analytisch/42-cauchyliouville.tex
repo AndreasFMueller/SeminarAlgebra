@@ -86,7 +86,7 @@ grösser als $N$.
 \end{satz}
 
 \begin{proof}
-Die Vorqaussetzungen des Satzes sagen, dass die auf einem Kreis
+Die Voraussetzungen des Satzes sagen, dass auf einem Kreis
 vom Radius $r$ die Ungleichung
 \begin{equation}
 |f(z)|
@@ -97,7 +97,7 @@ a(1+r^N)
 gilt.
 
 Der Konvergenzradius der Potenzreihe einer ganzen Funktion ist
-unendlich gross, insbesondere kann die cauchysche Ungleichung
+unendlich gross, insbesondere kann man die cauchysche Ungleichung
 \eqref{buch:analytisch:ganz:satz:cauchy-ungleichung}
 für beliebig
 grosse Radien anwenden.
@@ -110,8 +110,9 @@ Der Koeffizient vom Grad $n$ der Potenzreihe erfüllt damit
 &\le 
 \frac{M}{r^n}
 =
-a\frac{1+r^N}{r^n}.
+a\frac{1+r^N}{r^n}
 \end{align*}
+für alle $r>0$.
 Wir betrachten den Fall $n>N$ und lassen $r\to\infty$ gehen.
 In
 \begin{align*}
@@ -123,7 +124,7 @@ a
 +
 a
 \lim_{r\to\infty} \frac{1}{r^{n-N}}
-\intertext{verschwinden die Grenzwerte wegen $n-N>0$ auf der rechten
+\intertext{verschwinden beide Grenzwerte wegen $n-N>0$ auf der rechten
 Seite.
 Somit folgt}
 |c_n|
@@ -134,10 +135,19 @@ Somit verschwinden alle Koeffizienten der Potenzreihe für $n>N$,
 die Potenzreihe ist daher nur ein Polynom vom Grad $N$.
 \end{proof}
 
-Ein wichtiger Spezialfall ist $N=0$, der oft bereits als der
-Satz von Liouville bekannt ist.
+Ein wichtiger Spezialfall ist $N=0$, der oft ebenfalls der
+Satz von Liouville genannt wird.
 
 \begin{korollar}[Liouville]
 Ist $f$ eine beschränkte ganze Funktion, dann ist $f$ konstant.
 \end{korollar}
+
+\begin{beispiel}
+Die Funktionen $\sin z$ und $\cos z$ sind auf der reellen
+Achse, aber nicht konstant.
+Wären die Funktionen für alle Argumente beschränkt, müssten sie
+nach dem Satz von Liouville konstant sein.
+Somit müssen $\sin z$ und $\cos z$ für gewisse Argumente unbeschränkt
+anwachsen.
+\end{beispiel}
 

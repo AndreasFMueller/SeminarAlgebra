@@ -20,7 +20,7 @@ f_n
 :
 z\mapsto z^n
 \]
-mit $n\in\mathbb{N}$ kann man mit Hilfe das binomische Satzes
+mit $n\in\mathbb{N}$ kann man mithilfe das binomische Satzes
 \index{binomischer Satz}%
 als
 \begin{align*}
@@ -29,7 +29,7 @@ z^n &= u(x,y) + iv(x,y)
 &=
 \sum_{k=0}^n \binom{n}{k} x^k i^{n-k} y^{n-k}
 \end{align*}
-schreiben mit 
+schreiben, wobei Real- und Imaginärteil
 \begin{align*}
 \operatorname{Re}z^n
 &=
@@ -43,8 +43,9 @@ x^{2l} y^{n-2l}
 \sum_{l=0}^{\left\lfloor\frac{n-1}2\right\rfloor}
 (-1)^l
 \binom{n}{2l+1}
-x^{2l+1} y^{n-2l-1}.
+x^{2l+1} y^{n-2l-1}
 \end{align*}
+sind.
 Noch einfacher ist jedoch die Beschreibung in Polarform.
 \index{Polarform}%
 Die $n$-te Potenz ist
@@ -75,7 +76,7 @@ die Formel \eqref{buch:komplex:funktionen:eqn:qpotenz}
 die Quadratwurzel
 oder $q=\frac1n$ die $n$-te Wurzel einer komplexen Zahl ergibt.
 Wenn aber eine Zahl $w\in\mathbb{C}$ die Eigenschaft $w^n=z$ hat,
-dann hat auch $w\epsilon_k$ mit
+dann hat auch $w\varepsilon_k$ mit
 \[
 \varepsilon_k
 =
@@ -161,7 +162,7 @@ Funktion.
 % Rationale Funktionen
 %
 \subsubsection{Rationale Funktionen}
-Der Quotient zweier Polynome $p,q\in K[z]$  definiert eine Komplexe
+Der Quotient zweier Polynome $p(z),q(z)\in K[z]$  definiert eine Komplexe
 Funktion
 \[
 f(z) = \frac{p(z)}{q(z)}.
@@ -175,9 +176,9 @@ U = \mathbb{C} \setminus \{ z\in\mathbb{C} \mid q(z)=0\}.
 \begin{definition}[rationale Funktion]
 Sei $K$ ein Körper, dann heisst der Quotient
 \[
-f = \frac{p}{q}
+f(z) = \frac{p(z)}{q(z)}
 \]
-zweier Polynome $p,q\in K[z]$ \emph{rationale Funktion}.
+zweier Polynome $p(z),q(z)\in K[z]$ \emph{rationale Funktion}.
 \index{rationale Funktion}%
 \index{Funktion!rational}%
 Die Menge der rationalen Funktionen wird mit
@@ -185,9 +186,9 @@ Die Menge der rationalen Funktionen wird mit
 K(z)
 =
 \biggl\{
-\frac{p}{q}
+\frac{p(z)}{q(z)}
 \;\bigg|\;
-p,q\in K[z]
+p(z),q(z)\in K[z]
 \biggr\}
 \]
 bezeichnet.
@@ -195,15 +196,15 @@ bezeichnet.
 
 Durch Ausführen der Polynomdivision mit Rest und durch Kürzen kann 
 \index{Polynomdivision}%
-eine rationale Funktion $f$ immer eindeutig in die Form
+eine rationale Funktion $f(z)$ immer eindeutig in die Form
 \[
-f
+f(z)
 =
-p
+p(z)
 +
-\frac{r}{q}
+\frac{r(z)}{q(z)}
 \]
-gebracht werden, wobei $\deg r<\deg q$ ist und $q$ ein normiertes
+gebracht werden, wobei $\deg r(z)<\deg q(z)$ ist und $q$ ein normiertes
 Polynom ist.
 
 Rationale Funktionen sind nur Brüche von Polynomen.
@@ -221,7 +222,7 @@ gelten.
 %
 \subsubsection{Algebraische Funktionen}
 Die Formel~\eqref{buch:komplex:funktionen:eqn:qpotenz}
-definiert beliebige Wurzeln.
+suggeriert, dass es möglich ist, beliebige Wurzelfunktionen zu definieren.
 Die Wurzel $w=f(z)=z^{1/n}$ erfüllt die Polynomgleichung
 \[
 f(z)^n - z = 0.
@@ -252,7 +253,7 @@ erfüllt.
 Die Lösungsformel verwendet nur die arithmetischen Grundoperationen
 und Wurzeln.
 So eine Lösung wird eine Lösung durch Radikale genannt.
-Eine ähnliche Formel, eine Lösung durch Radikale ist auch für
+Eine ähnliche Formel, eine Lösung durch Radikale, ist auch für
 die kubische Gleichung und für die Gleichung vierten Grades bekannt.
 Niels Henrik Abel hat aber 1824 bewiesen, dass es im Allgemeinen
 \index{Abel, Niels Henrik}%
@@ -273,7 +274,7 @@ mit einer einfachen Formel ausgedrückt werden kann.
 Eine Funktion $f(z)$ heisst \emph{algebraisch} über einem Körper
 \index{algebraische Funktion}%
 \index{Funktion!algebraisch}%
-$F$ von komplexen Funktionen, wenn es ein Polynom $p\in F[X]$
+$F$ von komplexen Funktionen, wenn es ein Polynom $p(X)\in F[X]$
 der Form
 \[
 p(X)

@@ -17,7 +17,7 @@ CHAPTERFILES += 							\
 	chapters/030-integration/13-homotopie.tex			\
 	chapters/030-integration/2-cauchy.tex				\
 	chapters/030-integration/21-geschlossen.tex			\
-	chapters/030-integration/22-pole.tex				\
+	chapters/030-integration/22-harmonisch.tex			\
 	chapters/030-integration/23-ableitungen.tex			\
 	chapters/030-integration/24-liouville.tex			\
 	chapters/030-integration/3-umlaufzahl.tex			\
@@ -36,5 +36,24 @@ CHAPTERFILES += 							\
 	chapters/030-integration/53-homologie.tex			\
 	chapters/030-integration/54-hgruppe.tex				\
 	chapters/030-integration/55-dimension.tex			\
+	chapters/030-integration/fig/fig-argument.tex			\
+	chapters/030-integration/fig/fig-beliebig.tex			\
+	chapters/030-integration/fig/fig-cauchyverteilung.tex		\
+	chapters/030-integration/fig/fig-deformation.tex		\
+	chapters/030-integration/fig/fig-dreiecke.tex			\
+	chapters/030-integration/fig/fig-ecos.tex			\
+	chapters/030-integration/fig/fig-green.tex			\
+	chapters/030-integration/fig/fig-hauptwert.tex			\
+	chapters/030-integration/fig/fig-homotopie.tex			\
+	chapters/030-integration/fig/fig-kettenzyklen.tex		\
+	chapters/030-integration/fig/fig-lochgebiet.tex			\
+	chapters/030-integration/fig/fig-merohomolog.tex		\
+	chapters/030-integration/fig/fig-methode.tex			\
+	chapters/030-integration/fig/fig-paar.tex			\
+	chapters/030-integration/fig/fig-raender.tex			\
+	chapters/030-integration/fig/fig-rechteck.tex			\
+	chapters/030-integration/fig/fig-residuum.tex			\
+	chapters/030-integration/fig/fig-sinxx.tex			\
+	chapters/030-integration/fig/fig-wege.tex			\
 	chapters/030-integration/chapter.tex
 

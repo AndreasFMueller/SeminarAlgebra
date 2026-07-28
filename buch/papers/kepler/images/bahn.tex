@@ -1,0 +1,42 @@
+%
+% bahn.tex -- Keplerbahn
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\draw (0,0) ellipse (5.4 and 4.32);
+\draw[dashed] (-6.1,0) -- (6.1,0);
+\draw[dashed] (0,-4.7) -- (0,4.7);
+\draw[thin] (3.24,-3.456) -- (3.24,3.456);
+\draw[<->,shorten >= 0.08cm,line width=1.0pt] (-5.4,0) -- (0,0) node[midway,below] {$a$};
+\draw[<->,shorten <= 0.08cm,line width=1.0pt] (0,0) -- (0,4.32) node[midway,right] {$b$};
+\draw[<->,shorten >= 0.1cm,shorten <= 0.08cm,line width=1.0pt] (0,0) -- (3.24,0) node[midway,below] {$c$};
+\draw[<->,shorten <= 0.1cm,line width=1.0pt] (3.24,0) -- (3.24,-3.456);
+\node at (3.52,-2.2) {$p$};
+\fill (0,0) circle[radius=0.08];
+\fill (-3.24,0) circle[radius=0.08];
+\node at (-3.24,0.45) {$F_2$};
+\node[anchor=north east] at (3.05,-0.22) {$F_1$};
+\node[anchor=north west] at (3.43,-0.22) {Sonne};
+\draw[color=blue,line width=1.0pt] (3.24,0) -- (2.7,3.7404) node[midway,left] {$r$};
+\fill[color=blue] (2.7,3.7404) circle[radius=0.1];
+\node[color=blue] at (3.33,4.16) {Planet};
+\draw (4.14,0) arc[start angle=0,end angle=98,radius=0.9];
+\node at (4.06,0.94) {$\vartheta$};
+\fill[color=orange] (3.24,0) circle[radius=0.16];
+
+\end{tikzpicture}
+\end{document}
+

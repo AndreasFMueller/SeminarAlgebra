@@ -1,0 +1,40 @@
+\section{Auftriebskraft}
+	Bei der Betrachtung eines Objektes in einem Beliebigen Mediums kann eine Auftriebskraft festgestellt werden.
+	Diese ist auf den Druckunterschied zurückzuführen.
+	Wir betrachten nun einen Eiswürfel im Wasserglas.
+	Für die Berechnung der Auftriebskraft ist offensichtlich nur der Höhendruck entscheidend daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
+	Im Beispiel eines Flugzeuges ist dies wesentlich komplizierter.
+	Hierbei handelt sich um eine Luftströmung, welche um einen Flügel strömt. 
+	Der Druck, an einem beliebigen Punkt im Raum, kann mit der Gleichung
+	
+	
+	\begin{equation}
+		\begin{aligned}
+			\label{joukowski:Auftriebskarft:Bernoulli}
+			&p(z) + \frac{\rho}{2} \cdot |v(z)|^2 =	p_{\infty} + 	\frac{\rho}{2} \cdot |v_{\infty}|^2\\
+		\end{aligned}
+	\end{equation}
+	Beschrieben werden.
+	Bei der Bernoulli Gleichung werden immer zwei Punkte gewählt. In diesem Fall der Punkt Z und ein Punkt weit weg vom Flügelprofil. Diese liegen auf der gleichen Höhe, daher verschwindet der Höhendruck. Aufgelöst nach dem druck am Punkt Z. Ergibt sich die Form
+	$p(z) = - \frac{\rho}{2} \cdot |v(z)|^2 + C $ wobei
+	der Konstante Teil in $P(z)$ aus dem Referenzwert im Unendlichen besteht. Um nun die Auftriebskraft zu erhalten wird einmal entlang des Flügelprofils gefahren wobei der druck an jedem Punkt aufsummiert wird. Als integral geschrieben ergibt das die Gleichung
+	\begin{equation}
+		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 + C \, dz
+	\end{equation}
+	Für den Auftrieb wird also einmal um das komplette Profil gefahren und der Druck an jeder stelle aufsummiert. Der Konstante teilt, kürzt sich somit heraus. Übrig bleibt nur noch folgender Ausdruck
+	\begin{equation}
+		\label{joukowski:Auftriebskarft:Auftrieb1}
+		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 \, dz.
+	\end{equation}
+
+\subsection{Satz von Kutta-Joukowski}
+	Die Zirkulation wird durch den Ausdruck
+	\begin{equation}
+		\Gamma = \displaystyle\oint_{\gamma} \overline{v(z)} dz
+	\end{equation}
+	definiert. Somit erfolgt der Satz von Kutta-Joukowski:
+	\begin{equation}
+		\label{joukowski:Auftriebskarft:Auftrieb2}
+		F' = - i \cdot \rho \cdot v_{\infty} \cdot \Gamma
+	\end{equation}
+	Es wird klar das die Zirkulation eine Zentrale Rolle spielt für die berechnung des Auftriebes. Im nächsten Kapitel Komplexe Analysis wird darauf eingegangen, wie aus der Form ~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet} der satz von Kutta-Joukowski gebildet werden kann.

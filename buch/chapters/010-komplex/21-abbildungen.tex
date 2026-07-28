@@ -16,7 +16,7 @@ Für komplexe Funktionen ist sowohl das Argument $z$ wie auch der
 Wert $f(z)$ eine komplexe Zahl, die beide einen zweidimensionalen
 Raum zur Visualisierung benötigen.
 Im dreidimensionalen Raum ist also schlicht nicht genug Platz vorhanden,
-um komplexe Funktionen als Grahen zu visualisieren.
+um komplexe Funktionen als Graphen zu visualisieren.
 
 %
 % Definitions- und Wertebereich
@@ -46,9 +46,9 @@ $\varepsilon$-Umgebung
 U_{\varepsilon}(z)
 =
 \{
-z'\in\mathbb{C}
+w\in\mathbb{C}
 \mid
-|z-z'|<\varepsilon
+|z-w|<\varepsilon
 \}
 \]
 von $z$ ebenfalls in $U$ enthalten ist, also $U_\varepsilon(z)\subset U$.
@@ -95,11 +95,11 @@ ist überall ausser im Punkt $1\in\mathbb{C}$ definiert.
 Die Menge $U=\mathbb{C}\setminus\{1\}$ ist eine offene Menge, denn
 für jeden Punkt $z\ne 1$ können wir $\varepsilon = |z-1|$ setzen
 und uns davon überzeugen, dass $U_{\varepsilon}(z)\subset U$ ist.
-Für einen Punkt $z'\in U_{\varepsilon}(z)$ gilt
+Für einen Punkt $w\in U_{\varepsilon}(z)$ gilt
 \[
-|z-z'|<\varepsilon = |z-1|
+|z-w|<\varepsilon = |z-1|
 \qquad\Rightarrow\qquad
-z'\ne 1,
+w\ne 1,
 \]
 also kann $U_\varepsilon(z)$ den Punkt $1$ nicht enthalten.
 Da $1$ der einzige Punkt ist, der nicht in $U$ ist, folgt
@@ -232,9 +232,9 @@ können mit den Funktionen
 beschrieben werden, die in
 Abbildung~\ref{buch:komplex:funktionen:fig:hyperbeln}
 dargestellt sind.
-Die in 
-Abbildung~\ref{buch:komplex:funktionen:fig:hyperbeln}
-roten Hyperbeln $v(x,y)=v_0$ entstehen aus den blauen
+Die roten Hyperbeln $v(x,y)=v_0$
+in Abbildung~\ref{buch:komplex:funktionen:fig:hyperbeln}
+entstehen aus den blauen
 Hyperbeln durch Drehung um $45^\circ$.
 \index{cosht@$\cosh t$}%
 \index{sinht@$\sinh t$}%
@@ -318,9 +318,9 @@ Der Grenzwert einer komplexen Zahlenfolge kann für Real- und Imaginärteil
 separat durchgeführt werden.
 Wegen
 \[
-|\operatorname{Re}z_n - \operatorname{Re}z| \le |z_n-z_m|
+|\operatorname{Re}z_n - \operatorname{Re}z_m| \le |z_n-z_m|
 \qquad\text{und}\qquad
-|\operatorname{Im}z_n - \operatorname{Im}z| \le |z_n-z_m|
+|\operatorname{Im}z_n - \operatorname{Im}z_m| \le |z_n-z_m|
 \]
 sind auch die Folgen $(\operatorname{Re}z_n)_{n\in\mathbb{N}}$
 und $(\operatorname{Im}z_n)_{n\in\mathbb{N}}$ Cauchy-Folgen
@@ -399,7 +399,7 @@ dass für alle $z\in U$ mit $|z-z_0|<\delta$
 folgt, dass $|f(z)-a|<\varepsilon$.
 \end{definition}
 
-Man beiachte, dass es keine Rolle spielt, aus welcher Richtung das
+Man beachte, dass es keine Rolle spielt, aus welcher Richtung das
 Argment $z$ der komplexen Funktion $f$ sich dem Punkt $z_0$ nähert.
 Insbesondere lässt sich der Grenzwert einer komplexen Funktion,
 falls er existiert, dadurch berechnen, dass sich dem Punkt $z_0$
@@ -472,5 +472,5 @@ besonders klar, denn die Grenzwerte
 +\infty
 \end{align*}
 unterscheiden sich.
-Die uneigentlichen Grenzwerte hängen also offenbar von der Richtung ab,
+Die uneigentlichen Grenzwerte hängen offenbar von der Richtung ab,
 in der man sich der Polstelle bei $z=0$ nähert.

@@ -11,8 +11,8 @@ teilerfremd sind.
 Das Integral des polynomiellen Teils blieb völlig offen.
 In diesem Abschnitt sollen diese Lücken für den Fall einer logarithmischen
 Erweiterung geschlossen werden.
-Im folgenden ist $\vartheta=\log u$ also ein Logarithmus.
-Also gilt $D\vartheta = Du/u$.
+Im Folgenden ist $\vartheta=\log u$ also ein Logarithmus,
+es gilt $D\vartheta = Du/u$.
 
 %
 % Hermite-Methode
@@ -78,8 +78,8 @@ Wir müssen zeigen, dass auch $b(\vartheta)$ und $Db(\vartheta)$ keinen
 nichtrivialen gemeinsamen Teiler haben können.
 Ein gemeinsamer Linearfaktor von $b(\vartheta)$ und $Db(\vartheta)$
 muss einer der Faktoren von \eqref{buch:ointalg:risch:log:eqn:bfaktorisierung}
-sein, sei $\vartheta-b_j$ dieser Faktor.
-$\vartheta-b_j$ kommt in jedem Term auf der rechten Seite von
+sein, sei $\vartheta-\beta_j$ dieser Faktor.
+$\vartheta-\beta_j$ kommt in jedem Term auf der rechten Seite von
 \eqref{buch:intalg:risch:log:eqn:Dbfaktorisierung} ausser möglicherweise
 im Term $k=j$ vor.
 Er teilt daher jeden Term ausser möglicherweise $k=j$.
@@ -117,7 +117,7 @@ v_0(\vartheta)
 =
 \frac{p(\vartheta)}{q(\vartheta)}
 \]
-mit teilerfremden Polynomen $p(\vartheta),q(\vartheta)\in F[\vartheta]$
+ist mit teilerfremden Polynomen $p(\vartheta),q(\vartheta)\in F[\vartheta]$
 und $q(\vartheta)$ normiert.
 Für eine logarithmische Ableitung ist nach
 Satz~\ref{buch:intalg:liouville:polynome:satz:logarithmisch}
@@ -126,7 +126,7 @@ in $F[\vartheta]$ und die Ableitung eines normierten Polynoms ist
 von kleinerem Grad:
 $\deg Dq(\vartheta)<\deg q(\vartheta)$.
 Die Ableitung von $v_0(\vartheta)$ ist dann
-\[
+\begin{equation}
 Dv_0(\vartheta)
 =
 \frac{
@@ -138,9 +138,11 @@ q(\vartheta)^2
 \frac{ Dp(\vartheta) }{ q(\vartheta) }
 -
 \frac{p(\vartheta)}{q(\vartheta)}\cdot\frac{Dq(\vartheta)}{q(\vartheta)}
-\]
+\label{buch:intalg:risch:eqn:Dv0}
+\end{equation}
 Selbst wenn $Dq(\vartheta)$ und $q(\vartheta)$ einen gemeinsamen Faktor haben,
-bleibt immer noch ein Faktor vom Grad mindestens 1 im Nenner, der gegen
+bleibt immer noch ein Faktor vom Grad mindestens 1 im Nenner
+des letzten Bruchs von \eqref{buch:intalg:risch:eqn:Dv0}, der gegen
 den Zähler $Dq(\vartheta)$ nicht gekürzt werden kann und daher im Nenner
 des zweiten Terms zweimal vorkommt.
 Somit ist der Nenner des zweiten Terms nicht quadratfrei.
@@ -247,8 +249,8 @@ v_k(\vartheta)&\mid (a(\vartheta)-c_kDb(\vartheta))
 \end{align*}
 folgt aber auch, dass $v_k(\vartheta)\mid (\bar{a}(\vartheta)-a(\vartheta))$
 ist.
-Da die $v_k(\vartheta)$ teilerfremd sind ist auch deren Produkt $b(\vartheta)$
-ein Teiler von $\bar{a}(\vartheta)-a(\vartheta)$.
+Da die $v_k(\vartheta)$ teilerfremd sind, ist auch deren Produkt
+$b(\vartheta)$ ein Teiler von $\bar{a}(\vartheta)-a(\vartheta)$.
 
 Nach Voraussetzung ist $\deg a(\vartheta)<\deg b(\vartheta)$.
 Da $\vartheta$ ein Logarithmus ist, ist nach
@@ -281,10 +283,12 @@ f(x)
 \frac{1}{\log x}
 \]
 eine elementare Stammfunktion?
+\medskip
+
 Der Integrand liegt in der logarithmischen Erweiterung
 $F(\vartheta) = \mathbb{Q}(x,\log x)$ von $F=\mathbb{Q}(x)$
 um das logarithmische Element $\vartheta=\log x$.
-$f(x)$ hat nur rationalen Teil
+$f(x)$ hat nur den rationalen Teil
 \[
 f(x)
 =
@@ -323,7 +327,7 @@ Es folgt, dass $f$ kein elementare Stammfunktion hat.
 
 Im Beispiel wurde bewiesen, dass $1/\log x$ keine elementare Stammfunktion
 hat.
-Die Funktion hat aber einige Bedeutung in der analytischen Zahlentheorie,
+Das Integral hat aber einige Bedeutung in der analytischen Zahlentheorie,
 da sie ein Approximation für die Primzahlzählfunktion 
 \[
 \pi(x)
@@ -337,7 +341,9 @@ Es bleibt daher nichts anderes übrig, als eine neue spezielle Funktion
 dafür zu definieren.
 
 \begin{definition}[Integrallogarithmus]
-Die Stammfunktion
+\label{buch:intalg:risch:def:integrallogarithmus}
+\input{chapters/070-intalg/fig/fig-li.tex}%
+Das bestimmte Integral
 \[
 \operatorname{li}(x)
 =
@@ -346,7 +352,26 @@ Die Stammfunktion
 \,dt
 \]
 heisst der \emph{Integrallogarithmus}.
+\index{Integrallogarithmus}%
+\index{li(x)@$\operatorname{li}(x)$}%
 \end{definition}
+
+Eine graphische Darstellung des Graphen von $\operatorname{li}(x)$ ist
+in Abbildung~\ref{buch:intalg:fig:li} wiedergegeben.
+Da der Integrand an der Stelle $x=1$ eine Singularität hat, muss dieser
+Argumentwert mit dem Hauptwert überbrückt werden.
+Die Funktion ist daher für $x>1$ durch
+\[
+\operatorname{li}(x)
+=
+\lim_{\varepsilon\to 0+}
+\biggl(
+\int_0^{1-\varepsilon} \frac{dt}{\log t}
++
+\int_{1+\varepsilon}^x \frac{dt}{\log t}
+\biggr)
+\]
+definiert.
 
 \begin{beispiel}
 Hat die Funktion $1/x\log x \in \mathbb{Q}(x,\log x)$ eine elementare
@@ -411,7 +436,7 @@ ein elementare Stammfunktion des Integranden $f$.
 
 Die Wahl $a(\vartheta)=1/x$ in \eqref{buch:intalg:risch:eqn:1xlogx}
 wird dadurch festgelegt, dass $b(\vartheta)$ ein normiertes Polynom
-sein.
+sein muss.
 Der Faktor $x$ im Nenner von \eqref{buch:intalg:risch:eqn:1xlogx}
 kann daher nicht Teil des Polynoms $b(\vartheta)$ sein, sondern muss
 in $a(\vartheta)$ integriert werden.
@@ -454,14 +479,14 @@ sie nach dem Liouville-Prinzip die Form
 v_0(\vartheta) + \sum_{i=1}^n c_i\log v_i(\vartheta)
 \notag
 \intertext{mit $v_i(\vartheta) \in F(\vartheta)$ und $c_i\in K$ haben.
-Wie früher darf man annehmen, das die $v_i(\vartheta)$ teilerfremde
+Wie früher darf man annehmen, dass die $v_i(\vartheta)$ teilerfremde,
 quadratfreie Polynome sind.
 In der abgeleiteten Form ist}
 p(\vartheta)
 &=
 Dv_0(\vartheta)
 +
-\sum_{i=1}^n c_i \frac{Dv_i(\vartheta)}{v_i(\vartheta)}
+\sum_{i=1}^n c_i \frac{Dv_i(\vartheta)}{v_i(\vartheta)}.
 \notag
 \intertext{Auf der linken Seite dieser Gleichung steht ein Polynom,
 auf der rechten Seite kommen die Nenner $v_i(\vartheta)$ vor.
@@ -530,9 +555,9 @@ Lösung in $F(\vartheta)$ haben.
 Die Lösung des Integrationsproblems für $d_k$ ist aber immer nur bis auf
 eine Integrationskonstante $b_k$ bestimmt.
 
-Für die erste Gleichung folgt, dass $q_{l+1}$ eine Konstante sein muss,
+Aus der ersten Gleichung folgt, dass $q_{l+1}$ eine Konstante sein muss,
 die mit $b_{l+1}$ bezeichnet wird.
-Da $q_{l+1}$ auch in der Gleichung für für $q_l$ auftritt, kann
+Da $q_{l+1}$ auch in der Gleichung für $q_l$ auftritt, kann
 letztere zur Bestimmung von $b_{l+1}$ herangezogen werden.
 
 Die Gleichung für $q_l$ wird mit der Lösung für $q_{l+1}$ zu
@@ -660,13 +685,13 @@ v_0 + \sum_{i=1}^m \bar{c}_i \log v_i, \qquad \bar{c}_i\in K
 aber auch andere Logarithmen als $\vartheta$ enthalten, solange
 sie Logarithmen von Elemente von $F$ sind.
 Einer der Logarithmen darf $\vartheta$ sein, sei dies der erste.
-Aus der Konstanten $\bar{c_1}$ lässt sich dann auch auch
+Aus der Konstanten $\bar{c}_1$ lässt sich dann auch auch
 \(
 b_1 = -\bar{c}_1
 \)
 bestimmen.
-Dadurch ist $\bar{q}_0=d_0$ jetzt bis auf eine Konstante $b_0$ bestimmt,
-die nicht weiter bestimmt werden kann.
+Dadurch ist $\bar{q}_0=d_0$ jetzt bis auf eine Konstante unbekannte
+Integrationskonstante $b_0$ bestimmt.
 
 Der Gang der Berechnung ist in
 Abbildung~\ref{buch:intalg:risch:logarithmisch:fig:polylog} 
@@ -851,9 +876,9 @@ Warum ist
 \begin{align}
 \int \frac{\log x}{x}\,dx
 &=
-\frac12\log(x)^2+C,
+\frac12\log(x)^2+C
 \label{buch:intalg:risch:littlewood-hardy:bsp1}
-\intertext{während}
+\intertext{elementar, während}
 \int \frac{\log x}{x+1}\,dx
 &=
 \log(x)\log(x+1) + \operatorname{Li}_2(-x)+C

@@ -1,0 +1,155 @@
+%
+% motivation-definition.tex
+%
+% (c) 2026 Damien Flury, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Motivation und Definition
+\label{hauptwert:section:motivation-definition}}
+\kopfrechts{Teil 0}
+\subsection{Uneigentliche Integrale}
+
+Man betrachte die Funktion
+\begin{equation}
+f(x) = \frac{1}{x}
+\end{equation}
+und damit das Integral
+\begin{equation}
+\int_{-\infty}^{\infty} f(x)\,dx
+= \int_{-\infty}^{\infty} \frac{1}{x}\,dx.
+\end{equation}
+\input{papers/hauptwert/fig/kehrwert.tex}
+Abbildung \ref{hauptwert:figure:kehrwert} zeigt den Graphen des Integranden
+$f(x)=1/x$.
+Beim Lösen dieses Integrals fällt schnell ein Problem auf:
+Die Funktion hat bei $x = 0$ eine Polstelle.
+
+\subsection{Ein erster Versuch}
+Um das Integral zu lösen, wäre der erste natürliche Schritt,
+das Integral an der Polstelle aufzuteilen
+und sich ihr mit unabhängigen Grenzwerten zu nähern:
+\begin{equation}
+\int_{-\infty}^{\infty} f(x)\,dx
+= \lim_{\epsilon_1\to 0^+} \int_{-\infty}^{-\epsilon_1} f(x)\,dx
++ \lim_{\epsilon_2\to 0^+} \int_{\epsilon_2}^{\infty} f(x)\,dx.
+\label{hauptwert:equation:aufteilung}
+\end{equation}
+Da auch die Integrationsgrenzen $\pm\infty$ uneigentlich sind,
+muss jedes Teilintegral nochmals aufgeteilt
+und durch einen eigenen Grenzwert ersetzt werden.
+Das rechte Teilintegral wird dazu an einer beliebigen Zwischenstelle
+$c > 0$ aufgeteilt:
+\begin{equation}
+\lim_{\epsilon_2\to 0^+} \int_{\epsilon_2}^{c} \frac{1}{x}\,dx
++ \lim_{R\to\infty} \int_{c}^{R} \frac{1}{x}\,dx
+= \underbrace{\lim_{\epsilon_2\to 0^+} \left(\ln c - \ln \epsilon_2\right)}_{+\infty}
++ \underbrace{\lim_{R\to\infty} \left(\ln R - \ln c\right)}_{+\infty}.
+\label{hauptwert:equation:rechts}
+\end{equation}
+Beide Grenzwerte divergieren gegen $+\infty$,
+das rechte Teilintegral existiert also nicht.
+Aus Symmetriegründen divergiert das linke Teilintegral
+genauso gegen $-\infty$.
+Die Aufteilung \eqref{hauptwert:equation:aufteilung} führt also auf den
+unbestimmten Ausdruck $\infty - \infty$,
+das uneigentliche Integral existiert nicht.
+
+\subsection{Der Cauchy-Hauptwert -- Symmetrische Annäherung}
+Die zu Grunde liegende Idee vom Cauchy Hauptwert ist, dass
+man sich der Polstelle symmetrisch annähert, das heisst mit
+einem einzigen, gemeinsamen $\epsilon$ und symmetrischen Grenzen $\pm R$.
+\input{papers/hauptwert/fig/kehrwert-symmetrisch.tex}
+Abbildung \ref{hauptwert:figure:kehrwert-symmetrisch} zeigt diese symmetrische
+Wahl der Integrationsgrenzen im Vergleich zur unsymmetrischen Aufteilung
+aus Abbildung \ref{hauptwert:figure:kehrwert}. Durch symmetrische Annäherung
+--- man schreibt dann oftmals $\pv$ (Principal Value)
+\begin{equation}
+ \pv\int_{-R}^{-\epsilon} \frac{1}{x}\,dx
++ \int_{\epsilon}^{R} \frac{1}{x}\,dx
+  = \bigl(\ln\epsilon - \ln R\bigr) + \bigl(\ln R - \ln\epsilon\bigr)
+= 0.
+\label{hauptwert:equation:symmetrisch}
+\end{equation}
+Der Grenzwert $\epsilon \to 0^+$, $R \to \infty$ existiert somit und ist $0$,
+im Gegensatz zum unabhängigen Grenzwert aus
+\eqref{hauptwert:equation:aufteilung}, welcher nicht existiert.
+
+\subsection{Definition}
+Die symmetrische Annäherung lässt sich für beliebige Integranden
+formalisieren.
+Es gibt zwei Fälle zu unterscheiden --- Der erste Fall
+(Definition~\ref{hauptwert:definition:pol}) betrifft eine
+Divergenz in der Mitte des Integranden in Form einer Singularität.
+Definition~\ref{hauptwert:definition:unendlich} betrifft eine
+Divergenz an den unendlichen Integrationsgrenzen $\pm\infty$.
+
+\begin{definition}
+\label{hauptwert:definition:pol}
+Sei $f$ auf $[a,b]\setminus\{x_0\}$ stetig mit einer Singularität
+an der inneren Stelle $x_0 \in (a,b)$.
+Der \emph{Cauchy-Hauptwert} des Integrals von $f$ über $[a,b]$ ist
+\begin{equation*}
+\pv\int_a^b f(x)\,dx
+= \lim_{\epsilon\to 0^+}
+\biggl(
+\int_a^{x_0-\epsilon} f(x)\,dx + \int_{x_0+\epsilon}^{b} f(x)\,dx
+\biggr),
+\end{equation*}
+sofern dieser Grenzwert existiert.
+\end{definition}
+
+\begin{definition}
+\label{hauptwert:definition:unendlich}
+Sei $f$ auf $\mathbb{R}$ stetig.
+Der \emph{Cauchy-Hauptwert} des Integrals von $f$ über $\mathbb{R}$ ist
+\begin{equation*}
+\pv\int_{-\infty}^{\infty} f(x)\,dx
+= \lim_{R\to\infty} \int_{-R}^{R} f(x)\,dx,
+\end{equation*}
+sofern dieser Grenzwert existiert.
+\end{definition}
+
+Treten wie bei $f(x) = 1/x$ beide Arten der Divergenz gleichzeitig auf,
+werden beide Regularisierungen kombiniert:
+\begin{equation}
+\pv\int_{-\infty}^{\infty} \frac{1}{x}\,dx
+= \lim_{\substack{\epsilon\to 0^+\\ R\to\infty}}
+\biggl(
+\int_{-R}^{-\epsilon} \frac{dx}{x} + \int_{\epsilon}^{R} \frac{dx}{x}
+\biggr)
+= 0.
+\label{hauptwert:equation:kombiniert}
+\end{equation}
+
+\subsection{Ein weiteres Beispiel in der reellen Analysis}
+Als zweites Beispiel betrachten wir die Funktion $f(x) = \frac{x + 1}{1 + x^2}$
+und deren uneigentliches Integral $\int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx$.
+\input{papers/hauptwert/fig/nichtungerade.tex}
+Abbildung \ref{hauptwert:figure:nichtungerade} zeigt den Graphen des Integranden.
+Versucht man wieder asymmetrisch von $-\infty$ nach $\infty$ zu integrieren,
+erhält man
+\begin{equation}
+\begin{aligned}
+  \int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx
+  &= \int_{-\infty}^{\infty}
+     \biggl(\frac{x}{1 + x^2} + \frac{1}{1 + x^2}\biggr)\,dx \\
+  &= \Bigl[\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr]_{-\infty}^{\infty} \\
+  &= \lim_{x\to\infty} \Bigl(\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr)
+   - \lim_{x\to-\infty} \Bigl(\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr),
+\end{aligned}
+\end{equation}
+also wieder den unbestimmten Ausdruck $\infty - \infty$.
+Das uneigentliche Integral existiert also nicht.
+Da der Integrand aber wieder ungerade ist, liefert die symmetrische
+Annäherung nach Cauchy den Hauptwert
+\begin{equation}
+\begin{aligned}
+  \pv \int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx
+  &= \lim_{R\to\infty}
+     \Bigl[\tfrac{1}{2}\ln(1 + x^2) + \arctan x\Bigr]_{-R}^{R} \\
+  &= \lim_{R\to\infty} 2\arctan R \\
+  &= \pi.
+\end{aligned}
+\end{equation}

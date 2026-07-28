@@ -15,8 +15,8 @@ hat in Kapitel~\ref{chapter:differentialgleichungen} gezeigt,
 dass die Potenzreihe von $e^x$ eine Folge der Differentialgleichung
 für die Exponentialgleichung ist.
 Die Differentialgleichung lässt sich auch in einem Differentialkörper
-definieren, es liegt daher nahe, diese anstelle der Potenzreihe
-zur Definition der Exponentialfunktion zu verwenden.
+formulieren, es liegt daher nahe, diese anstelle der Potenzreihe
+zur Charakterisierung der Exponentialfunktion zu verwenden.
 
 \begin{definition}[Exponential- und Logarithmusfunktion]
 \label{buch:intalg:elementar:def:explog}
@@ -24,12 +24,22 @@ Sei $F$ ein Differentialkörper und $f\in F$.
 Ein Element $\vartheta\in F$ heisst eine \emph{Exponentialfunktion}
 von $f$, wenn $D\vartheta = \vartheta\cdot Df$.
 \index{Exponentialfunktion}%
-Die Exponentialfunktion wird manchmal auch $\vartheta=e^f$ geschrieben.
+Die Exponentialfunktion wird manchmal auch $\vartheta=e^f$ oder
+$\vartheta=\exp f$ geschrieben.
 $\vartheta$ heisst ein \emph{Logarithmus} von $f$, wenn
 $D\vartheta = Df/\vartheta$ oder $\vartheta\cdot D\vartheta = Df$.
 \index{Logarithmus}%
-Der Logarithmus wird manchmal auch $\log f$ geschrieben.
+Der Logarithmus wird manchmal auch $\vartheta=\log f$ geschrieben.
 \end{definition}
+
+Schon bei der Definition des Derivationsbegriffs haben wir darauf
+hingewiesen, dass es für die Derivation keine Kettenregel gibt,
+weil in einem Funktionen das Konzept der Funktionszusammensetzung fehlt.
+Die Differentialgleichungen der
+Definition~\ref{buch:intalg:elementar:def:explog}
+sind die Kettenregeln für die Exponential- bzw.~Logarithmusfunktion.
+Die Kettenregel ist in diesem Rahmen also weniger eine Eigenschaft
+der Deriviation, sondern der Funktionen, mit denen wir arbeiten wollen.
 
 %
 % Eindeutigkeit
@@ -50,7 +60,7 @@ D(\vartheta_1-\vartheta_2)
 die Differenz ist also eine Konstante $\vartheta_1-\vartheta_2\in C$.
 Eine Logarithmusfunktion ist also nur bis auf eine Konstante in $C$
 bestimmt.
-Verwendet man die Notation $\log f$ suggeriert das zwar eine eindeutig
+Die Verwendung der Notation $\log f$ suggeriert zwar eine eindeutig
 bestimmte Funktion, es kann aber nur eine Menge von Funktionen
 $\vartheta_1 + C$ gemeint sein.
 
@@ -63,7 +73,7 @@ D
 \frac{D\varphi_1\cdot\varphi_2 - \varphi_1\cdot D\varphi_2}{\varphi_2^2}
 =
 \frac{
-\varphi_1 Df\varphi_2 - \varphi_1 \varphi_2 Df
+\varphi_1\cdot Df\cdot\varphi_2 - \varphi_1\cdot \varphi_2\cdot Df
 }{\varphi_2^2}
 =
 0,
@@ -187,7 +197,7 @@ e^{f_1+f_2}
 geschrieben.
 Das Produkt der Exponentialfunktionen der Faktoren ist also eine
 Exponentialfunktion der Summe.
-Das Exponentialgesetzt ist also in diesem erweiterten Sinn immer noch
+Das Exponentialgesetz ist also in diesem erweiterten Sinn immer noch
 gültig.
 
 Seien jetzt umgekehrt $\vartheta_1$ und $\vartheta_2$ Logarithmen von

@@ -3,12 +3,12 @@
 %
 \subsection{Komplexe Differenzierbarkeit
 \label{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit}}
-Im Anfängerunterricht wird meistens der Begriff der Steigung einer
-Tangente an den Graphen einer Funktion als Motivation für die Definition
+Im Anfängerunterricht der Analysis wird meistens der Begriff der Steigung
+einer Tangente an den Graphen einer Funktion als Motivation für die Definition
 der Ableitung der Funktion verwendet.
 Diese geometrische Intuition funktioniert für komplexe Funktionen
 nicht mehr, da der Graph einer komplexen Funktion eine Fläche in einem
-vierdimensionalen reellen Vektorraum ist, der unserer Anschauung unzugägnlich
+vierdimensionalen reellen Vektorraum ist, der unserer Anschauung unzugänglich
 ist.
 Es muss daher eine rein analytische Definition gefunden werden.
 
@@ -83,6 +83,7 @@ f'(x) h
 \frac{f''(x)}{2!}h^2
 +
 \dots
+.
 \]
 Die Terme mindestens quadratischer Ordnung in $h$ können zusammengefasst
 werden in einen Ausdruck $o(h)$ mit der Eigenschaft, dass
@@ -100,7 +101,7 @@ f(x) + f'(x) h + o(h).
 Die ersten zwei Terme bilden eine lineare Funktion, die bis auf
 die Korrektur $o(h)$ kleinerer Ordnung die Funktion $f(x+h)$
 korrekt wiedergibt.
-Solange man also nur eine lineare Approximation benötigt ist
+Solange man also nur eine lineare Approximation benötigt, ist
 \begin{equation}
 f(x+h)
 \approx
@@ -139,13 +140,13 @@ f(z)
 \end{equation}
 ist jetzt also durch die Jacobi-Matrix gegeben, wobei
 $\Delta z = \Delta x + i \Delta y$.
-Die Jacobi-Matrix muss verwendet werden, weil hier $\Delta z$ zweidimensionaler
-reeller Vektor betrachtet wird.
+Die Jacobi-Matrix muss verwendet werden, weil hier $\Delta z$ als
+zweidimensionaler reeller Vektor betrachtet wird.
 
 Für eine komplexe Funktion möchte man $\Delta z$ als einen eindimensionalen
 komplexen Vektor betrachten.
 Statt der Darstellung  \eqref{buch:holomorph:holomorph:2dersatz} der
-linearen Ersatzfunktion, möchte man eine Formel haben, welche wie
+linearen Ersatzfunktion möchte man eine Formel haben, welche wie
 \eqref{buch:holomorph:holomorph:1dersatz} aussieht.
 Wir erwarten also, dass es eine lineare Ersatzfunktion der Form
 \[
@@ -160,11 +161,12 @@ Falls dies möglich ist, betrachten wir $f'(z)$ als die
 komplexe Ableitung von $f'(z)$.
 
 \begin{definition}[komplexe Ableitung]
+\label{buch:holomorph:diffbar:def:komplexeableitung}
 Sei $f(z)$ eine komplexe Funktion.
 Die \emph{komplexe Ableitung} $f'(z)$ von $f$ im Punkt
 \index{komplexe Ableitung}%
 $z\in\mathbb{C}$ ist die komplexe Zahl, für die $f(z) + f'(z) \Delta z$
-die lineare Ersatzfunktion $f(z+\Delta z)$ ist.
+die lineare Ersatzfunktion von $f(z+\Delta z)$ ist.
 \end{definition}
 
 \begin{definition}[holomorphe Funktion]
@@ -227,9 +229,11 @@ nicht holomorph.
 
 \begin{proof}
 Wenn $f(z)$ nur reelle Werte hat, dann ist der linke Grenzwert in
-\label{buch:holomorph:holomorph:eqn:ablxy} 
+\eqref{buch:holomorph:holomorph:eqn:ablxy} 
 ein Grenzwert in $\mathbb{R}$.
-Der rechte Grenzwert dagegen ist wegen $1/i=-i$ ein Grenzwert in
+Der rechte Grenzwert in
+\eqref{buch:holomorph:holomorph:eqn:ablxy} 
+dagegen ist wegen $1/i=-i$ ein Grenzwert in
 den imaginären Zahlen $i\mathbb{R}\subset\mathbb{C}$.
 Somit muss 
 \[
@@ -272,7 +276,7 @@ Dies deutet bereits an, dass die komplexe Ableitung mit nur einem
 Paar von reellen Ableitungen berechnet werden kann.
 Es muss also einen Zusammenhang zwischen den vier partiellen
 Ableitungen der beiden Funktionen $u$ und $v$ geben, der weiter
-unten in Satz~\ref{buch:holomorph:holomorph:satz:cr} formalisiert
+unten im Satz~\ref{buch:holomorph:holomorph:satz:cr} formalisiert
 wird.
 
 Der Real- und Imaginärteil der Ableitung lässt sich allein aus dem
@@ -315,7 +319,7 @@ Diese Regeln bleiben auch für holomorphe Funktionen gültig.
 
 \begin{satz}[Rechenregeln]
 \label{buch:holomorph:holomorph:satz:rechenregeln}
-Seien $f$ und $g$ holomorphe Funktionen.
+Seien $f(z)$ und $g(z)$ holomorphe Funktionen.
 \begin{enumerate}
 \item Die komplexe Ableitung ist ein linearer Operator
 \[
@@ -584,8 +588,8 @@ Man beachte, dass die Stammfunktion ganz ohne Bezug auf das
 Integral definiert wurde.
 Nichtsdestotrotz wird eine Stammfunktion manchmal auch $\int f$
 geschrieben.
-Diese Betrachtungsweise ist insbesondere unabhängig von den analytischen
-Eigenschaften der komplexen Zahlen.
+Diese algebraische Betrachtungsweise ist insbesondere unabhängig
+von den analytischen Eigenschaften der komplexen Zahlen.
 
 \begin{definition}[Stammfunktion, algebraische Definition]
 Sei $K$ ein Körper von Funktionen der unabhängigen Variable $z$ und
@@ -617,7 +621,7 @@ Dabei stellen wir uns eine Konstante typischerweise als etwas
 vor, was nicht von der unabhängigen Variable abhängt.
 Der Ausdruck $f(z)=(1+z)^2-z^2-2z$ scheint von $z$ abzuhängen,
 doch wenn man die Klammer ausmultipliziert bleibt $f(z)=1$ übrig.
-In diesem einfachen Fall war es einfach zu erkennen, dass die Abhängigkeit
+In diesem speziellen Fall war es einfach zu erkennen, dass die Abhängigkeit
 von $z$ nur scheinbar ist.
 Im Allgemeinen ist es ein nicht entscheidbares Problem, herauszufinden,
 ob ein Ausdruck verschwindet.
@@ -644,8 +648,9 @@ Funktionen sind damit nur bis auf eine ``Verschiebung'' festgelegt.
 % Der Mittelwertsatz
 %
 \subsubsection{Der Mittelwertsatz}
-In der reellen Analysis gilt der folgende aus der Anschauung plausible
-Mittelwertsatz
+In der reellen Analysis gilt der folgende, aus der Anschauung von
+Abbildung~\ref{buch:holomorph:fig:mittelwert} plausible Mittelwertsatz.
+\input{chapters/020-holomorph/fig/fig-mittelwert.tex}%
 
 \begin{satz}[Mittelwertsatz]
 \index{Mittelwertsatz}%
