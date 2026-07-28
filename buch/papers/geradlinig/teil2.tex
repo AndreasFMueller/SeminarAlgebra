@@ -6,38 +6,172 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 2 
-\label{geradlinig:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
+\section{Perfekte geradlinige Bewegung
+\label{geradlinig:section:perfekte_geradlinige}}
+\kopfrechts{Perfekte geradlinige Bewegung}
+Im 19.\,Jahrhundert wurde mathematisch gezeigt, 
+dass ein Viergelenkmechanismus keine perfekte geradlinige 
+Bewegung erzeugen kann.
+Bereits zuvor entwickelte Pierre Frédéric Sarrus einen Mechanismus, 
+welcher dieses Problem mit einem Sechsgelenkmechanismus löste.
+Dieser Mechanismus ist in Abbildung~\ref{fig:sarrus_link} dargestellt.
+Seine Erfindung erhielt jedoch nur wenig Aufmerksamkeit.
+Ein möglicher Grund dafür war, dass es sich nicht um einen planaren, 
+sondern um einen räumlichen Mechanismus handelte.
+Dadurch war die Konstruktion für praktische Anwendungen weniger geeignet.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/sarrus_linkage1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/sarrus_linkage2.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/sarrus_linkage3.png}
+    \end{minipage}
+    \caption{Der Mechanismus von Sarrus~\cite{sarrus_linkage}.}
+    \label{fig:sarrus_link}
+\end{figure}
 
-\subsection{De finibus bonorum et malorum
-\label{geradlinig:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+Im Jahr 1864 entwickelte Charles-Nicolas Peaucellier den ersten 
+planaren Mechanismus, welcher eine Rotationsbewegung in 
+eine perfekte geradlinige Bewegung umwandeln konnte.
+Der Mechanismus ist in Abbildung~\ref{fig:peaucellier_link} dargestellt.
+Einige Jahre später entwickelte Yom Tov Lipman Lipkin 
+unabhängig denselben Mechanismus.
+Zu Ehren beider Erfinder wird dieser als 
+Peaucellier-Lipkin-Mechanismus bezeichnet.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/peaucellier_linkage1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/peaucellier_linkage2.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/paucellier_linkage3.png}
+    \end{minipage}
+    \caption{Der Mechanismus von Peaucellier und Lipkin~\cite{peauc_lip_linkage}.}
+    \label{fig:peaucellier_link}
+\end{figure}
 
+\subsection{Kreisspiegelung
+\label{geradlinig:subsection:geometrische_inversion}}
+Die Kreisspiegelung ist eine Transformation der ebenen Geometrie, 
+welche das Innere und Äussere eines Kreises vertauscht.
+Diese Transformation ist winkeltreu.
+Für einen Kreis mit Mittelpunkt $M$ und Radius $R$ wird der Bildpunkt $P'$ 
+eines Punktes $P$ dadurch definiert, 
+dass $P'$ auf der Geraden $\overline{MP}$ liegt und die Bedingung
+\begin{align}
+    |\overline{MP'}| |\overline{MP}| = R^2
+\end{align}
+erfüllt.
+Wird anstelle eines einzelnen Punktes eine Gerade gespiegelt, 
+entsteht wieder ein Kreis, 
+welcher durch den Mittelpunkt $M$ des Inversionskreises verläuft.
+Dies ist in Abbildung~\ref{fig:kreisspiegelung} dargestellt.
+Die Punkte der ursprünglichen Geraden, welche sich im Unendlichen befinden, 
+werden dabei auf den Mittelpunkt $M$ abgebildet.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \raisebox{0.1\height}{%
+            \input{papers/geradlinig/figures/kreisspiegelung.tex}%
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \input{papers/geradlinig/figures/kreisspiegelung2.tex}
+    \end{minipage}
+    \caption{Illustration der Kreisspiegelung~\cite{kreisspiegelung} an einem Punkt (links) und einer Geraden (rechts).}
+    \label{fig:kreisspiegelung}
+\end{figure}
 
+Diese Eigenschaft wird beim Peaucellier-Lipkin-Mechanismus verwendet.
+Die geometrische Darstellung dieses Mechanismus besteht aus sechs Stäben, 
+wie in Abbildung~\ref{fig:geometrie_peauc} dargestellt.
+Die Längen $\overline{OA}$ und $\overline{OC}$ sind gleich gross.
+Die vier Stäbe $\overline{AB}$, $\overline{BC}$, $\overline{CD}$ und 
+$\overline{DA}$ besitzen ebenfalls dieselbe Länge und bilden dadurch eine Raute.
+Der Punkt $O$ ist dabei fest im Raum verankert.
+
+Wird der Punkt $B$ auf einer Kreisbahn geführt, 
+welche durch den Punkt $O$ verläuft, 
+bewegt sich der Punkt $D$ zwingend entlang einer Geraden.
+Dies kann beispielsweise durch eine zusätzliche Stange erreicht werden, 
+deren Länge der Hälfte der Strecke $\overline{OB}$ entspricht.
+Die Kreisbahn von $B$ ist in Rot dargestellt.
+Im Gegensatz dazu würde sich Punkt $D$ auf einer Kreisbahn bewegen, 
+wenn Punkt $B$ entlang einer Geraden geführt würde, 
+welche nicht durch $O$ verläuft.
+Auch dieser Kreis würde durch den Punkt $O$ verlaufen.
+
+Es existieren viele verschiedene Proportionen dieses Mechanismus.
+Die entscheidende Eigenschaft besteht darin, dass die Punkte $O$, 
+$B$ und $D$ während der gesamten Bewegung kollinear bleiben.
+Unter dieser Bedingung müssen lediglich die Beziehungen
+$\overline{AB} = \overline{AD}$ sowie $\overline{BC} = \overline{DC}$
+erfüllt sein.
+Zusätzlich muss Punkt $B$ auf einer Kreisbahn geführt werden, 
+welche den Punkt $O$ schneidet.
+Eine feste Beziehung zwischen den Längen der Seiten des Vierecks $ABCD$ 
+ist nicht erforderlich.
+\begin{figure}[htbp]
+    \centering
+    \input{papers/geradlinig/figures/peauc_lip_inv.tex}
+    \caption{Geometrie des Peaucellier-Lipkin-Mechanismus~\cite{peauc_lip_linkage}.}
+    \label{fig:geometrie_peauc}
+\end{figure}
+
+Ein weiterer Mechanismus inspiriert durch die Kreisspiegelung
+ist der Mechanismus von Perrolatz, 
+welcher in Abbildung~\ref{fig:perrolatz_link} dargestellt ist.
+Dieser besteht ebenfalls aus sechs Stäben.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage2.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage3.png}
+    \end{minipage}
+    \caption{Der Mechanismus von Perrolatz~\cite{wiki_straight_line}.}
+    \label{fig:perrolatz_link}
+\end{figure}
+
+Für diesen Mechanismus gelten die Beziehungen
+$\overline{AB}=\overline{CD}$ sowie
+$\overline{CQ}=\overline{BQ}=\overline{AP}=\overline{DP}$,
+wie in Abbildung~\ref{fig:geometrie_perrolatz} dargestellt.
+Der Punkt $E$ bewegt sich dabei auf einer Kreisbahn, während der Punkt $O$ fixiert bleibt.
+Dadurch bewegt sich der Punkt $F$ ausschliesslich entlang einer Geraden.
+Genau gleich gilt hier auch, dass die Kreisbahn durch $O$ verlaufen muss.
+\begin{figure}[htbp]
+    \centering
+    \input{papers/geradlinig/figures/perrolatz.tex}
+    \caption{Geometrie des Perrolatz-Mechanismus.}
+    \label{fig:geometrie_perrolatz}
+\end{figure}

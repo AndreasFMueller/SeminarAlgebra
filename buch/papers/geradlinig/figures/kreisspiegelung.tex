@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale=2]
+
+  % Circle center M and radius R
+  \coordinate (M) at (0,0);
+  \def\R{0.8}
+
+  % Point P and R
+  \coordinate (P) at (1.7,1);
+  \coordinate (R) at ({\R*cos(60)},{\R*sin(60)});
+
+  % Inversion factor
+  \pgfmathsetmacro{\k}{0.25}
+
+  % Inverted point P'
+  \coordinate (Pp) at (\k*2, \k*1); % same coordinates as P
+
+  % Circle
+  \draw[green, line width=2pt] (M) circle (\R);
+
+  % Line through M, P', P
+  \draw[black, thick] (M) -- (Pp) -- (P);
+  \draw[black, thin] (M) -- (R);
+
+  % Points
+  \fill[blue] (P) circle (1pt);
+  \fill[red] (Pp) circle (1pt);
+  \fill[black] (M) circle (1pt);
+
+  % Labels
+  \node[left] at (M) {$M$};
+  \node[below] at (P) {$P$};
+  \node[below] at (Pp) {$P'$};
+  \node[above right] at (R) {$R$};
+
+\end{tikzpicture}
