@@ -1,5 +1,27 @@
-\scalebox{0.8}{
-\begin{tikzpicture}
+
+%
+% keyhole_kontur.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\usetikzlibrary{arrows.meta, decorations.markings, decorations.pathmorphing, positioning, patterns}
+\usetikzlibrary{calc,intersections,through,backgrounds,graphs,positioning,shapes,arrows,fit,math}
+\usetikzlibrary{patterns,decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.misc}
+
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
 
 % ==============================
 % 1. FARBEN DEFINIEREN
@@ -80,7 +102,7 @@
 % ==============================
 % 6. LEGENDE
 % ==============================
-\node[draw, thick, rounded corners=3pt, fill=white, inner xsep=5pt, inner ysep=4pt, anchor=west] at (3.8, 0) {
+\node[draw, thick, rounded corners=3pt, fill=white, inner xsep=5pt, inner ysep=4pt, anchor=west] at (2.3, 2.7) {
     \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{@{}c l@{}}
         
@@ -97,23 +119,28 @@
         } & Polstelle \\
         
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotblue, ->-=0.55] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotblue] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotblue, -{Stealth[length=2.5mm, width=1.8mm]}] (-0.3, 0) -- (0.15, 0);
         } & Bromwich-Pfad \\
         
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotorange, ->-=0.55] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotorange] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotorange, -{Stealth[length=2.5mm, width=1.8mm]}] (-0.3, 0) -- (0.15, 0);
         } & Kreisbogen $\Gamma_R$ \\
         
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotgreen, ->-=0.55] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotgreen] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotgreen, -{Stealth[length=2.5mm, width=1.8mm]}] (-0.3, 0) -- (0.15, 0);
         } & Ufer $L_+, L_-$ \\
         
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotpurple, ->-=0.55] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotpurple] (-0.3,0) -- (0.3,0);
+            \draw[thick, plotpurple, -{Stealth[length=2.5mm, width=1.8mm]}] (-0.3, 0) -- (0.15, 0);
         } & Kreisbogen $\Gamma_\rho$ \\
         
     \end{tabular}
 };
 
 \end{tikzpicture}
-}
+\end{document}
+

@@ -9,59 +9,45 @@
 \section{Analytische Fortsetzung
 \label{Analytische Fortsetzung}}
 
-Die analytische Fortsetzung ist ein Konzept aus der komplexen Analysis.
-Im Grunde genommen kann durch sie eine Funktion erweitert werden
-ausserhalb ihres Definitionsbereiches.
+Die analytische Fortsetzung ist ein Konzept aus der komplexen Analysis, mit dem eine holomorphe Funktion über ihren ursprünglichen Definitionsbereich hinaus erweitert werden kann.
+Eine ausführliche Einführung dazu findet sich in Abschnitt 5.3 des Buches.
+Grundsätzlich wird dabei eine neue Funktion konstruiert, die auf dem ursprünglichen Definitionsbereich mit der alten Funktion übereinstimmt, aber auch ausserhalb davon definiert ist.
 
-Voraussetzung dafür ist lediglich, dass die Funktion holomorph ist.
-
-Grundsätzlich wird in der Analytischen Fortsetzung einfach eine neue Funktion konstruiert, die den selben Definitionsbereich wie die ursprüngliche Funktion hat. 
-Jedoch ist diese neue Funktion auch ausserhalb dieses Bereichs definiert.
-
-In der Anwendung auf die Riemannsche Zeta-Funktion kann eine solche analytische Fortsetzung fast auf die gesamte komplexe Ebene angewendet werden. 
-Die einzige Ausnahme ist der Punkt bei s = 1.
-
-%
-%
+In der Anwendung auf die Riemannsche Zeta-Funktion kann eine solche analytische Fortsetzung fast auf die gesamte komplexe Ebene angewendet werden.
+Die einzige Ausnahme ist der Punkt bei $s = 1$.
+%Beschreiben anhand Bild wie so eine Funktion erweitert wird anhand prinzip dass man definitionsbereich von Funktionen sucht, die in einem gewissen Bereich sich überschneiden
 
 \subsection{Anwendung auf die Zeta-Funktion\label{Anwendung auf die Zeta-Funktion}}
 
-Beispielsweise wenn man die Zeta-Funktion anschaut mit
-
-\[\zeta(s) = 1 + \frac{1}{2^{s}} + \frac{1}{3^{s}} + \frac{1}{4^{s}} + \ldots\]
-
-, so ist diese nur korrekt für alle Zahlen \textgreater{} 1.
-
-Wenn man jedoch dann die Analytische Fortsetzung verwendet und die Funktion anders darstellt durch eine Erweiterung des Terms, bekommt man
-
-\[\zeta(s) = \frac{1}{{1 - 2}^{1 - s}}(1 + \frac{1}{2^{s}} + \frac{1}{3^{s}} + \frac{1}{4^{s}} + \ldots),\]
-
-was nun schon korrekt ist für alle Zahlen \textgreater{} 0.
-
-Die Formel wird nun erweitert, bis man
-
-\[\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1 - s)\,\zeta(1 - s)\].
-
-hat. 
-So ist sie definiert für auch fast alle negativen Werte für s. 
-Wenn man für s jetzt -1 einsetzt, so kommt man mit den Umformungen von
-
-\[\zeta(-1) = 2^{-1} \pi^{-2} \sin\left(-\frac{\pi}{2}\right)\Gamma(2)\zeta(2)\].
-
-auf
-
-\[\sin\left(-\frac{\pi}{2}\right) = -1, \quad \Gamma(2) = 1! = 1, \quad \zeta(2) = \frac{\pi^2}{6}\].
-
-und schlussendlich auf
-
+Wie bereits in Abschnitt~\ref{Riemannsche Zeta-Funktion} erwähnt, ist die Reihendarstellung
 \[
-\frac{1}{2} \cdot \frac{1}{\pi^2} \cdot (-1) \cdot 1 \cdot \frac{\pi^2}{6} = -\frac{1}{12},
+\zeta(s) = 1 + \frac{1}{2^{s}} + \frac{1}{3^{s}} + \frac{1}{4^{s}} + \ldots
 \]
-was
-\[
--\frac{1}{12}
-\] ergibt. 
+nur für $\operatorname{Re}(s) > 1$ korrekt.
 
-%Berechnung und analytische Fortsetzung noch besser beschreiben, auch Zusammenhang mit komplexen Zahlen näher erklären.
+Die in Abschnitt 5.3 des Buches hergeleitete analytische Fortsetzung liefert für die Zeta-Funktion die sogenannte Funktionalgleichung, welche $\zeta(s)$ mit $\zeta(1-s)$ verbindet:
+\[
+\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1 - s)\,\zeta(1 - s).
+\]
+Diese Gleichung gilt für (fast) alle $s \in \mathbb{C}$ und liefert damit auch für negative $s$ einen wohldefinierten Wert von $\zeta(s)$, obwohl die ursprüngliche Reihe dort gar nicht konvergiert.
+
+Setzt man $s = -1$ ein, so verbindet die Funktionalgleichung $\zeta(-1)$ mit $\zeta(2)$:
+\[
+\zeta(-1) = 2^{-1} \pi^{-2} \sin\left(-\frac{\pi}{2}\right)\Gamma(2)\,\zeta(2).
+\]
+Der Wert $\zeta(2)$ ist uns bereits bekannt: Es handelt sich, wie in Abschnitt~\ref{Riemannsche Zeta-Funktion} erwähnt, um das Basler Problem, welches Euler 1735 löste, mit dem Resultat $\zeta(2) = \pi^2/6$.
+
+Mit
+\[
+\sin\left(-\frac{\pi}{2}\right) = -1, \quad \Gamma(2) = 1! = 1, \quad \zeta(2) = \frac{\pi^2}{6}
+\]
+folgt
+\[
+\zeta(-1) = \frac{1}{2} \cdot \frac{1}{\pi^2} \cdot (-1) \cdot 1 \cdot \frac{\pi^2}{6} = -\frac{1}{12}.
+\]
+
+Damit ist gezeigt, dass sich der Wert $-\frac{1}{12}$ nicht aus der divergenten Reihe selbst ergibt, sondern aus der Funktionalgleichung, die die analytische Fortsetzung der Zeta-Funktion liefert.
+
+
 
 
