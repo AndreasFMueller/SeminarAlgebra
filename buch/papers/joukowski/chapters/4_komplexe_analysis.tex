@@ -26,7 +26,7 @@ Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overl
 \]
 
 Damit können wir jede beliebige Flügelprofilform beschreiben,
-sofern unsere oben erwähnten Voraussetzungen dazupassen.
+sofern unsere oben erwähnten Voraussetzungen dafür anwendbar sind.
 
 Da die Geschwindigkeit $v(z)$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
@@ -83,82 +83,72 @@ Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit
 
 \subsection{Zusammenhang zwischen $\overline{v(z)}$ und $v(z)$}
 
-Damit wir die obige Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck
+Damit wir die obige Reihenentwicklung für $\overline{v(z)}$ in die Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen können,
+müssen wir noch den Zusammenhang zwischen 
 \[
-	F'
-	=
-	-i \frac{\rho}{2} \cdot
-	\displaystyle\oint_{\gamma}
 	|v(z)|^2
-	dz
+	\qquad
+	\text{und}
+	\qquad
+	\biggl(\overline{v(z)}\biggr)^2
 \]
-von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen können,
-müssen wir noch den Zusammenhang zwischen $v(z)$ und $\overline{v(z)}$ beschreiben.
-
+beschreiben.
 Wir können ausnutzen, dass
 
 \[
 	|v(z)|^2
 	=
-	v(z) \cdot \overline{v(z)}
+	\overline{v(z)} v(z)
 \]
 geschrieben werden kann,
-wobei
-\[
-	v(z)
-	=
-	\frac{\overline{df}}{\overline{dz}}
-	\qquad
-	\text{und}
-	\qquad
+wobei aus Kapitel xx bekannt ist, dass
+\begin{equation}
 	\overline{v(z)}
 	=
 	\frac{df}{dz}
-\]
-gilt.
-Das können wir auch als
-\[
-	|v(z)|^2
+	\qquad
+	\text{und}
+	\qquad
+	v(z)
 	=
 	\frac{\overline{df}}{\overline{dz}}
-	\cdot
-	\frac{df}{dz}
-\]
-schreiben.
+	\label{joukowski:komplexe-analysis:v-df-dz}
+\end{equation}
+gilt.
 Somit schreiben wir den Ausdruck für die komplexe Kraft als
 \[
 	F'
 	=
 	-i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\frac{\overline{df}}{\overline{dz}}
-	\cdot
 	\frac{df}{dz}
+	\frac{\overline{df}}{\overline{dz}}
 	dz
 \]
-Geht man ins komplex konjugierte über so ergibt sich
+Das Ganze lässt sich weiter vereinfachen, wenn die komplex konjugierte Kraft $\overline{F'}$
+berechnet wird.
+Somit ergibt sich
 \[
-	F_x - i F_y
+	F'_x - i F'_y
 	=
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\frac{\overline{df}}{\overline{dz}}
-	\cdot
 	\frac{df}{dz}
+	\frac{\overline{df}}{\overline{dz}}
 	\overline{dz}
 	=
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\frac{df}{dz}
-	\overline{df}
+	\overline{df}.
 \]
 Wir können aber $\overline{df}$ mit
 \[
 \frac{\overline{df}}{dz} dz
 \]
-ersetzen, wobei
+erweitern, wobei
 \begin{equation}
-	F_x - i F_y
+	F'_x - i F'_y
 	=
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
@@ -195,34 +185,26 @@ schreiben wir lieber
 Leiten wir also die Strömung auf einer Strömungslinie ab,
 spielt das Vorzeichen des konstanten Imaginärteils keine Rolle mehr und es gilt
 \[
-	\frac{df(z)}{dz}
+	\frac{df}{dz}
 	=
-	\frac{d\overline{f(z)}}{dz}.
+	\frac{\overline{df}}{dz}.
 \]
 Mit diesem Ausdruck wird aus Gleichung~\eqref{joukowski:komplexe-analysis:komplex-konjugierte-kraft}
 \[
-	F_x - i F_y
+	F'_x - i F'_y
 	=
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\biggl(\frac{df}{dz}\biggr)^2
 	dz
 \]
-wobei wir aus Kapitel xx einsetzen können, dass
-\[
-	\frac{df}{dz}
-	=
-	\overline{v(z)}
-\]
-ist.
-
-Schliesslich erhalten wir die Gleichung
+wobei wir Ausdruck~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen können und schliesslich erhalten wir die Gleichung
 \begin{equation}
-	F_x - i F_y
+	F'_x - i F'_y
 	=
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\biggl(\frac{df}{dz}\biggr)^2
+	\biggl(\overline{v(z)}\biggr)^2
 	dz
 	\label{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat}
 \end{equation}
