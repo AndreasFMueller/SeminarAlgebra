@@ -102,7 +102,74 @@ Wir können ausnutzen, dass
 	=
 	v(z) \cdot \overline{v(z)}
 \]
+geschrieben werden kann,
+wobei
+\[
+	v(z)
+	=
+	\frac{\overline{df}}{\overline{dz}}
+	\qquad
+	\text{und}
+	\qquad
+	\overline{v(z)}
+	=
+	\frac{df}{dz}
+\]
 gilt.
+Das können wir auch als
+\[
+	|v(z)|^2
+	=
+	\frac{\overline{df}}{\overline{dz}}
+	\cdot
+	\frac{df}{dz}
+\]
+schreiben.
+Somit schreiben wir den Ausdruck für die komplexe Kraft als
+\[
+	F'
+	=
+	-i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{\overline{df}}{\overline{dz}}
+	\cdot
+	\frac{df}{dz}
+	dz
+\]
+Geht man ins komplex konjugierte über so ergibt sich
+\[
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{\overline{df}}{\overline{dz}}
+	\cdot
+	\frac{df}{dz}
+	\overline{dz}
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{dz}
+	\overline{df}
+\]
+Wir können aber $\overline{df}$ mit
+\[
+\frac{\overline{df}}{dz} dz
+\]
+ersetzen, wobei
+\begin{equation}
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{dz}
+	\frac{\overline{df}}{dz}
+	dz
+	\label{joukowski:komplexe-analysis:komplex-konjugierte-kraft}
+\end{equation}
+entsteht.
+
+Um diesen Ausdruck weiter zu vereinfachen müssen wir unsere Strömungsfunktion untersuchen.
 
 Für unsere Strömung gilt die Funktion 
 \[
@@ -132,16 +199,34 @@ spielt das Vorzeichen des konstanten Imaginärteils keine Rolle mehr und es gilt
 	=
 	\frac{d\overline{f(z)}}{dz}.
 \]
-
-Aus Kapitel
-%~\ref{} (Strömungslinien)
-wissen wir aber,
-dass
-\begin{align}
-	&\frac{df(z)}{dz}
+Mit diesem Ausdruck wird aus Gleichung~\eqref{joukowski:komplexe-analysis:komplex-konjugierte-kraft}
+\[
+	F_x - i F_y
 	=
-	$\overline{v(z)}$
-\end{align}
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\biggl(\frac{df}{dz}\biggr)^2
+	dz
+\]
+wobei wir aus Kapitel xx einsetzen können, dass
+\[
+	\frac{df}{dz}
+	=
+	\overline{v(z)}
+\]
+ist.
+
+Schliesslich erhalten wir die Gleichung
+\begin{equation}
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\biggl(\frac{df}{dz}\biggr)^2
+	dz
+	\label{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat}
+\end{equation}
+
 
 \subsection{Berechnung der Kraft}
 
