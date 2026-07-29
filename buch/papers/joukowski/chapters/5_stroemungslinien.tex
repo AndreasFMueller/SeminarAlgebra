@@ -11,7 +11,15 @@
 		
 		Beginnen wir mit einer Strömung, welche ungehindert von links nach rechts strömen kann. Es wird sofort deutlich, dass die Strömungslinien gleichmässig verteilt sind und das Geschwindigkeitsvektorfeld homogen und konstant ist. Somit ist die Geschwindigkeit an jedem Punkt des Raumes gleich. Die Abbildung ~\eqref{joukowski:Stroemungslinien:fig_Allgemein}, welche dieser Situation entspricht, kann mit dem Ausdruck $f(z) = z$ und $\overline{v(z)} = 1$ beschrieben werden. Die Punkte in der Z-Ebene, welche in die Funktion $f(z)$ eingesetzt einen konstanten Imaginärteil ergeben, nennen wir eine Strömungslinie. Dieses Konzept ist für alle weiteren Anwendungen anwendbar.
 		
-		In einem weiteren Beispiel fügen wir einen Zylinder als Hindernis ein. Die Funktion, welche einen Kreis auf eine horizontale Linie abbildet, lautet $f(z) = z+\frac{1}{z}$. Für das Geschwindigkeitsvektorfeld wird lediglich die Ableitung benötigt. Die Funktion $v(z)$ lautet somit $\overline{v(z)} = 1 - 1/z^2$. Die Strömungslinien dieser Funktion werden in Abbildung ~\eqref{joukowski:Stroemungslinien:fig_Zylinder} dargestellt.
+		In einem weiteren Beispiel fügen wir einen Zylinder als Hindernis ein. Die Funktion, welche einen Kreis auf eine horizontale Linie abbildet, lautet
+		\begin{equation}
+			\label{joukowski:Stroemungslinien:equation_zylinder}
+			f(z) =\frac{v_\infty}{2}\cdot( z+\frac{1}{z}).
+		\end{equation} Die Ableitung dieser Funktion entspricht dann
+			\begin{equation}
+			\label{joukowski:Stroemungslinien:equation_zylinder_speed}
+			\overline{v(z)} = \frac{v_\infty}{2}\cdot (1 - 1/z^2)
+			\end{equation}  Die Strömungslinien dieser Funktion sowie das Konjugiertkomplexe der Geschwindigkeit werden in Abbildung ~\eqref{joukowski:Stroemungslinien:fig_Zylinder} dargestellt.
 	 
 	\subsection{Magnus Effekt}
 		\input{papers/joukowski/fig/05_stroemungslinien/fig_magnus.tex}
@@ -20,7 +28,7 @@
 		 Grafisch lässt sich dieser Effekt aufzeigen, indem die Funktion $f(z)$ zu folgendem Ausdruck erweitert wird:
 		 \begin{equation}
 		 	\label{joukowski:Stroemungslinien:equation_magnus}
-		 	 f(z) = \frac{k}{2} \cdot (z+ \frac{1}{z}) - i\cdot A\cdot \log(z).
+		 	 f(z) = \frac{v_\infty}{2} \cdot (z+ \frac{1}{z}) - i\cdot A\cdot \log(z).
 		 \end{equation}
 		  Mit dem Parameter A kann der Effekt eines zirkulierenden Zylinders in einem Strömungsfeld gesteuert werden. Wird der Parameter A beispielsweise auf -0.75 gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\eqref{joukowski:Stroemungslinien:fig_magnus}. Anhand dieser Abbildung wird intuitiv deutlich, dass eine auftriebserzeugende Kraft nach oben entsteht.
 	 \subsection{Tragflügel}
