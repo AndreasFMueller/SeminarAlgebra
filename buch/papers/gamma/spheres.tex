@@ -36,7 +36,7 @@ indem wir nach $y$ auflösen und danach für jedes $x$ den jeweils höchsten $y$
 \label{gamma-eq:pythagoras-y}
     y \leq \sqrt{r^2 - x^2} \\
 \label{gamma-eq:area-pythagoras}
-    A(r) = 2 \int_{-r}^{r} \sqrt{r^2-x^2} \,dx
+    A(r) = 2 \int_{-r}^{r} \sqrt{r^2-x^2} \,dx.
 \end{gather}
 Die Intuition dahinter wird in Abb.~\ref{gamma-fig:rect-integration} dargestellt.
 Das Integral aus~\eqref{gamma-eq:area-pythagoras} ist nicht trivial zu lösen
@@ -59,7 +59,7 @@ während iterativ in jedem Halbkreis entlang der $y$-Achse integriert wird. Das 
 \label{gamma-eq:sphere-volume}
     V(r) = 2 \int_{-r}^{r} \int_{-\sqrt{r^2-x^2}}^{\sqrt{r^2-x^2}} \sqrt{r^2-x^2-y^2} \,dy \,dx
 \end{equation}
-berechnet werden. Eine formelle Begründung für diese iterative angehensweise ist der Satz von Fubini\cite{fubini1907integrali}.
+berechnet werden. Eine formelle Begründung für diese iterative angehensweise ist der Satz von Fubini \cite{fubini1907integrali}.
 Die Grenzen des inneren Integrals kommen zustande, weil für ein bestimmtes $x$ die möglichen $y$-Werte gemäss Ungleichung~\eqref{gamma-eq:pythagoras-y} eingeschränkt sind.
 Für ein bestimmtes $x$ und $y$ wird dann über den maximalen Wert für $z$ gemäss Ungleichung~\eqref{gamma-eq:pythagoras-3d} integriert.
 
@@ -100,7 +100,7 @@ Nehme an, dass $V_n(r) = C_n r^n$. Dann gilt:
         &= \int_{-1}^{1} C_n r^{n+1} (1- u^2)^{n/2} \,du \\
         &= r^{n+1} \underbrace{C_n \int_{-1}^{1} (1- u^2)^{n/2} \,du}_{C_{n+1}} \\
     \end{split}
-\end{gather}
+\end{gather}.
 
 \noindent
 Wir sehen, dass $C_n$ ein Faktor von $C_{n+1}$ ist. Die mit dem Volumen assoziierte Konstante 
@@ -144,10 +144,9 @@ Term:
         C_n &= \pi \cdot \frac{2 \pi}{4} \cdot \frac{2 \pi}{6} \cdot \ldots \cdot \frac{2 \pi}{n} \\
             &= \frac{2 \pi}{2} \cdot \frac{2 \pi}{4} \cdot \frac{2 \pi}{6} \cdot \ldots \cdot \frac{2 \pi}{n} \\
             &= \frac{(2 \pi)^{n/2}}{2^{n/2}} \frac{1}{\left(\frac{n}{2}\right)!} \\
-            &= \frac{\pi^{n/2}}{\left(\frac{n}{2}\right)!}
+            &= \frac{\pi^{n/2}}{\left(\frac{n}{2}\right)!}.
 \end{split}
 \end{equation}
-
 Wir können jetzt also mit
 \begin{equation}
 \label{gamma-eq:n-sphere-volume-even}
@@ -155,5 +154,5 @@ Wir können jetzt also mit
 \end{equation}
 ein Kugelvolumen bei geraden Dimensionen einfach berechnen.
 
-Schön wäre es, das Volumen nicht nur für gerade-Dimensionale Kugeln berechnen können.
+Schön wäre es, das Volumen nicht nur für gerade-dimensionale Kugeln berechnen können.
 Dazu müssten wir allerdings die Fakultät auf halbe Zahlen anwenden können, was einer der Gründe ist, die Fakultät zu erweitern.
