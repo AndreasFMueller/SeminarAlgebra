@@ -9,17 +9,24 @@ Wir haben vorausgesetzt, dass im Unendlichen die ungestörte Anströmungsgeschwi
 Zudem muss es laut Beispiel~\ref{buch:integration:wege:bsp:kreisintegral} eine einfache Polstelle im Inneren des Flügelprofils haben,
 da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzeilt werden kann.
-Diese beiden Eigenschaften der Geschwindigkeit $v(z)$ führen dazu, 
-dass die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ als Laurent-Reihe der Form
+
+Wie in Kapitel
+%~\ref{}
+Strömungslinen beschrieben,
+können wir die komplex konjugierte Geschwindigkeit mittels eines einfachen Ausdrucks beschreiben.
+Für eine allgemeine Form eines Flügelprofils kann diese Formel jedoch beliebig kompliziert werden.
+Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ mittels einer Laurent-Reihe der Form
 
 \[
 	\overline{v(z)} 
 	= 
 	a_0 + \frac{a_1}{z} + \frac{a_2}{z^2} + \frac{a_3}{z^3} + \dots 
 	= 
-	\sum_{k=0}^{\infty} \frac{a_k}{z^k}
+	\sum_{k=0}^{\infty} \frac{a_k}{z^k}.
 \]
-geschrieben werden kann.
+
+Damit können wir jede beliebige Flügelprofilform beschreiben,
+sofern unsere oben erwähnten Voraussetzungen dazupassen.
 
 Da die Geschwindigkeit $v(z)$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
@@ -74,11 +81,9 @@ Für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ ergibt sich somit
 	\label{joukowski:komplexe-analysis:laurent-reihe}
 \end{equation}
 
-% Zusammenhang von |v(z)|^2 und v(z)*^2?
+\subsection{Zusammenhang zwischen $\overline{v(z)}$ und $v(z)$}
 
-\subsection{Berechnung der Kraft}
-
-Wir können die obige Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck
+Damit wir die obige Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in den Ausdruck
 \[
 	F'
 	=
@@ -87,7 +92,149 @@ Wir können die obige Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laure
 	|v(z)|^2
 	dz
 \]
-von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen und ausmultiplizieren, wobei
+von Gleichung~\eqref{joukowski:Auftriebskarft:Auftrieb1} einsetzen können,
+müssen wir noch den Zusammenhang zwischen $v(z)$ und $\overline{v(z)}$ beschreiben.
+
+Wir können ausnutzen, dass
+
+\[
+	|v(z)|^2
+	=
+	v(z) \cdot \overline{v(z)}
+\]
+geschrieben werden kann,
+wobei
+\[
+	v(z)
+	=
+	\frac{\overline{df}}{\overline{dz}}
+	\qquad
+	\text{und}
+	\qquad
+	\overline{v(z)}
+	=
+	\frac{df}{dz}
+\]
+gilt.
+Das können wir auch als
+\[
+	|v(z)|^2
+	=
+	\frac{\overline{df}}{\overline{dz}}
+	\cdot
+	\frac{df}{dz}
+\]
+schreiben.
+Somit schreiben wir den Ausdruck für die komplexe Kraft als
+\[
+	F'
+	=
+	-i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{\overline{df}}{\overline{dz}}
+	\cdot
+	\frac{df}{dz}
+	dz
+\]
+Geht man ins komplex konjugierte über so ergibt sich
+\[
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{\overline{df}}{\overline{dz}}
+	\cdot
+	\frac{df}{dz}
+	\overline{dz}
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{dz}
+	\overline{df}
+\]
+Wir können aber $\overline{df}$ mit
+\[
+\frac{\overline{df}}{dz} dz
+\]
+ersetzen, wobei
+\begin{equation}
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{dz}
+	\frac{\overline{df}}{dz}
+	dz
+	\label{joukowski:komplexe-analysis:komplex-konjugierte-kraft}
+\end{equation}
+entsteht.
+
+Um diesen Ausdruck weiter zu vereinfachen müssen wir unsere Strömungsfunktion untersuchen.
+
+Für unsere Strömung gilt die Funktion 
+\[
+	f(z)
+	=
+	\phi + i \psi
+\]
+Da $\psi$ auf einer Strömungslinie einer Konstanten enspricht,
+schreiben wir lieber
+\begin{align}
+	&f(z)
+	=
+	\phi + i C
+	\notag
+	\\
+	\intertext{und ihr komplex konjugiertes}
+	&\overline{f(z)} 
+	=
+	\phi - i C.
+	\notag
+\end{align}
+
+Leiten wir also die Strömung auf einer Strömungslinie ab,
+spielt das Vorzeichen des konstanten Imaginärteils keine Rolle mehr und es gilt
+\[
+	\frac{df(z)}{dz}
+	=
+	\frac{d\overline{f(z)}}{dz}.
+\]
+Mit diesem Ausdruck wird aus Gleichung~\eqref{joukowski:komplexe-analysis:komplex-konjugierte-kraft}
+\[
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\biggl(\frac{df}{dz}\biggr)^2
+	dz
+\]
+wobei wir aus Kapitel xx einsetzen können, dass
+\[
+	\frac{df}{dz}
+	=
+	\overline{v(z)}
+\]
+ist.
+
+Schliesslich erhalten wir die Gleichung
+\begin{equation}
+	F_x - i F_y
+	=
+	i \frac{\rho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\biggl(\frac{df}{dz}\biggr)^2
+	dz
+	\label{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat}
+\end{equation}
+
+
+\subsection{Berechnung der Kraft}
+
+
+
+
+
+ und ausmultiplizieren, wobei
 \begin{align}
 	F'
 	&= 
@@ -370,9 +517,9 @@ welche als \emph{Satz von Kutta-Joukowski} gilt.
 
 \subsubsection{Berechnung der Zirkulation $\Gamma$}
 Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
-Auch da wählen wir den Kreis mit Zentrum bei $z_0 = 0$ und mit Radius $r$ und die gleiche parametrisierung von $z$.
+Auch da wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
 Für die Funtion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
-Somit wird aus dem Ausdruck
+Somit wird aus dem Integral
 \[
 	\Gamma
 	=
@@ -413,7 +560,7 @@ Die Terme
 	\quad
 	k \in [2, \infty)
 \]
-sind alle gleicher Art wie bei der Berechnung von $\Lambda$ in der Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit},
+sind alle gleich wie bei der Berechnung von $\Lambda$ in der Gleichung~\eqref{joukowski:komplexe-analysis:integral-e-hoch-kit} periodisch,
 weshalb alle durch die Integration zu $0$ reduziert werden.
 
 Der einzige Term im Integral, welcher nicht verschwindet, ist $a_1$, der zu
@@ -460,4 +607,4 @@ Wir erwarten eine reine Auftriebskraft, was bedeutet, dass
 \]
 rein imaginär sein muss. Somit muss auch $a_1$ rein imaginär sein.
 
-Im Kapitel~\ref{joukowski:sec:stroemungslinien} Strömungslinien zeigen wir wie der Koeffizient $a_1$ für verschiedene Flügelprofile bestimmt werden kann.
+Im Kapitel~\ref{joukowski:sec:stroemungslinien} Strömungslinien zeigen wir wie der Koeffizient $a_1$ anhand von Beispielen von verschiedenen Flügelprofilen bestimmt werden kann.
