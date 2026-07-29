@@ -1,0 +1,33 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\usetikzlibrary{external}
+
+\input{wing.tex}
+
+\tikzexternalenable
+
+\begin{document}
+	
+	\begin{tikzpicture}[scale=0.4,>=Latex]
+		\coordinate (P) at (0,4.7);
+		\draw[white, thick] (-10,-6) rectangle (5,8);
+		\node[shape=wing, scale = 0.8] at (0,0) {};
+		
+		\draw[thick, red,
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position 0.2 with {\arrow{Latex}}
+			}
+		}]
+		(-4.25,0) circle (5);
+		
+		\node [above, text width=2cm, align=left, minimum height=1cm] at (P) {\color{red}$\gamma = r \, e^{i \, t}$};
+		
+		\draw[->, thick, black] (0.4, 1.7) -- node [sloped, midway, above] {$r \rightarrow \infty$} + (20:4);
+	\end{tikzpicture}
+	
+\end{document}
