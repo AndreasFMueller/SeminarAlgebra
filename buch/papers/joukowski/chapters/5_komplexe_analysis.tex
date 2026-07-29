@@ -10,8 +10,7 @@ Zudem muss es laut Beispiel~\ref{buch:integration:wege:bsp:kreisintegral} eine e
 da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzeilt werden kann.
 
-Wie in Kapitel
-%~\ref{}
+Wie in Abschnitt~\ref{joukowski:sec:stroemungslinien}
 Strömungslinen beschrieben,
 können wir die komplex konjugierte Geschwindigkeit mittels eines einfachen Ausdrucks beschreiben.
 Für eine allgemeine Form eines Flügelprofils kann diese Formel jedoch beliebig kompliziert werden.
@@ -24,7 +23,6 @@ Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overl
 	= 
 	\sum_{k=0}^{\infty} \frac{a_k}{z^k}.
 \]
-
 Damit können wir jede beliebige Flügelprofilform beschreiben,
 sofern unsere oben erwähnten Voraussetzungen dafür anwendbar sind.
 
@@ -46,8 +44,7 @@ nicht erfüllt, da es ausschliesslich aus den Termen
 	k \in [0, \infty)
 \]
 besteht und somit unmöglich ist, eine Definitionslücke bei $z_0 = 0$ zu erreichen.
-
-Auch das ausdrücken des konstanten Wertes im Unendlichen ist nur dank den Termen
+Auch das Ausdrücken des konstanten Wertes im Unendlichen ist nur dank den Termen
 \[
 	\frac{a_k}{z^k},
 	\quad
@@ -68,7 +65,7 @@ Auch das kann mit Taylor-Reihe so nicht erreicht werden, da diese für belibig g
 Bei der allgemeinen Form der Laurent-Reihe sind die Koeffizienten $a_k \in \mathbb{C}$.
 In dieser Anwendung beschränken sich jedoch einzelne Koeffizienten auf $a_k \in \mathbb{R}$, wie das bei $a_0$ der Fall ist.
 
-Aufgrund der Eigenschaft~\eqref{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
+Aus der Eigenschaft~\eqref{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
 geht hervor, dass der Koeffizient $a_0$ direkt der Geschwindigkeit im Unendlichen entspricht, 
 weshalb er besser als $v_\infty$ geschrieben werden soll.
 
@@ -101,7 +98,7 @@ Wir können ausnutzen, dass
 	\overline{v(z)} v(z)
 \]
 geschrieben werden kann,
-wobei aus Kapitel xx bekannt ist, dass
+wobei aus Abschnitt xx bekannt ist, dass
 \begin{equation}
 	\overline{v(z)}
 	=
@@ -123,7 +120,7 @@ Somit schreiben wir den Ausdruck für die komplexe Kraft als
 	\displaystyle\oint_{\gamma}
 	\frac{df}{dz}
 	\frac{\overline{df}}{\overline{dz}}
-	dz
+	dz.
 \]
 Das Ganze lässt sich weiter vereinfachen, wenn die komplex konjugierte Kraft $\overline{F'}$
 berechnet wird.
@@ -160,12 +157,11 @@ erweitern, wobei
 entsteht.
 
 Um diesen Ausdruck weiter zu vereinfachen müssen wir unsere Strömungsfunktion untersuchen.
-
 Für unsere Strömung gilt die Funktion 
 \[
 	f(z)
 	=
-	\phi + i \psi
+	\phi + i \psi.
 \]
 Da $\psi$ auf einer Strömungslinie einer Konstanten enspricht,
 schreiben wir lieber
@@ -196,7 +192,7 @@ Mit diesem Ausdruck wird aus Gleichung~\eqref{joukowski:komplexe-analysis:komple
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\biggl(\frac{df}{dz}\biggr)^2
-	dz
+	dz,
 \]
 wobei wir Ausdruck~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen können und schliesslich erhalten wir die Gleichung
 \begin{equation}
@@ -205,7 +201,7 @@ wobei wir Ausdruck~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen können
 	i \frac{\rho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\biggl(\overline{v(z)}\biggr)^2
-	dz
+	dz.
 	\label{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat}
 \end{equation}
 
@@ -245,7 +241,7 @@ wobei wir Ausdruck~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen können
 	\label{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty}
 	\\
 	\intertext{entsteht.}
-	\intertext{Beim ersten Ausdruck können wir einen Trick anwenden indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
+	\intertext{Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
 	erweitern. 
 	Dies lässt uns die Gleichung~\eqref{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty} als}
 	F'
@@ -278,7 +274,7 @@ wobei wir Ausdruck~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen können
 	dz 
 	\notag
 	\\
-	\intertext{durch einsetzen der Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in}
+	\intertext{durch Einsetzen der Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in}
 	F'
 	&= 
 	-i \rho v_\infty \cdot
@@ -576,7 +572,7 @@ Somit zeigt sich, dass nur ein Koeffizient der Laurent-Reihe,
 ausser die von uns vorgegebene Geschwindigkeit im Unendlichen $v_\infty$, 
 einen Beitrag an der komplexen Kraft leistet, nämlich $a_1$.
 Das heisst, dass dieser Koeffizient direkt bestimmt, 
-ob eine reine Auftriebskraft resultiert, so wie wir das von unseren Voraussetzungen im Kapitel~\ref{joukowski:sec:voraussetzungen} erwarten.
+ob eine reine Auftriebskraft resultiert, so wie wir das von unseren Voraussetzungen im Abschnitt~\ref{joukowski:sec:voraussetzungen} erwarten.
 Oder ob zusätzlich noch einen Luftwiderstand sich bemerkbar macht.
 
 Wir erwarten eine reine Auftriebskraft, was bedeutet, dass
@@ -589,4 +585,4 @@ Wir erwarten eine reine Auftriebskraft, was bedeutet, dass
 \]
 rein imaginär sein muss. Somit muss auch $a_1$ rein imaginär sein.
 
-Im Kapitel~\ref{joukowski:sec:stroemungslinien} Strömungslinien zeigen wir wie der Koeffizient $a_1$ anhand von Beispielen von verschiedenen Flügelprofilen bestimmt werden kann.
+Im Abschnitt~\ref{joukowski:anwendungen} zeigen wir, wie der Koeffizient $a_1$ anhand von Beispielen von verschiedenen Flügelprofilen bestimmt werden kann.

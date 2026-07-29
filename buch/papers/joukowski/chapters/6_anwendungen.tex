@@ -1,4 +1,5 @@
 \section{Anwedungen des Satzes von Kutta-Joukowski}
+\label{joukowski:anwendungen}
 
 \subsection{Magnus Effekt}
 \input{papers/joukowski/fig/05_stroemungslinien/fig_magnus.tex}
@@ -7,9 +8,9 @@ Bei rotierenden Zylindern entsteht eine Kraft, sofern eine Luftströmung existie
 Grafisch lässt sich dieser Effekt aufzeigen, indem die Funktion $f(z)$ zu folgendem Ausdruck erweitert wird:
 \begin{equation}
 	\label{joukowski:Stroemungslinien:equation_magnus}
-	f(z) = \frac{v_\infty}{2} \cdot (z+ \frac{1}{z}) - i\cdot A\cdot \log(z).
+	f(z) = \frac{v_\infty}{2} \cdot \biggl(z+ \frac{1}{z}\biggr) - i\cdot A\cdot \log(z).
 \end{equation}
-Mit dem Parameter A kann der Effekt eines zirkulierenden Zylinders in einem Strömungsfeld gesteuert werden. Wird der Parameter A beispielsweise auf -0.75 gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\eqref{joukowski:Stroemungslinien:fig_magnus}. Anhand dieser Abbildung wird intuitiv deutlich, dass eine auftriebserzeugende Kraft nach oben entsteht.
+Mit dem Parameter A kann der Effekt eines rotierenden Zylinders in einem Strömungsfeld gesteuert werden. Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\eqref{joukowski:Stroemungslinien:fig_magnus}. Anhand dieser Abbildung wird intuitiv deutlich, dass eine auftriebserzeugende Kraft nach oben entsteht.
 
 \subsection{Tragflügel}
 \input{papers/joukowski/fig/05_stroemungslinien/fig_fluegel1.tex}
@@ -25,7 +26,7 @@ In Abbildung ~\eqref{joukowski:Stroemungslinien:fig_fluegel1} wird ein symmetris
 
 Abbildung ~\eqref{joukowski:Stroemungslinien:fig_fluegel2} entspricht einem Flügelprofil mit Anstellwinkel.
 Hierzu muss der transformierte Flügel in der komplexen Ebene im Uhrzeigersinn rotiert werden.~
-Damit die Strömungslinien der Realität entsprechen, muss der Faktor A in Gleichung ~\eqref{joukowski:Stroemungslinien:equation_magnus} passend gewählt werden. Dies haben wir numerisch mithilfe unserer Visualisierung ermittelt.
+Damit die Strömungslinien der Realität entsprechen, muss der Faktor $A$ in Gleichung ~\eqref{joukowski:Stroemungslinien:equation_magnus} passend gewählt werden. Dies haben wir numerisch mithilfe unserer Visualisierung ermittelt.
 Mit diesem Modell können wir die Strömungslinien um ein Flügelprofil ermitteln.
 Es wird ausserdem deutlich, dass dieser Flügel Auftrieb generieren muss, da eine Asymmetrie entsteht.
 

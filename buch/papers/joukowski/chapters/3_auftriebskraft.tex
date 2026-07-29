@@ -1,33 +1,44 @@
 \section{Auftriebskraft}
-	Bei der Betrachtung eines Objektes in einem Beliebigen Mediums kann eine Auftriebskraft festgestellt werden.
-	Hierbei muss die Differenzierung gemacht werden zwischen statischen und dynamischen Auftrieb.
-	Der Statische Druck entsteht durch den Druckgradienten. 
+	Bei der Betrachtung eines Objektes in einem beliebigen Mediums kann eine Auftriebskraft festgestellt werden.
+	Hierbei muss zwischen statischen und dynamischen Auftrieb unterschieden werden.
+	Der statische Druck entsteht durch den Druckgradienten. 
 	Dies ist auf den Druckunterschied zurückzuführen. Strömungen führen zum Dynamischen Auftrieb.
 	
-	Ein Beispiel für den Statischen druck ist ein Eiswürfel im Wasserglas. Der Druckgradient beschreibt die Druckveränderung zwischen zwei punkten,
+	Ein Beispiel für den statischen Druck ist ein Eiswürfel im Wasserglas.
+	Der Druckgradient beschreibt die Druckveränderung zwischen zwei Punkten,
 	daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
 	
 	Bei einem Flugzeuge ist dies wesentlich komplizierter.
-	Hierbei handelt sich um Dynamischen Auftrieb. Für die Strömung gilt Energie Erhaltung.
-	Der Druck, an einem beliebigen Punkt im Raum, kann somit  mit der Gleichung
-	
+	Hierbei handelt sich um dynamischen Auftrieb.
+	Für die Strömung gilt Energieerhaltung.
+	Der Druck, an einem beliebigen Punkt im Raum, kann somit mit der Gleichung
 	\input{papers/joukowski/fig/03_auftriebskraft/fig-kontourintegral_fluegel.tex}
-	
 	\begin{equation}
-		\begin{aligned}
-			\label{joukowski:Auftriebskarft:Bernoulli}
-			&p(z) + \frac{\rho}{2} \cdot |v(z)|^2 =	p_{\infty} + 	\frac{\rho}{2} \cdot |v_{\infty}|^2\\
-		\end{aligned}
+		\label{joukowski:Auftriebskarft:Bernoulli}
+		p(z) + \frac{\rho}{2} \cdot |v(z)|^2 
+		=
+		p_{\infty} + \frac{\rho}{2} \cdot |v_{\infty}|^2
 	\end{equation}
-	Beschrieben werden.
-	Bei der Bernoulli Gleichung werden immer zwei Punkte gewählt. In diesem Fall der Punkt Z und ein Punkt weit weg vom Flügelprofil. Diese liegen auf der gleichen Höhe, daher verschwindet der Höhendruck. Aufgelöst nach dem druck am Punkt Z. Ergibt sich die Form
-	$p(z) = - \frac{\rho}{2} \cdot |v(z)|^2 + C $ wobei
-	der Konstante Teil in $P(z)$ aus dem Referenzwert im Unendlichen besteht. Um nun die Auftriebskraft zu erhalten wird einmal entlang des Flügelprofils gefahren wobei der druck an jedem Punkt aufsummiert wird. Als integral geschrieben ergibt das die Gleichung
-	\begin{equation}
-		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 + C \, dz
-	\end{equation}
-	Für den Auftrieb wird also einmal um das komplette Profil gefahren und der Druck an jeder stelle aufsummiert. Der Konstante teilt, kürzt sich somit heraus. Übrig bleibt nur noch folgender Ausdruck
+	beschrieben werden.
+	Bei der Bernoulli Gleichung werden immer zwei Punkte gewählt.
+	In diesem Fall der Punkt $Z$ und ein Punkt weit weg vom Flügelprofil.
+	Diese liegen auf der gleichen Höhe, daher verschwindet der Höhendruck.
+	Aufgelöst nach dem Druck am Punkt $Z$. Ergibt sich die Form
+	$p(z) = - \frac{\rho}{2} \cdot |v(z)|^2 + C$ wobei
+	der Konstante Teil in $P(z)$ aus dem Referenzwert im Unendlichen besteht.
+	Um nun die Auftriebskraft zu erhalten wird einmal entlang des Flügelprofils gefahren, wobei der Druck an jedem Punkt aufsummiert wird.
+	Als Integral geschrieben ergibt das die Gleichung
+	\[
+		F' = F_x' + i F_y'
+		=
+		- i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 + C \, dz.
+	\]
+	Für den Auftrieb wird also einmal um das komplette Profil gefahren und der Druck an jeder stelle aufsummiert.
+	Der Konstante teilt, kürzt sich somit heraus.
+	Übrig bleibt nur noch der Ausdruck
 	\begin{equation}
 		\label{joukowski:Auftriebskarft:Auftrieb1}
-		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 \, dz.
+		F' = F_x' + i F_y'
+		=
+		- i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 \, dz.
 	\end{equation}
