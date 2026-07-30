@@ -15,8 +15,10 @@ dependencies-hauptwert =						\
 	papers/hauptwert/fig/kehrwert-symmetrisch.tex			\
 	papers/hauptwert/fig/nichtungerade.tex				\
 	papers/hauptwert/fig/pol-innen.tex				\
+	papers/hauptwert/fig/halbkreiskontur.tex			\
 	papers/hauptwert/images/kehrwert.pdf				\
 	papers/hauptwert/images/kehrwert-symmetrisch.pdf		\
 	papers/hauptwert/images/nichtungerade.pdf			\
-	papers/hauptwert/images/pol-innen.pdf
+	papers/hauptwert/images/pol-innen.pdf				\
+	papers/hauptwert/images/halbkreiskontur.pdf
 

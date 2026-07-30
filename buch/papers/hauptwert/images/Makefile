@@ -3,7 +3,8 @@
 #
 # (c) 2026 Damien Flury, OST Ostschweizer Fachhochschule
 #
-all:	kehrwert.pdf kehrwert-symmetrisch.pdf nichtungerade.pdf pol-innen.pdf
+all:	kehrwert.pdf kehrwert-symmetrisch.pdf nichtungerade.pdf pol-innen.pdf \
+	halbkreiskontur.pdf
 
 kehrwert.pdf:	kehrwert.tex
 	pdflatex kehrwert.tex
@@ -16,3 +17,6 @@ nichtungerade.pdf:	nichtungerade.tex
 
 pol-innen.pdf:	pol-innen.tex
 	pdflatex pol-innen.tex
+
+halbkreiskontur.pdf:	halbkreiskontur.tex
+	pdflatex halbkreiskontur.tex
