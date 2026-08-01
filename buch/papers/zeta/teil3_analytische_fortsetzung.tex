@@ -13,7 +13,7 @@ Die analytische Fortsetzung ist ein Konzept aus der komplexen Analysis, mit dem 
 Eine ausführliche Einführung dazu findet sich in Abschnitt 5.3 des Buches.
 Grundsätzlich wird dabei eine neue Funktion konstruiert, die auf dem ursprünglichen Definitionsbereich mit der alten Funktion übereinstimmt, aber auch ausserhalb davon definiert ist.
 
-In der Anwendung auf die Riemannsche Zeta-Funktion kann eine solche analytische Fortsetzung fast auf die gesamte komplexe Ebene angewendet werden.
+In der Anwendung auf die riemannsche Zeta-Funktion kann eine solche analytische Fortsetzung fast auf die gesamte komplexe Ebene angewendet werden.
 Die einzige Ausnahme ist der Punkt bei $s = 1$.
 %Beschreiben anhand Bild wie so eine Funktion erweitert wird anhand prinzip dass man definitionsbereich von Funktionen sucht, die in einem gewissen Bereich sich überschneiden
 
@@ -25,11 +25,12 @@ Wie bereits in Abschnitt~\ref{Riemannsche Zeta-Funktion} erwähnt, ist die Reihe
 \]
 nur für $\operatorname{Re}(s) > 1$ korrekt.
 
-Die in Abschnitt 5.3 des Buches hergeleitete analytische Fortsetzung liefert für die Zeta-Funktion die sogenannte Funktionalgleichung, welche $\zeta(s)$ mit $\zeta(1-s)$ verbindet:
+Wie in Kapitel \ref{chapter:hankel} hergeleitet wird, liefert die analytische Fortsetzung für die Zeta-funktion die sogenannte Funktionalgleichung, welche $\zeta(s)$ mit $\zeta(1-s)$ verbindet:
 \[
 \zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1 - s)\,\zeta(1 - s).
 \]
-Diese Gleichung gilt für (fast) alle $s \in \mathbb{C}$ und liefert damit auch für negative $s$ einen wohldefinierten Wert von $\zeta(s)$, obwohl die ursprüngliche Reihe dort gar nicht konvergiert.
+Die Gamma-Funktion $\Gamma$, die in dieser Formel auftritt, wird in Kapitel \ref{chapter:gamma} eingeführt.
+Die Funktionalgleichung gilt für (fast) alle $s \in \mathbb{C}$ und liefert damit auch für negative $s$ einen wohldefinierten Wert von $\zeta(s)$, obwohl die ursprüngliche Reihe dort gar nicht konvergiert.
 
 Setzt man $s = -1$ ein, so verbindet die Funktionalgleichung $\zeta(-1)$ mit $\zeta(2)$:
 \[
