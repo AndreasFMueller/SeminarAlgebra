@@ -8,6 +8,7 @@ dependencies-resultante =						\
 	papers/resultante/main.tex					\
 	papers/resultante/references.bib				\
 	papers/resultante/0_Einleitung.tex				\
+	papers/resultante/1_Idee.tex					\
 	papers/resultante/teil1.tex					\
 	papers/resultante/teil2.tex					\
 	papers/resultante/teil3.tex
