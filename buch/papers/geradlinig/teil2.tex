@@ -47,6 +47,8 @@ Einige Jahre später entwickelte Yom Tov Lipman Lipkin
 unabhängig denselben Mechanismus.
 Zu Ehren beider Erfinder wird dieser als 
 Peaucellier-Lipkin-Mechanismus bezeichnet.
+Um dieses geometrische Phänomen besser zu verstehen,
+müssen wir zuerst die Theorie der Kreisspiegelung entwickeln.
 \begin{figure}[htbp]
     \centering
     \begin{minipage}{0.32\textwidth}
@@ -75,9 +77,9 @@ Diese Transformation ist winkeltreu.
 Für einen Kreis mit Mittelpunkt $M$ und Radius $R$ wird der Bildpunkt $P'$ 
 eines Punktes $P$ dadurch definiert, 
 dass $P'$ auf der Geraden $\overline{MP}$ liegt und die Bedingung
-\begin{align}
-    |\overline{MP'}| |\overline{MP}| = R^2
-\end{align}
+\begin{align*}
+    \overline{MP'}\cdot\overline{MP} = R^2
+\end{align*}
 erfüllt.
 Wird anstelle eines einzelnen Punktes eine Gerade gespiegelt, 
 entsteht wieder ein Kreis, 
@@ -87,14 +89,14 @@ Die Punkte der ursprünglichen Geraden, welche sich im Unendlichen befinden,
 werden dabei auf den Mittelpunkt $M$ abgebildet.
 \begin{figure}[htbp]
     \centering
-    \begin{minipage}{0.48\textwidth}
+    \begin{minipage}{0.49\textwidth}
         \centering
         \raisebox{0.1\height}{%
             \input{papers/geradlinig/figures/kreisspiegelung.tex}%
         }
     \end{minipage}
     \hfill
-    \begin{minipage}{0.48\textwidth}
+    \begin{minipage}{0.49\textwidth}
         \centering
         \input{papers/geradlinig/figures/kreisspiegelung2.tex}
     \end{minipage}
@@ -102,6 +104,7 @@ werden dabei auf den Mittelpunkt $M$ abgebildet.
     \label{fig:kreisspiegelung}
 \end{figure}
 
+\subsubsection{Peaucellier-Lipkin-Mechanismus}
 Diese Eigenschaft wird beim Peaucellier-Lipkin-Mechanismus verwendet.
 Die geometrische Darstellung dieses Mechanismus besteht aus sechs Stäben, 
 wie in Abbildung~\ref{fig:geometrie_peauc} dargestellt.
@@ -138,7 +141,54 @@ ist nicht erforderlich.
     \label{fig:geometrie_peauc}
 \end{figure}
 
-Ein weiterer Mechanismus inspiriert durch die Kreisspiegelung
+Zusätzlich besitzt dieser Mechanismus die besondere Eigenschaft, dass
+\begin{align}
+    \overline{OB}\cdot\overline{OD} = \mathrm{const}.
+    \label{eq:constant}
+\end{align}
+Um diese Eigenschaft herzuleiten, ergänzen wir in
+Abbildung~\ref{fig:geometrie_peauc} den Punkt $P$.
+Dieser liegt jeweils in der Mitte der Strecken $\overline{AC}$ und $\overline{BD}$.
+Weiter definieren wir $\overline{OB}=y$, $\overline{PD}=x$ und
+$\overline{PA}=h$.
+Da $P$ die Mitte von $\overline{BD}$ ist, gilt
+$\overline{OD}=y+2x$.
+Damit lässt sich Gleichung~\eqref{eq:constant} schreiben als
+\begin{align*}
+    y(y+2x)=y^2+2xy=\mathrm{const}.
+\end{align*}
+Da das Dreieck $OPA$ rechtwinklig ist, gilt nach dem Satz des Pythagoras
+\begin{align}
+    \overline{OA}^2
+    =
+    (y+x)^2+h^2
+    =
+    y^2+2xy+x^2+h^2.
+    \label{eq:OA}
+\end{align}
+Für das ebenfalls rechtwinklige Dreieck $PDA$ gilt
+\begin{align}
+    \overline{AD}^2
+    =
+    x^2+h^2.
+    \label{eq:AD}
+\end{align}
+Subtrahiert man Gleichung~\eqref{eq:AD} von Gleichung~\eqref{eq:OA}, erhält man
+\begin{align*}
+    \overline{OA}^2-\overline{AD}^2
+    =
+    y^2+2xy
+    =
+    \overline{OB}\cdot\overline{OD}.
+\end{align*}
+Da die Längen $\overline{OA}$ und $\overline{AD}$ konstant sind, ist auch
+$\overline{OA}^2-\overline{AD}^2$ konstant.
+Folglich ist auch das Produkt
+$\overline{OB}\cdot\overline{OD}$
+konstant, womit Gleichung~\eqref{eq:constant} bewiesen ist.
+
+\subsubsection{Perrolatz-Mechanismus}
+Ein weiterer durch die Kreisspiegelung inspirierter Mechanismus 
 ist der Mechanismus von Perrolatz, 
 welcher in Abbildung~\ref{fig:perrolatz_link} dargestellt ist.
 Dieser besteht ebenfalls aus sechs Stäben.
@@ -163,15 +213,66 @@ Dieser besteht ebenfalls aus sechs Stäben.
 \end{figure}
 
 Für diesen Mechanismus gelten die Beziehungen
-$\overline{AB}=\overline{CD}$ sowie
-$\overline{CQ}=\overline{BQ}=\overline{AP}=\overline{DP}$,
+$\overline{CO}=\overline{AO}=\overline{BO}=\overline{DO}$ sowie
+$\overline{CE}=\overline{BE}=\overline{AF}=\overline{DF}$,
 wie in Abbildung~\ref{fig:geometrie_perrolatz} dargestellt.
-Der Punkt $E$ bewegt sich dabei auf einer Kreisbahn, während der Punkt $O$ fixiert bleibt.
-Dadurch bewegt sich der Punkt $F$ ausschliesslich entlang einer Geraden.
-Genau gleich gilt hier auch, dass die Kreisbahn durch $O$ verlaufen muss.
+Der Punkt $E$ bewegt sich auf einer Kreisbahn, während der Punkt $O$ fest bleibt.
+Dadurch bewegt sich der Punkt $F$ entlang einer Geraden.
 \begin{figure}[htbp]
     \centering
     \input{papers/geradlinig/figures/perrolatz.tex}
     \caption{Geometrie des Perrolatz-Mechanismus.}
     \label{fig:geometrie_perrolatz}
 \end{figure}
+
+Wie beim Peaucellier-Lipkin-Mechanismus muss auch hier die Kreisbahn durch den Punkt $O$ verlaufen.
+Zusätzlich bleiben die Punkte $O$, $E$ und $F$ während der gesamten Bewegung kollinear.
+Ausserdem gilt
+\begin{align}
+    \overline{OE}\cdot\overline{OF}=\mathrm{const}.
+    \label{eq:constant2}
+\end{align}
+Diese Eigenschaft lässt sich analog zum 
+Peaucellier-Lipkin-Mechanismus herleiten.
+Dazu definieren wir $\overline{CP}=\overline{PA}=x$, $\overline{CA}=\overline{EF}=2x$,
+$\overline{OP}=h$ und $\overline{OE}=y$,
+wobei $P$ die Mitte der Strecke $\overline{CA}$ ist.
+Da $\overline{EF}=2x$ gilt, folgt $\overline{OF}=y+2x$.
+Damit lässt sich Gleichung~\eqref{eq:constant2} schreiben als
+\begin{align*}
+    \overline{OE}\cdot\overline{OF}
+    =
+    y(y+2x)
+    =
+    y^2+2xy
+    =
+    \mathrm{const}.
+\end{align*}
+Mit dem Satz des Pythagoras erhält man
+\begin{align}
+    \overline{CO}^2
+    =
+    x^2+h^2,
+    \label{eq:CO}
+\end{align}
+sowie
+\begin{align}
+    \overline{CE}^2
+    =
+    (y+x)^2+h^2
+    =
+    y^2+2xy+x^2+h^2.
+    \label{eq:CE}
+\end{align}
+Subtrahiert man Gleichung~\eqref{eq:CO} von Gleichung~\eqref{eq:CE}, 
+erhält man
+\begin{align*}
+    \overline{CE}^2-\overline{CO}^2
+    =
+    y^2+2xy
+    =
+    \overline{OE}\cdot\overline{OF}.
+\end{align*}
+Da die Längen $\overline{CE}$ und $\overline{CO}$ konstant sind, 
+ist das Produkt $\overline{OE}\cdot\overline{OF}$ konstant, 
+womit Gleichung~\eqref{eq:constant2} bewiesen ist.

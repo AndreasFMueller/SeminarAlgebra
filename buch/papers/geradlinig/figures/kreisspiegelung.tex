@@ -12,10 +12,10 @@
   \pgfmathsetmacro{\k}{0.25}
 
   % Inverted point P'
-  \coordinate (Pp) at (\k*2, \k*1); % same coordinates as P
+  \coordinate (Pp) at (\k*1.7, \k*1); % same coordinates as P
 
   % Circle
-  \draw[green, line width=2pt] (M) circle (\R);
+  \draw[darkgreen, line width=2pt] (M) circle (\R);
 
   % Line through M, P', P
   \draw[black, thick] (M) -- (Pp) -- (P);

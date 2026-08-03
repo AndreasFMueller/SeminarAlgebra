@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.4]
 
   % Circle 
   \def\r{1}
@@ -12,6 +12,7 @@
   % Vertical line
   \coordinate (B) at (\r,0);
   \coordinate (D) at (2,0); % 2 = {2*(A.x) - (B.x)}
+  \coordinate (P) at ($(B)!0.5!(D)$);
   \draw[blue, thick] (2,-2) -- (2,2);
 
   % Quadrilateral OABC
@@ -20,18 +21,18 @@
   % Connection to D (diamond-like shape)
   \draw[thick] (A) -- (D) -- (C);
 
-  % Mark points
-  \fill (O) circle (1.5pt);
-  \fill (A) circle (1.5pt);
-  \fill (B) circle (1.5pt);
-  \fill (C) circle (1.5pt);
-  \fill (D) circle (1.5pt);
+  % Additional lines for math. proof
+  \draw[darkgreen, thin, dashed] (O) -- (B) node[pos=0.5, above, yshift=-0.05cm] {$y$};
+  \draw[darkgreen, thin, dashed] (B) -- (P) node[pos=0.5, above, yshift=-0.05cm] {$x$};
+  \draw[darkgreen, thin, dashed] (D) -- (P) node[pos=0.5, above, yshift=-0.05cm] {$x$};
+  \draw[darkgreen, thin, dashed] (P) -- (A) node[pos=0.5, right, xshift=-0.05cm] {$h$};
 
-  % Labels
-  \node[left] at (O) {$O$};
-  \node[above] at (A) {$A$};
-  \node[left] at (B) {$B$};
-  \node[below] at (C) {$C$};
-  \node[right] at (D) {$D$};
+  % Mark points
+  \fill[black] (O) circle (1.5pt) node[left] {O};
+  \fill[black] (A) circle (1.5pt) node[above] {A};
+  \fill[black] (B) circle (1.5pt) node[left] {B};
+  \fill[black] (C) circle (1.5pt) node[below] {C};
+  \fill[black] (D) circle (1.5pt) node[right] {D};
+  \fill[darkgreen] (P) circle (1.5pt) node[below] {P};
 
 \end{tikzpicture}
