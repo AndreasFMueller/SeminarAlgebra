@@ -7,7 +7,7 @@ dependencies-resultante =						\
 	papers/resultante/packages.tex					\
 	papers/resultante/main.tex					\
 	papers/resultante/references.bib				\
-	papers/resultante/teil0.tex					\
+	papers/resultante/0_Einleitung.tex				\
 	papers/resultante/teil1.tex					\
 	papers/resultante/teil2.tex					\
 	papers/resultante/teil3.tex
