@@ -18,6 +18,8 @@
 *.bcf
 *.blg
 *.idx
+*.ind
+*.ilg
 *-blx.aux
 *-blx.bib
 *.run.xml
