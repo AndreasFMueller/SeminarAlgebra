@@ -9,10 +9,116 @@
 \section{Grundlegende Idee
 \label{resultante:section:Idee}}
 \kopfrechts{Grundlegende Idee}
-Die beiden Polynome \[f(x)\] und \[g(x)\] haben eine gemeinsamen Teiler \[d(x)\].
+Die beiden Polynome \(f(X)=f_0+f_1X+\dots+f_mX^m\) mit \(\deg(f)=m\) und \(g(X)=g_0+g_1X+\dots+g_nX^n\) mit \(\deg(g)=n\) haben einen gemeinsamen Teiler \(d(X)\), sodass
+\begin{equation}
+    f(X)=q(X)\cdot d(X)\qquad
+    g(X)=p(X)\cdot d(X)
+    \label{resultante:equation:divisor}
+\end{equation}
+mit jeweils beliebigem Polynom \(q(X)=q_0+q_1X+\dots+q_{m-1}X^{m-1}\) und \(p(x)=p_0+p_1X+\dots+p_{n-1}X^{n-1}\).
+Der Grad der Quotientenpolynome ist reduziert gegenüber denen der Dividenden, somit ist \(\deg(q(X))<\deg(f(X))\) respektive \(\deg(p(X))<\deg(g(X))\).
 
-\subsection{De finibus bonorum et malorum
-\label{resultante:subsection:finibus}}
+Die beiden Polynome aus \ref{resultante:equation:divisor} lassen sich nach \(d(X)\) umstellen und ineinander einsetzen.
+Daraus ensteht das lineare Gleichungssystem
+\begin{equation}
+    fp-gq=0.
+    \label{resultante:equation:lgs}
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{papers/resultante/pictures/jjsylvester.png}
+    \caption{britischen Mathematiker James Joseph Sylvester \ref{resultante:jjsylvester}}
+    \label{resultante:fig:jjsylvester}
+\end{figure}
+
+\begin{beispiel}
+    Für die Polynome \(f(X)=2X^3+7X^2-5X-4\) und \(g(X)=2X^2+X-3\), werden die reduzierten Polynome \(q(X)=q_2X^2+q_1X+q_0\) und \(p(X)=p_1X+p_0\) bestimmt.
+    Diese werden nun in \ref{resultante:equation:lgs} eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultiert folgendes Gleichungssystem:
+    \begin{equation}
+        \begin{aligned}
+            (2p_1-2q_2)& X^4+\\
+            (7p_1+2p_0-q_2-2q_1)& X^3+\\
+            (-5p_1+7p_0+3q_2-q_1-2q_0)& X^2+\\
+            (-4p_1-5p_0+3q_1-q_0)& X+\\
+            (-4p_0+3q_0)& =0.
+        \end{aligned}
+        \label{resultante:equation:gs}
+    \end{equation}
+    Das Gleichungssystem \ref{resultante:equation:gs} wird nun in die Matrixform gebracht:
+    \begin{equation}
+        \begin{pmatrix}
+            p_1&p_0&-q_2&-q_1&-q_0
+        \end{pmatrix}
+        \,
+        \begin{pmatrix}
+            2&7&-5&-4&0\\
+            0&2&7&-5&-4\\
+            2&1&-3&0&0\\
+            0&2&1&-3&0\\
+            0&0&2&1&-3
+        \end{pmatrix}=0.
+        \label{resultante:equation:Syl}
+    \end{equation}
+    Die Systemmatrix der Gleichung \ref{resultante:equation:Syl} ist die Sylvestermatrix, bennant nach dem britischen Mathematiker James Joseph Sylvester \ref{resultante:fig:jjsylvester}.
+    \label{resultante:beispiel:lgs}
+\end{beispiel}
 
 
+\subsection{Die Sylvestermatrix
+\label{resultante:subsection:Sylvestermatrix}}
+
+\begin{definition}
+    (Sylvestermatrix). Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a(X)=n\) beziehzungsweise \(\deg b(X)=m\). Die Sylvestermatrix von a und b ist die \(n + m \times n + m\)-Matrix, die wie folgt definiert ist:
+    % \begin{equation}
+        
+    %     \begin{pmatrix}
+    %         a_n&a_{n-1}&a_{n-2}&\dots&&&&&\\
+    %         &a_n&a_{n-1}&a_{n-2}&\dots&&&&\\ 
+    %         &&a_n&a_{n-1}&a_{n-2}&\dots&&&\\
+    %         &&&\ddots&\ddots&\ddots&\ddots&&\\
+    %         &&&&&\dots&a_1&a_0&\\
+    %         &&&&&&\dots&a_1&a_0\\ \hdashline
+    %         b_m&b_{m-1}&b_{m-2}&\dots&&&&&\\
+    %         &b_m&b_{m-1}&b_{m-2}&\dots&&&&\\ 
+    %         &&b_m&b_{m-1}&b_{m-2}&\dots&&&\\
+    %         &&&\ddots&\ddots&\ddots&\ddots&&\\
+    %         &&&&&\dots&b_1&b_0&\\
+    %         &&&&&&\dots&b_1&b_0\\
+    %     \end{pmatrix}
+    % \end{equation}
+    \NiceMatrixOptions
+    {
+        custom-line ={command= H, tikz= dashed, width= \pgflinewidth}, % horizontal, dashed
+    }
+    \begin{equation}
+        \operatorname{Syl}(a,b)=
+        \begin{pNiceMatrix}[last-col,extra-margin=4pt]
+            a_n&a_{n-1}&a_{n-2}&\dots&&&&&
+            &\Block{6-1}{\hspace*{11pt}m\text{-Zeilen}}\\
+            &a_n&a_{n-1}&a_{n-2}&\dots&&&&&\\ 
+            &&a_n&a_{n-1}&a_{n-2}&\dots&&&&\\
+            &&&\ddots&\ddots&\ddots&\ddots&&&\\
+            &&&&&\dots&a_1&a_0&&\\
+            &&&&&&\dots&a_1&a_0&\\
+            \H
+            b_m&b_{m-1}&b_{m-2}&\dots&&&&&
+            &\Block{6-1}{\hspace*{11pt}n\text{-Zeilen}}\\
+            &b_m&b_{m-1}&b_{m-2}&\dots&&&&&\\ 
+            &&b_m&b_{m-1}&b_{m-2}&\dots&&&&\\
+            &&&\ddots&\ddots&\ddots&\ddots&&&\\
+            &&&&&\dots&b_1&b_0&&\\
+            &&&&&&\dots&b_1&b_0&\\
+            \CodeAfter
+            \SubMatrix{.}{1-1}{6-9}{\}}[right-xshift=9pt]
+            \SubMatrix{.}{7-1}{12-9}{\}}[right-xshift=9pt]
+        \end{pNiceMatrix},
+        \label{resultante:equation:Syldef}
+    \end{equation}
+wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden, heisst die Sylvestermatrix.
+\label{resultante:definition:Syl}
+\end{definition}
+
+Wie sich aus der Herleitung \ref{resultante:equation:Syl} und der Definition der Sylvestermatrix \ref{resultante:definition:Syl} beobachten lässt, kann die Sylvestermatrix gebildet werden indem man die Koeffizienten des Polynoms \(a(X)\) sooft wie der Grad \(\deg b(X)=m\) wiederholt.
+Analog dazu wird, dasselbe mit dem Polynom \(b(X)\) gemacht.
 
