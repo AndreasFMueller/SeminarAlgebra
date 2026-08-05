@@ -8,12 +8,44 @@ Abschliessend wird die Bedeutung der $\Gamma$-Funktion für die Berechnung des K
 \subsection{Produktformel von Euler}
 
 Auf der Suche nach der $\Gamma$-Funktion im 18. Jahrhundert hat Leonhard Euler unendliche Produkte verwendet.
-Mit Hilfe des Bohr-Mollerup Theorem\ref{gamma:section:BMT} kann nachgewiesen werden, dass es sich bei
+Mit Hilfe des Bohr-Mollerup Theorem (\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
 \begin{equation}
 \label{gamma-eq:product-formula-euler}
     \Gamma_{\text{Euler}}(z) = \lim_{n \to \infty} \frac{n!\,n^z}{z(z+1)\cdots(z+n)}
 \end{equation}
 um die $\Gamma$-Funktion handelt.
+
+Die erste Eigenschaft des Bohr-Mollerup Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
+\begin{equation}
+\label{gamma-eq:euler-first-property}
+    \begin{split}
+    \Gamma_{\text{Euler}}(1)
+        &= \lim_{n \to \infty} \frac{n!\,n}{1 \cdot 2 \cdots (n+1)} \\
+        &= \lim_{n \to \infty} \frac{n!\,n}{(n+1)!} \\
+        &= \lim_{n \to \infty} \frac{n}{n+1} \\
+        &= 1.
+    \end{split}
+\end{equation}
+Für die zweite Eigenschaft wird $z+1$ anstelle von $z$ eingesetzt. Durch Umformen erhält man
+\begin{equation}
+\label{gamma-eq:euler-recursive-property}
+    \begin{split}
+    \Gamma_{\text{Euler}}(z+1)
+        &= \lim_{n \to \infty}
+            \frac{n!\,n^{z+1}}{(z+1)(z+2)\cdots(z+n+1)} \\
+        &= \lim_{n \to \infty}
+            \left(
+            \frac{n}{z+n+1}
+            \cdot
+            \frac{n!\,n^z}{(z+1)(z+2)\cdots(z+n)}
+            \right) \\
+        &= \lim_{n \to \infty} \frac{n}{z+n+1}
+            \cdot z\Gamma_{\text{Euler}}(z) \\
+        &= z\Gamma_{\text{Euler}}(z).
+    \end{split}
+\end{equation}
+Damit erfüllt die Produktformel die Eigenschaften~\ref{gamma-eq:bm-1} und~\ref{gamma-eq:bm-2}.
+Jetzt muss man noch zeigen, dass $\Gamma_{\text{Euler}}$ gemäss Eigenschaft~\ref{gamma-eq:bm-3} logarithmisch konvex ist, dann folgt aus dem Satz von Bohr-Mollerup, dass $\Gamma_{\text{Euler}}(z) = \Gamma(z)$.
 
 \subsection{Integraldarstellung}
 
