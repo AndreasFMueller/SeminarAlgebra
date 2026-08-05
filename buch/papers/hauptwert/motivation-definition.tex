@@ -14,6 +14,8 @@
 
 Man betrachte die Funktion
 \begin{equation}
+f\colon \mathbb{R}\setminus\{0\} \to \mathbb{R},
+\qquad
 f(x) = \frac{1}{x}
 \end{equation}
 und damit das Integral
@@ -21,15 +23,22 @@ und damit das Integral
 \int_{-\infty}^{\infty} f(x)\,dx
 = \int_{-\infty}^{\infty} \frac{1}{x}\,dx.
 \end{equation}
-Abbildung \ref{hauptwert:figure:kehrwert} zeigt den Graphen des Integranden
-$f(x)=1/x$.
-Beim Lösen dieses Integrals fällt schnell ein Problem auf:
-Die Funktion hat bei $x = 0$ eine Polstelle.
+Abbildung \ref{hauptwert:figure:kehrwert} zeigt den Graphen des Integranden.
+Dieses Integral ist in zweifacher Hinsicht kritisch:
+Der Integrand ist an der Stelle $x = 0$ nicht definiert
+und hat dort eine Polstelle,
+und die Integrationsgrenzen $\pm\infty$ sind selbst uneigentlich.
+Gerade weil beide Arten von Divergenz gleichzeitig auftreten,
+eignet sich dieses Integral als durchgehendes Beispiel.
 
 \subsection{Ein erster Versuch}
-Um das Integral zu lösen, wäre der erste natürliche Schritt,
-das Integral an der Polstelle aufzuteilen
-und sich ihr mit unabhängigen Grenzwerten zu nähern:
+Da der Integrand an der Stelle $x = 0$ nicht definiert und dort unbeschränkt
+ist, handelt es sich nicht um ein Riemann-Integral.
+Seine Bedeutung erhält der Ausdruck erst durch die Definition des
+uneigentlichen Integrals, welche jede kritische Stelle durch einen eigenen,
+unabhängigen Grenzwert ersetzt.
+In einem ersten Versuch wird das Integral deshalb an der Polstelle in die
+beiden Intervalle $(-\infty,0)$ und $(0,\infty)$ aufgeteilt:
 \begin{equation}
 \int_{-\infty}^{\infty} f(x)\,dx
 = \lim_{\varepsilon_1\to 0^+} \int_{-\infty}^{-\varepsilon_1} f(x)\,dx
@@ -38,9 +47,10 @@ und sich ihr mit unabhängigen Grenzwerten zu nähern:
 \end{equation}
 Da auch die Integrationsgrenzen $\pm\infty$ uneigentlich sind,
 muss jedes Teilintegral nochmals aufgeteilt
-und durch einen eigenen Grenzwert ersetzt werden.
+und an jedem uneigentlichen Ende durch einen eigenen Grenzwert ersetzt werden.
 Das rechte Teilintegral wird dazu an einer beliebigen Zwischenstelle
-$c > 0$ aufgeteilt:
+$c > 0$ aufgeteilt und erhält am oberen Ende den Grenzwert $R \to \infty$,
+das linke Teilintegral einen davon unabhängigen Grenzwert $R' \to -\infty$:
 \begin{equation}
 \lim_{\varepsilon_2\to 0^+} \int_{\varepsilon_2}^{c} \frac{1}{x}\,dx
 + \lim_{R\to\infty} \int_{c}^{R} \frac{1}{x}\,dx
@@ -51,7 +61,9 @@ $c > 0$ aufgeteilt:
 Beide Grenzwerte divergieren gegen $+\infty$,
 das rechte Teilintegral existiert also nicht.
 Aus Symmetriegründen divergiert das linke Teilintegral
+mit den Grenzwerten $\varepsilon_1 \to 0^+$ und $R' \to -\infty$
 genauso gegen $-\infty$.
+Insgesamt treten also vier voneinander unabhängige Grenzwerte auf.
 Die Aufteilung \eqref{hauptwert:equation:aufteilung} führt also auf den
 unbestimmten Ausdruck $\infty - \infty$,
 das uneigentliche Integral existiert nicht.
@@ -60,6 +72,7 @@ das uneigentliche Integral existiert nicht.
 Die zu Grunde liegende Idee vom Cauchy Hauptwert ist, dass
 man sich der Polstelle symmetrisch annähert, das heisst mit
 einem einzigen, gemeinsamen $\varepsilon$ und symmetrischen Grenzen $\pm R$.
+Von den vier unabhängigen Grenzwerten bleiben so nur noch zwei übrig.
 \input{papers/hauptwert/fig/kehrwert-symmetrisch.tex}
 Abbildung \ref{hauptwert:figure:kehrwert-symmetrisch} zeigt diese symmetrische
 Wahl der Integrationsgrenzen im Vergleich zur unsymmetrischen Aufteilung
@@ -83,6 +96,18 @@ aus Abbildung \ref{hauptwert:figure:kehrwert}. Durch symmetrische Annäherung
 Der Grenzwert $\varepsilon \to 0^+$, $R \to \infty$ existiert somit und ist $0$,
 im Gegensatz zum unabhängigen Grenzwert aus
 \eqref{hauptwert:equation:aufteilung}, welcher nicht existiert.
+
+Dies ist die Vorgehensweise des Hauptwerts im Reellen.
+Da wir uns in $\mathbb{R}$ auf einer eindimensionalen Zahlengeraden bewegen
+und die Integrationswege stets entlang dieser Geraden verlaufen,
+bleibt uns nichts anderes übrig, als die Polstelle zu überspringen
+und die Grenzwerte symmetrisch zu koppeln.
+Wie in Abschnitt~\ref{hauptwert:subsection:halbkreiskontur} gezeigt wird,
+haben wir diese Einschränkung nicht.
+Die komplexen Zahlen bilden nicht nur eine Gerade, sondern eine ganze Ebene.
+Dort können wir die reelle Zahlengerade verlassen und einen kleinen Umweg
+um die Polstelle machen, nämlich einen Halbkreis
+(Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
 
 \subsection{Definition}
 Die symmetrische Annäherung lässt sich für beliebige Integranden
