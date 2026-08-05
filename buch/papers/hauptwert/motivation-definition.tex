@@ -66,10 +66,18 @@ Wahl der Integrationsgrenzen im Vergleich zur unsymmetrischen Aufteilung
 aus Abbildung \ref{hauptwert:figure:kehrwert}. Durch symmetrische Annäherung
 --- man schreibt dann oftmals $\pv$ (Principal Value)
 \begin{equation}
- \pv\int_{-R}^{-\varepsilon} \frac{1}{x}\,dx
-+ \int_{\varepsilon}^{R} \frac{1}{x}\,dx
-  = \bigl(\ln\varepsilon - \ln R\bigr) + \bigl(\ln R - \ln\varepsilon\bigr)
-= 0.
+\begin{aligned}
+\pv\int_{-\infty}^{\infty} \frac{1}{x}\,dx
+&= \lim_{\substack{\varepsilon\to 0^+\\ R\to\infty}}
+\biggl(
+\int_{-R}^{-\varepsilon} \frac{1}{x}\,dx + \int_{\varepsilon}^{R} \frac{1}{x}\,dx
+\biggr) \\
+&= \lim_{\substack{\varepsilon\to 0^+\\ R\to\infty}}
+\Bigl(
+\bigl(\ln\varepsilon - \ln R\bigr) + \bigl(\ln R - \ln\varepsilon\bigr)
+\Bigr) \\
+&= 0.
+\end{aligned}
 \label{hauptwert:equation:symmetrisch}
 \end{equation}
 Der Grenzwert $\varepsilon \to 0^+$, $R \to \infty$ existiert somit und ist $0$,
