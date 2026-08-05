@@ -55,14 +55,39 @@ Die Integraldarstellung
     \Gamma_{\text{Integral}}(z) = \int_0^\infty t^{z-1} e^{-t}\,dt,
     \qquad \operatorname{Re}(z)>0
 \end{equation}
-ist die Standarddefinition der $\Gamma$-Funktion. 
-Sie eignet sich besonders gut zur Untersuchung von Ableitungen. 
-Durch Differentiation unter dem Integralzeichen erhält man
+eignet sich besonders gut zur Untersuchung von Ableitungen. 
+Auch $\Gamma_{\text{Intergal}}$ kann mit dem Eigenschaften vom Bohr-Mollerup Theorem (\ref{gamma:section:BMT}) überprüft werden. 
+
+Die erste Eigenschaft des Bohr-Mollerup Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
 \begin{equation}
-    \Gamma'(z)=\int_0^\infty t^{z-1}e^{-t}\log(t)\,dt.
+\label{gamma-eq:integral-first-property}
+    \begin{split}
+    \Gamma_{\text{Integral}}(1)
+        &= \int_0^\infty t^{1-1}e^{-t}\,dt \\
+        &= \int_0^\infty e^{-t}\,dt \\
+        &= \left[-e^{-t}\right]_0^\infty \\
+        &= 1.
+    \end{split}
 \end{equation}
-Außerdem lassen sich die Werte der $\Gamma$-Funktion mithilfe numerischer Integration mit hoher Genauigkeit approximieren.
-Die Produktformel von Euler aus Gleichung \eqref{gamma-eq:product-formula-euler} und die Integraldarstellung \eqref{gamma-eq:integral} definieren dieselbe Funktion.
+Für die zweite Eigenschaft wird $z+1$ anstelle von $z$ eingesetzt. Durch partielle Integration erhält man für $z>0$
+\begin{equation}
+\label{gamma-eq:integral-recursive-property}
+    \begin{split}
+    \Gamma_{\text{Integral}}(z+1)
+        &= \int_0^\infty t^z e^{-t}\,dt \\
+        &= \left[-t^z e^{-t}\right]_0^\infty
+            + z\int_0^\infty t^{z-1}e^{-t}\,dt \\
+        &= z\Gamma_{\text{Integral}}(z).
+    \end{split}
+\end{equation}
+Damit erfüllt die Integraldarstellung die Eigenschaften~\ref{gamma-eq:bm-1} und~\ref{gamma-eq:bm-2}.
+
+Mit der Ableitungsformel 
+\begin{equation}
+    \Gamma_{\text{Integral}}'(z)=\int_0^\infty t^{z-1}e^{-t}\log(t)\,dt.
+\end{equation}
+kann man auch die logarithmische Konvexität (\ref{gamma-eq:bm-3}) von $\Gamma_{\text{Integral}}(z)$ beweisen. 
+Aus dem Satz von Bohr-Mollerup folgt dann, dass auch $\Gamma_{\text{Integral}}(z)=\Gamma(z)$.
 
 \subsection{Lanczos-Approximation}
 
@@ -76,4 +101,4 @@ Die Lanczos-Approximation
 \end{equation}
 wurde 1964 von Cornelius Lanczos vorgestellt und wird heute häufig in numerischen Bibliotheken eingesetzt.
 Der Parameter $g$ und die Koeffizienten $c_k$ werden dabei im Voraus festgelegt und müssen nicht bei jeder Auswertung neu berechnet werden.
-Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion.
+Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion. Auch hier gilt $\Gamma_{\text{Lanczos}}(z) = \Gamma(z)$, wobei auf die Herleitung verzichtet wird.
