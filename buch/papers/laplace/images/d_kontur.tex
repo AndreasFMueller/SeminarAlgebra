@@ -1,5 +1,27 @@
-\scalebox{0.85}{
-\begin{tikzpicture}
+
+%
+% d_kontur.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\usetikzlibrary{arrows.meta, decorations.markings, decorations.pathmorphing, positioning, patterns}
+\usetikzlibrary{calc,intersections,through,backgrounds,graphs,positioning,shapes,arrows,fit,math}
+\usetikzlibrary{patterns,decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.misc}
+
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
 
 % ==============================
 % 1. FARBEN DEFINIEREN
@@ -80,15 +102,16 @@
         } & Polstelle \\
         
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotblue, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=2mm, width=1.5mm]}}}, postaction={decorate}] (-0.3, 0) -- (0.3, 0);
+            \draw[thick, plotblue, decoration={markings, mark=at position 0.65 with {\arrow{Stealth[length=2mm, width=1.5mm]}}}, postaction={decorate}] (-0.3, 0) -- (0.3, 0);
         } & Bromwich-Pfad \\
         
         \tikz[baseline=-0.6ex]{
-            \draw[thick, plotorange, decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=2mm, width=1.5mm]}}}, postaction={decorate}] (-0.3, 0) -- (0.3, 0);
+            \draw[thick, plotorange, decoration={markings, mark=at position 0.65 with {\arrow{Stealth[length=2mm, width=1.5mm]}}}, postaction={decorate}] (-0.3, 0) -- (0.3, 0);
         } & Kreisbogen $\Gamma_R$ \\
         
     \end{tabular}
 };
 
 \end{tikzpicture}
-}
+\end{document}
+

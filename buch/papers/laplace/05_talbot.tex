@@ -28,17 +28,7 @@ Stützstellen nur schleppend.
 Abbildung~\ref{laplace:fig:integrand_vergleich} zeigt dieses Verhalten für
 das einfachste denkbare Beispiel $F(s) = \frac{1}{s}$.
 
-\begin{figure}
-    \centering
-    \input{papers/laplace/images/integrand_vergleich.tex}
-    \caption{Der entlang der Bogenlänge entrollte Realteil des
-    Inversionsintegranden für $F(s) = \frac{1}{s}$ bei festem $t$.
-    Auf der Bromwich-Geraden (rot) oszilliert die Funktion mit nur
-    langsam abfallender Amplitude, auf der Talbot-Kontur (blau) ist sie
-    eine glatte, rasch abklingende Kurve, die sich mit wenigen
-    Stützstellen präzise integrieren lässt.}
-    \label{laplace:fig:integrand_vergleich}
-\end{figure}
+\input{papers/laplace/fig/integrand_vergleich.tex}
 
 Die Rettung liegt in einer Freiheit, die wir längst besitzen, aber bisher
 nur zum Schliessen der Kontur genutzt haben.
@@ -68,18 +58,7 @@ während die Talbot-Kontur beidseitig in die dunklen Bereiche des
 \index{Talbot-Kontur}%
 exponentiell kleinen Betrags eintaucht.
 
-\begin{figure}
-    \centering
-    \input{papers/laplace/images/betrags_landschaft.tex}
-    \caption{Betragslandschaft $|e^{st}F(s)|$ über der komplexen
-    $s$-Ebene für $F(s) = \frac{1}{s}$ zur Zeit $t = 1$ in
-    logarithmischer Farbskala.
-    Die Bromwich-Gerade (rot) verläuft auf konstanter Höhe durch das
-    oszillierende Gebiet, während die Talbot-Kontur (blau) die
-    Singularität umschliesst und beidseitig ins exponentiell tiefe Tal
-    der linken Halbebene abtaucht.}
-    \label{laplace:fig:betrags_landschaft}
-\end{figure}
+\input{papers/laplace/fig/betrags_landschaft.tex}
 
 Konkret verwendet Talbot die Kontur
 \begin{equation}
@@ -247,22 +226,7 @@ Abbildung~\ref{laplace:fig:konvergenz_vergleich} stellt dieses
 geometrische Konvergenzverhalten der langsamen Konvergenz auf der
 Bromwich-Geraden gegenüber.
 
-\begin{figure}
-    \centering
-    \input{papers/laplace/images/konvergenz_vergleich.tex}
-    \caption{Konvergenzvergleich der numerischen Inversion für
-    $F(s) = \frac{1}{s}$ bei festem $t$:
-    absoluter Fehler gegen die Anzahl der Stützstellen $N$ in
-    halblogarithmischer Darstellung.
-    Die Quadratur auf der Bromwich-Geraden (rot) verbessert sich nur
-    langsam, während die Trapezregel auf der Talbot-Kontur (blau)
-    geometrisch mit der Rate $O(3{,}89^{-N})$ konvergiert und um
-    $N \approx 30$ nahe an die Maschinengenauigkeit herankommt.
-    Für noch grössere $N$ steigt der Fehler wieder leicht an, weil der
-    Faktor $e^{st}$ am Konturscheitel den Rundungsfehler wie
-    $\varepsilon \, e^{0{,}17 N}$ verstärkt.}
-    \label{laplace:fig:konvergenz_vergleich}
-\end{figure}
+\input{papers/laplace/fig/konvergenz_vergleich.tex}
 
 Zwei Einschränkungen gehören der Vollständigkeit halber dazu.
 Erstens muss $|F(s)|$ für $|s| \to \infty$ gleichmässig abfallen, damit
