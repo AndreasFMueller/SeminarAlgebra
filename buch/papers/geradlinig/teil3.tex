@@ -14,9 +14,10 @@ Diese Transformation ist winkeltreu.
 Für einen Kreis mit Mittelpunkt $M$ und Radius $R$ wird der Bildpunkt $P'$ 
 eines Punktes $P$ dadurch definiert, 
 dass $P'$ auf der Geraden $\overline{MP}$ liegt und die Bedingung
-\begin{align*}
+\begin{align}
     \overline{MP'}\cdot\overline{MP} = R^2
-\end{align*}
+    \label{eq:constant0}
+\end{align}
 erfüllt.
 Wird anstelle eines einzelnen Punktes eine Gerade gespiegelt, 
 entsteht wieder ein Kreis, 
@@ -74,15 +75,20 @@ ist nicht erforderlich.
 \begin{figure}[htbp]
     \centering
     \input{papers/geradlinig/figures/peauc_lip_inv.tex}
-    \caption{Geometrie des Peaucellier-Lipkin-Mechanismus~\cite{peauc_lip_linkage}.}
+    \caption{Kreisspiegelung am Peaucellier-Lipkin-Mechanismus~\cite{peauc_lip_linkage}.}
     \label{fig:geometrie_peauc}
 \end{figure}
 
-Zusätzlich besitzt dieser Mechanismus die besondere Eigenschaft, dass
+Da es sich um eine Kreisspiegelung handelt, besitzt dieser Mechanismus 
+die besondere Eigenschaft beschrieben in der Gleichung~\eqref{eq:constant0} 
 \begin{align}
-    \overline{OB}\cdot\overline{OD} = \mathrm{const}.
-    \label{eq:constant}
+    \overline{OB}\cdot\overline{OD} = R^2.
+    \label{eq:constant1}
 \end{align}
+Wichtig ist, dass $R$ den Radius des grünen Kreises 
+in Abbildung~\ref{fig:kreisspiegelung} bezeichnet.
+Dieser wird als Inversionskreis bezeichnet und ist nicht 
+mit dem Radius des roten Kreises zu verwechseln.
 Um diese Eigenschaft herzuleiten, ergänzen wir in
 Abbildung~\ref{fig:geometrie_peauc} den Punkt $P$.
 Dieser liegt jeweils in der Mitte der Strecken $\overline{AC}$ und $\overline{BD}$.
@@ -92,7 +98,7 @@ Da $P$ die Mitte von $\overline{BD}$ ist, gilt
 $\overline{OD}=y+2x$.
 Damit lässt sich Gleichung~\eqref{eq:constant} schreiben als
 \begin{align*}
-    y(y+2x)=y^2+2xy=\mathrm{const}.
+    y(y+2x)=y^2+2xy=R^2.
 \end{align*}
 Da das Dreieck $OPA$ rechtwinklig ist, gilt nach dem Satz des Pythagoras
 \begin{align}
@@ -158,18 +164,18 @@ Dadurch bewegt sich der Punkt $F$ entlang einer Geraden.
 \begin{figure}[htbp]
     \centering
     \input{papers/geradlinig/figures/perrolatz.tex}
-    \caption{Geometrie des Perrolatz-Mechanismus.}
+    \caption{Kreisspiegelung am Perrolatz-Mechanismus.}
     \label{fig:geometrie_perrolatz}
 \end{figure}
 
 Wie beim Peaucellier-Lipkin-Mechanismus muss auch hier die Kreisbahn durch den Punkt $O$ verlaufen.
 Zusätzlich bleiben die Punkte $O$, $E$ und $F$ während der gesamten Bewegung kollinear.
-Ausserdem gilt
+Selbstverständlich gilt dann
 \begin{align}
-    \overline{OE}\cdot\overline{OF}=\mathrm{const}.
+    \overline{OE}\cdot\overline{OF}=R^2.
     \label{eq:constant2}
 \end{align}
-Diese Eigenschaft lässt sich analog zum 
+Diese Bedingung lässt sich analog zum 
 Peaucellier-Lipkin-Mechanismus herleiten.
 Dazu definieren wir $\overline{CP}=\overline{PA}=x$, $\overline{CA}=\overline{EF}=2x$,
 $\overline{OP}=h$ und $\overline{OE}=y$,
@@ -183,7 +189,7 @@ Damit lässt sich Gleichung~\eqref{eq:constant2} schreiben als
     =
     y^2+2xy
     =
-    \mathrm{const}.
+    R^2.
 \end{align*}
 Mit dem Satz des Pythagoras erhält man
 \begin{align}
