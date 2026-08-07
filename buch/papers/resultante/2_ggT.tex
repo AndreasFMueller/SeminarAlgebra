@@ -33,7 +33,7 @@ Das zeigt folgendes Beispiel:
     Die Vorgehensweise zur ermittlung des grössten gemeinsamen Teilers wird mit Hilfe von \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) gezeigt.
     Im ersten Tableau sind die ersten \(4\) Zeilen Kopien von \(b(X)\) und die \(3\) darunter die von \(a(X)\):
     \begin{equation}
-        \begin{NiceArray}{*{7}{c}}
+        \begin{NiceArray}{*{7}{c}}[cell-space-limits=3pt]
         8 & 8 & -16 & 0 & 0 & 0 & 0 \\
         0 & 8 & 8 & -16 & 0 & 0 & 0 \\
         0 & 0 & 8 & 8 & -16 & 0 & 0 \\
@@ -43,12 +43,12 @@ Das zeigt folgendes Beispiel:
         0 & 0 & 4 & -7 & 22 & -24 & 5 
         \CodeAfter
             \tikz {
-                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]8-|8);
-                \draw[dashed] ([xshift=-3pt,yshift=1pt]5-|1) -- ([xshift=3pt,yshift=1pt]5-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]8-|8);
+                \draw[dashed] ([xshift=-4pt,yshift=1pt]5-|1) -- ([xshift=4pt,yshift=1pt]5-|8);
             }
         \end{NiceArray}
         \,\,\to\,\,
-        \begin{NiceArray}{*{7}{c}}
+        \begin{NiceArray}{*{7}{c}}[cell-space-limits=3pt]
         1 & 1 & -2 & 0 & 0 & 0 & 0 \\
         0 & 1 & 1 & -2 & 0 & 0 & 0 \\
         0 & 0 & 1 & 1 & -2 & 0 & 0 \\
@@ -58,17 +58,17 @@ Das zeigt folgendes Beispiel:
         0 & 0 & 4 & -7 & 22 & -24 & 5
         \CodeAfter
             \tikz {
-              \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]8-|8);
-            %   \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]8-|3);
-            %   \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=1pt]3-|8);
-              \draw[dashed] ([xshift=-3pt,yshift=1pt]5-|1) -- ([xshift=3pt,yshift=1pt]5-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]8-|8);
+                % \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]8-|3);
+                % \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=1pt]3-|8);
+                \draw[dashed] ([xshift=-4pt,yshift=1pt]5-|1) -- ([xshift=4pt,yshift=1pt]5-|8);
             }
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:step1}
     \end{equation}
     Die Stufenform wird wieder hergestellt indem noch weitere Zeilenoperationen auf den letzten zwei Zeilen angewandt wird:
     \begin{equation}
-        \begin{NiceArray}{*{7}{c}}
+        \begin{NiceArray}{*{7}{c}}[cell-space-limits=3pt]
         1 & 1 & -2 & 0 & 0 & 0 & 0 \\
         0 & 1 & 1 & -2 & 0 & 0 & 0 \\
         0 & 0 & 1 & 1 & -2 & 0 & 0 \\
@@ -78,10 +78,10 @@ Das zeigt folgendes Beispiel:
         0 & 0 & 0 & 0 & 41 & -46 & 5
         \CodeAfter
             \tikz {
-              \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]8-|8);
-              \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]8-|3);
-              \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=1pt]3-|8);
-              \draw[dashed] ([xshift=-3pt,yshift=1pt]5-|1) -- ([xshift=3pt,yshift=1pt]5-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]8-|8);
+                \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]8-|3);
+                \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=4pt,yshift=1pt]3-|8);
+                \draw[dashed] ([xshift=3pt,yshift=1pt]5-|3) -- ([xshift=4pt,yshift=1pt]5-|8);
             }
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:step2}
@@ -89,7 +89,7 @@ Das zeigt folgendes Beispiel:
     Im kleineren Tableau unten rechts ist oben das Polynom \(b(X)\) und darunter das Restpolynom \(r(X)=r_1(X)=41X^2-46X+5\).
     Nun werden die beiden Bereiche vertauscht und die gleiche Methode wiederholt:
     \begin{equation}
-        \begin{NiceArray}{*{5}{c}}
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         41 & -46 & 5 & 0 & 0 \\
         0 & 41 & -46 & 5 & 0 \\
         0 & 0 & 41 & -46 & 5 \\
@@ -97,12 +97,12 @@ Das zeigt folgendes Beispiel:
         0 & 1 & 1 & -2 & 0
         \CodeAfter
             \tikz {
-                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
-                \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=3pt,yshift=1pt]4-|6);
+                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=4pt,yshift=1pt]4-|6);
             }
         \end{NiceArray}
         \,\,\to\,\,
-        \begin{NiceArray}{*{5}{c}}
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         1 & -\frac{46}{41} & \frac{5}{41} & 0 & 0 \\
         0 & 1 & -\frac{46}{41} & \frac{5}{41} & 0 \\
         0 & 0 & 1 & -\frac{46}{41} & \frac{5}{41} \\
@@ -110,10 +110,10 @@ Das zeigt folgendes Beispiel:
         0 & 0 & 0 & \frac{435}{1681} & -\frac{435}{1681}
         \CodeAfter
             \tikz {
-            %   \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
-            %   \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]6-|3);
-            %   \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=1pt]3-|6);
-            %   \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=3pt,yshift=1pt]4-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=1pt]6-|3);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=3pt]3-|6);
+                \draw[dashed] ([xshift=1pt]4-|3) -- ([xshift=3pt]4-|6);
             }
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:step3}
@@ -121,26 +121,26 @@ Das zeigt folgendes Beispiel:
     Erneut ist der Rest \(r_2(X)=\frac{435}{1681}X-\frac{435}{1681}\) in den unteren Zeilen zu finden.
     Der Subbereich wird erneut vertauscht und der letzte Rest bestimmt:
     \begin{equation}
-        \begin{NiceArray}{*{3}{c}}
+        \begin{NiceArray}{*{3}{c}}[cell-space-limits=3pt]
         \frac{435}{1681} & -\frac{435}{1681} & 0 \\
         0 & \frac{435}{1681} & -\frac{435}{1681} \\
         1 & -\frac{46}{41} & \frac{5}{41}
         \CodeAfter
             \tikz {
-                % \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
-                % \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=3pt,yshift=1pt]4-|6);
+                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]4-|4);
+                \draw[dashed] ([xshift=-3pt]3-|1) -- ([xshift=3pt]3-|4);
             }
         \end{NiceArray}
         \,\,\to\,\,
-        \begin{NiceArray}{*{3}{c}}
+        \begin{NiceArray}{*{3}{c}}[cell-space-limits=3pt]
         1 & -1 & 0 \\
         0 & 1 & -1 \\
         0 & 0 & 0
         \CodeAfter
             \tikz {
-              \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]4-|4);
-              \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]4-|3);
-              \draw[dashed] ([xshift=-3pt,yshift=1pt]3-|1) -- ([xshift=3pt,yshift=1pt]3-|4);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]4-|4);
+                \draw[dashed] ([xshift=2pt,yshift=1pt]3-|3) -- ([xshift=2pt,yshift=-1pt]4-|3);
+                \draw[dashed] ([xshift=-4pt,yshift=1pt]3-|1) -- ([xshift=4pt,yshift=1pt]3-|4);
             }
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:step4}
@@ -168,9 +168,13 @@ Lediglich werden \(nm\) Vertauschungen für die Methode benötigt, daher folgt
 \end{equation} 
 Es kann also höchsten zu einem wechsels des Vorzeichens kommen bei der Determinante.
 
-Der Algorithmus zur Berechnung der Determinante endet sobald der grüne Rest \(=0\) ist oder im braunen Feld eine Zahl \(\neq0\) steht bleibt.
-Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame Teiler in Polynom vom Grad \(\geq1\):
-
+Der Algorithmus zur Berechnung der Determinante endet sobald der grüne Rest \(=0\) ist oder im braunen Feld (mit dem \(?\)) eine Zahl steht bleibt.
+Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame Teiler ein Polynom vom Grad \(\geq1\):
+\begin{equation*}
+    \centering
+    \includegraphics[width=0.8\textwidth]{papers/resultante/pictures/FinalTableau.pdf}
+    \label{resultante:equation:finalTab}
+\end{equation*}
 Falls der letzte Rest im braunen Feld \(\neq0\) übrig bleibt, dann ist der grösste gemeinsame Teiler \(=1\), die beiden Polynome \(a(X)\) und \(b(X)\) sind somit teilerfremd.
 
 Daraus lässt sich ablesen, die Determinante ist genau dann verschieden von Null, wenn die beiden Polynome teilerfremd sind. 
