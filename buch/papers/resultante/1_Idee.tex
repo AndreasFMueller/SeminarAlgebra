@@ -18,7 +18,7 @@ Die beiden Polynome \(f(X)=f_0+f_1X+\dots+f_mX^m\) mit \(\deg(f)=m\) und \(g(X)=
 mit jeweils beliebigem Polynom \(q(X)=q_0+q_1X+\dots+q_{m-1}X^{m-1}\) und \(p(x)=p_0+p_1X+\dots+p_{n-1}X^{n-1}\).
 Der Grad der Quotientenpolynome ist reduziert gegenüber denen der Dividenden, somit ist \(\deg(q(X))<\deg(f(X))\) respektive \(\deg(p(X))<\deg(g(X))\).
 
-Die beiden Polynome aus \ref{resultante:equation:divisor} lassen sich nach \(d(X)\) umstellen und ineinander einsetzen.
+Die beiden Polynome aus (\ref{resultante:equation:divisor}) lassen sich nach \(d(X)\) umstellen und ineinander einsetzen.
 Daraus ensteht das lineare Gleichungssystem
 \begin{equation}
     fp-gq=0.
@@ -34,7 +34,7 @@ Daraus ensteht das lineare Gleichungssystem
 
 \begin{beispiel}
     Für die Polynome \(f(X)=2X^3+7X^2-5X-4\) und \(g(X)=2X^2+X-3\), werden die reduzierten Polynome \(q(X)=q_2X^2+q_1X+q_0\) und \(p(X)=p_1X+p_0\) bestimmt.
-    Diese werden nun in \ref{resultante:equation:lgs} eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultiert folgendes Gleichungssystem:
+    Diese werden nun in (\ref{resultante:equation:lgs}) eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultiert folgendes Gleichungssystem:
     \begin{equation}
         \begin{aligned}
             (2p_1-2q_2)& X^4+\\
@@ -45,7 +45,7 @@ Daraus ensteht das lineare Gleichungssystem
         \end{aligned}
         \label{resultante:equation:gs}
     \end{equation}
-    Das Gleichungssystem \ref{resultante:equation:gs} wird nun in die Matrixform gebracht:
+    Das Gleichungssystem (\ref{resultante:equation:gs}) wird nun in die Matrixform gebracht:
     \begin{equation}
         \begin{pmatrix}
             p_1&p_0&-q_2&-q_1&-q_0
@@ -60,7 +60,7 @@ Daraus ensteht das lineare Gleichungssystem
         \end{pmatrix}=0.
         \label{resultante:equation:Syl}
     \end{equation}
-    Die Systemmatrix der Gleichung \ref{resultante:equation:Syl} ist die Sylvestermatrix, bennant nach dem britischen Mathematiker James Joseph Sylvester \ref{resultante:fig:jjsylvester}.
+    Die Systemmatrix der Gleichung (\ref{resultante:equation:Syl}) ist die Sylvestermatrix, bennant nach dem britischen Mathematiker James Joseph Sylvester Abb. \ref{resultante:fig:jjsylvester}.
     \label{resultante:beispiel:lgs}
 \end{beispiel}
 
@@ -91,7 +91,7 @@ Daraus ensteht das lineare Gleichungssystem
     {
         custom-line ={command= H, tikz= dashed, width= \pgflinewidth}, % horizontal, dashed
     }
-    \begin{equation}
+    \begin{equation*}
         \operatorname{Syl}(a,b)=
         \begin{pNiceMatrix}[last-col,extra-margin=4pt]
             a_n&a_{n-1}&a_{n-2}&\dots&&&&&
@@ -114,11 +114,11 @@ Daraus ensteht das lineare Gleichungssystem
             \SubMatrix{.}{7-1}{12-9}{\}}[right-xshift=9pt]
         \end{pNiceMatrix},
         \label{resultante:equation:Syldef}
-    \end{equation}
+    \end{equation*}
 wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden, heisst die Sylvestermatrix.
-\label{resultante:definition:Syl}
+\label{resultante:definition:Sylvester}
 \end{definition}
 
-Wie sich aus der Herleitung \ref{resultante:equation:Syl} und der Definition der Sylvestermatrix \ref{resultante:definition:Syl} beobachten lässt, kann die Sylvestermatrix gebildet werden indem man die Koeffizienten des Polynoms \(a(X)\) sooft wie der Grad \(\deg b(X)=m\) wiederholt.
+Wie sich aus der Herleitung (\ref{resultante:equation:Syl}) und der Definition \ref{resultante:definition:Sylvester} der Sylvestermatrix beobachten lässt, kann die Sylvestermatrix gebildet werden indem man die Koeffizienten des Polynoms \(a(X)\) sooft wie der Grad \(\deg b(X)=m\) wiederholt.
 Analog dazu wird, dasselbe mit dem Polynom \(b(X)\) gemacht.
 

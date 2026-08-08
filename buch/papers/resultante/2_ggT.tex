@@ -6,13 +6,13 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Grösster gemeinsamer Teiler (ggT)
+\section{Grösster gemeinsamer Teiler (\(\operatorname{ggT}\))
 \label{resultante:section:ggT}}
-\kopfrechts{Grösster gemeinsamer Teiler (ggT)}
+\kopfrechts{Grösster gemeinsamer Teiler (\(\operatorname{ggT}\))}
 \subsection*{ggT in der Tableaumethode
 \label{resultante:subsection:tableau}}
 Für die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableaumethode, beginnt mit der Sylvertermatrix \(\operatorname{Syl}(b,a)\).
-Das ist die Matrix \ref{resultante:equation:Syldef} in der alle \(m\)-Zeilen des \(a(X)\) Polynoms mit denen des \(b(x)\) Polynoms vertauscht werden.
+Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester} in der alle \(m\)-Zeilen des \(a(X)\) Polynoms mit denen des \(b(X)\) Polynoms vertauscht werden.
 Auf diese Matrix werden nun \(n-m+1\)-Gauss-Zeilenoperationen angewandt.
 Um nun auf die Stufenform der Sylvestermatrix zurück zu kommen, wird auf den Restpolynomen zusätzliche Zeilenoperationen angewant, bis der Rest sich auf jeder Zeile wiederholt.
 In den unteren \(m\)-Zeilen ensteht der entsprechende Rest \(r(X)\) der Division von \(a(X)\) und \(b(X)\).
@@ -111,7 +111,7 @@ Das zeigt folgendes Beispiel:
         \CodeAfter
             \tikz {
                 \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
-                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=1pt]6-|3);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=1pt,yshift=-1pt]6-|3);
                 \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=3pt]3-|6);
                 \draw[dashed] ([xshift=1pt]4-|3) -- ([xshift=3pt]4-|6);
             }
@@ -153,9 +153,7 @@ Das zeigt folgendes Beispiel:
 
 Diese Methode ermöglicht es also, den grössten gemeinsamen Teiler zu bestimmen.
 Da sich die Polynome (\(a(X)\) und \(b(X)\) respektive \(b(X)\) und \(r(X)\)) in der Sylvestermatrix jeweils um eine Spalte verschoben wiederholen muss, reicht es aus die erste Zeile auf das Pivot element zu normieren und auf die restlichen Zeilen des Polynoms zu kopieren.
-Ausserdem können weitere Zeilenoperationen eingespart werden, in dem nur die erste Zeile des Restes berechnet wird und auf den darunter liegenden Zeilen kopiert wird.
-
-
+Ausserdem können weitere Zeilenoperationen eingespart werden, indem nur die erste Zeile des Restes berechnet wird und auf den darunter liegenden Zeilen kopiert wird.
 
 
 \subsection*{Die Determinante der Sylvestermatrix
@@ -168,7 +166,7 @@ Lediglich werden \(nm\) Vertauschungen für die Methode benötigt, daher folgt
 \end{equation} 
 Es kann also höchsten zu einem wechsels des Vorzeichens kommen bei der Determinante.
 
-Der Algorithmus zur Berechnung der Determinante endet sobald der grüne Rest \(=0\) ist oder im braunen Feld (mit dem \(?\)) eine Zahl steht bleibt.
+Der Algorithmus zur Berechnung der Determinante endet sobald der grüne Rest \(=0\) ist oder im braunen Feld (das mit dem \(?\)) eine Zahl steht bleibt.
 Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame Teiler ein Polynom vom Grad \(\geq1\):
 \begin{equation*}
     \centering
@@ -182,11 +180,14 @@ Daraus lässt sich ablesen, die Determinante ist genau dann verschieden von Null
     (Resultante und Teiler). Zwei Polynome \(f(X)\) und \(g(X)\) sind genau dann teilerfremd, wenn \(\det(\operatorname{Syl}(f,g))\neq0\) ist.
 \end{satz}
 \begin{definition}
-    (Resultante). Wie bereits in Einleitung \ref{resultante:equation:definition} geschrieben. Sind \(f\) und \(g\) Polynome, dann heisst die Determinante der Sylvestermatrix
+    (Resultante). Wie bereits in Einleitung (\ref{resultante:equation:definition}) geschrieben. Sind \(f\) und \(g\) Polynome, dann heisst die Determinante der Sylvestermatrix
     \begin{equation*}
         \operatorname{Res}(f,g)=\det(\operatorname{Syl}(f,g))
     \end{equation*}
     die Resultante der Polynome.
+    \label{resultante:definition:resultante}
 \end{definition}
 
 Folglich ist die Resultante zweier Polynome genau dann gleich Null, wenn sie eine gemeinsame Nullstelle haben.
+
+Das Beispiel \ref{resultante:beispiel:ggt} zeigt, die berechnung der Resultante lässt sich bereits mit Grundlegende Werkzeugen der linearen Algebra umsetzen. 

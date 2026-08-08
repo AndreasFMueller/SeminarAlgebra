@@ -11,6 +11,7 @@ dependencies-resultante =						\
 	papers/resultante/1_Idee.tex				\
 	papers/resultante/2_ggT.tex					\
 	papers/resultante/3_Resultante.tex			\
+	papers/resultante/4_RothsteinTrager.tex			\
 	papers/resultante/teil1.tex					\
 	papers/resultante/teil2.tex					\
 	papers/resultante/teil3.tex

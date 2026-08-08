@@ -1,0 +1,155 @@
+%
+% 4_RothsteinTrager.tex -- Abschnitt 4 Resultante anwendung in RT
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Der Satz von Rothstein-Trager
+\label{resultante:section:RT}}
+\kopfrechts{Der Satz von Rothstein-Trager}
+In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die Partialbruchzerlegung verwendet.
+Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sind.
+Das Problem ist also die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
+Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
+Der rationale Teil \(a(z)\) ist teilerfremd zu \(b(z)\), mit \(\deg a(z)<\deg q(z)\).
+Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann gilt:
+\begin{equation*}
+    \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z),
+    \label{resultante:equation:satzRT}
+\end{equation*}
+Gesucht sind noch die Nullstellen \(c_k\) für
+\begin{equation}
+    a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
+    \label{resultante:equation:polynome}
+\end{equation}
+die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler\(\neq0\))
+\begin{equation}
+    v_k(z)=\operatorname{ggT}(a(z)-c_k\cdot b'(z),b(z))
+    \label{resultante:equation:vks}
+\end{equation}
+haben.
+
+Dafür eigenet sich die Resultante Definition \ref{resultante:definition:resultante} hervorragend.
+Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit dazugehöriger Nullstelle.
+
+\subsection*{Anwendung der Resultante
+\label{resultante:subsection:anwendung}}
+Für die bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k\) wird folgende Resultante benötigt:
+\begin{equation}
+    \operatorname{Res}_z(a(z)-c_k\cdot b'(z),b(z))=0,
+    \label{resultante:equation:resz}
+\end{equation}
+Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
+Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch die Koeffizienten der \(z\) Polynomen.
+
+\begin{beispiel}
+    Die Stammfunktion von
+    \begin{equation*}
+        \int\frac{1}{z^3+z}\,dz
+    \end{equation*}
+    soll mit der Methoden von Rothstein-Trager und der Resuntante bestimmt werden.
+    Die Bedingungen für Rothstein-Trager Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
+    Es müssen daher die \(c_k\) und die dazugehörigen \(v_k\) gefunden werden.
+    Für die Resultante braucht es
+    \begin{equation}
+        \begin{aligned}
+            a(z)&=1\\
+            b(z)&=z^3+z\\
+            b'(z)&=3z^2+1
+        \end{aligned},
+        \label{resultante:equation:factoren}
+    \end{equation}
+    sie sieht wie folgt aus:
+    \begin{equation}
+        \operatorname{Res}_z(-3c_kz^2+1-c_k,z^3+z)=0,
+        \label{resultante:equation:resZgut}
+    \end{equation}
+    die daraus folgende Sylvestermatrix ist, zur Vereinfachung wird \(c\) anstatt \(c_k\) verwendet:
+    \begin{equation}
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
+        -3c & 0 & 1-c & 0 & 0 \\
+        0 & -3c & 0 & 1-c & 0 \\
+        0 & 0 & -3c & 0 & 1-c \\
+        1 & 0 & 1 & 0 & 0 \\
+        0 & 1 & 0 & 1 & 0
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=4pt,yshift=1pt]4-|6);
+            }
+        \end{NiceArray}
+        \,\,\to\,\,
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
+        1 & 0 & \frac{c-1}{3c} & 0 & 0 \\
+        0 & 1 & 0 & \frac{c-1}{3c} & 0 \\
+        0 & 0 & 1 & 0 & \frac{c-1}{3c} \\
+        1 & 0 & 1 & 0 & 0 \\
+        0 & 1 & 0 & 1 & 0
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=-4pt,yshift=0.5pt]4-|1) -- ([xshift=3pt,yshift=0.5pt]4-|6);
+            }
+        \end{NiceArray}\,\,\,.
+        \label{resultante:equation:sylGutStep1}
+    \end{equation}
+    Nach Anwendung der Zeilenoperationen erhält man dieses Tableau:
+    \begin{equation}
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
+        1 & 0 & \frac{c-1}{3c} & 0 & 0 \\
+        0 & 1 & 0 & \frac{c-1}{3c} & 0 \\
+        0 & 0 & 1 & 0 & \frac{c-1}{3c} \\
+        0 & 0 & \frac{2c+1}{3c} & 0 & 0 \\
+        0 & 0 & 0 & \frac{2c+1}{3c} & 0
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=1pt,yshift=-1pt]6-|3);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=3pt]3-|6);
+                \draw[dashed] ([xshift=1pt]4-|3) -- ([xshift=3pt]4-|6);
+            }
+        \end{NiceArray}
+        \,\,\to\,\,
+        \begin{NiceArray}{*{3}{c}}[cell-space-limits=3pt]
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & \frac{c-1}{3c}
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]4-|4);
+                \draw[dashed] ([xshift=-3pt]3-|1) -- ([xshift=3pt]3-|4);
+            }
+        \end{NiceArray}\,\,\,.
+        \label{resultante:equation:sylGutStep2}
+    \end{equation}
+    Das Schlusstableau hat als entscheidendes Element:
+    \begin{equation}
+        \begin{aligned}
+            \frac{c-1}{3c}&\overset{!}{=}0\\
+            c&=1
+        \end{aligned},
+        \label{resultante:equation:solGut1}
+    \end{equation}
+    für \(c_1=1\) lässt sich im Schlusstableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_1(z)\) den \(\operatorname{ggT}=z\) ablesen.
+    Findige Leser konnten bereits im vorherigen Tableau aus (\ref{resultante:equation:sylGutStep2}) den Algorithmus beenden, nämlich mit:
+    \begin{equation}
+        \begin{aligned}
+            \frac{2c+1}{3c}&\overset{!}{=}0\\
+            2c+1&=0\\
+            2c&=-1\\
+            c&=-\frac{1}{2}
+        \end{aligned},
+        \label{resultante:equation:solGut2}
+    \end{equation}
+    für \(c_2=-\frac{1}{2}\) lässt sich ebenfalls im zweitletzten Tableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_2(z)\) den \(\operatorname{ggT}=z^2+1\) ablesen.
+
+    Setzt man die gefundenen Nullstellen zusammen mit ihren zugehörigen grössten gemeinsamen Teiler erhält man die Stammfunktion:
+    \begin{equation*}
+        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1).
+    \end{equation*}
+    \label{resultante:beispiel:gutesIntegral}
+\end{beispiel}
+
+Die Nullstellen \(c_k\) aus der Resultante können auch Polynome sein, daraus folgt, dass das Integral nicht elementar lösbar ist.
