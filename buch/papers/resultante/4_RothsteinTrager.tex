@@ -10,7 +10,7 @@
 \label{resultante:section:RT}}
 \kopfrechts{Der Satz von Rothstein-Trager}
 In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die Partialbruchzerlegung verwendet.
-Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sind.
+Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sein müssen.
 Das Problem ist also die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
 Der rationale Teil \(a(z)\) ist teilerfremd zu \(b(z)\), mit \(\deg a(z)<\deg q(z)\).
@@ -24,7 +24,7 @@ Gesucht sind noch die Nullstellen \(c_k\) für
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
 \end{equation}
-die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler\(\neq0\))
+die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq0\))
 \begin{equation}
     v_k(z)=\operatorname{ggT}(a(z)-c_k\cdot b'(z),b(z))
     \label{resultante:equation:vks}
@@ -36,7 +36,7 @@ Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit da
 
 \subsection*{Anwendung der Resultante
 \label{resultante:subsection:anwendung}}
-Für die bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k\) wird folgende Resultante benötigt:
+Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird folgende Resultante benötigt:
 \begin{equation}
     \operatorname{Res}_z(a(z)-c_k\cdot b'(z),b(z))=0,
     \label{resultante:equation:resz}
@@ -49,9 +49,9 @@ Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch
     \begin{equation*}
         \int\frac{1}{z^3+z}\,dz
     \end{equation*}
-    soll mit der Methoden von Rothstein-Trager und der Resuntante bestimmt werden.
-    Die Bedingungen für Rothstein-Trager Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
-    Es müssen daher die \(c_k\) und die dazugehörigen \(v_k\) gefunden werden.
+    soll mit der Methoden von Rothstein-Trager und der Resultante bestimmt werden.
+    Die Bedingungen für die Rothstein-Trager Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
+    Es müssen daher die \(c_k\) und die dazugehörigen \(v_k(z)\) gefunden werden.
     Für die Resultante braucht es
     \begin{equation}
         \begin{aligned}
@@ -66,7 +66,7 @@ Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch
         \operatorname{Res}_z(-3c_kz^2+1-c_k,z^3+z)=0,
         \label{resultante:equation:resZgut}
     \end{equation}
-    die daraus folgende Sylvestermatrix ist, zur Vereinfachung wird \(c\) anstatt \(c_k\) verwendet:
+    die daraus folgende Sylvestermatrix ist (zur Vereinfachung \(c\) statt \(c_k\)):
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         -3c & 0 & 1-c & 0 & 0 \\
@@ -95,7 +95,7 @@ Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:sylGutStep1}
     \end{equation}
-    Nach Anwendung der Zeilenoperationen erhält man dieses Tableau:
+    Nach Anwendung der Zeilenoperationen erhält man das erste Tableau, auf dem kleineren Bereich kann nochmals eine Zeilenoperation durchgeführt werden:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         1 & 0 & \frac{c-1}{3c} & 0 & 0 \\
