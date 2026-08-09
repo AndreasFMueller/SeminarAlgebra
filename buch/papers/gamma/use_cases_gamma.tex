@@ -8,14 +8,14 @@ Abschliessend wird die Bedeutung der $\Gamma$-Funktion für die Berechnung des K
 \subsection{Produktformel von Euler}
 
 Auf der Suche nach der $\Gamma$-Funktion im 18. Jahrhundert hat Leonhard Euler unendliche Produkte verwendet.
-Mit Hilfe des Bohr-Mollerup Theorem (\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
+Mit Hilfe des Bohr-Mollerup-Theorems (\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
 \begin{equation}
 \label{gamma-eq:product-formula-euler}
     \Gamma_{\text{Euler}}(z) = \lim_{n \to \infty} \frac{n!\,n^z}{z(z+1)\cdots(z+n)}
 \end{equation}
 um die $\Gamma$-Funktion handelt.
 
-Die erste Eigenschaft des Bohr-Mollerup Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
+Die erste Eigenschaft des Bohr-Mollerup-Theorem lässt sich durch Einsetzen von $z=1$ überprüfen:
 \begin{equation}
 \label{gamma-eq:euler-first-property}
     \begin{split}
@@ -39,6 +39,10 @@ Für die zweite Eigenschaft wird $z+1$ anstelle von $z$ eingesetzt. Durch Umform
             \cdot
             \frac{n!\,n^z}{(z+1)(z+2)\cdots(z+n)}
             \right) \\
+        &= \lim_{n \to \infty}
+            \frac{n}{z+n+1}
+            \cdot z
+            \frac{n!n^{z}}{z(z+1)(z+2)\cdots(z+n)} \\
         &= \lim_{n \to \infty} \frac{n}{z+n+1}
             \cdot z\Gamma_{\text{Euler}}(z) \\
         &= z\Gamma_{\text{Euler}}(z).
@@ -56,9 +60,9 @@ Die Integraldarstellung
     \qquad \operatorname{Re}(z)>0
 \end{equation}
 eignet sich besonders gut zur Untersuchung von Ableitungen. 
-Auch $\Gamma_{\text{Intergal}}$ kann mit dem Eigenschaften vom Bohr-Mollerup Theorem (\ref{gamma:section:BMT}) überprüft werden. 
+Auch $\Gamma_{\text{Intergal}}$ kann mit dem Eigenschaften vom Bohr-Mollerup-Theorem (\ref{gamma:section:BMT}) überprüft werden. 
 
-Die erste Eigenschaft des Bohr-Mollerup Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
+Die erste Eigenschaft des Bohr-Mollerup-Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
 \begin{equation}
 \label{gamma-eq:integral-first-property}
     \begin{split}
@@ -101,4 +105,5 @@ Die Lanczos-Approximation
 \end{equation}
 wurde 1964 von Cornelius Lanczos vorgestellt und wird heute häufig in numerischen Bibliotheken eingesetzt.
 Der Parameter $g$ und die Koeffizienten $c_k$ werden dabei im Voraus festgelegt und müssen nicht bei jeder Auswertung neu berechnet werden.
-Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion. Auch hier gilt $\Gamma_{\text{Lanczos}}(z) = \Gamma(z)$, wobei auf die Herleitung verzichtet wird.
+Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion. 
+Auch hier gilt $\Gamma_{\text{Lanczos}}(z) = \Gamma(z)$, wobei auf die Herleitung verzichtet wird.
