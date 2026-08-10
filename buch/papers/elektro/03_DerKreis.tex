@@ -9,12 +9,59 @@
 \section{Der Kreis 
 \label{elektro:section:DerKreis}}
 \kopfrechts{Der Kreis}
-In der Matheatihk ist der Kreis eine der einfachsten und am besten verstandenen Figuren. 
-Dieses Wissen möchten wir weiter verwenden und die Eigenschaften des Kreises auf andere Figuren übertragen.
-Also suchen wir nach einem weg wie die einfache Situation des Kreisses auf eine beliebeig komplizierte Figur die wir elektrostatisch untersuchen möchten zu Transofmieren.
- 
-Innere und Äussere Kreisfläche.
+Bevor wir im nächsten Kapitel die Transformationen von Kreisen betrachten, wollen wir uns mit den Eigenschaften des Kreises beschäftigen.
+In der Matheatihk ist der Kreis eine der einfachsten und am besten verstandenen Figuren.
+Wobei sie die einfachste nichttriviale Figur für die die Elektrischenfeldlinein und ie Potenttial linien einfach berechnet werden können.
+Für unserer Elektrostatische betrachtung ist der Kreis optimal da sowohl die Fromeln für $E$ und $\varphi$ nur vom Abstand zum Mittelpunkt $r$ abhängen.
 
+
+\subsection{Radialsymmetrische Potentiale
+\label{elektro:subsection:RadialsymmetrischePotentiale}}
+Im Kreis ist das Potential radialsymmetrisch, das heisst es hängt nur vom Abstand zum Mittelpunkt ab.
+Es stellt die situation dar in der der Kreis eine Punktladung mit der Ladungsdichte $\rho$ darstellt.
+Zur berechnung des Feldes wird das ... verwendet in ihrer Integralfrom. 
+
+Für diesen Fall werden Polarkoordinaten verwendet, die den Abstand $r$ und den Winkel $\varphi$ beschreiben, Zeiteres spielt durch die punkt symetrie des Kreises aber garkeine Rolle. 
+Im nöchsten abschnitt wird gezeigt wie das Potentialfeld $\varphi$ und das elektrische Feld $\mathbf{E}$ zusammenhängen.
+Es wird sich ein kreislauf von Integralen ergeben wie immer vom einen Fall wider auf den anderen geschlossen werden kann.
+Um jedoch eine dieser Formeln die für den Kreis gültig sind aufgestellt werden.
+Es braucht also ein einstieg der über die Integralformel des elektrischen Feldes $\mathbf{E}$ gefunden weren kann. 
+
+\begin{equation}
+    \varphi = \int_{-\infty}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} dV
+    \label{elektro:equation:potentialbegin}
+\end{equation}
+Wie zuvor atablier stellt der Kreis die Ladung dar und wir wollen das Potentialfeld ausserhalb des Kreises beschrieben, können wir das Integral von der Kreisoberfläche bis in die unendlichkeit lösen.
+\begin{equation}
+    \varphi = \int_{0}^{2\pi} \int_{r}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} r dr d\varphi
+    = \frac{\rho}{2\varepsilon_0} \int_{r}^{\infty} dr
+    = \frac{\rho}{2\varepsilon_0} [r]_{r}^{\infty}
+    = -\frac{\rho}{2\varepsilon_0} r
+\end{equation}
+
+Verständnis: 
+Das Vorlumenelement wird zu $dV = r dr d\varphi $ 
+Für beie Integrale wird die Integrationsgrenze von $0$ bis $2\pi$ für $\varphi$ und von $r$ bis $\infty$ für $r$ gewählt, da das Potentialfeld ausserhalb des Kreises beschrieben werden soll und dies um die gesmaten $2\pi$ des Kreises.
+
+
+\textcolor{red}{Grafik ?}
+
+\subsection{Kreisspiegelung}
+Damit man sich die Kreisspiegelung vorstellen kann der Kreisrand als spiegel oberfläche angenommen werden. 
+Somit wird jeder Punkt ausserhalbs des Kreisses, auch die Unenldichkeit wir in das innere des Einheitskreisses gespiegelt. 
+
+Diese Transformation wird hier nur gezeigt weill durch diese Transformation die Entscheidung der integrals grenzen in \ref{elektro:subsection:RadialsymmetrischePotentiale} erklärt werden kann oder auch zeigt das es nichts zur sache tut. 
+Es kann vom Mittelpunkt zum Kreisrand oder vom Kreisrand bis in die Unenldichktei Integriert werden und mit einer einfachen Kreispiegelung kann vom einen zum anderen Fall übergegangen werden. 
+
+\textcolor{red}{Kreisspiegelung Fallüberführung rechenbeispiel}
+
+
+\subsection{Zusammenhang zwischen $E$-Feld und Potential
+\label{elektro:subsection:ephizusammenhang}}
+Etwas vorgreifend wird hier gezeigt, wie im Falle eines Kreises mathematisch von einem Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen werden kann.
+Die Fläche außerhalb des Kreises wird als Potentialfeld beschrieben.
+
+\textcolor{red}{Kreislauf integral aus Notizen}
 
 \subsection{Cayley-Transformation
 \label{elektro:subsection:Cayley}}
