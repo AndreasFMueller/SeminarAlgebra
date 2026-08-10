@@ -1,5 +1,5 @@
 \section{Formeln zur $\Gamma$-Funktion\label{gamma:section:formulas}}
-\kopfrechts{Formlel zur $\Gamma$-Funktion}
+\kopfrechts{Formeln zur $\Gamma$-Funktion}
 
 Für die $\Gamma$-Funktion existieren verschiedene Darstellungen und Näherungsverfahren.
 Im Folgenden werden ausgewählte Formeln sowie ihre jeweiligen Anwendungsgebiete vorgestellt, wobei auf ausführliche mathematische Herleitungen verzichtet wird.
@@ -8,7 +8,10 @@ Abschliessend wird die Bedeutung der $\Gamma$-Funktion für die Berechnung des K
 \subsection{Produktformel von Euler}
 
 Auf der Suche nach der $\Gamma$-Funktion im 18. Jahrhundert hat Leonhard Euler unendliche Produkte verwendet.
-Mit Hilfe des Bohr-Mollerup-Theorems (\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
+Mit Hilfe des Bohr-Mollerup-Theorems (Abaschnitt~\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
+\index{Produktformel, Gammafunktion}%
+\index{Gamma-Funktion!Produktformel}%
+\index{Gamma-Funktion!Euler-Formel}%
 \begin{equation}
 \label{gamma-eq:product-formula-euler}
     \Gamma_{\text{Euler}}(z) = \lim_{n \to \infty} \frac{n!\,n^z}{z(z+1)\cdots(z+n)}
@@ -34,11 +37,11 @@ Für die zweite Eigenschaft wird $z+1$ anstelle von $z$ eingesetzt. Durch Umform
         &= \lim_{n \to \infty}
             \frac{n!\,n^{z+1}}{(z+1)(z+2)\cdots(z+n+1)} \\
         &= \lim_{n \to \infty}
-            \left(
+            \biggl(
             \frac{n}{z+n+1}
             \cdot
             \frac{n!\,n^z}{(z+1)(z+2)\cdots(z+n)}
-            \right) \\
+            \biggr) \\
         &= \lim_{n \to \infty}
             \frac{n}{z+n+1}
             \cdot z
@@ -56,6 +59,8 @@ Nach dem Satz von Bohr-Mollerup gilt $\Gamma_{\text{Euler}}(z) = \Gamma(z)$.
 \subsection{Integraldarstellung}
 
 Die Integraldarstellung
+\index{Integraldarstellung, Gamma-Funktion}%
+\index{Gamma-Funktion!Integraldarstellung}%
 \begin{equation}
 \label{gamma-eq:integral}
     \Gamma_{\text{Integral}}(z) = \int_0^\infty t^{z-1} e^{-t}\,dt,
@@ -98,14 +103,17 @@ Aus dem Satz von Bohr-Mollerup folgt dann, dass auch $\Gamma_{\text{Integral}}(z
 \subsection{Lanczos-Approximation}
 
 Die Lanczos-Approximation
+\index{Gamma-Funktion!Lanczos-Approximation}%
+\index{Lanczos-Approximation}%
 \begin{equation}
 \label{gamma-eq:lanczos}
     \Gamma_{\text{Lanczos}}(z) \approx \sqrt{2\pi}
-    \left(z + g - \frac{1}{2}\right)^{z - \frac{1}{2}}
-    e^{-\left(z + g - \frac{1}{2}\right)}
-    \left(c_0 + \sum_{k=1}^{N} \frac{c_k}{z + k - 1}\right)
+    \biggl(z + g - \frac{1}{2}\biggr)^{z - \frac{1}{2}}
+    e^{-(z + g - \frac{1}{2})}
+    \biggl(c_0 + \sum_{k=1}^{N} \frac{c_k}{z + k - 1}\biggr)
 \end{equation}
 wurde 1964 von Cornelius Lanczos vorgestellt und wird heute häufig in numerischen Bibliotheken eingesetzt.
+\index{Lanczos, Cornelius}%
 Der Parameter $g$ und die Koeffizienten $c_k$ werden dabei im Voraus festgelegt und müssen nicht bei jeder Auswertung neu berechnet werden.
 Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion. 
 Auch hier gilt $\Gamma_{\text{Lanczos}}(z) = \Gamma(z)$. 
