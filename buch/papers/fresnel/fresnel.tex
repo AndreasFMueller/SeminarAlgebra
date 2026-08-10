@@ -10,7 +10,8 @@
 % \section{Einleitung}
 % \kopfrechts{Einleitung}
 
-% Fresnel-Integrale sind häufig in der Wellenoptik und in der Analysis anzutreffen
+Die Fresnel-Integrale sind häufig in der Wellentheorie und in der Analysis anzutreffen. Sie sind nützlich um die Ausbreitung von Wellen durch Beugung zu berechnen. In der drahtlosen Kommunikation können mithilfe der Fresnel-Integrale die Feldstärke und damit die Intensität elektromagnetischer Wellen hinter einem Hindernis unter Berücksichtigung der Beugung berechnet werden. Die komplexe Analysis hilft dabei die Intergrale in ein einfacheres Integral zusammenzufassen. 
+
 
 \section{Definition}
 \kopfrechts{Definition}
@@ -26,9 +27,7 @@ Die beiden Fresnel-Integrale sind definiert als
     \int_{0}^{x} \sin \left(\frac{\pi}{2}t^2\right) dt.
     \label{fresnel:integral-C-S}
 \end{equation}
-
 Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
-
 %TODO: Plots nur positive Seite?
 \begin{figure}
     \centering
@@ -38,7 +37,6 @@ Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
         \label{fresnel:C-S-Plot}
     }
 \end{figure}
-
 Beide Integrale besitzen anscheinend graphisch einen endlichen Wert 
 und scheinen zu
 \[
@@ -49,13 +47,13 @@ und scheinen zu
 \frac{1}{2}
 \]
 zu konvergieren.
-
 Beide Integrale können auch gemeinsam als komplexe Funktion 
-\[
+\begin{equation}
 F(x)
 =
-C(x) + iS(x)
-\]
+C(x) + jS(x)
+\label{fresnel: Komplexe Funktion}
+\end{equation}
 geschrieben werden. 
 Die daraus resultierende Form wird Cornu-Spirale genannt, 
 wie in Abbildung~\ref{fresnel:Cornu-Spirale} ersichtlich.
@@ -73,15 +71,15 @@ wie in Abbildung~\ref{fresnel:Cornu-Spirale} ersichtlich.
 \section{Komplexe Analysis zur Integrallösung}
 Nach der Leonhard-Euler-Formel
 \[
-e^{i\theta}
+e^{j\vartheta}
 =
-\cos \theta + i \sin \theta
+\cos \vartheta + j \sin \vartheta
 \]
-kann die vorher definierte Funktion $F(x)$ in die komplexe Form
+kann die in \eqref{fresnel: Komplexe Funktion} definierte Funktion $F(x)$ in die komplexe Form
 \[
-F(x) = \int_{0}^{\infty} e^{i \pi t^2 / 2} dt
+F(x) = \int_{0}^{\infty} e^{j \pi t^2 / 2} dt
 \]
-umgeschrieben werden, welche zugleich auch holmorph ist.
+umgeschrieben werden, welche zugleich auch holomorph ist.
 
 Diese Umstellung erlaubt es, den Integralsatz von Cauchy anzuwenden.
 Statt auf der reellen Achse zu integrieren,
@@ -93,19 +91,19 @@ Erstellt man eine Funktion
 \[
 z 
 = 
-e^{i \pi / 4} u,
+e^{j \pi / 4} u,
 \] 
 welche eine Drehung um $45^{\circ}$ vollzieht und diese anhand
 \[
 z^2
 =
-e^{i \pi / 2} u^2
+e^{j \pi / 2} u^2
 =
-i u^2
+j u^2
 \]
 quadriert, kann diese wie folgt im Exponent eingesetzt werden:
 \[
-e^{i \pi z^2 / 2}
+e^{j \pi z^2 / 2}
 =
 e^{-u^2 \pi / 2}.
 \]
@@ -115,7 +113,7 @@ Aus den Umstellungen der Drehung folgt das Integral
 \[
 I(u)
 =
-e^{i \pi / 4}
+e^{j \pi / 4}
 \int_{-\infty}^{\infty} e^{-\pi u^2 / 2} du.
 \]
 Das umgestellte Integral kann mittels des Gauss-Integrals
@@ -130,23 +128,23 @@ zu
 \[
 I(u)
 =
-e^{i \pi / 4}
+e^{j \pi / 4}
 \sqrt{\dfrac{\pi}{\pi / 2}}
 =
-e^{i \pi / 4}\sqrt{2}
+e^{j \pi / 4}\sqrt{2}
 \]
 aufgelöst werden.
 Der Term vor der Wurzel kann umgestellt werden als 
 \[
-e^{i \pi / 4}
+e^{j \pi / 4}
 =
-\dfrac{1 + i}{\sqrt{2}},
+\dfrac{1 + j}{\sqrt{2}},
 \]
 womit sich das Integral zu
 \[
 I(u)
 =
-1 + i
+1 + j
 \]
 vereinfacht.
 

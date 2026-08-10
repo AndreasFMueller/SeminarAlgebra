@@ -1,11 +1,11 @@
 # TODO
 
-- [ ] Autoren mit 'und' trennen statt ,
-- [ ] Einleitung schreiben
-- [ ] Absätze kontr., entfernen wo nicht gebraucht (Einrückung)
+- [x] Autoren mit 'und' trennen statt ,
+- [x] Einleitung schreiben
+- [x] Absätze kontr., entfernen wo nicht gebraucht (Einrückung)
 - [ ] Wichtige Formeln sollten Zahlen hinten dran haben (Eq-Env), zum Referenzieren
-- [ ] $j$ statt $i$ verwenden als imaginäre Einheit
-- [ ] $\theta$ zu $\vartheta$ wechseln
+- [x] $j$ statt $i$ verwenden als imaginäre Einheit
+- [x] $\theta$ zu $\vartheta$ wechseln
 - [x] Aspect Ratio 1:1 in Cornu-Spirale
 - [ ] Formeln vereinheitlichen, kein Switch zwischen $t,u,x,z$
 - [ ] "mittels" ersetzen durch bessere Satzstruktur
