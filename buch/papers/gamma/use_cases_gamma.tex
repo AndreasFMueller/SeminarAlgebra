@@ -8,14 +8,14 @@ Abschliessend wird die Bedeutung der $\Gamma$-Funktion für die Berechnung des K
 \subsection{Produktformel von Euler}
 
 Auf der Suche nach der $\Gamma$-Funktion im 18. Jahrhundert hat Leonhard Euler unendliche Produkte verwendet.
-Mit Hilfe des Bohr-Mollerup Theorem (\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
+Mit Hilfe des Bohr-Mollerup-Theorems (\ref{gamma:section:BMT}) kann nachgewiesen werden, dass es sich bei
 \begin{equation}
 \label{gamma-eq:product-formula-euler}
     \Gamma_{\text{Euler}}(z) = \lim_{n \to \infty} \frac{n!\,n^z}{z(z+1)\cdots(z+n)}
 \end{equation}
 um die $\Gamma$-Funktion handelt.
 
-Die erste Eigenschaft des Bohr-Mollerup Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
+Die erste Eigenschaft des Bohr-Mollerup-Theorem lässt sich durch Einsetzen von $z=1$ überprüfen:
 \begin{equation}
 \label{gamma-eq:euler-first-property}
     \begin{split}
@@ -39,13 +39,19 @@ Für die zweite Eigenschaft wird $z+1$ anstelle von $z$ eingesetzt. Durch Umform
             \cdot
             \frac{n!\,n^z}{(z+1)(z+2)\cdots(z+n)}
             \right) \\
+        &= \lim_{n \to \infty}
+            \frac{n}{z+n+1}
+            \cdot z
+            \frac{n!n^{z}}{z(z+1)(z+2)\cdots(z+n)} \\
         &= \lim_{n \to \infty} \frac{n}{z+n+1}
             \cdot z\Gamma_{\text{Euler}}(z) \\
         &= z\Gamma_{\text{Euler}}(z).
     \end{split}
 \end{equation}
 Damit erfüllt die Produktformel die Eigenschaften~\ref{gamma-eq:bm-1} und~\ref{gamma-eq:bm-2}.
-Jetzt muss man noch zeigen, dass $\Gamma_{\text{Euler}}$ gemäss Eigenschaft~\ref{gamma-eq:bm-3} logarithmisch konvex ist, dann folgt aus dem Satz von Bohr-Mollerup, dass $\Gamma_{\text{Euler}}(z) = \Gamma(z)$.
+Jetzt muss man noch zeigen, dass $\Gamma_{\text{Euler}}$ gemäss Eigenschaft~\ref{gamma-eq:bm-3} logarithmisch konvex ist.
+Die Log-Konvexität der Produktdarstellung wird im Standardbeweis des Satzes von Bohr-Mollerup bewiesen \cite[Abschnitt 4.1.4]{buch:MatSeSspezielleFunktionen}.
+Nach dem Satz von Bohr-Mollerup gilt $\Gamma_{\text{Euler}}(z) = \Gamma(z)$.
 
 \subsection{Integraldarstellung}
 
@@ -56,9 +62,9 @@ Die Integraldarstellung
     \qquad \operatorname{Re}(z)>0
 \end{equation}
 eignet sich besonders gut zur Untersuchung von Ableitungen. 
-Auch $\Gamma_{\text{Intergal}}$ kann mit dem Eigenschaften vom Bohr-Mollerup Theorem (\ref{gamma:section:BMT}) überprüft werden. 
+Auch $\Gamma_{\text{Intergal}}$ kann mit dem Eigenschaften vom Bohr-Mollerup-Theorem (\ref{gamma:section:BMT}) überprüft werden. 
 
-Die erste Eigenschaft des Bohr-Mollerup Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
+Die erste Eigenschaft des Bohr-Mollerup-Theorems lässt sich durch Einsetzen von $z=1$ überprüfen:
 \begin{equation}
 \label{gamma-eq:integral-first-property}
     \begin{split}
@@ -86,7 +92,7 @@ Mit der Ableitungsformel
 \begin{equation}
     \Gamma_{\text{Integral}}'(z)=\int_0^\infty t^{z-1}e^{-t}\log(t)\,dt.
 \end{equation}
-kann man auch die logarithmische Konvexität (\ref{gamma-eq:bm-3}) von $\Gamma_{\text{Integral}}(z)$ beweisen. 
+kann man auch die logarithmische Konvexität (\ref{gamma-eq:bm-3}) von $\Gamma_{\text{Integral}}(z)$ beweisen, wie in \cite[Abschnitt 4.1.5]{buch:MatSeSspezielleFunktionen} gezeigt.
 Aus dem Satz von Bohr-Mollerup folgt dann, dass auch $\Gamma_{\text{Integral}}(z)=\Gamma(z)$.
 
 \subsection{Lanczos-Approximation}
@@ -101,4 +107,6 @@ Die Lanczos-Approximation
 \end{equation}
 wurde 1964 von Cornelius Lanczos vorgestellt und wird heute häufig in numerischen Bibliotheken eingesetzt.
 Der Parameter $g$ und die Koeffizienten $c_k$ werden dabei im Voraus festgelegt und müssen nicht bei jeder Auswertung neu berechnet werden.
-Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion. Auch hier gilt $\Gamma_{\text{Lanczos}}(z) = \Gamma(z)$, wobei auf die Herleitung verzichtet wird.
+Da nur eine endliche Summe mit $N$ Gliedern ausgewertet wird, ermöglicht das Verfahren eine genaue und zugleich effiziente Berechnung der $\Gamma$-Funktion. 
+Auch hier gilt $\Gamma_{\text{Lanczos}}(z) = \Gamma(z)$. 
+Eine ausführliche Herleitung der Approximation sowie eine Analyse ihrer Genauigkeit finden sich in \cite{LanczosGammaApproximation}.
