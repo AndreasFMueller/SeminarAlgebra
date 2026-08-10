@@ -6,15 +6,15 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Elektrostatik\label{elektro:section:EFeld}}
-\kopfrechts{Elektrostatik}
+\section{Grundlagen der Elektrostatik\label{elektro:section:EFeld}}
+\kopfrechts{Grundlagen der Elektrostatik}
 
 Elektrostatik ist die Lehre von ruhenden elektrischen Ladungen und deren Wirkung auf ihre Umgebung, insbesondere andere Ladungen und Materie (S. 5, ELT2 Skript).
 Es fliesst kein elektrischer Strom und in der Folge gibt es keinen Widerstand. 
 Elektrostatische Grössen besitzen keine zeitliche Abhängigkeit.
 Mathematisch formuliert: Die erste Ableitung nach der Zeit ist für alle elektrostatischen Funktionen gleich Null.
 
-\subsubsection{Vektor- und Skalarfeld, Quellenfeld und Homogenität}
+\subsection{Vektor- und Skalarfeld, Quellenfeld und Homogenität}
 Das elektrische Feld ist ein Vektorfeld.
 Das bedeutet, jedem Punkt im Raum wird ein Betrag und eine Richtung der elektrischen Feldstärke zugeordnet. 
 Das Potential-Feld ist ein Skalarfeld.
@@ -28,10 +28,10 @@ Die Ladung kann sich dabei auch im Unendlichen befinden.
 Verlaufen die Feldlinien parallel, spricht man von einem homogenen Feld, ansonsten von einem inhomogenen Feld.
 Das Feld zwischen zwei parallelen Kondensatorplatten beispielsweise ist homogen, was die mathematische Berechnung erheblich erleichtert. 
 
-\subsubsection{Das Coulomb-Gesetz}
+\subsection{Das Coulomb-Gesetz}
 Das Coulomb-Gesetz beschreibt die Kraft zwischen zwei ruhenden Punktladungen.
-Eine Punktladung ist per Definition eine punktsymmetrische Ladung ohne  räumliche Ausdehnung. 
-Für allgemeine geladene Körper ist das Coulomb-Gesetz in guter Näherung gültig.
+Eine Punktladung ist per Definition eine punktsymmetrische Ladung ohne  räumliche Ausdehnung.
+In der Praxis für reale geladene Körper ist das Coulomb-Gesetz in guter Näherung gültig.
 Insbesondere, wenn der Abstand zwischen den geladenen Körpern viel grösser ist als die Körper selbst.
 
 \begin{equation}
@@ -40,65 +40,38 @@ Insbesondere, wenn der Abstand zwischen den geladenen Körpern viel grösser ist
 
 Die Coulomb-Kraft nimmt mit dem Produkt der Ladungen $Q_1$ und $Q_2$ zu und mit dem Quadrat des Abstands $R$ zwischen den Ladungen ab.
 R ist der Distanzvektor zwischen den Ladungen und zeigt vom Ort der Ursache auf den Ort der Wirkung.
+Liegt einer der Punkte im Ursprung wird die Variable $r$ verwendet.
 Das Coulomb-Gesetz gilt für Distanzen zwischen $10^{-16}$ und $10^{8}$ Metern. 
-Für R $\arrowvert$ 0 ist es nicht definiert. 
+Für R $\to$ 0 ist es nicht definiert. 
 
 $\epsilon_0$ ist die elektrische Permittivität des Vakuums und beträgt ungefähr 8.854 pF/m. 
 
-\subsubsection{Das elektrische Feld}
+\subsection{Das elektrische Feld}
+Das elektrische Feld und die Coulomb-Kraft sind definitionsmässig eng verwandt.
 Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die Kraft, welche auf die Probeladung wirkt, als elektrische Feldstärke definiert.
 Sie ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben.
+Es handelt sich um ein Radialfeld (ausgehend von der positiven oder führend zur negativen Quelle).
 \begin{equation}
 	E = \frac{F}{q} = \frac{Kraft}{Probeladung} = \frac{Q}{4\pi\epsilon_0 r^{2}}\hat{r}
 \end{equation}
-Die 
 
 
+\subsection{Das elektrische Potential $\varphi$}
+Genau wie beim E-Feld, das durch Normalisierung der Coulomb-Kraft mit einer Probeladung definiert wird, ist das elektrische Potential durch Normalisierung der Energie $W$ mit einer Probeladung definiert.
+\begin{equation}
+	\varphi = \frac{W}{q} = \frac{Q}{4\pi\epsilon_0r} = - \int_{Ref}^P E \cdot d\vec{l}
+\end{equation}
+Die Einheit von $\varphi$ ist Volt, genau wie bei der Spannung, denn die Spannung ist nichts anderes als die Differenz zweier Potentiale.
+Im Gegensatz zum elektrischen Feld, welches ein Vektorfeld ist, ist das Potentialfeld ein Skalarfeld handelt.
+Die Potentiale jedes einzelnen Punktes ergeben einen Gradienten aus dem die elektrische Feldstärke berechnet werden kann.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Ein Elektrischesfeld beschreibt die räumliche Verteilung der Kraftwirkung, die eine elektrische Ladung auf andere Ladungen ausüben kann.
-Das elektrostatische Feld ordnet jedem Punkt im Raum eine Richtung und eine Feldstärke zu. Platziert man an einem beliebigen Punkt eine gedachte positive Probeladung, so erfährt sie eine elektrische Kraft. Die Richtung dieser Kraft entspricht der Richtung des elektrostatischen Feldes an diesem Ort, während ihre Größe die Feldstärke des Feldes beschreibt.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\subsection{Äquipotentiallinien}
+Orte, die dasselbe Potential aufweisen, also äquipotential sind, nennt man im zweidimensionalen Raum Äquipotentiallinien.
+Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass dabei Arbeit aufgewandt werden muss.
+Äquipotentiallinien liegen stets senkrecht zum elektrischen Feld.
+Im Dreidimensionalen heisst es Äquipotentialflächen.
+Die Anwendung der komplexen Transformation ist aber nur im zweidimensionalen Bereich möglich, wie nachfolgend gezeigt.
+ 
 
 \subsection{Gausssches Gesetz
 \label{elektro:subsection:Gauss}}
