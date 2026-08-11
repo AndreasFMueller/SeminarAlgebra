@@ -6,10 +6,29 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
+
+\section{Einleitung}
+Elektrostatik wird für uns Menschen primär dann erfahrbar, wenn es im Vorfeld zur Ladungstrennung gekommen ist.
+Blitze, Van de Graaff Bandgeneratoren, klebende Styroporkügelchen -- Grundlage für diese physikalischen Ereignisse ist folgendes Prinzip:
+Gleichartige Ladungen stossen sich ab, ungleichartige Ladungen ziehen sich an.
+So kann es passieren, dass wir einen synthetischen Pullover über den Kopf ziehen, ein Knistern hören, und sobald wir dann einen anderen (geerdeten) Menschen berühren, funkt es.
+Dieses kurze Zwicken beweist die unsichtbare elektrostatische Aufladung, die durch Reibung des Pullovers erzeugt worden ist.
+Als Fachpersonen im Bereich der Elektrotechnik haben wir häufig Bauteilchen in der Hand, die wir vor elektrostatischer Entladung (ESD) schützen müssen, da diese Chips oder ICs (Integrated Circuits) schon durch kleine Ladungsspitzen zerstört werden können.
+Zum Schutz empfindlicher Bauteile tragen wir daher geerdete Armbänder, was Ladungstrennung, welche zu ESD führt, verhindert. 
+Um elektrostatische Aufladung zu demonstrieren, wird die (langhaarige) Versuchsperson daher zuallererst auf ein isoliertes Podest gestellt.
+Ladung, die durch den von Robert Van de Graaff 1929 erfundenen Generator auf eine Metallkugel gebracht wird, gelangt mittels Berührung der Handflächen auf die Versuchsperson.
+Der Van de Graaff Generator nutzt die mechanische Reibung eines Gummibandes, um gleichartige Ladungsträger auf einer Metallkugel abzuladen, welche sich anschliessend durch Influenz auf der ganzen Oberfläche verteilen.
+Es spielt dabei keine Rolle, ob die Ladungsträger positiv oder negativ sind.
+Die Ladungen wandern auf die Versuchsperson, und da sie sich abstossen entsteht eine kleine Kraft.
+Diese reicht bei genügend trockener Luft aus, um die Haare der Versuchsperson zu Berge stehen zu lassen.
+Trotz seines tiefen Wirkungsgrades kommt der Van de Graaff Generator zur Erzeugung hoher Gleichspannungen als Teilchenbeschleuniger zum Einsatz \cite{elektro:lexikon}.
+
+
+
 \section{Grundlagen der Elektrostatik\label{elektro:section:EFeld}}
 \kopfrechts{Grundlagen der Elektrostatik}
 
-Elektrostatik ist die Lehre von ruhenden elektrischen Ladungen und deren Wirkung auf ihre Umgebung, insbesondere andere Ladungen und Materie (S. 5, ELT2 Skript).
+Elektrostatik ist die Lehre von ruhenden elektrischen Ladungen und deren Wirkung auf ihre Umgebung, insbesondere andere Ladungen und Materie \cite{elektro:elt2_skript}.
 Es fliesst kein elektrischer Strom und in der Folge gibt es keinen Widerstand. 
 Elektrostatische Grössen besitzen keine zeitliche Abhängigkeit.
 Mathematisch formuliert: Die erste Ableitung nach der Zeit ist für alle elektrostatischen Funktionen gleich Null. $\frac{\partial \vec{E}}{\partial t} = 0$.
@@ -51,7 +70,7 @@ Für $R \to 0$ ist es nicht definiert.
 $\epsilon_0$ ist die elektrische Permittivität des Vakuums und beträgt ungefähr 8.854 pF/m. 
 
 \subsection{Das elektrische Feld}
-Das elektrische Feld und die Coulomb-Kraft sind definitionsmässig eng verwandt.
+Das elektrische Feld und die Coulomb-Kraft sind definitionsgemäss eng verwandt.
 Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die Kraft, welche auf die Probeladung wirkt, als elektrische Feldstärke definiert.
 Sie ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben.
 Es handelt sich um ein Radialfeld (ausgehend von der positiven oder führend zur negativen Quelle).
