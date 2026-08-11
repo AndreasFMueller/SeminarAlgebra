@@ -7,9 +7,9 @@
 - [x] $j$ statt $i$ verwenden als imaginäre Einheit
 - [x] $\theta$ zu $\vartheta$ wechseln
 - [x] Aspect Ratio 1:1 in Cornu-Spirale
-- [ ] Formeln vereinheitlichen, kein Switch zwischen $t,u,x,z$
+- [x] Formeln vereinheitlichen, kein Switch zwischen $t,u,x,z$
 - [ ] "mittels" ersetzen durch bessere Satzstruktur
-- [ ] Allgemein Formeln bei Drehung überarbeiten und ausführlicher schreiben
+- [x] Allgemein Formeln bei Drehung überarbeiten und ausführlicher schreiben
 - [ ] "Wavelet" nicht mehr verwenden $\to$ Kugelwelle
 - [ ] Allgemein im Anwendungsbeispiel Ausdrücke anpassen, auch für nicht-ETler
 - [x] Text im Subscript als solchen einbetten, nicht kursiv
