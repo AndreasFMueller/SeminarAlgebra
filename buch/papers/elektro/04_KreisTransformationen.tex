@@ -6,15 +6,31 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Schwarz-Christoffel Transformationen
+\section{Komplexe Transformationen auf den Kreis
 \label{elektro:section:KreisTrafo}}
 \kopfrechts{Kreis Transformationen}
-\section{Von schwierigen zu einfachen Feldern durch komplexe Transformation}
+
+Im Abschnitt \ref{elektro:section:RiemannSatz} wurden die Voraussetzungen für die Anwendung des Riemannschen Abbildungssatzes beschrieben.
+Dabei wurde erwähnt, dass es keine allgemeine Formel für die Abbildung von beliebigen Gebieten auf den Einheitskreis gibt.
+Daher suchen wir nach einer Methode, die uns erlaubt, die Abbildung für beliebige Gebiete zu finden, damit wir die Potential- und Feldberechnung vereinfachen können.
+
+Unser Ziel ist es bekanntlich Berechnungen anhand des Einheitskreises durchzuführen, da wir dort die Potential- und Feldberechnung bereits kennen.
+Für eine solche Transformation gibt es mathematisch mehre Ansätze, die zu einer Lösung führen.
+Hier wird der Ansatz durch Schwarz-Christoffel-Transformationen vorgestellt, die auf einem approximativen Integrationsverfahren basiert.
+
+\section{Schwarz-Christoffel-Transformationen
+\label{elektro:section:SchwarzChristoffel}}
+Zuerst müssen wir die Schwarz-Christoffel-Transformationen definieren, die eine Abbildung von Polygonen auf den Einheitskreis ermöglichen.
+\begin{equation}
+	f(z) = C \int_{z_0}^{z} \prod_{k=1}^{n}
+	\label{elektro:equation:SchwarzChristoffel_ext}
+\end{equation}
 
 
 \section{Quellen
-	\label{elektro:section:Quellen}}
+\label{elektro:section:Quellen}}
 \kopfrechts{Quellen}
+
 \begin{itemize}
 	\item The Electric Field in Various Circumstances (Continued), 7–2: Two-dimensional fields; functions of the complex variable, Url: https://www.feynmanlectures.caltech.edu/II\_07.html
 \end{itemize}

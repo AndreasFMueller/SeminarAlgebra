@@ -6,7 +6,7 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Der Kreis 
+\section{Der Kreis
 \label{elektro:section:DerKreis}}
 \kopfrechts{Der Kreis}
 Bevor wir im nächsten Kapitel die Transformation von Kreisen betrachten, wollen wir uns mit den Eigenschaften des Kreises beschäftigen.
@@ -62,12 +62,25 @@ Mathematisch wird die Kreisspiegelung durch die folgende Transformation beschrie
 
 \subsection{Zusammenhang zwischen $E$-Feld und Potential
 \label{elektro:subsection:ephizusammenhang}}
-Etwas vorgreifend wird hier gezeigt, wie im Falle eines Kreises mathematisch von einem Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen werden kann.
-Die Fläche außerhalb des Kreises wird als Potentialfeld beschrieben.
+Anhand des beipsiels des Einheitskreises wir hier gezeigt wie von einem Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen werden kann, wie im Abschnitt \ref{elektro:subsection:Laplace} behauptet wird.
 
-\textcolor{red}{Kreislauf integral aus Notizen}
+Unser ausganspunkt ist das elektrische Feld $\mathbf{E}$, das durch die umformung zu Zylindrischen Koordinaten auf $ E = \frac{\rho}{2\pi\varepsilon_0 r} \hat{r} $ vereinfacht werden kann.
+Wird dies in die Formel \ref{equatiom:Potential} eingesetzt, so ergibt sich das Potentialfeld $\varphi$. 
+\begin{equation}
+    \varphi = - \int_{1}^{k} \frac{\rho}{2\pi\varepsilon_0 r} \hat{r} \cdot d\mathbf{r}
+    = - \frac{\rho}{2\pi\varepsilon_0}\vert ln(k) \vert_{1}^{r}
+    = - \frac{\rho}{2\pi\varepsilon_0} ln(r)
+\end{equation}
+Ist nun das Elektrische feld bekannt kann daraus auch das elektrische Potetntial berechnet werden.
+% Kontinuierlich kann auch vom Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen weerden indem die Formel die sich aus dem soeben ausgeführen Integrals umgestellt wird. 
+Der Rückschluss vom Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ ist über die Laplacegleichugn \ref{elektro:subsection:Laplace} möglich.
+Es muss konsistent in Zylindrischen koordinaten gearbeitet werden, damit die Ableitung des Potentials $\varphi$ nach $r$ das elektrische Feld $\mathbf{E}$ ergibt.
 
-\subsection{Cayley-Transformation
-\label{elektro:subsection:Cayley}}
-Dies wäre eine Option aber ist weniger intuitiv, weil alles über die Unendlichkeit geschlossen werden muss.
-Ausserdem, haben die meisten Geometrien eine geschlossene Oberfläche.
+\begin{equation}
+    \mathbf{E} = - \nabla \varphi = - \frac{\partial}{\partial r} \left( - \frac{\rho}{2\pi\varepsilon_0} ln(r) \right) = \frac{\rho}{2\pi\varepsilon_0 r} \hat{r}
+\end{equation}
+
+% \subsection{Cayley-Transformation
+% \label{elektro:subsection:Cayley}}
+% Dies wäre eine Option aber ist weniger intuitiv, weil alles über die Unendlichkeit geschlossen werden muss.
+% Ausserdem, haben die meisten Geometrien eine geschlossene Oberfläche.
