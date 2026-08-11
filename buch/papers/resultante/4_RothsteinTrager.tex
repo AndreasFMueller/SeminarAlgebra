@@ -1,7 +1,7 @@
 %
 % 4_RothsteinTrager.tex -- Abschnitt 4 Resultante anwendung in RT
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+% (c) 2026 Jakob Gierer, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
@@ -26,23 +26,23 @@ Gesucht sind noch die Nullstellen \(c_k\) für
 \end{equation}
 die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq0\))
 \begin{equation}
-    v_k(z)=\operatorname{ggT}(a(z)-c_k\cdot b'(z),b(z))
+    v_k(z)=\operatorname{ggT}\left(a(z)-c_k\cdot b'(z),b(z)\right)
     \label{resultante:equation:vks}
 \end{equation}
 haben.
 
-Dafür eigenet sich die Resultante Definition \ref{resultante:definition:resultante} hervorragend.
+Dafür eigenet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
 Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit dazugehöriger Nullstelle.
 
 \subsection*{Anwendung der Resultante
 \label{resultante:subsection:anwendung}}
 Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird folgende Resultante benötigt:
 \begin{equation}
-    \operatorname{Res}_z(a(z)-c_k\cdot b'(z),b(z))=0,
+    \operatorname{Res}_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0,
     \label{resultante:equation:resz}
 \end{equation}
 Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
-Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch die Koeffizienten der \(z\) Polynomen.
+Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch die Koeffizienten der \(z\) Polynomen.
 
 \begin{beispiel}
     Die Stammfunktion von
@@ -50,7 +50,7 @@ Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch
         \int\frac{1}{z^3+z}\,dz
     \end{equation*}
     soll mit der Methoden von Rothstein-Trager und der Resultante bestimmt werden.
-    Die Bedingungen für die Rothstein-Trager Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
+    Die Bedingungen für die Rothstein-Trager-Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
     Es müssen daher die \(c_k\) und die dazugehörigen \(v_k(z)\) gefunden werden.
     Für die Resultante braucht es
     \begin{equation}
@@ -63,10 +63,10 @@ Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch
     \end{equation}
     sie sieht wie folgt aus:
     \begin{equation}
-        \operatorname{Res}_z(-3c_kz^2+1-c_k,z^3+z)=0,
+        \operatorname{Res}_z\left(-3c_kz^2+1-c_k,z^3+z\right)=0,
         \label{resultante:equation:resZgut}
     \end{equation}
-    die daraus folgende Sylvestermatrix ist (zur Vereinfachung \(c\) statt \(c_k\)):
+    die daraus folgende Sylvester-Matrix ist (zur Vereinfachung \(c\) statt \(c_k\)):
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         -3c & 0 & 1-c & 0 & 0 \\
@@ -150,6 +150,64 @@ Dadurch wird die Variabel \(z\) eliminiert, in der Sylvertermatrix sind nur noch
         \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1).
     \end{equation*}
     \label{resultante:beispiel:gutesIntegral}
+\end{beispiel}
+
+\begin{beispiel}
+    Die Methode soll mit einem weiteren Beispiel verdeutlicht werden.
+    Das Integral
+    \begin{equation*}
+        \int\frac{1}{\log x}\,dx
+    \end{equation*}
+    soll gelöst werden.
+    Dafür muss \(F(\vartheta)=\mathbb{Q}(x)\) mit dem logarithmischem Element \(\vartheta=\log x\) erweiterte werden.
+    Der Integrand wird dadurch zu
+    \begin{equation*}
+        f=\frac{1}{\vartheta}
+    \end{equation*}
+    mit
+    \begin{equation}
+        \begin{aligned}
+            a(\vartheta)&=1\\
+            b(\vartheta)&=\vartheta\\
+            Db(\vartheta)&=\frac{1}{x}
+        \end{aligned}
+    \end{equation}
+    Das \(D\) steht hier für die Derivation nach \(x\).
+    Die Resultante daraus sieht wie folgt aus:
+    \begin{equation}
+        \operatorname{Res}_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\operatorname{Res}_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
+        \label{resultante:equation:resTbad}
+    \end{equation}
+    der erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
+    die daraus entstehende Sylvester-Matrix Ist
+    \begin{equation}
+        \begin{NiceArray}{c}[cell-space-limits=3pt]
+        1-c\frac{1}{x} \\
+        \CodeAfter
+            \tikz \draw ([xshift=-3pt,yshift=2pt]1-|1) rectangle ([xshift=3pt,yshift=-2pt]2-|2);
+        \end{NiceArray}
+        \,\,\,\,\,.
+        \label{resultante:equation:sylBad}
+    \end{equation}
+    Der Algorithmus für dieses Tableau endet bevor er überhaupt das erste mal angewandt wird.
+    Das kritische Element ist:
+    \begin{equation}
+        \begin{aligned}
+            1-\frac{c}{x}&\overset{!}{=}0\\
+            \frac{c}{x}&=1\\
+            c&=x,
+        \end{aligned}
+        \label{resultante:equation:solBad}
+    \end{equation}
+    die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine Konstante sein (\(Dc=0\)).
+    Hier ist
+    \begin{equation*}
+        Dc=Dx=1\neq0
+    \end{equation*}
+    Daraus folgt das Integral ist nicht elementar lösbar.
+
+    Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt ist das der Integrallogarithmus.
+    \label{resultante:beispiel:badIntegral}
 \end{beispiel}
 
 Die Nullstellen \(c_k\) aus der Resultante können auch Polynome sein, daraus folgt, dass das Integral nicht elementar lösbar ist.
