@@ -10,7 +10,7 @@
 - [x] Formeln vereinheitlichen, kein Switch zwischen $t,u,x,z$
 - [ ] "mittels" ersetzen durch bessere Satzstruktur
 - [x] Allgemein Formeln bei Drehung überarbeiten und ausführlicher schreiben
-- [ ] "Wavelet" nicht mehr verwenden $\to$ Kugelwelle
+- [x] "Wavelet" nicht mehr verwenden $\to$ Kugelwelle
 - [ ] Allgemein im Anwendungsbeispiel Ausdrücke anpassen, auch für nicht-ETler
 - [x] Text im Subscript als solchen einbetten, nicht kursiv
 - [x] Alle Bilder in Anwendungsbeispiel durch Tikz ersetzen (Schriftgrösse und -art, Auflösung)

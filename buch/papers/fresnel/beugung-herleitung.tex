@@ -10,10 +10,10 @@
 \kopfrechts{Anwendungsbeispiel}
 
 In der Drahtloskommunikation werden die Fresnel-Integrale für 
-die Beugung von Signalen an einer Knife-Edge gebraucht.
-Zwischen zwei Antennen ragt ein Hindernis in die direkte 
+die Beugung von Signalen an einer sogenannten Knife-Edge gebraucht.
+Diese Knife-Edge ragt als Hindernis zwischen zwei Antennen in die direkte 
 Linie von Sender und Empfänger. 
-Nun wird jede ausgesendete Welle als Wavelet angesehen,
+Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
 welche sich nach Huygens kreisförmig ausbreitet. 
 Um die Beugung zu berechnen, 
 bedarf es einiger Definitionen, 
@@ -45,11 +45,11 @@ Die Fresnel-Integrale werden hier in der Form
 \begin{equation}
     C(v) 
     = 
-    \int_{0}^{x} \cos \left(\frac{\pi}{2}t^2\right)
+    \int_{0}^{v} \cos \left(\frac{\pi}{2}t^2\right)
     \quad \text{und} \quad
     S(v) 
     = 
-    \int_{0}^{x} \sin \left(\frac{\pi}{2}t^2\right)
+    \int_{0}^{v} \sin \left(\frac{\pi}{2}t^2\right)
     \label{fresnel:integral-C-S-beispiel}
 \end{equation}
 definiert, wobei
@@ -87,9 +87,9 @@ d \left( 1 + \frac{h^2}{2d^2} \right)
 =
 d + \frac{h^2}{2d},
 \]
-unter der Annahme, dass in den meisten Fällen die Distanz zur Knife-Edge um einige Magnituden grösser ist,
-als die Höhe der Wavelets.
-Will man nun das Signal zweier ankommender Wavelets am Empfänger berechnen, geht dies durch Einsetzen
+unter der Annahme, dass in den meisten Fällen die Distanz zur Knife-Edge um ein Vielfaches grösser ist,
+als die Höhe der Kugelwelle.
+Will man nun das Signal zweier ankommender Kugelwellen am Empfänger berechnen, geht dies durch Einsetzen
 \begin{align*}
     \text{für } h = 0: \quad \psi_0
     &=
@@ -115,7 +115,7 @@ $\to$ keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
 =
 \psi (r)
 \]
-und kann für Wavelets in verschiedenen Höhen mit $h = h_i$ als
+und kann für Kugelwellen in verschiedenen Höhen mit $h = h_i$ als
 \[
 \psi_i
 =
