@@ -13,7 +13,7 @@
 - [ ] "Wavelet" nicht mehr verwenden $\to$ Kugelwelle
 - [ ] Allgemein im Anwendungsbeispiel Ausdrücke anpassen, auch für nicht-ETler
 - [ ] Text im Subscript als solchen einbetten, nicht kursiv
-- [ ] Alle Bilder in Anwendungsbeispiel durch Tikz ersetzen (Schriftgrösse und -art, Auflösung)
+- [x] Alle Bilder in Anwendungsbeispiel durch Tikz ersetzen (Schriftgrösse und -art, Auflösung)
 - [ ] normales $e$ verwenden statt $\mathrm{e}$
 - [ ] Keine $\to$ verwenden im Text
 - [ ] Wellendichte im Beispiel besser erklären

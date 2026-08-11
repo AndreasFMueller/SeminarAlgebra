@@ -18,24 +18,25 @@ welche sich nach Huygens kreisförmig ausbreitet.
 Um die Beugung zu berechnen, 
 bedarf es einiger Definitionen, 
 welche im weiteren Verlauf verwendet werden und in 
-Abbildung~\ref{fresnel:Pythagoras-Bild} ersichtlich sind:
+Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
 \begin{itemize}
     \item 
     $d$ sei der Abstand vom Empfänger zur Knife-Edge
     \item 
-    $h$ sei die Höhe eines Wavelets direkt über der Knife-Edge
+    $h$ sei die Höhe einer Kugelwelle direkt über der Knife-Edge
     \item
-    $h_{edge}$ sei die Höhe, welche die Knife-Edge in die direkte Linie zwischen Sender und Empfänger hineinragt
+    $h_{\text{edge}}$ sei die Höhe, welche die Knife-Edge in die direkte Linie zwischen Sender und Empfänger hineinragt
     \item 
-    $r$ sei die Distanz eines Wavelets zum Empfänger
+    $r$ sei die Distanz einer Kugelwelle zum Empfänger
 \end{itemize}
 
-\begin{figure} % TODO: evtl. durch tikz ersetzen
+\begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Pythagoras-Dreieck.png}
+    % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Pythagoras-Dreieck.png}
+     \resizebox{.7\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_einseitig.tex}\unskip}
     \caption{
-        Definitionen für die Berechnung
-        \label{fresnel:Pythagoras-Bild}
+        Darstellung der einseitigen Verlustberechnung
+        \label{fresnel:Diff-loss-einseitig-abb}
     }
 \end{figure}
 
@@ -226,7 +227,7 @@ anwendet.
 
 %TODO: Bild für beidseitige Diff-Loss
 Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Knife-Edge und Empfänger. 
-Soll nun der Beugungsverlust zwischen Sender und Empfänger mit dazwischenliegender Knife-Edge wie in Abbildung~\ref{fresnel:diff-loss-beidseitig} berechnet
+Soll nun der Beugungsverlust zwischen Sender und Empfänger mit dazwischenliegender Knife-Edge wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
 werden, kann der Fresnel-Parameter so erweitert % Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 \footnote{Die Substitution lautet $\frac{1}{d} \to \frac{d_1 + d_2}{d_1d_2}$, die Herleitung ist dem Leser überlassen} 
 werden, dass
@@ -238,10 +239,11 @@ werden, dass
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
+    % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
+    \resizebox{.8\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_beidseitig.tex}\unskip}
     \caption{
-        Dartsellung der Verluste zwischen Sender und Empfänger
-        \label{fresnel:diff-loss-beidseitig}
+        Darstellung der Knife-Edge zwischen Sender und Empfänger
+        \label{fresnel:knife-edge-abb}
     }
 \end{figure}
 
@@ -269,7 +271,8 @@ angenähert werden.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
+    % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
+    \resizebox{0.85\textwidth}{!}{\input{papers/fresnel/pgf/beugungsverluste.pgf}\unskip}
     \caption{
         Diagramm Fresnel-Parameter und Verluste
         \label{fresnel:Fresnel-Diagram}
