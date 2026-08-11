@@ -10,7 +10,7 @@
 \kopfrechts{Anwendungsbeispiel}
 
 In der Drahtloskommunikation werden die Fresnel-Integrale für 
-die Beugung von Signalen an einer Knife-Edge gebraucht. %TODO: Bild Knife-Edge
+die Beugung von Signalen an einer Knife-Edge gebraucht.
 Zwischen zwei Antennen ragt ein Hindernis in die direkte 
 Linie von Sender und Empfänger. 
 Nun wird jede ausgesendete Welle als Wavelet angesehen,
@@ -147,21 +147,21 @@ welches anschliessend mittels $\Delta h \to dh$ zum Integral
 \[
 \psi_{rx}
 =
-\rho_{\psi_0} \int_{h_{edge}}^{\infty} \mathrm{e}^{-jk\left(\frac{h^2}{2d}\right)} dh
+\rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \mathrm{e}^{-jk\left(\frac{h^2}{2d}\right)} dh
 =
-\rho_{\psi_0} \int_{h_{edge}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
+\rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
 \]
 wird.
 Dies kann mit den gängigen Regeln in zwei Integrale mit Beginn bei 0 umgestellt werden, was zu
 \begin{align*}
     \psi_{rx}
     &=
-    \rho_{\psi_0} \int_{h_{edge}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
+    \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
     \\
     &=
     \underbrace{\rho_{\psi_0} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Wellendichte}}
     -
-    \underbrace{\rho_{\psi_0} \int_{0}^{h_{edge}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Knife-Edge}}  
+    \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Knife-Edge}}  
 \end{align*}
 führt.
 Das Integral ähnelt C aus der Formel~\eqref{fresnel:integral-C-S} und kann mittels der Substitution
@@ -182,9 +182,9 @@ dh
 \]
 aufgelöst werden zu
 \begin{equation*}
-    \int_{0}^{h_{edge}} \cos \left(\frac{k}{2d}h^2\right) dh
+    \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
     =
-    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{edge}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
+    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
     =
     \sqrt{\frac{\pi d}{k}} C(v).
 \end{equation*}
@@ -198,11 +198,11 @@ mit dem daraus entstehenden Fresnel-Parameter
 \begin{equation}
     v
     =
-    h_{edge} \sqrt{\frac{k}{\pi d}}
+    h_{\text{edge}} \sqrt{\frac{k}{\pi d}}
     \quad
     \overset{k = \frac{2 \pi}{\lambda}}{=}
     \quad
-    h_{edge} \sqrt{\frac{2}{\lambda d}}.
+    h_{\text{edge}} \sqrt{\frac{2}{\lambda d}}.
 \end{equation}
 
 \subsection{Beugungsverlust}
@@ -217,9 +217,9 @@ Aus den hervorgehenden Gleichungen kann der Beugungsverlust $L(v)$ berechnet wer
     \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}
     \label{fresnel:diff-loss-einseitig}
 \end{equation}
-und für $L_{dB}$ die Umrechnung
+und für $L_{\unit{\decibel}}$ die Umrechnung
 \[
-L_{dB} (v)
+L_{\unit{\decibel}} (v)
 =
 10 \cdot \log_{10}L(v)
 \]
@@ -234,7 +234,7 @@ werden, dass
 \begin{equation}
     v
     =
-    h_{edge} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}.
+    h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}.
 \end{equation}
 
 \begin{figure}
@@ -247,22 +247,22 @@ werden, dass
     }
 \end{figure}
 
-Die daraus resultierenden Verluste $L_{dB}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
+Die daraus resultierenden Verluste $L_{\unit{\decibel}}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
 ausgelesen oder mit folgenden Formeln
 \begin{subequations}
     \begin{align}
         v > 1: \quad
-        -L_{dB}
+        -L_{\unit{\decibel}}
         &=
-        20 \log_{10}v + 13 dB
+        20 \log_{10}v + \qty{13}{\decibel}
         \\
         v > -0.7: \quad
-        -L_{dB}
+        -L_{\unit{\decibel}}
         &=
-        20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + 6.9 dB
+        20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + \qty{6.9}{\decibel}
         \\
         \text{sonst:} \quad
-        -L_{dB}
+        -L_{\unit{\decibel}}
         &=
         10 \log_{10} L(v)
     \end{align}
