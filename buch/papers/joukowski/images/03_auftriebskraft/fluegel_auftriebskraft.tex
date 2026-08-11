@@ -1,0 +1,35 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{external}
+
+\input{wing.tex}
+
+\tikzexternalenable
+
+\begin{document}
+	
+	\begin{tikzpicture}[scale=0.4,>=Latex]
+		\coordinate (P) at (-2.2,-0.03);
+		\draw[white, very thick] (-10,-3) rectangle (2,3);
+		\node[shape=wing, scale = 1.4] at (0,0) {};
+		
+		\begin{scope}[rotate=187]
+			\fill (P) + (-0.17,-0.17) circle (0.05);
+			
+			\draw[thick] (P) + (-0.5,0.0)
+			arc[start angle=180,end angle=270,radius=0.5];
+			
+			\draw[->, thick, red] (P) -- node [midway, below]    {$dz$} + (180:2.5);
+			\draw[->, thick, teal] (P) -- node [midway, right]    {$dF' = i \cdot p(z) dz$} + (270:3.5);
+		\end{scope}
+		
+		\fill (P) circle (3pt);
+		
+		\draw[->, thick, black] (3, -1) -- node [midway, below] {$p_{\infty}$,$v_{\infty}$} + (0:3);
+		
+		\fill (3, -1) circle (3pt);
+		
+	\end{tikzpicture}
+	
+\end{document}

@@ -1,0 +1,79 @@
+%
+% halbkreiskontur.tex -- Halbkreiskontur fuer Hauptwerte
+%
+% (c) 2026 Damien Flury, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usetikzlibrary{arrows,math,decorations.markings}
+\definecolor{darkblue}{rgb}{0,0,0.7}
+\definecolor{darkred}{rgb}{0.7,0,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+	midarrow/.style={
+		postaction={decorate},
+		decoration={markings,mark=at position #1 with {\arrow[line width=1.2pt]{latex}}}}]
+
+% Parameter der Zeichnung
+\def\R{3.6}
+\def\x{1.4}
+\def\e{0.75}
+
+% Achsen
+\draw[->] (-\R-0.6,0) -- (\R+0.7,0) coordinate[label={$\operatorname{Re}z$}];
+\draw[->] (0,-0.6) -- (0,\R+0.7) coordinate[label={right:$\operatorname{Im}z$}];
+
+% grosser Halbkreis C_R, im positiven Sinn durchlaufen
+\draw[color=darkblue,line width=1.4pt,midarrow=0.5,midarrow=0.85]
+	(\R,0) arc[start angle=0, end angle=180, radius=\R];
+\node[color=darkblue] at (135:\R+0.42) {$C_R$};
+
+% Strecke von -R bis x_0 - epsilon
+\draw[color=darkblue,line width=1.4pt,midarrow=0.55]
+	(-\R,0) -- (\x-\e,0);
+
+% Einbuchtung C_epsilon: kleiner Halbkreis oberhalb der Polstelle,
+% im negativen Sinn durchlaufen
+\draw[color=darkblue,line width=1.4pt,midarrow=0.5]
+	(\x-\e,0) arc[start angle=180, end angle=0, radius=\e];
+\node[color=darkblue] at (\x,\e+0.34) {$C_\varepsilon$};
+
+% Parametrisierung z(theta) = x_0 + epsilon e^{i theta}
+\path (\x,0) ++(50:\e) coordinate (ztheta);
+\draw[color=darkred,->] (\x,0) --
+	node[color=darkred,font=\small,above left=-2pt] {$\varepsilon$} (ztheta);
+\draw[color=darkred] (\x+0.32,0) arc[start angle=0, end angle=50, radius=0.32];
+\path (\x,0) ++(25:0.5) coordinate (thetalabel);
+\node[color=darkred,font=\small] at (thetalabel) {$\theta$};
+\fill[color=darkred] (ztheta) circle[radius=0.05];
+\node[color=darkred,font=\small] at (ztheta) [above right=-1pt] {$z(\theta)$};
+
+% Strecke von x_0 + epsilon bis R
+\draw[color=darkblue,line width=1.4pt,midarrow=0.55]
+	(\x+\e,0) -- (\R,0);
+
+% Polstelle x_0 auf der reellen Achse
+\fill[color=darkred] (\x,0) circle[radius=0.06];
+\node[color=darkred] at (\x,-0.42) {$x_0$};
+
+% Pol z_1 in der oberen Halbebene
+\fill[color=darkred] (-1.5,1.9) circle[radius=0.06];
+\node[color=darkred] at (-1.5,1.9) [above right] {$z_1$};
+
+% Beschriftung der Integrationsgrenzen
+\draw (-\R,-0.08) -- (-\R,0.08);
+\node at (-\R,-0.42) {$-R$};
+\draw (\R,-0.08) -- (\R,0.08);
+\node at (\R,-0.42) {$R$};
+\draw[gray] (\x-\e,-0.08) -- (\x-\e,0.08);
+\node[gray,font=\small] at (\x-\e,-0.92) {$x_0-\varepsilon$};
+\draw[gray] (\x-\e,-0.18) -- (\x-\e,-0.72);
+\draw[gray] (\x+\e,-0.08) -- (\x+\e,0.08);
+\node[gray,font=\small] at (\x+\e,-0.92) {$x_0+\varepsilon$};
+\draw[gray] (\x+\e,-0.18) -- (\x+\e,-0.72);
+
+\end{tikzpicture}
+\end{document}

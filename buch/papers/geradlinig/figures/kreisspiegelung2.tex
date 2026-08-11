@@ -1,0 +1,22 @@
+\begin{tikzpicture}[scale=2]
+
+  % Circle center M and radius R
+  \coordinate (M) at (0,0);
+  \def\R{0.8}
+  \def\r{0.3}
+
+  % Circles and Line
+  \draw[darkgreen, line width=2pt] (M) circle (\R);
+  \draw[red, line width=1pt] ($(M)+(\r,0)$) circle (\r);
+  \draw[blue, thick] ($(M)+(1.2,-1.2)$) -- ($(M)+(1.2,1.2)$);
+  \draw[blue, thin, dashed] ($(M)+(1.2,-1.4)$) -- ($(M)+(1.2,1.4)$);
+
+  % Points
+  \fill[black] (M) circle (1pt);
+  \fill[red] ({2*\r},0) circle (1pt) node[black, left] {$P'$};
+  \fill[blue] (1.2,0) circle (1pt) node[black, right] {$P$};
+
+  % Labels
+  \node[left] at (M) {$M$};
+
+\end{tikzpicture}

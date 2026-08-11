@@ -16,6 +16,7 @@ PAPERFILES = \
 	papers/joukowski/main.tex \
 	papers/julia/main.tex \
 	papers/kepler/main.tex \
+	papers/laplace/main.tex \
 	papers/produkt/main.tex \
 	papers/qa/main.tex \
 	papers/weyl/main.tex \
@@ -178,10 +179,16 @@ $(workdir)/$(seminar)24-blx.bbl:	$(workdir)/$(seminar)24-blx.aux
 	cd $(workdir); bibtex $(seminar)24-blx
 
 $(workdir)/buch25-blx.bbl:	$(workdir)/buch25-blx.aux
-	cd $(workdir) bibtex buch25-blx
+	cd $(workdir); bibtex buch25-blx
 
 $(workdir)/$(seminar)25-blx.bbl:	$(workdir)/$(seminar)25-blx.aux
-	cd $(workdir) bibtex $(seminar)25-blx
+	cd $(workdir); bibtex $(seminar)25-blx
+
+$(workdir)/buch26-blx.bbl:	$(workdir)/buch26-blx.aux
+	cd $(workdir); bibtex buch26-blx
+
+$(workdir)/$(seminar)26-blx.bbl:	$(workdir)/$(seminar)26-blx.aux
+	cd $(workdir); bibtex $(seminar)26-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
@@ -209,6 +216,7 @@ BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch23-blx.bbl \
 	$(workdir)/buch24-blx.bbl \
 	$(workdir)/buch25-blx.bbl \
+	$(workdir)/buch26-blx.bbl \
 
 
 SBLXFILES = $(workdir)/$(seminar).bbl\
@@ -237,6 +245,7 @@ SBLXFILES = $(workdir)/$(seminar).bbl\
 	$(workdir)/$(seminar)23-blx.bbl \
 	$(workdir)/$(seminar)24-blx.bbl \
 	$(workdir)/$(seminar)25-blx.bbl \
+	$(workdir)/$(seminar)26-blx.bbl \
 
 
 PAPER_DIRECTORIES = \
@@ -248,6 +257,7 @@ PAPER_DIRECTORIES = \
 	joukowski \
 	julia \
 	kepler \
+	laplace \
 	produkt \
 	qa \
 	weyl \
@@ -274,6 +284,7 @@ PAPER_MAKEFILEINC = \
 	papers/joukowski/Makefile.inc \
 	papers/julia/Makefile.inc \
 	papers/kepler/Makefile.inc \
+	papers/laplace/Makefile.inc \
 	papers/produkt/Makefile.inc \
 	papers/qa/Makefile.inc \
 	papers/weyl/Makefile.inc \

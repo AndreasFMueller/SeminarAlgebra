@@ -1,0 +1,37 @@
+6. Rechenbeispiel
+	^
+	|
+	|
+
+5. Visuelle Darstellung der Zirkulation (Magnus Effekt, Flügelprofil),
+   Grafische ermittlung A. Zusammenhang a1 und A
+
+	^
+	|
+	|
+
+4. Komplexe Analysis : v(z) allgemeiner Reihenausdruck für beliebige profile,
+   definition von der Zirkulation,
+   Satz vom Kutta Joukowski,Berechnung der Auftriebkraft.
+
+	^
+	|
+	|
+
+3. Was sind Strömungslinien (Besipiele, Laminare strömung und Zylinder) Imaginärteil von Funktionen entspricht einer ströungslinie -> Formel mit bedeutung sind bereits gefunden worden.
+
+	^
+	|
+	|
+
+2. Auftrieb erklärung (Physikalisch)
+
+	^
+	|
+	|
+
+1. Vorraussetzungen
+	^
+	|
+	|
+0.Evtl Einleitung

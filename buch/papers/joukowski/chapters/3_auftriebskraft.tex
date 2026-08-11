@@ -1,12 +1,17 @@
 \section{Auftriebskraft}
 	Bei der Betrachtung eines Objektes in einem Beliebigen Mediums kann eine Auftriebskraft festgestellt werden.
-	Diese ist auf den Druckunterschied zurückzuführen.
-	Wir betrachten nun einen Eiswürfel im Wasserglas.
-	Für die Berechnung der Auftriebskraft ist offensichtlich nur der Höhendruck entscheidend daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
-	Im Beispiel eines Flugzeuges ist dies wesentlich komplizierter.
-	Hierbei handelt sich um eine Luftströmung, welche um einen Flügel strömt. 
-	Der Druck, an einem beliebigen Punkt im Raum, kann mit der Gleichung
+	Hierbei muss die Differenzierung gemacht werden zwischen statischen und dynamischen Auftrieb.
+	Der Statische Druck entsteht durch den Druckgradienten. 
+	Dies ist auf den Druckunterschied zurückzuführen. Strömungen führen zum Dynamischen Auftrieb.
 	
+	Ein Beispiel für den Statischen druck ist ein Eiswürfel im Wasserglas. Der Druckgradient beschreibt die Druckveränderung zwischen zwei punkten,
+	daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
+	
+	Bei einem Flugzeuge ist dies wesentlich komplizierter.
+	Hierbei handelt sich um Dynamischen Auftrieb. Für die Strömung gilt Energie Erhaltung.
+	Der Druck, an einem beliebigen Punkt im Raum, kann somit  mit der Gleichung
+	
+	\input{papers/joukowski/fig/03_auftriebskraft/fig-kontourintegral_fluegel.tex}
 	
 	\begin{equation}
 		\begin{aligned}
@@ -26,15 +31,3 @@
 		\label{joukowski:Auftriebskarft:Auftrieb1}
 		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 \, dz.
 	\end{equation}
-
-\subsection{Satz von Kutta-Joukowski}
-	Die Zirkulation wird durch den Ausdruck
-	\begin{equation}
-		\Gamma = \displaystyle\oint_{\gamma} \overline{v(z)} dz
-	\end{equation}
-	definiert. Somit erfolgt der Satz von Kutta-Joukowski:
-	\begin{equation}
-		\label{joukowski:Auftriebskarft:Auftrieb2}
-		F' = - i \cdot \rho \cdot v_{\infty} \cdot \Gamma
-	\end{equation}
-	Es wird klar das die Zirkulation eine Zentrale Rolle spielt für die berechnung des Auftriebes. Im nächsten Kapitel Komplexe Analysis wird darauf eingegangen, wie aus der Form ~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet} der satz von Kutta-Joukowski gebildet werden kann.

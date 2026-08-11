@@ -1,0 +1,36 @@
+\begin{tikzpicture}[scale=1.4]
+
+  % Circle 
+  \def\r{1}
+  \draw[red, thick] (0,0) circle (\r);
+
+  % Points on/around circle
+  \coordinate (O) at (-\r,0);
+  \coordinate (A) at (1.5,1.2);
+  \coordinate (C) at (1.5,-1.2);
+  
+  % Vertical line
+  \coordinate (B) at (\r,0);
+  \coordinate (D) at (2,0); % 2 = {2*(A.x) - (B.x)}
+  \coordinate (P) at ($(B)!0.5!(D)$);
+  \draw[blue, thick] (2,-2) -- (2,2);
+
+  % Connections
+  \draw[thick] (O) -- (A) -- (B) -- (C) -- cycle;
+  \draw[thick] (A) -- (D) -- (C);
+
+  % Additional lines for math. proof
+  \draw[darkgreen, thin, dashed] (O) -- (B) node[pos=0.5, above, yshift=-0.05cm] {$y$};
+  \draw[darkgreen, thin, dashed] (B) -- (P) node[pos=0.5, above, yshift=-0.05cm] {$x$};
+  \draw[darkgreen, thin, dashed] (D) -- (P) node[pos=0.5, above, yshift=-0.05cm] {$x$};
+  \draw[darkgreen, thin, dashed] (P) -- (A) node[pos=0.5, right, xshift=-0.05cm] {$h$};
+
+  % Mark points
+  \fill[black] (O) circle (1.5pt) node[left] {$O$};
+  \fill[black] (A) circle (1.5pt) node[above] {$A$};
+  \fill[black] (B) circle (1.5pt) node[left] {$B$};
+  \fill[black] (C) circle (1.5pt) node[below] {$C$};
+  \fill[black] (D) circle (1.5pt) node[right] {$D$};
+  \fill[darkgreen] (P) circle (1.5pt) node[below] {$P$};
+
+\end{tikzpicture}

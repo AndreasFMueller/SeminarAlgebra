@@ -1,0 +1,41 @@
+\begin{tikzpicture}[scale=1.2]
+
+  % Foints on/around circle
+  \def\len{2}
+  \coordinate (A) at ({\len*cos(60)},{\len*sin(60)});
+  \coordinate (C) at ({\len*-cos(60)},{\len*sin(60)});
+  \coordinate (B) at ({\len*-cos(60)},{\len*-sin(60)});
+  \coordinate (D) at ({\len*cos(60)},{\len*-sin(60)});
+  
+  % Vertical line
+  \def\r{1}
+  \coordinate (O) at (0,0);
+  \coordinate (P) at (0,{\len*sin(60)});
+  \coordinate (E) at ({2*\r},0);
+  \coordinate (F) at ({2*\r+2*\len*cos(60)},0);
+  \draw[blue, thick] ({2*\r+2*\len*cos(60)},-2) -- ({2*\r+2*\len*cos(60)},2);
+ 
+  % Circle 
+  \draw[red, thick] (\r, 0) circle (\r);
+
+  % Connections
+  \draw[thick] (A) -- (O) -- (B) -- (E) -- (C);
+  \draw[thick] (C) -- (D) -- (F) -- (A);
+
+  % Additional green lines
+  \draw[darkgreen, thin, dashed] (O) -- (E) node[midway, above] {$y$};
+  \draw[darkgreen, thin, dashed] (O) -- (P) node[midway, left] {$h$};
+  \draw[darkgreen, thin, dashed] (P) -- (C) node[midway, above] {$x$};
+  \draw[darkgreen, thin, dashed] (P) -- (A) node[midway, above] {$x$};
+
+  % Mark points
+  \fill[black] (A) circle (1.5pt) node[above] {$A$};
+  \fill[black] (B) circle (1.5pt) node[below] {$B$};
+  \fill[black] (C) circle (1.5pt) node[above] {$C$};
+  \fill[black] (D) circle (1.5pt) node[below] {$D$};
+  \fill[black] (F) circle (1.5pt) node[right] {$F$};
+  \fill[black] (E) circle (1.5pt) node[right] {$E$};
+  \fill[black] (O) circle (1.5pt) node[left] {$O$};
+  \fill[darkgreen] (P) circle (1.5pt) node[above] {$P$};
+
+\end{tikzpicture}

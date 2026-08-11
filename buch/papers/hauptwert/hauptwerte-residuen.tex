@@ -1,0 +1,103 @@
+%
+% hauptwerte-residuen.tex -- Hauptwerte mit dem Residuentheorem
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Hauptwerte mit dem Residuentheorem
+\label{hauptwert:section:hauptwerte-residuen}}
+\kopfrechts{Hauptwerte mit dem Residuentheorem}
+
+
+\subsection{Ein Integral ohne Polstelle auf der Achse
+\label{hauptwert:subsection:aufwaermbeispiel}}
+
+
+\subsection{Satz vom kleinen Kreisbogen
+\label{hauptwert:subsection:halbresiduen}}
+\input{papers/hauptwert/fig/halbkreiskontur.tex}
+Man betrachte ein Integral von einer beliebigen reellen Funktion mit einer
+Singularität an einem Punkt $x_0$ (z.B. $\int_{a}^{b} \frac{1}{x}\,dx$). Da das
+direkte Integrieren durch $x_0$ nicht funktioniert, weicht man über die
+komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
+(Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
+\begin{lemma}
+\label{hauptwert:lemma:halbresiduen}
+Man integriere eine Funktion $f(z)$ mit Polstelle erster Ordnung in $x_0$
+entlang einer Kurve $C_\varepsilon$, wobei $C_\varepsilon$ einen kleinen Halbkreis
+über die Polstelle an $x_0$ von $x_0-\varepsilon$ nach $x_0+\varepsilon$ macht.
+Es gilt
+\begin{equation}
+  \lim_{\varepsilon \to 0^+} \int_{C_\varepsilon} f(z)\,dz = -i\pi \res(x_0;f).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Da $f$ in $x_0$ eine Polstelle erster Ordnung hat, lässt sich $f$ in einer
+Umgebung von $x_0$ nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe}
+als
+\begin{equation}
+  f(z) = \frac{\res(x_0;f)}{z - x_0}
+       + \underbrace{g(z)}_{\text{Taylorreihe}}
+  \label{hauptwert:halbresiduen:zerlegung}
+\end{equation}
+schreiben, wobei $g$ in dieser Umgebung holomorph und damit auf einer
+kompakten Umgebung von $x_0$ durch ein $M$ beschränkt ist.
+Der Halbkreis $C_\varepsilon$ wird gemäss
+Abbildung~\ref{hauptwert:figure:halbkreiskontur} durch
+\begin{equation}
+  z(\theta) = x_0 + \varepsilon e^{i\theta},
+  \qquad \theta\colon \pi \to 0,
+  \qquad dz = i\varepsilon e^{i\theta}\,d\theta
+\end{equation}
+  parametrisiert, er wird also im negativen Sinn (Uhrzeigersinn) durchlaufen.
+Für den ersten Term in \eqref{hauptwert:halbresiduen:zerlegung} kürzt sich
+$\varepsilon e^{i\theta}$ weg und es bleibt
+\begin{equation}
+\begin{aligned}
+  \int_{C_\varepsilon} \frac{\res(x_0;f)}{z - x_0}\,dz
+  &= \int_{\pi}^{0} \frac{\res(x_0;f)}{\varepsilon e^{i\theta}}
+     \, i\varepsilon e^{i\theta}\,d\theta \\
+  &= i\,\res(x_0;f) \int_{\pi}^{0} d\theta \\
+  &= -i\pi \res(x_0;f),
+\end{aligned}
+\end{equation}
+unabhängig von $\varepsilon$.
+Der Beitrag von $g$ verschwindet dagegen im Grenzübergang, denn die Länge
+von $C_\varepsilon$ ist $\pi\varepsilon$ und damit
+\begin{equation}
+  \biggl| \int_{C_\varepsilon} g(z)\,dz \biggr|
+  \le M \pi \varepsilon
+  \longrightarrow 0
+  \qquad (\varepsilon \to 0^+).
+\end{equation}
+Zusammen folgt die Behauptung.
+\end{proof}
+
+
+\subsection{Das Lemma von Jordan
+\label{hauptwert:subsection:jordan}}
+
+\begin{lemma}
+\label{hauptwert:lemma:jordan}
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+
+\subsection{Die Halbkreiskontur
+\label{hauptwert:subsection:halbkreiskontur}}
+
+\begin{satz}
+\label{hauptwert:satz:hauptformel}
+% Hauptformel hier
+\end{satz}
+
+\begin{proof}
+% Beweis hier
+\end{proof}
+
+
+\subsection{Ein Warnbeispiel
+\label{hauptwert:subsection:warnbeispiel}}
