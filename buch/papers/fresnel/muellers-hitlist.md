@@ -9,12 +9,13 @@
 - [x] Aspect Ratio 1:1 in Cornu-Spirale
 - [x] Formeln vereinheitlichen, kein Switch zwischen $t,u,x,z$
 - [ ] "mittels" ersetzen durch bessere Satzstruktur
+- [ ] Knife-Edge ersetzen
 - [x] Allgemein Formeln bei Drehung überarbeiten und ausführlicher schreiben
 - [x] "Wavelet" nicht mehr verwenden $\to$ Kugelwelle
 - [ ] Allgemein im Anwendungsbeispiel Ausdrücke anpassen, auch für nicht-ETler
 - [x] Text im Subscript als solchen einbetten, nicht kursiv
 - [x] Alle Bilder in Anwendungsbeispiel durch Tikz ersetzen (Schriftgrösse und -art, Auflösung)
-- [ ] normales $e$ verwenden statt $\mathrm{e}$
+- [x] normales $e$ verwenden statt $\mathrm{e}$
 - [ ] Keine $\to$ verwenden im Text
 - [ ] Wellendichte im Beispiel besser erklären
 - [ ] Fussnote mit Substitution in Text einbauen, nicht einfach links liegen lassen
