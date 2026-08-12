@@ -18,4 +18,4 @@
 - [x] normales $e$ verwenden statt $\mathrm{e}$
 - [ ] Keine $\to$ verwenden im Text
 - [ ] Wellendichte im Beispiel besser erklären
-- [ ] Fussnote mit Substitution in Text einbauen, nicht einfach links liegen lassen
+- [x] Fussnote mit Substitution in Text einbauen, nicht einfach links liegen lassen
