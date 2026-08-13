@@ -19,7 +19,7 @@ Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouv
     \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z),
     \label{resultante:equation:satzRT}
 \end{equation*}
-diese Form haben muss. Gesucht sind noch die \(c_k\) für
+diese Form vorraus. Gesucht sind noch die \(c_k\) für
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
@@ -32,9 +32,10 @@ die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 haben.
 
 \begin{satz}
-    (Rothstein-Trager). Die Nullstellen von \(R(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+    (Rothstein-Trager). Die Nullstellen von \(\operatorname{R}(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
     \label{resultante:satz:RT} 
 \end{satz}
+Die Nullstellen von \(\operatorname{R}(z)=\operatorname{Res}_z\) sind die \(c_k\).
 
 Dafür eignet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
 Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit dazugehöriger Nullstelle.
