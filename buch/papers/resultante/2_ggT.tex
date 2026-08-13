@@ -12,12 +12,12 @@
 \subsubsection{ggT in der Tableau-Methode
 \label{resultante:subsubsection:tableau}}
 Die Tableau-Methode entsteht aus dem euklidischen Algorithmus, für den man die Polynom-Division als Tableau schreibt.
-Für die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableau-Methode, beginnt mit der Sylvertermatrix \(\operatorname{Syl}(b,a)\).
-Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester} in der alle \(m\)-Zeilen des \(a(X)\) Polynoms mit denen des \(b(X)\) Polynoms vertauscht werden.
+Die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableau-Methode beginnt mit der Sylvester-Matrix \(\operatorname{Syl}(b,a)\).
+Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester}, in der alle \(m\) Zeilen des \(a(X)\)-Polynoms mit denen des \(b(X)\)-Polynoms vertauscht werden.
 Auf diese Matrix werden nun \(n-m+1\)-Gauss-Zeilenoperationen angewandt.
 Die Zeilenoperationen führen im Wesentlichen zu einer Polynom-Division, wie das der euklidischen Algorithmus ebenfalls macht.
-Um nun auf die Stufenform der Sylvester-Matrix zurück zu kommen, wird auf den Restpolynomen zusätzliche Zeilenoperationen angewant, bis der Rest sich auf jeder Zeile wiederholt.
-In den unteren \(m\)-Zeilen ensteht der entsprechende Rest \(r(X)\) der Division von \(a(X)\) und \(b(X)\).
+In den unteren \(m\) Zeilen, an der Stelle der \(a(X)\)-Polynomen, ensteht der entsprechende Rest \(r(X)\) (die grünen Zeilen) der Division von \(a(X)\) und \(b(X)\).
+Um nun auf die Stufenform der Sylvester-Matrix zurück zu kommen, wird auf den Rest-polynomen zusätzliche Zeilenoperationen angewant, bis der Rest sich auf jeder Zeile wiederholt.
 Desweiteren werden die ersten \(n-m+1\) Spalten Nullen enthalten:
 
 \begin{equation*}
@@ -88,7 +88,7 @@ Das zeigt das folgende Beispiel.
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:step2}
     \end{equation}
-    Im kleineren Tableau unten rechts steht oben das Polynom \(b(X)\) und darunter das Restpolynom \(r(X)=r_1(X)=41X^2-46X+5\).
+    Im kleineren Tableau unten rechts steht oben das Polynom \(b(X)\) und darunter das Rest-polynom \(r(X)=r_1(X)=41X^2-46X+5\).
     Nun werden die beiden Bereiche vertauscht und die gleiche Methode wiederholt:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
@@ -154,7 +154,7 @@ Das zeigt das folgende Beispiel.
 \end{beispiel}
 
 Diese Methode ermöglicht es, den grössten gemeinsamen Teiler zu bestimmen.
-Da sich die Polynome (\(a(X)\) und \(b(X)\) bzw. \(b(X)\) und \(r(X)\)) in der Sylvester-Matrix jeweils um eine Spalte verschoben wiederholen muss, reicht es aus, die erste Zeile auf das Pivotelement zu normieren und auf die restlichen Zeilen des Polynoms zu kopieren.
+Da sich die Polynome \(a(X)\) und \(b(X)\) bzw. \(b(X)\) und \(r(X)\) in der Sylvester-Matrix jeweils um eine Spalte verschoben wiederholen muss, reicht es aus, die erste Zeile auf das Pivotelement zu normieren und auf die restlichen Zeilen des Polynoms zu kopieren.
 Ausserdem können weitere Zeilenoperationen eingespart werden, indem nur die erste Zeile des Restes berechnet wird und auf den darunter liegenden Zeilen kopiert wird.
 
 
@@ -169,7 +169,7 @@ Lediglich werden \(nm\) Vertauschungen für die Methode benötigt, daher folgt
 \end{equation} 
 Es kann also höchsten zu einem Wechsels des Vorzeichens der Determinante kommen.
 
-Der Algorithmus zur Berechnung der Determinante endet sobald der grüne Rest \(=0\) ist oder im braunen Feld (das mit dem \(?\)) eine Zahl steht bleibt.
+Der Algorithmus zur Berechnung der Determinante endet, sobald der grüne Rest \(=0\) ist oder im braunen Feld (das mit dem \(?\)) eine Zahl stehen bleibt.
 Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame Teiler ein Polynom vom Grad \(\geq1\):
 \begin{equation*}
     \centering
@@ -178,7 +178,7 @@ Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame 
 \end{equation*}
 Falls der letzte Rest im braunen Feld \(\neq0\) übrig bleibt, dann ist der grösste gemeinsame Teiler \(=1\), die beiden Polynome \(a(X)\) und \(b(X)\) sind somit teilerfremd.
 
-Daraus lässt sich ablesen, die Determinante ist genau dann verschieden von Null, wenn die beiden Polynome teilerfremd sind. 
+Daraus lässt sich ablesen, dass die Determinante genau dann verschieden von Null ist, wenn die beiden Polynome teilerfremd sind. 
 \begin{satz}
     (Resultante und Teiler). Zwei Polynome \(f(X)\) und \(g(X)\) sind genau dann teilerfremd, wenn \(\det(\operatorname{Syl}(f,g))\neq0\) ist.
 \end{satz}
@@ -187,7 +187,7 @@ Daraus lässt sich ablesen, die Determinante ist genau dann verschieden von Null
     \begin{equation*}
         \operatorname{Res}(f,g)=\det(\operatorname{Syl}(f,g))
     \end{equation*}
-    die Resultante der Polynome.
+    die \emph{Resultante} der Polynome.
     \label{resultante:definition:resultante}
 \end{definition}
 

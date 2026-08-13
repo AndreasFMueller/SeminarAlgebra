@@ -9,12 +9,15 @@
 \section{Geht das noch besser?
 \label{resultante:section:fortsetzung}}
 \kopfrechts{Geht das noch besser?}
-% Es ist bereits lange bekannt, dass der euklidische Algorithmus zur Berechnung grösster gemeinsamer Teiler zweier ganzer Zahlen bereits 2000 Jahre alt ist.
-% Es ist der älteste bekannte Algorithmus.
-% Beim Versuch den euklidischen Algorithmus zu verallgemeinern um den grössten gemeinsamen Teiler oder die Resultante von zwei Polynomen, erreicht man schnell das Konzept der Polynom-Restfolge (polynomial remainder sequence, PRS).
-% Dies führt zu schnell anwachsenden Koeffizienten.
+Es ist bereits lange bekannt, dass der euklidische Algorithmus zur Berechnung grösster gemeinsamer Teiler zweier ganzer Zahlen bereits 2000 Jahre alt ist.
+Es ist der älteste bekannte Algorithmus.
+Beim Versuch den euklidischen Algorithmus zu verallgemeinern um den grössten gemeinsamen Teiler oder die Resultante von zwei Polynomen, erreicht man schnell das Konzept der Polynom-Restfolge (polynomial remainder sequence, PRS).
+Dies führt zu schnell anwachsenden Koeffizienten.
+Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Artifakt der naiven Ansätze der Verallgemeinerung.
+Das Wachstum lässt sich kontrollieren, wenn von jedem Polynom der PRS der grösste gemeinsame Teiler seiner Koeffizienten entfernt wird.
 
-
+Der Schlüssel um diesen Koeffizienten Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\operatorname{ggT}\) der Koeffizienten ist die Grundlage der Subresultanten.
+Das Theorem von Subresultanten aus \cite{...} zeigt das jedes Polynom einer PRS proptional ist zu einer Subresultanten der ersten zwei Polynome.
 
 
 \subsection{De finibus bonorum et malorum

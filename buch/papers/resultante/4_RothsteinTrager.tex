@@ -13,36 +13,42 @@ In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die 
 Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sein müssen.
 Das Problem ist also die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
-Der rationale Teil \(a(z)\) ist teilerfremd zu \(b(z)\), mit \(\deg a(z)<\deg q(z)\).
-Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann gilt:
+Der rationale Teil \(a(z)\) ist teilerfremd zu \(b(z)\), mit \(\deg a(z)<\deg b(z)\).
+Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip
 \begin{equation*}
     \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z),
     \label{resultante:equation:satzRT}
 \end{equation*}
-Gesucht sind noch die Nullstellen \(c_k\) für
+diese Form haben muss. Gesucht sind noch die \(c_k\) für
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
 \end{equation}
-die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq0\))
+die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 \begin{equation}
     v_k(z)=\operatorname{ggT}\left(a(z)-c_k\cdot b'(z),b(z)\right)
     \label{resultante:equation:vks}
 \end{equation}
 haben.
 
-Dafür eigenet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
+\begin{satz}
+    (Rothstein-Trager). Die Nullstellen von \(R(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+    \label{resultante:satz:RT} 
+\end{satz}
+
+Dafür eignet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
 Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit dazugehöriger Nullstelle.
 
 \subsection{Anwendung der Resultante
 \label{resultante:subsection:anwendung}}
-Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird folgende Resultante benötigt:
+Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird die Resultante
 \begin{equation}
-    \operatorname{Res}_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0,
+    \operatorname{Res}_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0
     \label{resultante:equation:resz}
 \end{equation}
+benötigt.
 Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
-Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch die Koeffizienten der \(z\) Polynomen.
+Dadurch wird die Variable \(z\) eliminiert, in der Sylvester-Matrix sind nur noch die Koeffizienten der \(z\) Polynomen.
 
 \begin{beispiel}
     Die Stammfunktion von
@@ -179,7 +185,7 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
         \label{resultante:equation:resTbad}
     \end{equation}
     der erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
-    die daraus entstehende Sylvester-Matrix Ist
+    Die daraus entstehende \(1\times1\)-Sylvester-Matrix im Tableau ist
     \begin{equation}
         \begin{NiceArray}{c}[cell-space-limits=3pt]
         1-c\frac{1}{x} \\
@@ -206,8 +212,8 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
     \end{equation*}
     Daraus folgt das Integral ist nicht elementar lösbar.
 
-    Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt ist das der Integrallogarithmus.
+    Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt, ist das der Integrallogarithmus.
     \label{resultante:beispiel:badIntegral}
 \end{beispiel}
 
-Die Nullstellen \(c_k\) aus der Resultante können auch Polynome sein, daraus folgt, dass das Integral nicht elementar lösbar ist.
+Sobald die Nullstellen \(c_k\) aus der Resultante keine Konstant sind, folgt daraus, dass solche Integrale nicht elementar lösbar sind.
