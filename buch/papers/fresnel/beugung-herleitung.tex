@@ -9,25 +9,25 @@
 \section{Anwendungsbeispiel}
 \kopfrechts{Anwendungsbeispiel}
 
-In der Drahtloskommunikation werden die Fresnel-Integrale für 
-die Beugung von Signalen an einer sogenannten Knife-Edge gebraucht.
-Diese Knife-Edge ragt als Hindernis zwischen zwei Antennen in die direkte 
-Linie von Sender und Empfänger. 
+In der drahtlosen Kommunikation werden die Fresnel-Integrale für 
+die Beugung von Signalen an einer sogenannten Schneide gebraucht.
+Diese Schneide ragt als Hindernis in die direkte 
+Linie zwischen Sender und Empfänger. 
 Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
 welche sich nach Huygens kreisförmig ausbreitet. 
-Um die Beugung zu berechnen, 
+Um die Beugung an der Schneide zu berechnen, 
 bedarf es einiger Definitionen, 
 welche im weiteren Verlauf verwendet werden und in 
 Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
 \begin{itemize}
     \item 
-    $d$ sei der Abstand vom Empfänger zur Knife-Edge
+    $d$ sei der Abstand vom Empfänger zur Schneide
     \item 
-    $h$ sei die Höhe einer Kugelwelle direkt über der Knife-Edge
+    $h$ sei die Höhe des Ausgangspunktes einer Kugelwelle direkt über der Schneide
     \item
-    $h_{\text{edge}}$ sei die Höhe, welche die Knife-Edge in die direkte Linie zwischen Sender und Empfänger hineinragt
+    $h_{\text{edge}}$ sei die Höhe, welche die Schneide in die direkte Linie zwischen Sender und Empfänger hineinragt
     \item 
-    $r$ sei die Distanz einer Kugelwelle zum Empfänger
+    $r$ sei die Distanz vom Empfänger zum Ausgangspunkt einer Kugelwelle
 \end{itemize}
 
 \begin{figure}
@@ -92,9 +92,17 @@ d \left( 1 + \frac{h^2}{2d^2} \right)
 =
 d + \frac{h^2}{2d},
 \]
-unter der Annahme, dass in den meisten Fällen die Distanz zur Knife-Edge um ein Vielfaches grösser ist,
-als die Höhe der Kugelwelle.
-Will man nun das Signal zweier ankommender Kugelwellen am Empfänger berechnen, geht dies durch Einsetzen
+unter der Annahme, dass in den meisten Fällen die Distanz zur Schneide um ein Vielfaches grösser ist
+als die Höhe des Ausgangspunktes der Kugelwelle.
+Will man das gesamte Signal zweier ankommender Kugelwellen aus verschiedenen Höhen am Empfänger berechnen,
+benötigt man zuerst eine generische Formel für die empfangene Signalstärke $\psi_i$ über eine Distanz $r$ wie
+\begin{equation}
+    \psi_i
+    =
+    \psi \cdot \frac{e^{-jkr_i}}{r_i},
+\end{equation}
+wobei $\psi$ die ursprünglich ausgesendete Signalstärke ist.
+Durch Einsetzen der entsprechenden Höhen ergibt sich
 \begin{align*}
     \text{für } h = 0: \quad \psi_0
     &=
@@ -109,8 +117,8 @@ Will man nun das Signal zweier ankommender Kugelwellen am Empfänger berechnen, 
     \psi \cdot \frac{\text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
 \end{align*}
 Da dieses Vorgehen eine Approximation ist, 
-werden Abschwächungen und Verzögerungen der Signale vernächlässigt
-$\to$ keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
+können Abschwächungen und Verzögerungen der Signale vernächlässigt werden,
+das heisst keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
 \[
 \psi (r,t)
 =
@@ -120,7 +128,7 @@ $\to$ keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
 =
 \psi (r)
 \]
-und kann für Kugelwellen in verschiedenen Höhen mit $h = h_i$ als
+und kann für Kugelwellen mit Ausgangspunkten in verschiedenen Höhen mit $h = h_i$ als
 \begin{equation}
     \psi_i
     =
@@ -129,29 +137,44 @@ und kann für Kugelwellen in verschiedenen Höhen mit $h = h_i$ als
     \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
     \label{fresnel:Kugelwellen-signalstaerke}
 \end{equation}
-dargestellt werden. Mittels Superposition folgt
+dargestellt werden. Über die Superposition der verschiedenen Höhen folgt
 \begin{equation}
     \psi_{rx}
-    =
-    \sum_i \psi_i
     =
     \sum_i \psi \cdot e^{-jkr}
     =
     \psi \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
     =
-    \underbrace{\psi \cdot e^{-jkd}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
+    \underbrace{\psi \cdot e^{-jkd}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
     \label{fresnel:Kugelwellen-signalstaerke-superpos}
 \end{equation}
-und mittels Wellendichte $\rho_{\psi} = \frac{d\psi}{dh} \Rightarrow \psi = \rho_{\psi} \Delta h $
+Für einen späteren Schritt ist es von Vorteil, 
+die ursprüngliche Signalstärke als Produkt einer Wellendichte und
+diskreter Höhenabschnitte
+\[
+\psi
+=
+\rho_{\psi}\Delta h,
+\qquad
+\psi_0
+=
+\psi \cdot e^{-jkd}
+=
+\rho_{\psi}\Delta h \cdot e^{-jkd}
+=
+\rho_{\psi 0}\Delta h
+\]
+darzustellen,
+womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
 \begin{equation}
     \psi_{rx}
     =
     \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
     =
-    \rho_{\psi_0} \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right) \Delta h,
+    \rho_{\psi_0} \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right) \Delta h
     \label{fresnel:Kugelwellen-wellendichte}
 \end{equation}
-welches anschliessend mittels $\Delta h \to dh$ zum Integral
+wird, welche anschliessend durch infinitesmal kleine Schritte zum Integral
 \begin{equation}
     \psi_{rx}
     =
@@ -161,7 +184,7 @@ welches anschliessend mittels $\Delta h \to dh$ zum Integral
     \label{fresnel:Kugelwellen-wellendichte-integral}
 \end{equation}
 wird.
-Dies kann mit den gängigen Regeln in zwei Integrale mit Beginn bei 0 umgestellt werden, was zu
+Dies kann durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0 geschrieben werden, was zu
 \begin{align*}
     \psi_{rx}
     &=
@@ -170,13 +193,13 @@ Dies kann mit den gängigen Regeln in zwei Integrale mit Beginn bei 0 umgestellt
     &=
     \underbrace{\rho_{\psi_0} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Wellendichte}}
     -
-    \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Knife-Edge}}  
+    \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Schneidenbeugung}}  
 \end{align*}
 führt.
-Das Integral ähnelt $C$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann mittels der Substitution
+Das Integral ähnelt $C$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann über die Substitution
 \[
 h
-\to
+\text{ zu }
 t(h)
 =
 h\sqrt{\frac{h}{\pi d}}
@@ -188,6 +211,10 @@ h\sqrt{\frac{h}{\pi d}}
 dh
 =
 \sqrt{\frac{\pi d}{k}} dt
+\quad
+\text{ mit }
+k = \frac{2\pi}{\lambda}
+\text{ (Wellenzahl)}
 \]
 aufgelöst werden zu
 \begin{equation*}
@@ -237,9 +264,9 @@ L_{\unit{\decibel}} (v)
 10 \cdot \log_{10}L(v)
 \]
 berechnen.
-Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Knife-Edge und Empfänger. 
+Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Schneide und Empfänger. 
 Soll nun der Beugungsverlust zwischen Sender und Empfänger 
-mit dazwischenliegender Knife-Edge wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
+mit dazwischenliegender Schneide wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
 werden, folgt
 \[
 r
@@ -257,7 +284,7 @@ d_n \sqrt{1 + \frac{h^2}{d_n^2}}
 n = {1,2}.
 \]
 Wir nehmen wie im vorherigen Abschnitt an, 
-dass die Distanzen bedeutend grösser sind als die Höhe der Knife-Edge ($d \gg h$)
+dass die Distanzen bedeutend grösser sind als die Höhe der Schneide ($d \gg h$)
 und können dank der Taylor-Approximation den Term von $r_n $ zu
 \[
 r_n
@@ -305,7 +332,7 @@ angewendet werden kann.
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
     \resizebox{.8\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_beidseitig.tex}\unskip}
     \caption{
-        Darstellung der Knife-Edge zwischen Sender und Empfänger
+        Darstellung der Schneidenbeugung zwischen Sender und Empfänger
         \label{fresnel:knife-edge-abb}
     }
 \end{figure}
@@ -335,7 +362,7 @@ angenähert werden.
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
-    \resizebox{0.85\textwidth}{!}{\input{papers/fresnel/pgf/beugungsverluste.pgf}\unskip}
+    \resizebox{\textwidth}{!}{\input{papers/fresnel/pgf/beugungsverluste.pgf}\unskip}
     \caption{
         Diagramm Fresnel-Parameter und Verluste
         \label{fresnel:Fresnel-Diagram}
