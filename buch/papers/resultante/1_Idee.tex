@@ -19,9 +19,9 @@ Falls ja, dann ist
 \end{equation}
 mit \(\deg d \geq 1\), \(\deg(q(X))<\deg(f(X))\) und \(\deg(p(X))<\deg(g(X))\).
 
-Aus \ref{resultante:equation:divisor} folgt
+Aus (\ref{resultante:equation:divisor}) folgt
 \begin{equation}
-    \deg q = \deg f - \deg d \leq m-1 \quad und \quad
+    \deg q = \deg f - \deg d \leq m-1 \quad \text{und} \quad
     \deg p = \deg g - \deg d \leq n-1.
 \end{equation}
 Das Polynom (\ref{resultante:equation:divisor}) links wird mit \(p(X)\) multipliziert und das Polynom (\ref{resultante:equation:divisor}) rechts mit \(q(X)\).
@@ -78,7 +78,7 @@ Die Idee der Umformungsschritte bis hierher, ist es eine Übersicht zu bekommen,
 \label{resultante:subsection:Sylvester-Matrix}}
 
 \begin{definition}
-    (Sylvester-Matrix). Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a(X)=n\) beziehzungsweise \(\deg b(X)=m\). Die Sylvester-Matrix von a und b ist die \(n + m \times n + m\)-Matrix, die wie folgt definiert ist:
+    \emph{(Sylvester-Matrix)}. Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a(X)=n\) beziehzungsweise \(\deg b(X)=m\). Die Sylvester-Matrix von a und b ist die \(n + m \times n + m\)-Matrix, die wie folgt definiert ist:
     % \begin{equation}
         
     %     \begin{pmatrix}
@@ -101,7 +101,7 @@ Die Idee der Umformungsschritte bis hierher, ist es eine Übersicht zu bekommen,
         custom-line ={command= H, tikz= dashed, width= \pgflinewidth}, % horizontal, dashed
     }
     \begin{equation*}
-        \operatorname{Syl}(a,b)=
+        \syl(a,b)=
         \begin{pNiceMatrix}[last-col,extra-margin=4pt]
             a_n&a_{n-1}&a_{n-2}&\dots&&&&&
             &\Block{6-1}{\hspace*{11pt}m\text{-Zeilen}}\\
@@ -124,12 +124,12 @@ Die Idee der Umformungsschritte bis hierher, ist es eine Übersicht zu bekommen,
         \end{pNiceMatrix},
         \label{resultante:equation:Syldef}
     \end{equation*}
-wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden, heisst die Sylvester-Matrix.
+wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden, heisst die \emph{Sylvester-Matrix}.
 \label{resultante:definition:Sylvester}
 \end{definition}
 
 Wie sich aus der Herleitung (\ref{resultante:equation:Syl}) und der Definition \ref{resultante:definition:Sylvester} der Sylvester-Matrix beobachten lässt, kann die Sylvester-Matrix gebildet werden, indem man die Koeffizienten des Polynoms \(a(X)\) sooft wiederholt, wie der Grad \(\deg b(X)=m\) angibt.
 Analog dazu wird dasselbe mit dem Polynom \(b(X)\) gemacht.
 
-Die eigentliche Idee der Sylvester-Matrix ist es das algebraische Problem: ``Haben zwei Polynome einen gemeinsamen Faktor?'', in das lineare Problem: ``Sind zwei bestimmt verschobenen Polynome linear abhängig?''
+Die eigentliche Idee der Sylvester-Matrix ist es das algebraische Problem: ``Haben zwei Polynome einen gemeinsamen Faktor?'', in das lineare Problem: ``Sind zwei bestimmt verschobenen Polynome linear abhängig?'' umzuformulieren.
 Diese Umformug wird später in diesem Kapitel für die Definition \ref{resultante:definition:resultante} wichtig.

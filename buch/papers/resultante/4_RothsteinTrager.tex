@@ -13,13 +13,13 @@ In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die 
 Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sein müssen.
 Das Problem ist also die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
-Der rationale Teil \(a(z)\) ist teilerfremd zu \(b(z)\), mit \(\deg a(z)<\deg b(z)\).
+Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg a(z)<\deg b(z)\).
 Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip
 \begin{equation*}
     \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z),
     \label{resultante:equation:satzRT}
 \end{equation*}
-diese Form vorraus. Gesucht sind noch die \(c_k\) für
+diese Form vorraus. Gesucht sind nun die \(c_k\) für
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
@@ -32,10 +32,11 @@ die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 haben.
 
 \begin{satz}
-    (Rothstein-Trager). Die Nullstellen von \(\operatorname{R}(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+    \emph{(Rothstein-Trager)}. Die Nullstellen von \(\operatorname{R}(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
     \label{resultante:satz:RT} 
 \end{satz}
-Die Nullstellen von \(\operatorname{R}(z)=\operatorname{Res}_z\) sind die \(c_k\).
+\noindent
+Die Nullstellen von \(\operatorname{R}(z)=\Res_z\) sind die gesuchten \(c_k\).
 
 Dafür eignet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
 Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit dazugehöriger Nullstelle.
@@ -44,12 +45,12 @@ Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit da
 \label{resultante:subsection:anwendung}}
 Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird die Resultante
 \begin{equation}
-    \operatorname{Res}_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0
+    \Res_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0
     \label{resultante:equation:resz}
 \end{equation}
 benötigt.
 Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
-Dadurch wird die Variable \(z\) eliminiert, in der Sylvester-Matrix sind nur noch die Koeffizienten der \(z\) Polynomen.
+Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} aus der Resultanten \(\operatorname{R}(z)\) eliminiert.
 
 \begin{beispiel}
     Die Stammfunktion von
@@ -70,7 +71,7 @@ Dadurch wird die Variable \(z\) eliminiert, in der Sylvester-Matrix sind nur noc
     \end{equation}
     sie sieht wie folgt aus:
     \begin{equation}
-        \operatorname{Res}_z\left(-3c_kz^2+1-c_k,z^3+z\right)=0,
+        \Res_z\left(-3c_kz^2+1-c_k,z^3+z\right)=0,
         \label{resultante:equation:resZgut}
     \end{equation}
     die daraus folgende Sylvester-Matrix ist (zur Vereinfachung \(c\) statt \(c_k\)):
@@ -182,11 +183,11 @@ Dadurch wird die Variable \(z\) eliminiert, in der Sylvester-Matrix sind nur noc
     Das \(D\) steht hier für die Derivation nach \(x\).
     Die Resultante daraus sieht wie folgt aus:
     \begin{equation}
-        \operatorname{Res}_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\operatorname{Res}_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
+        \Res_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\Res_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
         \label{resultante:equation:resTbad}
     \end{equation}
     der erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
-    Die daraus entstehende \(1\times1\)-Sylvester-Matrix im Tableau ist
+    Die daraus entstehende \(1\times1\)-Sylvester-Matrix im Tableau ist dann
     \begin{equation}
         \begin{NiceArray}{c}[cell-space-limits=3pt]
         1-c\frac{1}{x} \\
@@ -202,17 +203,16 @@ Dadurch wird die Variable \(z\) eliminiert, in der Sylvester-Matrix sind nur noc
         \begin{aligned}
             1-\frac{c}{x}&\overset{!}{=}0\\
             \frac{c}{x}&=1\\
-            c&=x,
-        \end{aligned}
+            c&=x
+        \end{aligned},
         \label{resultante:equation:solBad}
     \end{equation}
-    die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine Konstante sein (\(Dc=0\)).
+    die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine Konstante sein (\(Dc\overset{!}{=}0\)).
     Hier ist
     \begin{equation*}
-        Dc=Dx=1\neq0
+        Dc=Dx=1\overset{!}{=}0 \,\text{\lightning}
     \end{equation*}
     Daraus folgt das Integral ist nicht elementar lösbar.
-
     Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt, ist das der Integrallogarithmus.
     \label{resultante:beispiel:badIntegral}
 \end{beispiel}
