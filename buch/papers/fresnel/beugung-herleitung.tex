@@ -67,6 +67,7 @@ C(-a)
 -C(a)
 \quad
 \text{sowie}
+\quad
 S(-a)
 =
 -S(a)
@@ -87,7 +88,7 @@ und mittels Taylor-Approximation für $d \gg h$
 r 
 =
 d \sqrt{1 + \frac{h^2}{d^2}}
-\sim
+\approx
 d \left( 1 + \frac{h^2}{2d^2} \right)
 =
 d + \frac{h^2}{2d},
@@ -137,9 +138,10 @@ und kann für Kugelwellen mit Ausgangspunkten in verschiedenen Höhen mit $h = h
     \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
     \label{fresnel:Kugelwellen-signalstaerke}
 \end{equation}
-dargestellt werden. Über die Superposition der verschiedenen Höhen folgt
+dargestellt werden. 
+Über die Superposition der verschiedenen Höhen erhält man die empfangene Signalstärke $\psi_{\text{rx}}$ als
 \begin{equation}
-    \psi_{rx}
+    \psi_{\text{rx}}
     =
     \sum_i \psi \cdot e^{-jkr}
     =
@@ -167,7 +169,7 @@ diskreter Höhenabschnitte
 darzustellen,
 womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
 \begin{equation}
-    \psi_{rx}
+    \psi_{\text{rx}}
     =
     \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
     =
@@ -176,7 +178,7 @@ womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
 \end{equation}
 wird, welche anschliessend durch infinitesmal kleine Schritte zum Integral
 \begin{equation}
-    \psi_{rx}
+    \psi_{\text{rx}}
     =
     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \text{exp}\left(-jk\left(\frac{h^2}{2d}\right)\right) dh
     =
@@ -186,7 +188,7 @@ wird, welche anschliessend durch infinitesmal kleine Schritte zum Integral
 wird.
 Dies kann durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0 geschrieben werden, was zu
 \begin{align*}
-    \psi_{rx}
+    \psi_{\text{rx}}
     &=
     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
     \\
@@ -196,7 +198,7 @@ Dies kann durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0 ges
     \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Schneidenbeugung}}  
 \end{align*}
 führt.
-Das Integral ähnelt $C$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann über die Substitution
+Das Integral ähnelt $C$ sowie $S$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann über die Substitution
 \[
 h
 \text{ zu }
@@ -216,17 +218,18 @@ dh
 k = \frac{2\pi}{\lambda}
 \text{ (Wellenzahl)}
 \]
-aufgelöst werden zu
+für $C$ aufgelöst werden zu
 \begin{equation*}
     \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
     =
     \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
     =
-    \sqrt{\frac{\pi d}{k}} C(v).
+    \sqrt{\frac{\pi d}{k}} C(v),
 \end{equation*}
-Über das ganze Integral ergibt sich
+wobei für $S$ die gleichen Schritte verwendet werden können.
+Über das ganze Integral ergibt sich anschliessend
 \begin{equation}
-    \psi_{rx} (v)
+    \psi_{\text{rx}} (v)
     =
     \rho_{\psi_0} \sqrt{\frac{\pi d}{k}} \cdot \left[\frac{1}{2} - C(v) -j\left(\frac{1}{2}-S(v)\right)\right]
 \end{equation}
@@ -249,7 +252,7 @@ weshalb in
 \begin{equation}
     L(v)
     =
-    \frac{|\psi_{rx} (-\infty)|^2}{|\psi_{rx} (v)|^2}
+    \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
     =
     \dots
     =
@@ -303,7 +306,7 @@ d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
 \]
 Setzt man die neue Distanz $r$ in die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} ein, folgt
 \begin{equation}
-    \psi_{rx}
+    \psi_{\text{rx}}
     =
     \psi \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)
     =
