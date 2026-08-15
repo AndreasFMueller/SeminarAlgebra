@@ -17,11 +17,69 @@ Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Arti
 Das Wachstum lässt sich kontrollieren, wenn von jedem Polynom der PRS der grösste gemeinsame Teiler seiner Koeffizienten entfernt wird.
 
 Der Schlüssel um diesen Koeffizienten Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\operatorname{ggT}\) der Koeffizienten ist die Grundlage der Subresultanten.
-Das Theorem von Subresultanten aus \cite{...} zeigt das jedes Polynom einer PRS proptional ist zu einer Subresultanten der ersten zwei Polynome.
+Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt das jedes Polynom einer PRS proptional zu einer Subresultanten der ersten zwei Polynome ist.
 
 
-\subsection{De finibus bonorum et malorum
-\label{resultante:subsection:bonorum}}
+\subsection{Grundlegender Aufbau
+\label{resultante:subsection:aufbau}}
+Angenommen die Terme eines Polynoms \(P\) sind in absteigender Potentz sortiert, dann ist der Koeffizient des ersten Terms der Leitkoeffizient \(\lc(P)\).
+Durch die gewöhliche Polynom-Division mit Rest in \(\mathbb{Q}\), entstehen häufig grosse rationale Zahlen.
+Die Pseudo-Division beseitigt die Nenner der Polynom-Division, durch die Multiplikation mit einer Potenz des Leitkoeffizienten.
+Die Pseudo-Division hat einen einzigartigen Pseudo-Quotienten \(Q=\pquo(f,g)\) mit Pseudo-Rest \(R=\prem(f,g)\) sodass
+\begin{equation}
+    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \, i=1,\dots,k \text{ist},
+    \label{resultante:equation:algpdivi}
+\end{equation}
+wobei \(b_i\) der Leitkoeffizient von \(P_{i+1}\) (\(\lc(P_{i+1})\)), \(\delta_i=\deg(P_i)-\deg(P_{i+1})\) und \(P_{i+2}=R_i\) ist.
+Bei anwendung derselben Vorgehensweise auf \(P_2\) und \(P_3\), und danach auf \(P_3\) und \(P_4\), usw. entsteht eine Folge
+\begin{equation}
+    P_1,P_2,P_3,\dots,P_k,P_{k+1}=0.
+    \label{resultante:equation:prs}
+\end{equation}
+So eine Folge heisst Polynom-Restfolge (PRS).
 
+\begin{beispiel}
+    Aus den Polynomen \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) soll die PRS gebildet werden.
+    Begonnen wird mit \(P_1=a(X)\) und \(P_2=b(X)\), dabei ist
+    \begin{equation*}
+        b_1 = 8, \qquad \delta_1=4-3=1.
+    \end{equation*}
+    Aus (\ref{resultante:equation:algpdivi}) folgt im ersten Schritt
+    \begin{equation}
+        8^{1+1}P_1-Q_1P_2=R_1,
+    \end{equation}
+    nach der Division erhählt man \(Q_1=32X-88\) und \(R_1=P_3=2624X^2-2944X+320\).
+    Der näschste Schritt hat mit
+    \begin{equation*}
+        b_2 = 2624, \qquad \delta_2=2-1=1,
+    \end{equation*}
+    daraus folgt die neue Division
+    \begin{equation}
+        2624^{1+1}P_2-Q_2P_3=R_2,
+    \end{equation}
+    daraus folgt \(Q_2=20992x+44544\) und \(R_2=P_4=14254080x-14254080\).
+    Da \(R_2\neq0\) ist geht der Algorithmus weiter mit
+    \begin{equation*}
+        b_3 = 14254080, \qquad \delta_3=1-1=0,
+    \end{equation*}
+    und
+    \begin{equation}
+        14254080^{1}P_3-Q_3P_4=R_3,
+    \end{equation}
+    daraus resultiert \(Q_3=37402705920x-4561305600\) und \(R_3=P_5=0\).
+    Daraus ergiebt sich die Folge
+    \begin{equation*}
+        \begin{aligned}
+            4X^4-7X^3+22X^2-24X+5,& \\
+            8X^3+8X^2-16X,& \\
+            2624X^2-2944X+320,& \\
+            14254080x-14254080,& \\
+            0\phantom{,}&
+        \end{aligned}
+    \end{equation*}
+    \label{resultante:beispiel:prs}
+\end{beispiel}
+Wie man in Beispiel \ref{resultante:beispiel:prs} beobachten kann explodieren die Koeffizient der PRS und jedes weitere Polynom ist Grad \(1\) kleiner als das vorherige.
 
-
+\subsubsection{Subresultanten-PRS
+\label{resultante:subsubsection:subresprs}}
