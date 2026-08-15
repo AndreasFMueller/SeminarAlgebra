@@ -6,34 +6,32 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\chapter{Thema\label{chapter:elliptisch}}
-\kopflinks{Thema}
+\chapter{Elliptische Integrale}\label{chapter:elliptisch}
+\kopflinks{Elliptische Integrale}
 \begin{refsection}
-\chapterauthor{Hans Muster}
+\chapterauthor{Baris Catan}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+\index{Baris Catan}%
+\index{Catan, Baris}%
 
-\input{papers/elliptisch/teil0.tex}
-\input{papers/elliptisch/teil1.tex}
-\input{papers/elliptisch/teil2.tex}
-\input{papers/elliptisch/teil3.tex}
+\noindent
+Der Umfang einer Ellipse führt auf ein Integral, das keine
+elementare Stammfunktion besitzt.
+Das lässt sich nicht mit Methoden der Analysis zeigen, sondern nur
+mit der Algebra:
+der Satz von Liouville und der Risch-Algorithmus setzen der
+elementaren Integration eine scharfe Grenze, und das
+Ellipsenintegral liegt jenseits davon.
+In diesem Kapitel wird zuerst diese Grenze bestimmt, dann werden
+die elliptischen Integrale und ihre Umkehrungen, die Jacobischen
+elliptischen Funktionen, eingeführt und schliesslich Anwendungen
+wie das Pendel, die Lemniskate und das rotierende Springseil
+behandelt.
+
+\input{papers/elliptisch/einleitung.tex}
+\input{papers/elliptisch/grenze.tex}
+\input{papers/elliptisch/funktionen.tex}
+\input{papers/elliptisch/anwendungen.tex}
 
 \printbibliography[heading=subbibliography]
 \end{refsection}

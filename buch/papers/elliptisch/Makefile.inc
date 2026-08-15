@@ -7,8 +7,8 @@ dependencies-elliptisch =						\
 	papers/elliptisch/packages.tex					\
 	papers/elliptisch/main.tex					\
 	papers/elliptisch/references.bib				\
-	papers/elliptisch/teil0.tex					\
-	papers/elliptisch/teil1.tex					\
-	papers/elliptisch/teil2.tex					\
-	papers/elliptisch/teil3.tex
+	papers/elliptisch/einleitung.tex				\
+	papers/elliptisch/grenze.tex					\
+	papers/elliptisch/funktionen.tex				\
+	papers/elliptisch/anwendungen.tex
 

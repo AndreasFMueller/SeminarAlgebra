@@ -1,0 +1,84 @@
+%
+% einleitung.tex -- Einleitung und Motivation
+%
+% (c) 2026 Baris Catan, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Eine harmlose Frage
+\label{elliptisch:section:einleitung}}
+\kopfrechts{Eine harmlose Frage}
+
+Der Umfang einer Ellipse lässt sich nicht mit den Mitteln der
+Schulmathematik berechnen.
+Für den Kreis mit Radius $r$ genügt die Parametrisierung
+$(x,y) = (r\cos t,\, r\sin t)$.
+Wegen $\sin^2 t + \cos^2 t = 1$ fällt die Wurzel im Bogenelement weg
+und es bleibt
+\begin{equation}
+U
+=
+\int_0^{2\pi} \sqrt{\dot x^2 + \dot y^2}\,dt
+=
+\int_0^{2\pi} r\,dt
+=
+2\pi r.
+\label{elliptisch:equation:kreisumfang}
+\end{equation}
+Für die Ellipse mit den Halbachsen $a \ge b$ kann man dieselbe
+Rechnung durchführen, aber die Wurzel verschwindet nicht.
+Mit der numerischen Exzentrizität $k^2 = (a^2-b^2)/a^2$ bleibt
+\begin{equation}
+U
+=
+4a \int_0^{\pi/2} \sqrt{1 - k^2\sin^2 t}\,dt
+\label{elliptisch:equation:ellipsenumfang}
+\end{equation}
+stehen \cite{elliptisch:mueller-spezielle}.
+\index{Ellipse}%
+\index{Exzentrizitat@Exzentrizität}%
+Dieses Integral hat keine elementare Stammfunktion.
+Dass das so ist, lässt sich nicht durch Probieren feststellen,
+sondern nur mit algebraischen Methoden beweisen.
+
+\subsection{Existenz und Darstellbarkeit}
+Nach dem Hauptsatz der Differential- und Integralrechnung besitzt
+jede stetige Funktion $f$ eine Stammfunktion, denn
+$F(x) = \int_a^x f(t)\,dt$ ist differenzierbar mit $F' = f$.
+Damit ist die Existenz gesichert.
+Offen bleibt, ob sich $F$ als endliche Formel aus Polynomen,
+Wurzeln, $\exp$, $\log$ und den trigonometrischen Funktionen
+schreiben lässt.
+Die Beispiele $\sqrt{ax^2+bx+c}$, $\sqrt{\tan x}$ und $e^{-x^2}$
+zeigen drei mögliche Antworten:
+elementar integrierbar, elementar integrierbar mit einem praktisch
+unbrauchbaren Resultat, und beweisbar nicht elementar integrierbar.
+\index{elementare Funktion}%
+Die Frage nach der geschlossenen Darstellung ist damit keine Frage
+der Analysis, sondern der Algebra.
+
+\subsection{Der Satz von Liouville}
+Der Satz von Liouville (1833/35) gibt diese algebraische Antwort.
+Wenn eine elementare Funktion $f$ eine elementare Stammfunktion
+besitzt, dann hat diese die Gestalt
+\begin{equation}
+\int f\,dx
+=
+v_0 + \sum_{i=1}^n c_i \log v_i,
+\label{elliptisch:equation:liouville}
+\end{equation}
+wobei $v_0$ und die $v_i$ aus demselben Funktionenkörper stammen wie
+$f$ \cite[Kapitel~8]{elliptisch:mueller-algebra}.
+\index{Liouville, Satz von}%
+Risch hat 1969 daraus einen Algorithmus entwickelt, der entscheidet,
+ob eine elementare Stammfunktion existiert, und der heute in
+Computeralgebrasystemen implementiert ist.
+\index{Risch-Algorithmus}%
+Für Integranden der Form $R(x,\sqrt{p(x)})$ mit rationalem $R$ und
+einem Polynom $p$ hängt die Antwort vom Grad von $p$ ab:
+bis Grad $2$ ist das Integral elementar, ab Grad $3$ im Allgemeinen
+nicht mehr.
+Das Ellipsenintegral \eqref{elliptisch:equation:ellipsenumfang}
+fällt mit Grad $4$ in den zweiten Fall.
+Integrale dieser Art heissen elliptische Integrale.
