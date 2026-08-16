@@ -1,0 +1,42 @@
+%
+% ke-plot.tex -- Vollstaendige elliptische Integrale K(k) und E(k)
+%
+% K(k) (1. Art) divergiert logarithmisch fuer k -> 1, E(k) (2. Art)
+% faellt von pi/2 auf 1. Werte aus ke-werte.dat (AGM, ke-werte.py).
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.6}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+	width=12cm, height=8cm,
+	xlabel={$k$},
+	xmin=0, xmax=1,
+	ymin=0.9, ymax=3.6,
+	xtick={0,0.2,0.4,0.6,0.8,1},
+	ytick={1, 1.5708, 2, 2.5, 3, 3.5},
+	yticklabels={$1$, $\frac{\pi}{2}$, $2$, $2.5$, $3$, $3.5$},
+	grid=both,
+	grid style={black!15},
+	legend pos=north west,
+	legend cell align=left,
+]
+
+% gemeinsamer Startwert pi/2 bei k = 0
+\addplot[dashed, black!50, domain=0:1, samples=2, forget plot] {pi/2};
+
+\addplot[darkred, very thick, smooth] table[x=k, y=K] {ke-werte.dat};
+\addlegendentry{$K(k)$}
+
+\addplot[darkblue, very thick, smooth] table[x=k, y=E] {ke-werte.dat};
+\addlegendentry{$E(k)$}
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

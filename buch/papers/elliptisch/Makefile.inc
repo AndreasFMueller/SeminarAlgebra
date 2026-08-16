@@ -10,5 +10,9 @@ dependencies-elliptisch =						\
 	papers/elliptisch/einleitung.tex				\
 	papers/elliptisch/grenze.tex					\
 	papers/elliptisch/funktionen.tex				\
-	papers/elliptisch/anwendungen.tex
+	papers/elliptisch/anwendungen.tex				\
+	papers/elliptisch/images/gradskala.pdf				\
+	papers/elliptisch/images/ellipse.pdf				\
+	papers/elliptisch/images/koerperturm.pdf			\
+	papers/elliptisch/images/ke-plot.pdf
 
