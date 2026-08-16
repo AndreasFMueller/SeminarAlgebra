@@ -16,18 +16,17 @@ Dies führt zu schnell anwachsenden Koeffizienten.
 Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Artifakt der naiven Ansätze der Verallgemeinerung.
 Das Wachstum lässt sich kontrollieren, wenn von jedem Polynom der PRS der grösste gemeinsame Teiler seiner Koeffizienten entfernt wird.
 
-Der Schlüssel um diesen Koeffizienten Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\operatorname{ggT}\) der Koeffizienten ist die Grundlage der Subresultanten.
+Der Schlüssel um diesen Koeffizienten Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten ist die Grundlage der Subresultanten.
 Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt das jedes Polynom einer PRS proptional zu einer Subresultanten der ersten zwei Polynome ist.
 
 
 \subsection{Grundlegender Aufbau
 \label{resultante:subsection:aufbau}}
 Angenommen die Terme eines Polynoms \(P\) sind in absteigender Potentz sortiert, dann ist der Koeffizient des ersten Terms der Leitkoeffizient \(\lc(P)\).
-Durch die gewöhliche Polynom-Division mit Rest in \(\mathbb{Q}\), entstehen häufig grosse rationale Zahlen.
-Die Pseudo-Division beseitigt die Nenner der Polynom-Division, durch die Multiplikation mit einer Potenz des Leitkoeffizienten.
+Anders als in der gewöhliche Polynom-Division mit Rest in \(\mathbb{Q}\), entsteht bei der Pseudo-Division keine Brüche, da mit einer Potenz des Leitkoeffizienten des Divisors multipliziert wird.
 Die Pseudo-Division hat einen einzigartigen Pseudo-Quotienten \(Q=\pquo(f,g)\) mit Pseudo-Rest \(R=\prem(f,g)\) sodass
 \begin{equation}
-    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \, i=1,\dots,k \text{ist},
+    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \, i=1,\dots,k-1 \text{ist},
     \label{resultante:equation:algpdivi}
 \end{equation}
 wobei \(b_i\) der Leitkoeffizient von \(P_{i+1}\) (\(\lc(P_{i+1})\)), \(\delta_i=\deg(P_i)-\deg(P_{i+1})\) und \(P_{i+2}=R_i\) ist.
@@ -57,7 +56,7 @@ So eine Folge heisst Polynom-Restfolge (PRS).
     \begin{equation}
         2624^{1+1}P_2-Q_2P_3=R_2,
     \end{equation}
-    daraus folgt \(Q_2=20992x+44544\) und \(R_2=P_4=14254080x-14254080\).
+    was \(Q_2=20992X+44544\) und \(R_2=P_4=14254080X-14254080\) ergiebt.
     Da \(R_2\neq0\) ist geht der Algorithmus weiter mit
     \begin{equation*}
         b_3 = 14254080, \qquad \delta_3=1-1=0,
@@ -66,20 +65,151 @@ So eine Folge heisst Polynom-Restfolge (PRS).
     \begin{equation}
         14254080^{1}P_3-Q_3P_4=R_3,
     \end{equation}
-    daraus resultiert \(Q_3=37402705920x-4561305600\) und \(R_3=P_5=0\).
-    Daraus ergiebt sich die Folge
+    daraus resultiert \(Q_3=37402705920X-4561305600\) und \(R_3=P_5=0\).
+    Die aus den Rest-Polynomen entstehende Folge ist
     \begin{equation*}
         \begin{aligned}
-            4X^4-7X^3+22X^2-24X+5,& \\
-            8X^3+8X^2-16X,& \\
-            2624X^2-2944X+320,& \\
-            14254080x-14254080,& \\
-            0\phantom{,}&
+            P_1&=4X^4-7X^3+22X^2-24X+5, \\
+            P_2&=8X^3+8X^2-16X, \\
+            P_3&=2624X^2-2944X+320, \\
+            P_4&=14254080X-14254080, \\
+            P_5&=0.
         \end{aligned}
     \end{equation*}
     \label{resultante:beispiel:prs}
 \end{beispiel}
 Wie man in Beispiel \ref{resultante:beispiel:prs} beobachten kann explodieren die Koeffizient der PRS und jedes weitere Polynom ist Grad \(1\) kleiner als das vorherige.
+Wenn das letzte Polynom der Folge \(P_{k+1}=0\), dann ist \(P_k\) der unnormierte \(\ggt\), in Beispiel \ref{resultante:beispiel:prs} \(P_4=14254080(X-1)\).
 
 \subsubsection{Subresultanten-PRS
 \label{resultante:subsubsection:subresprs}}
+Um den Koeffizienten-Wachstum in den Griff zu bekommen, wird die Folge mit \(\beta_i\) normiert.
+Dadurch wird
+\begin{equation}
+    \beta_i P_i=\prem(P_{i-2},P_{i-1})\quad \text{für} \, i=3,\dots,k+1.
+    \label{resultante:equation:prsnorm}
+\end{equation}
+Nun muss nur noch ein geeigneter Faktor \(\beta_i\) gefunden werden.
+
+Der künstliche Faktor der in der Pseudo-Division vorkommt ist bereits bekannt.
+Dadurch kann der Skalierungsfaktor \(\beta_i\) der PRS nach der Brown-Normierung formuliert werden.
+Um eine PRS zu formulieren sei \(p_i=\lc(P_i)\) und man wählt
+\begin{equation}
+    \begin{aligned}
+        \beta_3&=(-1)^{\delta_1+1}\\
+        \beta_i&=(-1)^{\delta_{i-2}+1}p_{i-2}h^{\delta_{i-2}}_{i-2}, \quad i=4,\dots,k+1,
+    \end{aligned}
+    \label{resultante:equation:beta}
+\end{equation}
+wobei der Hilfsfaktor \(h\)
+\begin{equation}
+    \begin{aligned}
+        h_2&=p_2^{\delta_1}\\
+        h_i&=p_i^{\delta_{i-1}}h^{1-\delta_{i-1}}_{i-1}, \quad i=3,\dots,k.
+    \end{aligned}
+    \label{resultante:equation:h}
+\end{equation}
+
+Daraus folgt die Subresultanten-PRS.
+Die daraus konstruierte Subresultanten-PRS mit \(G_1=P_1,\,G_2=P_2,\,G_3,\dots,\,G_k\), wird mit
+\begin{equation}
+    \begin{aligned}
+        G_3&=(-1)^{\delta_1+1}\prem(G_1,G_2),\\
+        G_i&=\frac{(-1)^{\delta_{i-2}+1}\prem(G_{i-2},G_{i-1})}{g_{i-2}h^{\delta_{i-2}}_{i-2}},\quad i=4,\dots,k+1
+    \end{aligned}
+    \label{resultante:equation:algsubprs}
+\end{equation}
+berechnet.
+Die Iteration stoppt wenn \(\prem(G_{k-1},G_k)=0\) ist.
+Dann ist
+\begin{equation}
+    \ggt(P_1,P_2)=\pp(G_k), \qquad \Res(P_1,P_2)=0,
+    \label{resultante:equation:ggtres}
+\end{equation}
+wobei \(\pp\) das primitive Polynom ist, aus Beispiel \ref{resultante:beispiel:prs} ist \(\pp(P_4)=x-1\).
+Dabei haben die Koeffizienten den \(\ggt=1\).
+Der Algorithmus soll mit folgendem Beispiel ersichtlich werden.
+
+\begin{beispiel}
+    Zunächst wird mit \(G_1=P_1=a(X)=4X^4-7X^3+22X^2-24X+5\) und \(G_2=P_2=b(X)=8X^3+8X^2-16X\) begonnen.
+    Für die Bestimmung von \(G_3\) wird nach (\ref{resultante:equation:algsubprs}) mit
+    \begin{equation*}
+        G_3=(-1)^{\delta_1+1}\prem(G_1,G_2)
+    \end{equation*}
+    begonnen, dabei ist
+    \begin{equation*}
+        \delta_1=\deg(G_1)-\deg(G_2)=1.
+    \end{equation*}
+    Daraus folgt
+    \begin{equation*}
+        G_3=\prem(G_1,G_2)=2624X^2-2944X+320.
+    \end{equation*}
+    Als nächstes wird \(G_4\) mit
+    \begin{equation*}
+        G_4=\frac{(-1)^{\delta_2+1}\prem(G_2,G_3)}{g_2h^{\delta_2}_2}
+    \end{equation*}
+    bestimmt, dafür braucht es
+    \begin{equation*}
+        \delta_2=\deg(G_2)-\deg(G_3)=1, \quad g_2=8, \quad h^{\delta_2}_2=g^{\delta_2}_2=8.
+    \end{equation*}
+    Das in die Gleichung für \(G_4\) eingesetz gibt
+    \begin{equation*}
+        G_4=\frac{\prem(G_2,G_3)}{8\cdot8}=222720X-222720.
+    \end{equation*}
+    Da \(G_4\neq0\) ist geht der Algorithmus weiter mit
+    \begin{equation*}
+        G_5=\frac{(-1)^{\delta_3+1}\prem(G_3,G_4)}{g_3h^{\delta_3}_3}.
+    \end{equation*}
+    Hier müssen \(\delta_3, g_3, h_3\) nicht mehr bestimmt werden, da bereits \(\prem(G_3,G_4)=0\) ist und somit \(G_5=0\).
+    Daraus entsteht die Subresultanten-PRS
+    \begin{equation*}
+        \begin{aligned}
+            G_1&=4X^4-7X^3+22X^2-24X+5, \\
+            G_2&=8X^3+8X^2-16X, \\
+            G_3&=2624X^2-2944X+320, \\
+            G_4&=222720X-222720, \\
+            G_5&=0.
+        \end{aligned}
+    \end{equation*}
+    Der \(\ggt\) ist nach \ref{resultante:equation:ggtres} links \(\ggt(P_1,P_2)=\pp(G_4)=X-1\).
+    \label{resultante:beispiel:subprs}
+\end{beispiel}
+Wenn \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu sehen welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
+
+
+\subsection{Anwendung der Subresultanten-PRS
+\label{resultante:subsection:subresprs}}
+\begin{beispiel}
+    Wie in Beispiel \ref{resultante:beispiel:gutesIntegral} soll die Stammfunktion von
+    \begin{equation*}
+        \int\frac{1}{z^3+z}\,dz
+    \end{equation*}
+    bestimmt werden.
+    Dafür muss die Resultante (\ref{resultante:equation:resZgut})
+    \begin{equation}
+        \Res_z\left(-3c_kz^2+1-c_k,z^3+z\right)=0,
+        \label{resultante:equation:resprs}
+    \end{equation}
+    berechnet werden. Dafür soll die Subresultanten-PRS verwendet werden.
+    Damit man den Überblick über der einzelnen Faktoren der Berechnung behält, wird eine Tabelle verwendet zur Vereinfachung ist auch hier \(c_k=c\).
+    Die \(G_i\) werden nach (\ref{resultante:equation:algsubprs}) in
+    \begin{equation*}
+        \begin{NiceArray}{|c|l|c|c|c|c|}[cell-space-limits=3pt]
+            \hline
+            i & G_i & \delta_i & n_i & g_i & h_i \\
+            \hline
+            1 & z^3+z & 1 & 3 & 1 & - \\
+            2 & -3cz^2+1-c & 1 & 2 & -3c & -3c \\
+            3 & 3c(2c+1)z & 1 & 1
+            & 9c^2(2c+1)^2
+            & -27c^3(2c+1)^2 \\
+            4 & (1-c)(2c+1)^2 & - & 0 & - & - \\
+            \hline
+        \end{NiceArray}
+        \label{resultante:equation:tabsubprs}
+    \end{equation*}
+    berechnet.
+    Dabei ist \(n_i\) der Grad von \(G_i\), \(g_i\) der Leitkoeffizient \(\lc(G_i)\) und \(h_i\) die Hilfsfaktoren.
+    Da \(G_4\) konstant bezüglich \(z\) ist, ist das die Resultante \(\Res_z\left(-3c_kz^2+1-c_k,z^3+z\right)\).
+    \label{resultante:beispiel:subprsRT}
+\end{beispiel}
