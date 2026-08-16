@@ -245,3 +245,227 @@ noch nicht gab, und erst seine Aufnahme in den Funktionsvorrat hat
 das Integral lösbar gemacht.
 Elementar ist also keine Eigenschaft eines Integrals an sich,
 sondern eine Aussage über einen vorher festgelegten Vorrat.
+
+\subsection{Unvollständige Integrale und Umkehrung
+\label{elliptisch:subsection:unvollstaendig}}
+Die vollständigen Integrale \eqref{elliptisch:equation:vollstaendig}
+hängen nur von den Parametern $k$ und $n$ ab.
+Funktionen der oberen Grenze entstehen, wenn wir sie variabel
+machen.
+\begin{definition}
+\label{elliptisch:definition:unvollstaendig}
+Die \emph{unvollständigen elliptischen Integrale} entstehen aus
+den vollständigen, indem die obere Grenze $1$ durch die Variable
+$x$ mit $0 \le x \le 1$ ersetzt wird,
+\begin{equation}
+\begin{aligned}
+F(x,k)
+&=
+\int_0^x \frac{dt}{\sqrt{(1-t^2)(1-k^2t^2)}},
+\\
+E(x,k)
+&=
+\int_0^x \sqrt{\frac{1-k^2t^2}{1-t^2}}\,dt,
+\\
+\Pi(n,x,k)
+&=
+\int_0^x \frac{dt}{(1-nt^2)\sqrt{(1-t^2)(1-k^2t^2)}}.
+\end{aligned}
+\label{elliptisch:equation:unvollstaendig}
+\end{equation}
+\end{definition}
+\index{elliptisches Integral!unvollstandiges@unvollständiges}%
+Die Namen sind dieselben wie bei den vollständigen Integralen,
+die Anzahl der Argumente unterscheidet die beiden Fassungen.
+Zwei Spezialfälle halten wir fest.
+An der oberen Grenze $x = 1$ wird aus dem unvollständigen
+Integral wieder das vollständige, es ist $F(1,k) = K(k)$, und
+entsprechend für die beiden anderen Arten.
+Für $k = 0$ bleibt nur das Arcussinus-Integral stehen,
+\begin{equation}
+F(x,0)
+=
+E(x,0)
+=
+\int_0^x \frac{dt}{\sqrt{1-t^2}}
+=
+\arcsin x.
+\label{elliptisch:equation:knullarcsin}
+\end{equation}
+
+Diese Zeile ist der Schlüssel zum nächsten Schritt.
+Sie besagt, dass die Umkehrfunktion von $F(\,\cdot\,, 0)$ der
+Sinus ist.
+Dieselbe Geste, angewendet auf beliebiges $k$, liefert
+\begin{equation}
+\begin{aligned}
+s
+&=
+\arcsin x
+&\quad&\Longleftrightarrow&
+x
+&=
+\sin s,
+\\
+u
+&=
+F(x,k)
+&\quad&\Longleftrightarrow&
+x
+&=
+\operatorname{sn}(u,k).
+\end{aligned}
+\label{elliptisch:equation:umkehrung}
+\end{equation}
+Die untere Zeile ist die Definition des
+\emph{sinus amplitudinis} $\operatorname{sn}(u,k)$.
+Weil der Integrand von $F$ positiv ist, wächst
+$F(\,\cdot\,, k)$ streng monoton von $0$ auf $K(k)$, wenn $x$ das
+Intervall $[0,1]$ durchläuft.
+Die Umkehrfunktion existiert also und ist zunächst auf
+$[0, K(k)]$ erklärt, definitionsgemäss gilt
+$F(\operatorname{sn}(u,k), k) = u$.
+\index{sn@$\operatorname{sn}(u,k)$}%
+
+Den Namen erklärt die Legendre-Normalform.
+Mit $x = \sin\varphi$ geht $u = F(x,k)$ in
+\begin{equation}
+u
+=
+\int_0^\varphi \frac{d\vartheta}{\sqrt{1-k^2\sin^2\vartheta}}
+\label{elliptisch:equation:amplitude}
+\end{equation}
+über, und das Auflösen dieser Beziehung nach $\varphi$ liefert die
+\emph{Amplitude} $\varphi = \operatorname{am}(u,k)$.
+Damit ist $\operatorname{sn}(u,k) = \sin\operatorname{am}(u,k)$,
+der Sinus der Amplitude, also genau das, was der Name sagt.
+\index{Amplitude}%
+
+Die Bezeichnung \emph{sinus amplitudinis} stammt von Jacobi und
+erklärt die Abkürzung $\operatorname{sn}$
+\cite[Kapitel~11.2]{elliptisch:mueller-spezielle}.
+Was die neue Funktion mit dem Sinus gemeinsam hat und worin sie
+sich von ihm unterscheidet, zeigt der nächste Abschnitt.
+
+\subsection{Die geometrische Gestalt von sn, cn und dn
+\label{elliptisch:subsection:geometrie}}
+Was für den Sinus der Einheitskreis ist, ist für
+$\operatorname{sn}$ eine Ellipse.
+Die folgende Darstellung stammt aus
+\cite[Kapitel~11.2.1]{elliptisch:mueller-spezielle}, wo sie
+Schwalm \cite{elliptisch:schwalm} zugeschrieben wird.
+
+Der Einheitskreis fasst die Kreisfunktionen zusammen.
+Sein Punkt, dessen Bogenlänge vom Punkt $(1,0)$ aus $u$ beträgt,
+hat die Koordinaten $(\cos u, \sin u)$
+(Abbildung~\ref{fig:elliptisch:snkonstruktion} links).
+Auf der Ellipse mit den Halbachsen $a \ge 1$ und $1$,
+\begin{equation}
+\frac{x^2}{a^2} + y^2 = 1,
+\label{elliptisch:equation:einheitsellipse}
+\end{equation}
+hängen Winkel, Bogenlänge und Koordinaten nicht mehr so einfach
+zusammen.
+Wir schreiben einen Punkt der Ellipse mit der exzentrischen
+Anomalie $\varphi$ als
+\begin{equation}
+P
+=
+(a\cos\varphi, \sin\varphi)
+\label{elliptisch:equation:ellipsenpunkt}
+\end{equation}
+und messen seine Lage durch den Parameter $u$ aus
+\eqref{elliptisch:equation:amplitude}, sodass
+$\varphi = \operatorname{am}(u,k)$ ist, mit dem Modul
+$k = \sqrt{a^2-1}/a$.
+Die drei Jacobischen Funktionen sind die
+Koordinatenverhältnisse dieses Punktes,
+\begin{equation}
+\operatorname{sn}(u,k) = y,
+\qquad
+\operatorname{cn}(u,k) = \frac{x}{a},
+\qquad
+\operatorname{dn}(u,k) = \frac{r}{a},
+\qquad
+r = \sqrt{x^2+y^2}.
+\label{elliptisch:equation:geometrischedefinition}
+\end{equation}
+Die ersten beiden besagen
+$\operatorname{sn}(u,k) = \sin\varphi = \sin\operatorname{am}(u,k)$
+und $\operatorname{cn}(u,k) = \cos\varphi$, genau die Umkehrung
+aus Abschnitt~\ref{elliptisch:subsection:unvollstaendig}.
+Der gestrichelte Hilfskreis in
+Abbildung~\ref{fig:elliptisch:snkonstruktion} trägt den Punkt
+$Q = (\operatorname{cn}(u,k), \operatorname{sn}(u,k))$, an dem
+sich der Winkel $\varphi$ ablesen lässt.
+Für die dritte rechnet man $r^2 = a^2\cos^2\varphi + \sin^2\varphi$
+nach und findet
+\begin{equation}
+\operatorname{dn}(u,k)^2
+=
+\frac{r^2}{a^2}
+=
+1 - k^2\sin^2\varphi
+=
+1 - k^2\operatorname{sn}(u,k)^2.
+\label{elliptisch:equation:dngeometrie}
+\end{equation}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{papers/elliptisch/images/sn-konstruktion.pdf}
+\caption{Links der Einheitskreis mit dem Punkt $(\cos u, \sin u)$
+zur Bogenlänge $u$.
+Rechts die Ellipse mit den Halbachsen $a = 1/k'$ und $1$ zum
+selben Parameter, hier $u = 1$ und $k = 0.8$.
+Der Hilfskreispunkt
+$Q = (\operatorname{cn}(u,k), \operatorname{sn}(u,k))$
+und der Ellipsenpunkt
+$P = (a\operatorname{cn}(u,k), \operatorname{sn}(u,k))$
+liegen auf gleicher Höhe, der Abstand von $P$ zum Nullpunkt ist
+$r = a\operatorname{dn}(u,k)$.
+\label{fig:elliptisch:snkonstruktion}}
+\end{figure}
+
+Der Parameter $u$ ist dabei weder der Winkel $\varphi$ noch die
+Bogenlänge der Ellipse.
+Nur im Kreisfall $k = 0$ fallen alle drei zusammen.
+Dann ist $a = 1$, die Ellipse wird zum Einheitskreis, und es gilt
+$\operatorname{sn}(u,0) = \sin u$, $\operatorname{cn}(u,0) = \cos u$
+und $\operatorname{dn}(u,0) = 1$, wie es sein muss.
+
+Lässt man $\varphi$ von $0$ bis $2\pi$ laufen, durchläuft $P$ die
+Ellipse einmal, und $u$ wächst von $0$ auf $4K(k)$.
+Auf das erste Viertel entfällt genau das Argument $u = K(k)$,
+denn $\varphi = \pi/2$ bedeutet $y = 1$, und $F(1,k) = K(k)$.
+Die Werte an den Viertelstellen sind damit
+\begin{equation}
+\begin{array}{c|ccccc}
+u & 0 & K & 2K & 3K & 4K\\
+\hline
+\operatorname{sn}(u,k) & 0 & 1 & 0 & -1 & 0
+\end{array}
+\label{elliptisch:equation:snviertel}
+\end{equation}
+und es folgt die Periodizität
+\begin{equation}
+\operatorname{sn}(u + 4K(k), k)
+=
+\operatorname{sn}(u,k).
+\label{elliptisch:equation:periode}
+\end{equation}
+Der Sinus hat die Periode $2\pi$, der sinus amplitudinis die
+Periode $4K(k)$.
+Beide Angaben vertragen sich, denn für $k = 0$ ist
+$4K(0) = 2\pi$.
+\index{Periodizitat@Periodizität}%
+
+Der volle Funktionsverlauf zeigt sich aber erst in der komplexen
+Ebene.
+Dort besitzt $\operatorname{sn}$ neben der reellen Periode $4K$
+noch die rein imaginäre Periode $2iK'$ mit $K' = K(k')$
+\cite[Kapitel~11.1.4, S.~307--308]{elliptisch:mueller-spezielle}.
+Eine meromorphe Funktion mit zwei unabhängigen Perioden heisst
+\emph{elliptische Funktion} und hat der ganzen Theorie den Namen
+gegeben.
+\index{elliptische Funktion}%
+
