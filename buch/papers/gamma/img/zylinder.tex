@@ -1,0 +1,54 @@
+%
+% zylinder.tex -- Zylinder zur Berechnung des Halbkugelvolumens
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows,intersections,math,calc,3d}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\tdplotsetmaincoords{70}{25}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,tdplot_main_coords]
+
+            \def\r{1}
+            \def\numrect{8}
+            \pgfmathsetmacro\dx{2*\r/\numrect}
+
+            \draw[->] (-\r-0.5, 0, 0) -- (\r+0.5, 0, 0) node[anchor=north east] {$x$};
+            \draw[->] (0, -\r-0.5, 0) -- (0, \r+0.5, 0) node[anchor=north west] {$y$};
+            \draw[->] (0, 0, -\r-0.5) -- (0, 0, \r+0.5) node[anchor=south] {$z$};
+
+            \foreach \i in {1,...,\numrect} {
+                \pgfmathsetmacro\xc{-\r + \i*\dx - 0.5*\dx}
+                \pgfmathsetmacro\sliceR{sqrt(max(0, \r*\r - \xc*\xc))}
+
+                \pgfmathsetmacro\nextxc{-\r + (\i+1)*\dx - 0.5*\dx}
+
+                \draw[black, thick, fill=black!10, fill opacity=0.4]
+                    plot[domain=0:180, samples=40] ({\xc}, {\sliceR*cos(\x)}, {\sliceR*sin(\x)}) -- cycle;
+                \draw[black, thick, fill=black!10, fill opacity=0.4]
+                    plot[domain=0:180, samples=40] ({\nextxc}, {\sliceR*cos(\x)}, {\sliceR*sin(\x)}) -- cycle;
+                \draw[black, thick] (\xc, \sliceR, 0) -- (\nextxc, \sliceR, 0);
+                \draw[black, thick] (\xc, -\sliceR, 0) -- (\nextxc, -\sliceR, 0);
+                \draw[black, thick] (\xc, 0.17*\sliceR, \sliceR) -- (\nextxc+0.05,  0.19*\sliceR, \sliceR);
+            }
+
+            % \draw[thick, gray] plot[domain=0:360, samples=60] ({\r*cos(\x)}, {\r*sin(\x)}, 0);
+            % \draw[thick, gray] plot[domain=0:360, samples=60] ({\r*cos(\x)}, 0, {\r*sin(\x)});
+            % \draw[thick, gray] plot[domain=0:360, samples=60] (0, {\r*cos(\x)}, {\r*sin(\x)});
+
+            % dx measurement - aligned with the first slice
+            \pgfmathsetmacro\firstX{-\r + 1*\dx - 0.5*\dx}
+            \draw[|-|] (\firstX-\dx/2, 0, -\r-0.4) -- (\firstX+\dx/2, 0, -\r-0.4) node[midway, below] {$dx$};
+
+\end{tikzpicture}
+\end{document}
+

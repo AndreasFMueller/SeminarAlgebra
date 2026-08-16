@@ -6,7 +6,216 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Zusammenhang mit Möbius Transformation
-\label{geradlinig:section:zusammenhang_mit_moebius_transformation}}
-\kopfrechts{Zusammenhang mit Möbius Transformation}
-tbd..
+\section{Kreisspiegelung\label{geradlinig:section:kreisspiegelung}}
+\kopfrechts{Kreisspiegelung}
+Die Kreisspiegelung ist eine Transformation der ebenen Geometrie, 
+welche das Innere und Äussere eines Kreises vertauscht.
+Diese Transformation ist winkeltreu.
+Für einen Kreis mit Mittelpunkt $M$ und Radius $R$ wird der Bildpunkt $P'$ 
+eines Punktes $P$ dadurch definiert, 
+dass $P'$ auf der Geraden $\overline{MP}$ liegt und die Bedingung
+\begin{align}
+    \overline{MP'}\cdot\overline{MP} = R^2
+    \label{eq:constant0}
+\end{align}
+erfüllt.
+Wird anstelle eines einzelnen Punktes eine Gerade gespiegelt, 
+entsteht wieder ein Kreis, 
+welcher durch den Mittelpunkt $M$ des Inversionskreises verläuft.
+Dies ist in Abbildung~\ref{fig:kreisspiegelung} dargestellt.
+Die Punkte der ursprünglichen Geraden, welche sich im Unendlichen befinden, 
+werden dabei auf den Mittelpunkt $M$ abgebildet.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \raisebox{0.1\height}{%
+            \input{papers/geradlinig/figures/kreisspiegelung.tex}%
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \input{papers/geradlinig/figures/kreisspiegelung2.tex}
+    \end{minipage}
+    \caption{Illustration der Kreisspiegelung~\cite{kreisspiegelung} an einem Punkt (links) und einer Geraden (rechts).}
+    \label{fig:kreisspiegelung}
+\end{figure}
+
+\subsection{Peaucellier-Lipkin-Mechanismus}
+Diese Eigenschaft wird beim Peaucellier-Lipkin-Mechanismus verwendet.
+Die geometrische Darstellung dieses Mechanismus besteht aus sechs Stäben, 
+wie in Abbildung~\ref{fig:geometrie_peauc} dargestellt.
+Die Längen $\overline{OA}$ und $\overline{OC}$ sind gleich gross.
+Die vier Stäbe $\overline{AB}$, $\overline{BC}$, $\overline{CD}$ und 
+$\overline{DA}$ besitzen ebenfalls dieselbe Länge und bilden dadurch eine Raute.
+Der Punkt $O$ ist dabei fest im Raum verankert.
+
+Wird der Punkt $B$ auf einer Kreisbahn geführt, 
+welche durch den Punkt $O$ verläuft, 
+bewegt sich der Punkt $D$ zwingend entlang einer Geraden.
+Dies kann beispielsweise durch eine zusätzliche Stange erreicht werden, 
+deren Länge der Hälfte der Strecke $\overline{OB}$ entspricht.
+Die Kreisbahn von $B$ ist in Rot dargestellt.
+Im Gegensatz dazu würde sich Punkt $D$ auf einer Kreisbahn bewegen, 
+wenn Punkt $B$ entlang einer Geraden geführt würde, 
+welche nicht durch $O$ verläuft.
+Auch dieser Kreis würde durch den Punkt $O$ verlaufen.
+
+Es existieren viele verschiedene Proportionen dieses Mechanismus.
+Die entscheidende Eigenschaft besteht darin, dass die Punkte $O$, 
+$B$ und $D$ während der gesamten Bewegung kollinear bleiben.
+Unter dieser Bedingung müssen lediglich die Beziehungen
+$\overline{AB} = \overline{AD}$ sowie $\overline{BC} = \overline{DC}$
+erfüllt sein.
+Zusätzlich muss Punkt $B$ auf einer Kreisbahn geführt werden, 
+welche den Punkt $O$ schneidet.
+Eine feste Beziehung zwischen den Längen der Seiten des Vierecks $ABCD$ 
+ist nicht erforderlich.
+\begin{figure}[htbp]
+    \centering
+    \input{papers/geradlinig/figures/peauc_lip_inv.tex}
+    \caption{Kreisspiegelung am Peaucellier-Lipkin-Mechanismus~\cite{peauc_lip_linkage}.}
+    \label{fig:geometrie_peauc}
+\end{figure}
+
+Da es sich um eine Kreisspiegelung handelt, besitzt dieser Mechanismus 
+die besondere Eigenschaft beschrieben in der Gleichung~\eqref{eq:constant0} 
+\begin{align}
+    \overline{OB}\cdot\overline{OD} = R^2.
+    \label{eq:constant1}
+\end{align}
+Wichtig ist, dass $R$ den Radius des grünen Kreises 
+in Abbildung~\ref{fig:kreisspiegelung} bezeichnet.
+Dieser wird als Inversionskreis bezeichnet und ist nicht 
+mit dem Radius des roten Kreises zu verwechseln.
+Um diese Eigenschaft herzuleiten, ergänzen wir in
+Abbildung~\ref{fig:geometrie_peauc} den Punkt $P$.
+Dieser liegt jeweils in der Mitte der Strecken $\overline{AC}$ und $\overline{BD}$.
+Weiter definieren wir $\overline{OB}=y$, $\overline{PD}=x$ und
+$\overline{PA}=h$.
+Da $P$ die Mitte von $\overline{BD}$ ist, gilt
+$\overline{OD}=y+2x$.
+Damit lässt sich Gleichung~\eqref{eq:constant} schreiben als
+\begin{align*}
+    y(y+2x)=y^2+2xy=R^2.
+\end{align*}
+Da das Dreieck $OPA$ rechtwinklig ist, gilt nach dem Satz des Pythagoras
+\begin{align}
+    \overline{OA}^2
+    =
+    (y+x)^2+h^2
+    =
+    y^2+2xy+x^2+h^2.
+    \label{eq:OA}
+\end{align}
+Für das ebenfalls rechtwinklige Dreieck $PDA$ gilt
+\begin{align}
+    \overline{AD}^2
+    =
+    x^2+h^2.
+    \label{eq:AD}
+\end{align}
+Subtrahiert man Gleichung~\eqref{eq:AD} von Gleichung~\eqref{eq:OA}, erhält man
+\begin{align*}
+    \overline{OA}^2-\overline{AD}^2
+    =
+    y^2+2xy
+    =
+    \overline{OB}\cdot\overline{OD}.
+\end{align*}
+Da die Längen $\overline{OA}$ und $\overline{AD}$ konstant sind, ist auch
+$\overline{OA}^2-\overline{AD}^2$ konstant.
+Folglich ist auch das Produkt
+$\overline{OB}\cdot\overline{OD}$
+konstant, womit Gleichung~\eqref{eq:constant} bewiesen ist.
+
+\subsection{Perrolatz-Mechanismus}
+Ein weiterer durch die Kreisspiegelung inspirierter Mechanismus 
+ist der Mechanismus von Perrolatz, 
+welcher in Abbildung~\ref{fig:perrolatz_link} dargestellt ist.
+Dieser besteht ebenfalls aus sechs Stäben.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage2.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage3.png}
+    \end{minipage}
+    \caption{Der Mechanismus von Perrolatz~\cite{wiki_straight_line}.}
+    \label{fig:perrolatz_link}
+\end{figure}
+
+Für diesen Mechanismus gelten die Beziehungen
+$\overline{CO}=\overline{AO}=\overline{BO}=\overline{DO}$ sowie
+$\overline{CE}=\overline{BE}=\overline{AF}=\overline{DF}$,
+wie in Abbildung~\ref{fig:geometrie_perrolatz} dargestellt.
+Der Punkt $E$ bewegt sich auf einer Kreisbahn, während der Punkt $O$ fest bleibt.
+Dadurch bewegt sich der Punkt $F$ entlang einer Geraden.
+\begin{figure}[htbp]
+    \centering
+    \input{papers/geradlinig/figures/perrolatz.tex}
+    \caption{Kreisspiegelung am Perrolatz-Mechanismus.}
+    \label{fig:geometrie_perrolatz}
+\end{figure}
+
+Wie beim Peaucellier-Lipkin-Mechanismus muss auch hier die Kreisbahn durch den Punkt $O$ verlaufen.
+Zusätzlich bleiben die Punkte $O$, $E$ und $F$ während der gesamten Bewegung kollinear.
+Selbstverständlich gilt dann
+\begin{align}
+    \overline{OE}\cdot\overline{OF}=R^2.
+    \label{eq:constant2}
+\end{align}
+Diese Bedingung lässt sich analog zum 
+Peaucellier-Lipkin-Mechanismus herleiten.
+Dazu definieren wir $\overline{CP}=\overline{PA}=x$, $\overline{CA}=\overline{EF}=2x$,
+$\overline{OP}=h$ und $\overline{OE}=y$,
+wobei $P$ die Mitte der Strecke $\overline{CA}$ ist.
+Da $\overline{EF}=2x$ gilt, folgt $\overline{OF}=y+2x$.
+Damit lässt sich Gleichung~\eqref{eq:constant2} schreiben als
+\begin{align*}
+    \overline{OE}\cdot\overline{OF}
+    =
+    y(y+2x)
+    =
+    y^2+2xy
+    =
+    R^2.
+\end{align*}
+Mit dem Satz des Pythagoras erhält man
+\begin{align}
+    \overline{CO}^2
+    =
+    x^2+h^2,
+    \label{eq:CO}
+\end{align}
+sowie
+\begin{align}
+    \overline{CE}^2
+    =
+    (y+x)^2+h^2
+    =
+    y^2+2xy+x^2+h^2.
+    \label{eq:CE}
+\end{align}
+Subtrahiert man Gleichung~\eqref{eq:CO} von Gleichung~\eqref{eq:CE}, 
+erhält man
+\begin{align*}
+    \overline{CE}^2-\overline{CO}^2
+    =
+    y^2+2xy
+    =
+    \overline{OE}\cdot\overline{OF}.
+\end{align*}
+Da die Längen $\overline{CE}$ und $\overline{CO}$ konstant sind, 
+ist das Produkt $\overline{OE}\cdot\overline{OF}$ konstant, 
+womit Gleichung~\eqref{eq:constant2} bewiesen ist.

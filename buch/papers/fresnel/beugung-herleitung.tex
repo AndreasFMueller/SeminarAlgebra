@@ -10,32 +10,33 @@
 \kopfrechts{Anwendungsbeispiel}
 
 In der Drahtloskommunikation werden die Fresnel-Integrale für 
-die Beugung von Signalen an einer Knife-Edge gebraucht. %TODO: Bild Knife-Edge
-Zwischen zwei Antennen ragt ein Hindernis in die direkte 
+die Beugung von Signalen an einer sogenannten Knife-Edge gebraucht.
+Diese Knife-Edge ragt als Hindernis zwischen zwei Antennen in die direkte 
 Linie von Sender und Empfänger. 
-Nun wird jede ausgesendete Welle als Wavelet angesehen,
+Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
 welche sich nach Huygens kreisförmig ausbreitet. 
 Um die Beugung zu berechnen, 
 bedarf es einiger Definitionen, 
 welche im weiteren Verlauf verwendet werden und in 
-Abbildung~\ref{fresnel:Pythagoras-Bild} ersichtlich sind:
+Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
 \begin{itemize}
     \item 
     $d$ sei der Abstand vom Empfänger zur Knife-Edge
     \item 
-    $h$ sei die Höhe eines Wavelets direkt über der Knife-Edge
+    $h$ sei die Höhe einer Kugelwelle direkt über der Knife-Edge
     \item
-    $h_{edge}$ sei die Höhe, welche die Knife-Edge in die direkte Linie zwischen Sender und Empfänger hineinragt
+    $h_{\text{edge}}$ sei die Höhe, welche die Knife-Edge in die direkte Linie zwischen Sender und Empfänger hineinragt
     \item 
-    $r$ sei die Distanz eines Wavelets zum Empfänger
+    $r$ sei die Distanz einer Kugelwelle zum Empfänger
 \end{itemize}
 
-\begin{figure} % TODO: evtl. durch tikz ersetzen
+\begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Pythagoras-Dreieck.png}
+    % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Pythagoras-Dreieck.png}
+     \resizebox{.7\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_einseitig.tex}\unskip}
     \caption{
-        Definitionen für die Berechnung
-        \label{fresnel:Pythagoras-Bild}
+        Darstellung der einseitigen Verlustberechnung
+        \label{fresnel:Diff-loss-einseitig-abb}
     }
 \end{figure}
 
@@ -44,12 +45,12 @@ Die Fresnel-Integrale werden hier in der Form
 \begin{equation}
     C(v) 
     = 
-    \int_{0}^{x} \cos \left(\frac{\pi}{2}t^2\right)
+    \int_{0}^{v} \cos \left(\frac{\pi}{2}t^2\right)
     \quad \text{und} \quad
     S(v) 
     = 
-    \int_{0}^{x} \sin \left(\frac{\pi}{2}t^2\right)
-    \label{fresnel:integral-C-S}
+    \int_{0}^{v} \sin \left(\frac{\pi}{2}t^2\right)
+    \label{fresnel:integral-C-S-beispiel}
 \end{equation}
 definiert, wobei
 \[
@@ -86,9 +87,9 @@ d \left( 1 + \frac{h^2}{2d^2} \right)
 =
 d + \frac{h^2}{2d},
 \]
-unter der Annahme, dass in den meisten Fällen die Distanz zur Knife-Edge um einige Magnituden grösser ist,
-als die Höhe der Wavelets.
-Will man nun das Signal zweier ankommender Wavelets am Empfänger berechnen, geht dies durch Einsetzen
+unter der Annahme, dass in den meisten Fällen die Distanz zur Knife-Edge um ein Vielfaches grösser ist,
+als die Höhe der Kugelwelle.
+Will man nun das Signal zweier ankommender Kugelwellen am Empfänger berechnen, geht dies durch Einsetzen
 \begin{align*}
     \text{für } h = 0: \quad \psi_0
     &=
@@ -114,7 +115,7 @@ $\to$ keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
 =
 \psi (r)
 \]
-und kann für Wavelets in verschiedenen Höhen mit $h = h_i$ als
+und kann für Kugelwellen in verschiedenen Höhen mit $h = h_i$ als
 \[
 \psi_i
 =
@@ -146,24 +147,24 @@ welches anschliessend mittels $\Delta h \to dh$ zum Integral
 \[
 \psi_{rx}
 =
-\rho_{\psi_0} \int_{h_{edge}}^{\infty} \mathrm{e}^{-jk\left(\frac{h^2}{2d}\right)} dh
+\rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \mathrm{e}^{-jk\left(\frac{h^2}{2d}\right)} dh
 =
-\rho_{\psi_0} \int_{h_{edge}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
+\rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
 \]
 wird.
 Dies kann mit den gängigen Regeln in zwei Integrale mit Beginn bei 0 umgestellt werden, was zu
 \begin{align*}
     \psi_{rx}
     &=
-    \rho_{\psi_0} \int_{h_{edge}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
+    \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
     \\
     &=
     \underbrace{\rho_{\psi_0} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Wellendichte}}
     -
-    \underbrace{\rho_{\psi_0} \int_{0}^{h_{edge}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Knife-Edge}}  
+    \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Knife-Edge}}  
 \end{align*}
 führt.
-Das Integral ähnelt C aus der Formel~\eqref{fresnel:integral-C-S} und kann mittels der Substitution
+Das Integral ähnelt C aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann mittels der Substitution
 \[
 h
 \to
@@ -181,9 +182,9 @@ dh
 \]
 aufgelöst werden zu
 \begin{equation*}
-    \int_{0}^{h_{edge}} \cos \left(\frac{k}{2d}h^2\right) dh
+    \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
     =
-    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{edge}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
+    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
     =
     \sqrt{\frac{\pi d}{k}} C(v).
 \end{equation*}
@@ -197,11 +198,11 @@ mit dem daraus entstehenden Fresnel-Parameter
 \begin{equation}
     v
     =
-    h_{edge} \sqrt{\frac{k}{\pi d}}
+    h_{\text{edge}} \sqrt{\frac{k}{\pi d}}
     \quad
     \overset{k = \frac{2 \pi}{\lambda}}{=}
     \quad
-    h_{edge} \sqrt{\frac{2}{\lambda d}}.
+    h_{\text{edge}} \sqrt{\frac{2}{\lambda d}}.
 \end{equation}
 
 \subsection{Beugungsverlust}
@@ -216,9 +217,9 @@ Aus den hervorgehenden Gleichungen kann der Beugungsverlust $L(v)$ berechnet wer
     \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}
     \label{fresnel:diff-loss-einseitig}
 \end{equation}
-und für $L_{dB}$ die Umrechnung
+und für $L_{\unit{\decibel}}$ die Umrechnung
 \[
-L_{dB} (v)
+L_{\unit{\decibel}} (v)
 =
 10 \cdot \log_{10}L(v)
 \]
@@ -226,41 +227,42 @@ anwendet.
 
 %TODO: Bild für beidseitige Diff-Loss
 Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Knife-Edge und Empfänger. 
-Soll nun der Beugungsverlust zwischen Sender und Empfänger mit dazwischenliegender Knife-Edge wie in Abbildung~\ref{fresnel:diff-loss-beidseitig} berechnet
+Soll nun der Beugungsverlust zwischen Sender und Empfänger mit dazwischenliegender Knife-Edge wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
 werden, kann der Fresnel-Parameter so erweitert % Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 \footnote{Die Substitution lautet $\frac{1}{d} \to \frac{d_1 + d_2}{d_1d_2}$, die Herleitung ist dem Leser überlassen} 
 werden, dass
 \begin{equation}
     v
     =
-    h_{edge} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}.
+    h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}.
 \end{equation}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
+    % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
+    \resizebox{.8\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_beidseitig.tex}\unskip}
     \caption{
-        Dartsellung der Verluste zwischen Sender und Empfänger
-        \label{fresnel:diff-loss-beidseitig}
+        Darstellung der Knife-Edge zwischen Sender und Empfänger
+        \label{fresnel:knife-edge-abb}
     }
 \end{figure}
 
-Die daraus resultierenden Verluste $L_{dB}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
+Die daraus resultierenden Verluste $L_{\unit{\decibel}}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
 ausgelesen oder mit folgenden Formeln
 \begin{subequations}
     \begin{align}
         v > 1: \quad
-        -L_{dB}
+        -L_{\unit{\decibel}}
         &=
-        20 \log_{10}v + 13 dB
+        20 \log_{10}v + \qty{13}{\decibel}
         \\
         v > -0.7: \quad
-        -L_{dB}
+        -L_{\unit{\decibel}}
         &=
-        20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + 6.9 dB
+        20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + \qty{6.9}{\decibel}
         \\
         \text{sonst:} \quad
-        -L_{dB}
+        -L_{\unit{\decibel}}
         &=
         10 \log_{10} L(v)
     \end{align}
@@ -269,7 +271,8 @@ angenähert werden.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
+    % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
+    \resizebox{0.85\textwidth}{!}{\input{papers/fresnel/pgf/beugungsverluste.pgf}\unskip}
     \caption{
         Diagramm Fresnel-Parameter und Verluste
         \label{fresnel:Fresnel-Diagram}

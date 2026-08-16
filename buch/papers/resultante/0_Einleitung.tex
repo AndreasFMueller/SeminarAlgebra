@@ -1,0 +1,29 @@
+%
+% 0_Einleitung.tex -- Einleitung zum Kapitel Resultante
+%
+% (c) 2026 Jakob Gierer, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Einleitung\label{resultante:section:einleitung}}
+\kopfrechts{Einleitung}
+
+Für die Lösung von Integralen greifen Ingenieur:innen sowie Studierende oft auf Computeralgebrasysteme (CAS) zurück.
+Damit CAS-fähige Rechner Integrale lösen können, werden effiziente Algorithmen benötigt.
+Integranden werden zunächtst in einen polynomiellen Teil und rationalen Teil aufgeteilt.
+Dieses Kapitel behandelt nur Methodem zur bestimmung des rationalen Teils.
+Dabei besteht der rationale Teil des Integrals aus echt gebrochenen Funktionen. 
+Für die Berechnung von diesem Integranden, müssen die Linearfaktoren/Nullstellen des Nennerpolynoms bestimmte werden.
+
+In Abschnitt \ref{buch:ratint:section:rothsteintrager} wird der Satz von Rothstein-Trager beschrieben, der für die Bestimmung der Nullstellen in Kapitel \ref{chapter:intalg} den euklidischen Algorithmus nutzt.
+In diesem Kapitel soll eine weitere Methode zur Berechnung von Nullstellen vorgestellt werden, die Resultante.
+In verschiedenen Textbücheren wird die Resultant als
+\begin{equation}
+    \operatorname{Res}(f,g)=\det(\operatorname{Syl}(f,g))
+    \label{resultante:equation:definition}
+\end{equation}
+definiert. Aber was ist \(\operatorname{Syl}\)? 
+Und was ist die Resultant?
+
+Was genau die Resultante ist und was für nützliche Eigenschafte sie besitzt beschreibt dieses Kapitel.

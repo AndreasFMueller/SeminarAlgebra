@@ -1,0 +1,46 @@
+%
+% 3_Resultante.tex -- Abschnitt 3 Resultante 
+%
+% (c) 2026 Jakob Gierer, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Resultante
+\label{resultante:section:resultante}}
+\kopfrechts{Resultante}
+
+Die Resultante ist ein Werkzeug der kommutativen Algebra, um das Vorhanden sein gemeinsamer Nullstellen zweier Polynome zu prüfen.
+Die Resultante kann dazu verwendet werden, nacheinander die Variablen eines Gleichungssystems mit mehreren Variablen zu eliminieren.
+Zu diesem Zweck wurde die Resultante im \(19.\) Jahrhundert untersucht.
+In modernen CAS werden Resultanten unter anderem benutzt, um aus einer vorher bestimmten Gröbner-Basis auf die Lösung eines Gleichungssystems zu schliessen. \cite{resultante:resultante}
+
+\subsubsection{Nützliche Eigenschaften
+\label{resultante:subsubsection:eigenschaften}}
+
+Die Resultante biete einige nützliche Eigenschaften.
+Die erste nützliche Eigenschaft und relevantest für diese Kapitel ist, dass die Resultant gemeinsame Nullstellen findet.
+Zusätzlich dazu bietet sie auch einen Weg zur parametrischen Berechnung der Nullstellen.
+
+Wie bereits in (\ref{resultante:equation:detsyl}) gezeigt ist die Resultante Symmetrisch bis auf ein Vorzeichen
+\begin{equation*}
+    \operatorname{Res}(f,g)=(-1)^{mn}\operatorname{Res}(g,f).
+\end{equation*}
+Insbesondere wenn \(mn\) gerade ist sind die beiden Resultanten gleich.
+
+Eine weitere wichtige Eigenschft ist die Elimination von Variablen, was ebenfalls genutzt wird in der Anwendung in (\ref{resultante:equation:resz}).
+
+Die Resultante liegt im erzeugten Ideal. 
+Es existieren Polynome \(s(X)\) und \(t(X)\) mit
+\begin{equation}
+    \deg(s(X))<n \qquad \deg(t(X)<m)
+    \label{resultante:equation:deg}
+\end{equation}
+so dass
+\begin{equation}
+    \operatorname{Res}(f,g)=s(X)f(X)+t(X)g(X)
+\end{equation}
+gilt.
+Das bedeutet die Resultante kann als polynomialer Ausdruck aus den Polynomen \(f(X)\) und \(g(X)\) zusammengesetzt werden.
+Eine ähnliche Form erhält man durch den erweiterten euklidischen Algorithmus.
+Daraus lässt sich ein effizientes Berechnungsverfahren für die Resultante ableiten, das Subresultanten-Verfahren.
