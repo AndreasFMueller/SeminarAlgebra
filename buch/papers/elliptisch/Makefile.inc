@@ -14,5 +14,6 @@ dependencies-elliptisch =						\
 	papers/elliptisch/images/gradskala.pdf				\
 	papers/elliptisch/images/ellipse.pdf				\
 	papers/elliptisch/images/koerperturm.pdf			\
-	papers/elliptisch/images/ke-plot.pdf
+	papers/elliptisch/images/ke-plot.pdf				\
+	papers/elliptisch/images/sn-konstruktion.pdf
 

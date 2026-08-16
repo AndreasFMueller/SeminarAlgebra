@@ -4,7 +4,7 @@
 # (c) 2026 Baris Catan, OST Ostschweizer Fachhochschule
 #
 
-all:	gradskala.pdf ellipse.pdf koerperturm.pdf ke-plot.pdf
+all:	gradskala.pdf ellipse.pdf koerperturm.pdf ke-plot.pdf sn-konstruktion.pdf
 
 ke-werte.dat:	ke-werte.py
 	python3 ke-werte.py
@@ -20,6 +20,9 @@ koerperturm.pdf:	koerperturm.tex
 
 ke-plot.pdf:	ke-plot.tex ke-werte.dat
 	pdflatex ke-plot.tex
+
+sn-konstruktion.pdf:	sn-konstruktion.tex
+	pdflatex sn-konstruktion.tex
 
 clean:
 	rm -f *.aux *.log *.pdf ke-werte.dat
