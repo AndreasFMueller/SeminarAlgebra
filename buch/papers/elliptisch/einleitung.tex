@@ -10,8 +10,9 @@
 \label{elliptisch:section:einleitung}}
 \kopfrechts{Eine harmlose Frage}
 
-Der Umfang einer Ellipse lässt sich nicht mit den Mitteln der
-Schulmathematik berechnen.
+Wir beginnen dieses Kapitel mit einer Frage, die einfacher klingt,
+als sie ist.
+Wie lang ist der Umfang einer Ellipse?
 Für den Kreis mit Radius $r$ genügt die Parametrisierung
 $(x,y) = (r\cos t,\, r\sin t)$.
 Wegen $\sin^2 t + \cos^2 t = 1$ fällt die Wurzel im Bogenelement weg
@@ -26,8 +27,9 @@ U
 2\pi r.
 \label{elliptisch:equation:kreisumfang}
 \end{equation}
-Für die Ellipse mit den Halbachsen $a \ge b$ kann man dieselbe
-Rechnung durchführen, aber die Wurzel verschwindet nicht.
+Dieselbe Rechnung führen wir nun für die Ellipse mit den Halbachsen
+$a \ge b$ durch.
+Diesmal verschwindet die Wurzel jedoch nicht.
 Mit der numerischen Exzentrizität $k^2 = (a^2-b^2)/a^2$ bleibt
 \begin{equation}
 U
@@ -38,46 +40,211 @@ U
 stehen \cite{elliptisch:mueller-spezielle}.
 \index{Ellipse}%
 \index{Exzentrizitat@Exzentrizität}%
-Dieses Integral hat keine elementare Stammfunktion.
-Dass das so ist, lässt sich nicht durch Probieren feststellen,
+Wie sich herausstellen wird, hat dieses Integral keine elementare
+Stammfunktion.
+Dass das so ist, lässt sich nicht durch Probieren herausfinden,
 sondern nur mit algebraischen Methoden beweisen.
 
 \subsection{Existenz und Darstellbarkeit}
 Nach dem Hauptsatz der Differential- und Integralrechnung besitzt
 jede stetige Funktion $f$ eine Stammfunktion, denn
 $F(x) = \int_a^x f(t)\,dt$ ist differenzierbar mit $F' = f$.
-Damit ist die Existenz gesichert.
-Offen bleibt, ob sich $F$ als endliche Formel aus Polynomen,
-Wurzeln, $\exp$, $\log$ und den trigonometrischen Funktionen
-schreiben lässt.
-Die Beispiele $\sqrt{ax^2+bx+c}$, $\sqrt{\tan x}$ und $e^{-x^2}$
-zeigen drei mögliche Antworten:
-elementar integrierbar, elementar integrierbar mit einem praktisch
-unbrauchbaren Resultat, und beweisbar nicht elementar integrierbar.
+Über die Existenz einer Stammfunktion muss man also nie streiten.
+Ganz anders sieht es mit der Darstellbarkeit aus.
+Ob sich $F$ als endliche Formel aus Polynomen, Wurzeln, $\exp$,
+$\log$ und den trigonometrischen Funktionen schreiben lässt,
+ist eine völlig andere Frage.
+Funktionen mit dieser Eigenschaft heissen \emph{elementar},
+der Begriff wird weiter unten präzisiert und ist ausführlich in
+Abschnitt~\ref{buch:intalg:section:elementar} behandelt.
+Drei Beispiele zeigen, wie weit Existenz und Darstellbarkeit
+auseinanderliegen können.
+
+Integranden mit der Wurzel aus einem quadratischen Polynom sind
+stets elementar integrierbar, mit Resultaten wie
+\begin{equation}
+\int \sqrt{x^2+1}\,dx
+=
+\frac{1}{2}\left(x\sqrt{x^2+1} + \operatorname{arsinh} x\right),
+\label{elliptisch:equation:wurzelstandard}
+\end{equation}
+die kurz genug sind, um damit weiterzurechnen.
+Abschnitt~\ref{buch:intalg:section:wurzel} zeigt, dass dies für
+jedes quadratische Polynom unter der Wurzel gelingt.
+
+Schon der Integrand $\sqrt{\tan x}$ zeigt jedoch, dass aus
+elementar lösbar nicht brauchbar folgt.
+Die Substitution $u = \sqrt{\tan x}$ macht den Integranden
+rational,
+\begin{equation}
+\int \sqrt{\tan x}\,dx
+=
+\int \frac{2u^2}{1+u^4}\,du,
+\label{elliptisch:equation:tanxrational}
+\end{equation}
+und die Partialbruchzerlegung über die Faktorisierung
+$1+u^4 = (u^2-\sqrt{2}u+1)(u^2+\sqrt{2}u+1)$
+garantiert eine elementare Stammfunktion.
+Ein Computeralgebrasystem liefert sie auch, nämlich
+\begin{equation}
+\frac{\sqrt{2}}{4}
+\log\frac{\sqrt{\tan x}-\sqrt{2}\sqrt[4]{\tan x}+1}
+        {\sqrt{\tan x}+\sqrt{2}\sqrt[4]{\tan x}+1}
++
+\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt[4]{\tan x}-1\right)
++
+\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt[4]{\tan x}+1\right).
+\label{elliptisch:equation:tanxmonster}
+\end{equation}
+Der Ausdruck ist so unhandlich, dass er für praktische Zwecke
+kaum etwas nützt.
+
+Beim dritten Beispiel versagt die elementare Integration
+vollständig.
+Für
+\begin{equation}
+\int e^{-x^2}\,dx
+\label{elliptisch:equation:expx2}
+\end{equation}
+lässt sich beweisen, dass keine elementare Stammfunktion existiert,
+der Beweis wird in Abschnitt~\ref{buch:intalg:section:risch}
+geführt.
+An dieser Stelle ist die Konsequenz wichtiger als der Beweis.
+Wenn keine elementare Stammfunktion existiert, bleibt nur, dem
+Integral einen Namen zu geben und es selbst zur Funktion zu
+erklären.
+Für dieses Integral ist das geschehen, die Fehlerfunktion
+\begin{equation}
+\operatorname{erf}(x)
+=
+\frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2}\,dt
+\label{elliptisch:equation:erfx}
+\end{equation}
+ist nichts anderes als die Stammfunktion von $e^{-x^2}$ in
+normierter Form.
+\index{Fehlerfunktion}%
+Dasselbe Prinzip steckt hinter der Definition
+$\log x = \int_1^x \frac{dt}{t}$,
+und genau derselbe Schritt wird in diesem Kapitel mit den
+elliptischen Integralen vollzogen.
+Was nicht elementar integrierbar ist, wird zur neuen Funktion.
+Die Frage, welche Integranden eine elementare Stammfunktion
+besitzen, ist damit keine Frage der Analysis, sondern der Algebra.
+
+\subsection{Elementare Funktionen}
+Der Begriff der elementaren Funktion, den wir bisher nur
+umgangssprachlich verwendet haben, lässt sich algebraisch fassen.
+Ausgangspunkt ist der Körper $F_0 = \mathbb{Q}(x)$ der rationalen
+Funktionen zusammen mit der gewöhnlichen Ableitung.
+In jedem weiteren Schritt kommt eine einzelne neue Funktion
+$\vartheta$ dazu, die über dem bisherigen Körper algebraisch ist oder
+zu einem $v$ des bisherigen Körpers die Gleichung $\vartheta' = v'/v$
+erfüllt, also ein Logarithmus ist, oder die Gleichung
+$\vartheta'/\vartheta = v'$, also eine Exponentialfunktion.
+So entsteht ein Turm
+\begin{equation}
+F_0 \subset F_1 \subset \dots \subset F_N,
+\qquad
+F_i = F_{i-1}(\vartheta_i),
+\label{elliptisch:equation:koerperturm}
+\end{equation}
+und \emph{elementar} heissen genau jene Funktionen, die in einem
+solchen Turm mit endlich vielen Schritten liegen
+(Abbildung~\ref{fig:elliptisch:koerperturm}).
 \index{elementare Funktion}%
-Die Frage nach der geschlossenen Darstellung ist damit keine Frage
-der Analysis, sondern der Algebra.
+\index{Korperturm@Körperturm}%
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{papers/elliptisch/images/koerperturm.pdf}
+\caption{Eine elementare Funktion liegt in einem endlichen Turm
+von Körpererweiterungen, ausgehend von den rationalen Funktionen
+$\mathbb{Q}(x)$.
+In jedem Schritt kommt eine Wurzel, ein Logarithmus oder eine
+Exponentialfunktion dazu.
+\label{fig:elliptisch:koerperturm}}
+\end{figure}
+Die Sinus- und Kosinusfunktion fehlen in dieser Aufzählung nicht,
+sie stecken über $\sin x = (e^{ix}-e^{-ix})/2i$ bereits in den
+exponentiellen Schritten.
+Die Wurzel $\sqrt{p(x)}$ ist ein algebraischer Schritt, denn sie
+erfüllt die Gleichung $\vartheta^2 - p(x) = 0$ über
+$\mathbb{Q}(x)$.
+Alles, was sich als endliche Formel hinschreiben lässt, ist damit
+erfasst.
 
 \subsection{Der Satz von Liouville}
-Der Satz von Liouville (1833/35) gibt diese algebraische Antwort.
-Wenn eine elementare Funktion $f$ eine elementare Stammfunktion
-besitzt, dann hat diese die Gestalt
+Ableiten führt aus einem solchen Turm nie heraus.
+Liegt $f$ in einem der Körper $F_i$, dann liegt auch $f'$ wieder in
+$F_i$, denn Summen-, Produkt- und Kettenregel erzeugen nur
+Ausdrücke in bereits vorhandenen Elementen.
+Beim Integrieren gilt das nicht, schon $\int dx/x = \log x$ verlässt
+den Körper $\mathbb{Q}(x)$.
+Die Frage ist also, wie weit man im Turm hinaufsteigen muss, um eine
+Stammfunktion zu erreichen.
+Liouville hat sie zwischen 1833 und 1835 beantwortet, und die
+Antwort fällt enger aus, als man erwarten würde.
+\index{Liouville, Satz von}%
+\begin{satz}[Prinzip von Liouville]
+\label{elliptisch:satz:liouville}
+Sei $F$ ein Funktionenkörper mit Konstantenkörper $C$ und $f \in F$.
+Besitzt $f$ eine Stammfunktion in einer elementaren Erweiterung von
+$F$ mit demselben Konstantenkörper, dann gibt es Elemente
+$v_0, v_1, \dots, v_n \in F$ und Konstanten
+$c_1, \dots, c_n \in C$ mit
 \begin{equation}
 \int f\,dx
 =
-v_0 + \sum_{i=1}^n c_i \log v_i,
+v_0 + \sum_{i=1}^n c_i \log v_i.
 \label{elliptisch:equation:liouville}
 \end{equation}
-wobei $v_0$ und die $v_i$ aus demselben Funktionenkörper stammen wie
-$f$ \cite[Kapitel~8]{elliptisch:mueller-algebra}.
-\index{Liouville, Satz von}%
-Risch hat 1969 daraus einen Algorithmus entwickelt, der entscheidet,
-ob eine elementare Stammfunktion existiert, und der heute in
-Computeralgebrasystemen implementiert ist.
+\end{satz}
+Der Beweis wird in Abschnitt~\ref{buch:intalg:section:liouville}
+geführt \cite[Kapitel~8]{elliptisch:mueller-algebra}.
+An dieser Stelle interessiert uns, was die Aussage leistet.
+
+Vor dem Satz stünden für die Stammfunktion sämtliche elementaren
+Erweiterungen von $F$ zur Verfügung, also beliebig viele neue
+Wurzeln, Exponentialfunktionen und ineinander geschachtelte
+Logarithmen.
+Der Satz sagt, dass von alledem nichts gebraucht wird.
+Die Bausteine $v_0$ und $v_i$ liegen bereits in $F$, hinzu kommen
+einzig die Logarithmen $\log v_i$, und deren Vorfaktoren $c_i$ sind
+Konstanten.
+Eine Exponentialfunktion, die im Integranden nicht vorkommt, kann in
+der Stammfunktion also gar nicht auftauchen, und ein Logarithmus
+eines Logarithmus ebenso wenig.
+Der Turm über $F$, in dem die Stammfunktion zu suchen ist, hat damit
+nur noch eine einzige Etage.
+
+Für das Rechnen ist die abgeleitete Fassung
+\begin{equation}
+f
+=
+v_0' + \sum_{i=1}^n c_i \frac{v_i'}{v_i}
+\label{elliptisch:equation:liouvilleableitung}
+\end{equation}
+die brauchbarere, denn sie enthält kein Integral mehr und ist eine
+Gleichung innerhalb von $F$.
+Aus der Existenzfrage wird damit eine Rechnung.
+Man setzt die Form \eqref{elliptisch:equation:liouvilleableitung} mit
+unbekannten $v_i$ und $c_i$ an und vergleicht Koeffizienten.
+Geht die Rechnung auf, ist die Stammfunktion gefunden.
+Führt sie auf einen Widerspruch, so ist bewiesen, dass keine
+elementare Stammfunktion existiert.
+Auf diesem Weg wird in
+Abschnitt~\ref{buch:intalg:section:risch} gezeigt, dass $e^{-x^2}$
+keine elementare Stammfunktion besitzt.
+Risch hat das Verfahren 1969 zu einem Algorithmus ausgebaut, der die
+Frage in endlich vielen Schritten entscheidet.
+Dieser Risch-Algorithmus steckt heute im Kern der
+Integrationsroutinen von Computeralgebrasystemen, in denen die
+elliptischen Integrale längst als eigene Funktionen geführt werden
+\cite{elliptisch:wolfram-functions}.
 \index{Risch-Algorithmus}%
+
 Für Integranden der Form $R(x,\sqrt{p(x)})$ mit rationalem $R$ und
-einem Polynom $p$ hängt die Antwort vom Grad von $p$ ab:
-bis Grad $2$ ist das Integral elementar, ab Grad $3$ im Allgemeinen
+einem Polynom $p$ hängt die Antwort allein vom Grad von $p$ ab.
+Bis Grad $2$ ist das Integral elementar, ab Grad $3$ im Allgemeinen
 nicht mehr.
 Das Ellipsenintegral \eqref{elliptisch:equation:ellipsenumfang}
 fällt mit Grad $4$ in den zweiten Fall.

@@ -1,58 +1,254 @@
 %
 % grenze.tex -- Die Grenze der elementaren Integration
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+% (c) 2026 Baris Catan, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 1
-\label{elliptisch:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
+\section{Die Grenze der elementaren Integration
+\label{elliptisch:section:grenze}}
+\kopfrechts{Die Grenze}
+
+In der Einleitung haben wir behauptet, das Integral
+\eqref{elliptisch:equation:ellipsenumfang} habe keine elementare
+Stammfunktion.
+In diesem Abschnitt wollen wir genauer untersuchen, wo die Grenze
+zwischen elementar und nicht elementar verläuft.
+Es geht dabei durchgehend um Integranden der Form
+$R\bigl(x,\sqrt{p(x)}\bigr)$, also um rationale Funktionen in $x$
+und in der Wurzel aus einem Polynom $p(x)$.
+
+\subsection{Der quadratische Fall
+\label{elliptisch:subsection:quadratisch}}
+\index{Euler-Substitution}%
+Für ein Polynom vom Grad höchstens $2$ ist die Lage vollständig
+geklärt.
+Wir schreiben
 \begin{equation}
-\int_a^b x^2\, dx
-=
-\left[ \frac13 x^3 \right]_a^b
-=
-\frac{b^3-a^3}3.
-\label{elliptisch:equation1}
+\vartheta = \sqrt{ax^2 + bx + c}
+\label{elliptisch:equation:theta}
 \end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+und betrachten Integranden, die rational in $x$ und $\vartheta$
+sind.
+Mithilfe der Euler-Substitution $\vartheta = \sqrt{a}\,x + t$ (für
+$a > 0$) lässt sich $x$ nach dem Auflösen als rationale Funktion von
+$t$ schreiben.
+Somit werden auch $dx$ und $\vartheta$ rational in $t$
+\cite[Kapitel~8.2]{elliptisch:mueller-algebra}.
+Der Integrand wird dadurch zu einer rationalen Funktion von $t$
+allein, und rationale Funktionen sind stets elementar integrierbar.
+Die Partialbruchzerlegung erzeugt nur Bausteine, deren
+Stammfunktionen Logarithmen, Potenzen und Arkustangens sind.
+Ein typisches Resultat dieser Rechnung ist
+\begin{equation}
+\int \frac{dx}{\vartheta}
+=
+\frac{1}{\sqrt{a}}\,
+\log\bigl(2ax + b - 2\sqrt{a}\,\vartheta\bigr),
+\label{elliptisch:equation:quadratisch}
+\end{equation}
+zu finden in
+\cite[Kapitel~8.2.6, S.~236]{elliptisch:mueller-algebra}.
+Die Gestalt der rechten Seite ist typisch für diesen Fall.
+Sie besteht aus einem konstanten Vorfaktor und dem Logarithmus
+eines Elements des Funktionenkörpers.
+Das ist genau die Form, die der Satz von Liouville
+\eqref{elliptisch:equation:liouville} für eine elementare
+Stammfunktion verlangt, hier mit $v_0 = 0$ und einem einzigen
+Logarithmusterm.
+Steht unter der Wurzel ein Polynom vom Grad $\le 2$, so ist das
+Integral immer elementar lösbar.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
+\subsection{Definition des elliptischen Integrals}
+Ab Grad $3$ versagt dieses Verfahren.
+\begin{definition}
+\index{elliptisches Integral}%
+Ein \emph{elliptisches Integral} ist ein Integral der Form
+\begin{equation}
+\int R\bigl(x, \sqrt{p(x)}\bigr)\,dx,
+\label{elliptisch:equation:definition}
+\end{equation}
+wobei $R$ eine rationale Funktion in zwei Variablen ist und $p$ ein
+Polynom vom Grad $3$ oder $4$ ohne mehrfache Nullstellen.
+\end{definition}
+Die Bedingung an die Nullstellen ist wesentlich.
+Hätte $p$ eine doppelte Nullstelle, also
+$p(x) = (x-\alpha)^2 q(x)$, dann liesse sich der Faktor aus der
+Wurzel ziehen, $\sqrt{p(x)} = |x-\alpha|\sqrt{q(x)}$, und der
+effektive Grad sänke auf höchstens $2$.
+Wir wären damit wieder im elementaren Fall des vorangegangenen
+Abschnitts.
+Die Grade $3$ und $4$ stehen in der Definition zusammen, weil sie
+durch gebrochen lineare Substitutionen ineinander überführbar sind
+und deshalb dieselbe Schwierigkeitsklasse bilden.
+Polynome vom Grad $5$ und mehr führen auf die
+\emph{hyperelliptischen} Integrale, die wir hier nicht behandeln.
+\index{hyperelliptisches Integral}%
+Abbildung~\ref{fig:elliptisch:gradskala} fasst diese Einteilung
+zusammen.
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{papers/elliptisch/images/gradskala.pdf}
+\caption{Der Grad des Polynoms $p$ unter der Wurzel entscheidet
+über die Lösbarkeit.
+Bis Grad $2$ ist das Integral elementar, bei den Graden $3$ und
+$4$ elliptisch, ab Grad $5$ hyperelliptisch.
+\label{fig:elliptisch:gradskala}}
+\end{figure}
+Den Namen haben die elliptischen Integrale vom geometrischen
+Problem, zu dem wir jetzt zurückkehren, nämlich der Bogenlänge
+der Ellipse.
 
-\subsection{De finibus bonorum et malorum
-\label{elliptisch:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{elliptisch:equation1}.
+\subsection{Der Umfang der Ellipse}
+Wir parametrisieren die Ellipse mit den Halbachsen $a \ge b$ durch
+$(x,y) = (a\cos t,\, b\sin t)$
+(Abbildung~\ref{fig:elliptisch:ellipse}).
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{papers/elliptisch/images/ellipse.pdf}
+\caption{Die Ellipse mit den Halbachsen $a$ und $b$.
+Wegen der Symmetrie genügt es, die Länge des hervorgehobenen
+Bogens im ersten Quadranten zu berechnen.
+\label{fig:elliptisch:ellipse}}
+\end{figure}
+Das Bogenelement ist
+\begin{equation}
+ds
+=
+\sqrt{\dot x^2 + \dot y^2}\,dt
+=
+\sqrt{a^2\sin^2 t + b^2\cos^2 t}\,dt
+=
+a\,\sqrt{1 - k^2\cos^2 t}\,dt,
+\qquad
+k^2 = \frac{a^2-b^2}{a^2},
+\label{elliptisch:equation:bogenelement}
+\end{equation}
+wobei $k$ die numerische Exzentrizität ist
+\cite{elliptisch:mueller-spezielle}.
+Wegen der Symmetrie der Ellipse genügt der erste Quadrant,
+\begin{equation}
+U
+=
+4a \int_0^{\pi/2} \sqrt{1 - k^2\cos^2 t}\,dt.
+\end{equation}
+Die Substitution $t \mapsto \frac{\pi}{2} - t$ bildet das Intervall
+$[0, \pi/2]$ auf sich ab und vertauscht $\cos^2$ mit $\sin^2$.
+Somit erhalten wir
+\begin{equation}
+U
+=
+4a \int_0^{\pi/2} \sqrt{1 - k^2\sin^2 t}\,dt.
+\label{elliptisch:equation:umfang}
+\end{equation}
+Für den Kreis ist $k = 0$ und \eqref{elliptisch:equation:umfang}
+liefert $U = 4a \cdot \frac{\pi}{2} = 2\pi a$, wie erwartet.
 
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{elliptisch:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{elliptisch:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
+Warum dieses Integral in die Definition
+\eqref{elliptisch:equation:definition} fällt, sehen wir erst nach
+einer weiteren Substitution.
+Das Kriterium verlangt eine rationale Variable, wir setzen daher
+$x = \sin t$ mit $dt = dx/\sqrt{1-x^2}$ und erhalten mit den neuen
+Grenzen $0$ und $1$
+\begin{equation}
+U
+=
+4a \int_0^1 \frac{\sqrt{1-k^2x^2}}{\sqrt{1-x^2}}\,dx
+=
+4a \int_0^1
+\frac{\sqrt{(1-x^2)(1-k^2x^2)}}{1-x^2}\,dx.
+\label{elliptisch:equation:umfangsubstituiert}
+\end{equation}
+Unter der Wurzel steht mit
+\begin{equation}
+p(x)
+=
+(1-x^2)(1-k^2x^2)
+=
+1 - (1+k^2)x^2 + k^2x^4
+\label{elliptisch:equation:gradvier}
+\end{equation}
+ein Polynom vom Grad $4$ in $x$, das für $0 < k < 1$ keine
+mehrfachen Nullstellen hat.
+Somit erfüllt das Ellipsenumfangsintegral genau die Definition
+\eqref{elliptisch:equation:definition} und ist ein elliptisches
+Integral.
+Zu beachten ist noch, dass der Integrand in
+\eqref{elliptisch:equation:umfangsubstituiert} bei $x = 1$ eine
+Singularität hat.
+Das Integral ist dort uneigentlich, aber konvergent, da der Zähler
+wie $\sqrt{1-x}$ verschwindet.
 
+\subsection{Warum die Wurzel bleibt}
+Mit der Einordnung als elliptisches Integral ist noch nichts über
+die Lösbarkeit gesagt.
+Die Definition \eqref{elliptisch:equation:definition} beschreibt eine
+Bauform, keine Unmöglichkeit.
+Das sieht man an
+\begin{equation}
+\int \frac{p'(x)}{2\sqrt{p(x)}}\,dx
+=
+\sqrt{p(x)},
+\label{elliptisch:equation:zufallelementar}
+\end{equation}
+denn der Integrand ist rational in $x$ und $\sqrt{p(x)}$, das
+Polynom $p$ darf Grad $4$ haben und quadratfrei sein, und trotzdem
+ist die Stammfunktion elementar.
+Die Frage nach der elementaren Lösbarkeit muss also für jedes
+Integral einzeln gestellt werden.
 
+Warum sie im quadratischen Fall stets zu bejahen ist, liegt tiefer
+als in der Rechnung von
+Abschnitt~\ref{elliptisch:subsection:quadratisch}.
+Die Euler-Substitution ist eine rationale Parametrisierung des
+Kegelschnitts $y^2 = ax^2+bx+c$.
+Jeder Punkt der Kurve gehört zu einem Parameter $t$, und beide
+Richtungen dieser Zuordnung sind rational.
+Genau das überträgt den Integranden in eine rationale Funktion von
+$t$.
+Für $\deg p \in \{3,4\}$ ist die Kurve $y^2 = p(x)$ dagegen eine
+elliptische Kurve, und eine solche besitzt keine rationale
+Parametrisierung \cite{elliptisch:geddes}.
+\index{elliptische Kurve}%
+Es gibt also keine Substitution, die den Integranden rational macht.
+Der Weg des quadratischen Falls ist damit versperrt, und die Wurzel
+bleibt stehen.
+
+Dass kein anderer Weg zum Ziel führt, folgt daraus noch nicht.
+Der Satz von Liouville
+\eqref{elliptisch:equation:liouville} liefert an dieser Stelle eine
+notwendige Bedingung.
+Er sagt, welche Gestalt eine elementare Stammfunktion haben müsste,
+und der Nachweis der Nichtexistenz besteht darin, diese Gestalt zu
+widerlegen.
+Für algebraische Erweiterungen ist das erheblich aufwendiger als für
+logarithmische und exponentielle.
+Polynome lassen sich dort nicht mehr eindeutig faktorisieren, der
+euklidische Algorithmus fällt weg, und an seine Stelle treten
+Divisoren aus der algebraischen Geometrie
+\cite{elliptisch:geddes}.
+Abschnitt~\ref{buch:intalg:risch:algebraisch} beschreibt, was dazu
+nötig wäre, und verzichtet aus demselben Grund auf die Ausführung.
+Wir übernehmen das Resultat.
+\begin{satz}
+\label{elliptisch:satz:nichtelementar}
+Für $0 < k < 1$ besitzt keines der beiden Integrale
+\begin{equation}
+\int \frac{dx}{\sqrt{(1-x^2)(1-k^2x^2)}},
+\qquad
+\int \frac{\sqrt{1-k^2x^2}}{\sqrt{1-x^2}}\,dx
+\label{elliptisch:equation:nichtelementar}
+\end{equation}
+eine elementare Stammfunktion.
+\end{satz}
+Das zweite Integral in \eqref{elliptisch:equation:nichtelementar} ist
+bis auf den Faktor $4a$ genau der Umfang der Ellipse aus
+\eqref{elliptisch:equation:umfangsubstituiert}.
+Die Frage vom Anfang des Kapitels ist damit beantwortet, wenn auch
+negativ.
+Eine elementare Formel für den Ellipsenumfang gibt es nicht, und die
+Suche danach war von Beginn an aussichtslos.
+Was bleibt, ist der Schritt, den wir schon bei der Fehlerfunktion
+gesehen haben.
+Das Integral bekommt einen Namen und wird selbst zur Funktion.
