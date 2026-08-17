@@ -109,11 +109,93 @@ Es erscheint intuitiv, dass man bei bekanntem E-Feld die Äquipotentiallinien so
 Umgekehrt funktioniert es aber auch:
 \textcolor{red}{Begriffsdefinition holomorph, konform}
 
+\section{Komplexe Funktionen in der Elektrostatik
+\label{elektro:section:Funktionen-komplexer-Var}}
+Zur Erinnerung: Eine komplexe Zahl $z$ wird in kartesischen Koordinaten als Real- und Imaginärteil wie folgt dargestellt: $z = x + iy$.
+Eine komplexe Funktion $f(z) = u + iv$ kann aufgeteilt werden in zwei Funktionen $u = u(x,y)$ und $v = v(x,y)$, die von den realen Variablen $x$ und $y$ abhängig sind.
+Ein erstes Beispiel ist die Funktion $f(z) = z^{2}$.
+Da mit den Real- und Imaginärteilen wie gewohnt gerechnet werden kann, ergibt das Quadrieren: 
+\begin{equation}
+	(x+iy)^{2} = x^{2} - y^{2} + i2xy,
+\end{equation} 
+mit
+\begin{equation}
+	u(x,y) = x^{2} - y^{2}
+\end{equation} 
+und 
+\begin{equation}
+	v(x,y) = 2xy.
+\end{equation}
+
+\subsection{Holomorphe oder analytische Funktion
+\label{elektro:subsection:holomorph}}
+Die kontinuierlichen Funktionen $u(x,y)$ und $v(x,y)$ mit kontinuierlichen partiellen Ableitungen sind dann holomorph, wenn sie die Cauchy-Riemann Gleichungen
+\begin{equation}
+	\label{elektro:subsection:holomorph:Cauchy1}
+	\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+\end{equation}
+und 
+\begin{equation}
+\label{elektro:subsection:holomorph:Cauchy2}
+	\frac{\partial u}{\partial y} =
+	- \frac{\partial v}{\partial x}
+\end{equation}
+
+erfüllen.
+Holomorph bedeutet differenzierbar in jeder Ordnung und darstellbar als Exponentialreihe.
+Das Integral der Funktion entlang eines geschlossenen Weges in der komplexen Zahlenebene ist Null
+\begin{equation}
+	\oint f(z) \,dz = 0.
+\end{equation}
+
+\subsection{Laplace Gleichung
+	\label{elektro:subsection:Laplace}}
+Leitet man die beiden Cauchy-Riemann Gleichungen \ref{elektro:subsection:holomorph:Cauchy1} und \ref{elektro:subsection:holomorph:Cauchy2} noch einmal ab nach x und y und addiert bzw. subtrahiert die Ergebnisse, dann resultieren
+\begin{equation}
+	\frac{\partial^{2}u}{\partial x^{2}} + \frac{\partial^{2}u}{\partial y^{2}} = 0
+\end{equation}
+und 
+\begin{equation}
+	\frac{\partial^{2}v}{\partial x^{2}} + \frac{\partial^{2}v}{\partial y^{2}} = 0.
+\end{equation}
+Demzufolge erfüllen die Funktionen $u(x,y)$ und $v(x,y)$ die Laplace Gleichungen
+\begin{equation}
+	\Delta u = 0
+\end{equation}
+und 
+\begin{equation}
+	\Delta v = 0.
+\end{equation}
+Wenn eine der beiden Funktionen $u$ oder $v$ bekannt ist, kann die jeweils andere Funktion bestimmt werden.
+Wenn $u$ bekannt ist, können wir schreiben:
+\begin{equation}
+	dv = \frac{\partial v}{\partial x}dx + \frac{\partial v}{\partial y} dy = 
+	-\frac{\partial u}{\partial y}dx + \frac{\partial u}{\partial x}dy
+\end{equation}
+und diese Gleichung integrieren, um v zu bestimmen.
+
+Die beiden Vektoren
+\begin{equation}
+	\mathbf{u} \left(\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right)
+\end{equation}
+und 
+\begin{equation}
+	\mathbf{v} \left(\frac{\partial v}{\partial x}, \frac{\partial v}{\partial y} \right)
+\end{equation}
+stehen senkrecht aufeinander, das heisst sie sind normal zu einander:
+\begin{equation}
+	\mathbf{u} \cdot \mathbf{v} = 0.
+\end{equation}
+Das bedeutet, die beiden Funktionen $u(x,y)$ und $v(x,y)$ sind lokal senkrecht in ihren Schnittpunkten.
+
+\subsection{Konforme Abbildung
+	\label{elektro:subsection:KonformeAbb}}
+Eine Abbildung eines Gebietes der komplexen Ebene 1 in ein Gebiet der komplexen Ebene 2 mittels einer komplexwertigen Funktion f(z) heisst konforme Abbildung, wenn die Schnittwinkel zweier beliebiger Kurven der Grösse nach erhalten bleiben. Die durch eine analytische Funktion f(z) erzeugte Abbildung ist für alle Punkte z konform, für die die erste Ableitung nicht verschwindet \cite{elektro:mathematik-alpha}.
+
 \subsection{Gausssches Gesetz
 \label{elektro:subsection:Gauss}}
 
-\subsection{Laplace Gleichung
-\label{elektro:subsection:Laplace}}
+
 
 %\subsection{Zusammenhang zwischen E-Feld und Potential
 %\label{elektro:subsection:ephizusammenhang}}
