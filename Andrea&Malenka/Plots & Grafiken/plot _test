@@ -1,0 +1,36 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Gitter
+x = np.linspace(-2, 2, 400)
+y = np.linspace(-2, 2, 400)
+X, Y = np.meshgrid(x, y)
+Z = X + 1j*Y
+
+# Funktionen
+F1 = np.log(Z)
+F2 = F1 + 1/F1
+
+# Real- und Imaginärteile
+u1, v1 = np.real(F1), np.imag(F1)
+u2, v2 = np.real(F2), np.imag(F2)
+
+fig, axs = plt.subplots(1, 2, figsize=(12,6))
+
+# --- Plot 1 ---
+axs[0].contour(X, Y, u1, levels=20)
+axs[0].contour(X, Y, v1, levels=20, linestyles='dashed')
+axs[0].set_title("f(z) = z²")
+axs[0].set_xlabel("Re(z)")
+axs[0].set_ylabel("Im(z)")
+axs[0].axis("equal")
+
+# --- Plot 2 ---
+axs[1].contour(X, Y, u2, levels=20)
+axs[1].contour(X, Y, v2, levels=20, linestyles='dashed')
+axs[1].set_title("f(z) = log(z)")
+axs[1].set_xlabel("Re(z)")
+axs[1].axis("equal")
+
+plt.tight_layout()
+plt.show()

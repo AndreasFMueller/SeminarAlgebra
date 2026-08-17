@@ -1,0 +1,47 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Gitter
+x = np.linspace(-2, 2, 400)
+y = np.linspace(-2, 2, 400)
+X, Y = np.meshgrid(x, y)
+
+Z = X + 1j*Y
+
+# Singularität entfernen
+Z[np.abs(Z) < 0.2] = np.nan
+
+# Plattenkondensator-Potential
+u = Y
+v = X
+
+# Joukowski Transformation
+W = Z + 1/Z
+
+fig, ax = plt.subplots(1,2, figsize=(12,6))
+
+# ----- Plattenkondensator -----
+ax[0].contour(X, Y, u, levels=15)
+ax[0].contour(X, Y, v, levels=15, linestyles="dashed")
+
+ax[0].plot([-2,2],[0.8,0.8], linewidth=3)
+ax[0].plot([-2,2],[-0.8,-0.8], linewidth=3)
+
+ax[0].set_title("Plattenkondensator")
+ax[0].set_aspect("equal")
+ax[0].set_xlim(-2,2)
+ax[0].set_ylim(-2,2)
+
+# ----- transformiertes Feld -----
+ax[1].contour(np.real(W), np.imag(W), u, levels=15)
+ax[1].contour(np.real(W), np.imag(W), v, levels=15, linestyles="dashed")
+
+ax[1].set_title("nach Joukowski-Transformation")
+ax[1].set_aspect("equal")
+
+# wichtige Änderung: sichtbarer Bereich
+ax[1].set_xlim(-4,4)
+ax[1].set_ylim(-4,4)
+
+plt.tight_layout()
+plt.show()

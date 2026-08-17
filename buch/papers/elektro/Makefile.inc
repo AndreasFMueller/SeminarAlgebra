@@ -7,8 +7,8 @@ dependencies-elektro =						\
 	papers/elektro/packages.tex					\
 	papers/elektro/main.tex					\
 	papers/elektro/references.bib				\
-	papers/elektro/teil0.tex					\
-	papers/elektro/teil1.tex					\
-	papers/elektro/teil2.tex					\
-	papers/elektro/teil3.tex
+	papers/elektro/01_ElektrostatischesFeld.tex \
+	papers/elektro/02_Riemann.tex 		\
+	papers/elektro/03_DerKreis.tex 		\
+	papers/elektro/04_KreisTransformation.tex 
 
