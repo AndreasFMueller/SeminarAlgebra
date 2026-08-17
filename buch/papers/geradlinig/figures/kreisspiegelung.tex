@@ -15,7 +15,7 @@
   \coordinate (Pp) at (\k*1.2, \k*0.8); % same coordinates as P
 
   % Circle
-  \draw[darkgreen, line width=2pt] (M) circle (\R);
+  \draw[darkgreen, line width=1.8pt] (M) circle (\R);
 
   % Line through M, P', P
   \draw[black, thick] (M) -- (Pp) -- (P);
@@ -30,6 +30,6 @@
   \node[left] at (M) {$M$};
   \node[below] at (P) {$P$};
   \node[below] at (Pp) {$P'$};
-  \node[above right] at (R) {$R$};
+  \node[above right, yshift=-1pt, xshift=-1pt] at (R) {$R$};
 
 \end{tikzpicture}
