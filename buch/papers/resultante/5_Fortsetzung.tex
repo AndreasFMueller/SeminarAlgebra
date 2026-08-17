@@ -9,15 +9,16 @@
 \section{Geht das noch besser?
 \label{resultante:section:fortsetzung}}
 \kopfrechts{Geht das noch besser?}
-Es ist bereits lange bekannt, dass der euklidische Algorithmus zur Berechnung grösster gemeinsamer Teiler zweier ganzer Zahlen bereits 2000 Jahre alt ist.
+Es ist bereits lange bekannt, dass der euklidische Algorithmus zur Berechnung grösster gemeinsamer Teiler zweier ganzer Zahlen mehr als 2000 Jahre alt ist.
 Es ist der älteste bekannte Algorithmus.
-Beim Versuch den euklidischen Algorithmus zu verallgemeinern um den grössten gemeinsamen Teiler oder die Resultante von zwei Polynomen, erreicht man schnell das Konzept der Polynom-Restfolge (polynomial remainder sequence, PRS).
+Beim Versuch den euklidischen Algorithmus zu verallgemeinern, um den grössten gemeinsamen Teiler oder die Resultante von zwei Polynomen zu berechnen, erreicht man schnell das Konzept der Polynom-Restfolge (polynomial remainder sequence, PRS).
 Dies führt zu schnell anwachsenden Koeffizienten.
 Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Artifakt der naiven Ansätze der Verallgemeinerung.
-Das Wachstum lässt sich kontrollieren, wenn von jedem Polynom der PRS der grösste gemeinsame Teiler seiner Koeffizienten entfernt wird.
+Das Wachstum lässt sich kontrollieren, indem von jedem Polynom der PRS ein nicht benötigter Teil entfernt wird.
+Was dieser Teil ist und wie dieser entfernt wird, ist später in diesem Abschnitt ersichtlich.
 
 Der Schlüssel um diesen Koeffizienten Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten ist die Grundlage der Subresultanten.
-Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt das jedes Polynom einer PRS proptional zu einer Subresultanten der ersten zwei Polynome ist.
+Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt das jedes Polynom einer PRS proptional zu einer Subresultanten der ersten zwei Polynome dieser Folge ist.
 
 
 \subsection{Grundlegender Aufbau
@@ -26,7 +27,7 @@ Angenommen die Terme eines Polynoms \(P\) sind in absteigender Potentz sortiert,
 Anders als in der gewöhliche Polynom-Division mit Rest in \(\mathbb{Q}\), entsteht bei der Pseudo-Division keine Brüche, da mit einer Potenz des Leitkoeffizienten des Divisors multipliziert wird.
 Die Pseudo-Division hat einen einzigartigen Pseudo-Quotienten \(Q=\pquo(f,g)\) mit Pseudo-Rest \(R=\prem(f,g)\) sodass
 \begin{equation}
-    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \, i=1,\dots,k-1 \text{ist},
+    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \, i=1,\dots,k-1 \, \text{ist},
     \label{resultante:equation:algpdivi}
 \end{equation}
 wobei \(b_i\) der Leitkoeffizient von \(P_{i+1}\) (\(\lc(P_{i+1})\)), \(\delta_i=\deg(P_i)-\deg(P_{i+1})\) und \(P_{i+2}=R_i\) ist.
@@ -47,8 +48,8 @@ So eine Folge heisst Polynom-Restfolge (PRS).
     \begin{equation}
         8^{1+1}P_1-Q_1P_2=R_1,
     \end{equation}
-    nach der Division erhählt man \(Q_1=32X-88\) und \(R_1=P_3=2624X^2-2944X+320\).
-    Der näschste Schritt hat mit
+    nach der Polynom-Division erhählt man \(Q_1=32X-88\) und \(R_1=P_3=2624X^2-2944X+320\).
+    Der näschste Schritt hat
     \begin{equation*}
         b_2 = 2624, \qquad \delta_2=2-1=1,
     \end{equation*}
@@ -91,8 +92,8 @@ Dadurch wird
 \end{equation}
 Nun muss nur noch ein geeigneter Faktor \(\beta_i\) gefunden werden.
 
-Der künstliche Faktor der in der Pseudo-Division vorkommt ist bereits bekannt.
-Dadurch kann der Skalierungsfaktor \(\beta_i\) der PRS nach der Brown-Normierung formuliert werden.
+Der künstliche Faktor der in der Pseudo-Division vorkommt ist bereits bekannt, und kommt als Skalierungsfaktor \(\beta_i\) infrage.
+Dieser wird in der PRS mit der Brown-Normierung festgelet.
 Um eine PRS zu formulieren sei \(p_i=\lc(P_i)\) und man wählt
 \begin{equation}
     \begin{aligned}
@@ -126,7 +127,7 @@ Dann ist
     \ggt(P_1,P_2)=\pp(G_k), \qquad \Res(P_1,P_2)=0,
     \label{resultante:equation:ggtres}
 \end{equation}
-wobei \(\pp\) das primitive Polynom ist, aus Beispiel \ref{resultante:beispiel:prs} ist \(\pp(P_4)=x-1\).
+wobei \(\pp\) das primitive Polynom ist, aus Beispiel \ref{resultante:beispiel:prs} ist \(\pp(P_4)=X-1\).
 Dabei haben die Koeffizienten den \(\ggt=1\).
 Der Algorithmus soll mit folgendem Beispiel ersichtlich werden.
 
@@ -171,10 +172,10 @@ Der Algorithmus soll mit folgendem Beispiel ersichtlich werden.
             G_5&=0.
         \end{aligned}
     \end{equation*}
-    Der \(\ggt\) ist nach \ref{resultante:equation:ggtres} links \(\ggt(P_1,P_2)=\pp(G_4)=X-1\).
+    Der \(\ggt\) ist nach (\ref{resultante:equation:ggtres}) links \(\ggt(P_1,P_2)=\pp(G_4)=X-1\).
     \label{resultante:beispiel:subprs}
 \end{beispiel}
-Wenn \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu sehen welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
+Wenn man \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu sehen welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
 
 
 \subsection{Anwendung der Subresultanten-PRS
@@ -211,28 +212,29 @@ Wenn \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS ver
     berechnet.
     Dabei ist \(n_i\) der Grad von \(G_i\), \(g_i\) der Leitkoeffizient \(\lc(G_i)\) und \(h_i\) die Hilfsfaktoren.
     Da \(G_4\) konstant bezüglich \(z\) ist, ist das die Resultante \(\Res_z\left(-3c_kz^2+1-c_k,z^3+z\right)\).
-    Die Resultante soll \(\Res_z=0\) sein, das wird erreicht wenn \(c=1\) oder \(c=-\frac{1}{2}\).
-    Nun kann der \(\ggt\) aus der Zeile darüber bestimmte werden, für \(c_1=1\):
+    Die Resultante soll \(\Res_z=0\) sein, das wird erreicht wenn \(c=1\) oder \(c=-\frac{1}{2}\) ist.
+    Nun kann der \(\ggt\) mit der darüber liegenden Zeile bestimmte werden, für \(c_1=1\):
     \begin{equation}
         \begin{aligned}
-            G_3(c_1)=3c_1(2c_1+1)z=3\cdot1(2\cdot1+1)z=9z\\
-            \Rightarrow \ggt=\pp(G_3(c_1)=9z)=z
+            G_3(c_1)&=3c_1(2c_1+1)z=3\cdot1(2\cdot1+1)z=9z\\
+            \Rightarrow& \ggt=\pp(G_3(c_1)=9z)=z
         \end{aligned},
     \end{equation}
     dasselbe wird für \(c_2=-\frac{1}{2}\) gemacht:
     \begin{equation}
         G_3(c_2)=3c_2(2c_2+1)z=3\cdot-\frac{1}{2}(2\cdot-\frac{1}{2}+1)z=0,
     \end{equation}
-    hier ist es besonders da \(G_3\) ebenfalls null wird muss wieder in der darüberliegenden Zeile geschaut werden.
+    hier ist es besonders da \(G_3\) ebenfalls null wird, muss wiederum in der darüberliegenden Zeile geschaut werden.
     \begin{equation}
         \begin{aligned}
-            G_2(c_2)=-3c_2z^2+1-c_2=-3\cdot-\frac{1}{2}z^2+1-\left(-\frac{1}{2}\right)=1.5z^2+1.5\\
-            \Rightarrow \ggt=\pp(G_2(c_2)=1.5z^2+1.5)=z^2+1
+            G_2(c_2)&=-3c_2z^2+1-c_2=-3\cdot-\frac{1}{2}z^2+1-\left(-\frac{1}{2}\right)=1.5z^2+1.5\\
+            \Rightarrow& \ggt=\pp(G_2(c_2)=1.5z^2+1.5)=z^2+1
         \end{aligned}.
     \end{equation}
-    Setzt man wieder um die gefundenen Nullstellen mit den dazugehörigen \(\ggt\)'s zusammen erhält man die Stammfunktion:
+    Setzt man wieder die gefundenen Nullstellen mit den dazugehörigen \(\ggt\)'s zusammen erhält man die Stammfunktion:
     \begin{equation*}
         \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1).
     \end{equation*}
     \label{resultante:beispiel:subprsRT}
 \end{beispiel}
+Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt, es gibt viele verschiedene Wege die Resultante zu berechnen.
