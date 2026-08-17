@@ -7,39 +7,26 @@
 % !TEX encoding = UTF-8
 %
 \section{Riemannsche Zeta-Funktion}\label{Riemannsche Zeta-Funktion}
+\kopfrechts{Riemannsche Zeta-Funktion}
 
 Die riemannsche Zeta-Funktion wurde 1859 von Bernhard Riemann untersucht und ist eine zentrale Funktion der
+\index{Bernhard Riemann}%
+\index{Riemann, Bernhard}%
 analytischen Zahlentheorie. Sie wird üblicherweise als unendliche Reihe
-definiert. Für alle komplexen Variablen s mit Realteil grösser als 1
-ergibt sich ihre Darstellung als
+\index{analytische Zahlentheorie}%
+definiert. Für alle komplexen Variablen $s$ mit Realteil grösser als 1 ergibt sich ihre Darstellung als
 \[
 \zeta(s) = \sum_{n = 1}^{\infty}\frac{1}{n^{s}}.
 \]
-Diese Definition beschreibt eine Dirichlet-Reihe, deren Konvergenz für $\operatorname{Re}(s) \textgreater{} 1$ gewährleistet ist. 
+Diese Definition beschreibt eine Dirichlet-Reihe, deren Konvergenz für $\operatorname{Re}(s) > 1$ gewährleistet ist. 
 Bereits in diesem Definitionsbereich zeigt die Funktion bemerkenswerte Eigenschaften. 
 So nimmt sie für bestimmte Argumente konkrete Werte an, wie in Tabelle \ref{tab:zeta} dargestellt ist.
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
-		\rowcolor{blue!40}
-		\textcolor{white}{\textbf{\textit{s}}} & 
-		\textcolor{white}{\textbf{$\zeta(s)$}} & 
-		\textcolor{white}{\textbf{Ungefährer Wert}} \\
-		\hline
-		$2$ & $\pi^2/6$ & $\approx 1{,}6449$ \\
-		\hline
-		$4$ & $\pi^4/90$ & $\approx 1{,}0823$ \\
-		\hline
-		$0$ & $-1/2$ & (analytische Fortsetzung) \\
-		\hline
-	\end{tabular}
-	\caption{Ausgewählte Werte der Zeta-Funktion}
-	\label{tab:zeta}
-\end{table}
+\input{papers/zeta/fig/table.tex}
 
 Besonders bemerkenswert ist hier der Wert $\zeta$(2) = $\frac{\pi^2}{6}$, den Euler bereits 1735 nachwies, bekannt als das Basler Problem (siehe Kapitel \ref{chapter:basel}).
+\index{Euler, Leonhard}%
+\index{Basel-Problem}%
 Die letze Zeile der Tabelle gehört jedoch nicht zum ursprünglichen Definitionsbereich (s > 1), sondern ist nur durch analytische Fortsetzung erreichbar. 
 
 Bereits der Fall $s = 0$ zeigt, dass es sich bei solchen divergenten Werten nicht um Einzelfälle handelt.
@@ -69,6 +56,7 @@ Wie dies mit Hilfe der analytischen Fortsetzung gelingt, wird in Abschnitt~\ref{
 \end{figure}
 
 Die spiralförmige Darstellung in Abbildung \ref{fig:abbildungzeta} zeigt die Werte der Zeta-Funktion $\zeta(s)$ auf der kritischen Geraden $\operatorname{Re}(s) = \frac{1}{2}$, das heisst für $s = \frac12 + it$ mit variierendem reellen Parameter $t$. Die Schnittpunkte der Kurve mit dem Ursprung (sichtbar als die Stellen, an denen die Spirale durch den Mittelpunkt verläuft) entsprechen den sogenannten nicht-trivialen Nullstellen der Zeta-Funktion, die auf dieser Geraden liegen. Dass tatsächlich alle nicht-trivialen Nullstellen auf der Linie $\operatorname{Re}(s) = \frac{1}{2}$ liegen, ist Gegenstand der berühmten, bis heute unbewiesenen riemannschen Vermutung, einem der bedeutendsten offenen Probleme der Mathematik.
+\index{kritische Gerade}%
 
 Nützlich ist die riemannsche Zeta-Funktion ebenfalls, um eine Annäherung der Primzahlfunktion zu schaffen. 
 Das Euler-Produkt
@@ -84,7 +72,8 @@ beschreibt eine geometrische Reihe, welche den Zusammenhang aller Primzahlen auf
 	\label{fig:primzahlen}
 \end{figure}
 
-Die blaue Treppenkurve in Abbildung \ref{fig:primzahlen} zeigt die Primzahlzählfunktion $\pi(x)$, welche für jede reelle Zahl $x$ angibt, wie viele Primzahlen kleiner oder gleich $x$ existieren.
+Die blaue Treppenkurve in Abbildung~\ref{fig:primzahlen} zeigt die Primzahlzählfunktion $\pi(x)$, welche für jede reelle Zahl $x$ angibt, wie viele Primzahlen kleiner oder gleich $x$ existieren.
+\index{Primzahlzählfunktion}%
 Die orangefarbene Kurve stellt den logarithmischen Integralausdruck $\operatorname{Li}(x)$ dar, eine glatte, sprungfreie Funktion. Er wird in Definition \ref{buch:intalg:risch:def:integrallogarithmus} eingeführt.
 Das ist eine von Riemann entwickelte Näherungsformel für $\pi(x)$, die direkt aus der Zeta-Funktion abgeleitet wird. Eine ausführliche, gut nachvollziehbare Herleitung deses Zusammenhangs findet sich bei \cite{edwards1974riemann}.
 Man erkennt, wie eng beide Kurven beieinander liegen: $\operatorname{Li}(x)$ approximiert die Verteilung der Primzahlen, wobei die relative Genauigkeit dieser Näherung mit wachsendem $x$ zunimmt.

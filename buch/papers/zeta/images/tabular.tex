@@ -1,0 +1,37 @@
+%
+% tabular.tex -- table using xcolor
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usepackage[table]{xcolor}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+\node at (0,0) {\begin{tabular}{|c|c|c|}
+	\hline
+	\rowcolor{blue!40}
+	\textcolor{white}{\textbf{\textit{s}}} & 
+	\textcolor{white}{\textbf{$\zeta(s)$}} & 
+	\textcolor{white}{\textbf{Ungefährer Wert}\raisebox{2pt}{\strut}} \\
+	\hline
+	$2$ & $\pi^2/6$ & $\approx 1{,}6449$ \raisebox{2pt}{\strut}\\
+%	\hline
+	$4$ & $\pi^4/90$ & $\approx 1{,}0823$ \raisebox{2pt}{\strut}\\
+%	\hline
+	$0$ & $-1/2$ & (analytische Fortsetzung) \raisebox{2pt}{\strut}\\
+	\hline
+\end{tabular}};
+
+\end{tikzpicture}
+\end{document}
+
