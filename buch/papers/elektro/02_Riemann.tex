@@ -12,7 +12,7 @@
 \label{elektro:section:RiemannSatz}}
 \kopfrechts{Riemannscher Abbildungssatz}
 
-Georg Fridrich Bernhard Riemann (1826-1866) \textcolor{red}{cite from bibliography} war ein deutscher Mathematiker, der sich mit diversen Gebieten der Mathematik beschäftigte.
+Georg Fridrich Bernhard Riemann (1826-1866) \cite{elektro:riemann} war ein deutscher Mathematiker, der sich mit diversen Gebieten der Mathematik beschäftigte.
 Auf vielen hat er bahnbrechende Ergebnisse erzielt, die bis heute von grosser Bedeutung sind.
 Auch Einstein hat von seinen Theorien Gebrauch gemacht.
 Den Riemannschen Abbildungssatz hat er erstmals als Skizze im Jahre 1851 in seiner Dissertation veröffentlicht. 
@@ -46,10 +46,9 @@ Würde die gesamte komplexe Ebene auf den Einheitskreis abgebildet werden, dann 
 Dies stünde im Widerspruch zur nächsten Voraussetzung, nämlich der Bijektivität der Abbildung.
 
 \subsubsection{Bijektive Abbildung}
-Bijektiv bedeutet, dass alles eindeutig abgebildet wird, es gibt keine zwei Punkte, welche auf denselben Zielpunkt abgebildet werden. 
-Es geht sowohl bei der Transformation als auch bei der Rücktransformation keine Information verloren.
-Ansonsten würde eine Zweideutigkeit entstehen und die Abbildung wäre nicht mehr umkehrbar.
-\textcolor{red}{Bijektiv = injektiv und surjektiv (Begriff kommt später vor)}
+Eine bijektive Abbildung ist sowohl injektiv (verschiedene Elemente der Definitionsmenge werden auf verschiedene Elemente der Zielmenge abgebildet) als auch surjektiv (jedes Element der Zielmenge wird getroffen).
+Es gibt keine zwei Punkte, welche auf denselben Zielpunkt abgebildet werden. 
+Bei der Transformation und auch bei der Rücktransformation geht keine Information verloren und die Abbildung ist umkehrbar.
 
 % \subsection{Existenzbeweis
 % \label{elektro:subsection:Riemannbeweis}}
@@ -82,10 +81,8 @@ Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangre
 Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
 Es gilt $z \in G \land a \neq G$.
 Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.
-Mit der Quadratwurzelfunktion kann eine holomorphe Funktion $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
-\textcolor{red}{Begriffsdefinition holomorph}
+Mit der Quadratwurzelfunktion kann eine holomorphe Funktion (siehe Abschnitt \ref{elektro:subsection:holomorph}) $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
 Daraus ergibt sich eine Funktionsklasse $\mathcal{F}$, die alle holomorphen Funktionen $f$ enthält, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
 Für den weiteren Beweis werden verschiedene Eigenschaften der holomorphen Funktionen verwendet, wie die Surjektivität, welche die Extremalfunktion aufweisen muss, sowie Automorphien der Einheitskreisscheibe, welche die Abbildung auf den Kreis beschreiben.
 Das Ganze läuft darauf hinaus, das gezeigt werden kann das die Abbildungsfunktion $f$ sowie auch die Rücktransformation $f^{-1}$ holomorph sind und damit die Abbildung konform ist. 
 Womit der Satz von Riemann bewiesen ist.
-\textcolor{red}{Begriffsdefinition konform}
