@@ -191,7 +191,7 @@ Wenn \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS ver
         \label{resultante:equation:resprs}
     \end{equation}
     berechnet werden. Dafür soll die Subresultanten-PRS verwendet werden.
-    Damit man den Überblick über der einzelnen Faktoren der Berechnung behält, wird eine Tabelle verwendet zur Vereinfachung ist auch hier \(c_k=c\).
+    Damit man den Überblick über der einzelnen Faktoren der Berechnung behält, wird eine Tabelle verwendet, zur Vereinfachung ist auch hier \(c_k=c\).
     Die \(G_i\) werden nach (\ref{resultante:equation:algsubprs}) in
     \begin{equation*}
         \begin{NiceArray}{|c|l|c|c|c|c|}[cell-space-limits=3pt]
@@ -211,5 +211,28 @@ Wenn \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS ver
     berechnet.
     Dabei ist \(n_i\) der Grad von \(G_i\), \(g_i\) der Leitkoeffizient \(\lc(G_i)\) und \(h_i\) die Hilfsfaktoren.
     Da \(G_4\) konstant bezüglich \(z\) ist, ist das die Resultante \(\Res_z\left(-3c_kz^2+1-c_k,z^3+z\right)\).
+    Die Resultante soll \(\Res_z=0\) sein, das wird erreicht wenn \(c=1\) oder \(c=-\frac{1}{2}\).
+    Nun kann der \(\ggt\) aus der Zeile darüber bestimmte werden, für \(c_1=1\):
+    \begin{equation}
+        \begin{aligned}
+            G_3(c_1)=3c_1(2c_1+1)z=3\cdot1(2\cdot1+1)z=9z\\
+            \Rightarrow \ggt=\pp(G_3(c_1)=9z)=z
+        \end{aligned},
+    \end{equation}
+    dasselbe wird für \(c_2=-\frac{1}{2}\) gemacht:
+    \begin{equation}
+        G_3(c_2)=3c_2(2c_2+1)z=3\cdot-\frac{1}{2}(2\cdot-\frac{1}{2}+1)z=0,
+    \end{equation}
+    hier ist es besonders da \(G_3\) ebenfalls null wird muss wieder in der darüberliegenden Zeile geschaut werden.
+    \begin{equation}
+        \begin{aligned}
+            G_2(c_2)=-3c_2z^2+1-c_2=-3\cdot-\frac{1}{2}z^2+1-\left(-\frac{1}{2}\right)=1.5z^2+1.5\\
+            \Rightarrow \ggt=\pp(G_2(c_2)=1.5z^2+1.5)=z^2+1
+        \end{aligned}.
+    \end{equation}
+    Setzt man wieder um die gefundenen Nullstellen mit den dazugehörigen \(\ggt\)'s zusammen erhält man die Stammfunktion:
+    \begin{equation*}
+        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1).
+    \end{equation*}
     \label{resultante:beispiel:subprsRT}
 \end{beispiel}
