@@ -469,3 +469,94 @@ Eine meromorphe Funktion mit zwei unabhängigen Perioden heisst
 gegeben.
 \index{elliptische Funktion}%
 
+\subsection{Der Werkzeugkasten
+\label{elliptisch:subsection:werkzeugkasten}}
+Die geometrische Deutung liefert fast von selbst die Rechenregeln,
+mit denen in den Anwendungen gearbeitet wird.
+Die Ellipsengleichung \eqref{elliptisch:equation:einheitsellipse}
+und die Rechnung \eqref{elliptisch:equation:dngeometrie} schreiben
+sich als die zwei Pythagoras-Identitäten
+\begin{equation}
+\operatorname{sn}^2(u,k) + \operatorname{cn}^2(u,k) = 1,
+\qquad
+\operatorname{dn}^2(u,k) + k^2\operatorname{sn}^2(u,k) = 1.
+\label{elliptisch:equation:pythagoras}
+\end{equation}
+
+Die Ableitungen nach $u$ folgen aus der Wahl des Parameters.
+Aus \eqref{elliptisch:equation:amplitude} liest man
+\begin{equation}
+\frac{du}{d\varphi}
+=
+\frac{1}{\sqrt{1-k^2\sin^2\varphi}}
+=
+\frac{1}{\operatorname{dn}(u,k)},
+\qquad\text{also}\qquad
+\frac{d\varphi}{du}
+=
+\operatorname{dn}(u,k)
+\label{elliptisch:equation:dphidu}
+\end{equation}
+ab, und die Kettenregel ergibt
+$\frac{d}{du}\operatorname{sn}(u,k)
+= \cos\varphi \cdot \frac{d\varphi}{du}
+= \operatorname{cn}(u,k)\,\operatorname{dn}(u,k)$.
+Dieselbe Rechnung für die beiden anderen Funktionen liefert
+zusammen
+\begin{equation}
+\begin{aligned}
+\frac{d}{du}\operatorname{sn}(u,k) &= \operatorname{cn}(u,k)\,\operatorname{dn}(u,k),\\
+\frac{d}{du}\operatorname{cn}(u,k) &= -\operatorname{sn}(u,k)\,\operatorname{dn}(u,k),\\
+\frac{d}{du}\operatorname{dn}(u,k) &= -k^2\operatorname{sn}(u,k)\,\operatorname{cn}(u,k),
+\end{aligned}
+\label{elliptisch:equation:ableitungen}
+\end{equation}
+siehe \cite[Satz~11.11]{elliptisch:mueller-spezielle}.
+Quadrieren der ersten Zeile und Einsetzen der Identitäten
+\eqref{elliptisch:equation:pythagoras} ergibt die
+Differentialgleichung
+\begin{equation}
+\operatorname{sn}'(u,k)^2
+=
+\bigl(1-\operatorname{sn}^2(u,k)\bigr)
+\bigl(1-k^2\operatorname{sn}^2(u,k)\bigr).
+\label{elliptisch:equation:sndgl}
+\end{equation}
+Sie hat die Signatur
+\begin{equation}
+(y')^2
+=
+\alpha y^4 + \beta y^2 + \gamma,
+\label{elliptisch:equation:signatur}
+\end{equation}
+ein Polynom vierten Grades in $y$ ohne ungerade Potenzen.
+Die Funktionen $\operatorname{cn}$ und $\operatorname{dn}$ erfüllen
+Gleichungen derselben Signatur mit anderen Koeffizienten
+\cite[Kapitel~11.2.2]{elliptisch:mueller-spezielle}.
+Genau diese Signatur wird in den Anwendungen von
+Abschnitt~\ref{elliptisch:section:anwendungen} wieder auftauchen.
+Führt die Physik auf eine Gleichung der Form
+\eqref{elliptisch:equation:signatur}, ist die Lösung eine
+Jacobische Funktion.
+
+Die Grenzfälle des Moduls geben die Brücke zu Bekanntem.
+Für $k = 0$ wird $\operatorname{sn}$ zu $\sin$, $\operatorname{cn}$
+zu $\cos$ und $\operatorname{dn}$ konstant $1$, wie im
+vorangegangenen Abschnitt gesehen.
+Für $k = 1$ wird \eqref{elliptisch:equation:sndgl} zu
+$y' = 1 - y^2$ mit der Lösung $\operatorname{sn}(u,1) = \tanh u$,
+und entsprechend
+$\operatorname{cn}(u,1) = \operatorname{dn}(u,1)
+= \operatorname{sech} u$
+\cite[Kapitel~11.2.1]{elliptisch:mueller-spezielle}.
+Zwischen den Kreisfunktionen und den hyperbolischen Funktionen
+liegt also eine ganze Schar von Funktionen, parametrisiert durch
+$k$.
+
+Zur Notation sei noch erwähnt, dass Kehrwerte und Quotienten der
+drei Grundfunktionen eigene zweibuchstabige Namen tragen, etwa
+$\operatorname{sc} = \operatorname{sn}/\operatorname{cn}$,
+insgesamt zwölf Funktionen nach Glaisher
+\cite[Kapitel~11.2, Tabelle~11.3]{elliptisch:mueller-spezielle}.
+Wir brauchen sie im Weiteren nicht.
+\index{Glaisher-Notation}%
