@@ -31,7 +31,7 @@ Trotz seines tiefen Wirkungsgrades kommt der Van de Graaff Generator zur Erzeugu
 Elektrostatik ist die Lehre von ruhenden elektrischen Ladungen und deren Wirkung auf ihre Umgebung, insbesondere andere Ladungen und Materie \cite{elektro:elt2_skript}.
 Es fliesst kein elektrischer Strom und in der Folge gibt es keinen Widerstand. 
 Elektrostatische Grössen besitzen keine zeitliche Abhängigkeit.
-Mathematisch formuliert: Die erste Ableitung nach der Zeit ist für alle elektrostatischen Funktionen gleich Null. $\frac{\partial \vec{E}}{\partial t} = 0$.
+Mathematisch formuliert: Die erste Ableitung nach der Zeit ist für alle elektrostatischen Funktionen gleich Null: $\frac{\partial \vec{E}}{\partial t} = 0$.
 
 \subsection{Vektor- und Skalarfeld, Quellenfeld und Homogenität
 \label{elektro:subsection:VektorSkalar}}
@@ -44,6 +44,7 @@ Elektrostatische Felder sind Quellenfelder.
 Sie sind statisch, also nicht dynamisch, und stehen im Gegensatz zu Wirbelfeldern, welche beispielsweise durch sich zeitlich ändernde Magnetfelder erzeugt werden können.
 Die Feldlinien des elektrostatischen Felds beginnen immer auf positiven Ladungen und enden auf negativen. 
 Die Ladung kann sich dabei auch im Unendlichen befinden.
+TODO: Bild einfügen.
 
 Verlaufen die Feldlinien parallel, spricht man von einem homogenen Feld, ansonsten von einem inhomogenen Feld.
 Das Feld zwischen zwei parallelen Kondensatorplatten beispielsweise ist homogen, was die mathematische Berechnung erheblich erleichtert. 
@@ -75,7 +76,7 @@ Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die K
 Sie ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben.
 Es handelt sich um ein Radialfeld (ausgehend von der positiven oder führend zur negativen Quelle).
 \begin{equation}
-	E = \frac{F}{q} = \frac{Kraft}{Probeladung} = ... = \frac{Q}{4\pi\epsilon_0 r^{2}}\hat{r}
+	E = \frac{F}{q} = \frac{Kraft}{Probeladung} = \frac{Q}{4\pi\epsilon_0 r^{2}}\hat{r}
     \label{equation:EFeld}
 \end{equation}
 
@@ -88,9 +89,10 @@ Genau wie beim E-Feld, das durch Normalisierung der Coulomb-Kraft mit einer Prob
     \label{equatiom:Potential}
 \end{equation}
 Die Einheit von $\varphi$ ist Volt, genau wie bei der Spannung, denn die Spannung ist nichts anderes als die Differenz zweier Potentiale.
-Im Gegensatz zum elektrischen Feld, welches ein Vektorfeld ist, ist das Potentialfeld ein Skalarfeld handelt.
+Im Gegensatz zum elektrischen Feld, welches ein Vektorfeld ist, ist das Potentialfeld ein Skalarfeld.
 Die Potentiale jedes einzelnen Punktes ergeben einen Gradienten, aus dem die elektrische Feldstärke berechnet werden kann.
-\textcolor{red}{Negativer Zusammenhang zwischen E-Feld und Potential}
+Das negative Vorzeichen in der Formel \ref{equatiom:Potential} hat seinen Ursprung in der Wahl des Bezugssystem, der Referenz ref.
+
 
 \subsection{Äquipotentiallinien
 \label{elektro:subsection:Aequipotentiallinien}}
@@ -99,7 +101,13 @@ Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass da
 Äquipotentiallinien liegen stets senkrecht zum elektrischen Feld.
 Im Dreidimensionalen heisst es Äquipotentialflächen.
 Die Anwendung der komplexen Transformation ist aber nur im zweidimensionalen Bereich möglich, wie nachfolgend gezeigt.
- 
+
+\subsection{Beispiel Einheitskreis
+	\label{elektro:subsection:Einheitskreis-Beispiel}}
+Zeichnet man im elektrostatischen Radialfeld einer positiven oder negativen Punktladung die Äquipotentiallinien ein, resultieren Kreise mit unterschiedlichen Radien.
+Es erscheint intuitiv, dass man bei bekanntem E-Feld die Äquipotentiallinien sofort einzeichnen kann, was in diesem Beispiel besonders einfach ist.
+Umgekehrt funktioniert es aber auch:
+\textcolor{red}{Begriffsdefinition holomorph, konform}
 
 \subsection{Gausssches Gesetz
 \label{elektro:subsection:Gauss}}
@@ -107,7 +115,7 @@ Die Anwendung der komplexen Transformation ist aber nur im zweidimensionalen Ber
 \subsection{Laplace Gleichung
 \label{elektro:subsection:Laplace}}
 
-\subsection{Zusammenhang zwischen E-Feld und Potential
-\label{elektro:subsection:ephizusammenhang}}
-Etwas vorgreifend wird hier gezeigt, wie im Falle eines Kreises mathematisch von einem Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen werden kann.
-Die Fläche außerhalb des Kreises wird als Potentialfeld beschrieben.
+%\subsection{Zusammenhang zwischen E-Feld und Potential
+%\label{elektro:subsection:ephizusammenhang}}
+%Etwas vorgreifend wird hier gezeigt, wie im Falle eines Kreises mathematisch von einem Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen werden kann.
+%Die Fläche außerhalb des Kreises wird als Potentialfeld beschrieben.
