@@ -1,0 +1,93 @@
+%
+% teil2.tex -- Beispiel-File für teil2 
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Der Kreis
+\label{elektro:section:DerKreis}}
+\kopfrechts{Der Kreis}
+Bevor wir im nächsten Kapitel die Transformation von Kreisen betrachten, wollen wir uns mit den Eigenschaften des Kreises beschäftigen.
+Der Kreis eine die einfachste und am besten verstandene Figur der Mathematik.
+Elektrostatische Feldlinien und auch das Potential können leicht berechnet werden.
+Für die elektrostatische Betrachtung dieses Kapitels ist der Kreis optimal, denn sowohl die Formeln für $E$ als auch für $\varphi$ hängen nur vom Abstand zum Mittelpunkt $r$ ab.
+
+
+\subsection{Radialsymmetrische Potentiale
+\label{elektro:subsection:RadialsymmetrischePotentiale}}
+Im Kreis ist das Potential radialsymmetrisch verteilt.
+Der Kreis stellt eine Punktladung mit der Ladungsdichte $\rho$ dar.
+%Zur Berechnung des Feldes wird das ... verwendet in seiner Integralform. 
+Dank der Punktsymmetrie des Kreises ist das Potentialfeld durch Polarkoordinaten, die den Abstand $r$ und den Winkel $\varphi$ darstellen, vollständig beschrieben.  
+Im Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} wurde gezeigt wie das Potentialfeld $\varphi$ und das elektrische Feld $\mathbf{E}$ zusammenhängen.
+Es ergibt sich ein Kreislauf von Integralen, in welchem stets von einem Fall auf den anderen geschlossen werden kann und umgekehrt.
+Dazu muss jedoch eine dieser Formeln, die für den Kreis gültig ist, aufgestellt worden.
+Es braucht also einen Einstieg, durch den die Integralformel des elektrischen Feldes $\mathbf{E}$ gefunden werden kann. 
+
+\begin{equation}
+    \varphi = \int_{-\infty}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} dV
+    \label{elektro:equation:potentialbegin}
+\end{equation}
+Wie zuvor gezeigt, stellt der Kreis die Ladung dar und wir wollen das Potentialfeld ausserhalb des Kreises beschreiben.
+Dazu können wir das Integral von der Kreisoberfläche bis in die Unendlichkeit lösen.
+\begin{equation}
+    \varphi = \int_{0}^{2\pi} \int_{r}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} r dr d\varphi
+    = \frac{\rho}{2\varepsilon_0} \int_{r}^{\infty} dr
+    = \frac{\rho}{2\varepsilon_0} [r]_{r}^{\infty}
+    = -\frac{\rho}{2\varepsilon_0} r
+\end{equation}
+
+Verständnis: 
+Das Volumenelement wird zu $dV = r dr d\varphi $.
+Für beide Integrale wird die Integrationsgrenze von $0$ bis $2\pi$ für $\varphi$ und von $r$ bis $\infty$ für $r$ gewählt, da das Potentialfeld ausserhalb des Kreises beschrieben werden soll und dies um die gesamten $2\pi$ des Kreises.
+
+
+\textcolor{red}{Grafik ?}
+
+\subsection{Kreisspiegelung
+\label{elektro:subsection:Kreisspiegelung}}
+
+Damit man sich die Kreisspiegelung vorstellen kann, wird der Kreisrand als Spiegeloberfläche angenommen. 
+Somit wird jeder Punkt ausserhalb des Kreises -- auch die Unendlichkeit -- in das Innere des Einheitskreises gespiegelt.
+Analog dazu wird alles innerhalb des Einheitskreises nach aussen gespiegelt, wobei der Ursprung auf alle Seiten in die Unendlichkeit gespiegelt wird. 
+
+Diese Transformation wird hier nur gezeigt, weil durch diese Transformation die Wahl der Integralgrenzen im Abschnitt \ref{elektro:subsection:RadialsymmetrischePotentiale} erklärt werden kann.
+Es kann vom Mittelpunkt zum Kreisrand oder vom Kreisrand bis in die Unendlichkeit integriert werden und mit einer einfachen Kreisspiegelung im Komplexen vom einen zum anderen Fall übergegangen werden. 
+Mathematisch wird die Kreisspiegelung durch die folgende Transformation beschrieben:
+\begin{equation}
+    z \mapsto \frac{1}{\overline{z}}
+\end{equation}
+\textcolor{red}{Kreisspiegelung Fallüberführung rechenbeispiel}
+
+
+\subsection{Zusammenhang zwischen $E$-Feld und Potential
+\label{elektro:subsection:ephizusammenhang}}
+Anhand des Beispiels des Einheitskreises wird hier gezeigt wie von einem Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen werden kann, wie im Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} behauptet wird.
+
+Unser Ausgangspunkt ist das elektrische Feld $\mathbf{E}$, das durch die Umformung zu zylindrischen Koordinaten auf $ E = \frac{\rho}{2\pi\varepsilon_0 r} \hat{r} $ vereinfacht werden kann.
+Wird dies in die Formel \ref{equatiom:Potential} eingesetzt, so ergibt sich das Potentialfeld $\varphi$. 
+\begin{equation}
+    \varphi = - \int_{1}^{k} \frac{\rho}{2\pi\varepsilon_0 r} \hat{r} \cdot d\mathbf{r}
+    = - \frac{\rho}{2\pi\varepsilon_0}\vert ln(k) \vert_{1}^{r}
+    = - \frac{\rho}{2\pi\varepsilon_0} ln(r)
+    \label{elektro:equation:potential}
+\end{equation}
+Ist nun das Elektrische Feld bekannt, kann daraus auch das elektrische Potential berechnet werden.
+% Kontinuierlich kann auch vom Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen weerden indem die Formel die sich aus dem soeben ausgeführen Integrals umgestellt wird. 
+Der Rückschluss vom Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ ist über die Laplace-Gleichung \ref{elektro:subsection:Laplace} möglich.
+Es muss konsistent in zylindrischen Koordinaten gearbeitet werden, damit die Ableitung des Potentials $\varphi$ nach $r$ das elektrische Feld $\mathbf{E}$ ergibt.
+
+\begin{equation}
+    \mathbf{E} = - \nabla \varphi = - \frac{\partial}{\partial r} \left( - \frac{\rho}{2\pi\varepsilon_0} ln(r) \right) = \frac{\rho}{2\pi\varepsilon_0 r} \hat{r}
+    \label{elektro:equation:efeld}
+\end{equation}
+
+Hiermit ist gezeigt das die Integrale in einem Kreislauf miteinander verbunden sind und von einem zum anderen geschlossen werden kann.
+
+
+% \subsection{Cayley-Transformation
+% \label{elektro:subsection:Cayley}}
+% Dies wäre eine Option aber ist weniger intuitiv, weil alles über die Unendlichkeit geschlossen werden muss.
+% Ausserdem, haben die meisten Geometrien eine geschlossene Oberfläche.
