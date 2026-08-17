@@ -204,7 +204,7 @@ h
 \text{ zu }
 t(h)
 =
-h\sqrt{\frac{h}{\pi d}}
+h\sqrt{\frac{k}{\pi d}}
 \Rightarrow
 \frac{dh}{dt}
 =
@@ -245,7 +245,7 @@ mit dem daraus entstehenden Fresnel-Parameter
 \end{equation}
 
 \subsection{Beugungsverlust}
-Aus den hervorgehenden Gleichungen kann der Beugungsverlust $L(v)$ berechnet werden,
+Aus den vorgängigen Gleichungen kann der Beugungsverlust $L(v)$ berechnet werden,
 indem das Verhältnis der gesamten Signalstärke zur verlorenen Signalstärke berechnet wird.
 In der Elektrotechnik werden Verhältnisse immer zwischen Leistungen und nicht zwischen Signalen berechnet,
 weshalb in
@@ -305,20 +305,26 @@ d_1 + d_2 + \frac{h^2}{2}\left(\frac{1}{d_1} + \frac{1}{d_2}\right)
 d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
 \]
 Setzt man die neue Distanz $r$ in die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} ein, folgt
-\begin{equation}
-    \psi_{\text{rx}}
-    =
-    \psi \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)
-    =
-    \underbrace{\psi \cdot e^{-jk(d_1 + d_2)}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right).
-    \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig}
-\end{equation}
+\begin{subequations}
+\label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig}
+    \begin{align}
+        \psi_{\text{rx}}
+        &=
+        \psi \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)
+        \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-eingesetzt}\\
+        &=
+        \underbrace{\psi \cdot e^{-jk(d_1 + d_2)}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right).
+        \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest}
+    \end{align}
+\end{subequations}
 Unter genauer Betrachtung fällt auf,
-dass die neue Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig} der vorherigen stark gleicht.
+dass die neue Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest} der vorherigen stark gleicht.
 Im Grunde ändert sich lediglich der Parameter
 \[
 \frac{1}{d}
-\text{ zu }
+\quad
+\text{zu}
+\quad
 \frac{d_1 + d_2}{d_1d_2},
 \]
 welches folglich auf den Fresnel-Parameter $v$ anhand
@@ -327,9 +333,7 @@ welches folglich auf den Fresnel-Parameter $v$ anhand
     =
     h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}
 \end{equation}
-angewendet werden kann.
-% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
-
+angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
@@ -339,7 +343,6 @@ angewendet werden kann.
         \label{fresnel:knife-edge-abb}
     }
 \end{figure}
-
 Die daraus resultierenden Verluste $L_{\unit{\decibel}}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
 ausgelesen oder mit den Formeln
 \begin{subequations}
@@ -360,14 +363,17 @@ ausgelesen oder mit den Formeln
         10 \log_{10} L(v)
     \end{align}
 \end{subequations}
-angenähert werden.
-
+angenähert werden. 
+Ein interessanter Punkt zur Erwähnung ist $v=0$.
+Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
+Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
+was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
     \resizebox{\textwidth}{!}{\input{papers/fresnel/pgf/beugungsverluste.pgf}\unskip}
     \caption{
-        Diagramm Fresnel-Parameter und Verluste
+        Diagramm der Beugungsverluste $L_{\unit{\decibel}}$
         \label{fresnel:Fresnel-Diagram}
     }
 \end{figure}
