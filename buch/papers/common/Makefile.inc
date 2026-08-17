@@ -179,10 +179,16 @@ $(workdir)/$(seminar)24-blx.bbl:	$(workdir)/$(seminar)24-blx.aux
 	cd $(workdir); bibtex $(seminar)24-blx
 
 $(workdir)/buch25-blx.bbl:	$(workdir)/buch25-blx.aux
-	cd $(workdir) bibtex buch25-blx
+	cd $(workdir); bibtex buch25-blx
 
 $(workdir)/$(seminar)25-blx.bbl:	$(workdir)/$(seminar)25-blx.aux
-	cd $(workdir) bibtex $(seminar)25-blx
+	cd $(workdir); bibtex $(seminar)25-blx
+
+$(workdir)/buch26-blx.bbl:	$(workdir)/buch26-blx.aux
+	cd $(workdir); bibtex buch26-blx
+
+$(workdir)/$(seminar)26-blx.bbl:	$(workdir)/$(seminar)26-blx.aux
+	cd $(workdir); bibtex $(seminar)26-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
