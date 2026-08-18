@@ -10,16 +10,15 @@
 \label{elliptisch:section:funktionen}}
 \kopfrechts{Neue Funktionen}
 
-Der vorangegangene Abschnitt hat mit dem Vorsatz geendet, dem
-Ellipsenintegral einen Namen zu geben.
-Bevor wir das tun, ist zu klären, wie viele Namen wir brauchen.
+Im vorherigen Abschnitt wurde dem Ellipsenintegral \eqref{elliptisch:equation:umfang}
+ein Namen gegeben.
 Die Definition \eqref{elliptisch:equation:definition} lässt für die
 rationale Funktion $R$ und das Polynom $p$ unendlich viele
 Möglichkeiten zu, und für jede davon eine eigene Funktion
-einzuführen wäre nutzlos.
+einzuführen wäre unpraktisch und, wie sich zeigen wird, auch gar
+nicht nötig.
 
 \subsection{Der Reduktionssatz}
-Die Lage ist besser, als sie aussieht.
 Die elliptischen Integrale bilden zwar eine unübersehbare Menge,
 aber sie unterscheiden sich nur um elementare Anteile, und was
 davon übrig bleibt, sind drei feste Integrale.
@@ -35,17 +34,16 @@ Funktionen und der drei Integrale
 \int \frac{dt}{(1-nt^2)\sqrt{p(t)}}
 \label{elliptisch:equation:normalformen}
 \end{equation}
-mit dem Radikanden $p(t) = (1-t^2)(1-k^2t^2)$ und $0 < k < 1$
-schreiben.
+mit dem Polynom $p(t) = (1-t^2)(1-k^2t^2)$ unter der Wurzel,
+$0 < k < 1$ und $n \in \mathbb{R}$ schreiben.
 \end{satz}
 Der Beweis ist bei Smirnow zu finden
-\cite[Abschnitt~164, S.~506]{elliptisch:smirnow}, dieselbe Stelle
-zitiert auch Müller \cite{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~164, S.~506]{elliptisch:smirnow} \cite{elliptisch:mueller-spezielle}.
 Er verläuft in zwei Schritten.
 Zuerst wird das beliebige Polynom $p$ vom Grad $3$ oder $4$ durch
-eine gebrochen lineare Substitution auf den Radikanden
-$(1-t^2)(1-k^2t^2)$ gebracht, was den Modul $k$ überhaupt erst
-erzeugt.
+eine gebrochen lineare Substitution auf die Form
+$(1-t^2)(1-k^2t^2)$ unter der Wurzel gebracht, was den Modul $k$
+überhaupt erst erzeugt.
 Danach wird der rationale Anteil des Integranden durch
 Partialbruchzerlegung und wiederholte partielle Integration
 abgebaut, bis nur noch die drei Reste in
@@ -59,17 +57,16 @@ Die Zahl $k$ heisst \emph{Modul}, die Zahl $n$ in der dritten Art
 \index{Modul}%
 \index{Charakteristik}%
 Beim Integral zweiter Art kürzt sich $\sqrt{1-k^2t^2}$ heraus, es
-lässt sich also auch über dem gemeinsamen Radikanden schreiben,
+lässt sich also auch über dem gemeinsamen Nenner schreiben,
 \begin{equation}
 \int \frac{1-k^2t^2}{\sqrt{p(t)}}\,dt
 =
 \int \sqrt{\frac{1-k^2t^2}{1-t^2}}\,dt.
 \label{elliptisch:equation:zweiteart}
 \end{equation}
-Alle drei Arten haben damit denselben Radikanden, sie unterscheiden
-sich nur im Zähler und im zusätzlichen Faktor $1-nt^2$.
-Die dritte Art führen wir der Vollständigkeit halber mit, im
-weiteren Verlauf dieses Kapitels wird sie nicht mehr gebraucht.
+Alle drei Arten haben damit dasselbe Polynom unter der Wurzel, sie
+unterscheiden sich nur im Zähler und im zusätzlichen Faktor
+$1-nt^2$.
 
 Eine Warnung zur Notation ist hier angebracht.
 Viele Tabellenwerke und Programmbibliotheken benutzen statt des
@@ -81,14 +78,14 @@ Wir schreiben durchgehend $k$.
 \subsection{Die vollständigen elliptischen Integrale}
 Die Integrale in \eqref{elliptisch:equation:normalformen} sind
 unbestimmt und legen damit keine Funktion fest.
-Eine Funktion entsteht erst, wenn wir die Grenzen festnageln.
-Der Radikand $p(t)$ hat bei $t = \pm 1$ eine Nullstelle, weiter als
-bis $1$ lässt sich also nicht integrieren.
+Eine Funktion entsteht erst, wenn wir die Grenzen festsetzen.
+Das Polynom $p(t)$ unter der Wurzel hat bei $t = \pm 1$ eine
+Nullstelle, weiter als bis $1$ lässt sich also nicht integrieren.
 Genau diese Grenzen wählen wir.
 \begin{definition}
 \label{elliptisch:definition:vollstaendig}
-Die \emph{vollständigen elliptischen Integrale} erster, zweiter und
-dritter Art sind für $0 < k < 1$
+Die vollständigen elliptischen Integrale erster, zweiter und
+dritter Art sind für $0 < k < 1$ und $n \in \mathbb{R}$
 \begin{equation}
 \begin{aligned}
 K(k)
@@ -110,9 +107,9 @@ E(k)
 \index{K@$K(k)$}%
 \index{E@$E(k)$}%
 
-Diese Gestalt heisst \emph{Jacobi-Normalform}.
-Die Substitution $t = \sin\varphi$ führt auf eine zweite,
-ebenso gebräuchliche Schreibweise.
+Diese Schreibweise heisst \emph{Jacobi-Normalform}.
+Die Substitution $t = \sin\varphi$ führt auf eine zweite
+gebräuchliche Form.
 Wegen $\sqrt{1-t^2} = \cos\varphi$ und $dt = \cos\varphi\,d\varphi$
 ist
 \begin{equation}
@@ -135,13 +132,13 @@ E(k)
 \label{elliptisch:equation:legendreform}
 \end{equation}
 und entsprechend für $\Pi$.
-Diese Gestalt heisst \emph{Legendre-Normalform}
+Diese Schreibweise heisst \emph{Legendre-Normalform}
 \cite[Kapitel~11.1.2]{elliptisch:mueller-spezielle}.
 \index{Jacobi-Normalform}%
 \index{Legendre-Normalform}%
 Beide Formen beschreiben dieselben Funktionen.
 Wer in der Literatur einmal die obere Grenze $1$ und einmal
-$\pi/2$ antrifft, sieht nur diesen Wechsel der Variablen.
+$\pi/2$ antrifft, kennt nun die Beziehung zwischen beiden Formen.
 
 \subsection{Randwerte und Verlauf}
 $K$ und $E$ hängen stetig von $k$ ab, und an beiden Rändern des
@@ -160,7 +157,7 @@ E(0)
 \frac{\pi}{2}.
 \label{elliptisch:equation:randnull}
 \end{equation}
-Das ist der Viertelkreis, wie es sein muss.
+Das ist der Viertelkreis, wie schon in der Einleitung gesehen.
 Für $k = 1$ trennen sich die beiden.
 Beim Integral zweiter Art kürzen sich Zähler und Nenner vollständig,
 \begin{equation}
@@ -173,8 +170,8 @@ E(1)
 1.
 \label{elliptisch:equation:randeins}
 \end{equation}
-Beim Integral erster Art dagegen wird der Radikand zu $(1-t^2)^2$,
-der Integrand also zu
+Beim Integral erster Art dagegen wird das Polynom unter der Wurzel
+zu $(1-t^2)^2$, der Integrand also zu
 \begin{equation}
 \frac{1}{1-t^2}
 \approx
@@ -207,17 +204,10 @@ K(k)
 \end{equation}
 \cite[Kapitel~11.1]{elliptisch:mueller-spezielle}.
 Abbildung~\ref{fig:elliptisch:keplot} zeigt beide Funktionen.
-\begin{figure}
-\centering
-\includegraphics[width=0.72\textwidth]{papers/elliptisch/images/ke-plot.pdf}
-\caption{Die vollständigen elliptischen Integrale erster und
-zweiter Art.
-Beide starten bei $k=0$ im gemeinsamen Wert $\pi/2$.
-$E(k)$ fällt monoton auf $E(1) = 1$, während $K(k)$ monoton wächst
-und für $k \to 1$ logarithmisch divergiert.
-\label{fig:elliptisch:keplot}}
-\end{figure}
+\input{papers/elliptisch/fig/ke-plotFIG.tex}
 
+\subsection{Der Ellipsenumfang mit $E(k)$
+\label{elliptisch:subsection:ellipsenumfangE}}
 Der Vergleich von \eqref{elliptisch:equation:legendreform} mit dem
 Umfangsintegral \eqref{elliptisch:equation:umfang} zeigt, dass wir
 die gesuchte Funktion bereits haben.
@@ -344,6 +334,14 @@ der Sinus der Amplitude, also genau das, was der Name sagt.
 Die Bezeichnung \emph{sinus amplitudinis} stammt von Jacobi und
 erklärt die Abkürzung $\operatorname{sn}$
 \cite[Kapitel~11.2]{elliptisch:mueller-spezielle}.
+Der Schritt zur Umkehrung ist auch historisch der entscheidende.
+Die elliptischen Integrale sind lange untersucht und tabelliert
+worden, vor allem von Legendre.
+Den \emph{Durchbruch} brachte erst ihre Umkehrung durch Abel und Jacobi,
+mit der die elliptischen Funktionen entstanden sind.
+1827 bewies Jacobi mit diesem Schritt seine allgemeine
+Transformationsformel
+\cite{elliptisch:wiki-elliptische-funktion}.
 Was die neue Funktion mit dem Sinus gemeinsam hat und worin sie
 sich von ihm unterscheidet, zeigt der nächste Abschnitt.
 
@@ -351,10 +349,6 @@ sich von ihm unterscheidet, zeigt der nächste Abschnitt.
 \label{elliptisch:subsection:geometrie}}
 Was für den Sinus der Einheitskreis ist, ist für
 $\operatorname{sn}$ eine Ellipse.
-Die folgende Darstellung stammt aus
-\cite[Kapitel~11.2.1]{elliptisch:mueller-spezielle}, wo sie
-Schwalm \cite{elliptisch:schwalm} zugeschrieben wird.
-
 Der Einheitskreis fasst die Kreisfunktionen zusammen.
 Sein Punkt, dessen Bogenlänge vom Punkt $(1,0)$ aus $u$ beträgt,
 hat die Koordinaten $(\cos u, \sin u)$
@@ -366,8 +360,8 @@ Auf der Ellipse mit den Halbachsen $a \ge 1$ und $1$,
 \end{equation}
 hängen Winkel, Bogenlänge und Koordinaten nicht mehr so einfach
 zusammen.
-Wir schreiben einen Punkt der Ellipse mit der exzentrischen
-Anomalie $\varphi$ als
+Wir schreiben einen Punkt der Ellipse mit dem Hilfswinkel
+$\varphi$ als
 \begin{equation}
 P
 =
@@ -410,21 +404,7 @@ nach und findet
 1 - k^2\operatorname{sn}(u,k)^2.
 \label{elliptisch:equation:dngeometrie}
 \end{equation}
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{papers/elliptisch/images/sn-konstruktion.pdf}
-\caption{Links der Einheitskreis mit dem Punkt $(\cos u, \sin u)$
-zur Bogenlänge $u$.
-Rechts die Ellipse mit den Halbachsen $a = 1/k'$ und $1$ zum
-selben Parameter, hier $u = 1$ und $k = 0.8$.
-Der Hilfskreispunkt
-$Q = (\operatorname{cn}(u,k), \operatorname{sn}(u,k))$
-und der Ellipsenpunkt
-$P = (a\operatorname{cn}(u,k), \operatorname{sn}(u,k))$
-liegen auf gleicher Höhe, der Abstand von $P$ zum Nullpunkt ist
-$r = a\operatorname{dn}(u,k)$.
-\label{fig:elliptisch:snkonstruktion}}
-\end{figure}
+\input{papers/elliptisch/fig/sn-konstruktionFIG.tex}
 
 Der Parameter $u$ ist dabei weder der Winkel $\varphi$ noch die
 Bogenlänge der Ellipse.
