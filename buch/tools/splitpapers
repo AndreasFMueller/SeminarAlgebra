@@ -18,7 +18,7 @@ fi
 datesuffix=`date +%Y%m%d`
 
 awk 'BEGIN {
-	offsetpage = 14
+	offsetpage = 16
 	startpage = 0
 	identifier = ""
 	chapterno = 0
