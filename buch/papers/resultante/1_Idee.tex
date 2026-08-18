@@ -9,21 +9,30 @@
 \section{Grundlegende Idee
 \label{resultante:section:Idee}}
 \kopfrechts{Grundlegende Idee}
-Die beiden Polynome \(f(X)=f_0+f_1X+\dots+f_mX^m\) mit \(\deg(f)=m\) und \(g(X)=g_0+g_1X+\dots+g_nX^n\) mit \(\deg(g)=n\) haben einen gemeinsamen Teiler \(d(X)\), sodass
+Haben die Polynome \(f(X)=f_mX^m+\dots+f_1X+f_0\) mit \(\deg(f)=m\) und \(g(X)=g_nX^n+\dots+g_1X+g_0\) mit \(\deg(g)=n\) einen gemeinsamen Teiler \(d(X)\) dessen Grad mindestens \(1\) ist?
+
+Falls ja, dann ist
 \begin{equation}
     f(X)=q(X)\cdot d(X)\qquad
     g(X)=p(X)\cdot d(X)
     \label{resultante:equation:divisor}
 \end{equation}
-mit jeweils beliebigem Polynom \(q(X)=q_0+q_1X+\dots+q_{m-1}X^{m-1}\) und \(p(x)=p_0+p_1X+\dots+p_{n-1}X^{n-1}\).
-Der Grad der Quotientenpolynome ist reduziert gegenüber denen der Dividenden, somit ist \(\deg(q(X))<\deg(f(X))\) bzw. \(\deg(p(X))<\deg(g(X))\).
+mit \(\deg d \geq 1\), \(\deg(q(X))<\deg(f(X))\) und \(\deg(p(X))<\deg(g(X))\).
 
-Die beiden Polynome aus (\ref{resultante:equation:divisor}) lassen sich nach \(d(X)\) umstellen und ineinander einsetzen.
-Daraus ensteht das lineare Gleichungssystem
+Aus (\ref{resultante:equation:divisor}) folgt
 \begin{equation}
-    fp-gq=0.
+    \deg q = \deg f - \deg d \leq m-1 \quad \text{und} \quad
+    \deg p = \deg g - \deg d \leq n-1.
+\end{equation}
+Das Polynom (\ref{resultante:equation:divisor}) links wird mit \(p(X)\) multipliziert und das Polynom (\ref{resultante:equation:divisor}) rechts mit \(q(X)\).
+Aus diesen erweiterten Polynomen wird die Differenz
+\begin{equation}
+    fp-gq=0
     \label{resultante:equation:lgs}
 \end{equation}
+gebildet.
+Da der Grad von \(d(X)\) vorher nicht bekannt ist, wird hier mit der maximal Grenze weiterverfahren.
+Sollte \(\deg d(X)=2\) sein, so werden die höchsten Koeffizienten von \(q(X)\) und \(p(X)\) einfach \(0\). 
 
 \begin{figure}
     \centering
@@ -33,7 +42,7 @@ Daraus ensteht das lineare Gleichungssystem
 \end{figure}
 
 \begin{beispiel}
-    Für die Polynome \(f(X)=2X^3+7X^2-5X-4\) und \(g(X)=2X^2+X-3\), werden die reduzierten Polynome \(q(X)=q_2X^2+q_1X+q_0\) und \(p(X)=p_1X+p_0\) bestimmt.
+    Für die Polynome \(f(X)=2X^3+7X^2-5X-4\) und \(g(X)=2X^2+X-3\), werden die um Grad \(1\) kleineren Hilfspolynome \(q(X)=q_2X^2+q_1X+q_0\) und \(p(X)=p_1X+p_0\) bestimmt.
     Diese werden nun in (\ref{resultante:equation:lgs}) eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultiert das Gleichungssystem
     \begin{equation}
         \begin{aligned}
@@ -60,16 +69,16 @@ Daraus ensteht das lineare Gleichungssystem
         \end{pmatrix}=0
         \label{resultante:equation:Syl}
     \end{equation}
-    gebracht. Die Systemmatrix der Gleichung (\ref{resultante:equation:Syl}) ist die Sylvester-Matrix, bennant nach dem britischen Mathematiker James Joseph Sylvester (Abb. \ref{resultante:fig:jjsylvester}).
+    gebracht um die Koeffizienten der Hilfspolynome \(q(X)\) und \(p(X)\) zu berechnen. Die Systemmatrix der Gleichung (\ref{resultante:equation:Syl}) ist die Sylvester-Matrix, benannt nach dem britischen Mathematiker James Joseph Sylvester (Abb. \ref{resultante:fig:jjsylvester}).
     \label{resultante:beispiel:lgs}
 \end{beispiel}
-
+Die Idee der Umformungsschritte bis hierher, ist es eine Übersicht zu bekommen, woher die Sylvester-Matrix kommt.
 
 \subsection{Die Sylvester-Matrix
 \label{resultante:subsection:Sylvester-Matrix}}
 
 \begin{definition}
-    (Sylvester-Matrix). Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a(X)=n\) beziehzungsweise \(\deg b(X)=m\). Die Sylvester-Matrix von a und b ist die \(n + m \times n + m\)-Matrix, die wie folgt definiert ist:
+    \emph{(Sylvester-Matrix)}. Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a(X)=n\) beziehzungsweise \(\deg b(X)=m\). Die Sylvester-Matrix von a und b ist die \(n + m \times n + m\)-Matrix, die wie folgt definiert ist:
     % \begin{equation}
         
     %     \begin{pmatrix}
@@ -92,7 +101,7 @@ Daraus ensteht das lineare Gleichungssystem
         custom-line ={command= H, tikz= dashed, width= \pgflinewidth}, % horizontal, dashed
     }
     \begin{equation*}
-        \operatorname{Syl}(a,b)=
+        \syl(a,b)=
         \begin{pNiceMatrix}[last-col,extra-margin=4pt]
             a_n&a_{n-1}&a_{n-2}&\dots&&&&&
             &\Block{6-1}{\hspace*{11pt}m\text{-Zeilen}}\\
@@ -115,10 +124,12 @@ Daraus ensteht das lineare Gleichungssystem
         \end{pNiceMatrix},
         \label{resultante:equation:Syldef}
     \end{equation*}
-wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden, heisst die Sylvester-Matrix.
+wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden, heisst die \emph{Sylvester-Matrix}.
 \label{resultante:definition:Sylvester}
 \end{definition}
 
-Wie sich aus der Herleitung (\ref{resultante:equation:Syl}) und der Definition \ref{resultante:definition:Sylvester} der Sylvester-Matrix beobachten lässt, kann die Sylvester-Matrix gebildet werden indem man die Koeffizienten des Polynoms \(a(X)\) sooft wiederholt, wie der Grad \(\deg b(X)=m\).
+Wie sich aus der Herleitung (\ref{resultante:equation:Syl}) und der Definition \ref{resultante:definition:Sylvester} der Sylvester-Matrix beobachten lässt, kann die Sylvester-Matrix gebildet werden, indem man die Koeffizienten des Polynoms \(a(X)\) sooft wiederholt, wie der Grad \(\deg b(X)=m\) angibt.
 Analog dazu wird dasselbe mit dem Polynom \(b(X)\) gemacht.
 
+Die eigentliche Idee der Sylvester-Matrix ist es das algebraische Problem: ``Haben zwei Polynome einen gemeinsamen Faktor?'', in das lineare Problem: ``Sind zwei bestimmt verschobenen Polynome linear abhängig?'' umzuformulieren.
+Diese Umformug wird später in diesem Kapitel für die Definition \ref{resultante:definition:resultante} wichtig.
