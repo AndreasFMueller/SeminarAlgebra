@@ -10,7 +10,6 @@ dependencies-hauptwert =						\
 	papers/hauptwert/motivation-definition.tex			\
 	papers/hauptwert/reelle-beispiele.tex				\
 	papers/hauptwert/hauptwerte-residuen.tex			\
-	papers/hauptwert/teil3.tex					\
 	papers/hauptwert/fig/kehrwert.tex				\
 	papers/hauptwert/fig/kehrwert-symmetrisch.tex			\
 	papers/hauptwert/fig/nichtungerade.tex				\
