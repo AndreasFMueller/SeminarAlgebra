@@ -7,6 +7,16 @@
 		muss zunächst ein grundlegendes Verständnis einer Strömung sowie ihres Geschwindigkeitsvektorfeldes vorhanden sein.
 		In diesem Kapitel liegt der Fokus darauf, das Verständnis von Strömungen zu festigen
 		und die mathematische Beschreibung einer Strömung in der komplexen Ebene aufzuzeigen.
+		Unsere komplexe Strömungsfunktion kann als
+		\[
+			f(x, y)
+			= 
+			\phi(x, y) + i \psi(x, y)
+		\]
+		geschrieben werden.
+		Punkte, für welche $Re(f) = \phi$ einer Konstanten entsprechen, werden \emph{Äquipotentiallinien} genannt.
+		Punkte, für welche $Im(f) = \psi$ einer Konstanten entsprechen, werden \emph{Strömungslinien} genannt.
+		Die Strömungslinie beschreibt den Pfad eines Luftteilchens, das sich fortbewegt.
 		
 		Beginnen wir mit einer Strömung, welche ungehindert von links nach rechts strömen kann.
 		Es wird sofort deutlich, dass die Strömungslinien gleichmässig verteilt sind
@@ -14,7 +24,7 @@
 		Somit ist die Geschwindigkeit an jedem Punkt des Raumes gleich.
 		Die Abbildung ~\ref{joukowski:Stroemungslinien:fig_Allgemein}, welche dieser Situation entspricht,
 		kann mit dem Ausdruck $f(z) = z$ und ${v(z)} = 1$ beschrieben werden.
-		Die Punkte in der $Z$-Ebene, welche in die Funktion $f(z)$ eingesetzt einen konstanten Imaginärteil ergeben,
+		Die Punkte in der $z$-Ebene, welche in die Funktion $f(z)$ eingesetzt einen konstanten Imaginärteil ergeben,
 		nennen wir eine Strömungslinie.
 		Dieses Konzept ist für alle weiteren Anwendungen anwendbar.
 		
@@ -26,16 +36,18 @@
 			=
 			\frac{v_\infty}{2} \cdot \biggl(z+\frac{1}{z}\biggr).
 		\end{equation}
-		Die Ableitung dieser Funktion entspricht dann
+		Die Ableitung dieser Funktion nach $z$ entspricht dann
 		\begin{equation}
 			\label{joukowski:Stroemungslinien:equation_zylinder_speed}
+			\frac{df}{dz}
+			=
 			\overline{v(z)}
 			=
 			\frac{v_\infty}{2} \cdot \biggl(1 - \frac{1}{z^2}\biggr).
 		\end{equation} 
 		Die Strömungslinien dieser Funktion sowie das konjugiert komplexe der Geschwindigkeit werden in Abbildung ~\ref{joukowski:Stroemungslinien:fig_Zylinder} dargestellt.
 		
-	\subsection{Zusammenhang $f(z)$ und $\overlinev(z)$}
+	\subsection{Zusammenhang $f(z)$ und $\overline{v(z)}$}
 		Die Konjugation ist eine direkte Folge der Cauchy-Riemann-Gleichungen und der Konvention, die komplexe Geschwindigkeit als $u+iv$ zu schreiben.
 		
 	
