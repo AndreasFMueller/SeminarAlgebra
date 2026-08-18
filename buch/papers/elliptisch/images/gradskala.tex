@@ -1,10 +1,5 @@
 %
-% gradskala.tex -- Gradskala: elementar | elliptisch | hyperelliptisch
-%
-% Einordnung des Grades des Polynoms p(x) unter der Wurzel in
-% \int R(x, sqrt(p(x))) dx: Grad 0,1,2 elementar, Grad 3,4 elliptisch,
-% Grad >= 5 hyperelliptisch. Die Schwelle 2|3 ist die Hauptgrenze
-% (dick, rot), die Schwelle 4|5 nur eine Einordnung (duenn, grau).
+% gradskala.tex -- Gradskala elementar | elliptisch | hyperelliptisch
 %
 \documentclass[tikz]{standalone}
 \usepackage{amsmath}
@@ -12,8 +7,7 @@
 \usepackage{times}
 \usepackage{txfonts}
 \usetikzlibrary{decorations.pathreplacing}
-\definecolor{darkred}{rgb}{0.8,0,0}
-\definecolor{darkgreen}{rgb}{0,0.6,0}
+\input{farben.tex}
 \begin{document}
 \begin{tikzpicture}[>=latex, thick, every node/.style={scale=1.1}]
 
@@ -42,7 +36,7 @@
 	node[midway, below=8pt, black!55] {hyperelliptisch};
 
 % Trennlinien: Hauptgrenze 2|3 dick rot, Nebengrenze 4|5 duenn grau
-\draw[darkred, line width=1.6pt] (2.5,-0.55) -- (2.5,0.55);
+\draw[darkred, thin] (2.5,-0.55) -- (2.5,0.55);
 \draw[black!55, thin]            (4.5,-0.55) -- (4.5,0.55);
 
 \end{tikzpicture}

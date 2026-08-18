@@ -1,8 +1,5 @@
 %
-% ke-plot.tex -- Vollstaendige elliptische Integrale K(k) und E(k)
-%
-% K(k) (1. Art) divergiert logarithmisch fuer k -> 1, E(k) (2. Art)
-% faellt von pi/2 auf 1. Werte aus ke-werte.dat (AGM, ke-werte.py).
+% ke-plot.tex -- K(k) und E(k), Werte aus ke-werte.dat
 %
 \documentclass[tikz]{standalone}
 \usepackage{amsmath}
@@ -10,7 +7,7 @@
 \usepackage{txfonts}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\definecolor{darkred}{rgb}{0.8,0,0}
+\input{farben.tex}
 \definecolor{darkblue}{rgb}{0,0,0.6}
 \begin{document}
 \begin{tikzpicture}

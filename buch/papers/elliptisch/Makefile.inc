@@ -11,6 +11,11 @@ dependencies-elliptisch =						\
 	papers/elliptisch/grenze.tex					\
 	papers/elliptisch/funktionen.tex				\
 	papers/elliptisch/anwendungen.tex				\
+	papers/elliptisch/fig/koerperturmFIG.tex			\
+	papers/elliptisch/fig/gradskalaFIG.tex			\
+	papers/elliptisch/fig/ellipseFIG.tex			\
+	papers/elliptisch/fig/ke-plotFIG.tex			\
+	papers/elliptisch/fig/sn-konstruktionFIG.tex			\
 	papers/elliptisch/images/gradskala.pdf				\
 	papers/elliptisch/images/ellipse.pdf				\
 	papers/elliptisch/images/koerperturm.pdf			\
