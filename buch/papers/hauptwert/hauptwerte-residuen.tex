@@ -91,7 +91,22 @@ Zusammen folgt die Behauptung.
 
 \begin{satz}
 \label{hauptwert:satz:hauptformel}
-% Hauptformel hier
+Damit der Residuensatz funktioniert, werden vier Voraussetzungen benötigt:
+\begin{enumerate}
+  \item $f$ ist innerhalb des Integrationsweges holomorph (d.h. überall differenzierbar) bis auf endlich viele Singularitäten.
+  \item Der Integrationsweg hat maximal Singularitäten ersten Grades auf dem reellen Bereich.
+  \item Innerhalb des Konturintegrals dürfen eine endliche Menge von Polstellen existieren.
+  \item Das Integral des grossen Bogens $C_R$ konvergiert zu $0$ wenn dieser wächst:
+  \begin{equation}
+  \lim_{R \to \infty} \int_{C_R} f(z)\,dz = 0.
+  \label{hauptwert:equation:bogenbedingung}
+  \end{equation}
+\end{enumerate}
+
+Sind diese Voraussetzungen erfüllt, dann gilt
+  \begin{equation}
+    \pv \int_{-\infty}^{\infty} f(x)\,dx = 2 i \pi \sum_{k} \res(z_k; f) + i \pi \sum_{j} \res(x_j; f)
+  \end{equation}
 \end{satz}
 
 \begin{proof}
