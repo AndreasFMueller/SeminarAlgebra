@@ -11,7 +11,7 @@
 \kopfrechts{Die Grenze}
 
 In der Einleitung haben wir behauptet, das Integral
-\eqref{elliptisch:equation:ellipsenumfang} habe keine elementare
+\eqref{elliptisch:equation:umfang} habe keine elementare
 Stammfunktion.
 In diesem Abschnitt wollen wir genauer untersuchen, wo die Grenze
 zwischen elementar und nicht elementar verläuft.
@@ -32,15 +32,22 @@ Wir schreiben
 und betrachten Integranden, die rational in $x$ und $\vartheta$
 sind.
 Mithilfe der Euler-Substitution $\vartheta = \sqrt{a}\,x + t$ (für
-$a > 0$) lässt sich $x$ nach dem Auflösen als rationale Funktion von
-$t$ schreiben.
-Somit werden auch $dx$ und $\vartheta$ rational in $t$
+$a > 0$) lässt sich $x$ als rationale Funktion von $t$ schreiben.
+Quadrieren der Substitutionsgleichung und Vergleichen mit
+$\vartheta^2 = ax^2 + bx + c$ ergibt
+\begin{equation}
+x
+=
+\frac{c - t^2}{2\sqrt{a}\,t - b},
+\label{elliptisch:equation:eulersubst}
+\end{equation}
+und damit werden auch $dx$ und $\vartheta$ rational in $t$
 \cite[Kapitel~8.2]{elliptisch:mueller-algebra}.
 Der Integrand wird dadurch zu einer rationalen Funktion von $t$
 allein, und rationale Funktionen sind stets elementar integrierbar.
 Die Partialbruchzerlegung erzeugt nur Bausteine, deren
 Stammfunktionen Logarithmen, Potenzen und Arkustangens sind.
-Ein typisches Resultat dieser Rechnung ist
+Ein Resultat dieser Rechnung ist
 \begin{equation}
 \int \frac{dx}{\vartheta}
 =
@@ -50,6 +57,7 @@ Ein typisches Resultat dieser Rechnung ist
 \end{equation}
 zu finden in
 \cite[Kapitel~8.2.6, S.~236]{elliptisch:mueller-algebra}.
+\todo{Vorzeichen falsch, Plus statt Minus. Fehler auch bei Müller?}
 Die Gestalt der rechten Seite ist typisch für diesen Fall.
 Sie besteht aus einem konstanten Vorfaktor und dem Logarithmus
 eines Elements des Funktionenkörpers.
@@ -61,7 +69,8 @@ Steht unter der Wurzel ein Polynom vom Grad $\le 2$, so ist das
 Integral immer elementar lösbar.
 
 \subsection{Definition des elliptischen Integrals}
-Ab Grad $3$ versagt dieses Verfahren.
+Ab Grad $3$ versagt dieses Verfahren, der Grund dafür wird in
+Abschnitt~\ref{elliptisch:subsection:wurzelbleibt} deutlicher.
 \begin{definition}
 \index{elliptisches Integral}%
 Ein \emph{elliptisches Integral} ist ein Integral der Form
@@ -80,74 +89,49 @@ effektive Grad sänke auf höchstens $2$.
 Wir wären damit wieder im elementaren Fall des vorangegangenen
 Abschnitts.
 Die Grade $3$ und $4$ stehen in der Definition zusammen, weil sie
-durch gebrochen lineare Substitutionen ineinander überführbar sind
-und deshalb dieselbe Schwierigkeitsklasse bilden.
+dieselbe Schwierigkeitsklasse bilden.
+Ist $\deg p = 4$ und $\alpha$ eine Nullstelle von $p$, so schreiben
+wir $p(x) = (x-\alpha)q(x)$ mit $\deg q = 3$ und substituieren
+$x = \alpha + 1/u$.
+Wegen $dx = -du/u^2$ und
+\begin{equation}
+p\Bigl(\alpha+\frac{1}{u}\Bigr)
+=
+\frac{1}{u}\,q\Bigl(\alpha+\frac{1}{u}\Bigr)
+=
+\frac{Q(u)}{u^4},
+\qquad
+Q(u) = u^3\,q\Bigl(\alpha+\frac{1}{u}\Bigr),
+\label{elliptisch:equation:gradreduktion}
+\end{equation}
+mit einem Polynom $Q$ vom Grad höchstens $3$ kürzt sich das $u^2$
+aus der Wurzel gegen dasjenige in $dx$, und es bleibt
+\begin{equation}
+\frac{dx}{\sqrt{\smash[b]{\underbrace{p(x)}_{\text{Grad } 4}}}}
+=
+-\frac{du}{\sqrt{\smash[b]{\underbrace{Q(u)}_{\text{Grad } 3}}}}.
+\label{elliptisch:equation:gradreduziert}
+\end{equation}
+\vspace{0.6ex}
+
+\noindent
+Aus dem Grad $4$ ist damit Grad $3$ geworden, und dieselbe
+Substitution führt umgekehrt von Grad $3$ auf Grad $4$.
 Polynome vom Grad $5$ und mehr führen auf die
 \emph{hyperelliptischen} Integrale, die wir hier nicht behandeln.
 \index{hyperelliptisches Integral}%
 Abbildung~\ref{fig:elliptisch:gradskala} fasst diese Einteilung
 zusammen.
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{papers/elliptisch/images/gradskala.pdf}
-\caption{Der Grad des Polynoms $p$ unter der Wurzel entscheidet
-über die Lösbarkeit.
-Bis Grad $2$ ist das Integral elementar, bei den Graden $3$ und
-$4$ elliptisch, ab Grad $5$ hyperelliptisch.
-\label{fig:elliptisch:gradskala}}
-\end{figure}
+\input{papers/elliptisch/fig/gradskalaFIG.tex}
 Den Namen haben die elliptischen Integrale vom geometrischen
 Problem, zu dem wir jetzt zurückkehren, nämlich der Bogenlänge
 der Ellipse.
 
-\subsection{Der Umfang der Ellipse}
-Wir parametrisieren die Ellipse mit den Halbachsen $a \ge b$ durch
-$(x,y) = (a\cos t,\, b\sin t)$
-(Abbildung~\ref{fig:elliptisch:ellipse}).
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{papers/elliptisch/images/ellipse.pdf}
-\caption{Die Ellipse mit den Halbachsen $a$ und $b$.
-Wegen der Symmetrie genügt es, die Länge des hervorgehobenen
-Bogens im ersten Quadranten zu berechnen.
-\label{fig:elliptisch:ellipse}}
-\end{figure}
-Das Bogenelement ist
-\begin{equation}
-ds
-=
-\sqrt{\dot x^2 + \dot y^2}\,dt
-=
-\sqrt{a^2\sin^2 t + b^2\cos^2 t}\,dt
-=
-a\,\sqrt{1 - k^2\cos^2 t}\,dt,
-\qquad
-k^2 = \frac{a^2-b^2}{a^2},
-\label{elliptisch:equation:bogenelement}
-\end{equation}
-wobei $k$ die numerische Exzentrizität ist
-\cite{elliptisch:mueller-spezielle}.
-Wegen der Symmetrie der Ellipse genügt der erste Quadrant,
-\begin{equation}
-U
-=
-4a \int_0^{\pi/2} \sqrt{1 - k^2\cos^2 t}\,dt.
-\end{equation}
-Die Substitution $t \mapsto \frac{\pi}{2} - t$ bildet das Intervall
-$[0, \pi/2]$ auf sich ab und vertauscht $\cos^2$ mit $\sin^2$.
-Somit erhalten wir
-\begin{equation}
-U
-=
-4a \int_0^{\pi/2} \sqrt{1 - k^2\sin^2 t}\,dt.
-\label{elliptisch:equation:umfang}
-\end{equation}
-Für den Kreis ist $k = 0$ und \eqref{elliptisch:equation:umfang}
-liefert $U = 4a \cdot \frac{\pi}{2} = 2\pi a$, wie erwartet.
-
-Warum dieses Integral in die Definition
-\eqref{elliptisch:equation:definition} fällt, sehen wir erst nach
-einer weiteren Substitution.
+\subsection{Das Ellipsenumfangsintegral}
+In der Einleitung haben wir den Umfang der Ellipse auf das Integral
+\eqref{elliptisch:equation:umfang} gebracht.
+Warum es in die Definition \eqref{elliptisch:equation:definition}
+fällt, sehen wir nach einer weiteren Substitution.
 Das Kriterium verlangt eine rationale Variable, wir setzen daher
 $x = \sin t$ mit $dt = dx/\sqrt{1-x^2}$ und erhalten mit den neuen
 Grenzen $0$ und $1$
@@ -166,7 +150,7 @@ p(x)
 =
 (1-x^2)(1-k^2x^2)
 =
-1 - (1+k^2)x^2 + k^2x^4
+k^2x^4 - (1+k^2)x^2 + 1
 \label{elliptisch:equation:gradvier}
 \end{equation}
 ein Polynom vom Grad $4$ in $x$, das für $0 < k < 1$ keine
@@ -180,7 +164,9 @@ Singularität hat.
 Das Integral ist dort uneigentlich, aber konvergent, da der Zähler
 wie $\sqrt{1-x}$ verschwindet.
 
-\subsection{Warum die Wurzel bleibt}
+\subsection{Warum die Wurzel bleibt
+\label{elliptisch:subsection:wurzelbleibt}}
+
 Mit der Einordnung als elliptisches Integral ist noch nichts über
 die Lösbarkeit gesagt.
 Die Definition \eqref{elliptisch:equation:definition} beschreibt eine
@@ -201,12 +187,14 @@ Integral einzeln gestellt werden.
 Warum sie im quadratischen Fall stets zu bejahen ist, liegt tiefer
 als in der Rechnung von
 Abschnitt~\ref{elliptisch:subsection:quadratisch}.
-Die Euler-Substitution ist eine rationale Parametrisierung des
-Kegelschnitts $y^2 = ax^2+bx+c$.
-Jeder Punkt der Kurve gehört zu einem Parameter $t$, und beide
-Richtungen dieser Zuordnung sind rational.
-Genau das überträgt den Integranden in eine rationale Funktion von
-$t$.
+Die Gleichung $\vartheta^2 = ax^2+bx+c$ beschreibt einen
+Kegelschnitt, und die Euler-Substitution
+\eqref{elliptisch:equation:eulersubst} ist seine rationale
+Parametrisierung.
+Sie drückt $x$ und $\vartheta$ rational durch $t$ aus, und umgekehrt
+ist $t = \vartheta - \sqrt{a}\,x$ rational in $x$ und $\vartheta$.
+Genau diese beidseitig rationale Zuordnung überträgt den
+Integranden in eine rationale Funktion von $t$.
 Für $\deg p \in \{3,4\}$ ist die Kurve $y^2 = p(x)$ dagegen eine
 elliptische Kurve, und eine solche besitzt keine rationale
 Parametrisierung \cite{elliptisch:geddes}.

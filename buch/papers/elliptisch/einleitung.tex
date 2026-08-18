@@ -22,53 +22,89 @@ U
 =
 \int_0^{2\pi} \sqrt{\dot x^2 + \dot y^2}\,dt
 =
+\int_0^{2\pi} \sqrt{r^2\sin^2 t + r^2\cos^2 t}\,dt
+=
 \int_0^{2\pi} r\,dt
 =
 2\pi r.
 \label{elliptisch:equation:kreisumfang}
 \end{equation}
+
 Dieselbe Rechnung führen wir nun für die Ellipse mit den Halbachsen
-$a \ge b$ durch.
-Diesmal verschwindet die Wurzel jedoch nicht.
-Mit der numerischen Exzentrizität $k^2 = (a^2-b^2)/a^2$ bleibt
+$a \ge b$ durch, parametrisiert durch
+$(x,y) = (a\cos t,\, b\sin t)$
+(Abbildung~\ref{fig:elliptisch:ellipse}).
+\input{papers/elliptisch/fig/ellipseFIG.tex}
+Das Bogenelement ist
+\begin{equation}
+ds
+=
+\sqrt{\dot x^2 + \dot y^2}\,dt
+=
+\sqrt{a^2\sin^2 t + b^2\cos^2 t}\,dt
+=
+a\,\sqrt{1 - k^2\cos^2 t}\,dt,
+\qquad
+k^2 = \frac{a^2-b^2}{a^2},
+\label{elliptisch:equation:bogenelement}
+\end{equation}
+wobei $k$ die numerische Exzentrizität ist
+\cite{elliptisch:mueller-spezielle}.
+\index{Ellipse}%
+\index{Exzentrizitat@Exzentrizität}%
+Bemerkenswert ist, dass diesmal die Wurzel nicht verschwindet.
+Wegen der Symmetrie der Ellipse genügt der erste Quadrant, der
+volle Umfang
 \begin{equation}
 U
 =
-4a \int_0^{\pi/2} \sqrt{1 - k^2\sin^2 t}\,dt
-\label{elliptisch:equation:ellipsenumfang}
+4a \int_0^{\pi/2} \sqrt{1 - k^2\cos^2 t}\,dt
 \end{equation}
-stehen \cite{elliptisch:mueller-spezielle}.
-\index{Ellipse}%
-\index{Exzentrizitat@Exzentrizität}%
-Wie sich herausstellen wird, hat dieses Integral keine elementare
-Stammfunktion.
-Dass das so ist, lässt sich nicht durch Probieren herausfinden,
-sondern nur mit algebraischen Methoden beweisen.
+ist das Vierfache davon.
+Die Substitution $t \mapsto \frac{\pi}{2} - t$ bildet das Intervall
+$[0, \pi/2]$ auf sich ab und vertauscht $\cos^2$ mit $\sin^2$.
+Somit erhalten wir
+\begin{equation}
+U
+=
+4a \int_0^{\pi/2} \sqrt{1 - k^2\sin^2 t}\,dt.
+\label{elliptisch:equation:umfang}
+\end{equation}
+Für den Kreis ist $a = b = r$, also $k = 0$, eingesetzt in
+\eqref{elliptisch:equation:umfang} liefert
+$U = 4a \cdot \frac{\pi}{2} = 2\pi r$, wie erwartet.
+Wie sich herausstellen wird, hat das Integral
+\eqref{elliptisch:equation:umfang} jedoch keine elementare Stammfunktion.
 
 \subsection{Existenz und Darstellbarkeit}
-Nach dem Hauptsatz der Differential- und Integralrechnung besitzt
-jede stetige Funktion $f$ eine Stammfunktion, denn
-$F(x) = \int_a^x f(t)\,dt$ ist differenzierbar mit $F' = f$.
+\begin{satz}[Hauptsatz der Differential- und Integralrechnung]
+Ist $f$ stetig, dann ist $F(x) = \int_a^x f(t)\,dt$
+differenzierbar mit $F' = f$, insbesondere besitzt $f$ eine
+Stammfunktion.
+\end{satz}
 Über die Existenz einer Stammfunktion muss man also nie streiten.
-Ganz anders sieht es mit der Darstellbarkeit aus.
+Ganz anders sieht es mit der \emph{Darstellbarkeit} aus.
 Ob sich $F$ als endliche Formel aus Polynomen, Wurzeln, $\exp$,
 $\log$ und den trigonometrischen Funktionen schreiben lässt,
 ist eine völlig andere Frage.
-Funktionen mit dieser Eigenschaft heissen \emph{elementar},
-der Begriff wird weiter unten präzisiert und ist ausführlich in
-Abschnitt~\ref{buch:intalg:section:elementar} behandelt.
+Existenz heisst nicht Darstellbarkeit.
+Funktionen, die aus Polynomen, Wurzeln, $\exp$, $\log$ und den
+trigonometrischen Funktionen zusammengesetzt sind, heissen
+\emph{elementar}, der Begriff wird weiter unten präzisiert und ist
+ausführlich in Abschnitt~\ref{buch:intalg:section:elementar}
+behandelt.
 Drei Beispiele zeigen, wie weit Existenz und Darstellbarkeit
 auseinanderliegen können.
 
 Integranden mit der Wurzel aus einem quadratischen Polynom sind
-stets elementar integrierbar, mit Resultaten wie
+stets elementar integrierbar, zum Beispiel
 \begin{equation}
 \int \sqrt{x^2+1}\,dx
 =
 \frac{1}{2}\left(x\sqrt{x^2+1} + \operatorname{arsinh} x\right),
 \label{elliptisch:equation:wurzelstandard}
 \end{equation}
-die kurz genug sind, um damit weiterzurechnen.
+dessen Stammfunktion handhabbar ist, um damit weiterzurechnen.
 Abschnitt~\ref{buch:intalg:section:wurzel} zeigt, dass dies für
 jedes quadratische Polynom unter der Wurzel gelingt.
 
@@ -140,7 +176,8 @@ In jedem weiteren Schritt kommt eine einzelne neue Funktion
 $\vartheta$ dazu, die über dem bisherigen Körper algebraisch ist oder
 zu einem $v$ des bisherigen Körpers die Gleichung $\vartheta' = v'/v$
 erfüllt, also ein Logarithmus ist, oder die Gleichung
-$\vartheta'/\vartheta = v'$, also eine Exponentialfunktion.
+$\vartheta'/\vartheta = v'$, also eine Exponentialfunktion
+(siehe Abschnitt~\ref{buch:intalg:section:elementar}).
 So entsteht ein Turm
 \begin{equation}
 F_0 \subset F_1 \subset \dots \subset F_N,
@@ -153,16 +190,7 @@ solchen Turm mit endlich vielen Schritten liegen
 (Abbildung~\ref{fig:elliptisch:koerperturm}).
 \index{elementare Funktion}%
 \index{Korperturm@Körperturm}%
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{papers/elliptisch/images/koerperturm.pdf}
-\caption{Eine elementare Funktion liegt in einem endlichen Turm
-von Körpererweiterungen, ausgehend von den rationalen Funktionen
-$\mathbb{Q}(x)$.
-In jedem Schritt kommt eine Wurzel, ein Logarithmus oder eine
-Exponentialfunktion dazu.
-\label{fig:elliptisch:koerperturm}}
-\end{figure}
+\input{papers/elliptisch/fig/koerperturmFIG.tex}
 Die Sinus- und Kosinusfunktion fehlen in dieser Aufzählung nicht,
 sie stecken über $\sin x = (e^{ix}-e^{-ix})/2i$ bereits in den
 exponentiellen Schritten.
@@ -181,7 +209,8 @@ Beim Integrieren gilt das nicht, schon $\int dx/x = \log x$ verlässt
 den Körper $\mathbb{Q}(x)$.
 Die Frage ist also, wie weit man im Turm hinaufsteigen muss, um eine
 Stammfunktion zu erreichen.
-Liouville hat sie zwischen 1833 und 1835 beantwortet, und die
+Liouville hat sie ab 1833 beantwortet
+\cite{elliptisch:wiki-liouville}, und die
 Antwort fällt enger aus, als man erwarten würde.
 \index{Liouville, Satz von}%
 \begin{satz}[Prinzip von Liouville]
@@ -202,11 +231,11 @@ Der Beweis wird in Abschnitt~\ref{buch:intalg:section:liouville}
 geführt \cite[Kapitel~8]{elliptisch:mueller-algebra}.
 An dieser Stelle interessiert uns, was die Aussage leistet.
 
-Vor dem Satz stünden für die Stammfunktion sämtliche elementaren
-Erweiterungen von $F$ zur Verfügung, also beliebig viele neue
-Wurzeln, Exponentialfunktionen und ineinander geschachtelte
+Ohne diesen Satz müsste die Stammfunktion in einer beliebig grossen
+elementaren Erweiterung von $F$ gesucht werden, mit beliebig vielen
+neuen Wurzeln, Exponentialfunktionen und ineinander geschachtelten
 Logarithmen.
-Der Satz sagt, dass von alledem nichts gebraucht wird.
+Somit ist die Art wie die Stammfunktion aussieht, relativ starr.
 Die Bausteine $v_0$ und $v_i$ liegen bereits in $F$, hinzu kommen
 einzig die Logarithmen $\log v_i$, und deren Vorfaktoren $c_i$ sind
 Konstanten.
@@ -216,15 +245,15 @@ eines Logarithmus ebenso wenig.
 Der Turm über $F$, in dem die Stammfunktion zu suchen ist, hat damit
 nur noch eine einzige Etage.
 
-Für das Rechnen ist die abgeleitete Fassung
+Zum Rechnen eignet sich die abgeleitete Fassung
 \begin{equation}
 f
 =
 v_0' + \sum_{i=1}^n c_i \frac{v_i'}{v_i}
 \label{elliptisch:equation:liouvilleableitung}
 \end{equation}
-die brauchbarere, denn sie enthält kein Integral mehr und ist eine
-Gleichung innerhalb von $F$.
+besser, denn sie enthält kein Integral mehr und ist eine Gleichung
+innerhalb von $F$.
 Aus der Existenzfrage wird damit eine Rechnung.
 Man setzt die Form \eqref{elliptisch:equation:liouvilleableitung} mit
 unbekannten $v_i$ und $c_i$ an und vergleicht Koeffizienten.
@@ -234,17 +263,10 @@ elementare Stammfunktion existiert.
 Auf diesem Weg wird in
 Abschnitt~\ref{buch:intalg:section:risch} gezeigt, dass $e^{-x^2}$
 keine elementare Stammfunktion besitzt.
-Risch hat das Verfahren 1969 zu einem Algorithmus ausgebaut, der die
-Frage in endlich vielen Schritten entscheidet.
+Risch hat das Verfahren in den Sechzigerjahren zu einem Algorithmus
+ausgebaut \cite{elliptisch:risch}, der die Frage in endlich vielen
+Schritten entscheidet.
+Abschnitt~\ref{buch:intalg:section:risch} stellt ihn ausführlich dar.
 Dieser Risch-Algorithmus steckt heute im Kern der
-Integrationsroutinen von Computeralgebrasystemen, in denen die
-elliptischen Integrale längst als eigene Funktionen geführt werden
-\cite{elliptisch:wolfram-functions}.
+Integrationsroutinen von Computeralgebrasystemen.
 \index{Risch-Algorithmus}%
-
-Für Integranden der Form $R(x,\sqrt{p(x)})$ mit rationalem $R$ und
-einem Polynom $p$ entscheidet allein der Grad von $p$, und zwar
-schärfer, als man erwarten würde.
-Integrale dieser Art heissen elliptische Integrale, und wo genau die
-Grenze zwischen elementar und nicht elementar liegt, klärt der
-nächste Abschnitt.
