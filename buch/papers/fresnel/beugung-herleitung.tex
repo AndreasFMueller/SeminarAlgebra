@@ -164,15 +164,18 @@ um die Kugelwellen mit Überlagerung
 in ein einziges Signal $\psi_{\text{rx}}$ zusammenzufassen.
 Zuerst wird die Gleichung~\ref{fresnel:Amplitude-r-vereinfacht-einseitig}
 über alle Höhen summiert:
-\[
-\psi_{\text{rx}}
-=
-\sum_i \psi_0 \cdot e^{-jkr_i}
-=
-\psi_0 \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
-=
-\underbrace{\psi_0 \cdot e^{-jkd}}_{=\psi} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
-\]
+\begin{subequations}
+\label{fresnel:Kugelwellen-wellendichte-summiert}
+    \begin{align}
+        \psi_{\text{rx}}
+        &=
+        \sum_i \psi_0 \cdot e^{-jkr_i}
+        =
+        \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)\\
+        &=
+        \underbrace{\psi_0 \cdot e^{-jkd}}_{=\psi} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
+    \end{align}
+\end{subequations}
 Anschliessend wird die Wellendichte von der Gleichung~\ref{fresnel:Wellendichte-umgestellt}
 eingesetzt:
 \begin{equation}
@@ -185,11 +188,118 @@ eingesetzt:
 \end{equation}
 
 \subsubsection{Der Weg zu den Fresnel-Integralen}
-
-\subsubsection{Intermezzo: $\unit{\decibel}$-Berechnungen}
+Die Gleichung~\ref{fresnel:Kugelwellen-wellendichte-superpos}
+führt durch infinitesmal kleine Schritte zum Integral
+\begin{equation}
+    \psi_{\text{rx}}
+    =
+    \rho_{\psi} \int_{h_{\text{edge}}}^{\infty} \text{exp}\left(-jk\left(\frac{h^2}{2d}\right)\right) dh
+    =
+    \rho_{\psi} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh.
+    \label{fresnel:Kugelwellen-wellendichte-integral}
+\end{equation}
+Durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0
+erhalten wir
+\begin{equation}
+    \psi_{\text{rx}}
+    =
+    \underbrace{\rho_{\psi} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Signalstärke}}
+    -
+    \underbrace{\rho_{\psi} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh,}_{\text{Verlorene Signalstärke durch Schneidenbeugung}}
+    \label{fresnel:Beispiel-Integral-ohne-fresnel}
+\end{equation}
+welche gewisse Ähnlichkeiten mit den 
+Fresnel-Integralen~\ref{fresnel:integral-C-S} aufweisen.
+Über die Substitution von $t$ zu $h$ anhand
+\[
+t(h)
+=
+h\sqrt{\frac{k}{\pi d}}
+\quad
+\Rightarrow
+\quad
+\frac{dh}{dt}
+=
+\sqrt{\frac{\pi d}{k}}
+\quad
+\Rightarrow
+\quad
+dh
+=
+\sqrt{\frac{\pi d}{k}} dt
+\]
+kann nach $C$
+\begin{equation*}
+    \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
+    =
+    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
+    =
+    \sqrt{\frac{\pi d}{k}} C(v),
+\end{equation*}
+und ebenso nach $S$
+\begin{equation*}
+    \int_{0}^{h_{\text{edge}}} \sin \left(\frac{k}{2d}h^2\right) dh
+    =
+    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \sin \left(\frac{\pi}{2}t^2\right) dt
+    =
+    \sqrt{\frac{\pi d}{k}} S(v),
+\end{equation*}
+umgestellt werden.
+Das ganze Integral~\ref{fresnel:Beispiel-Integral-ohne-fresnel}
+ergibt sich dann zu
+\begin{equation}
+    \psi_{\text{rx}} (v)
+    =
+    \rho_{\psi} \sqrt{\frac{\pi d}{k}} \cdot \left[\frac{1}{2} - C(v) -j\left(\frac{1}{2}-S(v)\right)\right]
+    \label{fresnel:Beispiel-Fresnelgleichung-einseitig}
+\end{equation}
+mit dem sogenannten Fresnel-Parameter
+\begin{equation}
+    v
+    =
+    h_{\text{edge}} \sqrt{\frac{k}{\pi d}}
+    \quad
+    \overset{k = \frac{2 \pi}{\lambda}}{=}
+    \quad
+    h_{\text{edge}} \sqrt{\frac{2}{\lambda d}}.
+    \label{fresnel:Fresnel-Parameter-einseitig}
+\end{equation}
 
 \subsubsection{Schlussfolgerung}
-
+% \subsubsection{Intermezzo: $\unit{\decibel}$-Berechnungen}
+Mit der erhaltenen Formel aus der Gleichung~\ref{fresnel:Beispiel-Fresnelgleichung-einseitig}
+und dem Fresnel-Parameter~\ref{fresnel:Fresnel-Parameter-einseitig}
+lässt sich nun der Verlust berechnen.
+Als kleiner Einschub sei hier anzumerken,
+dass in der Elektrotechnik keine Verhältnisse
+zwischen Amplituden berechnet werden,
+nur zwischen Leistungen.
+Meist wird dies gelöst,
+indem der absolute Wert der Amplitude quadriert wird,
+also z.\,B. $|\psi_{\text{rx}} (v)|^2$.
+Damit lässt sich der Verlust $L$ schreiben als
+\begin{equation}
+    L(v)
+    =
+    \frac{|\psi_{\text{gesamt}}|^2}{|\psi_{\text{verloren}}|^2}
+    =
+    \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
+    =
+    \dots
+    =
+    \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}.
+    \label{fresnel:Beispiel-diff-loss-einseitig}
+\end{equation}
+Um die Werte handlicher zu haben und auch einfacher vergleichen zu können,
+werden zusätzlich für die drahtlose Kommunikation Verluste in $\unit{\decibel}$
+geschrieben, sprich es wird der Zehner-Logarithmus angewendet:
+\[
+L_{\unit{\decibel}} (v)
+=
+10 \cdot \log_{10} \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}.
+\]
+Eine Halbierung der Sendeleistung würde also einem Verlust von
+rund $\qty{3}{\decibel}$ entsprechen.
 
 \subsection{Zweiseitige Verlustberechnung}
 
@@ -333,106 +443,106 @@ eingesetzt:
 % \rho_{\psi 0}\Delta h
 % \]
 % darzustellen,
-womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
-\begin{equation}
-    \psi_{\text{rx}}
-    =
-    \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
-    =
-    \rho_{\psi_0} \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right) \Delta h
-    \label{fresnel:Kugelwellen-wellendichte}
-\end{equation}
-wird, welche anschliessend durch infinitesmal kleine Schritte zum Integral
-\begin{equation}
-    \psi_{\text{rx}}
-    =
-    \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \text{exp}\left(-jk\left(\frac{h^2}{2d}\right)\right) dh
-    =
-    \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
-    \label{fresnel:Kugelwellen-wellendichte-integral}
-\end{equation}
-wird.
-Dies kann durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0 geschrieben werden, was zu
-\begin{align*}
-    \psi_{\text{rx}}
-    &=
-    \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
-    \\
-    &=
-    \underbrace{\rho_{\psi_0} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Wellendichte}}
-    -
-    \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Schneidenbeugung}}  
-\end{align*}
-führt.
-Das Integral ähnelt $C$ sowie $S$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann über die Substitution
-\[
-h
-\text{ zu }
-t(h)
-=
-h\sqrt{\frac{k}{\pi d}}
-\Rightarrow
-\frac{dh}{dt}
-=
-\sqrt{\frac{\pi d}{k}}
-\Rightarrow
-dh
-=
-\sqrt{\frac{\pi d}{k}} dt
-\quad
-\text{ mit }
-k = \frac{2\pi}{\lambda}
-\text{ (Wellenzahl)}
-\]
-für $C$ aufgelöst werden zu
-\begin{equation*}
-    \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
-    =
-    \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
-    =
-    \sqrt{\frac{\pi d}{k}} C(v),
-\end{equation*}
-wobei für $S$ die gleichen Schritte verwendet werden können.
-Über das ganze Integral ergibt sich anschliessend
-\begin{equation}
-    \psi_{\text{rx}} (v)
-    =
-    \rho_{\psi_0} \sqrt{\frac{\pi d}{k}} \cdot \left[\frac{1}{2} - C(v) -j\left(\frac{1}{2}-S(v)\right)\right]
-\end{equation}
-mit dem daraus entstehenden Fresnel-Parameter
-\begin{equation}
-    v
-    =
-    h_{\text{edge}} \sqrt{\frac{k}{\pi d}}
-    \quad
-    \overset{k = \frac{2 \pi}{\lambda}}{=}
-    \quad
-    h_{\text{edge}} \sqrt{\frac{2}{\lambda d}}.
-\end{equation}
+% womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
+% \begin{equation}
+%     \psi_{\text{rx}}
+%     =
+%     \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
+%     =
+%     \rho_{\psi_0} \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right) \Delta h
+%     \label{fresnel:Kugelwellen-wellendichte}
+% \end{equation}
+% wird, welche anschliessend durch infinitesmal kleine Schritte zum Integral
+% \begin{equation}
+%     \psi_{\text{rx}}
+%     =
+%     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \text{exp}\left(-jk\left(\frac{h^2}{2d}\right)\right) dh
+%     =
+%     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
+%     \label{fresnel:Kugelwellen-wellendichte-integral}
+% \end{equation}
+% wird.
+% Dies kann durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0 geschrieben werden, was zu
+% \begin{align*}
+%     \psi_{\text{rx}}
+%     &=
+%     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
+%     \\
+%     &=
+%     \underbrace{\rho_{\psi_0} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Wellendichte}}
+%     -
+%     \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Schneidenbeugung}}  
+% \end{align*}
+% führt.
+% Das Integral ähnelt $C$ sowie $S$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann über die Substitution
+% \[
+% h
+% \text{ zu }
+% t(h)
+% =
+% h\sqrt{\frac{k}{\pi d}}
+% \Rightarrow
+% \frac{dh}{dt}
+% =
+% \sqrt{\frac{\pi d}{k}}
+% \Rightarrow
+% dh
+% =
+% \sqrt{\frac{\pi d}{k}} dt
+% \quad
+% \text{ mit }
+% k = \frac{2\pi}{\lambda}
+% \text{ (Wellenzahl)}
+% \]
+% für $C$ aufgelöst werden zu
+% \begin{equation*}
+%     \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
+%     =
+%     \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
+%     =
+%     \sqrt{\frac{\pi d}{k}} C(v),
+% \end{equation*}
+% wobei für $S$ die gleichen Schritte verwendet werden können.
+% Über das ganze Integral ergibt sich anschliessend
+% \begin{equation}
+%     \psi_{\text{rx}} (v)
+%     =
+%     \rho_{\psi_0} \sqrt{\frac{\pi d}{k}} \cdot \left[\frac{1}{2} - C(v) -j\left(\frac{1}{2}-S(v)\right)\right]
+% \end{equation}
+% mit dem daraus entstehenden Fresnel-Parameter
+% \begin{equation}
+%     v
+%     =
+%     h_{\text{edge}} \sqrt{\frac{k}{\pi d}}
+%     \quad
+%     \overset{k = \frac{2 \pi}{\lambda}}{=}
+%     \quad
+%     h_{\text{edge}} \sqrt{\frac{2}{\lambda d}}.
+% \end{equation}
 
-\subsection{Beugungsverlust}
-Aus den vorgängigen Gleichungen kann der Beugungsverlust $L(v)$ berechnet werden,
-indem das Verhältnis der gesamten Signalstärke zur verlorenen Signalstärke berechnet wird.
-In der Elektrotechnik werden Verhältnisse immer zwischen Leistungen und nicht zwischen Signalen berechnet,
-weshalb in
-\begin{equation}
-    L(v)
-    =
-    \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
-    =
-    \dots
-    =
-    \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}
-    \label{fresnel:diff-loss-einseitig}
-\end{equation}
-bei den Signalen die Beträge und anschliessend das Quadrat davon verwendet wird.
-Aus dem Verhältnis lässt sich dann der Verlust $L_{\unit{\decibel}}$ mit der Umformung
-\[
-L_{\unit{\decibel}} (v)
-=
-10 \cdot \log_{10}L(v)
-\]
-berechnen.
+% \subsection{Beugungsverlust}
+% Aus den vorgängigen Gleichungen kann der Beugungsverlust $L(v)$ berechnet werden,
+% indem das Verhältnis der gesamten Signalstärke zur verlorenen Signalstärke berechnet wird.
+% In der Elektrotechnik werden Verhältnisse immer zwischen Leistungen und nicht zwischen Signalen berechnet,
+% weshalb in
+% \begin{equation}
+%     L(v)
+%     =
+%     \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
+%     =
+%     \dots
+%     =
+%     \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}
+%     \label{fresnel:diff-loss-einseitig}
+% \end{equation}
+% bei den Signalen die Beträge und anschliessend das Quadrat davon verwendet wird.
+% Aus dem Verhältnis lässt sich dann der Verlust $L_{\unit{\decibel}}$ mit der Umformung
+% \[
+% L_{\unit{\decibel}} (v)
+% =
+% 10 \cdot \log_{10}L(v)
+% \]
+% berechnen.
 Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Schneide und Empfänger. 
 Soll nun der Beugungsverlust zwischen Sender und Empfänger 
 mit dazwischenliegender Schneide wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
