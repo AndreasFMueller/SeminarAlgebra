@@ -11,20 +11,20 @@
 \kopfrechts{Der Satz von Rothstein-Trager}
 In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die Partialbruchzerlegung verwendet.
 Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sein müssen.
-Das Problem ist also die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
+Das Problem ist also, die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
-Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg a(z)<\deg b(z)\).
-Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip
+Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg a<\deg b\).
+Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip die From
 \begin{equation*}
-    \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z),
+    \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z)
     \label{resultante:equation:satzRT}
 \end{equation*}
-diese Form vorraus. Gesucht sind nun die \(c_k\) für
+der Stammfunktion vorraus. Gesucht sind nun die \(c_k\) für die
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
 \end{equation}
-die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
+einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 \begin{equation}
     v_k(z)=\ggt\left(a(z)-c_k\cdot b'(z),b(z)\right)
     \label{resultante:equation:vks}
@@ -32,11 +32,11 @@ die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 haben.
 
 \begin{satz}
-    \emph{(Rothstein-Trager)}. Die Nullstellen von \(\operatorname{R}(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+    \emph{(Rothstein-Trager)}. Die Nullstellen von \(R(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
     \label{resultante:satz:RT} 
 \end{satz}
 \noindent
-Die Nullstellen von \(\operatorname{R}(z)=\Res_z\) sind die gesuchten \(c_k\).
+Die Nullstellen von \(R(z)=\Res_z\) sind die gesuchten \(c_k\).
 
 Dafür eignet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
 Sie liefert als Lösung direkt den \(\ggt\) zweier Polynome mit dazugehöriger Nullstelle.
@@ -50,7 +50,7 @@ Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Te
 \end{equation}
 benötigt.
 Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
-Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} aus der Resultanten \(\operatorname{R}(z)\) eliminiert.
+Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} aus der Resultanten \(R(z)\) eliminiert.
 
 \begin{beispiel}
     Die Stammfunktion von
@@ -58,7 +58,7 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
         \int\frac{1}{z^3+z}\,dz
     \end{equation*}
     soll mit der Methoden von Rothstein-Trager und der Resultante bestimmt werden.
-    Die Bedingungen für die Rothstein-Trager-Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
+    Die Bedingungen für die Rothstein-Trager-Methode sind bereits erfüllt mit \(a(z)=1\) und \(b(z)=z^3+z\).
     Es müssen daher die \(c_k\) und die dazugehörigen \(v_k(z)\) gefunden werden.
     Für die Resultante braucht es
     \begin{equation}
@@ -155,7 +155,7 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
 
     Setzt man die gefundenen Nullstellen zusammen mit ihren zugehörigen grössten gemeinsamen Teiler erhält man die Stammfunktion:
     \begin{equation*}
-        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1).
+        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1). \qedhere
     \end{equation*}
     \label{resultante:beispiel:gutesIntegral}
 \end{beispiel}
@@ -212,9 +212,9 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
     \begin{equation*}
         Dc=Dx=1\overset{!}{=}0 \,\text{\lightning}
     \end{equation*}
-    Daraus folgt das Integral ist nicht elementar lösbar.
+    Daraus folgt: das Integral ist nicht elementar lösbar.
     Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt, ist das der Integrallogarithmus.
     \label{resultante:beispiel:badIntegral}
 \end{beispiel}
 
-Sobald die Nullstellen \(c_k\) aus der Resultante keine Konstant sind, folgt daraus, dass solche Integrale nicht elementar lösbar sind.
+Sobald die Nullstellen \(c_k\) aus der Resultante keine Konstanten sind, folgt daraus, dass solche Integrale nicht elementar lösbar sind.
