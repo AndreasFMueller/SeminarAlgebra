@@ -1,25 +1,30 @@
-aircraft
-basel
-elektro
-fresnel
-jordan
-joukowski
+# Komplexe Zahlen und Funktionen
+konstruktion
+moebius
+geradlinig
 julia
+jordan
+qa
+# Anwendungen komplexer Funktionen und Abbildungen
+elektro
+joukowski
+aircraft
+fresnel
+pade
+step
+# Anwendungen der Residuenrechnung
+hauptwert
 kepler
 laplace
-produkt
-qa
 weyl
-zeta
-bessel
-buchberger
-moebius
-hauptwert
-konstruktion
+# Spezielle komplexe Funktionen
+produkt
+basel
 gamma
-pade
-elliptisch
-geradlinig
+bessel
 hankel
-step
+zeta
+# Integration in geschlossener Form
+buchberger
+elliptisch
 resultante

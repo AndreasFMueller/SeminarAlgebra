@@ -26,6 +26,9 @@ awk 'BEGIN {
 	printf("\tpapers/part2.tex \\\n")
 	printf("\tpapers/uebersicht.tex \\\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\tpapers/%s/main.tex \\\n", $1)
 }
@@ -38,6 +41,9 @@ END {
 #
 awk 'BEGIN {
 	counter=1
+}
+/^#/ {
+	next
 }
 {
 	# buch
@@ -81,6 +87,9 @@ END {
 awk 'BEGIN {
 	printf("PAPER_DIRECTORIES = \\\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\t%s \\\n", $1)
 }
@@ -94,6 +103,9 @@ END {
 awk 'BEGIN {
 	printf("PAPER_MAKEFILEINC = \\\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\tpapers/%s/Makefile.inc \\\n", $1)
 }
@@ -104,7 +116,10 @@ END {
 #
 # add include directives for all papers
 #
-awk '{
+awk '/^#/ {
+	next
+}
+{
 	printf("include papers/%s/Makefile.inc\n", $1)
 	texfiles = sprintf("%s\t$(dependencies-%s) \\\n", texfiles, $1);
 }
