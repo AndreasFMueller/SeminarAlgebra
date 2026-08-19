@@ -6,22 +6,31 @@
 % !TEX encoding = UTF-8
 %
 
-\section{Anwendungsbeispiel}
-\kopfrechts{Anwendungsbeispiel}
+\section{Anwendung: Beugung elektromagnetischer Wellen}
+\kopfrechts{Anwendung: Beugung elektromagnetischer Wellen}
 
 In der drahtlosen Kommunikation werden die Fresnel-Integrale für 
 die Beugung von Signalen an einer sogenannten Schneide gebraucht.
 Diese Schneide ragt als Hindernis in die direkte 
-Linie zwischen Sender und Empfänger. 
-Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
-welche sich nach Huygens kreisförmig ausbreitet. 
-Um die Beugung an der Schneide zu berechnen, 
-bedarf es einiger Definitionen, 
-welche im weiteren Verlauf verwendet werden und in 
-Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
+Linie zwischen Sender und Empfänger
+und sorgt damit für Verluste auf dem Sendeweg.
+In den folgenden Abschnitten wird schrittweise an
+die Formel für diese Verluste herangegangen,
+zuerst mit einer einseitigen und anschliessend
+mit der zweiseitigen Berechnung.
+
+\subsection{Einseitige Verlustberechnung}
+
+\subsubsection{Beschreibung der Geometrie}
+Als Ausgangspunkt für die einseitige Verlustberechnung wird die Geometrie wie in 
+Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} definiert:
 \begin{itemize}
+    \item
+    Auf der rechten Seite steht eine Antenne als Empfänger
+    \item
+    Auf der linken Seite steht ein Hindernis, eine sogenannte Schneide
     \item 
-    $d$ sei der Abstand vom Empfänger zur Schneide
+    $d$ sei der horizontale Abstand vom Empfänger zur Schneide
     \item 
     $h$ sei die Höhe des Ausgangspunktes einer Kugelwelle direkt über der Schneide
     \item
@@ -29,16 +38,131 @@ Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
     \item 
     $r$ sei die Distanz vom Empfänger zum Ausgangspunkt einer Kugelwelle
 \end{itemize}
+Die Distanz $r$ ergibt sich über die Pythagoras-Formel als
+\[
+r 
+= 
+\sqrt{d^2 + h^2}
+=
+d \sqrt{1 + \frac{h^2}{d^2}}.
+\]
+Da in den meisten Fällen die Distanz $d$
+um ein Vielfaches grösser ist als die Höhe $h$,
+kann über die Taylor-Approximation die Vereinfachung
+\begin{equation}
+    r 
+    =
+    d \sqrt{1 + \frac{h^2}{d^2}}
+    \approx
+    d \left( 1 + \frac{h^2}{2d^2} \right)
+    =
+    d + \frac{h^2}{2d},
+    \label{fresnel:Distanz-R-Taylor-einseitig}
+\end{equation}
+angesetzt werden.
 
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Pythagoras-Dreieck.png}
      \resizebox{.7\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_einseitig.tex}\unskip}
     \caption{
-        Darstellung der einseitigen Verlustberechnung
+        Darstellung der einseitigen Verlustberechnung an einer Schneide
         \label{fresnel:Diff-loss-einseitig-abb}
     }
 \end{figure}
+
+\subsubsection{Beschreibung der Ausgangswelle}
+Die Antenne empfängt ein Signal von der linken Seite, 
+hinter der Schneide.
+Bei kurzen Distanzen mag dieses Signal
+wie eine Kreiswelle ausgehend von der Antenne aussehen.
+Für längere Distanzen sieht sie aber nach dem Huygensschen Prinzip \cite{fresnel:huygenssches-prinzip} %TODO: referenzieren
+aus wie eine stehende Welle wie in Abbildung~\ref{fresnel:huygenssches-prinzip-wiki},
+welche aus Kugelwellen mit Ausgangspunkten in verschiedenen Höhen besteht.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{papers/fresnel/images/Huygens-Fresnel_principle.png}
+    \caption{
+        Wellenfront und deren Beugung nach dem huygensschen Prinzip
+        \label{fresnel:huygenssches-prinzip-wiki}
+    }
+\end{figure}
+
+\subsubsection{Kugelwellen} % c und d aus Mail zusammenehmen
+Diese Kugelwellen haben eine Amplitude $\psi$,
+welche mit wachsender Distanz abnimmt.
+Die gemessene Amplitude $\psi_1$ nach einer Distanz $r$ kann mit
+\begin{equation}
+    \psi_1
+    =
+    \psi \cdot \frac{e^{j(\omega t -kr)}}{r}
+\end{equation}
+und den Definitionen
+\begin{itemize}
+    \item 
+    $\psi$ als ursprüngliche Amplitude
+    \item 
+    $\omega t$ als Phasenverschiebung
+    \item 
+    $k = \frac{2 \pi}{\lambda}$ als Wellenzahl abhängig von $\lambda$
+    \item 
+    $\lambda$ als spezifische Wellenlänge (z.\,B. rotes Licht mit $\qty{740}{\nano\metre}$)
+\end{itemize}
+berechnet werden.
+Damit lässt sich nun jede Amplitude 
+der Kugelwellen überhalb der Schneide berechnen,
+indem für $r$ die entsprechende 
+Distanz aus der Gleichung~\ref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wird:
+\begin{equation}
+    \psi_h
+    =
+    \psi \cdot \frac{\text{exp}\left(j(\omega t -kr)\right)}{r}
+    \approx
+    \psi \cdot \frac{\text{exp}\left(j\omega t -jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
+    \label{fresnel:Amplitude-r-komplett-einseitig}
+\end{equation}
+
+\subsubsection{Approximation}
+Die Verlustberechnung dient als Approximation, 
+Abschwächungen als $1/d$ und Verzögerungen als $\omega t$ der Signale 
+können somit auf die Seite geschoben werden.
+Die Gleichung~\ref{fresnel:Amplitude-r-komplett-einseitig}
+wird somit zu
+\begin{equation}
+    \psi_h
+    =
+    \psi \cdot \text{exp}\left(-jkr\right)
+    \approx
+    \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right).
+    \label{fresnel:Amplitude-r-vereinfacht-einseitig}
+\end{equation}
+
+\subsubsection{Von der Wellenfront zur Wellendichte}
+
+\subsubsection{Überlagerung der Kugelwellen} % Superposition
+
+\subsubsection{Der Weg zu den Fresnel-Integralen}
+
+\subsubsection{Intermezzo: $\unit{\decibel}$-Berechnungen}
+
+\subsubsection{Schlussfolgerung}
+
+
+\subsection{Zweiseitige Verlustberechnung}
+
+\subsubsection{Unterschiede}
+
+\subsubsection{Substitution}
+
+\subsubsection{Schlussfolgerung}
+% Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
+% welche sich nach Huygens kreisförmig ausbreitet. 
+% Um die Beugung an der Schneide zu berechnen, 
+% bedarf es einiger Definitionen, 
+% welche im weiteren Verlauf verwendet werden und in 
+% Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
+
 
 \subsection{Fresnel-Integrale}
 Die Fresnel-Integrale werden hier in der Form
