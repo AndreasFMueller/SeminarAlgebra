@@ -1,4 +1,54 @@
 \section{Auftriebskraft}
+
+\subsection{Grundlage der Auftriebskraft}
+	Obwohl im Folgenden immer von der Auftriebskraft die Rede ist,
+	wird in der Anwendung des Flügels immer nur den Querschnitt davon betrachtet,
+	wie in Abbildung~\ref{joukowski:auftriebskraft:fig:kontourintegral-fluegel} zu sehen ist.
+	Somit wird nicht die Kraft selbst,
+	sondern die Kraft pro Flügellänge berechnet.
+	Diese wird mit
+	\[
+		F'
+		=
+		\frac{\partial F}{\partial l}
+	\]
+	notiert.
+	Um die resultierende Kraft pro Flügellänge zu erhalten,	
+	müssen alle kleinen Kraftanteile $dF'$ aufsummiert werden,
+	womit
+	\[
+		F'
+		=
+		\displaystyle\oint_{\gamma}
+		dF'
+	\]
+	entsteht.
+	Weil wir vorausgesetz haben,
+	dass die Strömung reibungsfrei ist,
+	wirken nur Kraftanteile,
+	welche in Richtung der Normalen des Flügels sind.
+	Dasselbe gilt für einen Druckgradienten.
+	Somit können wir den kleinen Kraftanteil $dF'$ durch den Druck an diesem Punkt ersetzen
+	und es entsteht
+	\[
+		dF'
+		=
+		i \cdot p(z) dz,
+	\]
+	wobei jetzt
+	\[
+		F'
+		=
+		i \cdot \displaystyle\oint_{\gamma}
+		p(z)
+		dz
+	\]
+	gilt.
+	Mithilfe der Multiplikation mit $i$ können wir ausdrucken,
+	dass jeder Kraftanteil immer nur senkrecht zur Umfahrtrichtung $dz$ wirkt,
+	wie in Abbildung~\ref{joukowski:auftriebskraft:fig:kontourintegral-fluegel} dargestellt wird.
+
+\subsection{Aus Anströmungsgeschwindigkeit wird Auftrieb}
 	Bei der Betrachtung eines Objektes in einem beliebigen Mediums kann eine Auftriebskraft festgestellt werden.
 	Hierbei muss die Unterscheidung gemacht werden zwischen statischen und dynamischen Auftrieb.
 	Der statische Druck entsteht durch den Druckgradienten. 
@@ -6,8 +56,8 @@
 	
 	Ein Beispiel für den statischen Druck ist ein Eiswürfel im Wasserglas. Der Druckgradient beschreibt die Druckveränderung zwischen zwei Punkten,
 	daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
-	
-	Bei einem Flugzeuge ist dies wesentlich komplizierter.
+		
+	Bei einem Flugzeug ist dies wesentlich komplizierter.
 	Hierbei handelt sich um dynamischen Auftrieb. Für die Strömung gilt Energieerhaltung.
 	Der Druck, an einem beliebigen Punkt im Raum, kann somit  mit der Gleichung
 	
@@ -19,15 +69,35 @@
 			&p(z) + \frac{\rho}{2} \cdot |v(z)|^2 =	p_{\infty} + 	\frac{\rho}{2} \cdot |v_{\infty}|^2\\
 		\end{aligned}
 	\end{equation}
-	Beschrieben werden.
-	Bei der Bernoulli Gleichung werden immer zwei Punkte gewählt. In diesem Fall der Punkt $z$ und ein Punkt weit weg vom Flügelprofil. Diese liegen auf der gleichen Höhe, daher verschwindet der Höhendruck. Aufgelöst nach dem Druck am Punkt $z$. Ergibt sich die Form
-	$p(z) = - \frac{\rho}{2} \cdot |v(z)|^2 + C $ wobei
-	der Konstante Teil $C$ in $p(z)$ aus dem Referenzwert im Unendlichen besteht. Um nun die Auftriebskraft zu erhalten wird einmal entlang des Flügelprofils gefahren, wobei der druck an jedem Punkt aufsummiert wird. Als Integral geschrieben ergibt das die Gleichung
+	beschrieben werden.
+	Bei der Bernoulli Gleichung werden immer zwei Punkte gewählt. In diesem Fall der Punkt $z$ und ein Punkt weit weg vom Flügelprofil. Diese liegen auf der gleichen Höhe, daher verschwindet der Höhendruck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
+	\[
+		p(z)
+		= 
+		-\frac{\rho}{2} \cdot |v(z)|^2 + C 
+	\]
+	wobei der konstante Teil $C$ in $p(z)$ aus dem Referenzwert im Unendlichen besteht.
+	Um nun die Auftriebskraft zu erhalten wird einmal entlang des Flügelprofils gefahren,
+	wobei der Druck an jedem Punkt aufsummiert wird.
+	Als Integral geschrieben ergibt das die Gleichung
 	\begin{equation}
-		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 + C \, dz
+		F'
+		=
+		F_x' + i F_y'
+		=
+		- i \frac{\rho}{2} \cdot
+		\displaystyle\oint_{\gamma}
+		|v(z)|^2 + C \, dz.
 	\end{equation}
-	Der Konstante teilt, kürzt sich heraus. Übrig bleibt nur noch der Ausdruck
+	Der Konstante teil kürzt sich heraus.
+	Übrig bleibt nur noch der Ausdruck
 	\begin{equation}
 		\label{joukowski:Auftriebskarft:Auftrieb1}
-		F' = F_x' + i F_y' = - i \frac{\rho}{2} \cdot \displaystyle\oint_{\gamma} |v(z)|^2 \, dz.
+		F'
+		=
+		F_x' + i F_y'
+		=
+		- i \frac{\rho}{2} \cdot
+		\displaystyle\oint_{\gamma}
+		|v(z)|^2 \, dz.
 	\end{equation}
