@@ -92,16 +92,16 @@ welche aus Kugelwellen mit Ausgangspunkten in verschiedenen Höhen besteht.
 \subsubsection{Kugelwellen} % c und d aus Mail zusammenehmen
 Diese Kugelwellen haben eine Amplitude $\psi$,
 welche mit wachsender Distanz abnimmt.
-Die gemessene Amplitude $\psi_1$ nach einer Distanz $r$ kann mit
+Die gemessene Amplitude $\psi$ nach einer Distanz $r$ kann mit
 \begin{equation}
-    \psi_1
+    \psi (r,t)
     =
-    \psi \cdot \frac{e^{j(\omega t -kr)}}{r}
+    \psi_0 \cdot \frac{e^{j(\omega t -kr)}}{r}
 \end{equation}
 und den Definitionen
 \begin{itemize}
     \item 
-    $\psi$ als ursprüngliche Amplitude
+    $\psi_0$ als ursprüngliche Amplitude
     \item 
     $\omega t$ als Phasenverschiebung
     \item 
@@ -117,9 +117,9 @@ Distanz aus der Gleichung~\ref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wi
 \begin{equation}
     \psi_h
     =
-    \psi \cdot \frac{\text{exp}\left(j(\omega t -kr)\right)}{r}
+    \psi_0 \cdot \frac{\text{exp}\left(j(\omega t -kr)\right)}{r}
     \approx
-    \psi \cdot \frac{\text{exp}\left(j\omega t -jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
+    \psi_0 \cdot \frac{\text{exp}\left(j\omega t -jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
     \label{fresnel:Amplitude-r-komplett-einseitig}
 \end{equation}
 
@@ -132,15 +132,57 @@ wird somit zu
 \begin{equation}
     \psi_h
     =
-    \psi \cdot \text{exp}\left(-jkr\right)
+    \psi_0 \cdot \text{exp}\left(-jkr\right)
     \approx
-    \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right).
+    \psi_0 \cdot \text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right).
     \label{fresnel:Amplitude-r-vereinfacht-einseitig}
 \end{equation}
 
 \subsubsection{Von der Wellenfront zur Wellendichte}
+Für die weiteren Schritte ist es von Vorteil,
+die Amplitude als Funktion abhängig von $h$ zu schreiben.
+Am einfachsten geht dies als Produkt von der Wellendichte
+$\rho_{\psi}$ und diskreter Höhenabschnitte:
+\begin{equation}
+    % \psi
+    % =
+    % \rho_{\psi}\Delta h,
+    % \qquad
+    \psi
+    =
+    \psi_0 \cdot e^{-jkd}
+    =
+    \rho_{\psi 0}\Delta h \cdot e^{-jkd}
+    =
+    \rho_{\psi }\Delta h
+    \label{fresnel:Wellendichte-umgestellt}
+\end{equation}
 
 \subsubsection{Überlagerung der Kugelwellen} % Superposition
+Wir haben nun alle Werkzeuge, 
+um die Kugelwellen mit Überlagerung
+in ein einziges Signal $\psi_{\text{rx}}$ zusammenzufassen.
+Zuerst wird die Gleichung~\ref{fresnel:Amplitude-r-vereinfacht-einseitig}
+über alle Höhen summiert:
+\[
+\psi_{\text{rx}}
+=
+\sum_i \psi_0 \cdot e^{-jkr_i}
+=
+\psi_0 \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
+=
+\underbrace{\psi_0 \cdot e^{-jkd}}_{=\psi} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
+\]
+Anschliessend wird die Wellendichte von der Gleichung~\ref{fresnel:Wellendichte-umgestellt}
+eingesetzt:
+\begin{equation}
+    \psi_{\text{rx}}
+    =
+    \psi \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
+    =
+    \rho_{\psi} \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right) \Delta h.
+    \label{fresnel:Kugelwellen-wellendichte-superpos}
+\end{equation}
 
 \subsubsection{Der Weg zu den Fresnel-Integralen}
 
@@ -164,133 +206,133 @@ wird somit zu
 % Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
 
 
-\subsection{Fresnel-Integrale}
-Die Fresnel-Integrale werden hier in der Form
-\begin{equation}
-    C(v) 
-    = 
-    \int_{0}^{v} \cos \left(\frac{\pi}{2}t^2\right)
-    \quad \text{und} \quad
-    S(v) 
-    = 
-    \int_{0}^{v} \sin \left(\frac{\pi}{2}t^2\right)
-    \label{fresnel:integral-C-S-beispiel}
-\end{equation}
-definiert, wobei
-\[
-C(\infty)
-=
-S(\infty)
-=
-\frac{1}{2}
-\quad
-\text{und}
-\quad
-C(-a)
-=
--C(a)
-\quad
-\text{sowie}
-\quad
-S(-a)
-=
--S(a)
-\]
-sei.
+% \subsection{Fresnel-Integrale}
+% Die Fresnel-Integrale werden hier in der Form
+% \begin{equation}
+%     C(v) 
+%     = 
+%     \int_{0}^{v} \cos \left(\frac{\pi}{2}t^2\right)
+%     \quad \text{und} \quad
+%     S(v) 
+%     = 
+%     \int_{0}^{v} \sin \left(\frac{\pi}{2}t^2\right)
+%     \label{fresnel:integral-C-S-beispiel}
+% \end{equation}
+% definiert, wobei
+% \[
+% C(\infty)
+% =
+% S(\infty)
+% =
+% \frac{1}{2}
+% \quad
+% \text{und}
+% \quad
+% C(-a)
+% =
+% -C(a)
+% \quad
+% \text{sowie}
+% \quad
+% S(-a)
+% =
+% -S(a)
+% \]
+% sei.
 
-\subsection{Fresnel Approximation}
-Aus dem Satz des Pythagoras geht hervor, dass 
-\[
-r 
-= 
-\sqrt{d^2 + h^2}
-=
-d \sqrt{1 + \frac{h^2}{d^2}}
-\]
-und anhand einer Taylor-Approximation für $d \gg h$
-\[
-r 
-=
-d \sqrt{1 + \frac{h^2}{d^2}}
-\approx
-d \left( 1 + \frac{h^2}{2d^2} \right)
-=
-d + \frac{h^2}{2d},
-\]
-unter der Annahme, dass in den meisten Fällen die Distanz zur Schneide um ein Vielfaches grösser ist
-als die Höhe des Ausgangspunktes der Kugelwelle.
-Will man das gesamte Signal zweier ankommender Kugelwellen aus verschiedenen Höhen am Empfänger berechnen,
-benötigt man zuerst eine generische Formel für die empfangene Signalstärke $\psi_i$ über eine Distanz $r$ wie
-\begin{equation}
-    \psi_i
-    =
-    \psi \cdot \frac{e^{-jkr_i}}{r_i},
-\end{equation}
-wobei $\psi$ die ursprünglich ausgesendete Signalstärke ist.
-Durch Einsetzen der entsprechenden Höhen ergibt sich
-\begin{align*}
-    \text{für } h = 0: \quad \psi_0
-    &=
-    \psi \cdot \frac{e^{-jkr_0}}{r_0}
-    =
-    \psi \cdot \frac{e^{-jkd}}{d},
-    \\
-    \text{für } h > 0: \quad \psi_1
-    &=
-    \psi \cdot \frac{\text{exp}\left(-jkr_1\right)}{r_1}
-    \approx
-    \psi \cdot \frac{\text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
-\end{align*}
-Da dieses Vorgehen eine Approximation ist, 
-können Abschwächungen und Verzögerungen der Signale vernächlässigt werden,
-das heisst keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
-\[
-\psi (r,t)
-=
-\psi_0 \cdot \frac{e^{j(\omega t - kr)}}{r}
-\quad \to \quad
-\psi_0 \cdot e^{-jkr}
-=
-\psi (r)
-\]
-und kann für Kugelwellen mit Ausgangspunkten in verschiedenen Höhen mit $h = h_i$ als
-\begin{equation}
-    \psi_i
-    =
-    \psi \cdot \text{exp}\left(-jkr\right)
-    \approx
-    \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
-    \label{fresnel:Kugelwellen-signalstaerke}
-\end{equation}
-dargestellt werden. 
-Über die Superposition der verschiedenen Höhen erhält man die empfangene Signalstärke $\psi_{\text{rx}}$ als
-\begin{equation}
-    \psi_{\text{rx}}
-    =
-    \sum_i \psi \cdot e^{-jkr}
-    =
-    \psi \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
-    =
-    \underbrace{\psi \cdot e^{-jkd}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
-    \label{fresnel:Kugelwellen-signalstaerke-superpos}
-\end{equation}
-Für einen späteren Schritt ist es von Vorteil, 
-die ursprüngliche Signalstärke als Produkt einer Wellendichte und
-diskreter Höhenabschnitte
-\[
-\psi
-=
-\rho_{\psi}\Delta h,
-\qquad
-\psi_0
-=
-\psi \cdot e^{-jkd}
-=
-\rho_{\psi}\Delta h \cdot e^{-jkd}
-=
-\rho_{\psi 0}\Delta h
-\]
-darzustellen,
+% \subsection{Fresnel Approximation}
+% Aus dem Satz des Pythagoras geht hervor, dass 
+% \[
+% r 
+% = 
+% \sqrt{d^2 + h^2}
+% =
+% d \sqrt{1 + \frac{h^2}{d^2}}
+% \]
+% und anhand einer Taylor-Approximation für $d \gg h$
+% \[
+% r 
+% =
+% d \sqrt{1 + \frac{h^2}{d^2}}
+% \approx
+% d \left( 1 + \frac{h^2}{2d^2} \right)
+% =
+% d + \frac{h^2}{2d},
+% \]
+% unter der Annahme, dass in den meisten Fällen die Distanz zur Schneide um ein Vielfaches grösser ist
+% als die Höhe des Ausgangspunktes der Kugelwelle.
+% Will man das gesamte Signal zweier ankommender Kugelwellen aus verschiedenen Höhen am Empfänger berechnen,
+% benötigt man zuerst eine generische Formel für die empfangene Signalstärke $\psi_i$ über eine Distanz $r$ wie
+% \begin{equation}
+%     \psi_i
+%     =
+%     \psi \cdot \frac{e^{-jkr_i}}{r_i},
+% \end{equation}
+% wobei $\psi$ die ursprünglich ausgesendete Signalstärke ist.
+% Durch Einsetzen der entsprechenden Höhen ergibt sich
+% \begin{align*}
+%     \text{für } h = 0: \quad \psi_0
+%     &=
+%     \psi \cdot \frac{e^{-jkr_0}}{r_0}
+%     =
+%     \psi \cdot \frac{e^{-jkd}}{d},
+%     \\
+%     \text{für } h > 0: \quad \psi_1
+%     &=
+%     \psi \cdot \frac{\text{exp}\left(-jkr_1\right)}{r_1}
+%     \approx
+%     \psi \cdot \frac{\text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
+% \end{align*}
+% Da dieses Vorgehen eine Approximation ist, 
+% können Abschwächungen und Verzögerungen der Signale vernächlässigt werden,
+% das heisst keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
+% \[
+% \psi (r,t)
+% =
+% \psi_0 \cdot \frac{e^{j(\omega t - kr)}}{r}
+% \quad \to \quad
+% \psi_0 \cdot e^{-jkr}
+% =
+% \psi (r)
+% \]
+% und kann für Kugelwellen mit Ausgangspunkten in verschiedenen Höhen mit $h = h_i$ als
+% \begin{equation}
+%     \psi_i
+%     =
+%     \psi \cdot \text{exp}\left(-jkr\right)
+%     \approx
+%     \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
+%     \label{fresnel:Kugelwellen-signalstaerke}
+% \end{equation}
+% dargestellt werden. 
+% Über die Superposition der verschiedenen Höhen erhält man die empfangene Signalstärke $\psi_{\text{rx}}$ als
+% \begin{equation}
+%     \psi_{\text{rx}}
+%     =
+%     \sum_i \psi \cdot e^{-jkr}
+%     =
+%     \psi \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
+%     =
+%     \underbrace{\psi \cdot e^{-jkd}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
+%     \label{fresnel:Kugelwellen-signalstaerke-superpos}
+% \end{equation}
+% Für einen späteren Schritt ist es von Vorteil, 
+% die ursprüngliche Signalstärke als Produkt einer Wellendichte und
+% diskreter Höhenabschnitte
+% \[
+% \psi
+% =
+% \rho_{\psi}\Delta h,
+% \qquad
+% \psi_0
+% =
+% \psi \cdot e^{-jkd}
+% =
+% \rho_{\psi}\Delta h \cdot e^{-jkd}
+% =
+% \rho_{\psi 0}\Delta h
+% \]
+% darzustellen,
 womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
 \begin{equation}
     \psi_{\text{rx}}
