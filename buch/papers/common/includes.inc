@@ -21,8 +21,8 @@ include papers/bessel/Makefile.inc
 include papers/hankel/Makefile.inc
 include papers/zeta/Makefile.inc
 include papers/buchberger/Makefile.inc
-include papers/elliptisch/Makefile.inc
 include papers/resultante/Makefile.inc
+include papers/elliptisch/Makefile.inc
 
 TEXFILES = \
 	$(dependencies-konstruktion) \
@@ -48,6 +48,6 @@ TEXFILES = \
 	$(dependencies-hankel) \
 	$(dependencies-zeta) \
 	$(dependencies-buchberger) \
-	$(dependencies-elliptisch) \
 	$(dependencies-resultante) \
+	$(dependencies-elliptisch) \
 

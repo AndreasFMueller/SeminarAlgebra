@@ -88,220 +88,136 @@ chapter=8
 72
 84
 #
-# Kapitel  9
-chapter=9
-4
-6
+# Kapitel 9 konstruktion
+chapter=konstruktion
+7
+9
+13
 #
-# Kapitel 10
-chapter=10
+# Kapitel 10 moebius
+chapter=moebius
 2
 3
-7
-#
-# Kapitel 11
-chapter=11
-2
-5
-15
+6
+8
+11
+14
 16
 #
-# Kapitel 12
-chapter=12
-2
+# Kapitel 11 geradlinig
+chapter=geradlinig
+#
+# Kapitel 12 julia
+chapter=julia
 9
+11
 12
-22
-25
-41
-#
-# Kapitel 13
-chapter=13
-2
-4
-6
-7
-13
-15
-19
-20
-21
-25
-32
-33
-#
-# Kapitel 14 geoalgebra
-chapter=geoalgebra
-4
-5
-7
-8
-13
-14
-15
-#
-# Kapitel 15 nerven
-chapter=nerven
-2
-3
-4
-5
-6
-12
-13
-14
-#
-# Kapitel 16 poinbendix
-chapter=poinbendix
-4
-6
-7
-8
-10
-#
-# Kapitel 17 elastomechanik
-chapter=elastomechanik
-#
-# Kapitel 18 maxwell
-chapter=maxwell
-#
-# Kapitel 19 diffortho
-chapter=diffortho
-2
-5
-#
-# Kapitel 20 helmholtz
-chapter=helmholtz
-2
-3
-4
 15
 16
-#
-# Kapitel 21 reaktdiff
-chapter=reaktdiff
-5
-10
-11
-12
-14
-15
-#
-# Kapitel 22 mongeampere
-chapter=mongeampere
-4
-5
-#
-# Kapitel 23 mongekant
-chapter=mongekant
-2
-6
-10
-12
-13
-14
-#
-# Kapitel 24 neuronal
-chapter=neuronal
-3
-6
-9
-10
-11
-12
-13
-14
-15
-#
-# Kapitel 25 parallelisierung
-chapter=parallelisierung
-9
-10
-11
-12
-14
-15
-19
-20
-21
-22
-24
-#
-# Kapitel 26 openfoam
-chapter=openfoam
-10
-11
-13
-15
+17
 18
+19
+20
+21
+22
+23
 #
-# Kapitel 27 reynolds
-chapter=reynolds
-7
-9
+# Kapitel 13 jordan
+chapter=jordan
 #
-# Kapitel 28 ueberschall
-chapter=ueberschall
+# Kapitel 14 qa
+chapter=qa
+#
+# Kapitel 15 elektro
+chapter=elektro
+#
+# Kapitel 16 joukowski
+chapter=joukowski
+#
+# Kapitel 17 aircraft
+chapter=aircraft
+#
+# Kapitel 18 fresnel
+chapter=fresnel
+#
+# Kapitel 19 pade
+chapter=pade
+#
+# Kapitel 20 step
+chapter=step
+#
+# Kapitel 21 hauptwert
+chapter=hauptwert
+#
+# Kapitel 22 kepler
+chapter=kepler
+3
+8
+#
+# Kapitel 23 laplace
+chapter=laplace
+4
 5
 6
-7
 9
 11
 13
 14
-#
-# Kapitel 29 schall
-chapter=schall
-8
-12
-13
-#
-# Kapitel 30 wirbelringe
-chapter=wirbelringe
-2
-4
-5
-8
-12
 16
 #
-# Kapitel 31 geostrophisch
-chapter=geostrophisch
-4
+# Kapitel 24 weyl
+chapter=weyl
+2
 5
-8
-9
+7
 12
-13
-14
-15
 #
-# Kapitel 32 rossby
-chapter=rossby
+# Kapitel 25 produkt
+chapter=produkt
+#
+# Kapitel 26 basel
+chapter=basel
 3
-4
 5
 7
 8
-9
+10
 13
 14
 #
-# Kapitel 33 fourier
-chapter=fourier
+# Kapitel 27 gamma
+chapter=gamma
+5
+6
+#
+# Kapitel 28 bessel
+chapter=bessel
+#
+# Kapitel 29 hankel
+chapter=hankel
+#
+# Kapitel 30 zeta
+chapter=zeta
 3
+4
+#
+# Kapitel 31 buchberger
+chapter=buchberger
 6
 7
-8
-9
-#
-# Kapitel 34 particles
-chapter=particles
-2
-3
-8
-9
-10
 11
-12
+#
+# Kapitel 32 resultante
+chapter=resultante
+4
+6
+
+#
+# Kapitel 33 elliptisch
+chapter=elliptisch
+2
+4
+7
+11
+13
 EOF

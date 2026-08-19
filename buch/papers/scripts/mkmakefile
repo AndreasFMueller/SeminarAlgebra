@@ -59,10 +59,10 @@ awk 'BEGIN {
 END {
 	printf("$(workdir)/buch%d-blx.bbl:\t$(workdir)/buch%d-blx.aux\n",
 		counter, counter)
-	printf("\tcd $(workdir) bibtex buch%d-blx\n\n", counter)
+	printf("\tcd $(workdir); bibtex buch%d-blx\n\n", counter)
 	printf("$(workdir)/$(seminar)%d-blx.bbl:\t$(workdir)/$(seminar)%d-blx.aux\n",
 		counter, counter)
-	printf("\tcd $(workdir) bibtex $(seminar)%d-blx\n\n", counter)
+	printf("\tcd $(workdir); bibtex $(seminar)%d-blx\n\n", counter)
 	printf("BLXFILES = $(workdir)/buch.bbl \\\n")
 	for (i = 1; i <= counter; i++) {
 		printf("\t$(workdir)/buch%d-blx.bbl \\\n", i)

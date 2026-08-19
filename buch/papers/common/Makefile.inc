@@ -31,8 +31,8 @@ PAPERFILES = \
 	papers/hankel/main.tex \
 	papers/zeta/main.tex \
 	papers/buchberger/main.tex \
-	papers/elliptisch/main.tex \
 	papers/resultante/main.tex \
+	papers/elliptisch/main.tex \
 	
 $(workdir)/buch1-blx.bbl:	$(workdir)/buch1-blx.aux
 	cd $(workdir); bibtex buch1-blx
@@ -185,10 +185,10 @@ $(workdir)/$(seminar)25-blx.bbl:	$(workdir)/$(seminar)25-blx.aux
 	cd $(workdir); bibtex $(seminar)25-blx
 
 $(workdir)/buch26-blx.bbl:	$(workdir)/buch26-blx.aux
-	cd $(workdir) bibtex buch26-blx
+	cd $(workdir); bibtex buch26-blx
 
 $(workdir)/$(seminar)26-blx.bbl:	$(workdir)/$(seminar)26-blx.aux
-	cd $(workdir) bibtex $(seminar)26-blx
+	cd $(workdir); bibtex $(seminar)26-blx
 
 BLXFILES = $(workdir)/buch.bbl \
 	$(workdir)/buch1-blx.bbl \
@@ -272,8 +272,8 @@ PAPER_DIRECTORIES = \
 	hankel \
 	zeta \
 	buchberger \
-	elliptisch \
 	resultante \
+	elliptisch \
 	
 PAPER_MAKEFILEINC = \
 	papers/konstruktion/Makefile.inc \
@@ -299,6 +299,6 @@ PAPER_MAKEFILEINC = \
 	papers/hankel/Makefile.inc \
 	papers/zeta/Makefile.inc \
 	papers/buchberger/Makefile.inc \
-	papers/elliptisch/Makefile.inc \
 	papers/resultante/Makefile.inc \
+	papers/elliptisch/Makefile.inc \
 	
