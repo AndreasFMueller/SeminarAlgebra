@@ -32,26 +32,51 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was ebenfal
 \begin{beispiel}
     Die Elimination von Variablen wird am Beispiel der Polynome \(f(x,y)=x^2+xy+1\) und \(g(x,y)=x-y\) gezeigt.
     Hier treten nun \(2\) Unbekannte auf: \(x\) und \(y\).
-    Für die Aufstellung der Resultante bedeutet dies, es gibt zwei Möglichkeiten, die Polynome und die Resultante zu betrachten:
-    
-    \noindent
-    \kreis{1} Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
-    \begin{equation*}
-        \begin{aligned}
-            &\Longrightarrow x \phantom{x} \text{wird zum ``einsortieren'' der Koeffizienten in der }\\
-            &\hspace{21pt}\text{Sylvester-Matrix verwendet und somit eliminiert.}\\
-            &\Longrightarrow \Res_x(f,g)=\det(\syl_x(f,g))=2y^2+1
-        \end{aligned}
-    \end{equation*}
-    \kreis{2} Als Polynom in \(y\) mit Koeffizienten, die \(x\) enthalten
-    \begin{equation*}
-        \Longrightarrow \Res_y(f,g)=\det(\syl_y(f,g))=2x^2+1.
-    \end{equation*}
+    Für die Aufstellung der Resultante bedeutet dies, dass es zwei Möglichkeiten gibt, die Polynome und die Resultante zu betrachten:
+    \begin{enumerate}
+        \item Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
+            \begin{equation*}
+                \begin{aligned}
+                    &\Longrightarrow x \phantom{x} \text{wird zum ``einsortieren'' der Koeffizienten in der }\\
+                    &\hspace{21pt}\text{Sylvester-Matrix verwendet und somit eliminiert.}\\
+                    &\Longrightarrow \Res_x(f,g)=
+                    \det
+                    \begin{pmatrix}
+                        1 & -y & 0\\
+                        0 & 1 & -y\\
+                        1 & y & 1
+                    \end{pmatrix}
+                    =2y^2+1
+                \end{aligned}
+            \end{equation*}
+        \item Als Polynom in \(y\) mit Koeffizienten, die \(x\) enthalten
+            \begin{equation*}
+                \Longrightarrow \Res_y(f,g)=
+                \det
+                \begin{pmatrix}
+                        x & x^2+1\\
+                        -1 & x
+                    \end{pmatrix}
+                =2x^2+1.
+            \end{equation*}
+    \end{enumerate}
+    % \kreis{1} Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
+    % \begin{equation*}
+    %     \begin{aligned}
+    %         &\Longrightarrow x \phantom{x} \text{wird zum ``einsortieren'' der Koeffizienten in der }\\
+    %         &\hspace{21pt}\text{Sylvester-Matrix verwendet und somit eliminiert.}\\
+    %         &\Longrightarrow \Res_x(f,g)=\det(\syl_x(f,g))=2y^2+1
+    %     \end{aligned}
+    % \end{equation*}
+    % \kreis{2} Als Polynom in \(y\) mit Koeffizienten, die \(x\) enthalten
+    % \begin{equation*}
+    %     \Longrightarrow \Res_y(f,g)=\det(\syl_y(f,g))=2x^2+1.
+    % \end{equation*}
     \label{resultante:beispiel:elimination}
 \end{beispiel}
 \noindent
 Das tiefgestellt \(x\) oder \(y\) gibt dabei an, nach welcher Resultante aufgelöst wird.
-Dabei verschwindet diese Variable aus dem Resultanten-Polynom (\(\operatorname{R}(x)=\Res_x(f,g)=2y^2+1\)).
+Dabei verschwindet diese Variable aus dem Resultanten-Polynom (\(R(x)=\Res_x(f,g)=2y^2+1\)).
 
 Die Resultante liegt im von \(f\) und \(g\) erzeugten Ideal, das schreibt man als \((f,g)\), also
 \begin{equation}
@@ -67,7 +92,7 @@ Bei Vektroen ist
 \begin{equation}
     \Span(v_1,v_2)=av_1+bv_2,
 \end{equation}
-wobei \(a\),\(b\) Zahlen sind.
+wobei \(a\), \(b\) Zahlen sind.
 Beim Ideal \((f,g)\) dürfen die Faktorn \(s\), \(t\) selbst Polynome sein.
 
 \begin{beispiel}
