@@ -14,16 +14,16 @@ Haben die Polynome \(f(X)=f_mX^m+\dots+f_1X+f_0\) mit \(\deg(f)=m\) und \(g(X)=g
 \noindent
 Falls ja, dann gibt es Polynome \(p(X)\) und \(q(X)\) mit
 \begin{equation}
-    f(X)=q(X)\cdot d(X)\qquad
+    f(X)=q(X)\cdot d(X)\quad \text{und} \quad
     g(X)=p(X)\cdot d(X)
     \label{resultante:equation:divisor}
 \end{equation}
-mit \(\deg d \geq 1\), \(\deg(q)<\deg(f)\) und \(\deg(p)<\deg(g)\).
+mit \(\deg (d) \geq 1\), \(\deg(q)<\deg(f)\) und \(\deg(p)<\deg(g)\).
 
 Aus (\ref{resultante:equation:divisor}) folgt
 \begin{equation}
-    \deg q = \deg f - \deg d \leq m-1 \quad \text{und} \quad
-    \deg p = \deg g - \deg d \leq n-1.
+    \deg (q) = \deg (f) - \deg (d) \leq m-1 \quad \text{und} \quad
+    \deg (p) = \deg (g) - \deg (d) \leq n-1.
 \end{equation}
 Das Polynom (\ref{resultante:equation:divisor}) links wird mit \(p(X)\) multipliziert und das Polynom (\ref{resultante:equation:divisor}) rechts mit \(q(X)\).
 Aus diesen erweiterten Polynomen wird die Differenz
@@ -43,7 +43,7 @@ Sollte \(\deg d(X)=2\) sein, so werden die höchsten Koeffizienten von \(q(X)\) 
 \end{figure}
 \begin{beispiel}
     Für die Polynome \(f(X)=2X^3+7X^2-5X-4\) und \(g(X)=2X^2+X-3\) werden die um Grad \(1\) kleineren Hilfspolynome \(q(X)=q_2X^2+q_1X+q_0\) und \(p(X)=p_1X+p_0\) bestimmt.
-    Diese werden nun in (\ref{resultante:equation:lgs}) eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultiert das Gleichungssystem
+    Diese werden nun in (\ref{resultante:equation:lgs}) eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultieren die Polynomgleichung
     
     \begin{equation}
         \begin{aligned}
@@ -55,7 +55,7 @@ Sollte \(\deg d(X)=2\) sein, so werden die höchsten Koeffizienten von \(q(X)\) 
         \end{aligned}
         \label{resultante:equation:gs}
     \end{equation}
-    Das Gleichungssystem (\ref{resultante:equation:gs}) wird nun in die Matrixform
+    Dass in (\ref{resultante:equation:gs}) alle Koeffizienten verschwinden, kann als Gleichungssystem in der Matrixform
     \begin{equation}
         \begin{pmatrix}
             p_1&p_0&-q_2&-q_1&-q_0
@@ -70,7 +70,7 @@ Sollte \(\deg d(X)=2\) sein, so werden die höchsten Koeffizienten von \(q(X)\) 
         \end{pmatrix}=0
         \label{resultante:equation:Syl}
     \end{equation}
-    gebracht um die Koeffizienten der Hilfspolynome \(q(X)\) und \(p(X)\) zu berechnen. Die Systemmatrix der Gleichung (\ref{resultante:equation:Syl}) ist die Sylvester-Matrix, benannt nach dem britischen Mathematiker James Joseph Sylvester (Abb. \ref{resultante:fig:jjsylvester}).
+    für die Koeffizienten der Hilfspolynome \(q(X)\) und \(p(X)\) geschrieben werden. Die Systemmatrix der Gleichung (\ref{resultante:equation:Syl}) ist die Sylvester-Matrix, benannt nach dem britischen Mathematiker James Joseph Sylvester (Abb. \ref{resultante:fig:jjsylvester}).
     \label{resultante:beispiel:lgs}
 \end{beispiel}
 Die Idee der Umformungsschritte bis hierher ist es, eine Übersicht zu bekommen, woher die Sylvester-Matrix kommt.
@@ -80,7 +80,8 @@ Die Idee der Umformungsschritte bis hierher ist es, eine Übersicht zu bekommen,
 Für zwei Polynome kann die in (\ref{resultante:equation:Syl}) gefundene Matrix wie folgt allgemein definiert werden.
 
 \begin{definition}
-    \emph{(Sylvester-Matrix)}. Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a=n\) beziehzungsweise \(\deg b=m\). Die Sylvester-Matrix von a und b ist die \((n + m) \times (n + m)\)-Matrix:
+    \emph{(Sylvester-Matrix)}. Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a=n\) beziehungsweise \(\deg b=m\).
+    Die Sylvester-Matrix von a und b ist die \((n + m) \times (n + m)\)-Matrix:
     % \begin{equation}
         
     %     \begin{pmatrix}

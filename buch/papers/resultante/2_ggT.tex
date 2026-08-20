@@ -11,11 +11,11 @@
 \kopfrechts{Grösster gemeinsamer Teiler (\(\ggt\))}
 \subsubsection{ggT in der Tableau-Methode
 \label{resultante:subsubsection:tableau}}
-Die Tableau-Methode entsteht aus dem euklidischen Algorithmus, für den man die Polynom-Division als Tableau schreibt.
+Die Tableau-Methode entsteht aus dem euklidischen Algorithmus, für den man die Polynomdivision als Tableau schreibt.
 Die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableau-Methode beginnt mit der Sylvester-Matrix \(\syl(b,a)\).
 Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester}, in der alle \(m\) Zeilen des \(a(X)\)-Polynoms mit denen des \(b(X)\)-Polynoms vertauscht werden.
 Auf diese Matrix werden nun \(n-m+1\)-Gauss-Zeilenoperationen angewandt.
-Die Zeilenoperationen führen im Wesentlichen zu einer Polynom-Division, wie das der euklidischen Algorithmus ebenfalls macht.
+Die Zeilenoperationen führen im Wesentlichen zu einer Polynomdivision, wie das der euklidischen Algorithmus ebenfalls macht.
 In den unteren \(m\) Zeilen, an der Stelle der \(a(X)\)-Polynomen, ensteht der entsprechende Rest \(r(X)\) (die grünen Zeilen) der Division von \(a(X)\) und \(b(X)\).
 Um nun auf die Stufenform der Sylvester-Matrix zurück zu kommen, werden auf den Restpolynomen zusätzliche Zeilenoperationen angewandt, bis der Rest sich auf jeder Zeile wiederholt.
 Desweiteren werden die ersten \(n-m+1\) Spalten Nullen enthalten:
@@ -33,7 +33,7 @@ Das zeigt das folgende Beispiel.
 
 \begin{beispiel}
     Die Vorgehensweise zur Ermittlung des grössten gemeinsamen Teilers wird am Beispiel \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) gezeigt.
-    Im ersten Tableau sind die ersten \(4\) Zeilen Kopien von \(b(X)\) und die \(3\) darunter die von \(a(X)\):
+    Im ersten Tableau sind die ersten vier Zeilen Kopien von \(b(X)\) und die drei darunter die von \(a(X)\):
     \begin{equation}
         \begin{NiceArray}{*{7}{c}}[cell-space-limits=3pt]
         8 & 8 & -16 & 0 & 0 & 0 & 0 \\

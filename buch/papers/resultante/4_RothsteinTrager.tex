@@ -14,12 +14,12 @@ Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt s
 Das Problem ist also, die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
 Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg a<\deg b\).
-Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip die From
+Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip die Form
 \begin{equation*}
     \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z)
     \label{resultante:equation:satzRT}
 \end{equation*}
-der Stammfunktion vorraus. Gesucht sind nun die \(c_k\) für die
+der Stammfunktion vor raus. Gesucht sind nun die \(c_k\), für die
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
@@ -32,11 +32,11 @@ einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 haben.
 
 \begin{satz}
-    \emph{(Rothstein-Trager)}. Die Nullstellen von \(R(z)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+    \emph{(Rothstein-Trager)}. Die Nullstellen von \(R(c)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
     \label{resultante:satz:RT} 
 \end{satz}
 \noindent
-Die Nullstellen von \(R(z)=\Res_z\) sind die gesuchten \(c_k\).
+Die Nullstellen von \(R(c)=\Res_z(a-c\cdot b',b)\) sind die gesuchten \(c_k\).
 
 Dafür eignet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
 Sie liefert als Lösung direkt den \(\ggt\) zweier Polynome mit dazugehöriger Nullstelle.
@@ -45,12 +45,12 @@ Sie liefert als Lösung direkt den \(\ggt\) zweier Polynome mit dazugehöriger N
 \label{resultante:subsection:anwendung}}
 Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird die Resultante
 \begin{equation}
-    \Res_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0
+    \Res_z\left(a(z)-c\cdot b'(z),b(z)\right)=0
     \label{resultante:equation:resz}
 \end{equation}
 benötigt.
-Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
-Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} aus der Resultanten \(R(z)\) eliminiert.
+In der Resultanten \(R(c)\) wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} eliminiert.
+Dabei ist \(R(c_k)=0\).
 
 \begin{beispiel}
     Die Stammfunktion von
@@ -71,10 +71,10 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
     \end{equation}
     sie sieht wie folgt aus:
     \begin{equation}
-        \Res_z\left(-3c_kz^2+1-c_k,z^3+z\right)=0,
+        \Res_z\left(-3cz^2+1-c,z^3+z\right)=0,
         \label{resultante:equation:resZgut}
     \end{equation}
-    die daraus folgende Sylvester-Matrix ist (zur Vereinfachung \(c\) statt \(c_k\)):
+    die daraus folgende Sylvester-Matrix ist:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         -3c & 0 & 1-c & 0 & 0 \\
@@ -136,7 +136,7 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
     \begin{equation}
         \begin{aligned}
             \frac{c-1}{3c}&\overset{!}{=}0\\
-            c&=1
+            c_1&=1
         \end{aligned},
         \label{resultante:equation:solGut1}
     \end{equation}
@@ -147,7 +147,7 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
             \frac{2c+1}{3c}&\overset{!}{=}0\\
             2c+1&=0\\
             2c&=-1\\
-            c&=-\frac{1}{2}
+            c_2&=-\frac{1}{2}
         \end{aligned},
         \label{resultante:equation:solGut2}
     \end{equation}
@@ -177,13 +177,13 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
         \begin{aligned}
             a(\vartheta)&=1\\
             b(\vartheta)&=\vartheta\\
-            Db(\vartheta)&=\frac{1}{x}
+            Db(\vartheta)&=\frac{1}{x}.
         \end{aligned}
     \end{equation}
     Das \(D\) steht hier für die Derivation nach \(x\).
     Die Resultante daraus sieht wie folgt aus:
     \begin{equation}
-        \Res_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\Res_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
+        R(c)=\Res_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\Res_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
         \label{resultante:equation:resTbad}
     \end{equation}
     der erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
@@ -197,7 +197,7 @@ Dadurch wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimin
         \,\,\,\,\,.
         \label{resultante:equation:sylBad}
     \end{equation}
-    Der Algorithmus für dieses Tableau endet bevor er überhaupt das erste mal angewandt wird.
+    Der Algorithmus für dieses Tableau endet, bevor er überhaupt das erste mal angewandt wird.
     Das kritische Element ist:
     \begin{equation}
         \begin{aligned}
