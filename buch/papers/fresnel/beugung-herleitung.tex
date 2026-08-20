@@ -6,8 +6,8 @@
 % !TEX encoding = UTF-8
 %
 
-\section{Anwendung: Beugung elektromagnetischer Wellen}
-\kopfrechts{Anwendung: Beugung elektromagnetischer Wellen}
+\section{Anwendungsbeispiel: Beugung elektromagnetischer Wellen}
+\kopfrechts{Anwendungsbeispiel: Beugung elektromagnetischer Wellen}
 
 In der drahtlosen Kommunikation werden die Fresnel-Integrale für 
 die Beugung von Signalen an einer sogenannten Schneide gebraucht.
@@ -40,7 +40,7 @@ Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} definiert:
 \end{itemize}
 Die Distanz $r$ ergibt sich über die Pythagoras-Formel als
 \[
-r 
+r(h) 
 = 
 \sqrt{d^2 + h^2}
 =
@@ -48,51 +48,51 @@ d \sqrt{1 + \frac{h^2}{d^2}}.
 \]
 Da in den meisten Fällen die Distanz $d$
 um ein Vielfaches grösser ist als die Höhe $h$,
-kann über die Taylor-Approximation die Vereinfachung
+kann mit der Taylor-Approximation der Wurzelfunktion die Distanz vereinfacht werden zu
 \begin{equation}
-    r 
+    r(h)
     =
     d \sqrt{1 + \frac{h^2}{d^2}}
     \approx
     d \left( 1 + \frac{h^2}{2d^2} \right)
     =
-    d + \frac{h^2}{2d},
+    d + \frac{h^2}{2d}.
     \label{fresnel:Distanz-R-Taylor-einseitig}
 \end{equation}
-angesetzt werden.
 
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Pythagoras-Dreieck.png}
      \resizebox{.7\textwidth}{!}{\input{papers/fresnel/images/Diff-Loss_einseitig.tex}\unskip}
     \caption{
-        Darstellung der einseitigen Verlustberechnung an einer Schneide
+        Darstellung der einseitigen Verlustberechnung an einer Schneide,
+        Wellenfront eintreffend von links
         \label{fresnel:Diff-loss-einseitig-abb}
     }
 \end{figure}
 
 \subsubsection{Beschreibung der Ausgangswelle}
-Die Antenne empfängt ein Signal von der linken Seite, 
+Die Antenne empfängt ein Signal von der linken Seite 
 hinter der Schneide.
 Bei kurzen Distanzen mag dieses Signal
 wie eine Kreiswelle ausgehend von der Antenne aussehen.
-Für längere Distanzen sieht sie aber nach dem Huygensschen Prinzip \cite{fresnel:huygenssches-prinzip} %TODO: referenzieren
-aus wie eine stehende Welle wie in Abbildung~\ref{fresnel:huygenssches-prinzip-wiki},
+Für längere Distanzen sieht sie aber nach dem Huygensschen Prinzip \cite{fresnel:huygenssches-prinzip}
+aus wie eine stehende Welle wie in Abbildung~\ref{fresnel:Diff-loss-einseitig-abb},
 welche aus Kugelwellen mit Ausgangspunkten in verschiedenen Höhen besteht.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\linewidth]{papers/fresnel/images/Huygens-Fresnel_principle.png}
-    \caption{
-        Wellenfront und deren Beugung nach dem huygensschen Prinzip
-        \label{fresnel:huygenssches-prinzip-wiki}
-    }
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{papers/fresnel/images/Huygens-Fresnel_principle.png}
+%     \caption{
+%         Wellenfront und deren Beugung nach dem huygensschen Prinzip
+%         \label{fresnel:huygenssches-prinzip-wiki}
+%     }
+% \end{figure}
 
 \subsubsection{Kugelwellen} % c und d aus Mail zusammenehmen
 Diese Kugelwellen haben eine Amplitude $\psi$,
 welche mit wachsender Distanz abnimmt.
-Die gemessene Amplitude $\psi$ nach einer Distanz $r$ kann mit
+Die gemessene Amplitude $\psi$ nach einer Distanz $r$ und einer Zeit $t$ kann mit
 \begin{equation}
     \psi (r,t)
     =
@@ -103,7 +103,7 @@ und den Definitionen
     \item 
     $\psi_0$ als ursprüngliche Amplitude
     \item 
-    $\omega t$ als Phasenverschiebung
+    $\omega$ als Phasenverschiebung
     \item 
     $k = \frac{2 \pi}{\lambda}$ als Wellenzahl abhängig von $\lambda$
     \item 
@@ -115,7 +115,7 @@ der Kugelwellen überhalb der Schneide berechnen,
 indem für $r$ die entsprechende 
 Distanz aus der Gleichung~\ref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wird:
 \begin{equation}
-    \psi_h
+    \psi(r,t)
     =
     \psi_0 \cdot \frac{\text{exp}\left(j(\omega t -kr)\right)}{r}
     \approx
@@ -124,13 +124,17 @@ Distanz aus der Gleichung~\ref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wi
 \end{equation}
 
 \subsubsection{Approximation}
-Die Verlustberechnung dient als Approximation, 
-Abschwächungen als $1/d$ und Verzögerungen als $\omega t$ der Signale 
-können somit auf die Seite geschoben werden.
+Die Verlustberechnung dient als Approximation.
+$h$ ist im Vergleich zu $d$ sehr klein,
+weshalb $r$ nur wenig ändert,
+wenn sich $h$ ändert.
+Die Signalwege sind folglich ungefähr gleich lang, 
+weshalb Abschwächungen als Faktor $1/d$ und Verzögerungen als Faktor $\omega t$ der Signale 
+vernachlässigt werden können.
 Die Gleichung~\ref{fresnel:Amplitude-r-komplett-einseitig}
 wird somit zu
 \begin{equation}
-    \psi_h
+    \psi(r)
     =
     \psi_0 \cdot \text{exp}\left(-jkr\right)
     \approx
@@ -140,7 +144,7 @@ wird somit zu
 
 \subsubsection{Von der Wellenfront zur Wellendichte}
 Für die weiteren Schritte ist es von Vorteil,
-die Amplitude als Funktion abhängig von $h$ zu schreiben.
+die Amplitude abhängig von $h$ zu diskretisieren.
 Am einfachsten geht dies als Produkt von der Wellendichte
 $\rho_{\psi}$ und diskreter Höhenabschnitte:
 \begin{equation}
@@ -148,13 +152,17 @@ $\rho_{\psi}$ und diskreter Höhenabschnitte:
     % =
     % \rho_{\psi}\Delta h,
     % \qquad
-    \psi
+    \psi(r)
     =
-    \psi_0 \cdot e^{-jkd}
+    \psi_0 \cdot e^{-jkr}
     =
-    \rho_{\psi 0}\Delta h \cdot e^{-jkd}
+    \rho_{\psi_0}\Delta h \cdot e^{-jkr}
     =
-    \rho_{\psi }\Delta h
+    \rho_{\psi }\Delta h,
+    \qquad
+    \rho_{\psi}
+    =
+    \frac{d\psi}{dh}
     \label{fresnel:Wellendichte-umgestellt}
 \end{equation}
 
@@ -281,7 +289,7 @@ Damit lässt sich der Verlust $L$ schreiben als
 \begin{equation}
     L(v)
     =
-    \frac{|\psi_{\text{gesamt}}|^2}{|\psi_{\text{verloren}}|^2}
+    \frac{|\psi_{\text{gesendet}}|^2}{|\psi_{\text{verloren}}|^2}
     =
     \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
     =
@@ -333,7 +341,7 @@ n = {1,2}.
 \]
 Da wie am Anfang von Abschnitt~\ref{fresnel:Beispiel-Geometriebeschrieb} definiert
 die Distanzen bedeutend grösser sind als die Höhe der Schneide,
-kann dank der Taylor-Approximation der Term von $r_n $ zu
+kann mit der Taylor-Approximation der Wurzelfunktion der Term von $r_n $ zu
 \[
 r_n
 =
@@ -371,7 +379,7 @@ Im Grunde ändert sich lediglich der Parameter
 \quad
 \frac{d_1 + d_2}{d_1d_2},
 \]
-welches folglich auf den Fresnel-Parameter~\ref{fresnel:Fresnel-Parameter-einseitig} anhand
+welches folglich auf den Fresnel-Parameter~\ref{fresnel:Fresnel-Parameter-einseitig}
 \begin{equation}
     v
     =
@@ -408,308 +416,7 @@ Ein interessanter Punkt zur Erwähnung ist $v=0$.
 Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
 Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
 was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
-% Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
-% welche sich nach Huygens kreisförmig ausbreitet. 
-% Um die Beugung an der Schneide zu berechnen, 
-% bedarf es einiger Definitionen, 
-% welche im weiteren Verlauf verwendet werden und in 
-% Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} ersichtlich sind:
 
-
-% \subsection{Fresnel-Integrale}
-% Die Fresnel-Integrale werden hier in der Form
-% \begin{equation}
-%     C(v) 
-%     = 
-%     \int_{0}^{v} \cos \left(\frac{\pi}{2}t^2\right)
-%     \quad \text{und} \quad
-%     S(v) 
-%     = 
-%     \int_{0}^{v} \sin \left(\frac{\pi}{2}t^2\right)
-%     \label{fresnel:integral-C-S-beispiel}
-% \end{equation}
-% definiert, wobei
-% \[
-% C(\infty)
-% =
-% S(\infty)
-% =
-% \frac{1}{2}
-% \quad
-% \text{und}
-% \quad
-% C(-a)
-% =
-% -C(a)
-% \quad
-% \text{sowie}
-% \quad
-% S(-a)
-% =
-% -S(a)
-% \]
-% sei.
-
-% \subsection{Fresnel Approximation}
-% Aus dem Satz des Pythagoras geht hervor, dass 
-% \[
-% r 
-% = 
-% \sqrt{d^2 + h^2}
-% =
-% d \sqrt{1 + \frac{h^2}{d^2}}
-% \]
-% und anhand einer Taylor-Approximation für $d \gg h$
-% \[
-% r 
-% =
-% d \sqrt{1 + \frac{h^2}{d^2}}
-% \approx
-% d \left( 1 + \frac{h^2}{2d^2} \right)
-% =
-% d + \frac{h^2}{2d},
-% \]
-% unter der Annahme, dass in den meisten Fällen die Distanz zur Schneide um ein Vielfaches grösser ist
-% als die Höhe des Ausgangspunktes der Kugelwelle.
-% Will man das gesamte Signal zweier ankommender Kugelwellen aus verschiedenen Höhen am Empfänger berechnen,
-% benötigt man zuerst eine generische Formel für die empfangene Signalstärke $\psi_i$ über eine Distanz $r$ wie
-% \begin{equation}
-%     \psi_i
-%     =
-%     \psi \cdot \frac{e^{-jkr_i}}{r_i},
-% \end{equation}
-% wobei $\psi$ die ursprünglich ausgesendete Signalstärke ist.
-% Durch Einsetzen der entsprechenden Höhen ergibt sich
-% \begin{align*}
-%     \text{für } h = 0: \quad \psi_0
-%     &=
-%     \psi \cdot \frac{e^{-jkr_0}}{r_0}
-%     =
-%     \psi \cdot \frac{e^{-jkd}}{d},
-%     \\
-%     \text{für } h > 0: \quad \psi_1
-%     &=
-%     \psi \cdot \frac{\text{exp}\left(-jkr_1\right)}{r_1}
-%     \approx
-%     \psi \cdot \frac{\text{exp}\left(-jk\left(d+\frac{h^2}{2d}\right)\right)}{d}.
-% \end{align*}
-% Da dieses Vorgehen eine Approximation ist, 
-% können Abschwächungen und Verzögerungen der Signale vernächlässigt werden,
-% das heisst keine Faktoren wie $1/r, 1/d$ und $\omega t$. Daraus ergibt sich
-% \[
-% \psi (r,t)
-% =
-% \psi_0 \cdot \frac{e^{j(\omega t - kr)}}{r}
-% \quad \to \quad
-% \psi_0 \cdot e^{-jkr}
-% =
-% \psi (r)
-% \]
-% und kann für Kugelwellen mit Ausgangspunkten in verschiedenen Höhen mit $h = h_i$ als
-% \begin{equation}
-%     \psi_i
-%     =
-%     \psi \cdot \text{exp}\left(-jkr\right)
-%     \approx
-%     \psi \cdot \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
-%     \label{fresnel:Kugelwellen-signalstaerke}
-% \end{equation}
-% dargestellt werden. 
-% Über die Superposition der verschiedenen Höhen erhält man die empfangene Signalstärke $\psi_{\text{rx}}$ als
-% \begin{equation}
-%     \psi_{\text{rx}}
-%     =
-%     \sum_i \psi \cdot e^{-jkr}
-%     =
-%     \psi \cdot \sum_i \text{exp}\left(-jk\left(d+\frac{h^2_i}{2d}\right)\right)
-%     =
-%     \underbrace{\psi \cdot e^{-jkd}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
-%     \label{fresnel:Kugelwellen-signalstaerke-superpos}
-% \end{equation}
-% Für einen späteren Schritt ist es von Vorteil, 
-% die ursprüngliche Signalstärke als Produkt einer Wellendichte und
-% diskreter Höhenabschnitte
-% \[
-% \psi
-% =
-% \rho_{\psi}\Delta h,
-% \qquad
-% \psi_0
-% =
-% \psi \cdot e^{-jkd}
-% =
-% \rho_{\psi}\Delta h \cdot e^{-jkd}
-% =
-% \rho_{\psi 0}\Delta h
-% \]
-% darzustellen,
-% womit die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} zu
-% \begin{equation}
-%     \psi_{\text{rx}}
-%     =
-%     \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right)
-%     =
-%     \rho_{\psi_0} \cdot \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right) \Delta h
-%     \label{fresnel:Kugelwellen-wellendichte}
-% \end{equation}
-% wird, welche anschliessend durch infinitesmal kleine Schritte zum Integral
-% \begin{equation}
-%     \psi_{\text{rx}}
-%     =
-%     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \text{exp}\left(-jk\left(\frac{h^2}{2d}\right)\right) dh
-%     =
-%     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
-%     \label{fresnel:Kugelwellen-wellendichte-integral}
-% \end{equation}
-% wird.
-% Dies kann durch Zerlegung und Grenztausch in zwei Integrale mit Beginn bei 0 geschrieben werden, was zu
-% \begin{align*}
-%     \psi_{\text{rx}}
-%     &=
-%     \rho_{\psi_0} \int_{h_{\text{edge}}}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh
-%     \\
-%     &=
-%     \underbrace{\rho_{\psi_0} \int_{0}^{\infty} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Gesamte Wellendichte}}
-%     -
-%     \underbrace{\rho_{\psi_0} \int_{0}^{h_{\text{edge}}} \left(\cos \frac{kh^2}{2d} - j \sin \frac{kh^2}{2d}\right) dh}_{\text{Verlorene Wellendichte durch Schneidenbeugung}}  
-% \end{align*}
-% führt.
-% Das Integral ähnelt $C$ sowie $S$ aus der Formel~\eqref{fresnel:integral-C-S-beispiel} und kann über die Substitution
-% \[
-% h
-% \text{ zu }
-% t(h)
-% =
-% h\sqrt{\frac{k}{\pi d}}
-% \Rightarrow
-% \frac{dh}{dt}
-% =
-% \sqrt{\frac{\pi d}{k}}
-% \Rightarrow
-% dh
-% =
-% \sqrt{\frac{\pi d}{k}} dt
-% \quad
-% \text{ mit }
-% k = \frac{2\pi}{\lambda}
-% \text{ (Wellenzahl)}
-% \]
-% für $C$ aufgelöst werden zu
-% \begin{equation*}
-%     \int_{0}^{h_{\text{edge}}} \cos \left(\frac{k}{2d}h^2\right) dh
-%     =
-%     \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \left(\frac{\pi}{2}t^2\right) dt
-%     =
-%     \sqrt{\frac{\pi d}{k}} C(v),
-% \end{equation*}
-% wobei für $S$ die gleichen Schritte verwendet werden können.
-% Über das ganze Integral ergibt sich anschliessend
-% \begin{equation}
-%     \psi_{\text{rx}} (v)
-%     =
-%     \rho_{\psi_0} \sqrt{\frac{\pi d}{k}} \cdot \left[\frac{1}{2} - C(v) -j\left(\frac{1}{2}-S(v)\right)\right]
-% \end{equation}
-% mit dem daraus entstehenden Fresnel-Parameter
-% \begin{equation}
-%     v
-%     =
-%     h_{\text{edge}} \sqrt{\frac{k}{\pi d}}
-%     \quad
-%     \overset{k = \frac{2 \pi}{\lambda}}{=}
-%     \quad
-%     h_{\text{edge}} \sqrt{\frac{2}{\lambda d}}.
-% \end{equation}
-
-% \subsection{Beugungsverlust}
-% Aus den vorgängigen Gleichungen kann der Beugungsverlust $L(v)$ berechnet werden,
-% indem das Verhältnis der gesamten Signalstärke zur verlorenen Signalstärke berechnet wird.
-% In der Elektrotechnik werden Verhältnisse immer zwischen Leistungen und nicht zwischen Signalen berechnet,
-% weshalb in
-% \begin{equation}
-%     L(v)
-%     =
-%     \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
-%     =
-%     \dots
-%     =
-%     \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}
-%     \label{fresnel:diff-loss-einseitig}
-% \end{equation}
-% bei den Signalen die Beträge und anschliessend das Quadrat davon verwendet wird.
-% Aus dem Verhältnis lässt sich dann der Verlust $L_{\unit{\decibel}}$ mit der Umformung
-% \[
-% L_{\unit{\decibel}} (v)
-% =
-% 10 \cdot \log_{10}L(v)
-% \]
-% berechnen.
-% Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Schneide und Empfänger. 
-% Soll nun der Beugungsverlust zwischen Sender und Empfänger 
-% mit dazwischenliegender Schneide wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
-% werden, folgt
-% \[
-% r
-% =
-% r_1 + r_2
-% \quad
-% \text{mit}
-% \quad
-% r_n
-% =
-% \sqrt{d_n^2 + h^2}
-% =
-% d_n \sqrt{1 + \frac{h^2}{d_n^2}}
-% \text{ für }
-% n = {1,2}.
-% \]
-% Wir nehmen wie im vorherigen Abschnitt an, 
-% dass die Distanzen bedeutend grösser sind als die Höhe der Schneide ($d \gg h$)
-% und können dank der Taylor-Approximation den Term von $r_n $ zu
-% \[
-% r_n
-% =
-% d_n \sqrt{1 + \frac{h^2}{d_n^2}}
-% \approx
-% d_n + \frac{h^2}{2d_n}
-% \]
-% vereinfachen und erhalten damit die gesamte Distanz $r$ mit
-% \[
-% r
-% \approx
-% d_1 + d_2 + \frac{h^2}{2}\left(\frac{1}{d_1} + \frac{1}{d_2}\right)
-% =
-% d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
-% \]
-% Setzt man die neue Distanz $r$ in die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} ein, folgt
-% \begin{subequations}
-% \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig}
-%     \begin{align}
-%         \psi_{\text{rx}}
-%         &=
-%         \psi \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)
-%         \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-eingesetzt}\\
-%         &=
-%         \underbrace{\psi \cdot e^{-jk(d_1 + d_2)}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right).
-%         \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest}
-%     \end{align}
-% \end{subequations}
-% Unter genauer Betrachtung fällt auf,
-% dass die neue Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest} der vorherigen stark gleicht.
-% Im Grunde ändert sich lediglich der Parameter
-% \[
-% \frac{1}{d}
-% \quad
-% \text{zu}
-% \quad
-% \frac{d_1 + d_2}{d_1d_2},
-% \]
-% welches folglich auf den Fresnel-Parameter $v$ anhand
-% \begin{equation}
-%     v
-%     =
-%     h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}
-% \end{equation}
-% angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
@@ -719,31 +426,7 @@ was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
         \label{fresnel:knife-edge-abb}
     }
 \end{figure}
-% Die daraus resultierenden Verluste $L_{\unit{\decibel}}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
-% ausgelesen oder mit den Formeln
-% \begin{subequations}
-%     \begin{align}
-%         v > 1: \quad
-%         -L_{\unit{\decibel}}
-%         &=
-%         20 \log_{10}v + \qty{13}{\decibel}
-%         \\
-%         v > -0.7: \quad
-%         -L_{\unit{\decibel}}
-%         &=
-%         20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + \qty{6.9}{\decibel}
-%         \\
-%         \text{sonst:} \quad
-%         -L_{\unit{\decibel}}
-%         &=
-%         10 \log_{10} L(v)
-%     \end{align}
-% \end{subequations}
-% angenähert werden. 
-% Ein interessanter Punkt zur Erwähnung ist $v=0$.
-% Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
-% Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
-% was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
+
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
