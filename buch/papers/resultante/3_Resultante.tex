@@ -28,7 +28,7 @@ Wie bereits in (\ref{resultante:equation:detsyl}) gezeigt ist die Resultante sym
 \end{equation*}
 Insbesondere wenn \(mn\) gerade ist, sind die beiden Resultanten gleich.
 
-Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was ebenfalls genutzt wird in der Anwendung in (\ref{resultante:equation:resz}).
+Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was in der Anwendung in (\ref{resultante:equation:resz}) ebenfalls genutzt wird.
 \begin{beispiel}
     Die Elimination von Variablen wird am Beispiel der Polynome \(f(x,y)=x^2+xy+1\) und \(g(x,y)=x-y\) gezeigt.
     Hier treten nun \(2\) Unbekannte auf: \(x\) und \(y\).
@@ -42,9 +42,9 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was ebenfal
                     &\Longrightarrow \Res_x(f,g)=
                     \det
                     \begin{pmatrix}
+                        1 & y & 1\\
                         1 & -y & 0\\
-                        0 & 1 & -y\\
-                        1 & y & 1
+                        0 & 1 & -y
                     \end{pmatrix}
                     =2y^2+1
                 \end{aligned}
@@ -57,7 +57,7 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was ebenfal
                         x & x^2+1\\
                         -1 & x
                     \end{pmatrix}
-                =2x^2+1.
+                =2x^2+1. \qedhere
             \end{equation*}
     \end{enumerate}
     % \kreis{1} Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
@@ -75,8 +75,8 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was ebenfal
     \label{resultante:beispiel:elimination}
 \end{beispiel}
 \noindent
-Das tiefgestellt \(x\) oder \(y\) gibt dabei an, nach welcher Resultante aufgelöst wird.
-Dabei verschwindet diese Variable aus dem Resultanten-Polynom (\(R(x)=\Res_x(f,g)=2y^2+1\)).
+Das tiefgestellte \(x\) oder \(y\) gibt dabei an, nach welcher Resultante aufgelöst wird.
+Dabei verschwindet diese Variable aus dem Resultanten-Polynom (\(R(y)=\Res_x(f,g)=2y^2+1\)).
 
 Die Resultante liegt im von \(f\) und \(g\) erzeugten Ideal, das schreibt man als \((f,g)\), also
 \begin{equation}
@@ -106,10 +106,10 @@ Beim Ideal \((f,g)\) dürfen die Faktorn \(s\), \(t\) selbst Polynome sein.
         -1\cdot f+ 1\cdot g=-3,
     \end{equation*}
     mit den Polynomen \(s(X)=-1\) bzw. \(t(X)=1\) und deshalb
-    \begin{equation}
-        \Res(f,g)\in(f,g).
+    \begin{equation*}
+        \Res(f,g)\in(f,g). \qedhere
         \label{resultante:equation:ideal}
-    \end{equation}
+    \end{equation*}
     \label{resultante:beispiel:ideal}
 \end{beispiel}
 
