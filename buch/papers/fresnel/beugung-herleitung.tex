@@ -21,7 +21,7 @@ mit der zweiseitigen Berechnung.
 
 \subsection{Einseitige Verlustberechnung}
 
-\subsubsection{Beschreibung der Geometrie}
+\subsubsection{Beschreibung der Geometrie}\label{fresnel:Beispiel-Geometriebeschrieb}
 Als Ausgangspunkt für die einseitige Verlustberechnung wird die Geometrie wie in 
 Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} definiert:
 \begin{itemize}
@@ -290,7 +290,7 @@ Damit lässt sich der Verlust $L$ schreiben als
     \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}.
     \label{fresnel:Beispiel-diff-loss-einseitig}
 \end{equation}
-Um die Werte handlicher zu haben und auch einfacher vergleichen zu können,
+Für handlichere Werte und damit besserer Vergleichbarkeit
 werden zusätzlich für die drahtlose Kommunikation Verluste in $\unit{\decibel}$
 geschrieben, sprich es wird der Zehner-Logarithmus angewendet:
 \[
@@ -302,12 +302,112 @@ Eine Halbierung der Sendeleistung würde also einem Verlust von
 rund $\qty{3}{\decibel}$ entsprechen.
 
 \subsection{Zweiseitige Verlustberechnung}
+Bis jetzt wurden nur Verluste zwischen Schneide und Empfänger berechnet.
+Es macht die Rechnungen zwar etwas einfacher,
+in den meisten Fällen ist aber der Verlust zwischen Sender und Empfänger interessant.
 
-\subsubsection{Unterschiede}
+\subsubsection{Unterschiede zur einseitigen Berechnung}
+Die Abbildung~\ref{fresnel:knife-edge-abb} zeigt den neuen Sachverhalt.
+Es ist zwar keine ebene Welle mehr, welche auf die Schneide trifft,
+dies hat aber nur eine Phasenverschiebung zur Folge,
+welche aufgrund der grösseren Distanz entsteht.
+Zusätzlich setzt sich die Weglänge $r$
+nun aus den beiden Teilen $r_1$ und $r_2$ zusammen.
 
-\subsubsection{Substitution}
+\subsubsection{Umstellung der neuen Distanz}
+Die neue Distanz $r$ berechnet sich aus
+\[
+r
+=
+r_1 + r_2
+\quad
+\text{mit}
+\quad
+r_n
+=
+\sqrt{d_n^2 + h^2}
+=
+d_n \sqrt{1 + \frac{h^2}{d_n^2}}
+\text{ für }
+n = {1,2}.
+\]
+Da wie am Anfang von Abschnitt~\ref{fresnel:Beispiel-Geometriebeschrieb} definiert
+die Distanzen bedeutend grösser sind als die Höhe der Schneide,
+kann dank der Taylor-Approximation der Term von $r_n $ zu
+\[
+r_n
+=
+d_n \sqrt{1 + \frac{h^2}{d_n^2}}
+\approx
+d_n + \frac{h^2}{2d_n}
+\]
+vereinfacht werden und ergibt für die gesamte Distanz $r$ 
+\begin{equation}
+    r
+    \approx
+    d_1 + d_2 + \frac{h^2}{2}\left(\frac{1}{d_1} + \frac{1}{d_2}\right)
+    =
+    d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
+\end{equation}
+Setzt man die neue Distanz $r$ in die Gleichung~\ref{fresnel:Kugelwellen-wellendichte-summiert} ein, folgt
+\begin{subequations}
+\label{fresnel:Kugelwellen-wellendichte-summiert-beidseitig}
+    \begin{align}
+        \psi_{\text{rx}}
+        &=
+        \psi_0 \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)\\
+        &=
+        \underbrace{\psi_0 \cdot e^{-jk(d_1 + d_2)}}_{=\psi} \sum_i \text{exp}\left(-jk\left(h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right).
+    \end{align}
+\end{subequations}
+Unter genauer Betrachtung fällt auf,
+dass die neue Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-summiert-beidseitig} 
+der vorherigen stark gleicht.
+Im Grunde ändert sich lediglich der Parameter
+\[
+\frac{1}{d}
+\quad
+\text{zu}
+\quad
+\frac{d_1 + d_2}{d_1d_2},
+\]
+welches folglich auf den Fresnel-Parameter~\ref{fresnel:Fresnel-Parameter-einseitig} anhand
+\begin{equation}
+    v
+    =
+    h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}
+    \label{fresnel:Fresnel-Parameter-beidseitig}
+\end{equation}
+angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 
 \subsubsection{Schlussfolgerung}
+Die Verluste lassen sich also mit derselben Formel
+und einem modifizierten Fresnel-Parameter berechnen.
+Diese kännen entweder über die Abbildung~\ref{fresnel:Fresnel-Diagram}
+ausgelesen oder mit den Formeln
+\begin{subequations}
+    \begin{align}
+        v > 1: \quad
+        -L_{\unit{\decibel}}
+        &=
+        20 \log_{10}v + \qty{13}{\decibel}
+        \\
+        v > -0.7: \quad
+        -L_{\unit{\decibel}}
+        &=
+        20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + \qty{6.9}{\decibel}
+        \\
+        \text{sonst:} \quad
+        -L_{\unit{\decibel}}
+        &=
+        10 \log_{10} L(v)
+    \end{align}
+\end{subequations}
+angenähert werden. 
+Ein interessanter Punkt zur Erwähnung ist $v=0$.
+Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
+Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
+was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
 % Nun wird jede ausgesendete Welle als Kugelwelle angesehen,
 % welche sich nach Huygens kreisförmig ausbreitet. 
 % Um die Beugung an der Schneide zu berechnen, 
@@ -543,73 +643,73 @@ rund $\qty{3}{\decibel}$ entsprechen.
 % 10 \cdot \log_{10}L(v)
 % \]
 % berechnen.
-Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Schneide und Empfänger. 
-Soll nun der Beugungsverlust zwischen Sender und Empfänger 
-mit dazwischenliegender Schneide wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
-werden, folgt
-\[
-r
-=
-r_1 + r_2
-\quad
-\text{mit}
-\quad
-r_n
-=
-\sqrt{d_n^2 + h^2}
-=
-d_n \sqrt{1 + \frac{h^2}{d_n^2}}
-\text{ für }
-n = {1,2}.
-\]
-Wir nehmen wie im vorherigen Abschnitt an, 
-dass die Distanzen bedeutend grösser sind als die Höhe der Schneide ($d \gg h$)
-und können dank der Taylor-Approximation den Term von $r_n $ zu
-\[
-r_n
-=
-d_n \sqrt{1 + \frac{h^2}{d_n^2}}
-\approx
-d_n + \frac{h^2}{2d_n}
-\]
-vereinfachen und erhalten damit die gesamte Distanz $r$ mit
-\[
-r
-\approx
-d_1 + d_2 + \frac{h^2}{2}\left(\frac{1}{d_1} + \frac{1}{d_2}\right)
-=
-d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
-\]
-Setzt man die neue Distanz $r$ in die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} ein, folgt
-\begin{subequations}
-\label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig}
-    \begin{align}
-        \psi_{\text{rx}}
-        &=
-        \psi \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)
-        \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-eingesetzt}\\
-        &=
-        \underbrace{\psi \cdot e^{-jk(d_1 + d_2)}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right).
-        \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest}
-    \end{align}
-\end{subequations}
-Unter genauer Betrachtung fällt auf,
-dass die neue Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest} der vorherigen stark gleicht.
-Im Grunde ändert sich lediglich der Parameter
-\[
-\frac{1}{d}
-\quad
-\text{zu}
-\quad
-\frac{d_1 + d_2}{d_1d_2},
-\]
-welches folglich auf den Fresnel-Parameter $v$ anhand
-\begin{equation}
-    v
-    =
-    h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}
-\end{equation}
-angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
+% Die Gleichung \eqref{fresnel:diff-loss-einseitig} gilt für Verluste zwischen Schneide und Empfänger. 
+% Soll nun der Beugungsverlust zwischen Sender und Empfänger 
+% mit dazwischenliegender Schneide wie in Abbildung~\ref{fresnel:knife-edge-abb} berechnet
+% werden, folgt
+% \[
+% r
+% =
+% r_1 + r_2
+% \quad
+% \text{mit}
+% \quad
+% r_n
+% =
+% \sqrt{d_n^2 + h^2}
+% =
+% d_n \sqrt{1 + \frac{h^2}{d_n^2}}
+% \text{ für }
+% n = {1,2}.
+% \]
+% Wir nehmen wie im vorherigen Abschnitt an, 
+% dass die Distanzen bedeutend grösser sind als die Höhe der Schneide ($d \gg h$)
+% und können dank der Taylor-Approximation den Term von $r_n $ zu
+% \[
+% r_n
+% =
+% d_n \sqrt{1 + \frac{h^2}{d_n^2}}
+% \approx
+% d_n + \frac{h^2}{2d_n}
+% \]
+% vereinfachen und erhalten damit die gesamte Distanz $r$ mit
+% \[
+% r
+% \approx
+% d_1 + d_2 + \frac{h^2}{2}\left(\frac{1}{d_1} + \frac{1}{d_2}\right)
+% =
+% d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
+% \]
+% Setzt man die neue Distanz $r$ in die Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos} ein, folgt
+% \begin{subequations}
+% \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig}
+%     \begin{align}
+%         \psi_{\text{rx}}
+%         &=
+%         \psi \cdot \sum_i \text{exp}\left(-jk\left(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right)
+%         \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-eingesetzt}\\
+%         &=
+%         \underbrace{\psi \cdot e^{-jk(d_1 + d_2)}}_{=\psi_0} \sum_i \text{exp}\left(-jk\left(h^2_i\frac{d_1 + d_2}{2d_1d_2}\right)\right).
+%         \label{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest}
+%     \end{align}
+% \end{subequations}
+% Unter genauer Betrachtung fällt auf,
+% dass die neue Gleichung \eqref{fresnel:Kugelwellen-signalstaerke-superpos-beidseitig-geloest} der vorherigen stark gleicht.
+% Im Grunde ändert sich lediglich der Parameter
+% \[
+% \frac{1}{d}
+% \quad
+% \text{zu}
+% \quad
+% \frac{d_1 + d_2}{d_1d_2},
+% \]
+% welches folglich auf den Fresnel-Parameter $v$ anhand
+% \begin{equation}
+%     v
+%     =
+%     h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}
+% \end{equation}
+% angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Diff-Loss_beidseitig.png}
@@ -619,31 +719,31 @@ angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter 
         \label{fresnel:knife-edge-abb}
     }
 \end{figure}
-Die daraus resultierenden Verluste $L_{\unit{\decibel}}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
-ausgelesen oder mit den Formeln
-\begin{subequations}
-    \begin{align}
-        v > 1: \quad
-        -L_{\unit{\decibel}}
-        &=
-        20 \log_{10}v + \qty{13}{\decibel}
-        \\
-        v > -0.7: \quad
-        -L_{\unit{\decibel}}
-        &=
-        20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + \qty{6.9}{\decibel}
-        \\
-        \text{sonst:} \quad
-        -L_{\unit{\decibel}}
-        &=
-        10 \log_{10} L(v)
-    \end{align}
-\end{subequations}
-angenähert werden. 
-Ein interessanter Punkt zur Erwähnung ist $v=0$.
-Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
-Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
-was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
+% Die daraus resultierenden Verluste $L_{\unit{\decibel}}$ können aus Abbildung~\ref{fresnel:Fresnel-Diagram}
+% ausgelesen oder mit den Formeln
+% \begin{subequations}
+%     \begin{align}
+%         v > 1: \quad
+%         -L_{\unit{\decibel}}
+%         &=
+%         20 \log_{10}v + \qty{13}{\decibel}
+%         \\
+%         v > -0.7: \quad
+%         -L_{\unit{\decibel}}
+%         &=
+%         20 \log_{10}\left(\sqrt{(v-0.1)^2 + 1} + v -0.1\right) + \qty{6.9}{\decibel}
+%         \\
+%         \text{sonst:} \quad
+%         -L_{\unit{\decibel}}
+%         &=
+%         10 \log_{10} L(v)
+%     \end{align}
+% \end{subequations}
+% angenähert werden. 
+% Ein interessanter Punkt zur Erwähnung ist $v=0$.
+% Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
+% Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
+% was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
 \begin{figure}
     \centering
     % \includegraphics[width=0.8\linewidth]{papers/fresnel/images/Fresnel-Diagram.png}
