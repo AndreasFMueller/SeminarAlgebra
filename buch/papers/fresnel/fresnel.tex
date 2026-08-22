@@ -33,7 +33,6 @@ Die eigentlichen Fresnel-Integrale sind definiert als
     \label{fresnel:integral-C-S}
 \end{equation}
 Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
-%TODO: Plots nur positive Seite?
 \begin{figure}
     \centering
     \resizebox{\textwidth}{!}{\input{papers/fresnel/pgf/fresnel-c-s.pgf}\unskip}
@@ -56,6 +55,7 @@ Beide Integrale können auch gemeinsam als komplexe Funktion
     F(v)=C(v) + jS(v)
     \label{fresnel: Komplexe Funktion}
 \end{equation}
+geschrieben werden.
 Die daraus resultierende Kurve in der komplexen Ebene ist eine Spirale, die in Abbildung~\ref{fresnel:Cornu-Spirale} dargestellt ist. Sie heisst auch die \emph{Cornu-Spirale}.
 
 \begin{figure}
@@ -150,7 +150,7 @@ e^{j \pi / 4}
 =
 e^{j \pi / 4}\frac{1}{\sqrt{2}}.
 \]
-Der Term vor der Wurzel ist 
+Der Term vor dem Bruch ist 
 \[
 e^{j \pi / 4}
 =
@@ -182,6 +182,6 @@ und der Imaginärteil
 gelöst werden.
 Dadurch ergibt sich
 \[
-C(\infty) = S(\infty) = \dfrac{1}{2},
+C(v \to \infty) = S(v \to \infty) = \dfrac{1}{2},
 \]
 was am Anfang graphisch schon angedeutet wurde.
