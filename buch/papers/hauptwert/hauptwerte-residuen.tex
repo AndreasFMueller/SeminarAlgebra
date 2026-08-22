@@ -11,6 +11,74 @@
 
 \subsection{Ein Integral ohne Polstelle auf der Achse
 \label{hauptwert:subsection:aufwaermbeispiel}}
+\input{papers/hauptwert/fig/halbkreis-ohne-pol.tex}
+
+Als nächstes betrachten wir das uneigentliche Integral
+\begin{equation}
+  \int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,dx.
+\end{equation}
+
+In der reellen Analysis kennt man dazu die Stammfunktion $\arctan$ und
+kommt mit
+\begin{equation}
+  \int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,dx
+  =
+  \lim_{a\to\infty}
+  \Bigl[
+    \arctan(x)
+  \Bigr]_{-a}^{a}
+  =
+  \lim_{a\to\infty} 2\arctan(a)
+  =
+  \pi
+  \label{hauptwert:equation:arctan}
+\end{equation}
+ohne Umweg über die komplexe Ebene zum Ziel, wie in
+Abschnitt~\ref{buch:integration:residuen:section:beispiel} vorgerechnet.
+
+Die Strecke $[-R,R]$ lässt sich mit dem grossen Halbkreis $C_R$ zu einem
+geschlossenen Weg ergänzen
+(Abbildung~\ref{hauptwert:figure:halbkreis-ohne-pol}).
+Wäre der Integrand im umlaufenen Gebiet holomorph, dann wäre dieses
+Wegintegral nach dem
+Satz~\ref{buch:integration:wegintegral:satz:zusammenziehbar} gleich $0$.
+Setzt man die Funktion jedoch in die komplexe Ebene fort, dann fällt auf,
+dass sie zwei Polstellen hat, denn
+\begin{equation}
+  f(z)
+  =
+  \frac{1}{1 + z^2}
+  =
+  \frac{1}{(z - i)(z + i)}
+  \label{hauptwert:equation:faktorisierung}
+\end{equation}
+wird für $z_1 = i$ und $z_2 = -i$ singulär.
+Von den beiden liegt einzig $z_1 = i$ im umlaufenen Gebiet.
+
+Das Wegintegral ist daher nicht $0$, sondern wird allein durch das Residuum
+in $z_1$ bestimmt.
+Nach Satz~\ref{buch:analytisch:laurent:residuum:satz} ist dieses Residuum
+der Quotient aus dem Zähler und der Ableitung des Nenners,
+\begin{equation}
+  \res(z_1;f)
+  =
+  \biggl.\frac{1}{(1 + z^2)'}\biggr|_{z = i}
+  =
+  \frac{1}{2i},
+  \label{hauptwert:equation:residuum-i}
+\end{equation}
+und mit \eqref{buch:analytisch:laurentreihen:residuum:eqn:integralres}
+folgt für jedes $R > 1$
+\begin{equation}
+  \int_{-R}^{R} f(x)\,dx
+  +
+  \int_{C_R} f(z)\,dz
+  =
+  2\pi i \cdot \frac{1}{2i}
+  =
+  \pi.
+  \label{hauptwert:equation:aufwaermkontur}
+\end{equation}
 
 
 \subsection{Satz vom kleinen Kreisbogen
@@ -110,6 +178,17 @@ Sind diese Voraussetzungen erfüllt, dann gilt
 \end{satz}
 
 \begin{proof}
+Eine Singularität durch einen kleinen Kreisbogen aus dem umlaufenen Gebiet
+auszuschliessen ist dieselbe Technik wie im Beweis von
+Formel~\eqref{buch:analytisch:laurent:eqn:zweiintegrale} in
+Abschnitt~\ref{buch:analytisch:section:laurentreihen}.
+Dort wird die Singularität über zwei radiale Wege und einen vollen Kreis
+umgangen, wobei sich die radialen Wege wegheben, weil sie zweimal in
+entgegengesetzter Richtung durchlaufen werden.
+Hier liegt die Polstelle $x_0$ dagegen auf dem Integrationsweg und wird
+nur einmal passiert, sodass an die Stelle des vollen Kreises der Halbkreis
+$C_\varepsilon$ tritt und
+Lemma~\ref{hauptwert:lemma:halbresiduen} nur den halben Beitrag liefert.
 % Beweis hier
 \end{proof}
 
