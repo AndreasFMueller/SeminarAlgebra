@@ -11,38 +11,46 @@
 \kopfrechts{Der Satz von Rothstein-Trager}
 In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die Partialbruchzerlegung verwendet.
 Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sein müssen.
-Das Problem ist also die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
+Das Problem ist also, die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
-Der rationale Teil \(a(z)\) ist teilerfremd zu \(b(z)\), mit \(\deg a(z)<\deg q(z)\).
-Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann gilt:
+Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg a<\deg b\).
+Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouville-Prinzip die Form
 \begin{equation*}
-    \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z),
+    \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z)
     \label{resultante:equation:satzRT}
 \end{equation*}
-Gesucht sind noch die Nullstellen \(c_k\) für
+der Stammfunktion vor raus. Gesucht sind nun die \(c_k\), für die
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
 \end{equation}
-die einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq0\))
+einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 \begin{equation}
-    v_k(z)=\operatorname{ggT}\left(a(z)-c_k\cdot b'(z),b(z)\right)
+    v_k(z)=\ggt\left(a(z)-c_k\cdot b'(z),b(z)\right)
     \label{resultante:equation:vks}
 \end{equation}
 haben.
 
-Dafür eigenet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
-Sie liefert als Lösung direkt den \(\operatorname{ggT}\) zweier Polynome mit dazugehöriger Nullstelle.
+\begin{satz}
+    \emph{(Rothstein-Trager)}. Die Nullstellen von \(R(c)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+    \label{resultante:satz:RT} 
+\end{satz}
+\noindent
+Die Nullstellen von \(R(c)=\Res_z(a-c\cdot b',b)\) sind die gesuchten \(c_k\).
+
+Dafür eignet sich die Resultante nach Definition \ref{resultante:definition:resultante} hervorragend.
+Sie liefert als Lösung direkt den \(\ggt\) zweier Polynome mit dazugehöriger Nullstelle.
 
 \subsection{Anwendung der Resultante
 \label{resultante:subsection:anwendung}}
-Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird folgende Resultante benötigt:
+Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird die Resultante
 \begin{equation}
-    \operatorname{Res}_z\left(a(z)-c_k\cdot b'(z),b(z)\right)=0,
+    \Res_z\left(a(z)-c\cdot b'(z),b(z)\right)=0
     \label{resultante:equation:resz}
 \end{equation}
-Dabei bedeutet das tiefgestellt \(z\), dass die Resultante nach \(z\) aufgestellt werden muss.
-Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch die Koeffizienten der \(z\) Polynomen.
+benötigt.
+In der Resultanten \(R(c)\) wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} eliminiert.
+Dabei ist \(R(c_k)=0\).
 
 \begin{beispiel}
     Die Stammfunktion von
@@ -50,7 +58,7 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
         \int\frac{1}{z^3+z}\,dz
     \end{equation*}
     soll mit der Methoden von Rothstein-Trager und der Resultante bestimmt werden.
-    Die Bedingungen für die Rothstein-Trager-Methode sind bereits erfüllt, mit \(a(z)=1\) und \(b(z)=z^3+z\).
+    Die Bedingungen für die Rothstein-Trager-Methode sind bereits erfüllt mit \(a(z)=1\) und \(b(z)=z^3+z\).
     Es müssen daher die \(c_k\) und die dazugehörigen \(v_k(z)\) gefunden werden.
     Für die Resultante braucht es
     \begin{equation}
@@ -63,10 +71,10 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
     \end{equation}
     sie sieht wie folgt aus:
     \begin{equation}
-        \operatorname{Res}_z\left(-3c_kz^2+1-c_k,z^3+z\right)=0,
+        \Res_z\left(-3cz^2+1-c,z^3+z\right)=0,
         \label{resultante:equation:resZgut}
     \end{equation}
-    die daraus folgende Sylvester-Matrix ist (zur Vereinfachung \(c\) statt \(c_k\)):
+    die daraus folgende Sylvester-Matrix ist:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         -3c & 0 & 1-c & 0 & 0 \\
@@ -128,26 +136,26 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
     \begin{equation}
         \begin{aligned}
             \frac{c-1}{3c}&\overset{!}{=}0\\
-            c&=1
+            c_1&=1
         \end{aligned},
         \label{resultante:equation:solGut1}
     \end{equation}
-    für \(c_1=1\) lässt sich im Schlusstableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_1(z)\) den \(\operatorname{ggT}=z\) ablesen.
+    für \(c_1=1\) lässt sich im Schlusstableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_1(z)\) den \(\ggt=z\) ablesen.
     Findige Leser konnten bereits im vorherigen Tableau aus (\ref{resultante:equation:sylGutStep2}) den Algorithmus beenden, nämlich mit:
     \begin{equation}
         \begin{aligned}
             \frac{2c+1}{3c}&\overset{!}{=}0\\
             2c+1&=0\\
             2c&=-1\\
-            c&=-\frac{1}{2}
+            c_2&=-\frac{1}{2}
         \end{aligned},
         \label{resultante:equation:solGut2}
     \end{equation}
-    für \(c_2=-\frac{1}{2}\) lässt sich ebenfalls im zweitletzten Tableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_2(z)\) den \(\operatorname{ggT}=z^2+1\) ablesen.
+    für \(c_2=-\frac{1}{2}\) lässt sich ebenfalls im zweitletzten Tableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_2(z)\) den \(\ggt=z^2+1\) ablesen.
 
     Setzt man die gefundenen Nullstellen zusammen mit ihren zugehörigen grössten gemeinsamen Teiler erhält man die Stammfunktion:
     \begin{equation*}
-        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1).
+        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1). \qedhere
     \end{equation*}
     \label{resultante:beispiel:gutesIntegral}
 \end{beispiel}
@@ -169,17 +177,17 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
         \begin{aligned}
             a(\vartheta)&=1\\
             b(\vartheta)&=\vartheta\\
-            Db(\vartheta)&=\frac{1}{x}
+            Db(\vartheta)&=\frac{1}{x}.
         \end{aligned}
     \end{equation}
     Das \(D\) steht hier für die Derivation nach \(x\).
     Die Resultante daraus sieht wie folgt aus:
     \begin{equation}
-        \operatorname{Res}_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\operatorname{Res}_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
+        R(c)=\Res_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\Res_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
         \label{resultante:equation:resTbad}
     \end{equation}
     der erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
-    die daraus entstehende Sylvester-Matrix Ist
+    Die daraus entstehende \(1\times1\)-Sylvester-Matrix im Tableau ist dann
     \begin{equation}
         \begin{NiceArray}{c}[cell-space-limits=3pt]
         1-c\frac{1}{x} \\
@@ -189,25 +197,24 @@ Dadurch wird die Variabl \(z\) eliminiert, in der Sylvertermatrix sind nur noch 
         \,\,\,\,\,.
         \label{resultante:equation:sylBad}
     \end{equation}
-    Der Algorithmus für dieses Tableau endet bevor er überhaupt das erste mal angewandt wird.
+    Der Algorithmus für dieses Tableau endet, bevor er überhaupt das erste mal angewandt wird.
     Das kritische Element ist:
     \begin{equation}
         \begin{aligned}
             1-\frac{c}{x}&\overset{!}{=}0\\
             \frac{c}{x}&=1\\
-            c&=x,
-        \end{aligned}
+            c&=x
+        \end{aligned},
         \label{resultante:equation:solBad}
     \end{equation}
-    die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine Konstante sein (\(Dc=0\)).
+    die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine Konstante sein (\(Dc\overset{!}{=}0\)).
     Hier ist
     \begin{equation*}
-        Dc=Dx=1\neq0
+        Dc=Dx=1\overset{!}{=}0 \,\text{\lightning}
     \end{equation*}
-    Daraus folgt das Integral ist nicht elementar lösbar.
-
-    Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt ist das der Integrallogarithmus.
+    Daraus folgt: das Integral ist nicht elementar lösbar.
+    Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition \ref{buch:intalg:risch:def:integrallogarithmus} zeigt, ist das der Integrallogarithmus.
     \label{resultante:beispiel:badIntegral}
 \end{beispiel}
 
-Die Nullstellen \(c_k\) aus der Resultante können auch Polynome sein, daraus folgt, dass das Integral nicht elementar lösbar ist.
+Sobald die Nullstellen \(c_k\) aus der Resultante keine Konstanten sind, folgt daraus, dass solche Integrale nicht elementar lösbar sind.

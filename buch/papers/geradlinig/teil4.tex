@@ -21,14 +21,27 @@ als Spezialfall.
 
 \subsection{Inversion}
 Die Inversion ist durch
-\begin{align*}
-    f(z)=\frac{1}{z}
-\end{align*}
-gegeben, wobei $z\in\mathbb{C}$ gilt.
+\begin{align}
+    f(z)=\frac{R^2}{\overline{z}}
+    \label{eq:inversion}
+\end{align}
+gegeben, wobei $z\in\mathbb{C}$ gilt und $\overline{z}$
+die komplexe Konjugation ist.
 Sie entspricht der Kreisspiegelung am Einheitskreis.
+Nun können wir damit die Gleichung~\ref{eq:constant0}
+der Kreisspiegelung folgendermassen erweitern
+\begin{align*}
+    \overline{MP} \cdot \overline{MP'} 
+    = 
+    |z| \cdot |f(z)|
+    = 
+    |z| \cdot \frac{R^2}{|\overline{z}|} 
+    =
+    |z| \cdot \frac{R^2}{|z|} 
+    = R^2
+\end{align*}
 
-Abbildung~\ref{fig:moebius_transform} zeigt die Wirkung 
-dieser Abbildung.
+Abbildung~\ref{fig:moebius_transform} zeigt die Wirkung der Inversion.
 Kreise werden wieder auf Kreise abgebildet.
 Geraden bilden dabei den Grenzfall eines Kreises mit 
 unendlichem Radius.
@@ -50,7 +63,7 @@ zwischen den Kreisen daher erhalten.
 \end{figure}
 
 Um zu zeigen, dass die geometrische Kreisspiegelung und die komplexe 
-Inversion aus Gleichung~\eqref{eq:inversion} 
+Inversion gemäss~\eqref{eq:inversion} 
 dieselbe Abbildung beschreiben, 
 betrachten wir Abbildung~\ref{fig:compl_inv}.
 Dort sind rote Kreise dargestellt, 

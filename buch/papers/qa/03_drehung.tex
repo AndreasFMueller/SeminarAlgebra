@@ -1,0 +1,183 @@
+%
+% drehung.tex -- Drehungen
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Drehungen\label{qa:section:drehungen}}
+\kopfrechts{Drehungen}
+\subsubsection{Eulersche Formel}
+Bevor Drehungen durchgeführt werden können, müssen die vier 
+Dimensionen einem Zweck zugeordnet werden. Das triviale  Quaternion 
+ist $1 + 0i + 0j + 0k$. Eine Multiplikation mit diesem Quaternion 
+verändert keine andere Zahl. Die drei imaginären Achsen $i,j,k$ 
+werden den drei Raumachsen $x,y,z$ zugeordnet. Damit kann eine 
+Drehung um die $x$-Achse mit dem Quaternion $0 + 1i + 0j + 0k$ 
+durchgeführt werden. Analog dazu kann eine Drehung um die $y$-Achse 
+mit dem Quaternion $0 + 0i + 1j + 0k$ und eine Drehung um die 
+$z$-Achse mit dem Quaternion $0 + 0i + 0j + 1k$ durchgeführt werden.
+
+Der Realteil (und ein Faktor im Imaginärteil) geben die Stärke der 
+Drehung an. Dafür wird die Euler'sche Drehformel in der Form
+\begin{equation*}
+    e^{i\theta} = \cos(\theta) + i\sin(\theta)
+\end{equation*}
+verwendet, welche bei den komplexen Zahlen eine Drehung um $\theta$ 
+beim Nullpunkt in der komplexen Ebene beschreibt. Für Quaternionen 
+wird die Formel erweitert, sodass eine Drehung um eine beliebige 
+Achse durchgeführt werden kann. Die Achse wird durch einen 
+Einheitsvektor beschrieben, welcher die Richtung der Achse angibt. 
+Der Winkel $\theta$ gibt, identisch wie bei den komplexen Zahlen, 
+die Stärke der Drehung an. Damit kann ein Quaternion für eine 
+Drehung um eine beliebige Achse mit der Formel
+\begin{equation*}
+    q = e^{\theta(xi + yj + zk)} 
+    = \cos \left(\theta\right) 
+    + \frac{xi + yj + zk}{|x + y + z|}\sin\left(\theta\right)
+\end{equation*}
+berechnet werden. Der Bruch vor dem Sinus-Term stellt sicher, dass 
+der Imaginärteil des Quaternions ein Einheitsvektor ist. Die Formel 
+ist jedoch in dieser Form noch nicht anwendbar, wie im nächsten 
+Beispiel gezeigt wird.
+
+\subsubsection{Beispiel: Drehung um die $z$-Achse}
+Sei ein Punkt $P_1$ auf der $z$-Achse mit den Koordinaten $(0,0,1)
+$. Mit Quaternionen lässt sich $P_1$ wie folgt darstellen: $P_1 = 0
++ 0i + 0j + 1k$. Dieser Punkt soll um die $z$-Achse um 90° (oder 
+$\frac{\pi}{2}$) gedreht werden. Das erwartete Ergebnis ist 
+wiederum $(0,0,1)$, da eine Drehung um die eigene Achse keine 
+Wirkung hat. Das Quaternion für diese Drehung wird mit 
+\begin{equation*}
+    q = e^{\frac{\pi}{2}(0i + 0j + 1k)} 
+    = \cos\left(\frac{\pi}{2}\right) 
+    + \frac{0i + 0j + 1k}{|0 + 0 + 1|}
+    \sin\left(\frac{\pi}{2}\right) 
+    = k
+\end{equation*}
+berechnet. Nun soll die Drehung durchgeführt werden. Dafür wird das 
+Quaternion $q$ mit dem Punkt $P_1$ von links multipliziert:
+\begin{equation*}
+    P_{1L} = q \cdot P_1 = k \cdot k = k^2 = -1
+\end{equation*}
+Das Ergebnis ist $-1$, was dem Punkt $(-1,0,0,0)$ entspricht. Statt 
+dass der Punkt auf der $z$-Achse geblieben ist, wurde er auf den 
+Ursprung verschoben mit Länge 1 in der vierten Dimension, welches 
+nicht dem erwarteten Ergebnis entspricht. 
+
+Vierdimensionale Zahlen lassen sich nicht leicht visualisieren. 
+Eine Möglichkeit ist, die imaginären Achsen in einem 
+dreidimensionalen Koordinatensystem und die vierte Dimension 
+zusammen mit der $z$-Achse in einem zweidimensionalen 
+Koordinatensystem darzustellen. Die Animation zu dieser Drehung 
+kann über den QR Code \ref{qa:fig:QRDrehung} abgespielt werden.
+\begin{figure}
+    \centering
+    \qrcode[height=3cm]{https://youtu.be/7kv7XFGp4ns}
+    \caption{QR-Code zum Video mit der Animation der Drehung um die
+    $z$-Achse.}
+    \label{qa:fig:QRDrehung}
+\end{figure}
+Der rote, grüne und blaue Pfeil in der Animationzeigen jeweils in 
+die $x,y,z$-Achse und repräsentieren die imaginären $i,j,k$-Achsen. 
+Der gelbe Pfeil zeigt in die reele Achse und ist orthogonal zu 
+allen anderen Achsen. In anderen Worten: Man muss sich vorstellen, 
+dass der gelbe Pfeil rechtwinklig steht zu allen anderen Pfeilen, 
+in der vierten Dimension. Der Punkt $P_1$ liegt nun tatsächlich im 
+Ursprung, mit -1 in der reelen Achse.
+
+Um den Punkt tatsächlich um 90° um die $z$-Achse im 
+Gegenuhrzeigersinn zu drehen, muss die Rolle der Reihenfolge 
+analysiert werden. Dafür wird ein neuer Beispielpunkt $P_2 = (0,1,1)
+$ verwendet, welcher nach einer Drehung auch den Ort wechselt. Eine 
+Multiplikation von Links würde
+\begin{equation*}
+    P_{2L} = q P_2 
+    = k \cdot (0 + 0i + 1j + 1k) 
+    = k (j + k) 
+    = kj + k^2 
+    = -i - 1
+\end{equation*}
+ergeben, welches dem Punkt $(-1,0,0)$ im 3D-Raum entspricht. Der 
+Punkt wurde also um 90° um die $z$-Achse im Gegenuhrzeigersinn 
+gedreht, jedoch wurde der $z$-Anteil des Punktes auf 0 reduziert. 
+Der Realteil beträgt -1.
+
+Von Rechts würde die Multiplikation
+\begin{equation*}
+    P_{2R} 
+    = P_2 q 
+    = (0 + 0i + 1j + 1k) k 
+    = jk + k^2 
+    = i - 1
+\end{equation*}
+lauten, welches dem Punkt $(1,0,0)$ entspricht. Von Rechts wurde 
+der Punkt also um 90° in umgekehrter Drehrichtung um die $z$-Achse 
+gedreht. Auch hier wurde der $z$-Anteil des Punktes auf 0 
+reduziert, mit Realteil -1.
+
+Die Multiplikation von Links und Rechts betrifft also primär die 
+Richtung der Drehung. Es ist zu beachten, dass für beide 
+Multiplikationen das selbe Phänomen auftritt, dass der $z$-Anteil 
+des Punktes auf 0 reduziert und der Realteil auf -1 gesetzt wird. 
+Anderst ausgedrückt: Die entstandene Verzerrung ist sowohl bei 
+Links als auch bei Rechts identisch. Im nächsten Abschnitt wird 
+gezeigt, wie dieser Nebeneffekt elegant gelöst werden kann.
+\subsubsection{Die Drehformel}%
+Für die effektive Drehung werden die folgenden Eigenschaften der 
+Quaternionen verwendet:
+\begin{itemize}
+    \item Multiplikation von Links: Gegenuhrzeigersinn mit 
+    Verzerrung
+    \item Multiplikation von Rechts: Uhrzeigersinn mit identischer 
+    Verzerrung
+    \item Inverse eines Quaternions: $q^{-1}$ macht die Drehung 
+    rückgängig, sodass $q q^{-1} = 1$
+    \item Bei Einheitsquaternionen gilt: $q^{-1} = q*$, wobei $q*$ 
+    das konjugierte Quaternion ist
+\end{itemize}
+Für die verzerrungsfreie Drehung wird zuerst der Punkt $P$ mit dem 
+Quaternion $q$ von Links multipliziert, was in unserem Beispiel 
+eine Drehung um 90° im Gegenuhrzeigersinn ergibt. Danach wird das 
+Ergebnis von Rechts mit der Inverse desselben Quaternions $q^{-1}$ 
+multipliziert, welches erneut eine Drehung um 90° im 
+Gegenuhrzeigersinn bewirkt. Die Inverse hat dabei zwei 
+entscheidende Wirkungen:
+\begin{itemize}
+    \item Die zweite Drehung macht die Verzerrung rückgängig
+    \item Die Drehrichtung von Rechts wird umgekehrt, sodass zwei 
+    aufeinanderfolgende Drehungen in gleicher Richtung erfolgen
+\end{itemize}
+Die Drehformel lautet also:
+\begin{equation*}
+    P' = q P q^{-1}
+\end{equation*}
+Und für Einheitsquaternionen kann die Formel auch in der Form
+\begin{equation*}
+    P' = q P q*
+\end{equation*}
+geschrieben werden. Die Berechnung der Konjugation ist deutlich einfacher als die Berechnung der Inversen, da nur die Vorzeichen der Imaginärteile geändert werden müssen.
+Mit dem Beispielpunkt $P_2$ und dem Quaternion $q$ für eine Drehung um 90° um die $z$-Achse ergibt sich:
+\begin{align*}
+    P' &= q P_2 q^{-1} \\
+    &= k (0 + 0i + 1j + 1k) k^{-1} \\
+    &= k (j + k) (-k) \\
+    &= kjk + kk(-k) \\
+    &= -i - k^3 \\
+    &= -i + k \\
+    &= (-1, 0, 1) \quad \text{(ohne Realteil!)}
+\end{align*}
+Es ist zu beachten, dass nun eine 180° Drehung durchgeführt wurde, 
+da die Multiplikation von Links und Rechts jeweils eine 90° Drehung 
+bewirkt. Das heisst, um eine Drehung um 90° zu erreichen, muss der 
+Winkel $\theta$ in der Berechnung des Quaternions $q$ auf $\frac
+{\pi}{4}$ gesetzt werden. Um das Drehquaternion zu berechnen, wird 
+die Formel
+\begin{equation*}
+    q = \cos\left(\frac{\theta}{2}\right) 
+    + \frac{xi + yj + zk}{|x + y + z|}
+    \sin\left(\frac{\theta}{2}\right)
+\end{equation*}
+so umgestellt, dass der Winkel $\theta$ halbiert wird.

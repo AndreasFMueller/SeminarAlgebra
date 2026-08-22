@@ -8,16 +8,16 @@
 %
 \section{Grösster gemeinsamer Teiler (ggT)
 \label{resultante:section:ggT}}
-\kopfrechts{Grösster gemeinsamer Teiler (\(\operatorname{ggT}\))}
+\kopfrechts{Grösster gemeinsamer Teiler (\(\ggt\))}
 \subsubsection{ggT in der Tableau-Methode
 \label{resultante:subsubsection:tableau}}
-Die Tableau-Methode entsteht aus dem euklidischen Algorithmus, für den man die Polynom-Division als Tableau schreibt.
-Für die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableau-Methode, beginnt mit der Sylvertermatrix \(\operatorname{Syl}(b,a)\).
-Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester} in der alle \(m\)-Zeilen des \(a(X)\) Polynoms mit denen des \(b(X)\) Polynoms vertauscht werden.
+Die Tableau-Methode entsteht aus dem euklidischen Algorithmus, für den man die Polynomdivision als Tableau schreibt.
+Die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableau-Methode beginnt mit der Sylvester-Matrix \(\syl(b,a)\).
+Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester}, in der alle \(m\) Zeilen des \(a(X)\)-Polynoms mit denen des \(b(X)\)-Polynoms vertauscht werden.
 Auf diese Matrix werden nun \(n-m+1\)-Gauss-Zeilenoperationen angewandt.
-Die Zeilenoperationen führen im Wesentlichen zu einer Polynom-Division, wie das der euklidischen Algorithmus ebenfalls macht.
-Um nun auf die Stufenform der Sylvester-Matrix zurück zu kommen, wird auf den Restpolynomen zusätzliche Zeilenoperationen angewant, bis der Rest sich auf jeder Zeile wiederholt.
-In den unteren \(m\)-Zeilen ensteht der entsprechende Rest \(r(X)\) der Division von \(a(X)\) und \(b(X)\).
+Die Zeilenoperationen führen im Wesentlichen zu einer Polynomdivision, wie das der euklidischen Algorithmus ebenfalls macht.
+In den unteren \(m\) Zeilen, an der Stelle der \(a(X)\)-Polynomen, ensteht der entsprechende Rest \(r(X)\) (die grünen Zeilen) der Division von \(a(X)\) und \(b(X)\).
+Um nun auf die Stufenform der Sylvester-Matrix zurück zu kommen, werden auf den Restpolynomen zusätzliche Zeilenoperationen angewandt, bis der Rest sich auf jeder Zeile wiederholt.
 Desweiteren werden die ersten \(n-m+1\) Spalten Nullen enthalten:
 
 \begin{equation*}
@@ -27,13 +27,13 @@ Desweiteren werden die ersten \(n-m+1\) Spalten Nullen enthalten:
     \label{resultante:equation:sylvesterTab}
 \end{equation*}
 
-In der rechten unteren Ecke ist nun eine kleinere Sylvester-Matrix \(\operatorname{Syl}(b,r)\) entstanden.
+In der rechten unteren Ecke ist nun eine kleinere Sylvester-Matrix \(\syl(b,r)\) entstanden.
 Die Polynome in der neuen Sylvester-Matrix werden ebenfalls vertauscht und der nächste Rest kann mit derselben Methode berechnent werden.
 Das zeigt das folgende Beispiel.
 
 \begin{beispiel}
     Die Vorgehensweise zur Ermittlung des grössten gemeinsamen Teilers wird am Beispiel \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) gezeigt.
-    Im ersten Tableau sind die ersten \(4\) Zeilen Kopien von \(b(X)\) und die \(3\) darunter die von \(a(X)\):
+    Im ersten Tableau sind die ersten vier Zeilen Kopien von \(b(X)\) und die drei darunter die von \(a(X)\):
     \begin{equation}
         \begin{NiceArray}{*{7}{c}}[cell-space-limits=3pt]
         8 & 8 & -16 & 0 & 0 & 0 & 0 \\
@@ -88,7 +88,7 @@ Das zeigt das folgende Beispiel.
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:step2}
     \end{equation}
-    Im kleineren Tableau unten rechts steht oben das Polynom \(b(X)\) und darunter das Restpolynom \(r(X)=r_1(X)=41X^2-46X+5\).
+    Im kleineren Tableau unten rechts steht oben das Polynom \(b(X)\) und darunter das Rest-polynom \(r(X)=r_1(X)=41X^2-46X+5\).
     Nun werden die beiden Bereiche vertauscht und die gleiche Methode wiederholt:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
@@ -154,7 +154,7 @@ Das zeigt das folgende Beispiel.
 \end{beispiel}
 
 Diese Methode ermöglicht es, den grössten gemeinsamen Teiler zu bestimmen.
-Da sich die Polynome (\(a(X)\) und \(b(X)\) bzw. \(b(X)\) und \(r(X)\)) in der Sylvester-Matrix jeweils um eine Spalte verschoben wiederholen muss, reicht es aus, die erste Zeile auf das Pivotelement zu normieren und auf die restlichen Zeilen des Polynoms zu kopieren.
+Da sich die Polynome \(a(X)\) und \(b(X)\) bzw. \(b(X)\) und \(r(X)\) in der Sylvester-Matrix jeweils um eine Spalte verschoben wiederholen muss, reicht es aus, die erste Zeile auf das Pivotelement zu normieren und auf die restlichen Zeilen des Polynoms zu kopieren.
 Ausserdem können weitere Zeilenoperationen eingespart werden, indem nur die erste Zeile des Restes berechnet wird und auf den darunter liegenden Zeilen kopiert wird.
 
 
@@ -164,12 +164,12 @@ Ausserdem können weitere Zeilenoperationen eingespart werden, indem nur die ers
 Die Vertauschung von Zeilen und die Zeilenoperationen selbst, die zur Berechnung des Restes der Sylvester-Matrix nötig sind, ändern die Determinante der Sylvester-Matrix nicht.
 Lediglich werden \(nm\) Vertauschungen für die Methode benötigt, daher folgt
 \begin{equation}
-    \det(\operatorname{Syl}(a,b))=(-1)^{nm}\det(\operatorname{Syl}(b,a)).
+    \det(\syl(a,b))=(-1)^{nm}\det(\syl(b,a)).
     \label{resultante:equation:detsyl}
 \end{equation} 
 Es kann also höchsten zu einem Wechsels des Vorzeichens der Determinante kommen.
 
-Der Algorithmus zur Berechnung der Determinante endet sobald der grüne Rest \(=0\) ist oder im braunen Feld (das mit dem \(?\)) eine Zahl steht bleibt.
+Der Algorithmus zur Berechnung der Determinante endet, sobald der grüne Rest \(=0\) ist oder im braunen Feld (das mit dem \(?\)) eine Zahl stehen bleibt.
 Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame Teiler ein Polynom vom Grad \(\geq1\):
 \begin{equation*}
     \centering
@@ -178,16 +178,16 @@ Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame 
 \end{equation*}
 Falls der letzte Rest im braunen Feld \(\neq0\) übrig bleibt, dann ist der grösste gemeinsame Teiler \(=1\), die beiden Polynome \(a(X)\) und \(b(X)\) sind somit teilerfremd.
 
-Daraus lässt sich ablesen, die Determinante ist genau dann verschieden von Null, wenn die beiden Polynome teilerfremd sind. 
+Daraus lässt sich ablesen, dass die Determinante genau dann verschieden von Null ist, wenn die beiden Polynome teilerfremd sind. 
 \begin{satz}
-    (Resultante und Teiler). Zwei Polynome \(f(X)\) und \(g(X)\) sind genau dann teilerfremd, wenn \(\det(\operatorname{Syl}(f,g))\neq0\) ist.
+    \emph{(Resultante und Teiler)}. Zwei Polynome \(f(X)\) und \(g(X)\) sind genau dann teilerfremd, wenn \(\det(\syl(f,g))\neq0\) ist.
 \end{satz}
 \begin{definition}
-    (Resultante). Wie bereits in Einleitung (\ref{resultante:equation:definition}) geschrieben. Sind \(f\) und \(g\) Polynome, dann heisst die Determinante der Sylvester-Matrix
+    \emph{(Resultante)}. Wie bereits in Einleitung (\ref{resultante:equation:definition}) geschrieben. Sind \(f\) und \(g\) Polynome, dann heisst die Determinante der Sylvester-Matrix
     \begin{equation*}
-        \operatorname{Res}(f,g)=\det(\operatorname{Syl}(f,g))
+        \Res(f,g)=\det(\syl(f,g))
     \end{equation*}
-    die Resultante der Polynome.
+    die \emph{Resultante} der Polynome.
     \label{resultante:definition:resultante}
 \end{definition}
 

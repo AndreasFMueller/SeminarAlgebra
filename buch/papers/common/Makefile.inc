@@ -8,31 +8,31 @@
 PAPERFILES = \
 	papers/part2.tex \
 	papers/uebersicht.tex \
-	papers/aircraft/main.tex \
-	papers/basel/main.tex \
-	papers/elektro/main.tex \
-	papers/fresnel/main.tex \
-	papers/jordan/main.tex \
-	papers/joukowski/main.tex \
+	papers/konstruktion/main.tex \
+	papers/moebius/main.tex \
+	papers/geradlinig/main.tex \
 	papers/julia/main.tex \
+	papers/jordan/main.tex \
+	papers/qa/main.tex \
+	papers/elektro/main.tex \
+	papers/joukowski/main.tex \
+	papers/aircraft/main.tex \
+	papers/fresnel/main.tex \
+	papers/pade/main.tex \
+	papers/step/main.tex \
+	papers/hauptwert/main.tex \
 	papers/kepler/main.tex \
 	papers/laplace/main.tex \
-	papers/produkt/main.tex \
-	papers/qa/main.tex \
 	papers/weyl/main.tex \
-	papers/zeta/main.tex \
-	papers/bessel/main.tex \
-	papers/buchberger/main.tex \
-	papers/moebius/main.tex \
-	papers/hauptwert/main.tex \
-	papers/konstruktion/main.tex \
+	papers/produkt/main.tex \
+	papers/basel/main.tex \
 	papers/gamma/main.tex \
-	papers/pade/main.tex \
-	papers/elliptisch/main.tex \
-	papers/geradlinig/main.tex \
+	papers/bessel/main.tex \
 	papers/hankel/main.tex \
-	papers/step/main.tex \
+	papers/zeta/main.tex \
+	papers/buchberger/main.tex \
 	papers/resultante/main.tex \
+	papers/elliptisch/main.tex \
 	
 $(workdir)/buch1-blx.bbl:	$(workdir)/buch1-blx.aux
 	cd $(workdir); bibtex buch1-blx
@@ -249,56 +249,56 @@ SBLXFILES = $(workdir)/$(seminar).bbl\
 
 
 PAPER_DIRECTORIES = \
-	aircraft \
-	basel \
-	elektro \
-	fresnel \
-	jordan \
-	joukowski \
+	konstruktion \
+	moebius \
+	geradlinig \
 	julia \
+	jordan \
+	qa \
+	elektro \
+	joukowski \
+	aircraft \
+	fresnel \
+	pade \
+	step \
+	hauptwert \
 	kepler \
 	laplace \
-	produkt \
-	qa \
 	weyl \
-	zeta \
-	bessel \
-	buchberger \
-	moebius \
-	hauptwert \
-	konstruktion \
+	produkt \
+	basel \
 	gamma \
-	pade \
-	elliptisch \
-	geradlinig \
+	bessel \
 	hankel \
-	step \
+	zeta \
+	buchberger \
 	resultante \
+	elliptisch \
 	
 PAPER_MAKEFILEINC = \
-	papers/aircraft/Makefile.inc \
-	papers/basel/Makefile.inc \
-	papers/elektro/Makefile.inc \
-	papers/fresnel/Makefile.inc \
-	papers/jordan/Makefile.inc \
-	papers/joukowski/Makefile.inc \
+	papers/konstruktion/Makefile.inc \
+	papers/moebius/Makefile.inc \
+	papers/geradlinig/Makefile.inc \
 	papers/julia/Makefile.inc \
+	papers/jordan/Makefile.inc \
+	papers/qa/Makefile.inc \
+	papers/elektro/Makefile.inc \
+	papers/joukowski/Makefile.inc \
+	papers/aircraft/Makefile.inc \
+	papers/fresnel/Makefile.inc \
+	papers/pade/Makefile.inc \
+	papers/step/Makefile.inc \
+	papers/hauptwert/Makefile.inc \
 	papers/kepler/Makefile.inc \
 	papers/laplace/Makefile.inc \
-	papers/produkt/Makefile.inc \
-	papers/qa/Makefile.inc \
 	papers/weyl/Makefile.inc \
-	papers/zeta/Makefile.inc \
-	papers/bessel/Makefile.inc \
-	papers/buchberger/Makefile.inc \
-	papers/moebius/Makefile.inc \
-	papers/hauptwert/Makefile.inc \
-	papers/konstruktion/Makefile.inc \
+	papers/produkt/Makefile.inc \
+	papers/basel/Makefile.inc \
 	papers/gamma/Makefile.inc \
-	papers/pade/Makefile.inc \
-	papers/elliptisch/Makefile.inc \
-	papers/geradlinig/Makefile.inc \
+	papers/bessel/Makefile.inc \
 	papers/hankel/Makefile.inc \
-	papers/step/Makefile.inc \
+	papers/zeta/Makefile.inc \
+	papers/buchberger/Makefile.inc \
 	papers/resultante/Makefile.inc \
+	papers/elliptisch/Makefile.inc \
 	
