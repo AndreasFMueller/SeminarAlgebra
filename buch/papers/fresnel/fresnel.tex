@@ -11,17 +11,17 @@
 % \kopfrechts{Einleitung}
 
 Die Fresnel-Integrale sind häufig in der Wellentheorie und in der Analysis anzutreffen. 
-Sie sind nützlich um die Ausbreitung von Wellen durch Beugung zu berechnen. 
+Sie sind nützlich, um die Ausbreitung von Wellen durch Beugung zu berechnen. 
 In der drahtlosen Kommunikation können mithilfe der Fresnel-Integrale die Feldstärke 
 und damit die Intensität elektromagnetischer Wellen hinter einem Hindernis 
 unter Berücksichtigung der Beugung berechnet werden. 
-Die komplexe Analysis hilft dabei die Intergrale in ein einfacheres Integral zusammenzufassen. 
+Die komplexe Analysis hilft dabei, die Intergrale in ein einfacheres Integral zusammenzufassen. 
 
 
 \section{Definition}
 \kopfrechts{Definition}
 
-Die beiden Fresnel-Integrale sind definiert als 
+Die eigentlichen Fresnel-Integrale sind definiert als 
 \begin{equation}
     C(v) 
     = 
@@ -42,26 +42,21 @@ Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
         \label{fresnel:C-S-Plot}
     }
 \end{figure}
-Beide Integrale besitzen anscheinend graphisch einen endlichen Wert 
-und scheinen zu
-\[
-\lim\limits_{v \to \infty} C(v)
-=
-\lim\limits_{v \to \infty} S(v)
-=
-\frac{1}{2}
-\]
-zu konvergieren.
+Für $v\to\infty$ bleiben beide Integrale beschränkt und scheinen gegen den endlichen Wert
+\begin{equation}
+    \lim\limits_{v \to \infty} C(v)
+    =
+    \lim\limits_{v \to \infty} S(v)
+    =
+    \frac{1}{2} 
+\end{equation}
+zu konvergieren. Der Grenzwert für $v\to\infty$ wird als uneigentliches Fresnel-Integral bezeichnet.
 Beide Integrale können auch gemeinsam als komplexe Funktion 
 \begin{equation}
-F(v)
-=
-C(v) + jS(v)
-\label{fresnel: Komplexe Funktion}
+    F(v)=C(v) + jS(v)
+    \label{fresnel: Komplexe Funktion}
 \end{equation}
-geschrieben werden. 
-Die daraus resultierende Form wird Cornu-Spirale genannt, 
-wie in Abbildung~\ref{fresnel:Cornu-Spirale} ersichtlich.
+Die daraus resultierende Kurve in der komplexen Ebene ist eine Spirale, die in Abbildung~\ref{fresnel:Cornu-Spirale} dargestellt ist. Sie heisst auch die \emph{Cornu-Spirale}.
 
 \begin{figure}
     \centering
@@ -74,6 +69,7 @@ wie in Abbildung~\ref{fresnel:Cornu-Spirale} ersichtlich.
 
 
 \section{Komplexe Analysis zur Integrallösung}
+Als nächstes wird das uneigentliche Integral der Fresnel-Integrale gelöst.
 Nach der Euler-Formel
 \[
 e^{j\vartheta}
@@ -82,15 +78,17 @@ e^{j\vartheta}
 \]
 kann die in \eqref{fresnel: Komplexe Funktion} definierte Funktion $F(v)$ in die komplexe Form
 \begin{equation}
-    F(v) = \int_{0}^{v} e^{j \pi t^2 / 2} dt
+    F(v \to \infty) = \int_{0}^{v} e^{j \pi t^2 / 2} dt
     \label{fresnel:fresnel-komplexe-form}
 \end{equation}
 umgeschrieben werden, welche zugleich auch holomorph ist.
 
-Diese Umstellung erlaubt es, den Integralsatz von Cauchy anzuwenden.
+Diese Umstellung des uneigentlichen Integrals erlaubt es, den Integralsatz von Cauchy anzuwenden.
 Statt auf der reellen Achse zu integrieren,
-kann der Integrationsweg umgestellt werden,
-z.\,B. um $45^{\circ}$ gedreht.
+wo die Funktion stark oszilliert,
+kann der Integrationsweg gedreht werden,
+z.\,B. um $45^{\circ}$.
+Daraus entsteht ein einfacher integrierbares Gauss-Integral.
 
 \subsection{Drehung für Cauchy-Integral}
 Mit einer neuen Funktion, welche die Funktion $t$ um $\ang{45}$ dreht, erhält man 
@@ -104,7 +102,7 @@ Mit einer neuen Funktion, welche die Funktion $t$ um $\ang{45}$ dreht, erhält m
     e^{j \pi / 4} du.
     \label{fresnel:komplexe-form-substitution}
 \end{equation}
-Da $t$ im vorherigen Abschnitt im Quadrat vorkommt, wird die neue Funktion anhand
+Da $t$ im Integranden von \eqref{fresnel:fresnel-komplexe-form} im Quadrat vorkommt, wird die neue Funktion von
 \[
 t^2
 =
@@ -112,43 +110,45 @@ e^{j \pi / 2} u^2
 =
 j u^2
 \]
-ebenfalls quadriert. 
+abhängen. 
 Daraus folgt nun, 
-dass der Term der Gleichung \eqref{fresnel:fresnel-komplexe-form} anhand
+dass der Integrand des Integrals \eqref{fresnel:fresnel-komplexe-form}
 \begin{equation}
     e^{j \pi t^2 / 2}
     =
     e^{-u^2 \pi / 2}
     \label{fresnel:komplexer-term-umstellung}
 \end{equation}
-umgestellt werden kann.
+wird.
 
 \subsection{Integrierung der Drehung}
 Aus den Gleichungen \eqref{fresnel:komplexe-form-substitution} 
 und \eqref{fresnel:komplexer-term-umstellung} erhält man das substituierte Integral
 \[
-F(u)
+F(u \to \infty)
 =
 e^{j \pi / 4}
-\int_{-\infty}^{\infty} e^{-\pi u^2 / 2} du.
+\int_{0}^{\infty} e^{-\pi u^2 / 2} du.
 \]
-Unter Zuhilfenahme des Gauss-Integrals
+Das Integral ist das bekannte Gauss-Integral
 \begin{equation}
-    \int_{-\infty}^{\infty} e^{-au^2} du 
+    \int_{0}^{\infty} e^{-au^2} du 
     =
+    \frac{1}{2}
     \sqrt{\dfrac{\pi}{a}},
     \quad
-    a > 0
+    a > 0.
     \label{fresnel:gauss-integral}
-\end{equation}
-und dem Vorfaktor $a=\frac{\pi}{2}$ erhält man dementsprechend
+\end{equation}.
+Mit dem Vorfaktor $a=\frac{\pi}{2}$ erhält man dementsprechend
 \[
-F(u)
+F(u \to \infty)
 =
 e^{j \pi / 4}
+\frac{1}{2}
 \sqrt{\dfrac{\pi}{\pi / 2}}
 =
-e^{j \pi / 4}\sqrt{2}.
+e^{j \pi / 4}\frac{1}{\sqrt{2}}.
 \]
 Der Term vor der Wurzel ist 
 \[
@@ -158,9 +158,9 @@ e^{j \pi / 4}
 \]
 womit sich das Integral zu
 \begin{equation}
-    F(u)
+    F(u \to \infty)
     =
-    1 + j
+    \frac{1 + j}{2}
     \label{fresnel:integral-subst-gelöst}
 \end{equation}
 vereinfacht.
@@ -169,25 +169,18 @@ vereinfacht.
 Schreibt man das Integral \eqref{fresnel:integral-subst-gelöst} wieder mit der Euler-Formel um,
 können der Realteil
 \[
-\int_{-\infty}^{\infty} \cos \left(\frac{\pi}{2}t^2\right) dt
+\int_{0}^{\infty} \cos \left(\frac{\pi}{2}t^2\right) dt
 =
-1
+\frac{1}{2}
 \]
 und der Imaginärteil
 \[
-\int_{-\infty}^{\infty} \sin \left(\frac{\pi}{2}t^2\right) dt
+\int_{0}^{\infty} \sin \left(\frac{\pi}{2}t^2\right) dt
 =
-1\]
-gelöst werden.
-Da wir nur die positive Seite benötigen und 
-\[
-\int_{-\infty}^{\infty} = 2\int_{0}^{\infty}
+\frac{1}{2}
 \]
-gilt, ist folglich
-\[
-2 C(\infty) = 2 S(\infty) = 1
-\] 
-und dadurch
+gelöst werden.
+Dadurch ergibt sich
 \[
 C(\infty) = S(\infty) = \dfrac{1}{2},
 \]

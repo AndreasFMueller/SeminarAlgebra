@@ -19,3 +19,4 @@
 - [x] Keine $\to$ verwenden im Text
 - [x] Wellendichte im Beispiel besser erklären
 - [x] Fussnote mit Substitution in Text einbauen, nicht einfach links liegen lassen
+- [ ] ~ zwischen den Wörtern und '\ref' einfügen
