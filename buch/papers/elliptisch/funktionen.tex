@@ -56,10 +56,16 @@ Die Zahl $k$ heisst \emph{Modul}, die Zahl $n$ in der dritten Art
 \emph{Charakteristik}.
 \index{Modul}%
 \index{Charakteristik}%
-Beim Integral zweiter Art kürzt sich $\sqrt{1-k^2t^2}$ heraus, es
-lässt sich also auch über dem gemeinsamen Nenner schreiben,
+Schreibt man das Integral zweiter Art stattdessen über dem
+gemeinsamen Nenner $\sqrt{p(t)}$, kürzt sich ein Faktor
+$\sqrt{1-k^2t^2}$ heraus und man erhält wieder die Form aus
+\eqref{elliptisch:equation:normalformen},
 \begin{equation}
 \int \frac{1-k^2t^2}{\sqrt{p(t)}}\,dt
+=
+\int \frac{1-k^2t^2}{\sqrt{(1-t^2)(1-k^2t^2)}}\,dt
+=
+\int \frac{\sqrt{1-k^2t^2}}{\sqrt{1-t^2}}\,dt
 =
 \int \sqrt{\frac{1-k^2t^2}{1-t^2}}\,dt.
 \label{elliptisch:equation:zweiteart}
@@ -292,7 +298,7 @@ Dieselbe Geste, angewendet auf beliebiges $k$, liefert
 s
 &=
 \arcsin x
-&\quad&\Longleftrightarrow&
+&\quad&\Leftrightarrow\quad&
 x
 &=
 \sin s,
@@ -300,7 +306,7 @@ x
 u
 &=
 F(x,k)
-&\quad&\Longleftrightarrow&
+&\quad&\Leftrightarrow\quad&
 x
 &=
 \operatorname{sn}(u,k).
@@ -517,7 +523,7 @@ Genau diese Signatur wird in den Anwendungen von
 Abschnitt~\ref{elliptisch:section:anwendungen} wieder auftauchen.
 Führt die Physik auf eine Gleichung der Form
 \eqref{elliptisch:equation:signatur}, ist die Lösung eine
-Jacobische Funktion.
+jacobische Funktion.
 
 Die Grenzfälle des Moduls geben die Brücke zu Bekanntem.
 Für $k = 0$ wird $\operatorname{sn}$ zu $\sin$, $\operatorname{cn}$
