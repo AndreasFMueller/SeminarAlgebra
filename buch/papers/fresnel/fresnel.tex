@@ -78,15 +78,17 @@ e^{j\vartheta}
 \]
 kann die in \eqref{fresnel: Komplexe Funktion} definierte Funktion $F(v)$ in die komplexe Form
 \begin{equation}
-    F(v) = \int_{0}^{v} e^{j \pi t^2 / 2} dt
+    F(v \to \infty) = \int_{0}^{v} e^{j \pi t^2 / 2} dt
     \label{fresnel:fresnel-komplexe-form}
 \end{equation}
 umgeschrieben werden, welche zugleich auch holomorph ist.
 
 Diese Umstellung des uneigentlichen Integrals erlaubt es, den Integralsatz von Cauchy anzuwenden.
 Statt auf der reellen Achse zu integrieren,
-kann der Integrationsweg derformiert werden,
-z.\,B. um $45^{\circ}$ gedreht.
+wo die Funktion stark oszilliert,
+kann der Integrationsweg gedreht werden,
+z.\,B. um $45^{\circ}$.
+Daraus entsteht ein einfacher integrierbares Gauss-Integral.
 
 \subsection{Drehung für Cauchy-Integral}
 Mit einer neuen Funktion, welche die Funktion $t$ um $\ang{45}$ dreht, erhält man 
@@ -123,28 +125,30 @@ wird.
 Aus den Gleichungen \eqref{fresnel:komplexe-form-substitution} 
 und \eqref{fresnel:komplexer-term-umstellung} erhält man das substituierte Integral
 \[
-F(\infty)
+F(u \to \infty)
 =
 e^{j \pi / 4}
-\int_{-\infty}^{\infty} e^{-\pi u^2 / 2} du.
+\int_{0}^{\infty} e^{-\pi u^2 / 2} du.
 \]
 Das Integral ist das bekannte Gauss-Integral
 \begin{equation}
     \int_{0}^{\infty} e^{-au^2} du 
     =
+    \frac{1}{2}
     \sqrt{\dfrac{\pi}{a}},
     \quad
-    a > 0
+    a > 0.
     \label{fresnel:gauss-integral}
 \end{equation}.
- Mit dem Vorfaktor $a=\frac{\pi}{2}$ erhält man dementsprechend
+Mit dem Vorfaktor $a=\frac{\pi}{2}$ erhält man dementsprechend
 \[
-F(u)
+F(u \to \infty)
 =
 e^{j \pi / 4}
+\frac{1}{2}
 \sqrt{\dfrac{\pi}{\pi / 2}}
 =
-e^{j \pi / 4}\sqrt{2}.
+e^{j \pi / 4}\frac{1}{\sqrt{2}}.
 \]
 Der Term vor der Wurzel ist 
 \[
@@ -154,9 +158,9 @@ e^{j \pi / 4}
 \]
 womit sich das Integral zu
 \begin{equation}
-    F(u)
+    F(u \to \infty)
     =
-    1 + j
+    \frac{1 + j}{2}
     \label{fresnel:integral-subst-gelöst}
 \end{equation}
 vereinfacht.
@@ -165,25 +169,18 @@ vereinfacht.
 Schreibt man das Integral \eqref{fresnel:integral-subst-gelöst} wieder mit der Euler-Formel um,
 können der Realteil
 \[
-\int_{-\infty}^{\infty} \cos \left(\frac{\pi}{2}t^2\right) dt
+\int_{0}^{\infty} \cos \left(\frac{\pi}{2}t^2\right) dt
 =
-1
+\frac{1}{2}
 \]
 und der Imaginärteil
 \[
-\int_{-\infty}^{\infty} \sin \left(\frac{\pi}{2}t^2\right) dt
+\int_{0}^{\infty} \sin \left(\frac{\pi}{2}t^2\right) dt
 =
-1\]
-gelöst werden.
-Da wir nur die positive Seite benötigen und 
-\[
-\int_{-\infty}^{\infty} = 2\int_{0}^{\infty}
+\frac{1}{2}
 \]
-gilt, ist folglich
-\[
-2 C(\infty) = 2 S(\infty) = 1
-\] 
-und dadurch
+gelöst werden.
+Dadurch ergibt sich
 \[
 C(\infty) = S(\infty) = \dfrac{1}{2},
 \]
