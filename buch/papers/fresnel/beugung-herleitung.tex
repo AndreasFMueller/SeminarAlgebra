@@ -77,7 +77,7 @@ hinter der Schneide.
 Bei kurzen Distanzen mag dieses Signal
 wie eine Kreiswelle ausgehend von der Antenne aussehen.
 Für längere Distanzen sieht sie aber nach dem Huygensschen Prinzip \cite{fresnel:huygenssches-prinzip}
-aus wie eine stehende Welle wie in Abbildung~\ref{fresnel:Diff-loss-einseitig-abb},
+aus wie eine ebene Welle wie in Abbildung~\ref{fresnel:Diff-loss-einseitig-abb},
 welche aus Kugelwellen mit Ausgangspunkten in verschiedenen Höhen besteht.
 
 % \begin{figure}
@@ -113,7 +113,7 @@ berechnet werden.
 Damit lässt sich nun jede Amplitude 
 der Kugelwellen überhalb der Schneide berechnen,
 indem für $r$ die entsprechende 
-Distanz aus der Gleichung~\ref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wird:
+Distanz aus der Gleichung~\eqref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wird:
 \begin{equation}
     \psi(r,t)
     =
@@ -131,7 +131,7 @@ wenn sich $h$ ändert.
 Die Signalwege sind folglich ungefähr gleich lang, 
 weshalb Abschwächungen als Faktor $1/d$ und Verzögerungen als Faktor $\omega t$ der Signale 
 vernachlässigt werden können.
-Die Gleichung~\ref{fresnel:Amplitude-r-komplett-einseitig}
+Die Gleichung~\eqref{fresnel:Amplitude-r-komplett-einseitig}
 wird somit zu
 \begin{equation}
     \psi(r)
@@ -170,7 +170,7 @@ $\rho_{\psi}$ und diskreter Höhenabschnitte:
 Wir haben nun alle Werkzeuge, 
 um die Kugelwellen mit Überlagerung
 in ein einziges Signal $\psi_{\text{rx}}$ zusammenzufassen.
-Zuerst wird die Gleichung~\ref{fresnel:Amplitude-r-vereinfacht-einseitig}
+Zuerst wird die Gleichung~\eqref{fresnel:Amplitude-r-vereinfacht-einseitig}
 über alle Höhen summiert:
 \begin{subequations}
 \label{fresnel:Kugelwellen-wellendichte-summiert}
@@ -184,7 +184,7 @@ Zuerst wird die Gleichung~\ref{fresnel:Amplitude-r-vereinfacht-einseitig}
         \underbrace{\psi_0 \cdot e^{-jkd}}_{=\psi} \sum_i \text{exp}\left(-jk\left(\frac{h^2_i}{2d}\right)\right).
     \end{align}
 \end{subequations}
-Anschliessend wird die Wellendichte von der Gleichung~\ref{fresnel:Wellendichte-umgestellt}
+Anschliessend wird die Wellendichte von der Gleichung~\eqref{fresnel:Wellendichte-umgestellt}
 eingesetzt:
 \begin{equation}
     \psi_{\text{rx}}
@@ -196,7 +196,7 @@ eingesetzt:
 \end{equation}
 
 \subsubsection{Der Weg zu den Fresnel-Integralen}
-Die Gleichung~\ref{fresnel:Kugelwellen-wellendichte-superpos}
+Die Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-superpos}
 führt durch infinitesmal kleine Schritte zum Integral
 \begin{equation}
     \psi_{\text{rx}}
@@ -217,7 +217,7 @@ erhalten wir
     \label{fresnel:Beispiel-Integral-ohne-fresnel}
 \end{equation}
 welche gewisse Ähnlichkeiten mit den 
-Fresnel-Integralen~\ref{fresnel:integral-C-S} aufweisen.
+Fresnel-Integralen~\eqref{fresnel:integral-C-S} aufweisen.
 Mit der Substitution von $t$ mit $h$ wird die Gleichung zu
 \[
 t(h)
@@ -253,7 +253,7 @@ und ebenso nach $S$
     \sqrt{\frac{\pi d}{k}} S(v),
 \end{equation*}
 umgestellt werden.
-Das ganze Integral~\ref{fresnel:Beispiel-Integral-ohne-fresnel}
+Das ganze Integral~\eqref{fresnel:Beispiel-Integral-ohne-fresnel}
 ergibt sich dann zu
 \begin{equation}
     \psi_{\text{rx}} (v)
@@ -275,8 +275,8 @@ mit dem sogenannten Fresnel-Parameter
 
 \subsubsection{Schlussfolgerung}
 % \subsubsection{Intermezzo: $\unit{\decibel}$-Berechnungen}
-Mit der erhaltenen Formel aus der Gleichung~\ref{fresnel:Beispiel-Fresnelgleichung-einseitig}
-und dem Fresnel-Parameter~\ref{fresnel:Fresnel-Parameter-einseitig}
+Mit der erhaltenen Formel aus der Gleichung~\eqref{fresnel:Beispiel-Fresnelgleichung-einseitig}
+und dem Fresnel-Parameter~\eqref{fresnel:Fresnel-Parameter-einseitig}
 lässt sich nun der Verlust berechnen.
 Als kleiner Einschub sei hier anzumerken,
 dass in der Elektrotechnik keine Verhältnisse
@@ -357,7 +357,7 @@ vereinfacht werden und ergibt für die gesamte Distanz $r$
     =
     d_1 + d_2 + h^2\left(\frac{d_1 + d_2}{2d_1d_2}\right).
 \end{equation}
-Setzt man die neue Distanz $r$ in die Gleichung~\ref{fresnel:Kugelwellen-wellendichte-summiert} ein, folgt
+Setzt man die neue Distanz $r$ in die Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-summiert} ein, folgt
 \begin{subequations}
 \label{fresnel:Kugelwellen-wellendichte-summiert-beidseitig}
     \begin{align}
@@ -379,7 +379,7 @@ Im Grunde ändert sich lediglich der Parameter
 \quad
 \frac{d_1 + d_2}{d_1d_2},
 \]
-welches folglich auf den Fresnel-Parameter~\ref{fresnel:Fresnel-Parameter-einseitig}
+welches folglich auf den Fresnel-Parameter~\eqref{fresnel:Fresnel-Parameter-einseitig}
 \begin{equation}
     v
     =
@@ -391,7 +391,7 @@ angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter 
 \subsubsection{Schlussfolgerung}
 Die Verluste lassen sich also mit derselben Formel
 und einem modifizierten Fresnel-Parameter berechnen.
-Diese kännen entweder über die Abbildung~\ref{fresnel:Fresnel-Diagram}
+Diese können entweder über die Abbildung~\ref{fresnel:Fresnel-Diagram}
 ausgelesen oder mit den Formeln
 \begin{subequations}
     \begin{align}

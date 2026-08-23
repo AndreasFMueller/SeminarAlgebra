@@ -33,7 +33,6 @@ Die eigentlichen Fresnel-Integrale sind definiert als
     \label{fresnel:integral-C-S}
 \end{equation}
 Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
-%TODO: Plots nur positive Seite?
 \begin{figure}
     \centering
     \resizebox{\textwidth}{!}{\input{papers/fresnel/pgf/fresnel-c-s.pgf}\unskip}
@@ -56,6 +55,7 @@ Beide Integrale können auch gemeinsam als komplexe Funktion
     F(v)=C(v) + jS(v)
     \label{fresnel: Komplexe Funktion}
 \end{equation}
+geschrieben werden.
 Die daraus resultierende Kurve in der komplexen Ebene ist eine Spirale, die in Abbildung~\ref{fresnel:Cornu-Spirale} dargestellt ist. Sie heisst auch die \emph{Cornu-Spirale}.
 
 \begin{figure}
@@ -82,7 +82,6 @@ kann die in \eqref{fresnel: Komplexe Funktion} definierte Funktion $F(v)$ in die
     \label{fresnel:fresnel-komplexe-form}
 \end{equation}
 umgeschrieben werden, welche zugleich auch holomorph ist.
-
 Diese Umstellung des uneigentlichen Integrals erlaubt es, den Integralsatz von Cauchy anzuwenden.
 Statt auf der reellen Achse zu integrieren,
 wo die Funktion stark oszilliert,
@@ -121,6 +120,52 @@ dass der Integrand des Integrals \eqref{fresnel:fresnel-komplexe-form}
 \end{equation}
 wird.
 
+\subsection{Rechtfertigung für die Drehung}
+Die Drehung sorgt dafür,
+dass der Integrationsweg von der reellen Achse
+um $\ang{45}$ nach oben gedreht wird.
+Mit Cauchys Integralsatz müssen wir dadurch schauen,
+ob der Beitrag des Bogens für $R \to \infty$ verschwindet. 
+
+Wir brauchen eine Funktion für den Kreisbogen mit Radius $R$,
+welche als
+\begin{equation}
+    t
+    =
+    R\cdot e^{j\vartheta},
+    \qquad
+    t^2
+    =
+    R^2\cdot e^{2j\vartheta},
+    \qquad
+    0 \leq \vartheta \leq \frac{\pi}{4}.
+\end{equation}
+definiert ist.
+Um den Kreisbogen mit dem Integrand aus der 
+Gleichung~\eqref{fresnel:fresnel-komplexe-form} vergleichen zu können,
+setzen wir den Faktor $\frac{j\pi}{2}$ auf beiden Seiten ein wie
+\begin{subequations}
+    \begin{align}
+        \frac{j\pi t^2}{2}
+        &=
+        \frac{j\pi R^2}{2}\left(\cos(2\vartheta) + j \sin(2\vartheta)\right)\\
+        &=
+        -\frac{\pi R^2}{2}\sin(2\vartheta) + j\frac{\pi R^2}{2}\cos(2\vartheta)
+    \end{align}
+\end{subequations}
+und erhalten damit den Betrag als
+\begin{equation}
+    |f(t)|
+    =
+    exp\left(-\frac{\pi R^2}{2}\sin(2\vartheta)\right).
+\end{equation}
+Für unsere Anwendung geht $R \to \infty$.
+Die Funktion auf dem Bogen fällt exponentiell ab, 
+während die Länge des Bogens linear wächst.
+Der Bogen verschwindet nicht,
+aber sein Einfluss auf den gesamten Integralbetrag,
+an dem wir interessiert sind, schon.
+
 \subsection{Integrierung der Drehung}
 Aus den Gleichungen \eqref{fresnel:komplexe-form-substitution} 
 und \eqref{fresnel:komplexer-term-umstellung} erhält man das substituierte Integral
@@ -139,7 +184,7 @@ Das Integral ist das bekannte Gauss-Integral
     \quad
     a > 0.
     \label{fresnel:gauss-integral}
-\end{equation}.
+\end{equation}
 Mit dem Vorfaktor $a=\frac{\pi}{2}$ erhält man dementsprechend
 \[
 F(u \to \infty)
@@ -150,7 +195,7 @@ e^{j \pi / 4}
 =
 e^{j \pi / 4}\frac{1}{\sqrt{2}}.
 \]
-Der Term vor der Wurzel ist 
+Der Term vor dem Bruch ist 
 \[
 e^{j \pi / 4}
 =
@@ -161,6 +206,8 @@ womit sich das Integral zu
     F(u \to \infty)
     =
     \frac{1 + j}{2}
+    =
+    \frac{1}{2} + j\frac{1}{2}
     \label{fresnel:integral-subst-gelöst}
 \end{equation}
 vereinfacht.
@@ -182,6 +229,6 @@ und der Imaginärteil
 gelöst werden.
 Dadurch ergibt sich
 \[
-C(\infty) = S(\infty) = \dfrac{1}{2},
+C(v \to \infty) = S(v \to \infty) = \dfrac{1}{2},
 \]
 was am Anfang graphisch schon angedeutet wurde.
