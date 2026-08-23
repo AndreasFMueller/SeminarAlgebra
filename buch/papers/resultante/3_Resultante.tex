@@ -19,10 +19,10 @@ Zu diesem Zweck wurde die Resultante im \(19.\) Jahrhundert untersucht \cite{res
 \label{resultante:subsubsection:eigenschaften}}
 
 Die Resultante bietet einige nützliche Eigenschaften.
-Die erste nützliche Eigenschaft und relevanteste für diese Kapitel ist, dass die Resultant gemeinsame Nullstellen findet.
+Die erste und relevanteste Eigenschaft für dieses Kapitel ist, dass die Resultante gemeinsame Nullstellen findet.
 Zusätzlich dazu bietet sie auch einen Weg zur parametrischen Berechnung der Nullstellen.
 
-Wie bereits in (\ref{resultante:equation:detsyl}) gezeigt ist die Resultante symmetrisch bis auf ein Vorzeichen:
+Wie bereits in (\ref{resultante:equation:detsyl}) gezeigt, ist die Resultante bis auf ein Vorzeichen symmetrisch:
 \begin{equation*}
     \Res(f,g)=(-1)^{mn}\Res(g,f).
 \end{equation*}
@@ -31,7 +31,7 @@ Insbesondere wenn \(mn\) gerade ist, sind die beiden Resultanten gleich.
 Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was in der Anwendung in (\ref{resultante:equation:resz}) ebenfalls genutzt wird.
 \begin{beispiel}
     Die Elimination von Variablen wird am Beispiel der Polynome \(f(x,y)=x^2+xy+1\) und \(g(x,y)=x-y\) gezeigt.
-    Hier treten nun \(2\) Unbekannte auf: \(x\) und \(y\).
+    Hier treten nun zwei Unbekannte auf: \(x\) und \(y\).
     Für die Aufstellung der Resultante bedeutet dies, dass es zwei Möglichkeiten gibt, die Polynome und die Resultante zu betrachten:
     \begin{enumerate}
         \item Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
@@ -46,7 +46,7 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was in der 
                         1 & -y & 0\\
                         0 & 1 & -y
                     \end{pmatrix}
-                    =2y^2+1
+                    =2y^2+1.
                 \end{aligned}
             \end{equation*}
         \item Als Polynom in \(y\) mit Koeffizienten, die \(x\) enthalten
@@ -54,9 +54,9 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was in der 
                 \Longrightarrow \Res_y(f,g)=
                 \det
                 \begin{pmatrix}
-                        x & x^2+1\\
-                        -1 & x
-                    \end{pmatrix}
+                    x & x^2+1\\
+                    -1 & x
+                \end{pmatrix}
                 =2x^2+1. \qedhere
             \end{equation*}
     \end{enumerate}
@@ -75,31 +75,36 @@ Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was in der 
     \label{resultante:beispiel:elimination}
 \end{beispiel}
 \noindent
-Das tiefgestellte \(x\) oder \(y\) gibt dabei an, nach welcher Resultante aufgelöst wird.
+Das tiefgestellte \(x\) oder \(y\) gibt dabei an nach welcher Resultante aufgelöst wird.
 Dabei verschwindet diese Variable aus dem Resultanten-Polynom (\(R(y)=\Res_x(f,g)=2y^2+1\)).
 
-Die Resultante liegt im von \(f\) und \(g\) erzeugten Ideal, das schreibt man als \((f,g)\), also
+Die Resultante liegt im von \(f\) und \(g\) erzeugten Ideal, das man als \((f,g)\) schreibt, also
 \begin{equation}
     \Res(f,g) \in (f,g).
 \end{equation}
-Das bedeutet, es existieren Polynome \(s(X)\) und \(t(X)\), sodass
+Das bedeutet, es existieren Polynome \(s(X)\) und \(t(X)\), daraus folgt:
 \begin{equation}
     \Res(f,g)=s(X)f(X)+t(X)g(X).
     \label{resultante:equation:kombi}
 \end{equation}
-Das ist im Prinzip ähnlich zum Spann aus der linearen Algebra.
-Bei Vektroen ist
+Im Prinzip ähnelt dies dem Span aus der linearen Algebra.
+Bei Vektoren ist
 \begin{equation}
     \Span(v_1,v_2)=av_1+bv_2,
 \end{equation}
 wobei \(a\), \(b\) Zahlen sind.
-Beim Ideal \((f,g)\) dürfen die Faktorn \(s\), \(t\) selbst Polynome sein.
+Beim Ideal \((f,g)\) dürfen die Faktoren \(s\), \(t\) selbst Polynome sein.
 
 \begin{beispiel}
-    Das soll am Beispiel von \(f(X)=X-2\) und \(g(X)=X-5\) gezeigt werden.
+    Am Beispiel von \(f(X)=X-2\) und \(g(X)=X-5\) wird gezeigt:
     Die Resultante aus diesen Polynomen ist
     \begin{equation*}
-        \Res(f,g)=-3.
+        \Res(f,g)=\det
+        \begin{pmatrix}
+            1 & -2\\
+            1 & -5
+        \end{pmatrix}
+        =-3.
     \end{equation*}
     Dabei ist
     \begin{equation*}
@@ -114,4 +119,4 @@ Beim Ideal \((f,g)\) dürfen die Faktorn \(s\), \(t\) selbst Polynome sein.
 \end{beispiel}
 
 Eine ähnliche Form zu (\ref{resultante:equation:kombi}) erhält man durch den erweiterten euklidischen Algorithmus.
-Aus dieser From lässt sich ein effizientes Berechnungsverfahren für die Resultante ableiten, das Subresultanten-Verfahren.
+Aus dieser Form lässt sich ein effizientes Berechnungsverfahren für die Resultante ableiten, das Subresultanten-Verfahren.

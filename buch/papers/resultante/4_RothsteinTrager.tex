@@ -9,8 +9,8 @@
 \section{Der Satz von Rothstein-Trager
 \label{resultante:section:RT}}
 \kopfrechts{Der Satz von Rothstein-Trager}
-In der Anlaysis wird für die Berechnung von Stammfunktionen bei Integralen die Partialbruchzerlegung verwendet.
-Diese Methode hat das Problem, dass die Nullstellen des Nennerpolynoms bekannt sein müssen.
+In der Anlaysis verwendet man für die Berechnung von Stammfunktionen bei Integralen die Partialbruchzerlegung.
+Bei dieser Methode müssen die Nullstellen des Nennerpolynoms bekannt sein.
 Das Problem ist also, die Residuen des Integranden zu berechnen ohne den Nenner zu faktorisieren.
 Die Mathematiker Rothstein und Trager haben unabhängig voneinander den Satz \ref{buch:ratint:rothsteintrager:satz:rothsteintrager} bewiesen.
 Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg a<\deg b\).
@@ -19,7 +19,7 @@ Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt das Liouv
     \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z)
     \label{resultante:equation:satzRT}
 \end{equation*}
-der Stammfunktion vor raus. Gesucht sind nun die \(c_k\), für die
+der Stammfunktion voraus. Gesucht sind nun die \(c_k\), für die
 \begin{equation}
     a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
     \label{resultante:equation:polynome}
@@ -31,8 +31,8 @@ einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
 \end{equation}
 haben.
 
-\begin{satz}
-    \emph{(Rothstein-Trager)}. Die Nullstellen von \(R(c)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
+\begin{satz}[Rothstein-Trager]
+    Die Nullstellen von \(R(c)\) sind genau die Residuen von \(\frac{a(z)}{b(z)}\).
     \label{resultante:satz:RT} 
 \end{satz}
 \noindent
@@ -43,13 +43,13 @@ Sie liefert als Lösung direkt den \(\ggt\) zweier Polynome mit dazugehöriger N
 
 \subsection{Anwendung der Resultante
 \label{resultante:subsection:anwendung}}
-Für die Bestimmung von den Nullstellen \(c_k\) und den grössten gemeinsamen Teiler \(v_k(z)\) wird die Resultante
+Für die Bestimmung der Nullstellen \(c_k\) und des grössten gemeinsamen Teilers \(v_k(z)\) wird die Resultante
 \begin{equation}
     \Res_z\left(a(z)-c\cdot b'(z),b(z)\right)=0
     \label{resultante:equation:resz}
 \end{equation}
 benötigt.
-In der Resultanten \(R(c)\) wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} eliminiert.
+In der Resultante \(R(c)\) wird die Variable \(z\), wie in Beispiel \ref{resultante:beispiel:elimination} eliminiert.
 Dabei ist \(R(c_k)=0\).
 
 \begin{beispiel}
@@ -57,7 +57,7 @@ Dabei ist \(R(c_k)=0\).
     \begin{equation*}
         \int\frac{1}{z^3+z}\,dz
     \end{equation*}
-    soll mit der Methoden von Rothstein-Trager und der Resultante bestimmt werden.
+    soll mit der Methode von Rothstein-Trager und der Resultante bestimmt werden.
     Die Bedingungen für die Rothstein-Trager-Methode sind bereits erfüllt mit \(a(z)=1\) und \(b(z)=z^3+z\).
     Es müssen daher die \(c_k\) und die dazugehörigen \(v_k(z)\) gefunden werden.
     Für die Resultante braucht es
@@ -65,8 +65,8 @@ Dabei ist \(R(c_k)=0\).
         \begin{aligned}
             a(z)&=1\\
             b(z)&=z^3+z\\
-            b'(z)&=3z^2+1
-        \end{aligned},
+            b'(z)&=3z^2+1,
+        \end{aligned}
         \label{resultante:equation:factoren}
     \end{equation}
     sie sieht wie folgt aus:
@@ -103,7 +103,8 @@ Dabei ist \(R(c_k)=0\).
         \end{NiceArray}\,\,\,.
         \label{resultante:equation:sylGutStep1}
     \end{equation}
-    Nach Anwendung der Zeilenoperationen erhält man das erste Tableau, auf dem kleineren Bereich kann nochmals eine Zeilenoperation durchgeführt werden:
+    Nach Anwendung der Zeilenoperationen erhält man das erste Tableau.
+    Auf dem kleineren Bereich kann nochmals eine Zeilenoperation durchgeführt werden:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         1 & 0 & \frac{c-1}{3c} & 0 & 0 \\
@@ -136,24 +137,24 @@ Dabei ist \(R(c_k)=0\).
     \begin{equation}
         \begin{aligned}
             \frac{c-1}{3c}&\overset{!}{=}0\\
-            c_1&=1
-        \end{aligned},
+            c_1&=1,
+        \end{aligned}
         \label{resultante:equation:solGut1}
     \end{equation}
-    für \(c_1=1\) lässt sich im Schlusstableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_1(z)\) den \(\ggt=z\) ablesen.
+    für \(c_1=1\) lässt sich im Schlusstableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_1(z)\) der \(\ggt=z\) ablesen.
     Findige Leser konnten bereits im vorherigen Tableau aus (\ref{resultante:equation:sylGutStep2}) den Algorithmus beenden, nämlich mit:
     \begin{equation}
         \begin{aligned}
             \frac{2c+1}{3c}&\overset{!}{=}0\\
             2c+1&=0\\
             2c&=-1\\
-            c_2&=-\frac{1}{2}
-        \end{aligned},
+            c_2&=-\frac{1}{2},
+        \end{aligned}
         \label{resultante:equation:solGut2}
     \end{equation}
-    für \(c_2=-\frac{1}{2}\) lässt sich ebenfalls im zweitletzten Tableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_2(z)\) den \(\ggt=z^2+1\) ablesen.
+    für \(c_2=-\frac{1}{2}\) lässt sich ebenfalls im zweitletzten Tableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_2(z)\) der \(\ggt=z^2+1\) ablesen.
 
-    Setzt man die gefundenen Nullstellen zusammen mit ihren zugehörigen grössten gemeinsamen Teiler erhält man die Stammfunktion:
+    Setzt man die gefundenen Nullstellen mit ihrem jeweils zugehörigen grössten gemeinsamen Teiler zusammen, erhält man die Stammfunktion:
     \begin{equation*}
         \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1). \qedhere
     \end{equation*}
@@ -167,7 +168,7 @@ Dabei ist \(R(c_k)=0\).
         \int\frac{1}{\log x}\,dx
     \end{equation*}
     soll gelöst werden.
-    Dafür muss \(F(\vartheta)=\mathbb{Q}(x)\) mit dem logarithmischem Element \(\vartheta=\log x\) erweiterte werden.
+    Dafür muss \(F(\vartheta)=\mathbb{Q}(x)\) mit dem logarithmischen Element \(\vartheta=\log x\) erweitert werden.
     Der Integrand wird dadurch zu
     \begin{equation*}
         f=\frac{1}{\vartheta}
@@ -186,7 +187,7 @@ Dabei ist \(R(c_k)=0\).
         R(c)=\Res_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))=\Res_\vartheta\left(1-c\frac{1}{x},\vartheta\right)=0,
         \label{resultante:equation:resTbad}
     \end{equation}
-    der erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
+    das erste Polynom in der Resultante ist vom Grad \(0\) und das zweite vom Grad \(1\).
     Die daraus entstehende \(1\times1\)-Sylvester-Matrix im Tableau ist dann
     \begin{equation}
         \begin{NiceArray}{c}[cell-space-limits=3pt]
@@ -194,7 +195,7 @@ Dabei ist \(R(c_k)=0\).
         \CodeAfter
             \tikz \draw ([xshift=-3pt,yshift=2pt]1-|1) rectangle ([xshift=3pt,yshift=-2pt]2-|2);
         \end{NiceArray}
-        \,\,\,\,\,.
+        \,\,\,\,\,\,.
         \label{resultante:equation:sylBad}
     \end{equation}
     Der Algorithmus für dieses Tableau endet, bevor er überhaupt das erste mal angewandt wird.
@@ -203,8 +204,8 @@ Dabei ist \(R(c_k)=0\).
         \begin{aligned}
             1-\frac{c}{x}&\overset{!}{=}0\\
             \frac{c}{x}&=1\\
-            c&=x
-        \end{aligned},
+            c&=x,
+        \end{aligned}
         \label{resultante:equation:solBad}
     \end{equation}
     die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine Konstante sein (\(Dc\overset{!}{=}0\)).
