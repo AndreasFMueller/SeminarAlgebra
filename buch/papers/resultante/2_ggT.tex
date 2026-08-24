@@ -12,7 +12,7 @@
 \subsubsection{ggT in der Tableau-Methode
 \label{resultante:subsubsection:tableau}}
 Die Tableau-Methode entsteht aus dem euklidischen Algorithmus, für den man die Polynomdivision als Tableau schreibt.
-Die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg a \geq m = \deg b\) in der Tableau-Methode beginnt mit der Sylvester-Matrix \(\syl(b,a)\).
+Die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \(n = \deg (a) \geq m = \deg (b)\) in der Tableau-Methode beginnt mit der Sylvester-Matrix \(\syl(b,a)\).
 Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester}, in der alle \(m\) Zeilen des \(a(X)\)-Polynoms mit denen des \(b(X)\)-Polynoms vertauscht werden.
 Auf diese Matrix werden nun \(n-m+1\)-Gauss-Zeilenoperationen angewandt.
 Die Zeilenoperationen führen im Wesentlichen zu einer Polynomdivision, wie das der euklidische Algorithmus ebenfalls macht.
@@ -28,7 +28,7 @@ Desweiteren enthalten die ersten \(n-m+1\) Spalten Nullen:
 \end{equation*}
 
 In der rechten unteren Ecke ist nun eine kleinere Sylvester-Matrix \(\syl(b,r)\) entstanden.
-Die Polynome in der neuen Sylvester-Matrix werden ebenfalls vertauscht, dann kann der nächste Rest mit derselben Methode berechnent werden.
+Die Polynome in der neuen Sylvester-Matrix werden ebenfalls vertauscht, dann kann der nächste Rest mit derselben Methode berechnet werden.
 Das zeigt das folgende Beispiel.
 
 \begin{beispiel}

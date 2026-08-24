@@ -15,10 +15,10 @@ Beim Versuch, den euklidischen Algorithmus zu verallgemeinern, um den grössten 
 Dies führt zu schnell anwachsenden Koeffizienten.
 Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Artefakt der naiven Ansätze der Verallgemeinerung.
 Das Wachstum lässt sich kontrollieren, indem von jedem Polynom der PRS ein nicht benötigter Teil entfernt wird.
-Was dieser Teil ist und wie er entfernt wird, erschliesst sich im folgendem Abschnitt.
+Was dieser Teil ist und wie er entfernt wird, erschliesst sich im folgenden Abschnitt.
 
 Der Schlüssel um dieses Koeffizienten-Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten ist die Grundlage der Subresultanten.
-Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt, dass jedes Polynom einer PRS proptional zu einer Subresultanten der ersten zwei Polynome dieser Folge ist.
+Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt, dass jedes Polynom einer PRS proportional zu einer Subresultanten der ersten zwei Polynome dieser Folge ist.
 
 
 \subsection{Grundlegender Aufbau
@@ -32,7 +32,7 @@ Als nächster Schritt wird der Rest \(R_i\) der Division zum neuen Divisor \(P_{
 Durch die Division können problematische Brüche als Koeffizienten entstehen.
 \begin{beispiel}
     Mit den Polynomen \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) soll der euklidische Algorithmus gezeigt werden.
-    Begonnen wird mit \(P_1=a(X)\) und \(P_2=b(X)\), da \(\deg(a)>\deg(b)\), dabei wird
+    Begonnen wird mit \(P_1=a(X)\) und \(P_2=b(X)\), da \(\deg(a)>\deg(b)\) ist, dabei wird
     \begin{equation}
         (4X^4-7X^3+22X^2-24X+5)/(8X^3+8X^2-16X).
     \end{equation}
@@ -297,4 +297,4 @@ Ziel a) wird immer noch erreicht und man ist dem Ziel b) deutlich näher gekomme
     \end{equation*}
     \label{resultante:beispiel:subprsRT}
 \end{beispiel}
-Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt, einen Algorithmus mit dem dasselbe erreicht wird wie in Beispiel \ref{resultante:beispiel:gutesIntegral}, einen Weg die Resultante zu berechnen und die Nullstelle zweier Polynome zu finden.
+Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt einen Algorithmus, mit dem dasselbe erreicht wird, wie in Beispiel \ref{resultante:beispiel:gutesIntegral}. Einen Weg die Resultante zu berechnen und die Nullstelle zweier Polynome zu finden.
