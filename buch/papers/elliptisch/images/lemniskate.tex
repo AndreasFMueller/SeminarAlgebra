@@ -1,0 +1,56 @@
+%
+% lemniskate.tex -- Lemniskate von Bernoulli, r^2 = cos(2 phi)
+%
+% Normierung a = 1/sqrt(2), Scheitel bei (+-1,0).
+% Der Bogen vom Nullpunkt bis zum Scheitel (1,0) ist hervorgehoben,
+% er entspricht dem Integral s(1) = varpi/2.
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usetikzlibrary{arrows,math}
+\input{farben.tex}
+\begin{document}
+\def\skala{2.6}
+\begin{tikzpicture}[>=latex, thick, scale=\skala]
+
+% Achsenlabels verschieben
+\def\xdx{-0.05}\def\xdy{-0.05}
+\def\ydx{-0.05}\def\ydy{0.0}
+
+% Achsen
+\draw[->] (-1.35,0) -- (1.35,0);
+\draw[->] (0,-0.65) -- (0,0.65);
+\node at ({1.35+\xdx},{\xdy}) [anchor=north east] {$x$};
+\node at ({\ydx},{0.5+\ydy}) [anchor=south east] {$y$};
+
+% rechtes und linkes Blatt
+\draw plot[domain=-45:45, samples=100, smooth, variable=\t]
+	({sqrt(cos(2*\t))*cos(\t)}, {sqrt(cos(2*\t))*sin(\t)});
+\draw plot[domain=135:225, samples=100, smooth, variable=\t]
+	({sqrt(cos(2*\t))*cos(\t)}, {sqrt(cos(2*\t))*sin(\t)});
+
+% hervorgehobener Bogen vom Nullpunkt bis zum Scheitel (1,0)
+\draw[darkred, line width=1.8pt] plot[domain=0:45, samples=60, smooth, variable=\t]
+	({sqrt(cos(2*\t))*cos(\t)}, {sqrt(cos(2*\t))*sin(\t)});
+
+% Radius r bei phi = 25 Grad auf dem hervorgehobenen Bogen
+\def\rphi{20}
+\draw[thin] (0,0) -- ({sqrt(cos(2*\rphi))*cos(\rphi)}, {sqrt(cos(2*\rphi))*sin(\rphi)})
+	node[midway, sloped, above] {$r$};
+\fill ({sqrt(cos(2*\rphi))*cos(\rphi)}, {sqrt(cos(2*\rphi))*sin(\rphi)}) circle (0.02);
+
+% Scheitelbeschriftung verschieben
+\def\pdx{-0.18}\def\pdy{0.18}
+\def\mdx{0.22}\def\mdy{0.18}
+
+% Nullpunkt und Scheitel
+\fill (0,0) circle (0.03);
+\fill (1,0) circle (0.03);
+\fill (-1,0) circle (0.03);
+\node[anchor=north] at ({1+\pdx},{\pdy}) {$(1,0)$};
+\node[anchor=north] at ({-1+\mdx},{\mdy}) {$(-1,0)$};
+
+\end{tikzpicture}
+\end{document}
