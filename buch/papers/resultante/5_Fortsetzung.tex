@@ -17,7 +17,7 @@ Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Arte
 Das Wachstum lässt sich kontrollieren, indem von jedem Polynom der PRS ein nicht benötigter Teil entfernt wird.
 Was dieser Teil ist und wie er entfernt wird, erschliesst sich im folgenden Abschnitt.
 
-Der Schlüssel um dieses Koeffizienten-Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten ist die Grundlage der Subresultanten.
+Der Schlüssel, um dieses Koeffizienten-Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten, ist die Grundlage der Subresultanten.
 Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt, dass jedes Polynom einer PRS proportional zu einer Subresultanten der ersten zwei Polynome dieser Folge ist.
 
 
@@ -63,7 +63,7 @@ Zudem ist der Grad jedes weiteren Polynoms um eins kleiner als der des vorherige
 \subsection{Verbesserungsmöglichkeiten
 \label{resultante:subsection:besser}}
 Der euklidische Algorithmus liefert eine Folge von Quotienten und Resten.
-Die in der Standardvorgehensweise zu Brüchen führen, deren Zähler und Nenner riesig werden können.
+Diese Quotienten und Reste führen in der Standardvorgehensweise zu Brüchen, deren Zähler und Nenner riesig werden können.
 Dies ist der Grund für die verallgemeinerte PRS, mit den folgenden Zielen zur Optimierung:
 \begin{enumerate}[label=\alph*)]
     \item Rechnen nur mit ganzen Zahlen, da dies effizienter ist (kein Kürzen von Brüchen).
@@ -72,16 +72,16 @@ Dies ist der Grund für die verallgemeinerte PRS, mit den folgenden Zielen zur O
 
 \subsection{PRS für ganzzahlige Rechnung
 \label{resultante:subsection:ganzzahlig}}
-Angenommen die Terme eines Polynoms \(P\) sind in absteigender Potenz sortiert, dann ist der Koeffizient des ersten Terms der Leitkoeffizient \(\lc(P)\).
+Angenommen, die Terme eines Polynoms \(P\) sind in absteigender Potenz sortiert, dann ist der Koeffizient des ersten Terms der Leitkoeffizient \(\lc(P)\).
 Daher kann man die normale Division und deren Rest durch eine neue Pseudo-Division mit Pseudo-Rest ersetzen, in der sich die Resultate der normalen Divison und der normale Rest nur um bestimmte Faktoren unterscheiden.
 Die Pseudo-Division hat rein ganzzahlige Pseudo-Quotienten \(Q=\pquo(f,g)\) mit ganzzahligem Pseudo-Rest \(R=\prem(f,g)\).
-Anders als in der gewöhlichen Polynom-Division mit Rest, entstehen dabei keine Brüche, da mit einer Potenz des Leitkoeffizienten des Divisors multipliziert wird, sodass
+Anders als in der gewöhlichen Polynom-Division mit Rest entstehen dabei keine Brüche, da mit einer Potenz des Leitkoeffizienten des Divisors multipliziert wird, sodass
 \begin{equation}
     b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \quad i=1,\dots,k-1 \, \text{ist},
     \label{resultante:equation:algpdivi}
 \end{equation}
 wobei \(b_i\) der Leitkoeffizient von \(P_{i+1}\) (\(\lc(P_{i+1})\)), \(\delta_i=\deg(P_i)-\deg(P_{i+1})\) und \(P_{i+2}=R_i\) ist.
-Bei Anwendung der selben Vorgehensweise auf \(P_2\) und \(P_3\), und danach auf \(P_3\) und \(P_4\) usw., entsteht eine Folge
+Bei Anwendung derselben Vorgehensweise auf \(P_2\) und \(P_3\), und danach auf \(P_3\) und \(P_4\) usw., entsteht eine Folge
 \begin{equation}
     P_1,P_2,P_3,\dots,P_k,P_{k+1}=0.
     \label{resultante:equation:prs}
@@ -146,9 +146,9 @@ Nun muss nur noch ein geeigneter Faktor \(\beta_i\) gefunden werden, dieser kann
 Je nach Wahl des \(\beta_i\) ist das Koeffizienten-Wachstum besser oder schlechter kontrollierbar, oder es kann sichergestellt werden, dass die Koeffizienten immer in \(\mathbb{Z}\) bleiben.
 
 Der künstliche Faktor, der in der Pseudo-Division vorkommt, ist bereits bekannt und kommt als Skalierungsfaktor \(\beta_i\) infrage.
-Es ist nicht ganz einfach einen solchen \(\beta_i\)-Faktor zu finden, der das Ziel a) immer noch erreicht.
-Dieser \(\beta_i\) Faktor kann in der PRS wie folgt festgelegt werden.
-Um eine PRS zu formulieren sei \(p_i=\lc(P_i)\) und man wählt
+Es ist nicht ganz einfach, einen solchen \(\beta_i\)-Faktor zu finden, der das Ziel a) immer noch erreicht.
+Dieser \(\beta_i\)-Faktor kann in der PRS wie folgt festgelegt werden.
+Um eine PRS zu formulieren, sei \(p_i=\lc(P_i)\) und man wählt
 \begin{equation}
     \begin{aligned}
         \beta_3&=(-1)^{\delta_1+1}\\
@@ -232,7 +232,7 @@ Der Algorithmus soll mit folgendem Beispiel verdeutlicht werden.
     Der \(\ggt\) ist nach (\ref{resultante:equation:ggtres}) links \(\ggt(P_1,P_2)=\pp(G_4)=X-1\).
     \label{resultante:beispiel:subprs}
 \end{beispiel}
-Wenn man \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu, sehen welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
+Wenn man \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu sehen, welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
 Die Koeffizienten in \(G_4\) sind deutlich kleiner als die von \(P_4\).
 Ziel a) wird immer noch erreicht und man ist dem Ziel b) deutlich näher gekommen.
 
@@ -297,4 +297,4 @@ Ziel a) wird immer noch erreicht und man ist dem Ziel b) deutlich näher gekomme
     \end{equation*}
     \label{resultante:beispiel:subprsRT}
 \end{beispiel}
-Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt einen Algorithmus, mit dem dasselbe erreicht wird, wie in Beispiel \ref{resultante:beispiel:gutesIntegral}. Einen Weg die Resultante zu berechnen und die Nullstelle zweier Polynome zu finden.
+Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt einen Algorithmus, mit dem dasselbe erreicht wird, wie in Beispiel \ref{resultante:beispiel:gutesIntegral}: einen Weg, die Resultante zu berechnen und die Nullstelle zweier Polynome zu finden.

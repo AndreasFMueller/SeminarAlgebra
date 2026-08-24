@@ -16,9 +16,9 @@ Die Berechnung des grössten gemeinsamen Teilers von \(a(X)\) und \(b(X)\) mit \
 Das ist die Matrix aus Definition \ref{resultante:definition:Sylvester}, in der alle \(m\) Zeilen des \(a(X)\)-Polynoms mit denen des \(b(X)\)-Polynoms vertauscht werden.
 Auf diese Matrix werden nun \(n-m+1\)-Gauss-Zeilenoperationen angewandt.
 Die Zeilenoperationen führen im Wesentlichen zu einer Polynomdivision, wie das der euklidische Algorithmus ebenfalls macht.
-In den unteren \(m\) Zeilen, an der Stelle der \(a(X)\)-Polynome, ensteht der entsprechende Rest \(r(X)\) (grüne Zeilen) der Division von \(a(X)\) und \(b(X)\).
+In den unteren \(m\) Zeilen, an der Stelle der \(a(X)\)-Polynome, entsteht der entsprechende Rest \(r(X)\) (grüne Zeilen) der Division von \(a(X)\) und \(b(X)\).
 Um nun auf die Stufenform der Sylvester-Matrix zurück zu kommen, werden auf den Restpolynomen zusätzliche Zeilenoperationen angewandt, bis der Rest sich auf jeder Zeile wiederholt.
-Desweiteren enthalten die ersten \(n-m+1\) Spalten Nullen:
+Des Weiteren enthalten die ersten \(n-m+1\) Spalten Nullen:
 
 \begin{equation*}
     \centering
@@ -89,7 +89,7 @@ Das zeigt das folgende Beispiel.
         \label{resultante:equation:step2}
     \end{equation}
     Im kleineren Tableau unten rechts steht das Polynom \(b(X)\) oben und darunter das Rest-polynom \(r(X)=r_1(X)=41X^2-46X+5\).
-    Nun werden die beiden Bereiche vertauscht und die selbe Methode wiederholt:
+    Nun werden die beiden Bereiche vertauscht und dieselbe Methode wiederholt:
     \begin{equation}
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
         41 & -46 & 5 & 0 & 0 \\
@@ -170,7 +170,7 @@ Lediglich werden \(nm\) Vertauschungen für die Methode benötigt, daher folgt
 Es kann also höchstens zu einem Wechsel des Vorzeichens der Determinante kommen.
 
 Der Algorithmus zur Berechnung der Determinante endet, sobald der grüne Rest \(=0\) ist oder im braunen Feld (\(?\)-Feld) eine Zahl stehen bleibt.
-Ist der Rest \(=0\) ist in der darüber liegenden Zeile der grösste gemeinsame Teiler ein Polynom vom Grad \(\geq1\):
+Ist der Rest \(=0\), ist in der darüber liegenden Zeile der grösste gemeinsame Teiler ein Polynom vom Grad \(\geq1\):
 \begin{equation*}
     \centering
     \includegraphics[width=0.8\textwidth]{papers/resultante/pictures/FinalTableau.pdf}
