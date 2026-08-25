@@ -9,7 +9,7 @@
 \section{Grundlegende Idee
 \label{resultante:section:Idee}}
 \kopfrechts{Grundlegende Idee}
-Haben die Polynome \(f(X)=f_mX^m+\dots+f_1X+f_0\) mit \(\deg(f)=m\) und \(g(X)=g_nX^n+\dots+g_1X+g_0\) mit \(\deg(g)=n\) einen gemeinsamen Teiler \(d(X)\) dessen Grad mindestens \(1\) ist?
+Haben die Polynome \(f(X)=f_mX^m+\dots+f_1X+f_0\) mit \(\deg(f)=m\) und \(g(X)=g_nX^n+\dots+g_1X+g_0\) mit \(\deg(g)=n\) einen gemeinsamen Teiler \(d(X)\), dessen Grad mindestens \(1\) ist?
 
 \noindent
 Falls ja, dann gibt es Polynome \(p(X)\) und \(q(X)\) mit
@@ -33,17 +33,17 @@ Aus diesen erweiterten Polynomen wird die Differenz
 \end{equation}
 gebildet.
 Daraus lässt sich eine Gleichung für die Koeffizienten von \(p\) und \(q\) gewinnen.
-Da der Grad von \(d(X)\) vorher nicht bekannt ist, wird hier mit der maximal Grenze weiterverfahren.
+Da der Grad von \(d(X)\) vorher nicht bekannt ist, wird hier mit dem kleinsten Grad von \(d(X)\) weiterverfahren.
 Sollte \(\deg d(X)=2\) sein, so werden die höchsten Koeffizienten von \(q(X)\) und \(p(X)\) einfach \(0\). 
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{papers/resultante/pictures/jjsylvester.png}
-    \caption{britischen Mathematiker James Joseph Sylvester \cite{resultante:jjsylvester}}
+    \caption{britischer Mathematiker James Joseph Sylvester \cite{resultante:jjsylvester}.}
     \label{resultante:fig:jjsylvester}
 \end{figure}
 \begin{beispiel}
     Für die Polynome \(f(X)=2X^3+7X^2-5X-4\) und \(g(X)=2X^2+X-3\) werden die um Grad \(1\) kleineren Hilfspolynome \(q(X)=q_2X^2+q_1X+q_0\) und \(p(X)=p_1X+p_0\) bestimmt.
-    Diese werden nun in (\ref{resultante:equation:lgs}) eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultieren die Polynomgleichung
+    Diese werden nun in (\ref{resultante:equation:lgs}) eingesetzt und nach den Koeffizienten absteigend sortiert, daraus resultiert die Polynomgleichung
     
     \begin{equation}
         \begin{aligned}
@@ -73,15 +73,15 @@ Sollte \(\deg d(X)=2\) sein, so werden die höchsten Koeffizienten von \(q(X)\) 
     für die Koeffizienten der Hilfspolynome \(q(X)\) und \(p(X)\) geschrieben werden. Die Systemmatrix der Gleichung (\ref{resultante:equation:Syl}) ist die Sylvester-Matrix, benannt nach dem britischen Mathematiker James Joseph Sylvester (Abb. \ref{resultante:fig:jjsylvester}).
     \label{resultante:beispiel:lgs}
 \end{beispiel}
-Die Idee der Umformungsschritte bis hierher ist es, eine Übersicht zu bekommen, woher die Sylvester-Matrix kommt.
+Die Idee der Umformungsschritte bis hierher ist, eine Übersicht zu bekommen, woher die Sylvester-Matrix kommt.
 
 \subsection{Die Sylvester-Matrix
 \label{resultante:subsection:Sylvester-Matrix}}
 Für zwei Polynome kann die in (\ref{resultante:equation:Syl}) gefundene Matrix wie folgt allgemein definiert werden.
 
-\begin{definition}
-    \emph{(Sylvester-Matrix)}. Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a=n\) beziehungsweise \(\deg b=m\).
-    Die Sylvester-Matrix von a und b ist die \((n + m) \times (n + m)\)-Matrix:
+\begin{definition}[Sylvester-Matrix]
+    Seien \(a(X)=a_nX^n+a_{n-1}X^{n-1}+\dots+a_1X+a_0\) und \(b(X)=b_mX^m+b_{m-1}X^{m-1}+\dots+b_1X+b_0\) Polynome vom Grad \(\deg a=n\) beziehungsweise \(\deg b=m\).
+    Die \emph{Sylvester-Matrix} von a und b ist die \((n + m) \times (n + m)\)-Matrix:
     % \begin{equation}
         
     %     \begin{pmatrix}
@@ -127,13 +127,12 @@ Für zwei Polynome kann die in (\ref{resultante:equation:Syl}) gefundene Matrix 
         \end{pNiceMatrix},
         \label{resultante:equation:Syldef}
     \end{equation*}
-wobei die Koeffizienten von \(a(X)\) m Mal und die von \(b(X)\) n Mal wiederholt werden
-Sie heisst die \emph{Sylvester-Matrix}.
+wobei die Koeffizienten von \(a(X)\) \(m\)-mal und die von \(b(X)\) \(n\)-mal wiederholt werden.
 \label{resultante:definition:Sylvester}
 \end{definition}
 
-Wie sich aus der Herleitung (\ref{resultante:equation:Syl}) und der Definition \ref{resultante:definition:Sylvester} der Sylvester-Matrix beobachten lässt, kann die Sylvester-Matrix gebildet werden, indem man die Koeffizienten des Polynoms \(a(X)\) sooft wiederholt, wie der Grad \(\deg b(X)=m\) angibt.
-Analog dazu wird dasselbe mit dem Polynom \(b(X)\) gemacht.
+Wie sich in der Herleitung (\ref{resultante:equation:Syl}) und der Definition \ref{resultante:definition:Sylvester} der Sylvester-Matrix beobachten lässt, kann die Sylvester-Matrix gebildet werden, indem man die Koeffizienten des Polynoms \(a(X)\) so oft wiederholt, wie der Grad \(\deg(b)=m\) angibt.
+Analog dazu wird mit dem Polynom \(b(X)\) verfahren.
 
-Die eigentliche Idee der Sylvester-Matrix ist es, das algebraische Problem: ``Haben zwei Polynome einen gemeinsamen Faktor?'', in das lineare Problem: ``Sind zwei bestimmt verschobenen Polynome linear abhängig?'' umzuformulieren.
-Diese Umformug wird später in diesem Kapitel für die Definition \ref{resultante:definition:resultante} wichtig.
+Die eigentliche Idee der Sylvester-Matrix ist, das algebraische Problem: ``Haben zwei Polynome einen gemeinsamen Faktor?'', in das lineare Problem: ``Sind zwei bestimmt verschobene Polynome linear abhängig?'' umzuformulieren.
+Diese Umformung wird später in diesem Kapitel für die Definition \ref{resultante:definition:resultante} wichtig.

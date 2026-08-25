@@ -13,31 +13,31 @@ Der euklidische Algorithmus zur Berechnung grösster gemeinsamer Teiler zweier g
 Es ist der älteste bekannte Algorithmus.
 Beim Versuch, den euklidischen Algorithmus zu verallgemeinern, um den grössten gemeinsamen Teiler oder die Resultante von zwei Polynomen zu berechnen, erreicht man schnell das Konzept der Polynom-Restfolge (polynomial remainder sequence, PRS).
 Dies führt zu schnell anwachsenden Koeffizienten.
-Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Artifakt der naiven Ansätze der Verallgemeinerung.
+Dieser schnelle Anwuchs ist zum Glück nicht Teil des Problems, sondern ein Artefakt der naiven Ansätze der Verallgemeinerung.
 Das Wachstum lässt sich kontrollieren, indem von jedem Polynom der PRS ein nicht benötigter Teil entfernt wird.
-Was dieser Teil ist und wie dieser entfernt wird, ist später in diesem Abschnitt ersichtlich.
+Was dieser Teil ist und wie er entfernt wird, erschliesst sich im folgenden Abschnitt.
 
-Der Schlüssel um diesen Koeffizienten Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten ist die Grundlage der Subresultanten.
-Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt das jedes Polynom einer PRS proptional zu einer Subresultanten der ersten zwei Polynome dieser Folge ist.
+Der Schlüssel, um dieses Koeffizienten-Wachstum zu kontrollieren, ohne die aufwendige Berechunug des \(\ggt\) der Koeffizienten, ist die Grundlage der Subresultanten.
+Das Theorem von Subresultanten aus \cite{resultant:PRSalg} zeigt, dass jedes Polynom einer PRS proportional zu einer Subresultanten der ersten zwei Polynome dieser Folge ist.
 
 
 \subsection{Grundlegender Aufbau
 \label{resultante:subsection:aufbau}}
-Für die Konstruktion einer PRS wird die Division mit Rest benötigt, dabei können diese beliebig normiert werden.
+Für die Konstruktion einer PRS wird die Division mit Rest benötigt, dabei kann dies beliebig normiert werden.
 Der euklidische Algorithmus teilt zwei Polynome in \(\mathbb{Q}\), wobei das Polynom mit dem grösseren Grad der Dividend ist und das mit dem kleineren der Divisor:
 \begin{equation}
     P_i / P_{i+1} = Q_i \quad \text{mit}\quad R_i.
 \end{equation}
-Als nächster Schritt wird der Rest \(R_i\) der Division der neue Divisor \(P_{i+2}\) und der alte Divisor wird zum neuen Dividend \(P_{i+1}\).
-Durch die Division können schmerzhafte Brüche als Koeffizienten entstehen.
+Als nächster Schritt wird der Rest \(R_i\) der Division zum neuen Divisor \(P_{i+2}\) und der alte Divisor wird zum neuen Dividend \(P_{i+1}\).
+Durch die Division können problematische Brüche als Koeffizienten entstehen.
 \begin{beispiel}
     Mit den Polynomen \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) soll der euklidische Algorithmus gezeigt werden.
-    Begonnen wird mit \(P_1=a(X)\) und \(P_2=b(X)\), da \(\deg(a)>\deg(b)\), dabei wird
+    Begonnen wird mit \(P_1=a(X)\) und \(P_2=b(X)\), da \(\deg(a)>\deg(b)\) ist, dabei wird
     \begin{equation}
         (4X^4-7X^3+22X^2-24X+5)/(8X^3+8X^2-16X).
     \end{equation}
-    nach der Polynom-Division erhählt man \(Q_1=\frac{X}{2}-\frac{11}{8}\) und \(R_1=P_3=41X^2-46X+5\).
-    Der nächste Division ist
+    Nach der Polynom-Division erhählt man \(Q_1=\frac{X}{2}-\frac{11}{8}\) und \(R_1=P_3=41X^2-46X+5\).
+    Die nächste Division ist
     \begin{equation*}
         P_2/P_3,
     \end{equation*}
@@ -57,37 +57,36 @@ Durch die Division können schmerzhafte Brüche als Koeffizienten entstehen.
     daraus resultiert \(R_3=P_5=0\).
     \label{resultante:beispiel:eualg}
 \end{beispiel}
-Wie man in Beispiel \ref{resultante:beispiel:eualg} sieht, entstehen grosse Brüche bei der Division.
-Zudem ist jedes weitere Polynom ein Grad kleiner als das vorherige.
+Wie man in Beispiel \ref{resultante:beispiel:eualg} sieht, entstehen bei der Division grosse Brüche.
+Zudem ist der Grad jedes weiteren Polynoms um eins kleiner als der des vorherigen.
 
 \subsection{Verbesserungsmöglichkeiten
 \label{resultante:subsection:besser}}
-Der euklidischen Algorithmus liefert eine Folge von Quotienten und Resten.
-Die in der Standardvorgehensweise zu Brüchen führt, deren Zähler und Nenner riesig werden können.
-Dies ist der Grund für die verallgemeinerte PRS.
-Man hat zwei Ziele, die man verbesseren möchte:
+Der euklidische Algorithmus liefert eine Folge von Quotienten und Resten.
+Diese Quotienten und Reste führen in der Standardvorgehensweise zu Brüchen, deren Zähler und Nenner riesig werden können.
+Dies ist der Grund für die verallgemeinerte PRS, mit den folgenden Zielen zur Optimierung:
 \begin{enumerate}[label=\alph*)]
-    \item Rechnen nur mit ganzen Zahlen, da dies effizienter ist (kein kürzen von Brüchen).
+    \item Rechnen nur mit ganzen Zahlen, da dies effizienter ist (kein Kürzen von Brüchen).
     \item Nur mit kleinen Koeffizienten rechnen.
 \end{enumerate}
 
 \subsection{PRS für ganzzahlige Rechnung
 \label{resultante:subsection:ganzzahlig}}
-Angenommen die Terme eines Polynoms \(P\) sind in absteigender Potenz sortiert, dann ist der Koeffizient des ersten Terms der Leitkoeffizient \(\lc(P)\).
-Daher kann man die normalen Division und der Rest durch eine neue Pseudo-Division mit Pseudo-Rest ersetzten, in der sich die Resultate der normalen Divison und normalen Rest nur um bestimmte Faktoren unterscheiden.
+Angenommen, die Terme eines Polynoms \(P\) sind in absteigender Potenz sortiert, dann ist der Koeffizient des ersten Terms der Leitkoeffizient \(\lc(P)\).
+Daher kann man die normale Division und deren Rest durch eine neue Pseudo-Division mit Pseudo-Rest ersetzen, in der sich die Resultate der normalen Divison und der normale Rest nur um bestimmte Faktoren unterscheiden.
 Die Pseudo-Division hat rein ganzzahlige Pseudo-Quotienten \(Q=\pquo(f,g)\) mit ganzzahligem Pseudo-Rest \(R=\prem(f,g)\).
-Anders als in der gewöhliche Polynom-Division mit Rest, entstehen dabei keine Brüche, da mit einer Potenz des Leitkoeffizienten des Divisors multipliziert wird sodass
+Anders als in der gewöhlichen Polynom-Division mit Rest entstehen dabei keine Brüche, da mit einer Potenz des Leitkoeffizienten des Divisors multipliziert wird, sodass
 \begin{equation}
-    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \, i=1,\dots,k-1 \, \text{ist},
+    b_i^{\delta_i+1}P_i-Q_iP_{i+1}=R_i \quad \text{und} \quad \deg(R)<\deg(P_{i+1})\quad \text{für} \quad i=1,\dots,k-1 \, \text{ist},
     \label{resultante:equation:algpdivi}
 \end{equation}
 wobei \(b_i\) der Leitkoeffizient von \(P_{i+1}\) (\(\lc(P_{i+1})\)), \(\delta_i=\deg(P_i)-\deg(P_{i+1})\) und \(P_{i+2}=R_i\) ist.
-Bei Anwendung der selben Vorgehensweise auf \(P_2\) und \(P_3\), und danach auf \(P_3\) und \(P_4\) usw., entsteht eine Folge
+Bei Anwendung derselben Vorgehensweise auf \(P_2\) und \(P_3\), und danach auf \(P_3\) und \(P_4\) usw., entsteht eine Folge
 \begin{equation}
     P_1,P_2,P_3,\dots,P_k,P_{k+1}=0.
     \label{resultante:equation:prs}
 \end{equation}
-So eine Folge heisst Polynom-Restfolge (PRS).
+Eine solche Folge heisst Polynom-Restfolge (PRS).
 
 \begin{beispiel}
     Aus den Polynomen \(a(X)=4X^4-7X^3+22X^2-24X+5\) und \(b(X)=8X^3+8X^2-16X\) soll die PRS gebildet werden.
@@ -99,7 +98,7 @@ So eine Folge heisst Polynom-Restfolge (PRS).
     \begin{equation}
         8^{1+1}P_1-Q_1P_2=R_1,
     \end{equation}
-    nach der Pseudo-Division erhählt man \(Q_1=32X-88\) und \(R_1=P_3=2624X^2-2944X+320\).
+    nach der Pseudo-Division erhält man \(Q_1=32X-88\) und \(R_1=P_3=2624X^2-2944X+320\).
     Der nächste Schritt hat
     \begin{equation*}
         b_2 = 2624, \qquad \delta_2=2-1=1,
@@ -131,25 +130,25 @@ So eine Folge heisst Polynom-Restfolge (PRS).
     \label{resultante:beispiel:prs}
 \end{beispiel}
 Wie man in Beispiel \ref{resultante:beispiel:prs} beobachten kann, wird Ziel a) erreicht, aber b) völlig verfehlt.
-Die Koeffizient der PRS explodieren.
-Wenn das letzte Polynom der Folge \(P_{k+1}=0\), dann ist \(P_k\) der unnormierte \(\ggt\), in Beispiel \ref{resultante:beispiel:prs} \(P_4=14254080(X-1)\).
+Die Koeffizienten der PRS explodieren.
+Ist das letzte Polynom der Folge \(P_{k+1}=0\), dann ist \(P_k\) der unnormierte \(\ggt\), in Beispiel \ref{resultante:beispiel:prs} \(P_4=14254080(X-1)\).
 
 
 \subsection{Subresultanten-PRS
 \label{resultante:subsection:subresprs}}
-Um den Koeffizienten-Wachstum in den Griff zu bekommen, wird die Folge mit \(\beta_i\) normiert.
+Um das Koeffizienten-Wachstum in den Griff zu bekommen, wird die Folge mit \(\beta_i\) normiert.
 Dadurch wird
 \begin{equation}
-    \beta_i P_i=\prem(P_{i-2},P_{i-1})\quad \text{für} \, i=3,\dots,k+1.
+    \beta_i P_i=\prem(P_{i-2},P_{i-1})\quad \text{für} \quad i=3,\dots,k+1.
     \label{resultante:equation:prsnorm}
 \end{equation}
 Nun muss nur noch ein geeigneter Faktor \(\beta_i\) gefunden werden, dieser kann im Prinzip beliebig gewählt werden.
-Je nach Wahl des \(\beta_i\) ist das Koeffizientenwachstum besser oder schlechter kontrollierbar oder es kann sichergestellt werden, dass die Koeffizienten immer in \(\mathbb{Z}\) bleiben.
+Je nach Wahl des \(\beta_i\) ist das Koeffizienten-Wachstum besser oder schlechter kontrollierbar, oder es kann sichergestellt werden, dass die Koeffizienten immer in \(\mathbb{Z}\) bleiben.
 
 Der künstliche Faktor, der in der Pseudo-Division vorkommt, ist bereits bekannt und kommt als Skalierungsfaktor \(\beta_i\) infrage.
-Es ist nicht ganz einfach so einen \(\beta_i\)-Faktor zu finden, der das Ziel a) immer noch erreicht.
-Dieser \(\beta_i\) Faktor kann in der PRS wie folgt festgelet werden.
-Um eine PRS zu formulieren sei \(p_i=\lc(P_i)\) und man wählt
+Es ist nicht ganz einfach, einen solchen \(\beta_i\)-Faktor zu finden, der das Ziel a) immer noch erreicht.
+Dieser \(\beta_i\)-Faktor kann in der PRS wie folgt festgelegt werden.
+Um eine PRS zu formulieren, sei \(p_i=\lc(P_i)\) und man wählt
 \begin{equation}
     \begin{aligned}
         \beta_3&=(-1)^{\delta_1+1}\\
@@ -211,11 +210,11 @@ Der Algorithmus soll mit folgendem Beispiel verdeutlicht werden.
     \begin{equation*}
         \delta_2=\deg(G_2)-\deg(G_3)=1, \quad g_2=8, \quad h^{\delta_2}_2=g^{\delta_2}_2=8.
     \end{equation*}
-    Das in die Gleichung für \(G_4\) eingesetzt gibt
+    Das in die Gleichung für \(G_4\) eingesetzt ergibt
     \begin{equation*}
         G_4=\frac{\prem(G_2,G_3)}{8\cdot8}=222720X-222720.
     \end{equation*}
-    Da \(G_4\neq0\) ist geht der Algorithmus weiter mit
+    Da \(G_4\neq0\) ist, geht der Algorithmus weiter mit
     \begin{equation*}
         G_5=\frac{(-1)^{\delta_3+1}\prem(G_3,G_4)}{g_3h^{\delta_3}_3}.
     \end{equation*}
@@ -233,9 +232,9 @@ Der Algorithmus soll mit folgendem Beispiel verdeutlicht werden.
     Der \(\ggt\) ist nach (\ref{resultante:equation:ggtres}) links \(\ggt(P_1,P_2)=\pp(G_4)=X-1\).
     \label{resultante:beispiel:subprs}
 \end{beispiel}
-Wenn man \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu sehen welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
+Wenn man \(P_4\) aus der gewöhlichen PRS mit \(G_4\) aus der Subresultanten-PRS vergleicht, ist ganz deutlich zu sehen, welchen Einfluss die Brown-Normierung auf die Koeffizienten hat.
 Die Koeffizienten in \(G_4\) sind deutlich kleiner als die von \(P_4\).
-Ziel a) wird immmer noch erreicht und man ist dem Ziel b) deutlich näher gekommen.
+Ziel a) wird immer noch erreicht und man ist dem Ziel b) deutlich näher gekommen.
 
 \subsection{Anwendung der Subresultanten-PRS
 \label{resultante:subsection:subprs}}
@@ -252,7 +251,7 @@ Ziel a) wird immmer noch erreicht und man ist dem Ziel b) deutlich näher gekomm
     \end{equation}
     berechnet werden. 
     Dies soll mit der Subresultanten-PRS durchgeführt werden.
-    Damit man den Überblick über der einzelnen Faktoren der Berechnung behält, wird eine Tabelle verwendet.
+    Damit man den Überblick über die einzelnen Faktoren der Berechnung behält, werden sie in einer Tabelle notiert.
     Die \(G_i\) werden nach (\ref{resultante:equation:algsubprs}) in
     \begin{equation*}
         \begin{NiceArray}{|c|l|c|c|c|c|}[cell-space-limits=3pt]
@@ -270,21 +269,21 @@ Ziel a) wird immmer noch erreicht und man ist dem Ziel b) deutlich näher gekomm
         \label{resultante:equation:tabsubprs}
     \end{equation*}
     berechnet.
-    Dabei ist \(n_i\) der Grad von \(G_i\), \(g_i\) der Leitkoeffizient \(\lc(G_i)\) und \(h_i\) die Hilfsfaktoren.
-    Da \(G_4\) konstant bezüglich \(z\) ist, ist das die Resultante \(\Res_z\left(-3cz^2+1-c,z^3+z\right)\).
-    Die Resultante soll \(\Res_z=0\) sein, das wird erreicht wenn \(c_1=1\) oder \(c_2=-\frac{1}{2}\) ist.
-    Nun kann der \(\ggt\) mit \(G_3\) der darüber liegenden Zeile bestimmte werden, für \(c_1=1\):
+    Dabei ist \(n_i\) der Grad von \(G_i\), \(g_i\) der Leitkoeffizient \(\lc(G_i)\) und \(h_i\) der Hilfsfaktor.
+    Da \(G_4\) konstant bezüglich \(z\) ist, ist \(G_4\) die Resultante \(\Res_z\left(-3cz^2+1-c,z^3+z\right)\).
+    Die Resultante soll \(\Res_z=0\) sein, das wird erreicht, wenn \(c_1=1\) oder \(c_2=-\frac{1}{2}\) ist.
+    Nun kann der \(\ggt\) mit \(G_3\) der darüber liegenden Zeile bestimmt werden, für \(c_1=1\):
     \begin{equation}
         \begin{aligned}
             G_3(c_1)&=3c_1(2c_1+1)z=3\cdot1(2\cdot1+1)z=9z\\
-            \Rightarrow& \ggt=\pp\left(G_3(c_1)=9z\right)=z
-        \end{aligned},
+            \Rightarrow& \ggt=\pp\left(G_3(c_1)=9z\right)=z.
+        \end{aligned}
     \end{equation}
-    dasselbe wird für \(c_2=-\frac{1}{2}\) gemacht:
+    Analog gilt für \(c_2=-\frac{1}{2}\):
     \begin{equation}
         G_3(c_2)=3c_2(2c_2+1)z=3\cdot-\frac{1}{2}\left(2\cdot-\frac{1}{2}+1\right)z=0,
     \end{equation}
-    hier ist es besonders, \(G_3\) wird ebenfalls null wenn \(c_2\) eingesetzt wird.
+    Hier geschieht Besonderes: \(G_3\) wird ebenfalls Null, wenn \(c_2\) eingesetzt wird.
     Um den \(\ggt\) zu bestimmen, muss daher \(G_2\) in der darüberliegenden Zeile verwendet werden:
     \begin{equation}
         \begin{aligned}
@@ -292,10 +291,10 @@ Ziel a) wird immmer noch erreicht und man ist dem Ziel b) deutlich näher gekomm
             \Rightarrow& \ggt=\pp\left(G_2(c_2)=1.5z^2+1.5\right)=z^2+1.
         \end{aligned}
     \end{equation}
-    Setzt man wieder die gefundenen Nullstellen mit den dazugehörigen \(\ggt\)s zusammen, erhält man die Stammfunktion:
+    Setzt man wieder die gefundenen Nullstellen mit den dazugehörigen \(\ggt\) zusammen, erhält man die Stammfunktion:
     \begin{equation*}
         \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)=1\log z-\frac{1}{2}\log(z^2+1). \qedhere
     \end{equation*}
     \label{resultante:beispiel:subprsRT}
 \end{beispiel}
-Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt, dass es viele verschiedene Wege gibt, die Resultante zu berechnen.
+Das Beispiel \ref{resultante:beispiel:subprsRT} zeigt einen Algorithmus, mit dem dasselbe erreicht wird, wie in Beispiel \ref{resultante:beispiel:gutesIntegral}: einen Weg, die Resultante zu berechnen und die Nullstelle zweier Polynome zu finden.
