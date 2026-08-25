@@ -89,7 +89,7 @@ kann der Integrationsweg gedreht werden,
 z.\,B. um $45^{\circ}$.
 Daraus entsteht ein einfacher integrierbares Gauss-Integral.
 
-\subsection{Drehung für Cauchy-Integral}
+\subsection{Drehung für Cauchy-Integral}\label{fresnel:Drehung-Cauchy}
 Mit einer neuen Funktion, welche die Funktion $t$ um $\ang{45}$ dreht, erhält man 
 \begin{equation}
     t 
@@ -122,12 +122,24 @@ wird.
 
 \subsection{Rechtfertigung für die Drehung}
 Die Drehung sorgt dafür,
-dass der Integrationsweg von der reellen Achse
-um $\ang{45}$ nach oben gedreht wird.
-Mit Cauchys Integralsatz müssen wir dadurch schauen,
-ob der Beitrag des Bogens für $R \to \infty$ verschwindet. 
+dass der Integrationsweg von der reellen Achse aus
+um $\ang{45}$ nach oben gedreht wird,
+wie in der Abbildung~\ref{fresnel:drehung-rechtfertigung} ersichtlich.
+Cauchys Integralsatz besagt, dass
+\begin{equation}
+    \underbrace{\int_{0}^{R} f(t) dt}_{\text{\textcolor{green!50!black}{horizontal}}}
+    =
+    \underbrace{e^{j\pi/4}
+    \int_{0}^{R} f(e^{j\pi/4} u) du}_{\text{\textcolor{orange!90!black}{gedreht}}}
+    -
+    \underbrace{\int_{\text{Kreisbogen}} f(R) dR.}_{\text{\textcolor{blue!50!black}{Bogen}}}
+\end{equation}
+% mit den korrespondierenden Farben in der Darstellung.
+Falls also der Beitrag des Bogenintegrals für $R \to \infty$ verschwindet,
+dürfen wir die Substitution aus dem Abschnitt~\ref{fresnel:Drehung-Cauchy}
+verwenden. 
 
-Wir brauchen eine Funktion für den Kreisbogen mit Radius $R$,
+Für den Kreisbogen mit Radius $R$ brauchen wir eine Funktion,
 welche als
 \begin{equation}
     t
@@ -148,23 +160,33 @@ setzen wir den Faktor $\frac{j\pi}{2}$ auf beiden Seiten ein wie
     \begin{align}
         \frac{j\pi t^2}{2}
         &=
-        \frac{j\pi R^2}{2}\left(\cos(2\vartheta) + j \sin(2\vartheta)\right)\\
+        \frac{j\pi R^2}{2}
+        \underbrace{\left(\cos(2\vartheta) + j \sin(2\vartheta)\right)}_{e^{2j\vartheta}}\\
         &=
-        -\frac{\pi R^2}{2}\sin(2\vartheta) + j\frac{\pi R^2}{2}\cos(2\vartheta)
+        -\frac{\pi R^2}{2}\sin(2\vartheta) + j\frac{\pi R^2}{2}\cos(2\vartheta).
     \end{align}
 \end{subequations}
-und erhalten damit den Betrag als
+Für den Betrag der Bogenfunktion erhalten wir
 \begin{equation}
-    |f(t)|
+    |f(R)|
     =
     exp\left(-\frac{\pi R^2}{2}\sin(2\vartheta)\right).
 \end{equation}
 Für unsere Anwendung geht $R \to \infty$.
-Die Funktion auf dem Bogen fällt exponentiell ab, 
+Der Betrag der Bogenfunktion fällt exponentiell ab, 
 während die Länge des Bogens linear wächst.
-Der Bogen verschwindet nicht,
+Der Bogen verschwindet zwar nicht,
 aber sein Einfluss auf den gesamten Integralbetrag,
 an dem wir interessiert sind, schon.
+
+\begin{figure}
+    \centering
+    \resizebox{0.45\textwidth}{!}{\input{papers/fresnel/images/drehung-beispielbild.tex}\unskip}
+    \caption{
+        Integrationswege in der komplexen Ebene mit Radius $R$
+        \label{fresnel:drehung-rechtfertigung}
+    }
+\end{figure}
 
 \subsection{Integrierung der Drehung}
 Aus den Gleichungen \eqref{fresnel:komplexe-form-substitution} 
