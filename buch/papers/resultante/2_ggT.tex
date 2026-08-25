@@ -51,12 +51,13 @@ Das zeigt das folgende Beispiel.
     Im ersten Tableau sind die ersten vier Zeilen Kopien von \(b(X)\)
     und die drei darunter liegenden sind Kopien von \(a(X)\):
     \begin{equation*}
-\def\r#1{\bgroup\color{darkred}#1\egroup}
-\def\b#1{\bgroup\color{blue}#1\egroup}
-\def\g#1{\bgroup\color{darkgreen}#1\egroup}
-\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\r#1{\bgroup\color{darkred}#1\egroup}
+	\def\b#1{\bgroup\color{blue}#1\egroup}
+	\def\g#1{\bgroup\color{darkgreen}#1\egroup}
+	\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\p{\phantom{-}}
         \begin{NiceArray}{*{7}{r}}[cell-space-limits=3pt]
-        \r{8} & \r{8}  & \r{-16} & \r{0}   & \l{0}   & \l{0}   & \phantom{-}\l{0} \\
+        \r{8} & \r{8}  & \r{-16} & \r{0}   & \l{0}   & \l{0}   & \p\l{0} \\
         \l{0} & \r{8}  & \r{8}   & \r{-16} & \r{0}   & \l{0}   & \l{0} \\
         \l{0} & \l{0}  & \r{8}   & \r{8}   & \r{-16} & \r{0}   & \l{0} \\
         \l{0} & \l{0}  & \l{0}   & \r{8}   & \r{8}   & \r{-16} & \r{0} \\
@@ -65,64 +66,74 @@ Das zeigt das folgende Beispiel.
         \l{0} & \l{0}  & \b{4}   & \b{-7}  & \b{22}  & \b{-24} & \b{5} 
         \CodeAfter
             \tikz {
-                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]8-|8);
-                \draw[dashed] ([xshift=-4pt,yshift=1pt]5-|1) -- ([xshift=4pt,yshift=1pt]5-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1)
+			rectangle ([xshift=4pt,yshift=-1pt]8-|8);
+                \draw[dashed] ([xshift=-4pt,yshift=1pt]5-|1)
+			-- ([xshift=4pt,yshift=1pt]5-|8);
             }
         \end{NiceArray}
-        \,\,\to\,\,
+        \quad\to\quad
         \begin{NiceArray}{*{7}{r}}[cell-space-limits=3pt]
-        \r{1} & \phantom{-}\r{1} & \r{-2} & \r{0}   & \l{0}  & \l{0}  & \phantom{-}\l{0} \\
-        \l{0} & \r{1} & \r{1}  & \r{-2}  & \r{0}  & \l{0}  & \l{0} \\
-        \l{0} & \l{0} & \r{1}  & \r{1}   & \r{-2} & \r{0}  & \l{0} \\
-        \l{0} & \l{0} & \l{0}  & \r{1}   & \r{1}  & \r{-2} & \r{0} \\
-        \l{0} & \l{0} & \g{41} & \g{-46} & \g{5}  & \l{0}  & \l{0} \\
-        \l{0} & \l{0} & -11    & 30      & -24    & 5      & \l{0} \\
-        \l{0} & \l{0} & 4      & -7      & 22     & -24    & 5
+        \r{1} & \p\r{1} & \r{-2} & \r{0}   & \l{0}  & \l{0}  & \p\l{0} \\
+        \l{0} & \r{1}   & \r{1}  & \r{-2}  & \r{0}  & \l{0}  & \l{0}   \\
+        \l{0} & \l{0}   & \r{1}  & \r{1}   & \r{-2} & \r{0}  & \l{0}   \\
+        \l{0} & \l{0}   & \l{0}  & \r{1}   & \r{1}  & \r{-2} & \r{0}   \\
+        \l{0} & \l{0}   & \g{41} & \g{-46} & \g{5}  & \l{0}  & \l{0}   \\
+        \l{0} & \l{0}   & -11    & 30      & -24    & 5      & \l{0}   \\
+        \l{0} & \l{0}   & 4      & -7      & 22     & -24    & 5
         \CodeAfter
             \tikz {
-                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]8-|8);
-                % \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]8-|3);
-                % \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=1pt]3-|8);
-                \draw[dashed] ([xshift=-4pt,yshift=1pt]5-|1) -- ([xshift=4pt,yshift=1pt]5-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1)
+			rectangle ([xshift=4pt,yshift=-1pt]8-|8);
+                \draw[dashed] ([xshift=-4pt,yshift=1pt]5-|1)
+			-- ([xshift=4pt,yshift=1pt]5-|8);
             }
-        \end{NiceArray}\,\,\,\,.
+        \end{NiceArray}
+	\;\;.
         %\label{resultante:equation:step1}
     \end{equation*}
     Die Stufenform wird wieder hergestellt, indem noch weitere
     Zeilenoperationen auf den letzten zwei Zeilen angewandt werden:
     \begin{equation*}
-\def\r#1{\bgroup\color{darkred}#1\egroup}
-\def\b#1{\bgroup\color{blue}#1\egroup}
-\def\g#1{\bgroup\color{darkgreen}#1\egroup}
-\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\r#1{\bgroup\color{darkred}#1\egroup}
+	\def\b#1{\bgroup\color{blue}#1\egroup}
+	\def\g#1{\bgroup\color{darkgreen}#1\egroup}
+	\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\p{\phantom{-}}
         \begin{NiceArray}{*{7}{r}}[cell-space-limits=3pt]
-        \r{1} & \phantom{-}\r{1} & \r{-2} & \r{0}   & \l{0}   & \l{0}   & \phantom{-}\l{0} \\
-        \l{0} & \r{1} & \r{1}  & \r{-2}  & \r{0}   & \l{0}   & \l{0} \\
-        \l{0} & \l{0} & \r{1}  & \r{1}   & \r{-2}  & \r{0}   & \l{0} \\
-        \l{0} & \l{0} & \l{0}  & \r{1}   & \r{1}   & \r{-2}  & \r{0} \\
-        \l{0} & \l{0} & \g{41} & \g{-46} & \g{5}   & \l{0}   & \l{0} \\
-        \l{0} & \l{0} & \l{0}  & \g{41}  & \g{-46} & \g{5}   & \l{0} \\
-        \l{0} & \l{0} & \l{0}  & \l{0}   & \g{41}  & \g{-46} & \g{5}
+        \r{1} & \p\r{1} & \r{-2} & \r{0}   & \l{0}   & \l{0}   & \p\l{0} \\
+        \l{0} & \r{1}   & \r{1}  & \r{-2}  & \r{0}   & \l{0}   & \l{0} \\
+        \l{0} & \l{0}   & \r{1}  & \r{1}   & \r{-2}  & \r{0}   & \l{0} \\
+        \l{0} & \l{0}   & \l{0}  & \r{1}   & \r{1}   & \r{-2}  & \r{0} \\
+        \l{0} & \l{0}   & \g{41} & \g{-46} & \g{5}   & \l{0}   & \l{0} \\
+        \l{0} & \l{0}   & \l{0}  & \g{41}  & \g{-46} & \g{5}   & \l{0} \\
+        \l{0} & \l{0}   & \l{0}  & \l{0}   & \g{41}  & \g{-46} & \g{5}
         \CodeAfter
             \tikz {
-                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]8-|8);
-                \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=3pt,yshift=-1pt]8-|3);
-                \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3) -- ([xshift=4pt,yshift=1pt]3-|8);
-                \draw[dashed] ([xshift=3pt,yshift=1pt]5-|3) -- ([xshift=4pt,yshift=1pt]5-|8);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1)
+			rectangle ([xshift=4pt,yshift=-1pt]8-|8);
+                \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3)
+			-- ([xshift=3pt,yshift=-1pt]8-|3);
+                \draw[dashed] ([xshift=3pt,yshift=1pt]3-|3)
+			-- ([xshift=4pt,yshift=1pt]3-|8);
+                \draw[dashed] ([xshift=3pt,yshift=1pt]5-|3)
+			-- ([xshift=4pt,yshift=1pt]5-|8);
             }
-        \end{NiceArray}\,\,\,\,.
+        \end{NiceArray}
+	\;\;.
         %\label{resultante:equation:step2}
     \end{equation*}
     Im kleineren Tableau unten rechts steht das Polynom \(b(X)\) oben
     und darunter das Rest-polynom \(r(X)=r_1(X)=41X^2-46X+5\).
     Nun werden die beiden Bereiche vertauscht und dieselbe Methode wiederholt:
     \begin{equation*}
-\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\p{\phantom{-}}
         \begin{NiceArray}{*{5}{r}}[cell-space-limits=3pt]
-        41    & -46   & 5   & \l{0} & \phantom{-}\l{0} \\
-        \l{0} & 41    & -46 & 5     & \l{0} \\
-        \l{0} & \l{0} & 41  & -46   & 5 \\
-        1     & 1     & -2  & 0     & \l{0} \\
+        41    & -46   & 5   & \l{0} & \p\l{0} \\
+        \l{0} & 41    & -46 & 5     & \l{0}   \\
+        \l{0} & \l{0} & 41  & -46   & 5       \\
+        1     & 1     & -2  & 0     & \l{0}   \\
         \l{0} & 1     & 1   & -2    & 0
         \CodeAfter
             \tikz {
@@ -130,13 +141,13 @@ Das zeigt das folgende Beispiel.
                 \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=4pt,yshift=1pt]4-|6);
             }
         \end{NiceArray}
-        \;\to\;
+        \quad\to\quad
         \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
-        1 & -\frac{46}{41} & \phantom{-}\frac{5}{41} & \l{\phantom{-}0} & \l{\phantom{-}0} \\
-        \l{0} & 1 & -\frac{46}{41} & \phantom{-}\frac{5}{41} & \l{\phantom{-}0} \\
-        \l{0} & \l{0} & \phantom{-}1 & -\frac{46}{41} & \phantom{-}\frac{5}{41} \\
-        \l{0} & \l{0} & \phantom{-}\frac{435}{1681} & -\frac{435}{1681} & \l{\phantom{-}0} \\
-        \l{0} & \l{0} & \l{\phantom{-}0} & \phantom{-}\frac{435}{1681} & -\frac{435}{1681}
+        1     & -\frac{46}{41} & \p\frac{5}{41}     & \l{\p0}            & \l{\p0} \\
+        \l{0} & 1              & -\frac{46}{41}     & \p\frac{5}{41}     & \l{\p0} \\
+        \l{0} & \l{0}          & \p1                & -\frac{46}{41}     & \p\frac{5}{41} \\
+        \l{0} & \l{0}          & \p\frac{435}{1681} & -\frac{435}{1681}  & \l{\p0} \\
+        \l{0} & \l{0}          & \l{\p0}            & \p\frac{435}{1681} & -\frac{435}{1681}
         \CodeAfter
             \tikz {
                 \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
@@ -144,38 +155,45 @@ Das zeigt das folgende Beispiel.
                 \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=3pt]3-|6);
                 \draw[dashed] ([xshift=1pt]4-|3) -- ([xshift=3pt]4-|6);
             }
-        \end{NiceArray}\,\,\,.
+        \end{NiceArray}
+	\;\;.
         %\label{resultante:equation:step3}
     \end{equation*}
     Erneut ist der Rest \(r_2(X)=\frac{435}{1681}X-\frac{435}{1681}\) in den unteren Zeilen zu finden.
     Der Subbereich wird wieder vertauscht und der Rest bestimmt:
     \begin{equation*}
-\def\r#1{\bgroup\color{darkred}#1\egroup}
-\def\b#1{\bgroup\color{brown}#1\egroup}
-\def\g#1{\bgroup\color{darkgreen}#1\egroup}
-\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\r#1{\bgroup\color{darkred}#1\egroup}
+	\def\b#1{\bgroup\color{brown}#1\egroup}
+	\def\g#1{\bgroup\color{darkgreen}#1\egroup}
+	\def\l#1{\bgroup\color{gray!20}#1\egroup}
+	\def\p{\phantom{-}}
         \begin{NiceArray}{*{3}{c}}[cell-space-limits=3pt]
         \g{\frac{435}{1681}} & \g{-\frac{435}{1681}} & \l{\phantom{-}0} \\
-        \l{0} & \g{\phantom{-}\frac{435}{1681}} & \g{-\frac{435}{1681}} \\
-        \b{1} & \b{-\frac{46}{41}} & \b{\phantom{-}\frac{5}{41}}
+        \l{0} & \g{\p\frac{435}{1681}} & \g{-\frac{435}{1681}} \\
+        \b{1} & \b{-\frac{46}{41}}     & \b{\p\frac{5}{41}}
         \CodeAfter
             \tikz {
-                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]4-|4);
+                \draw ([xshift=-3pt,yshift=1pt]1-|1)
+			rectangle ([xshift=3pt,yshift=-1pt]4-|4);
                 \draw[dashed] ([xshift=-3pt]3-|1) -- ([xshift=3pt]3-|4);
             }
         \end{NiceArray}
-        \;\to\;
+        \quad\to\quad
         \begin{NiceArray}{*{3}{r}}[cell-space-limits=3pt]
         \g{1} & \g{-1} & \l{0}  \\
         \l{0} & \g{1}  & \g{-1} \\
         \l{0} & \l{0}  & \b{0}
         \CodeAfter
             \tikz {
-                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]4-|4);
-                \draw[dashed] ([xshift=1.5pt,yshift=1pt]3-|3) -- ([xshift=1.5pt,yshift=-1pt]4-|3);
-                \draw[dashed] ([xshift=-4pt,yshift=1pt]3-|1) -- ([xshift=4pt,yshift=1pt]3-|4);
+                \draw ([xshift=-4pt,yshift=1pt]1-|1)
+			rectangle ([xshift=4pt,yshift=-1pt]4-|4);
+                \draw[dashed] ([xshift=1.5pt,yshift=1pt]3-|3)
+			-- ([xshift=1.5pt,yshift=-1pt]4-|3);
+                \draw[dashed] ([xshift=-4pt,yshift=1pt]3-|1)
+		-- ([xshift=4pt,yshift=1pt]3-|4);
             }
-        \end{NiceArray}\,\,\,\,.
+        \end{NiceArray}
+	\;\;.
         %\label{resultante:equation:step4}
     \end{equation*}
     Aus dem Schlusstableau kann der verbleibende Rest \(r_3(X)=0\)
