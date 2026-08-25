@@ -10,54 +10,72 @@
 \label{resultante:section:resultante}}
 \kopfrechts{Resultante}
 
-Die Resultante ist ein Werkzeug der CAS, um das Vorhandensein gemeinsamer Nullstellen zweier Polynome zu prüfen.
-Die Resultante kann ebenfalls dazu verwendet werden, die Variablen eines Gleichungssystems mit mehreren Variablen zu eliminieren.
-Zu diesem Zweck wurde die Resultante im \(19.\) Jahrhundert untersucht \cite{resultante:resultante}.
+Die Resultante ist ein Werkzeug der CAS, um das Vorhandensein gemeinsamer
+Nullstellen zweier Polynome zu prüfen.
+Die Resultante kann ebenfalls dazu verwendet werden, die Variablen eines
+Gleichungssystems mit mehreren Variablen zu eliminieren.
+Zu diesem Zweck wurde die Resultante im 19.~Jahrhundert untersucht
+\cite{resultante:resultante}.
 % In modernen CAS werden Resultanten unter anderem benutzt, um aus einer vorher bestimmten Gröbner-Basis auf die Lösung eines Gleichungssystems zu schliessen. 
 
 \subsubsection{Nützliche Eigenschaften
 \label{resultante:subsubsection:eigenschaften}}
 
 Die Resultante bietet einige nützliche Eigenschaften.
-Die erste und relevanteste Eigenschaft für dieses Kapitel ist, dass die Resultante gemeinsame Nullstellen findet.
-Zusätzlich dazu bietet sie auch einen Weg zur parametrischen Berechnung der Nullstellen.
+Die erste und relevanteste Eigenschaft für dieses Kapitel ist, dass
+die Resultante gemeinsame Nullstellen findet.
+Zusätzlich dazu bietet sie auch einen Weg zur parametrischen Berechnung
+der Nullstellen.
 
-Wie bereits in (\ref{resultante:equation:detsyl}) gezeigt, ist die Resultante bis auf ein Vorzeichen symmetrisch:
+Wie bereits in (\ref{resultante:equation:detsyl}) gezeigt, ist die
+Resultante bis auf ein Vorzeichen symmetrisch:
 \begin{equation*}
     \Res(f,g)=(-1)^{mn}\Res(g,f).
 \end{equation*}
 Insbesondere wenn \(mn\) gerade ist, sind die beiden Resultanten gleich.
+\index{Symmetrie}%
 
-Eine weitere wichtige Eigenschaft ist die Elimination von Variablen, was in der Anwendung in (\ref{resultante:equation:resz}) ebenfalls genutzt wird.
+Eine weitere wichtige Eigenschaft ist die Elimination von Variablen,
+was in der Anwendung in (\ref{resultante:equation:resz}) ebenfalls
+genutzt wird.
 \begin{beispiel}
-    Die Elimination von Variablen wird am Beispiel der Polynome \(f(x,y)=x^2+xy+1\) und \(g(x,y)=x-y\) gezeigt.
+    Die Elimination von Variablen wird am Beispiel der Polynome
+    \(f(x,y)=x^2+xy+1\) und \(g(x,y)=x-y\) gezeigt.
     Hier treten nun zwei Unbekannte auf: \(x\) und \(y\).
-    Für die Aufstellung der Resultante bedeutet dies, dass es zwei Möglichkeiten gibt, die Polynome und die Resultante zu betrachten:
+    Für die Aufstellung der Resultante bedeutet dies, dass es zwei
+    Möglichkeiten gibt, die Polynome und die Resultante zu betrachten:
     \begin{enumerate}
         \item Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
             \begin{equation*}
+\def\l#1{\bgroup\color{gray!20}#1\egroup}
                 \begin{aligned}
-                    &\Longrightarrow x \phantom{x} \text{wird zum ``Einsortieren'' der Koeffizienten in der }\\
-                    &\hspace{21pt}\text{Sylvester-Matrix verwendet und somit eliminiert.}\\
-                    &\Longrightarrow \Res_x(f,g)=
+                    \Rightarrow\quad&\begin{minipage}[t]{8cm}\raggedright
+                                $x$ wird zum ``Einsortieren'' der Koeffizienten
+                                in der Sylvester-Matrix verwendet und somit
+                                eliminiert.
+                                \end{minipage}\\
+                    \Rightarrow\quad& \Res_x(f,g)=
                     \det
                     \begin{pmatrix}
                         1 & y & 1\\
-                        1 & -y & 0\\
-                        0 & 1 & -y
+                        1 & -y & \l{0}\\
+                        \l{0} & 1 & -y
                     \end{pmatrix}
                     =2y^2+1.
                 \end{aligned}
             \end{equation*}
         \item Als Polynom in \(y\) mit Koeffizienten, die \(x\) enthalten
             \begin{equation*}
-                \Longrightarrow \Res_y(f,g)=
+                \begin{aligned}
+                \Rightarrow\quad& \Res_y(f,g)=
                 \det
                 \begin{pmatrix}
                     x & x^2+1\\
                     -1 & x
                 \end{pmatrix}
-                =2x^2+1. \qedhere
+                =2x^2+1.
+		\end{aligned}
+\qedhere
             \end{equation*}
     \end{enumerate}
     % \kreis{1} Als Polynom in \(x\) mit Koeffizienten, die \(y\) enthalten
@@ -84,7 +102,7 @@ Die Resultante liegt im von \(f\) und \(g\) erzeugten Ideal, das man als \((f,g)
 \end{equation}
 Das bedeutet, es existieren Polynome \(s(X)\) und \(t(X)\), daraus folgt:
 \begin{equation}
-    \Res(f,g)=s(X)f(X)+t(X)g(X).
+    \Res(f,g) = s(X)f(X)+t(X)g(X).
     \label{resultante:equation:kombi}
 \end{equation}
 Im Prinzip ähnelt dies dem Span aus der linearen Algebra.
@@ -118,5 +136,9 @@ Beim Ideal \((f,g)\) dürfen die Faktoren \(s\), \(t\) selbst Polynome sein.
     \label{resultante:beispiel:ideal}
 \end{beispiel}
 
-Eine ähnliche Form zu (\ref{resultante:equation:kombi}) erhält man durch den erweiterten euklidischen Algorithmus.
-Aus dieser Form lässt sich ein effizientes Berechnungsverfahren für die Resultante ableiten, das Subresultanten-Verfahren.
+Eine ähnliche Form zu (\ref{resultante:equation:kombi}) erhält man
+durch den erweiterten euklidischen Algorithmus.
+Aus dieser Form lässt sich ein effizientes Berechnungsverfahren für
+die Resultante ableiten, das Subresultanten-Verfahren
+(siehe Abschnitt~\ref{resultante:section:fortsetzung}).
+\index{Subresultanten-Verfahren}%
