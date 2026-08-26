@@ -1,13 +1,58 @@
 \section{Voraussetzungen}
 \label{joukowski:sec:voraussetzungen}
 
+Es handelt sich beim Satz von Kutta-Joukowski um ein approximatives mathematisches Modell. 
+Damit wir dieses Modell für eine reale physikalische Situation anwenden können,
+müssen einige Voraussetzungen gelten oder Annahmen zur Situation getroffen werden.
+Nur wenn diese Voraussetzungen für die gegebene Situation gelten oder die Abweichungen davon vernachlässigbar klein sind,
+kann das Modell angewendet werden.
+Sonst kann es durchaus vorkommen,
+dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
+
 \subsection{Physikalische Voraussetzungen}
 
 \subsubsection{Stationarität}
+	Stationäre Strömung bedeutet kurz gesagt 
+	``Alles sieht \emph{für alle Zeit gleich} aus'',
+	aber nicht überall im Raum muss es gleich sein.
+	Von Punkt zu Punkt im Strömungsfeld gibt es sehr wohl Unterschiede.
+		
+	In der Strömungslehre bedeutet die Stationarität,
+	dass sich die physikalischen Strömungsgrössen wie Geschwindigkeit, Druck und Dichte an jedem Ort im Strömungsfeld mit der Zeit nicht ändern.
+	
+	Mathematisch formuliert bedeutet stationär
+	\[
+		\frac{\partial f(z)}{\partial t}
+		=
+		0,
+	\]
+	wobei $f(z)$ eine physikalsiche Strömungsgrösse darstellt.
+	Örtlich dürfen Unterschiede vorhanden sein, somit gilt im Allgemeinen
+	\[
+		\frac{\partial v}{\partial z}
+		\neq
+		0.
+	\]
+	Die Rolle der Stationarität ist im Gegensatz zu den anderen physikalischen Voraussetzungen weniger offensichtlich.
+	Bei einer stationären Strömung ist der Ausgleichsprozess abgeschlossen.
+	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im eingeschwungenen Zustand.
+	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
 
 \subsubsection{Reibungsfreihei}
+	Reibungsfreiheit bedeutet,
+	dass die Flüssigkeit,
+	in unserem Fall die Luft, 
+	keine Viskosität aufweist.
+	Somit gibt es keine Tangential-, bzw. Scherkräfte,
+	sondern nur Normal-, bzw. Druckkräfte auf die Oberfläche des Flügels.
+	
+	Zudem gilt die Beroulli-Gleichung,
+	welches unserem Modell zugrunde liegt,
+	nur bei reibungsfreier Strömung.
 
 \subsubsection{Inkompressibilität}
+	Inkompressibilität bedeutet, dass die Dichte des Fluides mit der Zeit nicht ändert.
+	Diese Annahme gilt bei Flüssigkeiten wie Wasser sehr 
 
 \subsubsection{Laminarität}
 

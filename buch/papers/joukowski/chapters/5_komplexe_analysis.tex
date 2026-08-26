@@ -3,7 +3,8 @@
 
 \subsection{Ausdruck für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$}
 
-Um den Ausdruck~\eqref{joukowski:Auftriebskarft:Auftrieb1} weiter aufzulösen, muss die oben verwendete Funktion $\overline{v(z)}$ genauer untersucht werden.
+Um den Ausdruck~\eqref{joukowski:Auftriebskarft:Auftrieb1} weiter aufzulösen, muss die oben verwendete Funktion $\overline{v(z)}$ von Gleichung~\eqref{joukowski:Stroemungslinien:equation_zylinder_speed}
+genauer untersucht werden.
 Einige Eigenschaften von $\overline{v(z)}$ helfen uns dabei, einen passenden Ausdruck dafür aufzustellen.
 Wir haben vorausgesetzt, dass im Unendlichen die ungestörte Anströmungsgeschwindigkeit $\overline{v(z)} = v_\infty \in \mathbb{R}$ resultiert.
 Zudem muss es laut Beispiel~\ref{buch:integration:wege:bsp:kreisintegral} eine einfache Polstelle im Inneren des Flügelprofils haben,
@@ -26,7 +27,7 @@ Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overl
 Damit können wir jede beliebige Flügelprofilform beschreiben,
 sofern unsere oben erwähnten Voraussetzungen dafür anwendbar sind.
 
-Da die $\overline{v(z)}$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
+Da $\overline{v(z)}$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
 Dies wird zum Beispiel von einer Taylor-Reihe der Form
 \[
@@ -501,10 +502,12 @@ welche als \emph{Satz von Kutta-Joukowski} gilt.
 
 \subsubsection{Berechnung der Zirkulation $\Gamma$}
 \begin{satz}
+	\label{joukowski:komplexe-analysis:satz:zirkulation}
 	$\Gamma = 2\pi i \cdot res(\overline{v(z)}, 0)$
 \end{satz}
 
 \begin{proof}
+	\label{joukowski:komplexe-analysis:proof:zirkulation}
 	Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
 	Auch da wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
 	Für die Funtion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
@@ -569,7 +572,6 @@ welche als \emph{Satz von Kutta-Joukowski} gilt.
 		\label{joukowski:komplexe-analysis:zirkulation-berechnet}
 	\end{equation}
 \end{proof}
-
 Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt ausrechnen.
 Durch das Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
 in Satz~\ref{joukowski:komplexe-analysis:satz:kutta-joukowski}

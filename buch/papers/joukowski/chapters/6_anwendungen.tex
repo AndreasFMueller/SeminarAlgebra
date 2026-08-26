@@ -5,12 +5,53 @@
 \input{papers/joukowski/fig/05_stroemungslinien/fig_magnus.tex}
 Bei rotierenden Zylindern entsteht eine Kraft, sofern eine Luftströmung existiert. Dieser Effekt kann beispielsweise eingesetzt werden, um den Kraftstoffverbrauch von Schiffen zu senken.
 
-Grafisch lässt sich dieser Effekt aufzeigen, indem die Funktion $f(z)$ zu folgendem Ausdruck erweitert wird:
+Grafisch lässt sich dieser Effekt aufzeigen, indem die Funktion $f(z)$ aus Beispiel~\ref{joukowski:stroemungslinien:beispiel:joukowski-transformation} 
+zum Ausdruck
 \begin{equation}
 	\label{joukowski:Stroemungslinien:equation_magnus}
-	f(z) = \frac{v_\infty}{2} \cdot \biggl(z+ \frac{1}{z}\biggr) - i\cdot A\cdot \log(z).
+	f(z) = \frac{v_\infty}{2} \cdot \biggl(z+ \frac{1}{z}\biggr) - i\cdot A\cdot \log(z)
 \end{equation}
-Mit dem Parameter A kann der Effekt eines rotierenden Zylinders in einem Strömungsfeld gesteuert werden. Der Rotierende Zylinder führt durch Oberflächenreibung dazu, dass die Luft ebenfalls Zirkuliert. Mit dem Parameter $A$ kann somit direkt Einfluss auf die Zirkulation genommen werden. Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\eqref{joukowski:Stroemungslinien:fig_magnus}. Anhand dieser Abbildung wird intuitiv deutlich, dass eine auftriebserzeugende Kraft nach oben entsteht.
+erweitert wird.
+Mit dem Parameter $A$ kann der Effekt eines rotierenden Zylinders in einem Strömungsfeld gesteuert werden. Der rotierende Zylinder führt durch Oberflächenreibung dazu, dass die Luft ebenfalls zirkuliert. Mit dem Parameter $A$
+% TODO die Luft muss aber reibungsfrei sein?
+kann somit direkt Einfluss auf die Zirkulation genommen werden. Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\ref{joukowski:Stroemungslinien:fig_magnus}. Anhand der Abbildung der Geschwindigkeitsvektoren kann erkannt werden, dass oberhalb des rotierenden Zylinders die Strömung eine höhere Geschwindigkeit aufweist wie unterhalb.
+Höhere Geschwindigkeit bedeutet tieferer Druck und somit eine Auftriebskraft.
+
+Leiten wir die Funktion $f(z)$ nach $z$ ab, erhalten wir
+\[
+	\overline{v(z)}
+	=
+	v_{\infty} \cdot \biggl(1 - \frac{1}{z^2}\biggr) 
+	- \frac{i \cdot A}{z}.
+\]
+Vergleichen wir dies mit dem Reihenausdruck~\eqref{joukowski:komplexe-analysis:laurent-reihe},
+sehen wir, dass nur die ersten drei Terme vorkommen.
+Aus Satz~\ref{joukowski:komplexe-analysis:satz:zirkulation} ist uns aber bekannt, dass nur der Term
+\[
+	\frac{a_1}{z}
+\]
+einen Beitrag leistet.
+Daraus folgt
+\[
+	\Gamma
+	=
+	2 \pi i \cdot (-i \cdot A)
+	=
+	2 \pi A
+\]
+Setzen wir unser Resultat für $\Gamma$ in den Satz von Kutta-Joukowski ein
+erhalten wir für die komplex konjugierte Kraft
+\[
+	\overline{F'}
+	=
+	i \rho v_{\infty} 2 \pi A.
+\]
+Es folgt eine reine Auftriebskraft mit dem Ausdruck
+\[
+	F'_y
+	=
+	-\rho v_{\infty} 2 \pi A.
+\]
 
 \subsection{Tragflügel}
 \input{papers/joukowski/fig/05_stroemungslinien/fig_fluegel1.tex}

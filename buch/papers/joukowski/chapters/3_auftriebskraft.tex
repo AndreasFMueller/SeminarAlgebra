@@ -14,90 +14,102 @@
 	\]
 	notiert.
 	Um die resultierende Kraft pro Flügellänge zu erhalten,	
-	müssen alle kleinen Kraftanteile $dF'$ aufsummiert werden,
-	womit
-	\[
+	müssen alle kleinen Kraftanteile $dF'$ um das geschlossene Profil des Flügels,
+	welche wir mit $\gamma$ bezeichnen,
+	aufsummiert werden, womit
+	\begin{equation}
 		F'
 		=
 		\displaystyle\oint_{\gamma}
 		dF'
-	\]
+		\label{joukowski:auftriebskraft:Integral-aus-dF}
+	\end{equation}
 	entsteht.
-	Weil wir vorausgesetz haben,
-	dass die Strömung reibungsfrei ist,
-	wirken nur Kraftanteile,
-	welche in Richtung der Normalen des Flügels sind.
-	Dasselbe gilt für einen Druckgradienten.
-	Somit können wir den kleinen Kraftanteil $dF'$ durch den Druck an diesem Punkt ersetzen
+	Aus der Bedingung, dass die Strömung reibungsfrei ist,
+	wirken nur die Kraftanteile,
+	welche normal zur Oberfläche des Flügels sind.
+	Wirkt eine Kraft normal zu einer Oberfläche,
+	so liegt einen Druck vor, welcher sich mit
+	\[
+		p
+		=
+		\frac{dF_\perp}{dA}
+	\]
+	berechnen lässt.
+	Somit können wir den kleinen Kraftanteil $dF'$ durch den Druck $p(z)$ an diesem Punkt ausdrücken
 	und es entsteht
 	\[
 		dF'
 		=
 		i \cdot p(z) dz,
 	\]
-	wobei jetzt
-	\[
+	wobei jetzt Gleichung~\eqref{joukowski:auftriebskraft:Integral-aus-dF} als
+	\begin{equation}
 		F'
 		=
 		i \cdot \displaystyle\oint_{\gamma}
 		p(z)
 		dz
-	\]
-	gilt.
+		\label{joukowski:auftriebskraft:Integral-aus-p}
+	\end{equation}
+	geschrieben werden kann.
 	Mithilfe der Multiplikation mit $i$ können wir ausdrucken,
 	dass jeder Kraftanteil immer nur senkrecht zur Umfahrtrichtung $dz$ wirkt,
 	wie in Abbildung~\ref{joukowski:auftriebskraft:fig:kontourintegral-fluegel} dargestellt wird.
+	
+	\input{papers/joukowski/fig/03_auftriebskraft/fig-kontourintegral_fluegel.tex}
 
 \subsection{Aus Anströmungsgeschwindigkeit wird Auftrieb}
-	Bei der Betrachtung eines Objektes in einem beliebigen Mediums kann eine Auftriebskraft festgestellt werden.
-	Hierbei muss die Unterscheidung gemacht werden zwischen statischen und dynamischen Auftrieb.
-	Der statische Druck entsteht durch den Druckgradienten. 
-	Dies ist auf den Druckunterschied zurückzuführen. Strömungen führen zum dynamischen Auftrieb.
+	Bei der Betrachtung eines Objektes in einem beliebigen Medium kann eine Auftriebskraft festgestellt werden.
+	Hierbei muss die Unterscheidung zwischen statischen und dynamischen Auftrieb gemacht werden.
+	Der statische Auftrieb entsteht durch den Druckgradienten. 
+	Dies ist auf den Druckunterschied zurückzuführen,
+	wobei Strömungen zum dynamischen Auftrieb führen.
 	
 	Ein Beispiel für den statischen Druck ist ein Eiswürfel im Wasserglas. Der Druckgradient beschreibt die Druckveränderung zwischen zwei Punkten,
 	daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
 		
 	Bei einem Flugzeug ist dies wesentlich komplizierter.
 	Hierbei handelt sich um dynamischen Auftrieb. Für die Strömung gilt Energieerhaltung.
-	Der Druck, an einem beliebigen Punkt im Raum, kann somit  mit der Gleichung
-	
-	\input{papers/joukowski/fig/03_auftriebskraft/fig-kontourintegral_fluegel.tex}
+	Der Druck, an einem beliebigen Punkt im Raum, kann somit mit der Beroulli Gleichung
 	
 	\begin{equation}
-		\begin{aligned}
-			\label{joukowski:Auftriebskarft:Bernoulli}
-			&p(z) + \frac{\rho}{2} \cdot |v(z)|^2 =	p_{\infty} + 	\frac{\rho}{2} \cdot |v_{\infty}|^2\\
-		\end{aligned}
+		\label{joukowski:Auftriebskarft:Bernoulli}
+		p(z) + \frac{\rho}{2} \cdot |v(z)|^2 + \rho g h(z) 
+		=
+		p_{\infty} + \frac{\rho}{2} \cdot |v_{\infty}|^2 + \rho g h_{\infty}
 	\end{equation}
 	beschrieben werden.
-	Bei der Bernoulli Gleichung werden immer zwei Punkte gewählt. In diesem Fall der Punkt $z$ und ein Punkt weit weg vom Flügelprofil. Diese liegen auf der gleichen Höhe, daher verschwindet der Höhendruck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
+	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Höhendruck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
 	\[
 		p(z)
 		= 
-		-\frac{\rho}{2} \cdot |v(z)|^2 + C 
+		-\frac{\rho}{2} \cdot |v(z)|^2 + C,
 	\]
-	wobei der konstante Teil $C$ in $p(z)$ aus dem Referenzwert im Unendlichen besteht.
-	Um nun die Auftriebskraft zu erhalten wird einmal entlang des Flügelprofils gefahren,
-	wobei der Druck an jedem Punkt aufsummiert wird.
-	Als Integral geschrieben ergibt das die Gleichung
-	\begin{equation}
-		F'
+	wobei der konstante Teil $C$ aus dem Referenzwert im Unendlichen besteht.
+	Um nun die Auftriebskraft zu erhalten,
+	kann die Formel für $p(z)$ in Gleichung~\eqref{joukowski:auftriebskraft:Integral-aus-p} eingesetzt werden,
+	damit
+	\begin{align}
+		&F'
 		=
 		F_x' + i F_y'
 		=
 		- i \frac{\rho}{2} \cdot
 		\displaystyle\oint_{\gamma}
-		|v(z)|^2 + C \, dz.
-	\end{equation}
-	Der Konstante teil kürzt sich heraus.
-	Übrig bleibt nur noch der Ausdruck
-	\begin{equation}
+		|v(z)|^2 + C \, dz 
+		\notag
+		\\
+		\intertext{	entsteht.
+					Der konstante Teil $C$ kürzt sich durch die Integration um die geschlossene Kontour $\gamma$ heraus.
+					Übrig bleibt nur noch der Ausdruck}
 		\label{joukowski:Auftriebskarft:Auftrieb1}
-		F'
+		&F'
 		=
 		F_x' + i F_y'
 		=
 		- i \frac{\rho}{2} \cdot
 		\displaystyle\oint_{\gamma}
 		|v(z)|^2 \, dz.
-	\end{equation}
+	\end{align}
+
