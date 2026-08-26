@@ -32,18 +32,18 @@ Als Ausgangspunkt für die einseitige Verlustberechnung wird die Geometrie wie i
 Abbildung~\ref{fresnel:Diff-loss-einseitig-abb} definiert:
 \begin{itemize}
     \item
-    Auf der rechten Seite steht eine Antenne als Empfänger
+    Auf der rechten Seite steht eine Antenne als Empfänger.
 \index{Antenne}%
     \item
-    Auf der linken Seite steht ein Hindernis, eine sogenannte Schneide
+    Auf der linken Seite steht ein Hindernis, eine sogenannte Schneide.
     \item 
-    $d$ sei der horizontale Abstand vom Empfänger zur Schneide
+    $d$ sei der horizontale Abstand vom Empfänger zur Schneide.
     \item 
-    $h$ sei die Höhe des Ausgangspunktes einer Kugelwelle direkt über der Schneide
+    $h$ sei die Höhe des Ausgangspunktes einer Kugelwelle direkt über der Schneide.
     \item
-    $h_{\text{edge}}$ sei die Höhe, welche die Schneide in die direkte Linie zwischen Sender und Empfänger hineinragt
+    $h_{\text{edge}}$ sei die Höhe, welche die Schneide in die direkte Linie zwischen Sender und Empfänger hineinragt.
     \item 
-    $r$ sei die Distanz vom Empfänger zum Ausgangspunkt einer Kugelwelle
+    $r$ sei die Distanz vom Empfänger zum Ausgangspunkt einer Kugelwelle.
 \index{Kugelwelle}%
 \end{itemize}
 Die Distanz $r$ ergibt sich über die Pythagoras-Formel als
@@ -94,19 +94,19 @@ Die gemessene Amplitude $\psi$ nach einer Distanz $r$ und einer Zeit $t$ kann mi
 und den Definitionen
 \begin{itemize}
     \item 
-    $\psi_0$ als ursprüngliche Amplitude
+    $\psi_0$ als ursprüngliche Amplitude,
     \item 
-    $\omega$ als Phasenverschiebung
+    $\omega$ als Phasenverschiebung,
 \index{Phasenverschiebung}%
     \item 
-    $k = \frac{2 \pi}{\lambda}$ als Wellenzahl abhängig von $\lambda$
+    $k = \frac{2 \pi}{\lambda}$ als Wellenzahl abhängig von $\lambda$ und
 \index{Wellenzahl}%
     \item 
     $\lambda$ als spezifische Wellenlänge (z.\,B. rotes Licht mit $\qty{740}{\nano\metre}$)
 \end{itemize}
 berechnet werden.
 Damit lässt sich nun jede Amplitude 
-der Kugelwellen überhalb der Schneide berechnen,
+der Kugelwellen oberhalb der Schneide berechnen,
 indem für $r$ die entsprechende 
 Distanz aus der Gleichung~\eqref{fresnel:Distanz-R-Taylor-einseitig} eingesetzt wird:
 \begin{equation}
@@ -192,8 +192,11 @@ eingesetzt:
 \end{equation}
 
 \subsubsection{Der Weg zu den Fresnel-Integralen}
-Die Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-superpos}
-führt durch infinitesmal kleine Schritte zum Integral
+Im Grenzwert $\Delta h\to 0$ wird die Summe in 
+\eqref{fresnel:Kugelwellen-wellendichte-superpos}
+%Die Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-superpos}
+%führt durch infinitesmal kleine Schritte
+zum Integral
 \begin{equation}
     \psi_{\text{rx}}
     =
@@ -214,7 +217,7 @@ erhalten wir
 \end{equation}
 welche gewisse Ähnlichkeiten mit den 
 Fresnel-Integralen~\eqref{fresnel:integral-C-S} aufweisen.
-Mit der Substitution von $t$ mit $h$ wird die Gleichung zu
+Mit der Substitution% von $t$ mit $h$ wird die Gleichung zu
 \[
 t(h)
 =
@@ -232,13 +235,16 @@ dh
 =
 \sqrt{\frac{\pi d}{k}} \,dt
 \]
-und kann nach $C$
+können die Integrale in
+\eqref{fresnel:Kugelwellen-wellendichte-superpos}
+%und kann
+nach $C$
 \begin{equation*}
     \int_{0}^{h_{\text{edge}}} \cos \biggl(\frac{k}{2d}h^2\biggr) \,dh
     =
     \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \cos \biggl(\frac{\pi}{2}t^2\biggr) \,dt
     =
-    \sqrt{\frac{\pi d}{k}} C(v),
+    \sqrt{\frac{\pi d}{k}} C(v)
 \end{equation*}
 und ebenso nach $S$
 \begin{equation*}
@@ -246,7 +252,7 @@ und ebenso nach $S$
     =
     \sqrt{\frac{\pi d}{k}} \int_{0}^{h_{\text{edge}}\sqrt{\frac{k}{\pi d}}} \sin \biggl(\frac{\pi}{2}t^2\biggr) \,dt
     =
-    \sqrt{\frac{\pi d}{k}} S(v),
+    \sqrt{\frac{\pi d}{k}} S(v)
 \end{equation*}
 umgestellt werden.
 Das ganze Integral~\eqref{fresnel:Beispiel-Integral-ohne-fresnel}
@@ -257,7 +263,8 @@ ergibt sich dann zu
     \rho_{\psi} \sqrt{\frac{\pi d}{k}} \cdot \biggl[\frac{1}{2} - C(v) -j\biggl(\frac{1}{2}-S(v)\biggr)\biggr]
     \label{fresnel:Beispiel-Fresnelgleichung-einseitig}
 \end{equation}
-mit dem sogenannten Fresnel-Parameter
+mit dem sogenannten \emph{Fresnel-Parameter}
+\index{Fresnel-Parameter}%
 \begin{equation}
     v
     =
@@ -275,7 +282,7 @@ Mit der erhaltenen Formel aus der Gleichung~\eqref{fresnel:Beispiel-Fresnelgleic
 und dem Fresnel-Parameter~\eqref{fresnel:Fresnel-Parameter-einseitig}
 lässt sich nun der Verlust berechnen.
 \index{Verlust}%
-Als kleiner Einschub sei hier anzumerken,
+Als kleiner Einschub sei hier angemerkt,
 dass in der Elektrotechnik keine Verhältnisse
 \index{Elektrotechnik}%
 zwischen Amplituden berechnet werden,
@@ -288,11 +295,11 @@ Damit lässt sich der Verlust $L$ schreiben als
     L(v)
     =
     \frac{|\psi_{\text{gesendet}}|^2}{|\psi_{\text{verloren}}|^2}
-    =
+    \approx
     \frac{|\psi_{\text{rx}} (-\infty)|^2}{|\psi_{\text{rx}} (v)|^2}
     =
-    \dots
-    =
+%    \dots
+%    =
     \frac{2}{\left|\frac{1}{2}-C(v)\right|^2 + \left|\frac{1}{2}-S(v)\right|^2}.
     \label{fresnel:Beispiel-diff-loss-einseitig}
 \end{equation}
@@ -350,25 +357,25 @@ d_n \sqrt{1 + \frac{h^2}{d_n^2}}
 d_n + \frac{h^2}{2d_n}
 \]
 vereinfacht werden und ergibt für die gesamte Distanz $r$ 
-\begin{equation}
+\begin{equation*}
     r
     \approx
     d_1 + d_2 + \frac{h^2}{2}\biggl(\frac{1}{d_1} + \frac{1}{d_2}\biggr)
     =
     d_1 + d_2 + h^2\biggl(\frac{d_1 + d_2}{2d_1d_2}\biggr).
-\end{equation}
+\end{equation*}
 Setzt man die neue Distanz $r$ in die Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-summiert} ein, folgt
-\begin{subequations}
-\label{fresnel:Kugelwellen-wellendichte-summiert-beidseitig}
-    \begin{align}
+\begin{align}
         \psi_{\text{rx}}
         &=
-        \psi_0 \cdot \sum_i \exp\biggl(-jk\biggl(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\biggr)\biggr)\\
+        \psi_0 \cdot \sum_i \exp\biggl(-jk\biggl(d_1 + d_2 + h^2_i\frac{d_1 + d_2}{2d_1d_2}\biggr)\biggr)
+\notag
+\\
         &=
         \underbrace{\psi_0 \cdot e^{-jk(d_1 + d_2)}}_{\displaystyle =\psi}
 	\sum_i \exp\biggl(-jk\biggl(h^2_i\frac{d_1 + d_2}{2d_1d_2}\biggr)\biggr).
-    \end{align}
-\end{subequations}
+\label{fresnel:Kugelwellen-wellendichte-summiert-beidseitig}
+\end{align}
 Unter genauer Betrachtung fällt auf,
 dass die neue Gleichung~\eqref{fresnel:Kugelwellen-wellendichte-summiert-beidseitig} 
 der vorherigen stark gleicht.
@@ -380,22 +387,27 @@ Im Grunde ändert sich lediglich der Parameter
 \quad
 \frac{d_1 + d_2}{d_1d_2},
 \]
-welches folglich auf den Fresnel-Parameter~\eqref{fresnel:Fresnel-Parameter-einseitig}
+%welches
+diese Modifikation kann
+folglich auf den Fresnel-Parameter~\eqref{fresnel:Fresnel-Parameter-einseitig}
+angewendet werden und ergibt den modifizierten Fresnel-Parameter
 \begin{equation}
     v
     =
-    h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}
+    h_{\text{edge}} \sqrt{2\frac{d_1 + d_2}{\lambda d_1 d_2}}.
     \label{fresnel:Fresnel-Parameter-beidseitig}
 \end{equation}
-angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
+%angewendet werden kann.% Parameter bleibt, wenn einer der Stationen viel weiter vom Knife-Edge weg ist, als der andere
 
 \subsubsection{Schlussfolgerung}
 Die Verluste lassen sich also mit derselben Formel
-und einem modifizierten Fresnel-Parameter berechnen.
+und einem modifizierten Fresnel-Parameter
+\eqref{fresnel:Fresnel-Parameter-beidseitig}
+berechnen.
 Diese können entweder über die Abbildung~\ref{fresnel:Fresnel-Diagram}
 ausgelesen oder mit den Formeln
-\begin{subequations}
-    \begin{align}
+%\begin{subequations}
+    \begin{align*}
         v > 1: \quad
         -L_{\unit{\decibel}}
         &=
@@ -410,10 +422,13 @@ ausgelesen oder mit den Formeln
         -L_{\unit{\decibel}}
         &=
         10 \log_{10} L(v)
-    \end{align}
-\end{subequations}
+    \end{align*}
+%\end{subequations}
 angenähert werden. 
-Ein interessanter Punkt zur Erwähnung ist $v=0$.
+Ein interessanter
+%Punkt zur Erwähnung
+Spezialfall
+ist $v=0$.
 Die Spitze der Schneide befindet sich hier perfekt auf der Höhe der Sichtlinie von Sender und Empfänger.
 Aus der Abbildung lässt sich ungefähr $\qty{6}{\decibel}$ auslesen,
 was einem Verlust von $3/4$ der ursprünglichen Sendeleistung entspricht.
