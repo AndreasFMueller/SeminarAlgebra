@@ -6,41 +6,35 @@
 % !TEX encoding = UTF-8
 %
 
-%TODO: Einleitung besser schreiben
-% \section{Einleitung}
-% \kopfrechts{Einleitung}
-
+\noindent
 Die Fresnel-Integrale sind häufig in der Wellentheorie und in der Analysis anzutreffen. 
 Sie sind nützlich, um die Ausbreitung von Wellen durch Beugung zu berechnen. 
 In der drahtlosen Kommunikation können mithilfe der Fresnel-Integrale die Feldstärke 
+\index{drahtlose Kommunikation}%
+\index{Feldstarke@Feldstärke}%
 und damit die Intensität elektromagnetischer Wellen hinter einem Hindernis 
+\index{elektromagnetische Wellen}%
 unter Berücksichtigung der Beugung berechnet werden. 
+\index{Beugung}%
 Die komplexe Analysis hilft dabei, die Intergrale in ein einfacheres Integral zusammenzufassen. 
-
 
 \section{Definition}
 \kopfrechts{Definition}
 
 Die eigentlichen Fresnel-Integrale sind definiert als 
+\index{Fresnel-Integral!eigentlich}%
 \begin{equation}
     C(v) 
     = 
-    \int_{0}^{v} \cos \left(\frac{\pi}{2}t^2\right) dt
-    \quad \text{und} \quad
+    \int_{0}^{v} \cos \biggl(\frac{\pi}{2}t^2\biggr) \,dt
+    \qquad \text{und} \qquad
     S(v) 
     = 
-    \int_{0}^{v} \sin \left(\frac{\pi}{2}t^2\right) dt.
+    \int_{0}^{v} \sin \biggl(\frac{\pi}{2}t^2\biggr) \,dt.
     \label{fresnel:integral-C-S}
 \end{equation}
 Direkt geplottet verhalten sie sich wie in Abbildung~\ref{fresnel:C-S-Plot}.
-\begin{figure}
-    \centering
-    \resizebox{\textwidth}{!}{\input{papers/fresnel/pgf/fresnel-c-s.pgf}\unskip}
-    \caption{
-        $C$-$S$-Plot
-        \label{fresnel:C-S-Plot}
-    }
-\end{figure}
+\input{papers/fresnel/fig/fig-cs.tex}
 Für $v\to\infty$ bleiben beide Integrale beschränkt und scheinen gegen den endlichen Wert
 \begin{equation}
     \lim\limits_{v \to \infty} C(v)
@@ -49,28 +43,29 @@ Für $v\to\infty$ bleiben beide Integrale beschränkt und scheinen gegen den end
     =
     \frac{1}{2} 
 \end{equation}
-zu konvergieren. Der Grenzwert für $v\to\infty$ wird als uneigentliches Fresnel-Integral bezeichnet.
+zu konvergieren.
+Der Grenzwert für $v\to\infty$ wird als uneigentliches Fresnel-Integral
+bezeichnet.
+\index{Fresnel-Integral!uneigentlich}%
 Beide Integrale können auch gemeinsam als komplexe Funktion 
 \begin{equation}
     F(v)=C(v) + jS(v)
     \label{fresnel: Komplexe Funktion}
 \end{equation}
 geschrieben werden.
-Die daraus resultierende Kurve in der komplexen Ebene ist eine Spirale, die in Abbildung~\ref{fresnel:Cornu-Spirale} dargestellt ist. Sie heisst auch die \emph{Cornu-Spirale}.
+Die daraus resultierende Kurve in der komplexen Ebene ist eine Spirale,
+die in Abbildung~\ref{fresnel:Cornu-Spirale} dargestellt ist. Sie heisst
+auch die \emph{Cornu-Spirale}.
+\index{Cornu-Spirale}%
 
-\begin{figure}
-    \centering
-    \resizebox{\textwidth}{!}{\input{papers/fresnel/pgf/fresnel-c-s-komplex.pgf}\unskip}
-    \caption{
-        Cornu-Spirale in der komplexen Ebene
-        \label{fresnel:Cornu-Spirale}
-    }
-\end{figure}
-
+\input{papers/fresnel/fig/fig-cskomplex.tex}
 
 \section{Komplexe Analysis zur Integrallösung}
+\kopfrechts{Komplexe Analysis zur Integrallösung}
 Als nächstes wird das uneigentliche Integral der Fresnel-Integrale gelöst.
+\index{Fresnel-Integral}%
 Nach der Euler-Formel
+\index{Euler-Formel}%
 \[
 e^{j\vartheta}
 =
@@ -78,16 +73,18 @@ e^{j\vartheta}
 \]
 kann die in \eqref{fresnel: Komplexe Funktion} definierte Funktion $F(v)$ in die komplexe Form
 \begin{equation}
-    F(v \to \infty) = \int_{0}^{v} e^{j \pi t^2 / 2} dt
+    F(v \to \infty) = \int_{0}^{v} e^{j \pi t^2 / 2} \,dt
     \label{fresnel:fresnel-komplexe-form}
 \end{equation}
 umgeschrieben werden, welche zugleich auch holomorph ist.
 Diese Umstellung des uneigentlichen Integrals erlaubt es, den Integralsatz von Cauchy anzuwenden.
+\index{Satz!Integralsatz von Cauchy}%
 Statt auf der reellen Achse zu integrieren,
 wo die Funktion stark oszilliert,
 kann der Integrationsweg gedreht werden,
 z.\,B. um $45^{\circ}$.
 Daraus entsteht ein einfacher integrierbares Gauss-Integral.
+\index{Gauss-Integral}%
 
 \subsection{Drehung für Cauchy-Integral}\label{fresnel:Drehung-Cauchy}
 Mit einer neuen Funktion, welche die Funktion $t$ um $\ang{45}$ dreht, erhält man 
@@ -98,7 +95,7 @@ Mit einer neuen Funktion, welche die Funktion $t$ um $\ang{45}$ dreht, erhält m
     \quad
     dt 
     = 
-    e^{j \pi / 4} du.
+    e^{j \pi / 4} \,du.
     \label{fresnel:komplexe-form-substitution}
 \end{equation}
 Da $t$ im Integranden von \eqref{fresnel:fresnel-komplexe-form} im Quadrat vorkommt, wird die neue Funktion von
@@ -127,12 +124,12 @@ um $\ang{45}$ nach oben gedreht wird,
 wie in der Abbildung~\ref{fresnel:drehung-rechtfertigung} ersichtlich.
 Cauchys Integralsatz besagt, dass
 \begin{equation}
-    \underbrace{\int_{0}^{R} f(t) dt}_{\text{\textcolor{green!50!black}{horizontal}}}
+    \underbrace{\int_{0}^{R} f(t) \,dt}_{\text{\textcolor{green!50!black}{horizontal}}}
     =
     \underbrace{e^{j\pi/4}
-    \int_{0}^{R} f(e^{j\pi/4} u) du}_{\text{\textcolor{orange!90!black}{gedreht}}}
+    \int_{0}^{R} f(e^{j\pi/4} u) \,du}_{\text{\textcolor{orange!90!black}{gedreht}}}
     -
-    \underbrace{\int_{\text{Kreisbogen}} f(R) dR.}_{\text{\textcolor{blue!50!black}{Bogen}}}
+    \underbrace{\int_{\text{Kreisbogen}} f(R) \,dR.}_{\text{\textcolor{blue!50!black}{Bogen}}}
 \end{equation}
 % mit den korrespondierenden Farben in der Darstellung.
 Falls also der Beitrag des Bogenintegrals für $R \to \infty$ verschwindet,
@@ -161,7 +158,7 @@ setzen wir den Faktor $\frac{j\pi}{2}$ auf beiden Seiten ein wie
         \frac{j\pi t^2}{2}
         &=
         \frac{j\pi R^2}{2}
-        \underbrace{\left(\cos(2\vartheta) + j \sin(2\vartheta)\right)}_{e^{2j\vartheta}}\\
+        \underbrace{\left(\cos(2\vartheta) + j \sin(2\vartheta)\right)}_{\displaystyle e^{2j\vartheta}}\\
         &=
         -\frac{\pi R^2}{2}\sin(2\vartheta) + j\frac{\pi R^2}{2}\cos(2\vartheta).
     \end{align}
@@ -170,7 +167,7 @@ Für den Betrag der Bogenfunktion erhalten wir
 \begin{equation}
     |f(R)|
     =
-    \exp\left(-\frac{\pi R^2}{2}\sin(2\vartheta)\right).
+    \exp\biggl(-\frac{\pi R^2}{2}\sin(2\vartheta)\biggr).
 \end{equation}
 Für unsere Anwendung geht $R \to \infty$.
 Der Betrag der Bogenfunktion fällt exponentiell ab, 
@@ -180,14 +177,7 @@ aber sein Einfluss auf den gesamten Integralbetrag,
 an dem wir interessiert sind, schon.
 Dementsprechend dürfen wir die Substitution anwenden.
 
-\begin{figure}
-    \centering
-    \resizebox{0.45\textwidth}{!}{\input{papers/fresnel/images/drehung-beispielbild.tex}\unskip}
-    \caption{
-        Integrationswege in der komplexen Ebene mit Radius $R$
-        \label{fresnel:drehung-rechtfertigung}
-    }
-\end{figure}
+\input{papers/fresnel/fig/fig-drehung.tex}
 
 \subsection{Integrierung der Drehung}
 Aus den Gleichungen \eqref{fresnel:komplexe-form-substitution} 
@@ -196,11 +186,11 @@ und \eqref{fresnel:komplexer-term-umstellung} erhält man das substituierte Inte
 F(u \to \infty)
 =
 e^{j \pi / 4}
-\int_{0}^{\infty} e^{-\pi u^2 / 2} du.
+\int_{0}^{\infty} e^{-\pi u^2 / 2} \,du.
 \]
 Das Integral ist das bekannte Gauss-Integral
 \begin{equation}
-    \int_{0}^{\infty} e^{-au^2} du 
+    \int_{0}^{\infty} e^{-au^2} \,du 
     =
     \frac{1}{2}
     \sqrt{\dfrac{\pi}{a}},
@@ -239,13 +229,13 @@ vereinfacht.
 Schreibt man das Integral \eqref{fresnel:integral-subst-gelöst} wieder mit der Euler-Formel um,
 können der Realteil
 \[
-\int_{0}^{\infty} \cos \left(\frac{\pi}{2}t^2\right) dt
+\int_{0}^{\infty} \cos \biggl(\frac{\pi}{2}t^2\biggr)\, dt
 =
 \frac{1}{2}
 \]
 und der Imaginärteil
 \[
-\int_{0}^{\infty} \sin \left(\frac{\pi}{2}t^2\right) dt
+\int_{0}^{\infty} \sin \biggl(\frac{\pi}{2}t^2\biggr)\, dt
 =
 \frac{1}{2}
 \]
