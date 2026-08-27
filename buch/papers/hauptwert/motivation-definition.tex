@@ -97,6 +97,30 @@ Der Grenzwert $\varepsilon \to 0^+$, $R \to \infty$ existiert somit und ist $0$,
 im Gegensatz zum unabhängigen Grenzwert aus
 \eqref{hauptwert:equation:aufteilung}, welcher nicht existiert.
 
+\subsubsection{Was passiert, wenn nicht symmetrisch angenähert wird?}
+Eine systematische, aber nicht symmetrische Annäherung bringt auch ein
+Resultat, jedoch ist es falsch. Nehmen wir zum Beispiel die verschiedenen
+Integrationsgrenzen $\varepsilon$ und $2\varepsilon$. Der Einfachheit halber
+wird hier über $[-1, 1]$ integriert, statt über den Bereich $(-\infty, \infty)$.
+Aus denselben Symmetriegründen wie in
+\eqref{hauptwert:equation:symmetrisch} ist $\pv\int_{-1}^{1} \frac{dx}{x} = 0$.
+Mit der unsymmetrischen Annäherung erhalten wir dagegen
+\begin{equation}
+  \begin{aligned}
+    \lim_{\varepsilon \to 0^+}
+    \biggl(
+    \int_{-1}^{-\varepsilon} \frac{1}{x}\,dx + \int_{2\varepsilon}^{1} \frac{1}{x}\,dx
+    \biggr)
+    &= \lim_{\varepsilon \to 0^+}
+       \bigl((\ln\varepsilon - \ln 1) + (\ln 1 - \ln 2\varepsilon)\bigr) \\
+    &= \lim_{\varepsilon \to 0^+} (\ln\varepsilon - \ln 2 - \ln\varepsilon) \\
+    &= -\ln 2,
+  \end{aligned}
+\end{equation}
+also nicht den Hauptwert $0$.
+Der Grenzwert existiert zwar, er hängt aber vom Verhältnis der beiden
+Annäherungen ab und ist damit kein Wert, den man dem Integral zuschreiben kann.
+
 Dies ist die Vorgehensweise des Hauptwerts im Reellen.
 Da wir uns in $\mathbb{R}$ auf einer eindimensionalen Zahlengeraden bewegen
 und die Integrationswege stets entlang dieser Geraden verlaufen,
