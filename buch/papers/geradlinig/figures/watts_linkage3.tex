@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=0.7,
+    dot/.style={circle,fill=black,inner sep=0.8pt},
+    cross/.style={line width=0.7pt},
+    every path/.style={line cap=round}
+]
+
+% Koordinaten (frei gewählt, nur für die Form)
+\def\len{3.4}
+\coordinate (A) at (-3,1);    % linker Kreuzpunkt
+\coordinate (E) at (3,-1);     % rechter Kreuzpunkt
+\coordinate (B) at ($(A) + (-35:\len)$);  % linker grüner Punkt
+\coordinate (D) at ($(E) + (215:\len)$);  % rechter grüner Punkt
+\coordinate (C) at ($(B)!0.5!(D)$);     % mittlerer grüner Punkt
+\coordinate (Av) at (0,1.8); % senkrecht über C
+\coordinate (Cv) at (0,-1.8); % senkrecht unter C
+
+% definiere Farben
+\definecolor{jointgreen}{RGB}{110,170,110}
+\definecolor{jointyellow}{RGB}{255,204,102}
+
+% orange Linien
+\draw[jointyellow,very thick] (A) -- (B);
+\draw[jointyellow,very thick] (D) -- (E);
+
+% grüner Mittelsteg
+\draw[jointgreen,very thick] (B) -- (C) -- (D);
+
+% Punkte auf dem grünen Segment
+\node[dot] at (B) {};
+\node[dot] at (C) {};
+\node[dot] at (D) {};
+
+% senkrechte gestrichelte Linie unter dem mittleren Punkt
+\draw[densely dotted] (Av) -- (Cv);
+
+% kleine Kreuze an den Enden
+\draw[cross] (A) ++(-0.06,0.06) -- ++(0.12,-0.12);
+\draw[cross] (A) ++(-0.06,-0.06) -- ++(0.12,0.12);
+
+\draw[cross] (E) ++(-0.06,0.06) -- ++(0.12,-0.12);
+\draw[cross] (E) ++(-0.06,-0.06) -- ++(0.12,0.12);
+
+\end{tikzpicture}

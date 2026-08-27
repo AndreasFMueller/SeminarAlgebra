@@ -1,0 +1,22 @@
+# TODO
+
+- [x] Autoren mit 'und' trennen statt ,
+- [x] Einleitung schreiben
+- [x] Absätze kontr., entfernen wo nicht gebraucht (Einrückung)
+- [x] Wichtige Formeln sollten Zahlen hinten dran haben (Eq-Env), zum Referenzieren
+- [x] $j$ statt $i$ verwenden als imaginäre Einheit
+- [x] $\theta$ zu $\vartheta$ wechseln
+- [x] Aspect Ratio 1:1 in Cornu-Spirale
+- [x] Formeln vereinheitlichen, kein Switch zwischen $t,u,x,z$
+- [x] "mittels" ersetzen durch bessere Satzstruktur
+- [x] Knife-Edge ersetzen
+- [x] Allgemein Formeln bei Drehung überarbeiten und ausführlicher schreiben
+- [x] "Wavelet" nicht mehr verwenden $\to$ Kugelwelle
+- [x] Allgemein im Anwendungsbeispiel Ausdrücke anpassen, auch für nicht-ETler
+- [x] Text im Subscript als solchen einbetten, nicht kursiv
+- [x] Alle Bilder in Anwendungsbeispiel durch Tikz ersetzen (Schriftgrösse und -art, Auflösung)
+- [x] normales $e$ verwenden statt $\mathrm{e}$
+- [x] Keine $\to$ verwenden im Text
+- [x] Wellendichte im Beispiel besser erklären
+- [x] Fussnote mit Substitution in Text einbauen, nicht einfach links liegen lassen
+- [x] '~' zwischen den Wörtern und '\ref' einfügen

@@ -1,0 +1,79 @@
+%
+% teil2.tex -- Beispiel-File für teil2 
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Mechanismen aus dem 3D-Drucker
+\label{geradlinig:section:mechanismen_aus_dem_3d_drucker}}
+\kopfrechts{Mechanismen aus dem 3D-Drucker}
+Um das Verständnis dieser Mechanismen zu vertiefen, lohnt es sich
+diese selbst nachzubauen.
+Die Mechanismen können grundsätzlich aus einfachen Gelenken und Bolzen 
+aufgebaut werden, wie sie in Abbildung~\ref{fig:3dprint_mech} 
+dargestellt sind.
+Da die Gelenke teilweise unterschiedlich übereinander angeordnet werden, 
+werden Bolzen mit unterschiedlichen Längen benötigt.
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/link_driver.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/link_long_lower.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{papers/geradlinig/figures/pin_lower.png}
+    \end{minipage}
+    \caption{Beispiele für Standardgelenke und Bolzen 
+    für den 3D-Druck~\cite{thingiverse}.}
+    \label{fig:3dprint_mech}
+\end{figure}
+
+Der Mechanismus muss auf einer festen Basis montiert werden.
+Dadurch können sich die Bolzen mit möglichst geringer Reibung 
+in den Gelenken bewegen.
+Die CAD-Konstruktion mit der Basis für den Perrolatz-Mechanismus 
+ist in Abbildung~\ref{fig:3dprint_cad} dargestellt.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{papers/geradlinig/figures/perrolatz_inversor_v22.png}
+    \caption{CAD-Konstruktion des Perrolatz-Mechanismus mit Basis.}
+    \label{fig:3dprint_cad}
+\end{figure}
+
+Die Konstruktion kann anschliessend mit einem 3D-Drucker hergestellt werden.
+Das Ergebnis kann wie in Abbildung~\ref{fig:3dprint_perr_peauc} aussehen.
+Das Design wurde so ausgelegt, dass am Gelenkende, an dem die 
+geradlinige Bewegung entsteht, ein Stift befestigt werden kann.
+Bei einem 3D-gedruckten Mechanismus ist das Spiel der Gelenke 
+jedoch vergleichsweise gross.
+Dadurch ist bereits mit blossem Auge erkennbar, dass die Bewegung 
+des Ausgangs nicht exakt einer Geraden entspricht.
+Sie liegt jedoch trotzdem nahe an einer geradlinigen Bewegung.
+Für eine höhere Präzision wäre eine Fertigung aus Metall besser geeignet.
+Als einfaches Experiment zur Überprüfung der Funktionsweise eignet 
+sich der 3D-gedruckte Mechanismus dennoch gut.
+% Bilder von 3D-gedruckten Mechanismen
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        % \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        % \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage3.png}
+    \end{minipage}
+    \caption{3D-gedruckter Perrolatz- und Peaucellier-Lipkin-Mechanismus.
+    Bilder werden noch ergänzt\dots}
+    \label{fig:3dprint_perr_peauc}
+\end{figure}

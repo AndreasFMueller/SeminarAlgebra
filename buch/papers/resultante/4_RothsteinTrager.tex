@@ -1,0 +1,266 @@
+%
+% 4_RothsteinTrager.tex -- Abschnitt 4 Resultante anwendung in RT
+%
+% (c) 2026 Jakob Gierer, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Der Satz von Rothstein-Trager
+\label{resultante:section:RT}}
+\kopfrechts{Der Satz von Rothstein-Trager}
+In der Anlaysis verwendet man für die Berechnung von Stammfunktionen
+bei Integralen die Partialbruchzerlegung.
+Bei dieser Methode müssen die Nullstellen des Nennerpolynoms bekannt sein.
+Das Problem ist also, die Residuen des Integranden zu berechnen, ohne
+\index{Residuum}%
+den Nenner zu faktorisieren.
+Die Mathematiker Rothstein und Trager haben unabhängig voneinander den
+\index{Rothstein-Trager}%
+Satz \ref{resultante:satz:RT} bewiesen.
+Der rationale Teil \(a(z)\) muss teilerfremd zu \(b(z)\) sein, mit \(\deg
+(a)<\deg (b)\).
+Zusätzlich dazu muss das Polynom \(b(z)\) quadratfrei sein, dann sagt
+das Liouville-Prinzip die Form
+\index{Liouville-Prinzip}%
+\begin{equation*}
+    \int\frac{a(z)}{b(z)}\,dz=\sum_{k=1}^{m}c_k\log v_k(z)
+    \label{resultante:equation:satzRT}
+\end{equation*}
+der Stammfunktion voraus. Gesucht sind nun die \(c_k\), für die
+\begin{equation}
+    a(z)-c_k\cdot b'(z) \quad \text{und} \quad b(z)
+    \label{resultante:equation:polynome}
+\end{equation}
+einen nitchttrivialen grössten gemeinsamen Teiler (Teiler \(\neq1\))
+\begin{equation}
+    v_k(z)=\ggt\left(a(z)-c_k\cdot b'(z),b(z)\right)
+    \label{resultante:equation:vks}
+\end{equation}
+haben.
+
+\begin{satz}[Rothstein-Trager]
+\index{Rothstein-Trager, Satz von}%
+\index{Satz!von Rothstein-Trager}%
+    Die Nullstellen von \(R(c)\) sind genau die Residuen von
+\index{Residuum}%
+    \(\frac{a(z)}{b(z)}\).
+    \label{resultante:satz:RT} 
+\end{satz}
+\noindent
+Die Nullstellen von \(R(c)=\Res_z(a-c\cdot b',b)\) sind die gesuchten \(c_k\).
+
+Dafür eignet sich die Resultante nach Definition
+\ref{resultante:definition:resultante} hervorragend.
+Sie liefert als Lösung direkt den \(\ggt\) zweier Polynome mit
+dazugehöriger Nullstelle.
+
+\subsection{Anwendung der Resultante
+\label{resultante:subsection:anwendung}}
+Für die Bestimmung der Nullstellen \(c_k\) und des grössten gemeinsamen
+Teilers \(v_k(z)\) wird die Resultante
+\begin{equation}
+    R(c)
+    =
+    \Res_z\left(a(z)-c\cdot b'(z),b(z)\right)%=0
+    \label{resultante:equation:resz}
+\end{equation}
+benötigt.
+In der Resultante \(R(c)\) wird die Variable \(z\) wie in Beispiel
+\ref{resultante:beispiel:elimination} eliminiert.
+Gesucht sind dann die Nullstellen $c_k$ mit \(R(c_k)=0\).
+
+\begin{beispiel}
+    Die Stammfunktion von
+\index{Stammfunktion}%
+    \begin{equation*}
+        \int\frac{1}{z^3+z}\,dz
+    \end{equation*}
+    soll mit der Methode von Rothstein-Trager und der Resultante bestimmt
+    werden.
+    Die Bedingungen für die Rothstein-Trager-Methode sind bereits
+    erfüllt mit \(a(z)=1\) und \(b(z)=z^3+z\).
+    Es müssen daher die \(c_k\) und die dazugehörigen \(v_k(z)\)
+    gefunden werden.
+    Für die Resultante braucht es
+    \begin{equation}
+        \begin{aligned}
+            a(z)&=1\\
+            b(z)&=z^3+z\\
+            b'(z)&=3z^2+1,
+        \end{aligned}
+        \label{resultante:equation:factoren}
+    \end{equation}
+    sie sieht wie folgt aus:
+    \begin{equation}
+        \Res_z\left(-3cz^2+1-c,z^3+z\right)=0.
+        \label{resultante:equation:resZgut}
+    \end{equation}
+    Die daraus folgende Sylvester-Matrix ist:
+    \begin{equation}
+\def\l#1{\bgroup\color{gray!20}#1\egroup}
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
+        -3c   & 0     & 1-c & \l{0} & \l{0} \\
+        \l{0} & -3c   & 0   & 1-c   & \l{0} \\
+        \l{0} & \l{0} & -3c & 0     & 1-c   \\
+        1     & 0     & 1   & 0     & \l{0} \\
+        \l{0} & 1     & 0   & 1     & 0
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=4pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=-3pt,yshift=1pt]4-|1) -- ([xshift=4pt,yshift=1pt]4-|6);
+            }
+        \end{NiceArray}
+        \;\to\;
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
+        \;1\;     & \;0\; & \frac{c-1}{3c} & \l{0}          & \l{0} \\
+        \l{0} & 1     & 0              & \frac{c-1}{3c} & \l{0} \\
+        \l{0} & \l{0} & 1              & 0              & \frac{c-1}{3c} \\
+        1     & 0     & 1              & 0              & \l{0} \\
+        \l{0} & 1     & 0              & 1              & 0
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=-4pt,yshift=0.5pt]4-|1) -- ([xshift=3pt,yshift=0.5pt]4-|6);
+            }
+        \end{NiceArray}\,\,\,.
+        \label{resultante:equation:sylGutStep1}
+    \end{equation}
+    Nach Anwendung der Zeilenoperationen erhält man das erste Tableau.
+    Auf dem kleineren Bereich kann nochmals eine Zeilenoperation
+    durchgeführt werden:
+    \begin{equation}
+\def\l#1{\bgroup\color{gray!20}#1\egroup}
+        \begin{NiceArray}{*{5}{c}}[cell-space-limits=3pt]
+        \;1\; & \,\;0\;\, & \frac{c-1}{3c}  & \l{0}           & \l{0} \\
+        \l{0} & 1         & 0               & \frac{c-1}{3c}  & \l{0} \\
+        \l{0} & \l{0}     & 1               & 0               & \frac{c-1}{3c}\\
+        \l{0} & \l{0}     & \frac{2c+1}{3c} & 0               & \l{0} \\
+        \l{0} & \l{0}     & \l{0}           & \frac{2c+1}{3c} & 0
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-4pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]6-|6);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=1pt,yshift=-1pt]6-|3);
+                \draw[dashed] ([xshift=1pt]3-|3) -- ([xshift=3pt]3-|6);
+                \draw[dashed] ([xshift=1pt]4-|3) -- ([xshift=3pt]4-|6);
+            }
+        \end{NiceArray}
+        \;\to\;
+        \begin{NiceArray}{*{3}{c}}[cell-space-limits=3pt]
+        \,1\, & \;0\; & \l{0}         \\
+        \l{0} & 1     & 0             \\
+        \l{0} & \l{0} & \frac{c-1}{3c}
+        \CodeAfter
+            \tikz {
+                \draw ([xshift=-3pt,yshift=1pt]1-|1) rectangle ([xshift=3pt,yshift=-1pt]4-|4);
+                \draw[dashed] ([xshift=-3pt]3-|1) -- ([xshift=3pt]3-|4);
+            }
+        \end{NiceArray}\,\,\,.
+        \label{resultante:equation:sylGutStep2}
+    \end{equation}
+    Das Schlusstableau hat als entscheidendes Element:
+    \begin{equation}
+        \begin{aligned}
+            \frac{c-1}{3c}&\overset{!}{=}0\\
+            c_1&=1,
+        \end{aligned}
+        \label{resultante:equation:solGut1}
+    \end{equation}
+    für \(c_1=1\) lässt sich im Schlusstableau aus
+    (\ref{resultante:equation:sylGutStep2}) für \(v_1(z)\) der \(\ggt=z\)
+    ablesen.
+    Findige Leser konnten bereits im vorherigen Tableau aus
+    (\ref{resultante:equation:sylGutStep2}) den Algorithmus beenden,
+    nämlich mit:
+    \begin{equation}
+        \begin{aligned}
+            \frac{2c+1}{3c}&\overset{!}{=}0\\
+            2c+1&=0\\
+            2c&=-1\\
+            c_2&=-\frac{1}{2},
+        \end{aligned}
+        \label{resultante:equation:solGut2}
+    \end{equation}
+    für \(c_2=-\frac{1}{2}\) lässt sich ebenfalls im zweitletzten
+    Tableau aus (\ref{resultante:equation:sylGutStep2}) für \(v_2(z)\)
+    der \(\ggt=z^2+1\) ablesen.
+
+    Setzt man die gefundenen Nullstellen mit ihrem jeweils zugehörigen
+    grössten gemeinsamen Teiler zusammen, erhält man die Stammfunktion:
+    \begin{equation*}
+        \int\frac{1}{z^3+z}\,dz=c_1\log v_1(z)+c_2\log v_2(z)
+        =
+        1\log z-\frac{1}{2}\log(z^2+1). \qedhere
+    \end{equation*}
+    \label{resultante:beispiel:gutesIntegral}
+\end{beispiel}
+
+\begin{beispiel}
+    Die Methode soll mit einem weiteren Beispiel verdeutlicht werden.
+    Das Integral
+    \begin{equation*}
+        \int\frac{1}{\log x}\,dx
+    \end{equation*}
+    soll gelöst werden.
+    Dafür muss \(F(\vartheta)=\mathbb{Q}(x)\) mit dem logarithmischen
+    Element \(\vartheta=\log x\) erweitert werden.
+    Der Integrand wird dadurch zu
+    \begin{equation*}
+        f=\frac{1}{\vartheta}
+    \end{equation*}
+    mit
+    \begin{equation}
+        \begin{aligned}
+            a(\vartheta)&=1\\
+            b(\vartheta)&=\vartheta\\
+            Db(\vartheta)&=\frac{1}{x}.
+        \end{aligned}
+    \end{equation}
+    Das \(D\) steht hier für die Derivation nach \(x\).
+    Die Resultante daraus sieht wie folgt aus:
+    \begin{equation}
+        R(c)
+        =
+        \Res_\vartheta(a(\vartheta)-cDb(\vartheta),b(\vartheta))
+        =
+        \Res_\vartheta\biggl(1-c\frac{1}{x},\vartheta\biggr)=0,
+        \label{resultante:equation:resTbad}
+    \end{equation}
+    das erste Polynom in der Resultante ist vom Grad \(0\) und das zweite
+    vom Grad \(1\).
+    Die daraus entstehende \(1\times1\)-Sylvester-Matrix im Tableau ist dann
+    \begin{equation}
+        \begin{NiceArray}{c}[cell-space-limits=3pt]
+        1-c\frac{1}{x} \\
+        \CodeAfter
+            \tikz \draw ([xshift=-3pt,yshift=2pt]1-|1) rectangle ([xshift=3pt,yshift=-2pt]2-|2);
+        \end{NiceArray}
+        \,\,\,\,\,\,.
+        \label{resultante:equation:sylBad}
+    \end{equation}
+    Der Algorithmus für dieses Tableau endet, bevor er überhaupt das
+    erste Mal angewandt wird.
+    Das kritische Element ist:
+    \begin{equation}
+        \begin{aligned}
+            1-\frac{c}{x}&\overset{!}{=}0\\
+            \frac{c}{x}&=1\\
+            c&=x,
+        \end{aligned}
+        \label{resultante:equation:solBad}
+    \end{equation}
+    die Nullstelle \(c\) muss für die Methode von Rothstein-Trager eine
+    Konstante sein (\(Dc\overset{!}{=}0\)).
+    Hier ist
+    \begin{equation*}
+        Dc=Dx=1\overset{!}{=}0 \,\text{\lightning}
+    \end{equation*}
+    Daraus folgt: das Integral ist nicht elementar lösbar.
+    Wie Beispiel \ref{buch:intalg:risch:bsp:1/logx} und Definition
+    \ref{buch:intalg:risch:def:integrallogarithmus} zeigt, ist das der
+    Integrallogarithmus.
+    \label{resultante:beispiel:badIntegral}
+\end{beispiel}
+
+Sobald die Nullstellen \(c_k\) aus der Resultante keine Konstanten sind,
+folgt daraus, dass solche Integrale nicht elementar lösbar sind.
