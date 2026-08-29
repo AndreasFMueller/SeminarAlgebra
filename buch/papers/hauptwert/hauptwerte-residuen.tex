@@ -145,6 +145,7 @@ Zusammen folgt die Behauptung.
 
 \subsection{Das Lemma von Jordan
 \label{hauptwert:subsection:jordan}}
+\input{papers/hauptwert/fig/jordan-ungleichung.tex}
 
 \begin{lemma}
 \label{hauptwert:lemma:jordan}
@@ -166,12 +167,12 @@ für Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
 \begin{proof}
   Der Bogen $C_R$ wird durch
-  $z(\varphi) = R e^{i \varphi}$, $\varphi\colon 0 \to \pi$, mit
-  $dz = i R e^{i \varphi}\,d\varphi$ parametrisiert, was
+  $z(\theta) = R e^{i \theta}$, $\theta\colon 0 \to \pi$, mit
+  $dz = i R e^{i \theta}\,d\theta$ parametrisiert, was
   \begin{equation}
     \int_{C_R} f(z) e^{iaz}\,dz
     =
-    \int_{0}^{\pi} f(R e^{i \varphi}) e^{i a R e^{i \varphi}} i R e^{i \varphi}\,d\varphi
+    \int_{0}^{\pi} f(R e^{i \theta}) e^{i a R e^{i \theta}} i R e^{i \theta}\,d\theta
   \end{equation}
   ergibt.
 
@@ -180,57 +181,58 @@ für Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
     \biggl| \int_{C_R} f(z) e^{iaz}\,dz \biggr|
     \le
     \int_{0}^{\pi}
-      \bigl| f(Re^{i\varphi}) \bigr|
-      \bigl| e^{iaRe^{i\varphi}} \bigr|
-      \bigl| i R e^{i \varphi} \bigr|
-      \,d\varphi.
+      \bigl| f(Re^{i\theta}) \bigr|
+      \bigl| e^{iaRe^{i\theta}} \bigr|
+      \bigl| i R e^{i \theta} \bigr|
+      \,d\theta.
   \end{equation}
   Nach Voraussetzung~\eqref{hauptwert:equation:jordanbedingung} ist
-  $|f(Re^{i\varphi})| \le M(R)$, und wegen $|i| = |e^{i\varphi}| = 1$ ist
-  $|iRe^{i\varphi}| = R$.
-  Da weder $M(R)$ noch $R$ von $\varphi$ abhängen, können sie vor das
+  $|f(Re^{i\theta})| \le M(R)$, und wegen $|i| = |e^{i\theta}| = 1$ ist
+  $|iRe^{i\theta}| = R$.
+  Da weder $M(R)$ noch $R$ von $\theta$ abhängen, können sie vor das
   Integral gezogen werden,
   \begin{equation}
     \biggl| \int_{C_R} f(z) e^{iaz}\,dz \biggr|
     \le
-    R\,M(R) \int_{0}^{\pi} \bigl| e^{iaRe^{i\varphi}} \bigr| \,d\varphi.
+    R\,M(R) \int_{0}^{\pi} \bigl| e^{iaRe^{i\theta}} \bigr| \,d\theta.
     \label{hauptwert:equation:jordanabschaetzung}
   \end{equation}
 
   Für den Betrag einer Exponentialfunktion ist allein der Realteil des
   Exponenten entscheidend, denn der Imaginärteil trägt wie gerade gesehen mit
-  $|e^{i\varphi}| = 1$ nichts bei.
-  Mit $z = R\cos\varphi + iR\sin\varphi$ wird
+  $|e^{i\theta}| = 1$ nichts bei.
+  Mit $z = R\cos\theta + iR\sin\theta$ wird
   \begin{equation}
     iaz
     =
-    -aR\sin\varphi + i\,aR\cos\varphi
+    -aR\sin\theta + i\,aR\cos\theta
     \qquad\Longrightarrow\qquad
-    \bigl| e^{iaz} \bigr| = e^{-aR\sin\varphi}.
+    \bigl| e^{iaz} \bigr| = e^{-aR\sin\theta}.
     \label{hauptwert:equation:jordandaempfung}
   \end{equation}
   Hier werden beide Voraussetzungen gebraucht: auf dem oberen Halbkreis ist
-  $\sin\varphi \ge 0$, wegen $a > 0$ ist der Exponent daher negativ und der
+  $\sin\theta \ge 0$, wegen $a > 0$ ist der Exponent daher negativ und der
   Faktor gedämpft.
-  An den beiden Endpunkten $\varphi = 0$ und $\varphi = \pi$, wo der Bogen
+  An den beiden Endpunkten $\theta = 0$ und $\theta = \pi$, wo der Bogen
   die reelle Achse trifft, ist er allerdings gleich $1$ und dämpft nichts.
 
   Das verbleibende Integral ist symmetrisch bezüglich
-  $\varphi \mapsto \pi - \varphi$, und auf $[0,\frac{\pi}{2}]$ verläuft der
-  Sinusbogen oberhalb seiner Sehne,
+  $\theta \mapsto \pi - \theta$, und auf $[0,\frac{\pi}{2}]$ verläuft der
+  Sinusbogen oberhalb seiner Sehne
+  (Abbildung~\ref{hauptwert:figure:jordan-ungleichung}),
   \begin{equation}
-    \sin\varphi \ge \frac{2\varphi}{\pi},
+    \sin\theta \ge \frac{2\theta}{\pi},
     \label{hauptwert:equation:jordanungleichung}
   \end{equation}
   womit der Integrand durch eine Exponentialfunktion mit linearem Exponenten
   nach oben abgeschätzt werden kann,
   \begin{equation}
   \begin{aligned}
-    \int_{0}^{\pi} e^{-aR\sin\varphi}\,d\varphi
-    &= 2 \int_{0}^{\pi/2} e^{-aR\sin\varphi}\,d\varphi
-     \le 2 \int_{0}^{\pi/2} e^{-2aR\varphi/\pi}\,d\varphi \\
+    \int_{0}^{\pi} e^{-aR\sin\theta}\,d\theta
+    &= 2 \int_{0}^{\pi/2} e^{-aR\sin\theta}\,d\theta
+     \le 2 \int_{0}^{\pi/2} e^{-2aR\theta/\pi}\,d\theta \\
     &= 2 \Bigl[
-         -\frac{\pi}{2aR} e^{-2aR\varphi/\pi}
+         -\frac{\pi}{2aR} e^{-2aR\theta/\pi}
        \Bigr]_{0}^{\pi/2}
      = \frac{\pi}{aR}\bigl(1 - e^{-aR}\bigr)
      \le \frac{\pi}{aR}.
