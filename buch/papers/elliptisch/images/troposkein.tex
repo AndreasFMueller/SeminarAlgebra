@@ -18,7 +18,9 @@
 % ---------- linkes Panel: haengende Schnur ----------
 \def\acat{2.6778}      % a in a*(cosh(x/a)-1), Durchhang 1.05 bei x = L
 
-\draw[dashed, black!45] (-\L-0.3,0) -- (\L+0.3,0);
+\draw[dashed, black!45] (-\L-0.3,0) -- (\L+0.3,0)
+	node[above=1pt] {$x$};
+\draw[->, black!45, thin] (0,0) -- (0,0.62) node[right=1pt] {$y$};
 \draw[darkred, line width=1.8pt, domain=-\L:\L, samples=60, smooth]
 	plot (\x, {\acat*cosh(\x/\acat)-\acat*cosh(\L/\acat)});
 
@@ -30,10 +32,16 @@
 % ---------- rechtes Panel: rotierendes Troposkein ----------
 \begin{scope}[xshift=6.6cm]
 
-\draw[dashed, black!45] (-\L-0.45,0) -- (\L+0.45,0);
+\draw[dashed, black!45] (-\L-0.45,0) -- (\L+1.00,0);
+\node[black!45, above=1pt] at (\L+0.25,0) {$x$};
+\draw[->, black!45, thin] (0,0) -- (0,0.62) node[right=1pt] {$y$};
 
-\draw[->, black!55] (\L+0.62,0.28) arc[start angle=70, end angle=-250, radius=0.28];
-\node[black!55] at (\L+0.62,0.68) {$\omega$};
+\def\wx{\L+0.70}\def\wrx{0.30}\def\wry{0.40}
+\draw[dashed, black!30, thin] ({\wx},\wry)
+	arc[start angle=90, end angle=-90, x radius=\wrx, y radius=\wry];
+\draw[->, black!55] ({\wx},-\wry)
+	arc[start angle=270, end angle=90, x radius=\wrx, y radius=\wry];
+\node[black!55] at ({\wx},\wry+0.24) {$\omega$};
 
 \draw[darkred, line width=1.8pt] plot file {troposkein-werte.dat};
 
@@ -42,35 +50,25 @@
 \node[anchor=north] at (-\L,-0.05) {$A$};
 \node[anchor=north] at (\L,-0.05) {$B$};
 
-% Kraeftebilanz an einem Schnurelement bei P: Tangentenwinkel theta,
-% Spannung T mit Komponenten T cos(theta) (axial) und T sin(theta)
-% (quer), sowie die radial nach aussen wirkende Zentrifugalkraft.
-% Die Tangente zeigt nach hinten-oben (Winkel 180-thP), damit T und
-% seine Komponenten in die freie Flaeche zwischen P und A zeigen.
-\def\Px{-1.188}\def\Py{0.756}
-\def\thP{26.6}
-\def\rP{180-\thP}
-\def\bis{(180+\rP)/2}
+% Kraefte an einem Element bei P
+\def\Px{-0.8433}\def\Py{0.9033}
+\def\thP{199.48}
+\def\Lt{1.26}
 \fill (\Px,\Py) circle (0.028);
 
-% Tangente als Referenzlinie
-\draw[black!45, thin] (\Px,\Py) -- ++({0.45*cos(\rP)},{0.45*sin(\rP)});
-\draw[black!45, thin] (\Px,\Py) -- ++(-0.45,0);
+\draw[->, black!75, thick] (\Px,\Py) -- ++({\Lt*cos(\thP)},{\Lt*sin(\thP)})
+	node[below left=-2pt] {\small $T$};
 
-% Winkel theta gegen die Achse
-\draw[black!45] ($(\Px,\Py)+({0.28*cos(\rP)},{0.28*sin(\rP)})$)
-	arc[start angle=\rP, end angle=180, radius=0.28];
-\node[black!45] at ({\Px+0.58*cos(\bis)},{\Py+0.58*sin(\bis)}) {\small $\theta$};
+\draw[dashed, black!40] (\Px,\Py) -- ++({\Lt*cos(\thP)},0)
+	node[midway, above=2pt] {\small $T\cos\theta$};
+\draw[dashed, black!40] ({\Px+\Lt*cos(\thP)},\Py) -- ++(0,{\Lt*sin(\thP)})
+	node[midway, left=2pt] {\small $T\sin\theta$};
 
-% Spannung T (entlang der Tangente) und ihre Komponenten
-\draw[->, black!75, thick] (\Px,\Py) -- ++({1.05*cos(\rP)},{1.05*sin(\rP)})
-	node[above=2pt] {\small $T$};
-\draw[dashed, black!40] (\Px,\Py) -- ++({1.05*cos(\rP)},0)
-	node[midway, below=4pt] {\small $T\cos\theta$};
-\draw[dashed, black!40] ({\Px+1.05*cos(\rP)},{\Py}) -- ++(0,{1.05*sin(\rP)})
-	node[midway, left=4pt] {\small $T\sin\theta$};
+\draw[black!45] ($(\Px,\Py)+(-0.62,0)$)
+	arc[start angle=180, end angle=\thP, radius=0.62];
+\node[black!45] at ({\Px+0.82*cos((180+\thP)/2)},{\Py+0.82*sin((180+\thP)/2)})
+	{\small $\theta$};
 
-% Zentrifugalkraft, radial nach aussen (in +y Richtung)
 \draw[->, darkgreen, thick] (\Px,\Py) -- ++(0,0.85)
 	node[above right=-1pt] {\small $\rho\omega^2 y\,ds$};
 
