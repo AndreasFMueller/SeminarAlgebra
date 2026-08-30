@@ -10,8 +10,9 @@
 \label{elliptisch:section:funktionen}}
 \kopfrechts{Neue Funktionen}
 
-Im vorherigen Abschnitt wurde dem Ellipsenintegral \eqref{elliptisch:equation:umfang}
-ein Namen gegeben.
+Im vorherigen Abschnitt ist das Umfangsintegral
+\eqref{elliptisch:equation:umfang} als elliptisches Integral ohne
+elementare Stammfunktion eingeordnet worden.
 Die Definition \eqref{elliptisch:equation:definition} lässt für die
 rationale Funktion $R$ und das Polynom $p$ unendlich viele
 Möglichkeiten zu, und für jede davon eine eigene Funktion
@@ -38,7 +39,7 @@ mit dem Polynom $p(t) = (1-t^2)(1-k^2t^2)$ unter der Wurzel,
 $0 < k < 1$ und $n \in \mathbb{R}$ schreiben.
 \end{satz}
 Der Beweis ist bei Smirnow zu finden
-\cite[Abschnitt~164, S.~506]{elliptisch:smirnow} \cite{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~164, S.~506]{elliptisch:smirnow} und \cite{elliptisch:mueller-spezielle}.
 Er verläuft in zwei Schritten.
 Zuerst wird das beliebige Polynom $p$ vom Grad $3$ oder $4$ durch
 eine gebrochen lineare Substitution auf die Form
@@ -56,10 +57,16 @@ Die Zahl $k$ heisst \emph{Modul}, die Zahl $n$ in der dritten Art
 \emph{Charakteristik}.
 \index{Modul}%
 \index{Charakteristik}%
-Beim Integral zweiter Art kürzt sich $\sqrt{1-k^2t^2}$ heraus, es
-lässt sich also auch über dem gemeinsamen Nenner schreiben,
+Schreibt man das Integral zweiter Art stattdessen über dem
+gemeinsamen Nenner $\sqrt{p(t)}$, kürzt sich ein Faktor
+$\sqrt{1-k^2t^2}$ heraus und man erhält wieder die Form aus
+\eqref{elliptisch:equation:normalformen},
 \begin{equation}
 \int \frac{1-k^2t^2}{\sqrt{p(t)}}\,dt
+=
+\int \frac{1-k^2t^2}{\sqrt{(1-t^2)(1-k^2t^2)}}\,dt
+=
+\int \frac{\sqrt{1-k^2t^2}}{\sqrt{1-t^2}}\,dt
 =
 \int \sqrt{\frac{1-k^2t^2}{1-t^2}}\,dt.
 \label{elliptisch:equation:zweiteart}
@@ -106,6 +113,10 @@ E(k)
 \index{elliptisches Integral!vollstandiges@vollständiges}%
 \index{K@$K(k)$}%
 \index{E@$E(k)$}%
+Für die Anwendungen in
+Abschnitt~\ref{elliptisch:section:anwendungen} genügen die ersten
+beiden Arten, die dritte Art entsteht erst, wenn der Nenner des
+rationalen Anteils Nullstellen mitbringt.
 
 Diese Schreibweise heisst \emph{Jacobi-Normalform}.
 Die Substitution $t = \sin\varphi$ führt auf eine zweite
@@ -292,7 +303,7 @@ Dieselbe Geste, angewendet auf beliebiges $k$, liefert
 s
 &=
 \arcsin x
-&\quad&\Longleftrightarrow&
+&\quad&\Leftrightarrow\quad&
 x
 &=
 \sin s,
@@ -300,7 +311,7 @@ x
 u
 &=
 F(x,k)
-&\quad&\Longleftrightarrow&
+&\quad&\Leftrightarrow\quad&
 x
 &=
 \operatorname{sn}(u,k).
@@ -372,7 +383,7 @@ und messen seine Lage durch den Parameter $u$ aus
 \eqref{elliptisch:equation:amplitude}, sodass
 $\varphi = \operatorname{am}(u,k)$ ist, mit dem Modul
 $k = \sqrt{a^2-1}/a$.
-Die drei Jacobischen Funktionen sind die
+Die drei jacobischen Funktionen sind die
 Koordinatenverhältnisse dieses Punktes,
 \begin{equation}
 \operatorname{sn}(u,k) = y,
@@ -415,6 +426,12 @@ und $\operatorname{dn}(u,0) = 1$, wie es sein muss.
 
 Lässt man $\varphi$ von $0$ bis $2\pi$ laufen, durchläuft $P$ die
 Ellipse einmal, und $u$ wächst von $0$ auf $4K(k)$.
+Das Integral \eqref{elliptisch:equation:amplitude} legt $u$ zu
+jedem Winkel $\varphi$ fest, und weil der Integrand positiv ist,
+wächst $u$ mit $\varphi$ streng monoton über alle Grenzen.
+Die Umkehrung $\varphi = \operatorname{am}(u,k)$ und damit
+$\operatorname{sn}(u,k) = \sin\operatorname{am}(u,k)$ existieren
+also für jedes reelle $u$, nicht mehr nur auf $[0, K(k)]$.
 Auf das erste Viertel entfällt genau das Argument $u = K(k)$,
 denn $\varphi = \pi/2$ bedeutet $y = 1$, und $F(1,k) = K(k)$.
 Die Werte an den Viertelstellen sind damit
@@ -517,7 +534,7 @@ Genau diese Signatur wird in den Anwendungen von
 Abschnitt~\ref{elliptisch:section:anwendungen} wieder auftauchen.
 Führt die Physik auf eine Gleichung der Form
 \eqref{elliptisch:equation:signatur}, ist die Lösung eine
-Jacobische Funktion.
+jacobische Funktion.
 
 Die Grenzfälle des Moduls geben die Brücke zu Bekanntem.
 Für $k = 0$ wird $\operatorname{sn}$ zu $\sin$, $\operatorname{cn}$

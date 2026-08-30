@@ -33,7 +33,7 @@ U
 Dieselbe Rechnung führen wir nun für die Ellipse mit den Halbachsen
 $a \ge b$ durch, parametrisiert durch
 $(x,y) = (a\cos t,\, b\sin t)$
-(Abbildung~\ref{fig:elliptisch:ellipse}).
+(siehe Abbildung~\ref{fig:elliptisch:ellipse}).
 \input{papers/elliptisch/fig/ellipseFIG.tex}
 Das Bogenelement ist
 \begin{equation}
@@ -49,7 +49,8 @@ k^2 = \frac{a^2-b^2}{a^2},
 \label{elliptisch:equation:bogenelement}
 \end{equation}
 wobei $k$ die numerische Exzentrizität ist
-\cite{elliptisch:mueller-spezielle}.
+\cite{elliptisch:mueller-spezielle}, später aber auch Modul
+genannt.
 \index{Ellipse}%
 \index{Exzentrizitat@Exzentrizität}%
 Bemerkenswert ist, dass diesmal die Wurzel nicht verschwindet.
@@ -59,6 +60,7 @@ volle Umfang
 U
 =
 4a \int_0^{\pi/2} \sqrt{1 - k^2\cos^2 t}\,dt
+\label{elliptisch:equation:umfangcos}
 \end{equation}
 ist das Vierfache davon.
 Die Substitution $t \mapsto \frac{\pi}{2} - t$ bildet das Intervall
@@ -124,12 +126,12 @@ garantiert eine elementare Stammfunktion.
 Ein Computeralgebrasystem liefert sie auch, nämlich
 \begin{equation}
 \frac{\sqrt{2}}{4}
-\log\frac{\sqrt{\tan x}-\sqrt{2}\sqrt[4]{\tan x}+1}
-        {\sqrt{\tan x}+\sqrt{2}\sqrt[4]{\tan x}+1}
+\log\frac{\tan x-\sqrt{2}\sqrt{\tan x}+1}
+        {\tan x+\sqrt{2}\sqrt{\tan x}+1}
 +
-\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt[4]{\tan x}-1\right)
+\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt{\tan x}-1\right)
 +
-\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt[4]{\tan x}+1\right).
+\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt{\tan x}+1\right).
 \label{elliptisch:equation:tanxmonster}
 \end{equation}
 Der Ausdruck ist so unhandlich, dass er für praktische Zwecke
@@ -228,7 +230,7 @@ v_0 + \sum_{i=1}^n c_i \log v_i.
 \end{equation}
 \end{satz}
 Der Beweis wird in Abschnitt~\ref{buch:intalg:section:liouville}
-geführt \cite[Kapitel~8]{elliptisch:mueller-algebra}.
+geführt.
 An dieser Stelle interessiert uns, was die Aussage leistet.
 
 Ohne diesen Satz müsste die Stammfunktion in einer beliebig grossen

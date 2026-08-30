@@ -20,9 +20,15 @@
 \def\sq{0.791686}      % sin(phi)
 \def\px{1.018213}      % a*cos(phi), x-Koordinate von P
 
+% Achsenlabels verschieben
+\def\xdx{-0.05}\def\xdy{-0.05}
+\def\ydx{-0.05}\def\ydy{0.0}
+
 % ---------- linkes Panel: Einheitskreis ----------
-\draw[->, black!45] (-1.35,0) -- (1.55,0) node[anchor=north east] {$x$};
-\draw[->, black!45] (0,-1.35) -- (0,1.55) node[anchor=south east] {$y$};
+\draw[->, black!45] (-1.15,0) -- (1.35,0);
+\draw[->, black!45] (0,-1.35) -- (0,1.55);
+\node at ({1.35+\xdx},{\xdy}) [anchor=north east] {$x$};
+\node at ({\ydx},{1.33+\ydy}) [anchor=south east] {$y$};
 
 \draw (0,0) circle (1);
 \draw[thin] (0,0) -- (0.540302,0.841471);
@@ -36,10 +42,12 @@
 \node[darkred, anchor=south west] at (0.52,0.86) {$(\cos u, \sin u)$};
 
 % ---------- rechtes Panel: Ellipse mit Hilfskreis ----------
-\begin{scope}[xshift=4.3cm]
+\begin{scope}[xshift=3.4cm]
 
-\draw[->, black!45] (-1.9,0) -- (2.1,0) node[anchor=north east] {$x$};
-\draw[->, black!45] (0,-1.35) -- (0,1.6) node[anchor=south east] {$y$};
+\draw[->, black!45] (-1.7,0) -- (1.9,0);
+\draw[->, black!45] (0,-1.35) -- (0,1.6);
+\node at ({1.9+\xdx},{\xdy}) [anchor=north east] {$x$};
+\node at ({\ydx},{1.38+\ydy}) [anchor=south east] {$y$};
 
 \draw[dashed, thin] (0,0) circle (1);
 \draw (0,0) ellipse ({\a} and 1);
