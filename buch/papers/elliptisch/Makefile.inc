@@ -18,11 +18,13 @@ dependencies-elliptisch =						\
 	papers/elliptisch/fig/sn-konstruktionFIG.tex			\
 	papers/elliptisch/fig/lemniskateFIG.tex			\
 	papers/elliptisch/fig/troposkeinFIG.tex			\
+	papers/elliptisch/fig/pendelFIG.tex			\
 	papers/elliptisch/images/gradskala.pdf				\
 	papers/elliptisch/images/ellipse.pdf				\
 	papers/elliptisch/images/koerperturm.pdf			\
 	papers/elliptisch/images/ke-plot.pdf				\
 	papers/elliptisch/images/sn-konstruktion.pdf			\
 	papers/elliptisch/images/lemniskate.pdf			\
+	papers/elliptisch/images/pendel.pdf			\
 	papers/elliptisch/images/troposkein.pdf
 

@@ -45,6 +45,7 @@ r^2\,d\varphi^2
 \frac{r^4}{\sin^2 2\varphi}\,dr^2
 =
 \frac{r^4}{1-r^4}\,dr^2,
+\label{elliptisch:equation:phielimination}
 \end{equation}
 denn es ist $\sin^2 2\varphi = 1 - \cos^2 2\varphi = 1 - r^4$.
 Somit bleibt im Bogenelement nur noch der Radius,
@@ -54,6 +55,7 @@ ds
 \sqrt{1 + \frac{r^4}{1-r^4}}\,dr
 =
 \frac{dr}{\sqrt{1-r^4}}.
+\label{elliptisch:equation:bogenelementr}
 \end{equation}
 Die Bogenlänge vom Nullpunkt bis zum Punkt mit Radius $r$ ist damit
 \begin{equation}
@@ -62,12 +64,20 @@ s(r)
 \int_0^r \frac{dt}{\sqrt{1-t^4}}.
 \label{elliptisch:equation:lemniskatebogen}
 \end{equation}
-Unter der Wurzel steht wieder ein Polynom vierten Grades, und der
-Vergleich mit der Normalform in
-\eqref{elliptisch:equation:normalformen} liefert
-$(1-t^2)(1-k^2t^2) = 1-t^4$, also den Modul $k^2 = -1$.
-Eine elementare Stammfunktion ist damit nicht zu erwarten, und der
-Kontrast zum Kreis wiederholt sich.
+Unter der Wurzel steht mit $1-t^4 = (1-t^2)(1+t^2)$ wieder ein
+Polynom vierten Grades ohne mehrfache Nullstellen, das Integral
+fällt also unter die Definition
+\eqref{elliptisch:equation:definition}.
+Der direkte Vergleich mit der Normalform
+\eqref{elliptisch:equation:normalformen} liefert formal
+$k^2 = -1$, ausserhalb des Bereichs von
+Satz~\ref{elliptisch:satz:nichtelementar}.
+Wie Gleichung \eqref{elliptisch:equation:sljacobi} weiter unten
+zeigt, gehört das Integral nach einer Substitution zum Modul
+$k = 1/\sqrt{2}$, und weil diese Substitution algebraisch ist,
+überträgt sich der Satz, eine elementare Stammfunktion existiert
+nicht.
+Der Kontrast zum Kreis wiederholt sich.
 Das Integral $\int_0^r dt/\sqrt{1-t^2} = \arcsin r$ bleibt
 elementar, das Bogenlängenintegral der Lemniskate nicht.
 
@@ -75,6 +85,10 @@ Wie in \eqref{elliptisch:equation:umkehrung} kehren wir um.
 Die Umkehrfunktion $r = \operatorname{sl}(s)$ heisst
 \emph{lemniskatischer Sinus}.
 \index{lemniskatischer Sinus}%
+Leitet man \eqref{elliptisch:equation:lemniskatebogen} nach $s$ ab,
+folgt $(\operatorname{sl}')^2 = 1 - \operatorname{sl}^4$, wieder die
+Signatur \eqref{elliptisch:equation:signatur} aus dem
+Werkzeugkasten.
 Der Bogen vom Nullpunkt bis zum Scheitel $(1,0)$ hat die Länge
 $\varpi/2$, wobei
 \begin{equation}
@@ -100,7 +114,7 @@ Erst dreissig Jahre später wurde derselbe Umkehrschritt von Abel
 und Jacobi in voller Allgemeinheit vollzogen
 (Abschnitt~\ref{elliptisch:subsection:unvollstaendig}).
 
-Die Verbindung zu den Jacobischen Funktionen gewinnt man aus der
+Die Verbindung zu den jacobischen Funktionen gewinnt man aus der
 Bogenlängenparametrisierung der Lemniskate.
 Aus ihr folgt
 \begin{equation}
@@ -117,7 +131,7 @@ Verschiebung des Arguments die Funktion $\operatorname{cn}$ zum
 Modul $k = 1/\sqrt{2}$
 \cite[Kapitel~11.3]{elliptisch:mueller-spezielle}.
 Insbesondere ist $\varpi = \sqrt{2}\,K(1/\sqrt{2})$, ganz analog zu
-$\pi/2 = K(0)$ in \eqref{elliptisch:equation:randnull}.
+$\pi = 2K(0)$ in \eqref{elliptisch:equation:randnull}.
 
 \subsection{Das Troposkein
 \label{elliptisch:subsection:troposkein}}
@@ -155,10 +169,18 @@ die Zentrifugalkraft,
 -\rho\omega^2 y.
 \label{elliptisch:equation:troposkeinradial}
 \end{equation}
-Mit $T\sin\theta = T_0\tan\theta$ aus
-\eqref{elliptisch:equation:troposkeinaxial} und
-$dy/ds = \sin\theta$ lässt sich
-\eqref{elliptisch:equation:troposkeinradial} integrieren und liefert
+Aus \eqref{elliptisch:equation:troposkeinaxial} folgt durch
+Differenzieren die Beziehung
+$dT/ds = \sin\theta \cdot d(T\sin\theta)/ds$.
+Multipliziert man \eqref{elliptisch:equation:troposkeinradial} mit
+$\sin\theta$, steht damit
+\begin{equation}
+\frac{dT}{ds}
+=
+-\rho\omega^2 y\,\frac{dy}{ds},
+\label{elliptisch:equation:troposkeinintegration}
+\end{equation}
+und die Integration nach $y$ liefert
 die Spannung als Funktion des Abstandes,
 \begin{equation}
 T(y)
@@ -187,7 +209,7 @@ physikalischen Grössen und den Randbedingungen bestimmen.
 Rechts steht ein Polynom vierten Grades in $y$, genau die Signatur
 \eqref{elliptisch:equation:signatur} aus dem Werkzeugkasten.
 Die Lösung muss daher eine jacobische Funktion sein.
-Wir machen den Ansatz
+Wir machen den Ansatz, mit $x$ von $A$ aus gemessen,
 \begin{equation}
 y(x)
 =
@@ -204,15 +226,38 @@ was mit $k = b/a$ genau die rechte Seite von
 \eqref{elliptisch:equation:troposkein} ergibt.
 Die Randbedingungen legen die Konstanten fest.
 Das Seil geht bei $A$ und $B$ durch $y = 0$ und erreicht seine
-grosste Auslenkung in der Mitte, also ist der Achsenabstand
+grösste Auslenkung in der Mitte, also ist der Achsenabstand
 $AB = 2c\,K(k)$, und die vorgegebene Seillänge liefert die zweite
 Bedingung an $b$ und $c$.
 
+Welche Form das Seil annimmt, bestimmt der Modul, und der kommt
+aus der Physik.
+Setzt man \eqref{elliptisch:equation:troposkeinspannung} in
+$(y')^2 = (T/T_0)^2 - 1$ ein und vergleicht mit
+\eqref{elliptisch:equation:troposkein}, liest man
+\begin{equation}
+k^2
+=
+\frac{b^2}{a^2}
+=
+\frac{a^2}{a^2 + 4T_0/(\rho\omega^2)}
+\label{elliptisch:equation:troposkeinmodul}
+\end{equation}
+ab.
+Schnelle Rotation bei schwacher Spannung treibt $k$ gegen $1$,
+starke Spannung gegen $0$.
+
 Damit stellt sich heraus, dass das Auge uns hier täuscht.
-Die Springseilkurve sieht aus wie eine Sinushalbwelle, ist aber
-keine, erst recht keine Kettenlinie mehr, sondern ein Jacobischer
-Sinus als Funktion des \emph{Ortes}.
-Dieselbe Gleichung \eqref{elliptisch:equation:troposkein} wird uns
+Die Springseilkurve sieht aus wie eine Sinushalbwelle, ist aber ein
+jacobischer Sinus als Funktion des \emph{Ortes}.
+Was die Form verändert, ist allein der Modul.
+Nach den Grenzfällen aus
+Abschnitt~\ref{elliptisch:subsection:werkzeugkasten} ist
+$\operatorname{sn}$ für $k = 0$ der gewöhnliche Sinus, während die
+Halbwelle für $k \to 1$ ein Plateau und steile Flanken bekommt.
+Mit \eqref{elliptisch:equation:troposkeinmodul} wird dieses Plateau
+also breiter, je schneller das Seil rotiert.
+Dieselbe Signatur \eqref{elliptisch:equation:signatur} wird uns
 in Abschnitt~\ref{elliptisch:subsection:pendel} wieder begegnen,
 dort mit der Zeit als unabhängiger Variable.
 Die Form hat auch eine technische Seite.
@@ -221,6 +266,106 @@ gebaut, weil die Zentrifugalkraft ein Seil in dieser Form nur auf
 Zug belastet und nicht auf Biegung
 \cite{elliptisch:wiki-darrieus}.
 \index{Darrieus-Rotor}%
+Dessen Achse steht senkrecht, und damit wirkt die Schwerkraft
+längs der Achse.
+Sie geht in die axiale Bilanz ein, aus
+\eqref{elliptisch:equation:troposkeinaxial} wird
+$d(T\cos\theta)/ds = \rho g$, und das Troposkein ist nur noch eine
+Näherung.
+Bei Betriebsdrehzahl ist $\omega^2 y$ jedoch um Grössenordnungen
+grösser als $g$, sodass die Abweichung klein bleibt.
 
 \subsection{Das Pendel
 \label{elliptisch:subsection:pendel}}
+Wie am Ende von Abschnitt~\ref{elliptisch:subsection:troposkein}
+angekündigt, begegnet uns die Signatur
+\eqref{elliptisch:equation:signatur} jetzt mit der Zeit als
+unabhängiger Variable.
+Ein Massepunkt der Masse $m$ hängt an einem masselosen Stab der
+Länge $l$, und $\vartheta$ sei der Auslenkwinkel gegen das Lot
+(Abbildung~\ref{fig:elliptisch:pendel}, links).
+\input{papers/elliptisch/fig/pendelFIG.tex}%
+Die Bewegungsgleichung des Pendels ist
+\begin{equation}
+\ddot{\vartheta} = -\frac{g}{l}\,\sin\vartheta.
+\label{elliptisch:equation:pendelbewegung}
+\end{equation}
+Wir verzichten auf die Kleinwinkelnäherung
+\index{Kleinwinkelnäherung}%
+$\sin\vartheta \approx \vartheta$ und rechnen exakt.
+
+Die Multiplikation von \eqref{elliptisch:equation:pendelbewegung}
+mit $\dot\vartheta$ und Integration über die Zeit liefert die
+Energieerhaltung, ein erstes Integral der Bewegungsgleichung.
+Startet das Pendel aus der Ruhe bei der Amplitude $\vartheta_0$, so
+ist
+\begin{equation}
+\frac{1}{2}\,ml^2\dot\vartheta^2 + mgl\,(1-\cos\vartheta)
+=
+mgl\,(1-\cos\vartheta_0).
+\label{elliptisch:equation:pendelenergie}
+\end{equation}
+Mit $1-\cos\vartheta = 2\sin^2(\vartheta/2)$ folgt
+$\dot\vartheta^2 = (4g/l)\,\bigl(\sin^2(\vartheta_0/2)
+-\sin^2(\vartheta/2)\bigr)$, und die Substitution
+$y = \sin(\vartheta/2)$ mit
+$\dot y^2 = \frac14\,(1-y^2)\,\dot\vartheta^2$ ergibt
+\begin{equation}
+\dot y^2
+=
+\frac{g}{l}\,(1-y^2)\,\bigl(y_0^2-y^2\bigr),
+\qquad
+y_0 = \sin\frac{\vartheta_0}{2}.
+\label{elliptisch:equation:pendeldgl}
+\end{equation}
+Rechts steht wieder die Signatur
+\eqref{elliptisch:equation:signatur}.
+Die Normierung $z = y/y_0$ auf die Amplitude und
+$u = \sqrt{g/l}\,t$ auf die Zeit macht daraus
+\begin{equation}
+\biggl(\frac{dz}{du}\biggr)^2
+=
+(1-z^2)\,\bigl(1-y_0^2 z^2\bigr),
+\label{elliptisch:equation:pendelnormiert}
+\end{equation}
+exakt die Gleichung \eqref{elliptisch:equation:sndgl} des
+jacobischen Sinus.
+Damit ist $z = \operatorname{sn}(u,k)$ mit dem Modul
+$k = y_0 = \sin(\vartheta_0/2)$, der die Amplitude misst.
+Die Energie ist $E = 2mgl\,k^2$
+\cite[Kapitel~11.2.3]{elliptisch:mueller-spezielle}.
+
+Jetzt machen wir die beiden Substitutionen rückgängig.
+Aus $z = y/y_0$ und $k = y_0$ wird
+$y = y_0 z = k\,\operatorname{sn}(u,k)$, und mit
+$y = \sin(\vartheta/2)$ sowie $u = \sqrt{g/l}\,t$ ist
+\begin{equation}
+\sin\frac{\vartheta}{2}
+=
+k\,\operatorname{sn}\bigl(\sqrt{g/l}\;t,\,k\bigr),
+\qquad\text{also}\qquad
+\vartheta(t)
+=
+2\arcsin\Bigl(k\,\operatorname{sn}\bigl(\sqrt{g/l}\;t,\,k\bigr)\Bigr).
+\label{elliptisch:equation:pendelloesung}
+\end{equation}
+Eine volle Schwingung durchläuft in $u$ die Periode $4K(k)$.
+Gesucht ist aber die Periode in der Zeit und nicht in $u$.
+Wegen $t = u\sqrt{l/g}$ wird daraus die Schwingungsdauer
+\begin{equation}
+T = 4\,\sqrt{\frac{l}{g}}\;K(k).
+\label{elliptisch:equation:pendelperiode}
+\end{equation}
+
+Für kleine Amplituden geht $k$ gegen $0$, und mit $K(0) = \pi/2$
+aus \eqref{elliptisch:equation:randnull} kommt
+$T \to 2\pi\sqrt{l/g}$ heraus, die Kleinwinkelnäherung kehrt als
+Grenzfall zurück.
+Bei $\vartheta_0 = 90^\circ$ ist die Periode bereits um $18\,\%$
+länger als die Kleinwinkelformel, bei $\vartheta_0 = 179^\circ$
+um den Faktor $3.9$
+(Abbildung~\ref{fig:elliptisch:pendel}, rechts).
+Für $k \to 1$, also $\vartheta_0 \to \pi$, divergiert $K(k)$
+logarithmisch wie in \eqref{elliptisch:equation:kasymptotik}, und
+die Schwingungsdauer wächst über alle Grenzen, das Pendel erreicht
+den oberen Scheitelpunkt asymptotisch nie.
