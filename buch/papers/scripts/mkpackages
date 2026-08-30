@@ -12,6 +12,9 @@ awk 'BEGIN {
 	printf("%%\n")
 	counter = 2
 }
+/^#/ {
+	next
+}
 {
 	printf("\\def\\kapitelNummer%s{%d}\n", $1, counter++)
 	printf("\\input{papers/%s/packages.tex}\n", $1)
