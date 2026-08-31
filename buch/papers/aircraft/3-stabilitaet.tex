@@ -1,0 +1,41 @@
+% (c) 2026 Stephanie Märklin, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+% Rolle im Paper: Die Frage in der Sprache des Modells exakt formulieren —
+% Übergabe an die Mathematik
+%
+% Stichworte:
+% 17.3 Stabilität als mathematische Eigenschaft
+% - Andocken: "Es bleibt, den Stabilitätsbegriff zu übersetzen."
+% - Übersetzung als Kette: Ruhelage -> x = 0 (Begründung mit denn),
+%   Störung -> x(0) != 0, Rückkehr -> x(t) gegen 0
+% - Definition (heisst-Muster): stabil, wenn jede Lösung für jeden
+%   Anfangszustand gegen 0 geht
+% - Schluss-Feststellung: Flugzeugfrage -> DGL-Frage; Suchauftrag
+%   "Wir suchen x(t), das die Gleichung erfüllt" (Whiteboard/Vortrag);
+%   17.4 dockt mit "Ableitung proportional zur Funktion" an
+% - Stil: genau EIN Doppelpunkt (vor dem Suchauftrag); keine Fragen
+
+\section{Stabilität als mathematische Eigenschaft
+\label{aircraft:section:3-mathematische-stabilitaet}}
+\kopfrechts{Mathematische Stabilität}
+Wir übersetzen nun auch den Stabilitätsbegriff aus
+Abschnitt~\ref{aircraft:section:1-grundbegriffe} in die Sprache des
+dynamischen Systems.
+In der Ruhelage verschwinden alle vier Zustandsgrössen, denn das
+Flugzeug schiebt nicht, rollt nicht und giert nicht, und die Flügel
+liegen horizontal.
+In der Ruhelage ist also $\vec{x} = \vec{0}$.
+Eine Störung ist ein Anfangszustand $\vec{x}(0) \neq \vec{0}$.
+Die Rückkehr in die Ruhelage bedeutet, dass $\vec{x}(t)$ für
+wachsende Zeit gegen $\vec{0}$ strebt.
+Das System heisst also stabil, wenn jede Lösung der
+Gleichung~\eqref{aircraft:eqn:bewegungsgesetz} für jeden
+Anfangszustand gegen $\vec{0}$ geht.
+
+Aus der Frage nach der Stabilität eines Flugzeugs ist damit eine
+Frage über die Lösungen einer Differentialgleichung geworden.
+Wir suchen die Funktionen $\vec{x}(t)$, welche die
+Gleichung~\eqref{aircraft:eqn:bewegungsgesetz} erfüllen.

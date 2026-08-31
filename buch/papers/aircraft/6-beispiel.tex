@@ -1,0 +1,90 @@
+% (c) 2026 Stephanie Märklin, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+% Rolle im Paper: Beleg
+%
+% Stichworte:
+% 17.6 Rechenbeispiel und Vergleich realer Flugzeuge
+% - Vorgehen: Systemmatrix mit Zahlenwerten (Nelson Tab. 5.2,
+%   Flugzustand nennen); Eigenwerte numerisch berechnen (MATLAB)
+% - Feststellung: alle Realteile negativ -> Seitenbewegung stabil
+% - Vergleich Business Jet (Stengel \cite): Spiral positiv ->
+%   instabil, aber langsam; Dutch Roll schwächer gedämpft
+
+\section{Rechenbeispiel und Vergleich realer Flugzeuge
+\label{aircraft:section:6-rechenbeispiel}}
+\kopfrechts{Rechenbeispiel}
+Wir setzen die Derivative eines einmotorigen Propellerflugzeugs im
+Horizontalflug auf Meereshöhe bei 176\,ft/s ein, die Werte stammen
+aus Nelson~\cite{aircraft:nelson}, Tabelle~5.2.
+Die Systemmatrix lautet damit
+\begin{equation}
+    A
+    =
+    \begin{pmatrix}
+        -0.254 &  0     & -1.0   & 0.182 \\
+        -16.02 & -8.40  &  2.19  & 0     \\
+        4.488 & -0.350 & -0.760 & 0     \\
+        0     &  1     &  0     & 0
+    \end{pmatrix}.
+    \label{aircraft:eqn:matrix-ga}
+\end{equation}
+Die Nullstellen der charakteristischen Gleichung berechnen wir
+numerisch mit MATLAB.
+% OFFEN: Folie 12 -- Befehl/Skript nennen, falls im Anhang gewünscht
+Das ergibt die vier Eigenwerte
+\begin{align}
+    \lambda_1 &= -8.435, \notag \\
+    \lambda_2 &= -0.00877, \notag \\
+    \lambda_{3,4} &= -0.487 \pm 2.335\,i.
+    \label{aircraft:eqn:eigenwerte-ga}
+\end{align}
+Tatsächlich stimmen sie mit den von Nelson~\cite{aircraft:nelson}
+angegebenen Werten überein.
+Die beiden reellen Eigenwerte gehören zur Rollbewegung und zur
+Spiralbewegung, das komplexe Paar ist die Dutch Roll.
+Alle vier Realteile sind negativ, die Seitenbewegung dieses
+Flugzeugs ist also stabil.
+
+Zum Vergleich betrachten wir einen Business Jet, dessen Eigenwerte
+Stengel~\cite{aircraft:stengel} angibt:
+\begin{align}
+    \lambda_1 &= -1.2, \notag \\
+    \lambda_2 &= +0.00883, \notag \\
+    \lambda_{3,4} &= -0.116 \pm 1.39\,i.
+    \label{aircraft:eqn:eigenwerte-jet}
+\end{align}
+Der Eigenwert der Spiralbewegung ist positiv, die Seitenbewegung
+dieses Flugzeugs ist nach Abschnitt~\ref{aircraft:subsection:realteil-imaginaerteil}
+also instabil.
+Der Realteil der Dutch Roll ist negativ, aber deutlich näher bei
+null als beim Propellerflugzeug.
+
+Die Abbildung~\ref{aircraft:fig:komplexe-ebene} zeigt die
+Eigenwerte beider Flugzeuge in der komplexen Ebene.
+Der Abstand eines Eigenwerts von der imaginären Achse ist seine
+Dämpfung, sein Abstand von der reellen Achse seine Frequenz.
+Aus beiden folgen die Periode $T = 2\pi/\omega$ der Schwingung und
+die Zeit $t_{1/2} = \ln 2 / |\sigma|$, in der die Amplitude auf die
+Hälfte fällt.
+Die Tabelle~\ref{aircraft:table:dutchroll} enthält diese Werte für
+die Dutch Roll beider Flugzeuge.
+
+%\input{papers/aircraft/fig/komplexe-ebene.tex}
+
+\begin{table}
+    \centering
+    \begin{tabular}{lrrrr}
+        \hline
+        Flugzeug & $\sigma$ & $\omega$ & $T$ [s] & $t_{1/2}$ [s] \\
+        \hline
+        Propellerflugzeug & $-0.487$ & $2.335$ & $2.7$ & $1.4$ \\
+        Business Jet      & $-0.116$ & $1.39$  & $4.5$ & $6.0$ \\
+        \hline
+    \end{tabular}
+    \caption{Dämpfung, Frequenz, Periode und Halbwertszeit der Dutch
+    Roll für die beiden Flugzeuge.
+    \label{aircraft:table:dutchroll}}
+\end{table}
