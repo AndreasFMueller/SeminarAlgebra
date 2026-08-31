@@ -1,0 +1,29 @@
+/*
+ * theta.maxima
+ *
+ * (c) 2026 Prof Dr Andreas Müller
+ */
+y: a*x^2+b*x+c;
+subst(-b/(2*a)+z*sqrt(b^2+-4*a*c)/(2*a), x, y);
+Y: ratsimp(%);
+
+integrate(sqrt(z^2+1),z);
+integrate(sqrt(z^2-1),z);
+integrate(1/sqrt(z^2+1), z);
+integrate(1/sqrt(z^2-1), z);
+
+
+theta: sqrt(a*x^2+b*x+c);
+
+Theta: log(2*a*x + b - 2*sqrt(a)*theta)/sqrt(a);
+
+ratsimp(diff(Theta,x) - 1/theta,x);
+expand(%);
+ratsimp(%);
+
+Theta: log(2*a*x + b + 2*sqrt(a)*theta)/sqrt(a);
+
+ratsimp(diff(Theta,x) - 1/theta,x);
+expand(%);
+ratsimp(%);
+

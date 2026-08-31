@@ -1,0 +1,54 @@
+%
+% jordan-ungleichung.tex -- Sinusbogen oberhalb seiner Sehne
+%
+% (c) 2026 Damien Flury, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usetikzlibrary{arrows,math}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkviolet}{rgb}{0.45,0,0.6}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,xscale=1.7,yscale=1.5]
+
+\def\hpi{1.5707963}
+\def\pipi{3.1415927}
+
+% Flaeche zwischen Sehne und Sinusbogen, wo die Ungleichung gilt
+\fill[black!8]
+	plot[domain=0:\hpi,samples=100] ({\x},{sin(\x r)}) -- (0,0) -- cycle;
+
+% Achsen
+\draw[->] (-0.18,0) -- (\pipi+0.45,0) coordinate[label={$\theta$}];
+\draw[->] (0,-0.18) -- (0,2.30) coordinate[label={right:$y$}];
+
+% Trennlinie bei pi/2
+\draw[color=gray,dashed,line width=0.6pt] (\hpi,0) -- (\hpi,1);
+
+% Sinusbogen
+\draw[color=darkred,line width=1.4pt]
+	plot[domain=0:\pipi,samples=200] ({\x},{sin(\x r)});
+
+% Sehne, ueber pi/2 hinaus weitergefuehrt
+\draw[color=darkviolet,line width=1.4pt] (0,0) -- (\pipi,2);
+
+% Markierungen auf den Achsen
+\draw (\hpi,-0.05) -- (\hpi,0.05);
+\node at (\hpi,0) [below] {$\frac{\pi}{2}$};
+\draw (\pipi,-0.05) -- (\pipi,0.05);
+\node at (\pipi,0) [below] {$\pi$};
+\draw (-0.04,1) -- (0.04,1);
+\node at (0,1) [above left] {$1$};
+\draw (-0.04,2) -- (0.04,2);
+\node at (0,2) [above left] {$2$};
+\node at (0,0) [below left] {$0$};
+
+% Beschriftung der Kurven
+\node[color=darkred] at (2.45,0.638) [above right] {$y=\sin\theta$};
+\node[color=darkviolet] at (0.72,0.458) [below right] {$y=\frac{2\theta}{\pi}$};
+
+\end{tikzpicture}
+\end{document}

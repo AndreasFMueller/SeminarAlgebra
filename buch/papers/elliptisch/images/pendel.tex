@@ -1,0 +1,59 @@
+%
+% pendel.tex -- links das mathematische Pendel, rechts die Abweichung
+% der exakten Schwingungsdauer von der Kleinwinkelnaeherung
+% (Daten aus pendel-werte.dat).
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows,math}
+\input{farben.tex}
+\begin{document}
+\begin{tikzpicture}[>=latex, thick]
+
+% ---------- linkes Panel: Pendel ----------
+\def\Ls{2.60}
+\def\th{35}
+
+\fill (0,0) circle (0.06);
+\node[anchor=south east] at (0.02,0.06) {$O$};
+
+\draw[dashed, black!45] (0,0) -- (0,-\Ls-0.35);
+\draw (0,0) -- ({\Ls*sin(\th)},{-\Ls*cos(\th)})
+	node[midway, right=3pt] {$l$};
+
+\draw[black!55] (0,-0.95) arc[start angle=-90, end angle=-90+\th, radius=0.95];
+\node[black!55] at ({1.22*sin(\th/2)},{-1.22*cos(\th/2)}) {$\vartheta_0$};
+
+\fill[darkred] ({\Ls*sin(\th)},{-\Ls*cos(\th)}) circle (0.13);
+\node[darkred, anchor=west] at ({\Ls*sin(\th)+0.18},{-\Ls*cos(\th)}) {$m$};
+
+\draw[->, black!55] ({\Ls*sin(\th)},{-\Ls*cos(\th)-0.28})
+	-- ++(0,-0.62) node[anchor=north] {$g$};
+
+% ---------- rechtes Panel: Abweichung der Schwingungsdauer ----------
+\begin{axis}[
+	at={(4.6cm,-3.55cm)}, anchor=south west,
+	width=9.4cm, height=6.0cm,
+	xlabel={$\vartheta_0$ in Grad},
+	ylabel={Abweichung von $T_0$ in \%},
+	xmin=0, xmax=170,
+	ymin=0, ymax=150,
+	xtick={0,30,60,90,120,150},
+	ytick={0,25,50,75,100,125,150},
+	grid=both,
+	grid style={black!15},
+]
+
+\addplot[dashed, black!50, forget plot]
+	coordinates {(0,18.03) (90,18.03) (90,0)};
+\node[black!50, anchor=south west, font=\small] at (axis cs:4,20) {$18\,\%$};
+
+\addplot[darkred, very thick, smooth] table[x=theta, y=abw] {pendel-werte.dat};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

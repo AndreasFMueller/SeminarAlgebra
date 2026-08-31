@@ -1,0 +1,46 @@
+%
+% ellipse.tex -- Ellipse mit hervorgehobenem Viertelbogen
+%
+% Parametrisierung (a cos t, b sin t) mit a = 2.2, b = 1.4.
+% Der erste Quadrant (t in [0, pi/2]) ist hervorgehoben, er entspricht
+% dem Integral von 0 bis pi/2 in U = 4a E(k).
+% Gleicher Achsenmassstab in x und y.
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usetikzlibrary{arrows,math}
+\input{farben.tex}
+\begin{document}
+\def\skala{1.3}
+\begin{tikzpicture}[>=latex, thick, scale=\skala]
+
+\def\a{2.2}
+\def\b{1.4}
+
+% Achsenlabels verschieben
+\def\xdx{-0.05}\def\xdy{-0.05}
+\def\ydx{-0.05}\def\ydy{0.0}
+
+% Achsen, gleiche Skalierung in x und y
+\draw[->] (-2.9,0) -- (2.9,0);
+\draw[->] (0,-2.1) -- (0,2.1);
+\node at ({2.9+\xdx},{\xdy}) [anchor=north east] {$x$};
+\node at ({\ydx},{1.8+\ydy}) [anchor=south east] {$y$};
+
+% volle Ellipse
+\draw (0,0) ellipse ({\a} and {\b});
+
+% erster Quadrant hervorgehoben
+\draw[darkred, line width=1.8pt]
+	(\a,0) arc[start angle=0, end angle=90, x radius=\a, y radius=\b];
+
+% Halbachsen mit Labels
+\draw[thin] (0,0) -- (\a,0) node[midway, below] {$a$};
+\draw[thin] (0,0) -- (0,\b) node[midway, left] {$b$};
+\fill (\a,0) circle (0.06);
+\fill (0,\b) circle (0.06);
+
+\end{tikzpicture}
+\end{document}
