@@ -109,7 +109,7 @@ Funktion überhaupt.
 Gauss hat sie 1797 als Neunzehnjähriger in seinem mathematischen
 Tagebuch untersucht, zu Lebzeiten aber nichts davon veröffentlicht
 \cite{elliptisch:almkvist-berndt} und
-\cite[Kapitel~11.3]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.3]{elliptisch:mueller-spezielle}.
 Erst dreissig Jahre später wurde derselbe Umkehrschritt von Abel
 und Jacobi in voller Allgemeinheit vollzogen
 (Abschnitt~\ref{elliptisch:subsection:unvollstaendig}).
@@ -129,7 +129,7 @@ Aus ihr folgt
 der lemniskatische Sinus ist also bis auf Skalierung und
 Verschiebung des Arguments die Funktion $\operatorname{cn}$ zum
 Modul $k = 1/\sqrt{2}$
-\cite[Kapitel~11.3]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.3]{elliptisch:mueller-spezielle}.
 Insbesondere ist $\varpi = \sqrt{2}\,K(1/\sqrt{2})$, ganz analog zu
 $\pi = 2K(0)$ in \eqref{elliptisch:equation:randnull}.
 
@@ -209,11 +209,12 @@ physikalischen Grössen und den Randbedingungen bestimmen.
 Rechts steht ein Polynom vierten Grades in $y$, genau die Signatur
 \eqref{elliptisch:equation:signatur} aus dem Werkzeugkasten.
 Die Lösung muss daher eine jacobische Funktion sein.
-Wir machen den Ansatz, mit $x$ von $A$ aus gemessen,
+Wir machen den Ansatz, mit $x$ von der Mitte aus gemessen und
+$A$ bei $x = -l$,
 \begin{equation}
 y(x)
 =
-a\,\operatorname{sn}\Bigl(\frac{x}{c}, k\Bigr),
+a\,\operatorname{sn}\Bigl(\frac{x+l}{c}, k\Bigr),
 \qquad
 k = \frac{b}{a},
 \label{elliptisch:equation:troposkeinloesung}
@@ -226,9 +227,8 @@ was mit $k = b/a$ genau die rechte Seite von
 \eqref{elliptisch:equation:troposkein} ergibt.
 Die Randbedingungen legen die Konstanten fest.
 Das Seil geht bei $A$ und $B$ durch $y = 0$ und erreicht seine
-grösste Auslenkung in der Mitte, also ist der Achsenabstand
-$AB = 2c\,K(k)$, und die vorgegebene Seillänge liefert die zweite
-Bedingung an $b$ und $c$.
+grösste Auslenkung in der Mitte, also ist $l = c\,K(k)$, und die
+vorgegebene Seillänge liefert die zweite Bedingung an $b$ und $c$.
 
 Welche Form das Seil annimmt, bestimmt der Modul, und der kommt
 aus der Physik.
@@ -260,6 +260,7 @@ also breiter, je schneller das Seil rotiert.
 Dieselbe Signatur \eqref{elliptisch:equation:signatur} wird uns
 in Abschnitt~\ref{elliptisch:subsection:pendel} wieder begegnen,
 dort mit der Zeit als unabhängiger Variable.
+
 Die Form hat auch eine technische Seite.
 Die Schaufeln des Darrieus-Rotors werden im Troposkein-Profil
 gebaut, weil die Zentrifugalkraft ein Seil in dieser Form nur auf
@@ -274,6 +275,7 @@ $d(T\cos\theta)/ds = \rho g$, und das Troposkein ist nur noch eine
 Näherung.
 Bei Betriebsdrehzahl ist $\omega^2 y$ jedoch um Grössenordnungen
 grösser als $g$, sodass die Abweichung klein bleibt.
+\input{papers/elliptisch/fig/darrieusFIG.tex}
 
 \subsection{Das Pendel
 \label{elliptisch:subsection:pendel}}
@@ -333,7 +335,7 @@ jacobischen Sinus.
 Damit ist $z = \operatorname{sn}(u,k)$ mit dem Modul
 $k = y_0 = \sin(\vartheta_0/2)$, der die Amplitude misst.
 Die Energie ist $E = 2mgl\,k^2$
-\cite[Kapitel~11.2.3]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.2.3]{elliptisch:mueller-spezielle}.
 
 Jetzt machen wir die beiden Substitutionen rückgängig.
 Aus $z = y/y_0$ und $k = y_0$ wird
