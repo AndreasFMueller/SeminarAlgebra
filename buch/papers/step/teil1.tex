@@ -10,7 +10,7 @@
 \label{step:section:teil1}}
 \kopfrechts{Automatic Differentiation}
 
-Aufgrund dem bei der finiten Differenzenmethode vorgenommenen Abbruch der Taylor-Reihe entstehen -- wie im vorherigen Abschnitt gezeigt -- Ungenauigkeiten, insbesondere wenn die Schrittweite $h$ zu gross gewählt wird.  
+Aufgrund dem bei der finiten Differenzenmethode vorgenommenen Abbruch der Taylor-Reihe entstehen --- wie im vorherigen Abschnitt gezeigt --- Ungenauigkeiten, insbesondere wenn die Schrittweite $h$ zu gross gewählt wird.  
 Im Folgenden wird eine Methode vorgestellt, mit der diese Ungenauigkeiten vermieden werden können. Ausgangspunkt ist (\ref{step:taylor2}), in der die Terme höherer Ordnung weiterhin vollständig enthalten sind
 \begin{equation*}
 	f(x+h) = \sum_{k=0}^{\infty} \frac{h^k}{k!} f^{(k)}(x).
@@ -18,7 +18,7 @@ Im Folgenden wird eine Methode vorgestellt, mit der diese Ungenauigkeiten vermie
 Für eine praktisch berechenbare Lösung müssen auch hier die Terme höherer Ordnung eliminiert werden. Im Gegensatz zur finiten Differenzenmethode werden diese jedoch nicht einfach abgeschnitten, sondern gezielt zum Verschwinden gebracht.  
 Dies wird erreicht, indem für die Schrittweite $h$ spezielle algebraische Eigenschaften eingeführt werden. Anstelle von $h$ wird dabei $\epsilon$ verwendet, um eine klare Abgrenzung zur finiten Differenzenmethode zu schaffen.
 
-Sei dazu $\epsilon \neq 0$ ein nilpotentes Element mit $\epsilon^2 = 0$ \cite{step:baydin2018}. Dann gilt insbesondere
+Sei dazu $\epsilon \neq 0$ ein nilpotentes Element, d.h ein Element, für das $\epsilon^2 = 0$ postuliert wird \cite{step:baydin2018}. Dann gilt insbesondere
 
 \begin{equation*}
 	\epsilon^n = 0 \quad \forall\, n \geq 2.
@@ -26,22 +26,23 @@ Sei dazu $\epsilon \neq 0$ ein nilpotentes Element mit $\epsilon^2 = 0$ \cite{st
 
 \subsection{Herleitung der dualen Zahl und Motivation}
 
-Wird nun in der Taylorentwicklung $h$ durch $\epsilon$ ersetzt und die oben definierten Eigenschaften von $\epsilon$ verwendet, ergibt sich:
-
-\begin{equation*}
+Wird nun in der Taylor-Entwicklung $h$ durch $\epsilon$ ersetzt und die oben definierten Eigenschaften von $\epsilon$ verwendet, ergibt sich:
+\begin{equation}
 	f(x+\epsilon) = \sum_{k=0}^{\infty} \frac{\epsilon^k}{k!} f^{(k)}(x).
-\end{equation*}
+		\label{step:taylorepsilon}
+\end{equation}
 Aufgrund der Eigenschaft $\epsilon^n = 0$ für alle $n \geq 2$ verschwinden sämtliche Terme höherer Ordnung. Es bleiben lediglich die ersten beiden Terme der Reihe übrig:
-
-\begin{equation*}
+\begin{equation}
 	f(x+\epsilon) = f(x) + \epsilon f'(x).
 		\label{step:autodiffdual}
-\end{equation*}
-Dieser Ausdruck wird als \emph{duale Zahl} $\left(f\left(x\right), f'\left(x\right)\right)$ interpretiert. Dabei stellt der Realteil $f(x)$ den Funktionswert dar, während der $\epsilon$-Anteil direkt die Ableitung $f'(x)$ enthält \cite{step:baydin2018}. Auf den ersten Blick scheint sich der Ausdruck in Gleichung\,\ref{step:autodiffdual} kaum von der finiten Differenz in \ref{step:finiteDifferenz} zu unterscheiden.
+\end{equation}
+Dieser Ausdruck wird als sogenannte \emph{duale Zahl} $\left(f\left(x\right), f'\left(x\right)\right)$ interpretiert. Dabei stellt der Realteil $f(x)$ den Funktionswert dar, während der $\epsilon$-Anteil direkt die Ableitung $f'(x)$ enthält \cite{step:baydin2018}. 
+
+Auf den ersten Blick scheint sich der Ausdruck in Gleichung\,\ref{step:taylorepsilon} kaum von der finiten Differenz in \ref{step:taylor2} zu unterscheiden.
 Der entscheidende Unterschied liegt jedoch in der zugrunde liegenden Algebra:  
 Bei der finiten Differenzenmethode wird $h$ als reelle Zahl gegen $0$ genommen und die Ableitung wird über einen Grenzübergang approximiert.
 Dabei wählt man $h$ sehr klein und hofft, dass der Fehler entsprechend gering bleibt. Mit $\epsilon$ hingegen wird ein Konstrukt eingeführt, bei dem alle Terme höherer Ordnung aufgrund der Eigenschaft $\epsilon^2 = 0$ exakt verschwinden.
-Da dies ein algebraisches Konstrukt und keine Approximation ist, entsteht kein Approximationsfehler \cite{step:baydin2018}..  
+Da dies ein algebraisches Konstrukt und keine Approximation ist, entsteht kein Approximationsfehler \cite{step:baydin2018}.
 Der wesentliche Vorteil dieser Methode liegt somit darin, dass Ableitungen \emph{exakt} und ohne Abbruchfehler berechnet werden können.
 Zusätzlich ermöglicht diese Methode die gleichzeitige Berechnung von Funktionswert und Ableitung in einem einzigen Auswertungsschritt.
 Dies macht sie besonders attraktiv für numerische Verfahren, da sie sowohl effizient als auch numerisch stabil ist.
@@ -176,6 +177,12 @@ Aus diesen Herleitungen ergeben sich nun wohldefinierte Regeln für das Rechnen 
 	\end{align}
 	\label{step:autodiffregeln}
 \end{satz}
+
+Bemerkenswert ist, dass die jeweils zweite Komponente dieser Rechenregeln genau den aus der klassischen Analysis bekannten Ableitungsregeln entspricht.
+Sind $u'$ und $v'$ die Ableitungen von $u$ beziehungsweise $v$, so ergeben sich aus den algebraischen Operationen mit dualen Zahlen unmittelbar die Summen-, Produkt-, Quotienten- und Potenzregel.
+Die Ableitungsregeln müssen somit nicht zusätzlich auf die zweite Komponente angewendet werden, sondern sind bereits in der Algebra der dualen Zahlen enthalten.
+Wird eine Grösse zusammen mit ihrer Ableitung als duale Zahl $(u,u')$ dargestellt, so liefert jede der oben definierten Operationen in ihrer ersten Komponente den zugehörigen Funktionswert und in ihrer zweiten Komponente dessen Ableitung.
+
 Die Menge der dualen Zahlen $\mathbb{D}$ bildet zusammen mit den in Satz \ref{step:autodiffregeln} definierten Regeln eine algebraische Struktur mit den folgenden Eigenschaften:
 \begin{itemize}
 	\item \emph{Assoziativität:} Sowohl die Addition als auch die Multiplikation sind assoziativ.
@@ -205,21 +212,22 @@ Wird das Polynom für eine allgemeine duale Zahl $(u, u')$ evaluiert, so müssen
 	&= (u^3 + 2 u^2 + 4 u + 1, \; 3 u^2 u' + 4 u u' + 4 u') \\
 	&= (f(u), f'(u) \cdot u').
 \end{align*}
-Setzt man nun $u' = 1$, entspricht dies der Wahl $\frac{\mathrm{d}x}{\mathrm{d}x} = 1$, also der Ableitung in Richtung der unabhängigen Variablen $x$. Mit dieser Wahl wird der Dualteil der Zahl exakt die Ableitung der Funktion $f$ an der Stelle $u$ darstellen.
+Setzt man nun $u' = 1$, entspricht dies der Wahl $\frac{dx}{dx} = 1$, also der Ableitung in Richtung der unabhängigen Variablen $x$. Mit dieser Wahl wird der Dualteil der Zahl exakt die Ableitung der Funktion $f$ an der Stelle $u$ darstellen.
 Damit erhält man
 \begin{equation*}
 	f(u, 1) = (f(u), f'(u)),
 \end{equation*}
 wobei der Realteil $f(u)$ den Funktionswert liefert und der Dualteil $f'(u)$ automatisch die Ableitung enthält.  
-Auf diese Weise können Funktionswert und Ableitung gleichzeitig in einem einzigen Schritt bestimmt werden, ohne dass Grenzwerte gebildet oder Approximationen wie bei der finiten Differenzenmethode nötig wären. Anschaulich propagiert die duale Zahl auf Grund ihrer algebraischen Struktur die Ableitung „mit“: Jede Operation auf dem Polynom wendet automatisch die entsprechenden Ableitungsregeln an und liefert den korrekten Ableitungswert im Dualteil, ohne dass ein Grenzübergang oder Approximation wie bei der finiten Differenzenmethode erforderlich ist \cite{step:baydin2018}..
+Auf diese Weise können Funktionswert und Ableitung gleichzeitig in einem einzigen Schritt bestimmt werden, ohne dass Grenzwerte gebildet oder Approximationen wie bei der finiten Differenzenmethode nötig wären. Anschaulich propagiert die duale Zahl auf Grund ihrer algebraischen Struktur die Ableitung „mit“: Jede Operation auf dem Polynom wendet automatisch die entsprechenden Ableitungsregeln an und liefert den korrekten Ableitungswert im Dualteil, ohne dass ein Grenzübergang oder Approximation wie bei der finiten Differenzenmethode erforderlich ist \cite{step:baydin2018}.
+
 Am Beispiel des Polynoms wurde gezeigt, dass sich mit Hilfe dualer Zahlen dessen Ableitung exakt berechnen lässt.
 Es treten keine Abbruchfehler auf, da keine Reihen abgeschnitten werden müssen. 
 Ebenso entstehen keine Rundungsfehler im Sinne numerischer Differenzenverfahren, da die Ableitung nicht approximiert, sondern exakt über die algebraische Struktur der dualen Zahlen bestimmt wird.
-Allerdings ergibt sich eine wichtige Erweiterung: Die bisherigen Rechenregeln lassen sich nicht nur auf polynomiale bzw. algebraische Ausdrücke anwenden, sondern auf alle (reell) differenzierbaren Funktionen, die lokal durch eine Taylorreihe beschrieben werden können.
-Insbesondere gilt dies für alle analytischen Funktionen \cite{step:baydin2018}..
+Allerdings ergibt sich eine wichtige Erweiterung: Die bisherigen Rechenregeln lassen sich nicht nur auf polynomiale bzw. algebraische Ausdrücke anwenden, sondern auf alle (reell) differenzierbaren Funktionen, die lokal durch eine Taylor-Reihe beschrieben werden können.
+Insbesondere gilt dies für alle analytischen Funktionen \cite{step:baydin2018}.
 Damit lassen sich auch elementare Funktionen wie die Exponentialfunktion oder trigonometrische Funktionen problemlos im Rahmen der dualen Zahlen behandeln.
 Die Ableitungsregeln folgen dabei weiterhin direkt aus der algebraischen Struktur der dualen Zahlen und der Kettenregel, ohne dass zusätzliche Approximationen notwendig sind.
-Im reellen Fall existieren zwar differenzierbare Funktionen, die nicht analytisch sind; im Kontext der dualen Zahlen werden jedoch genau diejenigen Funktionen korrekt erfasst, die eine lokale Taylorentwicklung besitzen.
+Im reellen Fall existieren zwar differenzierbare Funktionen, die nicht analytisch sind; im Kontext der dualen Zahlen werden jedoch genau diejenigen Funktionen korrekt erfasst, die eine lokale Taylor-Entwicklung besitzen.
 Für komplex differenzierbare Funktionen gilt sogar, dass sie automatisch analytisch sind.
 Daher treten in der komplexen Analysis keine nicht-analytischen differenzierbaren Funktionen auf.
 

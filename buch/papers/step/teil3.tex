@@ -18,15 +18,15 @@ Bei der finiten Differenzenmethode wird die Ableitung über den Quotienten
 \end{equation*}
 approximiert.
 Dies führt insbesondere für kleine Schrittweiten zu Auslöschungseffekten, da nahezu gleiche Zahlen subtrahiert werden und damit numerische Präzision verloren geht \cite{step:higham2002,step:squire1998}.
-Demgegenüber verfolgen die Methoden der dualen Zahlen und der Complex-Step-Differentiation einen grundsätzlich anderen Ansatz.
+Demgegenüber verfolgen die Methoden der dualen Zahlen und der Complex-Step Differentiation einen grundsätzlich anderen Ansatz.
 Statt die Ableitung über Differenzen zu rekonstruieren, wird die Ableitungsinformation bereits während der Funktionsauswertung mitgeführt, indem sie in eine zusätzliche algebraische Dimension ausgelagert wird \cite{step:baydin2018,step:martins2003}.
 Dadurch entfällt die Differenzbildung im klassischen Sinn, wodurch die Problematik der katastrophalen Auslöschung vermieden wird.
 
 
-Die Methoden der dualen Zahlen und der Complex-Step-Differentiation weisen eine strukturelle Gemeinsamkeit auf:
+Die Methoden der dualen Zahlen und der Complex-Step Differentiation weisen eine strukturelle Gemeinsamkeit auf:
 In beiden Fällen wird der reelle Funktionswert um eine zusätzliche Komponente ergänzt, über die Ableitungsinformation gewonnen beziehungsweise propagiert werden kann \cite{step:baydin2018,step:martins2003}.
 Bei den dualen Zahlen erfolgt diese Erweiterung durch ein infinitesimales Element $\epsilon$ mit der Eigenschaft $\epsilon^2 = 0$.
-Bei der Complex-Step-Differentiation übernimmt die imaginäre Einheit $i$ die Rolle dieser zusätzlichen Dimension.
+Bei der Complex-Step Differentiation übernimmt die imaginäre Einheit $i$ die Rolle dieser zusätzlichen Dimension.
 In beiden Fällen wird der Schritt $h$ somit nicht in die reelle Argumentstruktur integriert, sondern in eine orthogonale Komponente ausgelagert:
 $x + \epsilon h$ bzw. $x + ih$.
 Der zentrale Grund für die hohe numerische Stabilität beider Methoden liegt genau in dieser Strukturtrennung:
@@ -34,13 +34,13 @@ Der Funktionswert und der Ableitungsanteil werden nicht durch Subtraktion zweier
 Dadurch tritt keine katastrophale Auslöschung auf, wie sie bei finiten Differenzen unvermeidlich ist.
 Diese Struktur ist eng mit der Theorie analytischer Funktionen verbunden.
 Sowohl die duale als auch die komplexe Erweiterung setzen voraus, dass die betrachtete Funktion in eine algebraisch kompatible Umgebung fortgesetzt werden kann.
-Bei den dualen Zahlen entspricht dies der exakten Fortsetzung der Taylorentwicklung bis zur ersten Ordnung, da höhere Terme aufgrund $\epsilon^2 = 0$ verschwinden.
-Bei der Complex-Step-Differentiation basiert der Zugang auf der holomorphen Fortsetzbarkeit reell-analytischer Funktionen, deren Taylorentwicklung im komplexen Bereich gültig ist.
+Bei den dualen Zahlen entspricht dies der exakten Fortsetzung der Taylor-Entwicklung bis zur ersten Ordnung, da höhere Terme aufgrund $\epsilon^2 = 0$ verschwinden.
+Bei der Complex-Step Differentiation basiert der Zugang auf der holomorphen Fortsetzbarkeit reell-analytischer Funktionen, deren Taylor-Entwicklung im komplexen Bereich gültig ist.
 
-Die Gemeinsamkeit beider Verfahren lässt sich daher als Ausnutzung der Taylorstruktur interpretieren:
+Die Gemeinsamkeit beider Verfahren lässt sich daher als Ausnutzung der Taylor-Struktur interpretieren:
 Die Ableitung ist nicht das Resultat einer numerischen Differenzbildung, sondern bereits implizit in der Funktionsauswertung enthalten und wird durch die zusätzliche algebraische Dimension lediglich sichtbar gemacht.
 Die Python-Implementierung der dualen Zahlen macht diesen Mechanismus besonders deutlich:
 Sie erzwingt explizit die Trennung von Funktionswert und Ableitungsinformation, indem jede Operation auf die duale Struktur erweitert wird.
 Damit wird sichtbar, dass der Genauigkeitsgewinn nicht aus einer speziellen Approximation stammt, sondern aus der algebraischen Struktur selbst.
-Die Complex-Step-Differentiation realisiert denselben Mechanismus, nutzt jedoch den Vorteil, dass komplexe Arithmetik und elementare Funktionen bereits in numerischen Bibliotheken implementiert sind.
+Die Complex-Step Differentiation realisiert denselben Mechanismus, nutzt jedoch den Vorteil, dass komplexe Arithmetik und elementare Funktionen bereits in numerischen Bibliotheken implementiert sind.
 Intern erfolgt auch dort eine getrennte Verarbeitung von Real- und Imaginärteil, wodurch der kleine Schritt $h$ stabil vom Funktionswert entkoppelt bleibt.
