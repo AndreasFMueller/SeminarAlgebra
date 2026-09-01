@@ -6,38 +6,41 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 3
-\label{step:section:teil3}}
-\kopfrechts{Teil 3}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
-
-\subsection{De finibus bonorum et malorum
-\label{step:subsection:malorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+\section{Vergleich der Differentiationsmethoden
+\label{step:section:Einordnung}}
+\kopfrechts{Vergleich der Differentiationsmethoden}
 
 
+Die in dieser Arbeit betrachteten Differentiationsmethoden unterscheiden sich vor allem darin, wie die Ableitungsinformation numerisch repräsentiert wird.
+Bei der finiten Differenzenmethode wird die Ableitung über den Quotienten
+\begin{equation*}
+	f'(x) \approx \frac{f(x+h)-f(x)}{h}
+\end{equation*}
+approximiert.
+Dies führt insbesondere für kleine Schrittweiten zu Auslöschungseffekten, da nahezu gleiche Zahlen subtrahiert werden und damit numerische Präzision verloren geht \cite{step:higham2002,step:squire1998}.
+Demgegenüber verfolgen die Methoden der dualen Zahlen und der Complex-Step-Differentiation einen grundsätzlich anderen Ansatz.
+Statt die Ableitung über Differenzen zu rekonstruieren, wird die Ableitungsinformation bereits während der Funktionsauswertung mitgeführt, indem sie in eine zusätzliche algebraische Dimension ausgelagert wird \cite{step:baydin2018,step:martins2003}.
+Dadurch entfällt die Differenzbildung im klassischen Sinn, wodurch die Problematik der katastrophalen Auslöschung vermieden wird.
+
+
+Die Methoden der dualen Zahlen und der Complex-Step-Differentiation weisen eine strukturelle Gemeinsamkeit auf:
+In beiden Fällen wird der reelle Funktionswert um eine zusätzliche Komponente ergänzt, über die Ableitungsinformation gewonnen beziehungsweise propagiert werden kann \cite{step:baydin2018,step:martins2003}.
+Bei den dualen Zahlen erfolgt diese Erweiterung durch ein infinitesimales Element $\epsilon$ mit der Eigenschaft $\epsilon^2 = 0$.
+Bei der Complex-Step-Differentiation übernimmt die imaginäre Einheit $i$ die Rolle dieser zusätzlichen Dimension.
+In beiden Fällen wird der Schritt $h$ somit nicht in die reelle Argumentstruktur integriert, sondern in eine orthogonale Komponente ausgelagert:
+$x + \epsilon h$ bzw. $x + ih$.
+Der zentrale Grund für die hohe numerische Stabilität beider Methoden liegt genau in dieser Strukturtrennung:
+Der Funktionswert und der Ableitungsanteil werden nicht durch Subtraktion zweier nahezu gleicher Grössen bestimmt, sondern entstehen als getrennte Komponenten innerhalb derselben Funktionsauswertung.
+Dadurch tritt keine katastrophale Auslöschung auf, wie sie bei finiten Differenzen unvermeidlich ist.
+Diese Struktur ist eng mit der Theorie analytischer Funktionen verbunden.
+Sowohl die duale als auch die komplexe Erweiterung setzen voraus, dass die betrachtete Funktion in eine algebraisch kompatible Umgebung fortgesetzt werden kann.
+Bei den dualen Zahlen entspricht dies der exakten Fortsetzung der Taylorentwicklung bis zur ersten Ordnung, da höhere Terme aufgrund $\epsilon^2 = 0$ verschwinden.
+Bei der Complex-Step-Differentiation basiert der Zugang auf der holomorphen Fortsetzbarkeit reell-analytischer Funktionen, deren Taylorentwicklung im komplexen Bereich gültig ist.
+
+Die Gemeinsamkeit beider Verfahren lässt sich daher als Ausnutzung der Taylorstruktur interpretieren:
+Die Ableitung ist nicht das Resultat einer numerischen Differenzbildung, sondern bereits implizit in der Funktionsauswertung enthalten und wird durch die zusätzliche algebraische Dimension lediglich sichtbar gemacht.
+Die Python-Implementierung der dualen Zahlen macht diesen Mechanismus besonders deutlich:
+Sie erzwingt explizit die Trennung von Funktionswert und Ableitungsinformation, indem jede Operation auf die duale Struktur erweitert wird.
+Damit wird sichtbar, dass der Genauigkeitsgewinn nicht aus einer speziellen Approximation stammt, sondern aus der algebraischen Struktur selbst.
+Die Complex-Step-Differentiation realisiert denselben Mechanismus, nutzt jedoch den Vorteil, dass komplexe Arithmetik und elementare Funktionen bereits in numerischen Bibliotheken implementiert sind.
+Intern erfolgt auch dort eine getrennte Verarbeitung von Real- und Imaginärteil, wodurch der kleine Schritt $h$ stabil vom Funktionswert entkoppelt bleibt.
