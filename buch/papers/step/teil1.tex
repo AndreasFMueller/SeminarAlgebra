@@ -293,7 +293,7 @@ class Dual:
 	keepspaces=true,
 	]
 def f(x):
-   return x**3 + x**2 + x + 1
+   return x**3 + 2*x**2 + 4*x + 1
 \end{lstlisting}
 problemlos ableiten und zwar wie folgt:
 \begin{lstlisting}[
@@ -304,9 +304,9 @@ problemlos ableiten und zwar wie folgt:
 >>> x = Dual(1, 1)
 >>> result = f(x)
 >>> result.real
-4
+8
 >>> result.dual
-6
+11
 \end{lstlisting}
 Der Leser ist eingeladen, die dargestellten Ergebnisse stelbstständig zu überprüfen.
 
@@ -320,7 +320,7 @@ def forward_diff(f, x, h):
    return (f(x + h) - f(x)) / h
 
 >>> result_diff = forward_diff(f, 1, 1e-12)
-6.000533403494046
+11.000977906405751
 \end{lstlisting}
 Das Ergebnis verdeutlicht, dass die Ableitung mit der finiten Differenzenmethode nicht exakt ist. Ursache hierfür ist der Abbruch der Taylor-Reihe, die der Methode zugrunde liegt, wodurch stets eine kleine Abweichung vom exakten Wert entsteht.
 
