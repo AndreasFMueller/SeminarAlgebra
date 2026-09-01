@@ -30,7 +30,7 @@ Damit ergibt sich
 
 Wählt man nun den Entwicklungspunkt gleich dem Referenzpunkt, also $a = x$, so wird 
 die Taylor-Reihe gezielt um den Punkt $x$ entwickelt. Dies ist insbesondere deshalb 
-sinnvoll, da die Ableitungen der Funktion an der Stelle $x$ ausgewertet werden und 
+sinnvoll, da die Ableitungen der Funktion an der Stelle $x$ ausgewertet werden können und 
 somit eine lokale Beschreibung der Funktion in der Umgebung von $x$ erfolgt.
 Durch diese Wahl vereinfacht sich der Ausdruck im Argument der Potenzterme zu
 \[
@@ -58,13 +58,13 @@ abgebrochen, sodass sich die Darstellung
 ergibt, wobei $R_n(h)$ den Restterm bezeichnet, der den Fehler durch das Abschneiden 
 der Reihe beschreibt. Für ein hinreichend kleines $h$ liefert diese endliche Summe eine 
 gute Approximation des Funktionswertes $f(x+h)$.
-Diese Darstellung zerlegt die Funktion in eine Folge zunehmend genauerer Approximationen. 
+Diese Darstellung ermöglicht eine schrittweise Verbesserung der Approximation des Funktionswertes durch die Berücksichtigung weiterer Terme der Taylor-Entwicklung.
 Der erste Term $f(x)$ beschreibt den Funktionswert selbst, während der lineare Term 
 $f'(x)h$ die lokale Steigung berücksichtigt.
 Höhere Ableitungen erfassen zusätzlich 
-Krümmung und feinere Struktureigenschaften der Funktion. Mit wachsender Ordnung $n$ 
-verbessert sich die Genauigkeit der Approximation systematisch.
-Mit genügend klein gewählter Schrittweite $h$ können die Terme höherer Ordnung sogar vernachlässtigt werden.
+Krümmung und feinere Struktureigenschaften der Funktion.
+Der durch das Abschneiden der Taylor-Reihe entstehende Fehler wird dabei durch den Restterm $R_n(h)$ beschrieben.
+Für hinreichend kleine Schrittweiten $h$ nimmt der Einfluss der Terme höherer Ordnung ab, sodass diese je nach gewünschter Genauigkeit vernachlässigt werden können.
 
 \subsection{Der Restterm und seine Bedeutung}
 
@@ -74,7 +74,7 @@ Die Genauigkeit der Taylor-Approximation wird durch den \emph{Lagrange-Restterm}
 \end{equation*}
 charakterisiert, wobei $\xi$ zwischen $x$ und $x+h$ liegt. Dieser Term beschreibt die 
 Abweichung zwischen der exakten Funktion und ihrer Approximation durch ein Polynom 
-vom Grad $n$\cite{step:burden2010numerical}.
+vom Grad $n$ \cite{step:burden2010numerical}.
 
 Der Restterm liefert mehrere wichtige Einsichten:
 \begin{itemize}
@@ -88,7 +88,6 @@ sehr schnell gegen Null konvergiert, sofern die Ableitungen beschränkt bleiben.
 \subsection{Taylor-Reihe und numerische Ableitungen}
 
 Betrachtet man die Entwicklung der Taylor-Reihe bis zur ersten Ordnung,
-
 \begin{equation*}
 	f(x+h) = f(x) + h f'(x) + \frac{h^2}{2!}f''(\xi),
 \end{equation*}
@@ -98,27 +97,27 @@ so ergibt sich durch Umstellen eine Approximation für die erste Ableitung
 	\label{step:finitdiff}
 \end{equation}
 Der zugehörige Fehler ist von der Ordnung $O(h)$, was direkt 
-aus dem Restterm der Taylor-Entwicklung folgt
+aus dem Restterm
 \begin{equation*}
-	O(h) = \frac{h}{2}f''(\xi).
+	O(h) = \frac{h}{2}f''(\xi)
 \end{equation*}
+ der Taylor-Entwicklung folgt.
 Diese sogenannte \emph{Vorwärtsdifferenz} stellt die einfachste numerische Näherung der 
 Ableitung dar.
 
-Als Pendant zur Vorwärtsdifferenz lässt sich auch die \emph{Rückwärtsdifferenz} bilden, indem $h<0$ gewählt wird:
-
+Als Pendant zur Vorwärtsdifferenz lässt sich auch die \emph{Rückwärtsdifferenz} bilden
+Dabei wird der Funktionswert an der um die positive Schrittweite $h>0$ zurückliegenden Stelle $x-h$ verwendet:
 \begin{equation*}
 	f'\left(x\right) \approx \frac{f\left(x\right) - f\left(x-h\right)}{h},
 	\label{step:diffmethod}
 \end{equation*}
-wobei auch diese Approximation einen Fehler erster Ordnung von $O(h)$ aufweist.
+Auch diese Approximation weist einen Fehler erster Ordnung von $O(h)$ auf.
 
 Durch geschickte Kombination mehrerer Taylor-Entwicklungen lassen sich Approximationen verschiedener Ordnung bilden. 
 Beispielsweise können die beiden Entwicklungen
 \begin{equation*}
 	f\left(x+h\right) = f\left(x\right) + h f'\left(x\right) + \frac{h^2}{2!}f''\left(x\right) + \frac{h^3}{3!}f'''\left(\xi_1\right), \quad\xi_1 \in \left(x , x + h\right)
 \end{equation*}
-
 \begin{equation*}
 	f(x-h) = f(x) - h f'\left(x\right) + \frac{h^2}{2!}f''\left(x\right) - \frac{h^3}{3!}f'''\left(\xi_2\right), \quad\xi_2 \in \left(x , x + h\right)
 \end{equation*}
@@ -137,10 +136,6 @@ mit einem Fehlerterm
 \end{equation*}
 Man spricht hierbei von der \emph{zentrierten Differenzapproximation}. 
 Natürlich sind auch Differenzapproximationen höherer Ordnung möglich, dazu müssen lediglich mehr Terme (bpsw. $f\left(x + h\right), f\left(x - h\right), f\left(x + 2h\right), f\left(x - 2h\right)$) berücksichtigt werden \cite{step:fornberg1998}. 
-
-
-
-
 
 
 \subsection{Fehleranalyse und Interpretation der numerischen Ergebnisse}
@@ -169,7 +164,6 @@ Hier dominiert der sogenannte Rundungsfehler, der durch die endliche Genauigkeit
 Insbesondere tritt ein Effekt auf, der als \emph{Auslöschung} bezeichnet wird: 
 Die Differenzenquotienten beinhalten die Subtraktion nahezu gleicher Funktionswerte, wodurch auf Grund der Endlichkeit der Gleitkommazahlen signifikante Stellen verloren gehen, was wiederum zu signifikanten Fehlern in den Ergebnissen führt. 
 Die Grösse des Rundungsfehlers lässt sich näherungsweise durch folgende Beziehung ausdrücken:
-
 \begin{equation*}
 	\lvert E_\text{Rundung} \rvert \sim \frac{\varepsilon}{h},
 \end{equation*}
@@ -178,7 +172,6 @@ Mit abnehmendem $h$ wird der Quotient immer empfindlicher gegenüber der Rundung
 
 Das Zusammenspiel von Diskretisierungs- und Rundungsfehler führt zu einem klar erkennbaren Minimum des Gesamtfehlers, das die \emph{optimale Schrittweite} $h_\text{opt}$ definiert \cite{step:higham2002}. 
 Bei dieser Schrittweite sind die beiden Fehlerarten ungefähr gleich gross:
-
 \begin{equation*}
 	\lvert E_\text{Diskretisierung}(h_\text{opt}) \rvert \approx \lvert E_\text{Rundung}(h_\text{opt}) \rvert.
 \end{equation*}
@@ -186,9 +179,9 @@ Für $h = h_\text{opt}$ wird die bestmögliche numerische Approximation der Able
 Dieses Prinzip ist von zentraler Bedeutung für die praktische Anwendung numerischer Differenzenmethoden, da es die Wahl der Schrittweite systematisch begründet.
 
 
-Die bisher diskutierten Fehlerquellen – Diskretisierungsfehler durch den Abbruch der Taylor-Reihe und Rundungsfehler aufgrund der endlichen Gleitkommaarithmetik – limitieren die Genauigkeit klassischer Differenzenquotienten. 
+Die bisher diskutierten Fehlerquellen --- Diskretisierungsfehler durch den Abbruch der Taylor-Reihe und Rundungsfehler aufgrund der endlichen Gleitkommaarithmetik --- limitieren die Genauigkeit klassischer Differenzenquotienten. 
 Dieses Problem wird besonders deutlich, wenn man Ableitungen höherer Ordnung, wie die dritte Ableitung, betrachtet: Hier verstärken sich sowohl Diskretisierungs- als auch Rundungsfehler stark, wie in Abbildung \ref{fig:dritte_ableitung_vergleich} ersichtlich wird. 
-\begin{figure}[h!] %todo
+\begin{figure} %todo
 	\centering
 	\includegraphics[width=0.8\textwidth]{papers/step/img/dritte_ableitung_vergleich.png}
 	\caption{Absoluter Fehler der numerischen Approximation der dritten Ableitung von $\sin(x)$ in Abhängigkeit von der Schrittweite $h$. Für sehr kleine Schrittweiten steigt der Fehler aufgrund von Auslöschungseffekten infolge der begrenzten Gleitkommagenauigkeit enorm.}
