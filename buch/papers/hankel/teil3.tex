@@ -6,7 +6,10 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-
+\definecolor{hankelblue}{rgb}{0.2,0.4,0.8}
+\definecolor{hankelred}{rgb}{0.75,0.2,0.2}
+\definecolor{hankelgreen}{rgb}{0.1,0.5,0.3}
+\definecolor{hankelorange}{rgb}{0.9,0.45,0.05}
 \section{Die analytische Fortsetzung
 \label{hankel:section:fortsetzung}}
 \kopfrechts{Die analytische Fortsetzung}
@@ -22,15 +25,13 @@ Die Hankel-Darstellung
 \,dz
 \label{hankel:eq:hankel-ausgangspunkt}
 \end{equation}
-
 wurde zunächst für $\operatorname{Re}(s)>1$ aus der Dirichlet-Reihe hergeleitet. 
-In dieser Halbebene ist also sicher, dass beide Darstellungen
-dieselbe Funktion beschreiben. 
+In dieser Halbebene ist also sicher, dass beide Darstellungen dieselbe Funktion beschreiben. 
 Für die Fortsetzung wird nun nicht mehr der kleine Kreis auf den Ursprung zusammengezogen. 
 Stattdessen wird eine Hankel-Kontur mit einem festen Radius $\varepsilon>0$ gewählt. 
 Jeder Punkt der Kontur hat damit einen positiven Abstand vom Verzweigungspunkt $z=0$.
 
-\subsection{Warum das Hankel-Integral von $s$ ganz abhängt}
+\subsection{Das Hankel-Integral als ganze Funktion von $s$}
 
 Für ein festes $z$ auf der Kontur ist
 
@@ -40,12 +41,11 @@ Für ein festes $z$ auf der Kontur ist
 \exp\bigl((s-1)\log(-z)\bigr)
 \label{hankel:eq:potenz-entire-s}
 \end{equation}
-
 als Funktion von $s$ ganz. 
-Der Nenner $e^z-1$ hängt nicht von $s$ ab und ist auf der gewählten Kontur von null verschieden. 
+Der Nenner $e^z-1$ hängt nicht von $s$ ab und ist auf der gewählten Kontur niemals null. 
 Punktweise ist die Holomorphie daher unmittelbar. 
-Für ein Integral über eine unbeschränkte Kontur genügt diese punktweise Aussage allerdings noch nicht; zusätzlich
-muss die Abhängigkeit von $s$ lokal gleichmässig kontrolliert werden.
+Für ein Integral über eine unbeschränkte Kontur genügt diese punktweise Aussage allerdings noch nicht.
+Zusätzlich muss die Abhängigkeit von $s$ lokal gleichmässig kontrolliert werden.
 
 Dazu wird
 
@@ -58,12 +58,10 @@ F(s)
 \,dz
 \label{hankel:eq:F-definition}
 \end{equation}
-
 betrachtet. 
 Sei $K\subset\mathbb C$ kompakt. 
 Auf dem beschränkten Teil der Kontur, insbesondere auf dem kleinen Kreis, ist der Integrand stetig in $z$ und ganz in $s$. 
-Auf dem Produkt dieses kompakten Konturstücks mit $K$ ist er
-deshalb gleichmässig beschränkt.
+Auf dem Produkt dieses kompakten Konturstücks mit $K$ ist er deshalb gleichmässig beschränkt.
 
 Auf den beiden unbeschränkten Ästen gilt $z=x\pm i0$ mit $x\geq R$. 
 Für $s=\sigma+it\in K$ sind sowohl $\sigma$ als auch $t$ beschränkt. 
@@ -73,10 +71,9 @@ Gleichzeitig gilt für grosse $x$
 \begin{equation}
 \frac{1}{e^x-1}
 =
-\mathcal{O}(e^{-x}).
+O(e^{-x}).
 \label{hankel:eq:nenner-exponentiell}
 \end{equation}
-
 Da $\sigma$ auf $K$ nach oben beschränkt ist, existieren Konstanten $C>0$ und $m\in\mathbb R$ mit
 
 \begin{equation}
@@ -87,13 +84,21 @@ Da $\sigma$ auf $K$ nach oben beschränkt ist, existieren Konstanten $C>0$ und $
 C x^m e^{-x}
 \label{hankel:eq:fortsetzung-majorante}
 \end{equation}
-
 für alle $s\in K$ und alle hinreichend grossen $x$. 
 Die rechte Seite ist auf $[R,\infty)$ integrierbar. 
-Das Konturintegral konvergiert somit lokal gleichmässig bezüglich $s$. 
-Der Satz über parameterabhängige holomorphe Integrale zeigt, dass $F(s)$ auf ganz $\mathbb C$ eine ganze Funktion ist.
+Die Abschätzung zeigt, dass das Konturintegral auf jeder kompakten Teilmenge der $s$-Ebene gleichmässig konvergiert. 
+Zusammen mit der Holomorphie des Integranden bezüglich $s$ folgt daraus, dass
+\begin{equation}
+	F(s)
+	=
+	\frac{1}{2\pi i}
+	\int_H
+	\frac{(-z)^{s-1}}{e^z-1}\,dz
+\end{equation}
+auf ganz $\mathbb{C}$ eine ganze Funktion definiert. 
+Eine ausführliche Begründung dieses Schrittes findet sich beispielsweise in~\cite{hankel:titchmarsh}.
 
-Der entscheidende Punkt ist damit erreicht: Die problematische Potenz $(-z)^{s-1}$ ist auf der fest gewählten Kontur für jedes $s$ wohldefiniert, und der exponentielle Abfall kontrolliert die unbeschränkten Äste. 
+Der entscheidende Punkt ist damit erreicht: Die problematische Potenz $(-z)^{s-1}$ ist auf der fest gewählten Kontur für jedes $s$ definiert, und der exponentielle Abfall kontrolliert die unbeschränkten Äste. 
 Die ursprüngliche Bedingung $\operatorname{Re}(s)>1$ wird für $F(s)$ nicht mehr benötigt.
 
 \subsection{Meromorphe Fortsetzung und hebbare Pole}
@@ -106,8 +111,7 @@ Mit $F(s)$ kann \eqref{hankel:eq:hankel-ausgangspunkt} in der Form
 \Gamma(1-s)F(s)
 \label{hankel:eq:fortsetzung-hankel}
 \end{equation}
-
-gelesen werden. 
+beschrieben werden. 
 Die Gammafunktion $\Gamma(1-s)$ ist meromorph und besitzt
 einfache Pole bei
 
@@ -117,7 +121,7 @@ s=1,2,3,\ldots.
 \end{equation}
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[>=latex]
 		\begin{axis}[
 			width=14cm,
 			height=8cm,
@@ -132,7 +136,8 @@ s=1,2,3,\ldots.
 			grid style={gray!20},
 			samples=250,
 			domain=-3.8:4,
-			clip=false
+			clip=false,
+			>=latex
 			]
 			
 			% Polstellen
@@ -281,12 +286,12 @@ Das Produkt auf der rechten Seite definiert daher zunächst eine meromorphe Funk
 In $\operatorname{Re}(s)>1$ stimmt sie mit der ursprünglichen Dirichlet-Reihe überein und ist damit tatsächlich eine Fortsetzung der Zetafunktion.
 
 Bei $s=2,3,\ldots$ können die Pole von $\Gamma(1-s)$ nicht als Pole der Zetafunktion bestehen bleiben. 
-Jeder dieser Punkte besitzt eine kleine Umgebung, die vollständig in der Halbebene $\operatorname{Re}(s)>1$ liegt,
-und dort ist die Zetafunktion durch ihre lokal gleichmässig konvergente Dirichlet-Reihe holomorph. 
+Jeder dieser Punkte besitzt eine kleine Umgebung, die vollständig in der Halbebene $\operatorname{Re}(s)>1$ liegt.
+Dort ist die Zetafunktion durch ihre lokal gleichmässig konvergente Dirichlet-Reihe holomorph. 
 Folglich besitzt $F(s)$ an den positiven ganzen Zahlen $2,3,\ldots$ genau die nötigen Nullstellen, um die Gamma-Pole zu kompensieren. 
 Diese scheinbaren Singularitäten sind hebbar~\cite{hankel:titchmarsh,hankel:dlmf}.
 
-Am Punkt $s=1$ liegt die Situation anders, weil dieser Punkt gerade auf dem Rand des ursprünglichen Konvergenzgebietes liegt. 
+Am Punkt $s=1$ ist die Situation anders, da dieser Punkt gerade auf dem Rand des ursprünglichen Konvergenzgebietes liegt. 
 Dort bleibt ein einfacher Pol zurück. 
 Sein Residuum lässt sich besonders transparent aus einer zweiten, rein reellen Umformung der Mellin-Darstellung bestimmen.
 
@@ -298,74 +303,66 @@ Die Mellin-Darstellung wird zunächst bei $x=1$ aufgeteilt:
 \begin{equation}
 \Gamma(s)\zeta(s)
 =
-\int_0^1
-\frac{x^{s-1}}{e^x-1}\,dx
+{\color{hankelblue}\int_0^1
+\frac{x^{s-1}}{e^x-1}\,dx}
 +
-\int_1^\infty
-\frac{x^{s-1}}{e^x-1}\,dx.
+{\color{hankelgreen}\int_1^\infty
+\frac{x^{s-1}}{e^x-1}\,dx}.
 \label{hankel:eq:mellin-aufgeteilt}
 \end{equation}
-
 Die Entwicklung~\cite{hankel:dlmf}
 
 \begin{equation}
 \frac{1}{e^x-1}
 =
-\frac{1}{x}-\frac{1}{2}+\mathcal{O}(x)
+\frac{1}{x}-\frac{1}{2}+O(x)
 \label{hankel:eq:bernoulli-erste-terme}
 \end{equation}
-
 zeigt, welcher Teil am Ursprung singulär ist. 
 Dieser führende Term wird explizit abgezogen und wieder addiert:
 
 \begin{equation}
 \begin{aligned}
-\int_0^1
-\frac{x^{s-1}}{e^x-1}\,dx
+{\color{hankelblue}\int_0^1
+\frac{x^{s-1}}{e^x-1}\,dx}
 ={}&
-\int_0^1
-x^{s-1}
-\left(
-\frac{1}{e^x-1}-\frac{1}{x}
-\right)\,dx
-\\
+{\color{hankelred}\int_0^1x^{s-2}\,dx}
 &+
-\int_0^1x^{s-2}\,dx.
+{\color{hankelorange}\int_0^1
+	x^{s-1}
+	\left(
+	\frac{1}{e^x-1}-\frac{1}{x}
+	\right)\,dx}.
 \end{aligned}
 \label{hankel:eq:singulaeren-term-abziehen}
 \end{equation}
-
-Für $\operatorname{Re}(s)>1$ gilt
+Für $\operatorname{Re}(s)>1$ ist das 2. Integral
 
 \begin{equation}
-\int_0^1x^{s-2}\,dx
+{\color{hankelred}\int_0^1x^{s-2}\,dx}
 =
-\frac{1}{s-1}.
+{\color{hankelred}\frac{1}{s-1}}.
 \label{hankel:eq:polterm}
 \end{equation}
-
 Damit erhält man
 
 \begin{equation}
 \begin{aligned}
 \Gamma(s)\zeta(s)
 ={}&
-\frac{1}{s-1}
-\\
+{\color{hankelred}\frac{1}{s-1}}
 &+
-\int_0^1
+{\color{hankelorange}\int_0^1
 x^{s-1}
 \left(
 \frac{1}{e^x-1}-\frac{1}{x}
-\right)\,dx
-\\
+\right)\,dx}
 &+
-\int_1^\infty
-\frac{x^{s-1}}{e^x-1}\,dx.
+{\color{hankelgreen}\int_1^\infty
+\frac{x^{s-1}}{e^x-1}\,dx.}
 \end{aligned}
 \label{hankel:eq:fortsetzungsformel}
 \end{equation}
-
 Der Ausdruck in Klammern besitzt für $x\to0$ den Grenzwert $-1/2$ und ist daher am Ursprung beschränkt. 
 Das erste Integral auf der rechten Seite konvergiert deshalb bereits für $\operatorname{Re}(s)>0$. 
 Das zweite Integral ist wegen des exponentiellen Abfalls im Unendlichen für jedes $s$ lokal unproblematisch. 
@@ -378,7 +375,6 @@ Da
 \Gamma(1)=1,
 \label{hankel:eq:gamma-eins}
 \end{equation}
-
 folgt unmittelbar
 
 \begin{equation}
@@ -387,17 +383,21 @@ folgt unmittelbar
 1.
 \label{hankel:eq:residuum-eins}
 \end{equation}
-
-Die Hankel-Darstellung liefert also die globale meromorphe Fortsetzung; die aufgespaltene Mellin-Darstellung macht lokal besonders anschaulich sichtbar, warum bei $s=1$ genau ein einfacher Pol mit Residuum $1$ entsteht.
+Die Hankel-Darstellung liefert also die globale meromorphe Fortsetzung.
+Die aufgespaltene Mellin-Darstellung macht lokal besonders anschaulich sichtbar, warum bei $s=1$ genau ein einfacher Pol mit Residuum $1$ entsteht.
 
 
 \section{Die Laurent-Entwicklung bei
 \texorpdfstring{$s=1$}{s=1}
 \label{hankel:section:laurent}}
 \kopfrechts{Die Laurent-Entwicklung}
-
-Da $s=1$ die einzige Polstelle der fortgesetzten Zetafunktion ist, besitzt sie in einer punktierten Umgebung dieses Punktes eine Laurent-Entwicklung der
-Form~\cite{hankel:dlmf}
+Mit der analytischen Fortsetzung ist das Hauptziel dieses Kapitels erreicht. 
+Die folgenden Abschnitte dienen vor allem dazu, einige
+Konsequenzen dieser Fortsetzung zu veranschaulichen. 
+Die dabei verwendeten Resultate werden deshalb nicht mehr in derselben Ausführlichkeit hergeleitet wie zuvor. 
+Im Mittelpunkt stehen das Verhalten bei $s=1$, die Funktionalgleichung und die daraus folgenden
+Aussagen über die Nullstellen der Zetafunktion.
+Da $s=1$ die einzige Polstelle der fortgesetzten Zetafunktion ist und dort ein einfacher Pol vorliegt, besitzt sie in einer punktierten Umgebung dieses Punktes eine Laurent-Entwicklung
 
 \begin{equation}
 \zeta(s)
@@ -407,7 +407,7 @@ Form~\cite{hankel:dlmf}
 \sum_{n=0}^{\infty}a_n(s-1)^n.
 \label{hankel:eq:laurent-allgemein}
 \end{equation}
-
+Eine ausführliche Darstellung dieser Entwicklung findet sich in~\cite{hankel:dlmf}.
 Der Hauptteil besteht nur aus dem einen Term $1/(s-1)$, was der Einfachheit des Pols entspricht. 
 Der konstante Koeffizient ist die Euler-Mascheroni-Konstante
 
@@ -420,7 +420,6 @@ Der konstante Koeffizient ist die Euler-Mascheroni-Konstante
 \right).
 \label{hankel:eq:euler-mascheroni}
 \end{equation}
-
 Für die weiteren Koeffizienten verwendet man die
 Stieltjes-Konstanten $\gamma_n$. 
 Sie sind durch die Schreibweise
@@ -436,7 +435,6 @@ Sie sind durch die Schreibweise
 }
 \label{hankel:eq:laurent-stieltjes}
 \end{equation}
-
 festgelegt, wobei $\gamma_0=\gamma$ gilt. 
 Die ersten Terme sind damit
 
@@ -451,19 +449,17 @@ Die ersten Terme sind damit
 +
 \frac{\gamma_2}{2}(s-1)^2
 +
-\mathcal{O}\bigl((s-1)^3\bigr).
+O\bigl((s-1)^3\bigr).
 \label{hankel:eq:laurent-erste-terme}
 \end{equation}
-
 Die Laurent-Entwicklung trennt den singulären Anteil der Zetafunktion sauber vom holomorphen Rest. 
-Insbesondere besitzt
+Bei $s=1$ besitzt
 
 \begin{equation}
 \zeta(s)-\frac{1}{s-1}
 \label{hankel:eq:regulaerer-rest}
 \end{equation}
-
-bei $s=1$ eine hebbare Singularität und nimmt dort nach Fortsetzung den Wert $\gamma$ an. 
+eine hebbare Singularität und nimmt dort nach Fortsetzung den Wert $\gamma$ an. 
 In diesem Sinn misst die Euler-Mascheroni-Konstante den endlichen Rest, der nach dem Abzug der logarithmischen Divergenz der harmonischen Reihe übrig bleibt.
 
 
@@ -474,7 +470,6 @@ In diesem Sinn misst die Euler-Mascheroni-Konstante den endlichen Rest, der nach
 Die analytische Fortsetzung beschreibt die Zetafunktion auf der ganzen komplexen Ebene bis auf ihren Pol bei $s=1$. 
 Eine weitere zentrale Eigenschaft ist ihre Symmetrie. 
 Sie wird durch die Funktionalgleichung sichtbar und verbindet Werte bei $s$ mit Werten bei $1-s$.
-
 Eine symmetrische Schreibweise verwendet die vervollständigte Zetafunktion
 
 \begin{equation}
@@ -485,7 +480,6 @@ Eine symmetrische Schreibweise verwendet die vervollständigte Zetafunktion
 \zeta(s).
 \label{hankel:eq:lambda-definition}
 \end{equation}
-
 Für sie lautet die Funktionalgleichung
 
 \begin{equation}
@@ -494,7 +488,6 @@ Für sie lautet die Funktionalgleichung
 }
 \label{hankel:eq:funktionalgleichung-symmetrisch}
 \end{equation}
-
 und äquivalent dazu
 
 \begin{equation}
@@ -508,10 +501,8 @@ und äquivalent dazu
 }
 \label{hankel:eq:funktionalgleichung}
 \end{equation}
-~\cite{hankel:titchmarsh,hankel:edwards}.
-Die vollständige Herleitung dieser Symmetrie kann etwa über die Jacobische Thetafunktion oder über ein geeignetes Konturintegral erfolgen. 
-Für den hier verfolgten Weg ist wesentlich, dass die zuvor konstruierte analytische Fortsetzung überhaupt erst erlaubt, beide Seiten der Gleichung ausserhalb der Halbebene $\operatorname{Re}(s)>1$ als dieselbe meromorphe Funktion zu
-verstehen. 
+Die vollständige Herleitung dieser Symmetrie kann etwa über die jacobische Thetafunktion oder über ein geeignetes Konturintegral erfolgen~\cite{hankel:titchmarsh,hankel:edwards}. 
+Für den hier verfolgten Weg ist wesentlich, dass die zuvor konstruierte analytische Fortsetzung überhaupt erst erlaubt, beide Seiten der Gleichung ausserhalb der Halbebene $\operatorname{Re}(s)>1$ als dieselbe meromorphe Funktion zu verstehen. 
 Im Folgenden werden vor allem die Konsequenzen der
 Funktionalgleichung betrachtet.
 
@@ -523,7 +514,6 @@ In \eqref{hankel:eq:funktionalgleichung} tritt der Faktor
 \sin\left(\frac{\pi s}{2}\right)
 \label{hankel:eq:sinus-faktor-halbe}
 \end{equation}
-
 auf. 
 Für die negativen geraden ganzen Zahlen
 
@@ -531,9 +521,8 @@ Für die negativen geraden ganzen Zahlen
 s=-2,-4,-6,\ldots
 \label{hankel:eq:negative-gerade-zahlen}
 \end{equation}
-
 verschwindet dieser Sinusfaktor. 
-Die übrigen Faktoren auf der rechten Seite sind an diesen Stellen endlich und von null verschieden. 
+Die übrigen Faktoren auf der rechten Seite sind an diesen Stellen endlich und ungleich null. 
 Daher gilt
 
 \begin{equation}
@@ -542,7 +531,6 @@ Daher gilt
 n=1,2,3,\ldots.
 \label{hankel:eq:triviale-nullstellen}
 \end{equation}
-
 Diese Nullstellen werden als triviale Nullstellen bezeichnet. Sie sind eine direkte Konsequenz der Funktionalgleichung und liegen vollständig ausserhalb des kritischen Streifens.
 
 \subsection{Der kritische Streifen und seine Symmetrien
@@ -556,7 +544,6 @@ Auf der rechten Seite der komplexen Ebene liefert das Euler-Produkt bereits
 \text{für }\operatorname{Re}(s)>1.
 \label{hankel:eq:nullstellenfreie-halbebene-rechts}
 \end{equation}
-
 Die Funktionalgleichung verbindet diese Halbebene mit der linken Seite. 
 Dort erscheinen die eben beschriebenen trivialen Nullstellen. Alle anderen Nullstellen müssen deshalb im offenen Streifen
 
@@ -564,7 +551,6 @@ Dort erscheinen die eben beschriebenen trivialen Nullstellen. Alle anderen Nulls
 0<\operatorname{Re}(s)<1
 \label{hankel:eq:kritischer-streifen}
 \end{equation}
-
 liegen. 
 Dieser Bereich heisst kritischer Streifen. 
 Die Transformation $s\mapsto1-s$ spiegelt ihn an der Geraden
@@ -573,7 +559,6 @@ Die Transformation $s\mapsto1-s$ spiegelt ihn an der Geraden
 \operatorname{Re}(s)=\frac{1}{2},
 \label{hankel:eq:kritische-gerade}
 \end{equation}
-
 während die komplexe Konjugation die Symmetrie an der reellen Achse liefert.
 Nichttriviale Nullstellen treten daher in den entsprechenden symmetrischen Konfigurationen auf.
 Die Annordnung der Nullstellen und des Poles ist in~\ref{hankel:fig:nullstellen} ersichtlich.
@@ -581,7 +566,7 @@ Die Annordnung der Nullstellen und des Poles ist in~\ref{hankel:fig:nullstellen}
 \begin{figure}
 	\centering
 	
-	\begin{tikzpicture}[x=0.9cm,y=0.12cm,font=\small]
+	\begin{tikzpicture}[x=0.9cm,y=0.12cm,font=\small,>=latex]
 		
 		% ------------------------------------------------------------
 		% Achsen
@@ -713,72 +698,18 @@ Unter Ausschluss der trivialen Nullstellen lautet die Aussage
 }
 \label{hankel:eq:riemannsche-vermutung}
 \end{equation}
-
 für jede nichttriviale Nullstelle. 
 Die Vermutung ist bis heute unbewiesen.
 Ihre Bedeutung liegt in der engen Verbindung zwischen den Nullstellen der Zetafunktion und der Verteilung der Primzahlen. 
-Die analytische Fortsetzung ist dafür eine notwendige Voraussetzung: Erst durch sie wird die Zetafunktion in dem Gebiet definiert, in dem diese Nullstellen liegen.
+Die analytische Fortsetzung ist dafür eine notwendige Voraussetzung.
+Erst durch sie wird die Zetafunktion in dem Gebiet definiert, in dem diese Nullstellen liegen.
+
+Die Bedeutung der riemannschen Vermutung reicht weit über die Zetafunktion selbst hinaus. 
+David Hilbert nahm die Frage nach den Nullstellen der Zetafunktion im Jahr 1900 in Hilberts Liste mathematischer Probleme auf.
+Hundert Jahre später wurde die riemannsche Vermutung vom Clay Mathematics Institute als eines der sieben Millennium-Probleme ausgewählt. 
+Für ihre Lösung ist ein Preis von einer Million US-Dollar
+ausgesetzt. 
+Dass dieselbe Fragestellung über mehr als ein Jahrhundert
+hinweg auf zwei der bekanntesten Listen mathematischer Probleme erscheint, unterstreicht ihre grundlegende Bedeutung für die Zahlentheorie.
 
 
-\section{Zusammenfassung
-\label{hankel:section:zusammenfassung}}
-\kopfrechts{Zusammenfassung}
-
-Ausgangspunkt war die Dirichlet-Reihe
-
-\begin{equation}
-\zeta(s)
-=
-\sum_{n=1}^{\infty}\frac{1}{n^s},
-\qquad
-\operatorname{Re}(s)>1.
-\label{hankel:eq:zusammenfassung-dirichlet}
-\end{equation}
-
-Die Gammafunktion verwandelte jeden Summanden $n^{-s}$ in ein Integral. 
-Nach der gerechtfertigten Vertauschung von Summe und Integral entstand die Mellin-Darstellung
-
-\begin{equation}
-\Gamma(s)\zeta(s)
-=
-\int_0^\infty
-\frac{x^{s-1}}{e^x-1}\,dx.
-\label{hankel:eq:zusammenfassung-mellin}
-\end{equation}
-
-Sie machte sichtbar, dass nur die Singularität im Ursprung die Fortsetzung behindert. 
-Mit einem festgelegten Zweig des komplexen Logarithmus konnte
-dieser Punkt durch eine Hankel-Kontur umgangen werden. 
-Die unterschiedlichen Randwerte von $(-z)^{s-1}$ auf beiden Seiten des Verzweigungsschnittes erzeugten den Sinusfaktor. Zusammen mit der Reflexionsformel der Gammafunktion führte dies zur Hankel-Darstellung
-
-\begin{equation}
-\zeta(s)
-=
-\frac{\Gamma(1-s)}{2\pi i}
-\int_H
-\frac{(-z)^{s-1}}{e^z-1}\,dz.
-\label{hankel:eq:zusammenfassung-hankel}
-\end{equation}
-
-Wird der Radius des kleinen Kreises fest gehalten, ist das Konturintegral als Funktion von $s$ ganz. 
-Das Produkt mit $\Gamma(1-s)$ liefert deshalb die meromorphe Fortsetzung der Zetafunktion auf $\mathbb C$. 
-Alle scheinbaren Pole bei $s=2,3,\ldots$ sind hebbar; bei $s=1$ bleibt ein einfacher Pol mit Residuum $1$ zurück. 
-Die Laurent-Entwicklung beschreibt das lokale Verhalten
-an diesem Pol, während die Funktionalgleichung die Symmetrien der Nullstellen sichtbar macht~\cite{hankel:titchmarsh,hankel:edwards}.
-
-Der gesamte Weg lässt sich damit als
-
-\begin{equation}
-\text{Dirichlet-Reihe}
-\longrightarrow
-\text{Mellin-Darstellung}
-\longrightarrow
-\text{Hankel-Kontur}
-\longrightarrow
-\text{analytische Fortsetzung}
-\label{hankel:eq:roter-faden}
-\end{equation}
-
-zusammenfassen. 
-Die Konstruktion der Fortsetzung ist damit abgeschlossen.
-Die anschliessende Untersuchung der nichttrivialen Nullstellen führt in den kritischen Streifen und schliesslich zur riemannschen Vermutung.

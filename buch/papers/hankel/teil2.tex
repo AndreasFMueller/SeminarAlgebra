@@ -13,7 +13,8 @@
 
 Die Mellin-Darstellung scheitert nur an der Singularität im Ursprung. 
 Die Grundidee der Hankel-Kontur besteht darin, diesen Punkt in der komplexen Ebene zu umgehen. 
-Dabei entsteht allerdings eine neue Frage: Der Integrand enthält eine komplexe Potenz, und eine solche Potenz ist erst festgelegt, nachdem ein Zweig des komplexen Logarithmus gewählt worden ist.
+Dabei entsteht allerdings eine neue Frage: Der Integrand enthält eine komplexe Potenz.
+Eine solche Potenz ist erst festgelegt, nachdem ein Zweig des komplexen Logarithmus gewählt worden ist.
 
 \subsection{Hauptzweig und Verzweigungsschnitt}
 
@@ -27,7 +28,6 @@ Für $w\in\mathbb C\setminus(-\infty,0]$ wird der Hauptzweig des Logarithmus dur
 -\pi<\operatorname{arg}(w)<\pi
 \label{hankel:eq:hauptzweig-log}
 \end{equation}
-
 definiert. 
 Die komplexe Potenz im späteren Konturintegral wird damit als
 
@@ -37,8 +37,7 @@ Die komplexe Potenz im späteren Konturintegral wird damit als
 \exp\bigl((s-1)\log(-z)\bigr)
 \label{hankel:eq:minus-z-potenz}
 \end{equation}
-
-verstanden. 
+beschrieben. 
 Weil der Logarithmus auf $-z$ angewendet wird, wird der
 Verzweigungsschnitt in der $z$-Ebene von der negativen auf die positive reelle Achse gespiegelt.
 
@@ -53,7 +52,6 @@ Daher
 \log x-i\pi.
 \label{hankel:eq:log-oben}
 \end{equation}
-
 Nähert man sich dagegen von unten, $z=x-i0$, so liegt $-z$ knapp oberhalb der negativen Achse und hat das Argument $+\pi$:
 
 \begin{equation}
@@ -62,7 +60,6 @@ Nähert man sich dagegen von unten, $z=x-i0$, so liegt $-z$ knapp oberhalb der n
 \log x+i\pi.
 \label{hankel:eq:log-unten}
 \end{equation}
-
 Für die komplexen Potenzen ergeben sich damit die beiden Randwerte
 
 \begin{equation}
@@ -71,7 +68,6 @@ Für die komplexen Potenzen ergeben sich damit die beiden Randwerte
 x^{s-1}e^{-i\pi(s-1)}
 \label{hankel:eq:potenz-oben}
 \end{equation}
-
 und
 
 \begin{equation}
@@ -81,11 +77,12 @@ x^{s-1}e^{i\pi(s-1)},
 \label{hankel:eq:potenz-unten}
 \end{equation}
 dargestellt in Abbildung~\ref{hankel:fig:phasensprung}.
-Die beiden Werte unterscheiden sich nur durch ihre Phasen. Genau diese Phasendifferenz erzeugt später den Sinusfaktor. Ohne den Verzweigungsschnitt würden sich die Beiträge der beiden geraden Konturstücke wegen ihrer entgegengesetzten Orientierung aufheben.
+Die beiden Werte unterscheiden sich nur durch ihre Phasen. Diese Phasendifferenz erzeugt später den Sinusfaktor. 
+Ohne den Verzweigungsschnitt würden sich die Beiträge der beiden geraden Konturstücke wegen ihrer entgegengesetzten Orientierung aufheben.
 
 \begin{figure}
 \centering
-\begin{tikzpicture}[scale=1.05]
+\begin{tikzpicture}[scale=1.05,>=latex]
 	\draw[->] (-0.7,0) -- (6.1,0) node[right] {$\operatorname{Re}(z)$};
 	\draw[->] (0,-1.8) -- (0,1.8) node[above] {$\operatorname{Im}(z)$};
 	\draw[very thick,red] (0,0) -- (5.6,0);
@@ -109,7 +106,7 @@ Es ist wichtig, die Orientierung beider Äste zu beachten: Auf dem unteren Ast n
 
 \begin{figure}
 \centering
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.2,>=latex]
 	% Achsen
 	\draw[->] (-0.8,0) -- (5.4,0) node[right] {$\Re(z)$};
 	\draw[->] (0,-1.4) -- (0,1.8) node[above] {$\Im(z)$};
@@ -145,8 +142,7 @@ I(s)
 \,dz.
 \label{hankel:eq:hankel-integral}
 \end{equation}
-
-Zunächst wird die Beziehung zur Mellin-Darstellung weiterhin unter der Voraussetzung $\operatorname{Re}(s)>1$ hergeleitet. In diesem Gebiet darf der Radius $\varepsilon$ anschliessend gegen null geführt werden.
+Vorerst wird die Beziehung zur Mellin-Darstellung weiterhin unter der Voraussetzung $\operatorname{Re}(s)>1$ hergeleitet. In diesem Gebiet darf der Radius $\varepsilon$ gegen null geführt werden.
 
 \subsection{Der Beitrag des kleinen Kreises}
 
@@ -155,12 +151,11 @@ Auf dem Kreis $|z|=\varepsilon$ wird die Exponentialfunktion am Ursprung entwick
 \begin{equation}
 e^z-1
 =
-z+\mathcal{O}(z^2)
+z+O(z^2)
 =
-z\bigl(1+\mathcal{O}(z)\bigr).
+z\bigl(1+O(z)\bigr).
 \label{hankel:eq:exp-klein}
 \end{equation}
-
 Der Nenner verhält sich dort also wie $z$. 
 Für $s=\sigma+it$ hat der Zähler die Grössenordnung $|z|^{\sigma-1}$; der zusätzliche Faktor, der aus dem
 Argument von $-z$ entsteht, ist auf dem festen Kreis für ein festes $s$ beschränkt. 
@@ -174,9 +169,8 @@ Damit existiert eine Konstante $C_s>0$ mit
 C_s\varepsilon^{\operatorname{Re}(s)-2}.
 \label{hankel:eq:kleiner-kreis-majorante}
 \end{equation}
-
-Die Länge des vollständigen Kreisbogens beträgt $2\pi\varepsilon$. 
-Die ML-Ungleichung liefert deshalb
+Da der Kreis $C_\rho$ die Länge $2\pi\rho$ besitzt, ist der Betrag des Integrals höchstens das Produkt aus dieser Länge und dem maximalen Betrag des Integranden auf dem Kreis. 
+Aus \eqref{hankel:eq:kleiner-kreis-majorante} folgt somit
 
 \begin{equation}
 \left|
@@ -188,9 +182,8 @@ Die ML-Ungleichung liefert deshalb
 2\pi C_s\varepsilon^{\operatorname{Re}(s)-1}.
 \label{hankel:eq:kleiner-kreis-ml}
 \end{equation}
-
 Für $\operatorname{Re}(s)>1$ ist der Exponent positiv und der rechte Ausdruck geht für $\varepsilon\to0$ gegen null. 
-Genau an dieser Stelle tritt also nochmals dieselbe Bedingung auf wie bei der Mellin-Darstellung. 
+An dieser Stelle tritt somit dieselbe Bedingung auf wie bei der Mellin-Darstellung. 
 Für die Herleitung der Hankel-Formel ist das zunächst ausreichend.
 
 \subsection{Die beiden geraden Äste}
@@ -216,7 +209,6 @@ e^{i\pi(s-1)}
 \end{aligned}
 \label{hankel:eq:unterer-ast}
 \end{equation}
-
 Auf dem oberen Ast gilt $z=x+i0$ und die Orientierung läuft von
 $\varepsilon$ nach $R$. 
 Daher
@@ -230,7 +222,6 @@ e^{-i\pi(s-1)}
 \frac{x^{s-1}}{e^x-1}\,dx.
 \label{hankel:eq:oberer-ast}
 \end{equation}
-
 Nach Addition der beiden Beiträge bleibt derselbe reelle Integralterm übrig,
 während die Phasen voneinander subtrahiert werden:
 
@@ -251,7 +242,6 @@ e^{-i\pi(s-1)}-e^{i\pi(s-1)}
 \end{aligned}
 \label{hankel:eq:beide-aeste}
 \end{equation}
-
 Mit der Identität $e^{-i\alpha}-e^{i\alpha}=-2i\sin\alpha$ und
 $\sin(\pi(s-1))=-\sin(\pi s)$ folgt
 
@@ -261,7 +251,6 @@ e^{-i\pi(s-1)}-e^{i\pi(s-1)}
 2i\sin(\pi s).
 \label{hankel:eq:phasen-differenz}
 \end{equation}
-
 Nun werden zuerst $R\to\infty$ und anschliessend $\varepsilon\to0$ geführt.
 Der kleine Kreis verschwindet für $\operatorname{Re}(s)>1$, und das reelle Integral wird nach \eqref{hankel:eq:mellin-darstellung} zu $\Gamma(s)\zeta(s)$. Damit ist
 
@@ -282,8 +271,7 @@ Die Reflexionsformel der Gammafunktion
 \frac{\pi}{\sin(\pi s)}
 \label{hankel:eq:reflexionsformel}
 \end{equation}
-
-ist nun genau in der Form vorhanden, die benötigt wird~\cite{hankel:dlmf}. 
+ist in~\cite{hankel:dlmf} genau in der Form angegeben, welche hier benötigt wird. 
 Aus ihr folgt
 
 \begin{equation}
@@ -292,7 +280,6 @@ Aus ihr folgt
 \frac{\pi}{\Gamma(1-s)}.
 \label{hankel:eq:reflexion-umgestellt}
 \end{equation}
-
 Einsetzen in \eqref{hankel:eq:hankel-mellin} ergibt
 
 \begin{equation}
@@ -301,7 +288,6 @@ I(s)
 \frac{2\pi i}{\Gamma(1-s)}\zeta(s),
 \label{hankel:eq:hankel-vor-endformel}
 \end{equation}
-
 und damit schliesslich
 
 \begin{equation}
@@ -317,13 +303,14 @@ und damit schliesslich
 \end{equation}
 Diese Hankel-Darstellung findet sich in äquivalenter Form
 beispielsweise in \cite{hankel:dlmf}.
-Bis zu diesem Punkt wurde die Formel aus der Mellin-Darstellung für $\operatorname{Re}(s)>1$ abgeleitet. Der wesentliche Gewinn liegt aber darin, dass das Konturintegral anders behandelt werden kann als das ursprüngliche reelle Integral. 
+Bis zu diesem Punkt wurde die Formel aus der Mellin-Darstellung für $\operatorname{Re}(s)>1$ abgeleitet. 
+Der wesentliche Gewinn liegt aber darin, dass das Konturintegral anders behandelt werden kann als das ursprüngliche reelle Integral. 
 Für die Herleitung wurde der kleine Kreis gegen null
-geführt; für die analytische Fortsetzung wird sein Radius stattdessen fest gehalten. 
+geführt, für die analytische Fortsetzung wird sein Radius stattdessen fest gehalten. 
 Dadurch bleibt die Kontur vom problematischen Punkt $z=0$
 getrennt. 
-Für 0<ε<2π kann der Radius des kleinen Kreises verändert werden, ohne dass eine Singularität des Integranden überquert wird. 
+Für $0<\varepsilon<2π$ kann der Radius des kleinen Kreises verändert werden, ohne dass eine Singularität des Integranden überquert wird. 
 Zwei solche Hankel-Konturen lassen sich im geschlitzten Gebiet stetig ineinander deformieren. 
-Nach dem Cauchyschen Integralsatz ist das Konturintegral daher unabhängig vom gewählten Radius ε. 
-Für die Fortsetzung darf ε somit fest positiv gewählt werden.
+Nach dem Cauchyschen Integralsatz ist das Konturintegral daher unabhängig vom gewählten Radius $\varepsilon$. 
+Für die Fortsetzung darf $\varepsilon$ somit fest positiv gewählt werden.
 Genau dieser Wechsel ist der Inhalt des nächsten Abschnitts.
