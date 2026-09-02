@@ -284,12 +284,18 @@ class Dual:
 	
    def __mul__(self, other):
       if isinstance(other, Dual):
-         return Dual(self.real * other.real, self.real * other.dual + self.dual * other.real)
+         return Dual(
+            self.real * other.real,
+            self.real * other.dual + self.dual * other.real
+         )
       else:
          return Dual(self.real * other, self.dual * other)
 	
    def __pow__(self, power):
-      return Dual(self.real**power, power * (self.real ** (power - 1)) * self.dual)
+      return Dual(
+         self.real**power,
+         power * (self.real ** (power - 1)) * self.dual
+      )
 
 \end{lstlisting}
 
