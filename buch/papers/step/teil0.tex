@@ -8,12 +8,13 @@
 %
 
 
-\section{Klassische Finite Differenzenmethode}
-\kopfrechts{Klassische Finite Differenzenmethode}
+\section{Klassische Finite-Differenzen-Methode}
+\kopfrechts{Klassische Finite-Differenzen-Methode}
 
 
 Für eine hinreichend oft differenzierbare Funktion $f$ lässt sich der Funktionswert 
 in der Umgebung eines Punktes $x$ mithilfe der Taylor-Entwicklung darstellen. 
+\index{Taylor-Reihe}%
 Ausgehend von der \emph{allgemeinen Taylor-Reihe}
 
 \begin{equation}
@@ -72,6 +73,8 @@ Die Genauigkeit der Taylor-Approximation wird durch den \emph{Lagrange-Restterm}
 \begin{equation*}
 	R_n(h) = \frac{h^{n+1}}{(n+1)!} f^{(n+1)}(\xi)
 \end{equation*}
+\index{Restterm, Lagrange}%
+\index{Lagrange-Restterm}%
 charakterisiert, wobei $\xi$ zwischen $x$ und $x+h$ liegt. Dieser Term beschreibt die 
 Abweichung zwischen der exakten Funktion und ihrer Approximation durch ein Polynom 
 vom Grad $n$ \cite{step:burden2010numerical}.
@@ -101,11 +104,13 @@ aus dem Restterm
 \begin{equation*}
 	O(h) = \frac{h}{2}f''(\xi)
 \end{equation*}
- der Taylor-Entwicklung folgt.
+der Taylor-Entwicklung folgt.
 Diese sogenannte \emph{Vorwärtsdifferenz} stellt die einfachste numerische Näherung der 
+\index{Vorwärtsdifferenz}%
 Ableitung dar.
 
 Als Pendant zur Vorwärtsdifferenz lässt sich auch die \emph{Rückwärtsdifferenz} bilden
+\index{Rückwärtsdifferenz}%
 Dabei wird der Funktionswert an der um die positive Schrittweite $h>0$ zurückliegenden Stelle $x-h$ verwendet:
 \begin{equation*}
 	f'\left(x\right) \approx \frac{f\left(x\right) - f\left(x-h\right)}{h},
@@ -135,6 +140,8 @@ mit einem Fehlerterm
 	O(h^2) = h^2\frac{f'''\left(\xi_1\right) + f'''\left(\xi_2\right)}{12}.
 \end{equation*}
 Man spricht hierbei von der \emph{zentrierten Differenzapproximation}. 
+\index{Differenzapproximation, zentriert}%
+\index{zentrierte Differenzapproximation}%
 Natürlich sind auch Differenzapproximationen höherer Ordnung möglich, dazu müssen lediglich mehr Terme (bpsw. $f\left(x + h\right), f\left(x - h\right), f\left(x + 2h\right), f\left(x - 2h\right)$) berücksichtigt werden \cite{step:fornberg1998}. 
 
 
@@ -162,12 +169,15 @@ und erscheint entsprechend als Gerade mit Steigung $2$. Diese Beobachtungen stim
 Für sehr kleine Schrittweiten, also im linken Bereich der Abbildung, kehrt sich das bisher beobachtete Verhalten der Fehlerkurven um. 
 Hier dominiert der sogenannte Rundungsfehler, der durch die endliche Genauigkeit der Gleitkommaarithmetik entsteht. 
 Insbesondere tritt ein Effekt auf, der als \emph{Auslöschung} bezeichnet wird: 
+\index{Auslöschung}%
 Die Differenzenquotienten beinhalten die Subtraktion nahezu gleicher Funktionswerte, wodurch auf Grund der Endlichkeit der Gleitkommazahlen signifikante Stellen verloren gehen, was wiederum zu signifikanten Fehlern in den Ergebnissen führt. 
-Die Grösse des Rundungsfehlers lässt sich näherungsweise durch folgende Beziehung ausdrücken:
+Die Grösse des Rundungsfehlers lässt sich näherungsweise durch die Beziehung
 \begin{equation*}
-	\lvert E_\text{Rundung} \rvert \sim \frac{\varepsilon}{h},
+	\lvert E_\text{Rundung} \rvert \sim \frac{\varepsilon}{h}
 \end{equation*}
+ausdrücken,
 wobei $\varepsilon$ die Maschinengenauigkeit bezeichnet und $h$ die Schrittweite ist \cite{step:higham2002}. 
+\index{Maschinengenauigkeit}%
 Mit abnehmendem $h$ wird der Quotient immer empfindlicher gegenüber der Rundungsgenauigkeit, weshalb der Fehler wieder ansteigt.
 
 Das Zusammenspiel von Diskretisierungs- und Rundungsfehler führt zu einem klar erkennbaren Minimum des Gesamtfehlers, das die \emph{optimale Schrittweite} $h_\text{opt}$ definiert \cite{step:higham2002}. 
