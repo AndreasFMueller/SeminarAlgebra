@@ -19,6 +19,7 @@ dependencies-elliptisch =						\
 	papers/elliptisch/fig/lemniskateFIG.tex			\
 	papers/elliptisch/fig/troposkeinFIG.tex			\
 	papers/elliptisch/fig/pendelFIG.tex			\
+	papers/elliptisch/fig/darrieusFIG.tex			\
 	papers/elliptisch/images/gradskala.pdf				\
 	papers/elliptisch/images/ellipse.pdf				\
 	papers/elliptisch/images/koerperturm.pdf			\
@@ -26,5 +27,6 @@ dependencies-elliptisch =						\
 	papers/elliptisch/images/sn-konstruktion.pdf			\
 	papers/elliptisch/images/lemniskate.pdf			\
 	papers/elliptisch/images/pendel.pdf			\
-	papers/elliptisch/images/troposkein.pdf
+	papers/elliptisch/images/troposkein.pdf			\
+	papers/elliptisch/images/darrieus-rotor.jpg
 
