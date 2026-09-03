@@ -9,13 +9,16 @@
 \section{Mechanismen aus dem 3D-Drucker
 \label{geradlinig:section:mechanismen_aus_dem_3d_drucker}}
 \kopfrechts{Mechanismen aus dem 3D-Drucker}
-Um das Verständnis dieser Mechanismen zu vertiefen, lohnt es sich
+Um das Verständnis dieser Mechanismen zu vertiefen, lohnt es sich,
 diese selbst nachzubauen.
+Der Peaucellier-Lipkin-Mechanismus wurde bereits 
+für den 3D-Druck konstruiert und öffentlich 
+zugänglich gemacht~\cite{thingiverse}.
 Die Mechanismen können grundsätzlich aus einfachen Gelenken und Bolzen 
 aufgebaut werden, wie sie in Abbildung~\ref{fig:3dprint_mech} 
 dargestellt sind.
 Da die Gelenke teilweise unterschiedlich übereinander angeordnet werden, 
-werden Bolzen mit unterschiedlichen Längen benötigt.
+braucht es Bolzen mit unterschiedlichen Längen.
 \begin{figure}
     \centering
     \begin{minipage}{0.32\textwidth}
@@ -44,17 +47,26 @@ Die CAD-Konstruktion mit der Basis für den Perrolatz-Mechanismus
 ist in Abbildung~\ref{fig:3dprint_cad} dargestellt.
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{papers/geradlinig/figures/perrolatz_inversor_v22.png}
+    \includegraphics[width=0.9\textwidth]{papers/geradlinig/figures/perrolatz_inversor_v22.png}
     \caption{CAD-Konstruktion des Perrolatz-Mechanismus mit Basis.}
     \label{fig:3dprint_cad}
 \end{figure}
 
 Die Konstruktion kann anschliessend mit einem 3D-Drucker hergestellt werden.
-Das Ergebnis kann wie in Abbildung~\ref{fig:3dprint_perr_peauc} aussehen.
-Das Design wurde so ausgelegt, dass am Gelenkende wo die 
+Das Ergebnis kann wie in den Abbildungen~\ref{fig:3dprint_perr} 
+und~\ref{fig:3dprint_peauc} aussehen.
+Das Design wurde so ausgelegt, dass am Gelenkende, wo die 
 geradlinige Bewegung entsteht, ein Stift befestigt werden kann.
+Die STL-Files beider Konstruktionen sind im 
+folgenden Repository zu finden~\cite{github_stl_mechanism}.
 Bei einem 3D-gedruckten Mechanismus ist das Spiel der Gelenke 
 jedoch vergleichsweise gross.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{papers/geradlinig/figures/perrolatz_3dprint.jpeg}
+    \caption{3D-gedrucktes Modell des Perrolatz-Mechanismus.}
+    \label{fig:3dprint_perr}
+\end{figure}
 Dadurch ist bereits mit blossem Auge erkennbar, dass die Bewegung 
 des Ausgangs nicht exakt einer Geraden entspricht.
 Sie liegt jedoch trotzdem nahe an einer geradlinigen Bewegung.
@@ -63,16 +75,7 @@ Als einfaches Experiment zur Überprüfung der Funktionsweise eignet
 sich der 3D-gedruckte Mechanismus dennoch gut.
 \begin{figure}
     \centering
-    \begin{minipage}{\textwidth}
-        \centering
-        \includegraphics[width=0.56\textwidth]{papers/geradlinig/figures/peaucellier_3dprint.jpeg}
-    \end{minipage}
-    \vfill
-    \begin{minipage}{\textwidth}
-        \centering
-        \includegraphics[width=0.56\textwidth]{papers/geradlinig/figures/perrolatz_3dprint.jpeg}
-    \end{minipage}
-    \caption{3D-gedruckte Modelle des Perrolatz- und 
-    Peaucellier-Lipkin-Mechanismus.}   
-    \label{fig:3dprint_perr_peauc}
+    \includegraphics[width=0.9\textwidth]{papers/geradlinig/figures/peaucellier_3dprint.jpeg}
+    \caption{3D-gedrucktes Modell des Peaucellier-Lipkin-Mechanismus.}
+    \label{fig:3dprint_peauc}
 \end{figure}
