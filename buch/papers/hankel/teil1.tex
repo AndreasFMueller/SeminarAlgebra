@@ -13,11 +13,12 @@
 
 Die Dirichlet-Reihe enthält den Faktor $n^{-s}$. 
 Für die analytische Fortsetzung ist es günstig, diesen Faktor nicht als Potenz, sondern als Integral zu schreiben. 
-Genau diese Verbindung liefert die Gammafunktion.
+Genau diese Verbindung liefert die Gamma-Funktion.
 
-\subsection{Die Gammafunktion als Bindeglied}
+\subsection{Die Gamma-Funktion als Bindeglied}
 
-Für $\operatorname{Re}(s)>0$ ist die Gammafunktion, dargestellt in~\refeq{hankel:fig:gamma-reell}, durch
+Für $\operatorname{Re}(s)>0$ ist die Gamma-Funktion, dargestellt in~\refeq{hankel:fig:gamma-reell}, durch
+\index{Gamma-Funktion}%
 \begin{equation}
 \Gamma(s)
 =
@@ -27,7 +28,8 @@ x^{s-1}e^{-x}
 \label{hankel:eq:gamma-definition}
 \end{equation}
 definiert~\cite{hankel:dlmf}. 
-Die Integralform der Gammafunktion wird in Kapitel~\ref{chapter:gamma} ausführlich beschrieben.
+Die Integralform der Gamma-Funktion wird in Kapitel~\ref{chapter:gamma} ausführlich beschrieben.
+\index{Gamma-Funktion!Integralform}
 Am Ursprung verhält sich der Betrag des Integranden wie
 $x^{\operatorname{Re}(s)-1}$ und ist deshalb genau für
 $\operatorname{Re}(s)>0$ integrierbar. 
@@ -51,13 +53,12 @@ dx=\frac{du}{n}
 \label{hankel:eq:substitution-mellin}
 \end{equation}
 folgt Schritt für Schritt
-
 \begin{equation}
 \begin{aligned}
 \int_0^\infty x^{s-1}e^{-nx}\,dx
 &=
 \int_0^\infty
-\left(\frac{u}{n}\right)^{s-1}
+\biggl(\frac{u}{n}\biggr)^{s-1}
 e^{-u}\frac{du}{n}
 \\
 &=
@@ -71,7 +72,7 @@ e^{-u}\frac{du}{n}
 \end{equation}
 Der Faktor $n^{-s}$ entsteht also aus der Skalierung der
 Integrationsvariablen. 
-Da die Gammafunktion keine Nullstellen besitzt, kann nach $n^{-s}$ aufgelöst werden:
+Da die Gamma-Funktion keine Nullstellen besitzt, kann nach $n^{-s}$ aufgelöst werden:
 \begin{equation}
 \frac{1}{n^s}
 =
@@ -99,16 +100,14 @@ x^{s-1}e^{-nx}
 Der nächste Schritt besteht darin, Summe und Integral zu vertauschen. 
 Diese Vertauschung ist nicht rein formal, sondern muss durch absolute Integrierbarkeit gerechtfertigt werden. 
 Für $s=\sigma+it$ und $x>0$ gilt
-
 \begin{equation}
-\left|x^{s-1}e^{-nx}\right|
+|x^{s-1}e^{-nx}|
 =
 x^{\sigma-1}e^{-nx},
 \label{hankel:eq:betrag-integrand}
 \end{equation}
 weil $|x^{it}|=1$. 
 Mit derselben Skalierung wie zuvor erhält man
-
 \begin{equation}
 \int_0^\infty x^{\sigma-1}e^{-nx}\,dx
 =
@@ -116,12 +115,11 @@ Mit derselben Skalierung wie zuvor erhält man
 \label{hankel:eq:betrag-skaliert}
 \end{equation}
 Somit ist für $\sigma>1$
-
 \begin{equation}
 \begin{aligned}
 \sum_{n=1}^{\infty}
 \int_0^\infty
-\left|x^{s-1}e^{-nx}\right|\,dx
+|x^{s-1}e^{-nx}|\,dx
 &=
 \sum_{n=1}^{\infty}
 \frac{\Gamma(\sigma)}{n^\sigma}
@@ -132,6 +130,7 @@ Somit ist für $\sigma>1$
 \label{hankel:eq:fubini-majorante}
 \end{equation}
 Damit sind die Voraussetzungen für den Satz von Fubini erfüllt. 
+\index{Satz!von Fubini}%
 Summe und Integral dürfen also vertauscht werden:
 \begin{equation}
 \zeta(s)
@@ -220,40 +219,41 @@ Die Mellin-Darstellung besitzt damit zunächst das gleiche Konvergenzgebiet wie 
 Ihr Vorteil liegt an einer anderen Stelle: Das gesamte Problem ist jetzt in der einzigen Singularität
 bei $x=0$ konzentriert.
 
-\begin{figure}
-	\centering
-	\begin{tikzpicture}[scale=1.05,>=latex]
-		
-		% Achsen
-		\draw[->] (-0.2,0) -- (6.2,0)
-		node[right] {$x$};
-		
-		\draw[->] (0,-0.2) -- (0,4.6);
-		
-		% Beschriftung der y-Achse bewusst links
-		\node[anchor=east] at (-0.15,3.8)
-		{$\displaystyle\frac{x^{\sigma-1}}{e^x-1}$};
-		
-		% Kurve: nahe genug an x=0 beginnen,
-		% damit der singuläre Anstieg sichtbar wird
-		\begin{scope}
-			\clip (-0.2,-0.2) rectangle (6.2,4.6);
-			\draw[thick,domain=0.08:6,samples=200]
-			plot (\x,{(\x^0.4)/(exp(\x)-1)});
-		\end{scope}
-		
-		% Hinweise
-		\node[align=left,anchor=west] at (0.55,3.45)
-		{Singularität\\bei $0$};
-		
-		\node[align=center] at (4.55,0.82)
-		{exponentieller\\Abfall};
-		
-	\end{tikzpicture}
-	\caption{Schematisches Verhalten des Mellin-Integranden für einen festen
-		Realteil $1<\sigma<2$. Nur der Ursprung begrenzt das Konvergenzgebiet.}
-	\label{hankel:fig:mellin-integrand}
-\end{figure}
+\input{papers/hankel/fig/fig-mellin-integrand.tex}
+%\begin{figure}
+%	\centering
+%	\begin{tikzpicture}[scale=1.05,>=latex]
+%		
+%		% Achsen
+%		\draw[->] (-0.2,0) -- (6.2,0)
+%		node[right] {$x$};
+%		
+%		\draw[->] (0,-0.2) -- (0,4.6);
+%		
+%		% Beschriftung der y-Achse bewusst links
+%		\node[anchor=east] at (-0.15,3.8)
+%		{$\displaystyle\frac{x^{\sigma-1}}{e^x-1}$};
+%		
+%		% Kurve: nahe genug an x=0 beginnen,
+%		% damit der singuläre Anstieg sichtbar wird
+%		\begin{scope}
+%			\clip (-0.2,-0.2) rectangle (6.2,4.6);
+%			\draw[thick,domain=0.08:6,samples=200]
+%			plot (\x,{(\x^0.4)/(exp(\x)-1)});
+%		\end{scope}
+%		
+%		% Hinweise
+%		\node[align=left,anchor=west] at (0.55,3.45)
+%		{Singularität\\bei $0$};
+%		
+%		\node[align=center] at (4.55,0.82)
+%		{exponentieller\\Abfall};
+%		
+%	\end{tikzpicture}
+%	\caption{Schematisches Verhalten des Mellin-Integranden für einen festen
+%		Realteil $1<\sigma<2$. Nur der Ursprung begrenzt das Konvergenzgebiet.}
+%	\label{hankel:fig:mellin-integrand}
+%\end{figure}
 Genau diese Situation ist die Motivation für den nächsten Schritt. 
 Statt den Ursprung auf der reellen Achse zu durchlaufen, wird die Integration in die komplexe Ebene verlegt.
 Der singuläre Punkt wird auf einer kleinen Kontur umgangen. 
