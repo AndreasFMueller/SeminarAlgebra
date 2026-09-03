@@ -44,7 +44,7 @@ Der wesentliche Unterschied zum Elementartyp aus~\eqref{eq:mt_inv}
 besteht in der komplexen Konjugation.
 Dadurch kehrt die Kreisspiegelung die Orientierung um und 
 ist nicht holomorph.
-Die Abbildung~\eqref{eq:inversion} ist dagegen holomorph für
+Die Funktion~\eqref{eq:inversion} ist dagegen holomorph für
 $z\neq0$ und erhält die Orientierung.
 Damit können wir die Gleichung~\eqref{eq:constant0}
 der Kreisspiegelung folgendermassen erweitern:
@@ -60,24 +60,28 @@ der Kreisspiegelung folgendermassen erweitern:
 \end{align*}
 
 Abbildung~\ref{fig:moebius_transform} zeigt die Wirkung der Inversion.
-Kreise werden wieder auf Kreise abgebildet.
-Geraden bilden dabei den Grenzfall eines Kreises mit 
+Grundsätzlich besagt die Inversion, 
+dass Kreise wieder auf Kreise abgebildet werden.
+Gerade gelten dabei als Grenzfall eines Kreises mit 
 unendlichem Radius.
-Deshalb können auch Geraden auf Kreise und Kreise auf 
-Geraden abgebildet werden.
+Deshalb werden auch Geraden auf Kreise 
+abgebildet und 
+umgekehrt\footnote{Für diesen Spezialfall gilt die Bedingung, 
+dass die betreffenden Kreise durch den Ursprung des Inversionskreises 
+verlaufen, wie später gezeigt wird.}.
 Diese Eigenschaft wird als Kreistreue bezeichnet.
 Sie besagt, dass Kreise und Geraden unter einer Möbius-Transformation 
 stets wieder auf Kreise oder Geraden abgebildet werden.
 Zusätzlich ist die Inversion winkeltreu.
 Das bedeutet, dass sich die Schnittwinkel zweier Kurven unter 
 der Abbildung nicht ändern.
-In Abbildung~\ref{fig:moebius_transform} bleibt der rechte Winkel 
-zwischen den Kreisen daher erhalten.
+In Abbildung~\ref{fig:moebius_transform} bleibt der rechte Winkel,
+in dem sich die Kreise schneiden, bei den Geraden erhalten.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{papers/geradlinig/figures/moebius_transform_plot.pdf}
     \caption{Inversion auf der komplexen Zahlenebene. 
-    Kreise werden in Gerade abgebildet.}
+    Kreise links werden rechts in Gerade abgebildet.}
     \label{fig:moebius_transform}
 \end{figure}
 
@@ -104,7 +108,7 @@ wie in Abbildung~\ref{fig:compl_inv} in der linken Hälfte dargestellt,
 so bleibt sein Bild wiederum ein Kreis.
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/geradlinig/figures/inversion_plot.pdf}
+    \includegraphics[width=\textwidth]{papers/geradlinig/figures/inversion_plot.pdf}
     \caption{Komplexe Inversion mit eingezeichnetem Inversionskreis. 
     Kreise, die durch den Ursprung verlaufen, 
     werden auf Geraden abgebildet.}
