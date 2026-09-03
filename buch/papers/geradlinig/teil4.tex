@@ -1,14 +1,14 @@
 %
-% teil2.tex -- Beispiel-File für teil2 
+% teil4.tex -- Möbius-Transformation
 %
 % (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Zusammenhang mit Möbius Transformation
+\section{Zusammenhang mit Möbius-Transformation
 \label{geradlinig:section:zusammenhang_mit_moebius_transformation}}
-\kopfrechts{Zusammenhang mit Möbius Transformation}
+\kopfrechts{Zusammenhang mit Möbius-Transformation}
 Die Möbius-Transformation ist eine Abbildung auf der komplexen Zahlenebene der Form
 \begin{align*}
     f(z)=\frac{az+b}{cz+d},
@@ -22,7 +22,9 @@ In diesem Abschnitt beschränken wir uns auf den Elementartyp
     \label{eq:mt_inv}
 \end{align}
 der Möbius-Transformation.
+\index{Mobius-Transformation@Möbius-Transformation}
 Dieser Elementartyp wird ebenfalls als Inversion bezeichnet.
+\index{Inversion}%
 Er ist jedoch nicht mit der geometrischen Kreisspiegelung 
 auf der komplexen Zahlenebene identisch, 
 auch wenn beide Abbildungen ähnliche Eigenschaften besitzen.
@@ -77,13 +79,7 @@ Das bedeutet, dass sich die Schnittwinkel zweier Kurven unter
 der Abbildung nicht ändern.
 In Abbildung~\ref{fig:moebius_transform} bleibt der rechte Winkel,
 in dem sich die Kreise schneiden, bei den Geraden erhalten.
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{papers/geradlinig/figures/moebius_transform_plot.pdf}
-    \caption{Inversion auf der komplexen Zahlenebene. 
-    Kreise links werden rechts in Gerade abgebildet.}
-    \label{fig:moebius_transform}
-\end{figure}
+\input{papers/geradlinig/fig/fig-moebius-transform.tex}
 
 Um zu zeigen, dass die geometrische Kreisspiegelung und die komplexe 
 Inversion gemäss~\eqref{eq:inversion} 
@@ -106,14 +102,7 @@ so wird er auf eine Gerade abgebildet.
 Verläuft ein Kreis hingegen nicht durch den Ursprung, 
 wie in Abbildung~\ref{fig:compl_inv} in der linken Hälfte dargestellt, 
 so bleibt sein Bild wiederum ein Kreis.
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{papers/geradlinig/figures/inversion_plot.pdf}
-    \caption{Komplexe Inversion mit eingezeichnetem Inversionskreis. 
-    Kreise, die durch den Ursprung verlaufen, 
-    werden auf Geraden abgebildet.}
-    \label{fig:compl_inv}
-\end{figure}
+\input{papers/geradlinig/fig/fig-compl-inv.tex}
 
 Die vorgestellten Mechanismen zur Erzeugung geradliniger 
 Bewegungen setzen 
