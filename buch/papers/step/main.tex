@@ -6,34 +6,43 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\chapter{Thema\label{chapter:step}}
-\kopflinks{Thema}
+\chapter{Methoden der numerischen Ableitung\label{chapter:step}}
+\kopflinks{Methoden der numerischen Ableitung}
 \begin{refsection}
-\chapterauthor{Hans Muster}
+\chapterauthor{Selina Malacarne}
+\index{Selina Malacarne}%
+\index{Malacarne, Selina}%
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
+\section*{Einleitung}
+
+Die Berechnung von Ableitungen ist eine zentrale Aufgabe in Naturwissenschaften, Ingenieurwesen und maschinellem Lernen.
+\index{Naturwissenschaften}%
+\index{Ingenieurwesen}%
+\index{maschinelles Lernen}%
+Sie bildet die Grundlage für Sensitivitätsanalysen, Optimierungsverfahren und Simulationen dynamischer Systeme.
+\index{Sensitivitätsanalyse}%
+\index{Optimierung}%
+\index{dynamisches System}%
+Insbesondere in komplexen Modellsystemen, bei denen analytische Ableitungen schwer oder gar nicht verfügbar sind, sind numerische Methoden unverzichtbar.
+
+In diesem Kapitel werden drei wichtige Ansätze vorgestellt, um Ableitungen präzise zu berechnen:
+
 \begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
+	\item \emph{Klassische Finite-Differenzen-Methoden}, die auf der Approximation durch kleine Schrittweiten basieren.
+\index{Finite-Differenzen-Methode}%
+	\item \emph{Automatic Differentiation (AD)}, die durch systematische Anwendung der Kettenregel exakte Ableitungen liefert und besonders in maschinellen Lernverfahren zum Einsatz kommt \cite{step:baydin2018}.
+\index{automatic differentiation}%
+	\item \emph{Complex-Step-Differentiation}, die analytische Eigenschaften holomorpher Funktionen nutzt, um hochpräzise Ableitungen zu erhalten.
+\index{Complex-Step-Differentiation}%
 \end{itemize}
-
+Ziel dieses Kapitels ist es, den Leser nicht nur theoretisch mit den Methoden vertraut zu machen, sondern auch praktische Anwendungen in Python zu demonstrieren.
+Die Kombination aus theoretischem Hintergrund und unmittelbarer Praxis soll ein tiefes Verständnis für die Stärken, Schwächen und Einsatzmöglichkeiten der verschiedenen Differentiationsmethoden vermitteln.
+%\input{papers/step/invertierbarkeit.tex}
 \input{papers/step/teil0.tex}
 \input{papers/step/teil1.tex}
 \input{papers/step/teil2.tex}
-%\input{papers/step/teil3.tex}
+\input{papers/step/teil3.tex}
+
 
 \printbibliography[heading=subbibliography]
 \end{refsection}

@@ -1,0 +1,139 @@
+% Stichworte:
+% 17.4 Eigenwerte als Lösung der Bewegungsgleichung (Vorspann)
+% - handeln statt andocken: "In diesem Abschnitt lösen wir ..."
+% - Fahrplan: skalar -> System -> charakteristische Gleichung
+%
+% 17.4.1 Der Exponentialansatz im skalaren Fall
+% - skalare Gleichung xdot = ax; Ableitung proportional zur Funktion
+% - genau eine Funktion: e^{lambda t}; Lösung x0 e^{at}
+% - R9 (x0 = Anfangszustand) und R3 (Tatsächlich ...) erfüllt
+% - Rückverweis Buchteil (y' = -ky, Potenzreihenansatz)
+%
+% 17.4.2 Vom gekoppelten System zur Eigenwertgleichung
+% - Hürde Kopplung an der echten pdot-Zeile
+% - Wunschbild entkoppelt (Indikativ!); Weg: Eigentheorie
+% - Ansatz einsetzen, kürzen -> Eigenwertgleichung; Taufe
+% - "Man beachte": die Zeit ist verschwunden
+%
+% 17.4.3 Die Eigenwerte als Nullstellen der charakteristischen
+%        Gleichung
+% - Umformen -> homogenes System; Entweder-oder-Weiche (Evelyn S. 2)
+% - triviale Lösung unbrauchbar -> det(A - lambda I) = 0
+% - Polynom 4. Grades, vier Nullstellen, i. A. komplex
+% - Schluss: "Das sind die vier Eigenwerte der Matrix A."
+
+\section{Eigenwerte als Lösung der Bewegungsgleichung
+\label{aircraft:section:4-eigenwerte}}
+\kopfrechts{Eigenwerte}
+In diesem Abschnitt lösen wir die Bewegungsgleichung.
+Wir betrachten zuerst den einfachsten Fall, eine einzelne Gleichung
+mit einer einzelnen gesuchten Funktion.
+Danach übertragen wir den gefundenen Ansatz auf das System und
+gelangen über die charakteristische Gleichung zu den Eigenwerten.
+
+\subsection{Der Exponentialansatz im skalaren Fall
+\label{aircraft:subsection:exponentialansatz}}
+Wir betrachten die skalare Gleichung
+\begin{equation}
+    \dot{x}
+    =
+    ax
+    \label{aircraft:eqn:skalar}
+\end{equation}
+mit einer gesuchten Funktion $x(t)$ und einer festen Zahl $a$.
+Die Gleichung verlangt, dass die Ableitung proportional zur Funktion
+ist.
+Aus der Analysis kennen wir genau eine Funktion mit dieser
+Eigenschaft, die Exponentialfunktion mit
+\begin{equation}
+    \frac{d}{dt} e^{\lambda t}
+    =
+    \lambda e^{\lambda t}.
+    \label{aircraft:eqn:expableitung}
+\end{equation}
+Die Lösung der Gleichung~\eqref{aircraft:eqn:skalar} ist daher
+\begin{equation}
+    x(t)
+    =
+    x_0 e^{at}.
+    \label{aircraft:eqn:skalarloesung}
+\end{equation}
+Die Konstante $x_0$ wird durch die Differentialgleichung nicht
+festgelegt.
+Sie ist der Anfangszustand, denn Einsetzen von $t = 0$ ergibt
+$x(0) = x_0$.
+Tatsächlich löst die Funktion~\eqref{aircraft:eqn:skalarloesung} die
+Gleichung~\eqref{aircraft:eqn:skalar}, denn ihre Ableitung ist
+$\dot{x}(t) = a x_0 e^{at} = a x(t)$.
+In Kapitel~\ref{chapter:differentialgleichungen} wurde die verwandte Gleichung
+$y' = -ky$ mit einem Potenzreihenansatz gelöst; auch dort war die
+Lösung die Exponentialfunktion.
+
+\subsection{Vom gekoppelten System zur Eigenwertgleichung
+\label{aircraft:subsection:eigenwertgleichung}}
+Das skalare Rezept überträgt sich nicht direkt auf die
+Bewegungsgleichung, denn das System ist gekoppelt.
+In jeder der vier Gleichungen treten alle vier gesuchten Funktionen
+auf, zum Beispiel in der zweiten Zeile
+$\dot{p} = L_\beta\beta + L_p p + L_r r$.
+Wünschenswert ist ein entkoppeltes System, in dem jede Gleichung nur
+ihre eigene Funktion enthält.
+Den Weg dorthin liefert die Eigentheorie der Matrix $A$.
+Wir setzen dazu die Lösung mit der Exponentialfunktion an, in der
+Form
+\begin{equation}
+    \vec{x}(t)
+    =
+    \vec{x}_0 e^{\lambda t}
+    \label{aircraft:eqn:ansatz}
+\end{equation}
+mit einem festen Vektor $\vec{x}_0$.
+Einsetzen in die Gleichung~\eqref{aircraft:eqn:bewegungsgesetz}
+ergibt
+\begin{equation}
+    \lambda \vec{x}_0 e^{\lambda t}
+    =
+    A \vec{x}_0 e^{\lambda t}.
+    \label{aircraft:eqn:eingesetzt}
+\end{equation}
+Da $e^{\lambda t} \neq 0$ ist, dürfen wir kürzen und erhalten die
+\emph{Eigenwertgleichung}
+\begin{equation}
+    A \vec{x}_0
+    =
+    \lambda \vec{x}_0.
+    \label{aircraft:eqn:eigenwertgleichung}
+\end{equation}
+Die Zahl $\lambda$ heisst \emph{Eigenwert}, der Vektor $\vec{x}_0$
+\emph{Eigenvektor} der Matrix $A$.
+Man beachte, dass die Zeit aus der Gleichung verschwunden ist.
+
+\subsection{Die Eigenwerte als Nullstellen der charakteristischen
+Gleichung
+\label{aircraft:subsection:charakteristische-gleichung}}
+Wir bringen beide Terme der Eigenwertgleichung auf eine Seite und
+erhalten
+\begin{equation}
+(A - \lambda I)\vec{x}_0
+=
+\vec{0}
+\label{aircraft:eqn:homogen}
+\end{equation}
+mit der Einheitsmatrix $I$.
+Dies ist ein homogenes lineares Gleichungssystem für $\vec{x}_0$.
+Es hat entweder genau eine Lösung, nämlich $\vec{x}_0 = \vec{0}$,
+oder unendlich viele.
+Die Lösung $\vec{x}_0 = \vec{0}$ ist unbrauchbar, denn sie beschreibt
+keine Bewegung.
+Unendlich viele Lösungen gibt es nur, wenn $A - \lambda I$ singulär
+ist, also
+\begin{equation}
+    \det(A - \lambda I)
+    =
+    0
+    \label{aircraft:eqn:charakteristisch}
+\end{equation}
+gilt, die \emph{charakteristische Gleichung}.
+Ausgeschrieben ist sie ein Polynom vierten Grades in $\lambda$ und
+hat vier Nullstellen, die im Allgemeinen komplex sind.
+Das sind die vier Eigenwerte der Matrix $A$.

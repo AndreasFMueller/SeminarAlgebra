@@ -4,6 +4,7 @@
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \begin{refsection}
+
 \input{chapters/vorwort.tex}
 \part{Grundlagen}
 
@@ -20,15 +21,23 @@
 
 %\begin{appendices}
 %\end{appendices}
-\vfill
-\pagebreak
+%\vfill
+%\pagebreak
 
-\ifodd\value{page}\else\null\clearpage\fi
-\kopflinks{Literatur}
-\kopfrechts{}
+%\ifodd\value{page}\else\null\clearpage\fi
+\fancyhead[RE]{Literatur}
+\fancyhead[LO]{Literatur}
+%\kopflinks{Literatur}
+%\kopfrechts{}
 \printbibliography[heading=subbibliography]
 \label{buch:literatur}
-
+\newpage
 \end{refsection}
+
+\clearpage
+\thispagestyle{empty}
+\vfill
+\clearpage
+
 
 

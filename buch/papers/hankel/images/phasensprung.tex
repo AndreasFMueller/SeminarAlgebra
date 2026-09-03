@@ -1,0 +1,35 @@
+%
+% phasensprung.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1.2}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+	% Achsen
+	\draw[->] (-0.8,0) -- (5.4,0) node[right] {$\operatorname{Re}(z)$};
+	\draw[->] (0,-1.4) -- (0,1.8) node[above] {$\operatorname{Im}(z)$};
+	\draw[very thick,red] (0,0) -- (5.0,0);
+	% Parameter
+	\def\eps{0.6}
+	
+	% oberer und unterer Teil der Hankel-Kontur
+	\draw[->,thick] (\eps,0.12) -- (4.8,0.12);
+	\draw[->,thick] (4.8,-0.12) -- (\eps,-0.12);
+	
+	\node[above] at (3.2,0.18) {$x^{s-1}e^{-i\pi(s-1)}$};
+	\node[below] at (3.2,-0.18) {$x^{s-1}e^{+i\pi(s-1)}$};
+
+\end{tikzpicture}
+\end{document}
+

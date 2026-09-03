@@ -11,6 +11,9 @@ awk 'BEGIN {
 	printf("%% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil\n")
 	printf("%%\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\\addbibresource{../papers/%s/references.bib}\n", $1)
 }' common/paperlist > common/addbibresources.tex

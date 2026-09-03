@@ -1,39 +1,53 @@
 %
 % main.tex -- Paper zum Thema <aircraft>
 %
-% (c) 2020 Autor, OST Ostschweizer Fachhochschule
+% (c) 2026 Stephanie Märklin, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\chapter{Aircraft Flight Dynamics and complex numbers\label{chapter:aircraft}}
-\kopflinks{Aircraft Flight Dynamics and complex numbers}
+\chapter{Komplexe Eigenwerte in der Flugdynamik\label{chapter:aircraft}}
+\kopflinks{Komplexe Eigenwerte in der Flugdynamik}
 \begin{refsection}
 \chapterauthor{Stephanie Märklin}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+Im Flug ist ein Flugzeug ständigen Störungen ausgesetzt, die seine
+Lage verändern.
+Wie ein Flugzeug auf Störungen antwortet, ist eine grundlegende
+Eigenschaft des Flugzeugs.
 
-\input{papers/aircraft/teil0.tex}
-\input{papers/aircraft/teil1.tex}
-\input{papers/aircraft/teil2.tex}
-\input{papers/aircraft/teil3.tex}
+Welche Antwort erwünscht ist, hängt vom Zweck ab.
+Ein einmotoriges Schulflugzeug soll nach einer Störung idealerweise von selbst
+in die ursprüngliche Lage zurückkehren.
+Dieses Verhalten erleichtert es dem Piloten, das Flugzeug sicher zu
+steuern.
+Man nennt ein solches Flugzeug stabil.
+Ein moderner Kampfjet ist bewusst instabil gebaut, um ein
+Maximum an Agilität zu erreichen.
+Fliegbar bleibt er nur, weil Computersysteme ihn in jedem Augenblick
+stabilisieren
+
+Ob stabil oder bewusst instabil, die Eigenschaft steckt in der
+Konstruktion und steht fest, bevor das Flugzeug zum ersten Mal
+fliegt.
+Der Flugversuch kommt als Nachweis also zu spät.
+Die Stabilität muss vorher berechnet werden.
+Dieses Kapitel zeigt, wie sich die Bewegung des Flugzeugs als
+Differentialgleichung schreiben lässt.
+Ihre Lösung drückt die Stabilität in einem einzigen Wert aus.
+
+\input{papers/aircraft/0-motivation.tex}
+\input{papers/aircraft/1-grundbegriffe.tex}
+\input{papers/aircraft/2-system.tex}
+\input{papers/aircraft/3-stabilitaet.tex}
+\input{papers/aircraft/4-eigenwerte.tex}
+\input{papers/aircraft/5-interpretation.tex}
+\input{papers/aircraft/6-beispiel.tex}
+\input{papers/aircraft/7-fluegel.tex}
+\input{papers/aircraft/8-grenzen.tex}
+\input{papers/aircraft/9-fazit.tex}
+
+
 
 \printbibliography[heading=subbibliography]
 \end{refsection}

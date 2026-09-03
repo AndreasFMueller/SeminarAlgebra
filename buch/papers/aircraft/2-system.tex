@@ -1,0 +1,145 @@
+% (c) 2026 Stephanie Märklin, OST Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+% Rolle im Paper: Realität in ein mathematisches Objekt übersetzen;
+% Annahmen benennen
+%
+% Stichworte:
+% 17.2 Das Flugzeug als dynamisches System (Vorspann, unnummeriert)
+% - Ziel: Flugzeug -> dynamisches System übersetzen; Begriff einführen
+%   (mathematisches Objekt, dessen Zustand sich mit der Zeit ändert)
+% - Begriffe aus 17.1 beschreiben nur die Lage; Erweiterung um
+%   Grössen, die die Bewegung erfassen
+% - Beschränkung: Seitenbewegung (lateral motion) = Gieren, Schieben,
+%   Rollen -- nur diese sind an der Dutch Roll beteiligt
+% - Annahme: Störung klein, Betrachtung nahe der Ruhelage
+% - Fahrplan am Ende ("Für diese Übersetzung ..."): Zustandsvektor ->
+%   Bewegungsgesetz -> Systemmatrix
+
+% 17.2.1 Der Zustandsvektor der Seitenbewegung
+% - vier Grössen einzeln: Schiebewinkel beta (formalisiert das
+%   Schieben aus 17.1.2), Rollrate p, Gierrate r, Rollwinkel phi
+% - Tabelle: Symbol, Name, Bedeutung
+% - Notation nach Nelson \cite (ein Satz, deckt die Tabelle ab)
+% - Zustandsvektor x = [beta, p, r, phi]^T (equation, Label)
+% - ein Satz Rückgriff: beta verbindet Gieren und Rollen;
+%   Konsequenz folgt in Abschnitt 17.4 (Vorverweis, kein Vorgriff)
+% - Schluss (Paar, keine Überleitung): x = Momentaufnahme zur Zeit t;
+%   Ableitung xdot beschreibt, wie sich der Zustand verändert
+
+% 17.2.2 Das Bewegungsgesetz
+% - Andocken: wir suchen den Zusammenhang zwischen x und xdot
+% - für kleine Störungen um die Ruhelage linear -> xdot = Ax
+%   (equation, Label); \emph{Systemmatrix} benennen;
+%   Herleitung: Nelson \cite
+% - Gleichung lesen: Änderung jeder Zustandsgrösse ist eine
+%   Linearkombination der momentanen Zustandsgrössen; A enthält
+%   die Koeffizienten
+
+% 17.2.3 Die Systemmatrix
+% - Andocken: "Für die Seitenbewegung lautet die Systemmatrix ..."
+% - A vollständig (equation, Label; exakt die Vortrags-Fassung)
+% - neue Symbole erklären: g Erdbeschleunigung, V Fluggeschwindigkeit
+% - offener Punkt: Schreibweise ggü. Nelson Gl. 5.33 vereinfacht --
+%   Halbsatz ergänzen oder Konvention mit Formelskelett/MATLAB klären
+% - zwei Zeilen vorlesen: pdot = Lbeta*beta + Lp*p + Lr*r (gehaltvoll)
+%   und phidot = p (Buchhaltung; löst Rollen/Rollrate/Rollwinkel ein)
+% - Einträge = aerodynamische Derivative; EIN Beispiel: Lbeta =
+%   Rollmoment durch Schieben + Böen-Analogie (noch von Stephanie)
+% - Struktur fix, Werte flugzeug-/flugzustandsspezifisch
+%   (Tabelliert-Halbsatz gestrichen)
+% - Schluss (Feststellung): "Damit ist das Flugzeug in ein
+%   dynamisches System übersetzt."
+
+
+\section{Das Flugzeug als dynamisches System
+\label{aircraft:section:system}}
+\kopfrechts{Dynamisches System}
+Um die Bewegung nach einer Störung berechnen zu können, übersetzen wir
+das Flugzeug in diesem Abschnitt in ein \emph{dynamisches System}.
+Ein mathematisches Objekt, dessen Zustand sich mit der Zeit verändert.
+Dazu führen wir zuerst den Zustandsvektor ein, dann das
+Bewegungsgesetz, das seine Änderung bestimmt, und die Systemmatrix mit ihren
+Einträgen.
+
+Wir beschränken uns dabei auf die \emph{Seitenbewegung} (lateral
+motion): das Gieren, das Schieben und das Rollen.
+Wir nehmen an, dass die Störung klein ist, und betrachten die
+Bewegung in der Nähe der Ruhelage.
+
+\subsection{Der Zustandsvektor der Seitenbewegung
+\label{aircraft:subsection:zustandsvektor}}
+Der Zustand ist die Momentaufnahme der Bewegung.
+Für die Seitenbewegung genügen dazu vier Grössen.
+Der \emph{Schiebewinkel} $\beta$ formalisiert das Schieben aus
+Abschnitt~\ref{aircraft:subsection:dutchroll}:
+Er misst den Winkel zwischen der Längsachse und der tatsächlichen
+Bewegungsrichtung des Flugzeugs.
+Die \emph{Rollrate} $p$ und die \emph{Gierrate} $r$ sind die
+Änderungsraten des Rollens und des Gierens.
+Der \emph{Rollwinkel} $\varphi$ misst die Drehung um die Längsachse
+gegenüber der Ruhelage.
+Wir folgen dabei der Notation von Nelson~\cite{aircraft:nelson}, der
+die Seitenbewegung mit denselben Grössen beschreibt.
+
+Wir fassen die vier Grössen zum \emph{Zustandsvektor}
+\begin{equation}
+    \vec{x}(t)
+    =
+    \begin{pmatrix}
+        \beta(t) \\ p(t) \\ r(t) \\ \varphi(t)
+    \end{pmatrix}
+    \label{aircraft:eqn:zustandsvektor}
+\end{equation}
+zusammen.
+Der Zustandsvektor ist die Momentaufnahme der Bewegung zur Zeit $t$.
+Seine Ableitung $\dot{\vec{x}}(t)$ beschreibt, wie sich der Zustand
+verändert.
+
+Der Schiebewinkel verbindet dabei das Gieren mit dem Rollen.
+Welche Folgen diese Verbindung für die Berechnung hat, zeigt sich in
+Abschnitt~\ref{aircraft:subsection:eigenwertgleichung}.
+% // TODO Referenz anpassen oder evtl. ganz streichen
+
+\subsection{Das Bewegungsgesetz
+\label{aircraft:subsection:bewegungsgesetz}}
+Wir suchen den Zusammenhang zwischen dem Zustand $\vec{x}$ und seiner
+Änderung $\dot{\vec{x}}$.
+Für kleine Störungen um die Ruhelage ist dieser Zusammenhang linear
+und es gilt
+\begin{equation}
+    \dot{\vec{x}}
+    =
+    A\vec{x}
+    \label{aircraft:eqn:bewegungsgesetz}
+\end{equation}
+mit einer Matrix $A$, der \emph{Systemmatrix}.
+Die Herleitung findet sich bei Nelson~\cite{aircraft:nelson}.
+Die Änderung jeder Zustandsgrösse ist also eine Linearkombination
+der momentanen Zustandsgrössen.
+
+\subsection{Die Systemmatrix und Ihre Einträge
+\label{aircraft:subsection:systemmatrix}}
+Für die Seitenbewegung lautet die Systemmatrix
+\begin{equation}
+    A
+    =
+    \begin{pmatrix}
+        Y_\beta & Y_p & Y_r & g/V \\
+        L_\beta & L_p & L_r & 0   \\
+        N_\beta & N_p & N_r & 0   \\
+        0       & 1   & 0   & 0
+    \end{pmatrix}.
+    \label{aircraft:eqn:systemmatrix}
+\end{equation}
+Ausgeschrieben ist die zweite Zeile der Systemmatrix
+~\eqref{aircraft:eqn:bewegungsgesetz} $\dot{p} = L_\beta\beta + L_p p + L_r r$.
+Die Änderung der Rollrate entsteht aus dem momentanen Schiebewinkel,
+der momentanen Rollrate und der momentanen Gierrate.
+Die Einträge der Systemmatrix heissen aerodynamische Derivative.
+Das Derivativ $L_\beta$ gibt zum Beispiel an, wie stark der
+Schiebewinkel auf das Rollen wirkt.
+Die Struktur der Matrix ist für alle Flugzeuge gleich.
+Die Werte der Derivative hängen vom Flugzeug und vom Flugzustand ab.

@@ -10,7 +10,10 @@ awk 'BEGIN {
 	printf("%%\n")
 	printf("%% (c) 2023 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule\n")
 	printf("%%\n")
-	counter = 2
+	counter = 8
+}
+/^#/ {
+	next
 }
 {
 	printf("\\def\\kapitelNummer%s{%d}\n", $1, counter++)

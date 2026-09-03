@@ -26,6 +26,9 @@ awk 'BEGIN {
 	printf("\tpapers/part2.tex \\\n")
 	printf("\tpapers/uebersicht.tex \\\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\tpapers/%s/main.tex \\\n", $1)
 }
@@ -38,6 +41,9 @@ END {
 #
 awk 'BEGIN {
 	counter=1
+}
+/^#/ {
+	next
 }
 {
 	# buch
@@ -53,10 +59,10 @@ awk 'BEGIN {
 END {
 	printf("$(workdir)/buch%d-blx.bbl:\t$(workdir)/buch%d-blx.aux\n",
 		counter, counter)
-	printf("\tcd $(workdir) bibtex buch%d-blx\n\n", counter)
+	printf("\tcd $(workdir); bibtex buch%d-blx\n\n", counter)
 	printf("$(workdir)/$(seminar)%d-blx.bbl:\t$(workdir)/$(seminar)%d-blx.aux\n",
 		counter, counter)
-	printf("\tcd $(workdir) bibtex $(seminar)%d-blx\n\n", counter)
+	printf("\tcd $(workdir); bibtex $(seminar)%d-blx\n\n", counter)
 	printf("BLXFILES = $(workdir)/buch.bbl \\\n")
 	for (i = 1; i <= counter; i++) {
 		printf("\t$(workdir)/buch%d-blx.bbl \\\n", i)
@@ -81,6 +87,9 @@ END {
 awk 'BEGIN {
 	printf("PAPER_DIRECTORIES = \\\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\t%s \\\n", $1)
 }
@@ -94,6 +103,9 @@ END {
 awk 'BEGIN {
 	printf("PAPER_MAKEFILEINC = \\\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\tpapers/%s/Makefile.inc \\\n", $1)
 }
@@ -104,7 +116,10 @@ END {
 #
 # add include directives for all papers
 #
-awk '{
+awk '/^#/ {
+	next
+}
+{
 	printf("include papers/%s/Makefile.inc\n", $1)
 	texfiles = sprintf("%s\t$(dependencies-%s) \\\n", texfiles, $1);
 }
