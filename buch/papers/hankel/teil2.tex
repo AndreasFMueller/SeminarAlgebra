@@ -19,7 +19,6 @@ Eine solche Potenz ist erst festgelegt, nachdem ein Zweig des komplexen Logarith
 \subsection{Hauptzweig und Verzweigungsschnitt}
 
 Für $w\in\mathbb C\setminus(-\infty,0]$ wird der Hauptzweig des Logarithmus durch
-
 \begin{equation}
 \log w
 =
@@ -30,7 +29,6 @@ Für $w\in\mathbb C\setminus(-\infty,0]$ wird der Hauptzweig des Logarithmus dur
 \end{equation}
 definiert. 
 Die komplexe Potenz im späteren Konturintegral wird damit als
-
 \begin{equation}
 (-z)^{s-1}
 =
@@ -44,8 +42,7 @@ Verzweigungsschnitt in der $z$-Ebene von der negativen auf die positive reelle A
 Für einen Punkt $x>0$ besitzt $-z$ oberhalb und unterhalb dieses Schnittes unterschiedliche Argumente. 
 Nähert man sich der positiven Achse von oben, $z=x+i0$, so liegt $-z$ knapp unterhalb der negativen Achse und hat das
 Argument $-\pi$. 
-Daher
-
+Daher ist
 \begin{equation}
 \log\bigl(-(x+i0)\bigr)
 =
@@ -61,7 +58,6 @@ Nähert man sich dagegen von unten, $z=x-i0$, so liegt $-z$ knapp oberhalb der n
 \label{hankel:eq:log-unten}
 \end{equation}
 Für die komplexen Potenzen ergeben sich damit die beiden Randwerte
-
 \begin{equation}
 \bigl(-(x+i0)\bigr)^{s-1}
 =
@@ -69,7 +65,6 @@ x^{s-1}e^{-i\pi(s-1)}
 \label{hankel:eq:potenz-oben}
 \end{equation}
 und
-
 \begin{equation}
 \bigl(-(x-i0)\bigr)^{s-1}
 =
@@ -81,23 +76,26 @@ Die beiden Werte unterscheiden sich nur durch ihre Phasen. Diese Phasendifferenz
 Ohne den Verzweigungsschnitt würden sich die Beiträge der beiden geraden Konturstücke wegen ihrer entgegengesetzten Orientierung aufheben.
 
 \begin{figure}
-\centering
-\begin{tikzpicture}[scale=1.05,>=latex]
-	\draw[->] (-0.7,0) -- (6.1,0) node[right] {$\operatorname{Re}(z)$};
-	\draw[->] (0,-1.8) -- (0,1.8) node[above] {$\operatorname{Im}(z)$};
-	\draw[very thick,red] (0,0) -- (5.6,0);
-	\draw[->,thick] (1.0,0.32) -- (4.9,0.32);
-	\draw[->,thick] (4.9,-0.32) -- (1.0,-0.32);
-	\node[above] at (3.0,0.36)
-		{$x^{s-1}e^{-i\pi(s-1)}$};
-	\node[below] at (3.0,-0.36)
-		{$x^{s-1}e^{+i\pi(s-1)}$};
-\end{tikzpicture}
-\caption{Die unterschiedlichen Randwerte von $(-z)^{s-1}$ oberhalb und
-unterhalb des rot markierten positiven Verzweigungsschnittes.}
-\label{hankel:fig:phasensprung}
+	\centering
+	\begin{tikzpicture}[scale=1.2,>=latex]
+		% Achsen
+		\draw[->] (-0.8,0) -- (5.4,0) node[right] {$\Re(z)$};
+		\draw[->] (0,-1.4) -- (0,1.8) node[above] {$\Im(z)$};
+		\draw[very thick,red] (0,0) -- (5.0,0);
+		% Parameter
+		\def\eps{0.6}
+		
+		% oberer und unterer Teil der Hankel-Kontur
+		\draw[->,thick] (\eps,0.12) -- (4.8,0.12);
+		\draw[->,thick] (4.8,-0.12) -- (\eps,-0.12);
+		
+		\node[above] at (3.2,0.18) {$x^{s-1}e^{-i\pi(s-1)}$};
+		\node[below] at (3.2,-0.18) {$x^{s-1}e^{+i\pi(s-1)}$};
+	\end{tikzpicture}
+	\caption{Die unterschiedlichen Randwerte von $(-z)^{s-1}$ oberhalb und
+		unterhalb des rot markierten positiven Verzweigungsschnittes.}
+	\label{hankel:fig:phasensprung}
 \end{figure}
-
 \subsection{Verlauf und Orientierung der Kontur}
 
 Die Hankel-Kontur $H$ läuft von $+\infty$ knapp unterhalb der positiven reellen Achse zum Ursprung, umrundet den Ursprung im Uhrzeigersinn auf einem kleinen Kreis $C_\varepsilon$ und kehrt knapp oberhalb der positiven Achse nach $+\infty$ zurück. 
@@ -110,13 +108,13 @@ Es ist wichtig, die Orientierung beider Äste zu beachten: Auf dem unteren Ast n
 	% Achsen
 	\draw[->] (-0.8,0) -- (5.4,0) node[right] {$\Re(z)$};
 	\draw[->] (0,-1.4) -- (0,1.8) node[above] {$\Im(z)$};
-	
+	\draw[very thick,red] (0,0) -- (5.0,0);
 	% Parameter
 	\def\eps{0.6}
 	
 	% oberer und unterer Teil der Hankel-Kontur
-	\draw[->,thick] (\eps,0.12) -- (5,0.12);
-	\draw[->,thick] (5,-0.12) -- (\eps,-0.12);
+	\draw[->,thick] (\eps,0.12) -- (4.8,0.12);
+	\draw[->,thick] (4.8,-0.12) -- (\eps,-0.12);
 	
 	% kleiner Kreis um 0
 	\draw[<-,thick] (\eps,0.1) arc[start angle=10,end angle=350,radius=\eps];
@@ -160,7 +158,6 @@ Der Nenner verhält sich dort also wie $z$.
 Für $s=\sigma+it$ hat der Zähler die Grössenordnung $|z|^{\sigma-1}$; der zusätzliche Faktor, der aus dem
 Argument von $-z$ entsteht, ist auf dem festen Kreis für ein festes $s$ beschränkt. 
 Damit existiert eine Konstante $C_s>0$ mit
-
 \begin{equation}
 \left|
 \frac{(-z)^{s-1}}{e^z-1}
@@ -171,7 +168,6 @@ C_s\varepsilon^{\operatorname{Re}(s)-2}.
 \end{equation}
 Da der Kreis $C_\rho$ die Länge $2\pi\rho$ besitzt, ist der Betrag des Integrals höchstens das Produkt aus dieser Länge und dem maximalen Betrag des Integranden auf dem Kreis. 
 Aus \eqref{hankel:eq:kleiner-kreis-majorante} folgt somit
-
 \begin{equation}
 \left|
 \int_{C_\varepsilon}
@@ -191,7 +187,6 @@ Für die Herleitung der Hankel-Formel ist das zunächst ausreichend.
 Auf dem unteren Ast wird $z=x-i0$ parametrisiert. 
 Die Orientierung verläuft von einem grossen $R$ nach $\varepsilon$. 
 Mit \eqref{hankel:eq:potenz-unten} ergibt sich
-
 \begin{equation}
 \begin{aligned}
 \int_{H_-}
@@ -212,7 +207,6 @@ e^{i\pi(s-1)}
 Auf dem oberen Ast gilt $z=x+i0$ und die Orientierung läuft von
 $\varepsilon$ nach $R$. 
 Daher
-
 \begin{equation}
 \int_{H_+}
 \frac{(-z)^{s-1}}{e^z-1}\,dz
@@ -224,7 +218,6 @@ e^{-i\pi(s-1)}
 \end{equation}
 Nach Addition der beiden Beiträge bleibt derselbe reelle Integralterm übrig,
 während die Phasen voneinander subtrahiert werden:
-
 \begin{equation}
 \begin{aligned}
 &\int_{H_-}
@@ -244,7 +237,6 @@ e^{-i\pi(s-1)}-e^{i\pi(s-1)}
 \end{equation}
 Mit der Identität $e^{-i\alpha}-e^{i\alpha}=-2i\sin\alpha$ und
 $\sin(\pi(s-1))=-\sin(\pi s)$ folgt
-
 \begin{equation}
 e^{-i\pi(s-1)}-e^{i\pi(s-1)}
 =
@@ -253,7 +245,6 @@ e^{-i\pi(s-1)}-e^{i\pi(s-1)}
 \end{equation}
 Nun werden zuerst $R\to\infty$ und anschliessend $\varepsilon\to0$ geführt.
 Der kleine Kreis verschwindet für $\operatorname{Re}(s)>1$, und das reelle Integral wird nach \eqref{hankel:eq:mellin-darstellung} zu $\Gamma(s)\zeta(s)$. Damit ist
-
 \begin{equation}
 I(s)
 =
@@ -303,14 +294,15 @@ und damit schliesslich
 \end{equation}
 Diese Hankel-Darstellung findet sich in äquivalenter Form
 beispielsweise in \cite{hankel:dlmf}.
+
 Bis zu diesem Punkt wurde die Formel aus der Mellin-Darstellung für $\operatorname{Re}(s)>1$ abgeleitet. 
 Der wesentliche Gewinn liegt aber darin, dass das Konturintegral anders behandelt werden kann als das ursprüngliche reelle Integral. 
 Für die Herleitung wurde der kleine Kreis gegen null
 geführt, für die analytische Fortsetzung wird sein Radius stattdessen fest gehalten. 
 Dadurch bleibt die Kontur vom problematischen Punkt $z=0$
 getrennt. 
-Für $0<\varepsilon<2π$ kann der Radius des kleinen Kreises verändert werden, ohne dass eine Singularität des Integranden überquert wird. 
+Für $0<\varepsilon<2\pi$ kann der Radius des kleinen Kreises verändert werden, ohne dass eine Singularität des Integranden überquert wird. 
 Zwei solche Hankel-Konturen lassen sich im geschlitzten Gebiet stetig ineinander deformieren. 
-Nach dem Cauchyschen Integralsatz ist das Konturintegral daher unabhängig vom gewählten Radius $\varepsilon$. 
+Nach dem cauchyschen Integralsatz ist das Konturintegral daher unabhängig vom gewählten Radius $\varepsilon$. 
 Für die Fortsetzung darf $\varepsilon$ somit fest positiv gewählt werden.
 Genau dieser Wechsel ist der Inhalt des nächsten Abschnitts.

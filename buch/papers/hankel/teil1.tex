@@ -18,7 +18,6 @@ Genau diese Verbindung liefert die Gammafunktion.
 \subsection{Die Gammafunktion als Bindeglied}
 
 Für $\operatorname{Re}(s)>0$ ist die Gammafunktion, dargestellt in~\refeq{hankel:fig:gamma-reell}, durch
-
 \begin{equation}
 \Gamma(s)
 =
@@ -37,14 +36,12 @@ Die Konvergenz stellt dort kein Problem dar.
 
 Um den Summanden $n^{-s}$ zu erzeugen, wird nicht direkt
 \eqref{hankel:eq:gamma-definition}, sondern das skalierte Integral
-
 \begin{equation}
 \int_0^\infty x^{s-1}e^{-nx}\,dx
 \label{hankel:eq:skaliertes-gamma-integral}
 \end{equation}
 betrachtet. 
 Mit der Substitution
-
 \begin{equation}
 u=nx,
 \qquad
@@ -75,7 +72,6 @@ e^{-u}\frac{du}{n}
 Der Faktor $n^{-s}$ entsteht also aus der Skalierung der
 Integrationsvariablen. 
 Da die Gammafunktion keine Nullstellen besitzt, kann nach $n^{-s}$ aufgelöst werden:
-
 \begin{equation}
 \frac{1}{n^s}
 =
@@ -90,7 +86,6 @@ Diese Formel ist der entscheidende Übergang von der diskreten Summe zu einer In
 \subsection{Einsetzen und Vertauschen von Summe und Integral}
 
 Das Einsetzen von \eqref{hankel:eq:n-minus-s-integral} in die Dirichlet-Reihe ergibt zunächst
-
 \begin{equation}
 \zeta(s)
 =
@@ -136,9 +131,8 @@ Somit ist für $\sigma>1$
 \end{aligned}
 \label{hankel:eq:fubini-majorante}
 \end{equation}
-Damit sind die Voraussetzungen von Fubini erfüllt. 
+Damit sind die Voraussetzungen für den Satz von Fubini erfüllt. 
 Summe und Integral dürfen also vertauscht werden:
-
 \begin{equation}
 \zeta(s)
 =
@@ -151,7 +145,6 @@ x^{s-1}
 \end{equation}
 Für jedes $x>0$ ist $0<e^{-x}<1$. 
 Die innere Reihe ist daher eine geometrische Reihe mit Quotient $e^{-x}$:
-
 \begin{equation}
 \begin{aligned}
 \sum_{n=1}^{\infty}e^{-nx}
@@ -165,7 +158,6 @@ e^{-x}\sum_{k=0}^{\infty}e^{-kx}
 \label{hankel:eq:geometrische-reihe}
 \end{equation}
 Damit folgt für $\operatorname{Re}(s)>1$ die Mellin-Darstellung
-
 \begin{equation}
 \boxed{
 \Gamma(s)\zeta(s)
@@ -184,7 +176,6 @@ Statt einer unendlichen Reihe liegt nun ein einzelnes Integral vor, dessen Singu
 Die neue Formel ist noch keine analytische Fortsetzung. 
 Um dies zu sehen, werden die beiden Enden des Integrationsintervalls getrennt betrachtet. 
 Für $x\to\infty$ gilt
-
 \begin{equation}
 \frac{1}{e^x-1}
 =
@@ -195,7 +186,7 @@ O(e^{-x}),
 \end{equation}
 sodass der Integrand dort für jedes feste $s$ wie in Abbildung~\ref*{hankel:fig:mellin-integrand} ersichtlich exponentiell abfällt. 
 Die Einschränkung des Konvergenzgebietes kommt ausschliesslich vom Ursprung.
-Dort liefert die Taylorentwicklung der Exponentialfunktion
+Dort liefert die Taylor-Entwicklung der Exponentialfunktion
 
 \begin{equation}
 e^x-1
@@ -205,7 +196,6 @@ x+\frac{x^2}{2}+O(x^3),
 \label{hankel:eq:exp-taylor-null}
 \end{equation}
 und damit
-
 \begin{equation}
 \frac{1}{e^x-1}
 =
@@ -217,7 +207,6 @@ O(x).
 \label{hankel:eq:bernoulli-anfang}
 \end{equation}
 Der essentielle Term des Mellin-Integranden ist daher
-
 \begin{equation}
 \frac{x^{s-1}}{e^x-1}
 \sim

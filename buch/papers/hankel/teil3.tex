@@ -67,7 +67,6 @@ Auf den beiden unbeschränkten Ästen gilt $z=x\pm i0$ mit $x\geq R$.
 Für $s=\sigma+it\in K$ sind sowohl $\sigma$ als auch $t$ beschränkt. 
 Die Phasenfaktoren $e^{\pm i\pi(s-1)}$ besitzen daher auf $K$ einen gemeinsamen endlichen Betrag. 
 Gleichzeitig gilt für grosse $x$
-
 \begin{equation}
 \frac{1}{e^x-1}
 =
@@ -75,7 +74,6 @@ O(e^{-x}).
 \label{hankel:eq:nenner-exponentiell}
 \end{equation}
 Da $\sigma$ auf $K$ nach oben beschränkt ist, existieren Konstanten $C>0$ und $m\in\mathbb R$ mit
-
 \begin{equation}
 \left|
 \frac{(-z)^{s-1}}{e^z-1}
@@ -104,7 +102,6 @@ Die ursprüngliche Bedingung $\operatorname{Re}(s)>1$ wird für $F(s)$ nicht meh
 \subsection{Meromorphe Fortsetzung und hebbare Pole}
 
 Mit $F(s)$ kann \eqref{hankel:eq:hankel-ausgangspunkt} in der Form
-
 \begin{equation}
 \zeta(s)
 =
@@ -299,7 +296,6 @@ Sein Residuum lässt sich besonders transparent aus einer zweiten, rein reellen 
 \label{hankel:subsection:zweite-fortsetzungsformel}}
 
 Die Mellin-Darstellung wird zunächst bei $x=1$ aufgeteilt:
-
 \begin{equation}
 \Gamma(s)\zeta(s)
 =
@@ -311,7 +307,6 @@ Die Mellin-Darstellung wird zunächst bei $x=1$ aufgeteilt:
 \label{hankel:eq:mellin-aufgeteilt}
 \end{equation}
 Die Entwicklung~\cite{hankel:dlmf}
-
 \begin{equation}
 \frac{1}{e^x-1}
 =
@@ -319,7 +314,7 @@ Die Entwicklung~\cite{hankel:dlmf}
 \label{hankel:eq:bernoulli-erste-terme}
 \end{equation}
 zeigt, welcher Teil am Ursprung singulär ist. 
-Dieser führende Term wird explizit abgezogen und wieder addiert:
+Dieser führende Term wird explizit addiert und wieder abgezogen:
 
 \begin{equation}
 \begin{aligned}
@@ -336,7 +331,7 @@ Dieser führende Term wird explizit abgezogen und wieder addiert:
 \end{aligned}
 \label{hankel:eq:singulaeren-term-abziehen}
 \end{equation}
-Für $\operatorname{Re}(s)>1$ ist das 2. Integral
+Für $\operatorname{Re}(s)>1$ ist das zweite Integral
 
 \begin{equation}
 {\color{hankelred}\int_0^1x^{s-2}\,dx}
@@ -369,14 +364,7 @@ Das zweite Integral ist wegen des exponentiellen Abfalls im Unendlichen für jed
 In dieser Darstellung steht der einzige singuläre Term
 explizit als $1/(s-1)$ vor den Integralen.
 
-Da
-
-\begin{equation}
-\Gamma(1)=1,
-\label{hankel:eq:gamma-eins}
-\end{equation}
-folgt unmittelbar
-
+Da $\Gamma(1)=1$, folgt unmittelbar
 \begin{equation}
 \operatorname{Res}_{s=1}\zeta(s)
 =
@@ -398,7 +386,6 @@ Die dabei verwendeten Resultate werden deshalb nicht mehr in derselben Ausführl
 Im Mittelpunkt stehen das Verhalten bei $s=1$, die Funktionalgleichung und die daraus folgenden
 Aussagen über die Nullstellen der Zetafunktion.
 Da $s=1$ die einzige Polstelle der fortgesetzten Zetafunktion ist und dort ein einfacher Pol vorliegt, besitzt sie in einer punktierten Umgebung dieses Punktes eine Laurent-Entwicklung
-
 \begin{equation}
 \zeta(s)
 =
@@ -410,7 +397,6 @@ Da $s=1$ die einzige Polstelle der fortgesetzten Zetafunktion ist und dort ein e
 Eine ausführliche Darstellung dieser Entwicklung findet sich in~\cite{hankel:dlmf}.
 Der Hauptteil besteht nur aus dem einen Term $1/(s-1)$, was der Einfachheit des Pols entspricht. 
 Der konstante Koeffizient ist die Euler-Mascheroni-Konstante
-
 \begin{equation}
 \gamma
 =
@@ -420,6 +406,7 @@ Der konstante Koeffizient ist die Euler-Mascheroni-Konstante
 \right).
 \label{hankel:eq:euler-mascheroni}
 \end{equation}
+
 Für die weiteren Koeffizienten verwendet man die
 Stieltjes-Konstanten $\gamma_n$. 
 Sie sind durch die Schreibweise
@@ -437,7 +424,6 @@ Sie sind durch die Schreibweise
 \end{equation}
 festgelegt, wobei $\gamma_0=\gamma$ gilt. 
 Die ersten Terme sind damit
-
 \begin{equation}
 \zeta(s)
 =
@@ -471,7 +457,6 @@ Die analytische Fortsetzung beschreibt die Zetafunktion auf der ganzen komplexen
 Eine weitere zentrale Eigenschaft ist ihre Symmetrie. 
 Sie wird durch die Funktionalgleichung sichtbar und verbindet Werte bei $s$ mit Werten bei $1-s$.
 Eine symmetrische Schreibweise verwendet die vervollständigte Zetafunktion
-
 \begin{equation}
 \Lambda(s)
 =
@@ -516,7 +501,6 @@ In \eqref{hankel:eq:funktionalgleichung} tritt der Faktor
 \end{equation}
 auf. 
 Für die negativen geraden ganzen Zahlen
-
 \begin{equation}
 s=-2,-4,-6,\ldots
 \label{hankel:eq:negative-gerade-zahlen}
@@ -524,7 +508,6 @@ s=-2,-4,-6,\ldots
 verschwindet dieser Sinusfaktor. 
 Die übrigen Faktoren auf der rechten Seite sind an diesen Stellen endlich und ungleich null. 
 Daher gilt
-
 \begin{equation}
 \zeta(-2n)=0,
 \qquad
@@ -537,7 +520,6 @@ Diese Nullstellen werden als triviale Nullstellen bezeichnet. Sie sind eine dire
 \label{hankel:subsection:kritischer-streifen}}
 
 Auf der rechten Seite der komplexen Ebene liefert das Euler-Produkt bereits
-
 \begin{equation}
 \zeta(s)\neq0
 \qquad
@@ -546,15 +528,13 @@ Auf der rechten Seite der komplexen Ebene liefert das Euler-Produkt bereits
 \end{equation}
 Die Funktionalgleichung verbindet diese Halbebene mit der linken Seite. 
 Dort erscheinen die eben beschriebenen trivialen Nullstellen. Alle anderen Nullstellen müssen deshalb im offenen Streifen
-
 \begin{equation}
 0<\operatorname{Re}(s)<1
 \label{hankel:eq:kritischer-streifen}
 \end{equation}
 liegen. 
-Dieser Bereich heisst kritischer Streifen. 
+Dieser Bereich heisst der \emph{kritische Streifen}. 
 Die Transformation $s\mapsto1-s$ spiegelt ihn an der Geraden
-
 \begin{equation}
 \operatorname{Re}(s)=\frac{1}{2},
 \label{hankel:eq:kritische-gerade}
@@ -689,7 +669,6 @@ Die Annordnung der Nullstellen und des Poles ist in~\ref{hankel:fig:nullstellen}
 
 Riemann vermutete, dass sämtliche nichttrivialen Nullstellen auf der kritischen Geraden liegen~\cite{hankel:riemann}. 
 Unter Ausschluss der trivialen Nullstellen lautet die Aussage
-
 \begin{equation}
 \boxed{
 \zeta(s)=0
