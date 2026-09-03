@@ -1,7 +1,24 @@
-\begin{tikzpicture}
+%
+% watts_engine.tex -- template for standalon tikz images
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
     % Insert image
     \node[inner sep=0, anchor=south west] (img) at (0,0) {
-        \includegraphics[width=0.9\textwidth]{papers/geradlinig/figures/watts_engine.jpeg}
+        \includegraphics[width=0.9\textwidth]{watts_engine-small.jpeg}
         % \includegraphics[width=0.9\textwidth, trim=3cm 2cm 3cm 10cm, clip]{papers/geradlinig/figures/watts_engine.jpeg}
     };
 
@@ -55,4 +72,7 @@
             \fill (F) circle[radius=4pt];
 
             \end{scope}
+
 \end{tikzpicture}
+\end{document}
+
