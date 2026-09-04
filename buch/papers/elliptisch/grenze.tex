@@ -60,8 +60,8 @@ Abschnitt~\ref{buch:intalg:wurzel:subsection:stammfunktiontheta}.
 Die Gestalt der rechten Seite ist typisch für diesen Fall.
 Sie besteht aus einem konstanten Vorfaktor und dem Logarithmus
 eines Elements des Funktionenkörpers.
-Das ist genau die Form, die der Satz von Liouville
-\eqref{elliptisch:equation:liouville} für eine elementare
+Das ist genau die Form \eqref{elliptisch:equation:liouville}, die der Satz 
+von Liouville für eine elementare
 Stammfunktion verlangt, hier mit $v_0 = 0$ und einem einzigen
 Logarithmusterm.
 Steht unter der Wurzel ein Polynom vom Grad $\le 2$, so ist das
@@ -85,7 +85,7 @@ Hätte $p$ eine doppelte Nullstelle, also
 $p(x) = (x-\alpha)^2 q(x)$, dann liesse sich der Faktor aus der
 Wurzel ziehen, $\sqrt{p(x)} = |x-\alpha|\sqrt{q(x)}$, und der
 effektive Grad sänke auf höchstens $2$.
-Wir wären damit wieder im elementaren Fall des vorangegangenen
+Wir wären damit wieder im quadratischen Fall des vorangegangenen
 Abschnitts.
 Die Grade $3$ und $4$ stehen in der Definition zusammen, weil sie
 dieselbe Schwierigkeitsklasse bilden.
@@ -94,13 +94,13 @@ wir $p(x) = (x-\alpha)q(x)$ mit $\deg q = 3$ und substituieren
 $x = \alpha + 1/u$.
 Wegen $dx = -du/u^2$ und
 \begin{equation}
-p\Bigl(\alpha+\frac{1}{u}\Bigr)
+p\biggl(\alpha+\frac{1}{u}\biggr)
 =
-\frac{1}{u}\,q\Bigl(\alpha+\frac{1}{u}\Bigr)
+\frac{1}{u}\,q\biggl(\alpha+\frac{1}{u}\biggr)
 =
 \frac{Q(u)}{u^4},
 \qquad
-Q(u) = u^3\,q\Bigl(\alpha+\frac{1}{u}\Bigr),
+Q(u) = u^3\,q\biggl(\alpha+\frac{1}{u}\biggr),
 \label{elliptisch:equation:gradreduktion}
 \end{equation}
 mit einem Polynom $Q$ vom Grad höchstens $3$ kürzt sich das $u^2$
@@ -222,8 +222,8 @@ Wir übernehmen das Resultat.
 \label{elliptisch:satz:nichtelementar}
 Für $0 < k < 1$ besitzt keines der beiden Integrale
 \begin{equation}
-\int \frac{dx}{\sqrt{(1-x^2)(1-k^2x^2)}},
-\qquad
+\int \frac{dx}{\sqrt{(1-x^2)(1-k^2x^2)}}
+\qquad\text{und}\qquad
 \int \frac{\sqrt{1-k^2x^2}}{\sqrt{1-x^2}}\,dx
 \label{elliptisch:equation:nichtelementar}
 \end{equation}

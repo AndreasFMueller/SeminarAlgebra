@@ -144,7 +144,7 @@ E(k)
 \end{equation}
 und entsprechend für $\Pi$.
 Diese Schreibweise heisst \emph{Legendre-Normalform}
-\cite[Kapitel~11.1.2]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.1.2]{elliptisch:mueller-spezielle}.
 \index{Jacobi-Normalform}%
 \index{Legendre-Normalform}%
 Beide Formen beschreiben dieselben Funktionen.
@@ -152,7 +152,7 @@ Wer in der Literatur einmal die obere Grenze $1$ und einmal
 $\pi/2$ antrifft, kennt nun die Beziehung zwischen beiden Formen.
 
 \subsection{Randwerte und Verlauf}
-$K$ und $E$ hängen stetig von $k$ ab, und an beiden Rändern des
+$K$ und $E$ hängen stetig von $k$ ab und an beiden Rändern des
 Intervalls $0 < k < 1$ lassen sich die Werte direkt ausrechnen.
 Für $k = 0$ verschwindet der Term mit $k^2$ in beiden Integralen,
 und es bleibt zweimal dasselbe stehen,
@@ -202,8 +202,7 @@ k^2 + k'^2 = 1,
 \label{elliptisch:equation:kstrich}
 \end{equation}
 \index{Modul!komplementarer@komplementärer}%
-der die elliptische Variante des Satzes von Pythagoras erfüllt und
-uns von hier an begleitet.
+der den Abstand zum Fall $k = 1$ misst.
 Mit ihm gilt die Asymptotik
 \begin{equation}
 K(k)
@@ -213,7 +212,7 @@ K(k)
 \text{für } k \to 1
 \label{elliptisch:equation:kasymptotik}
 \end{equation}
-\cite[Kapitel~11.1]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.1]{elliptisch:mueller-spezielle}.
 Abbildung~\ref{fig:elliptisch:keplot} zeigt beide Funktionen.
 \input{papers/elliptisch/fig/ke-plotFIG.tex}
 
@@ -235,7 +234,7 @@ k^2 = \frac{a^2-b^2}{a^2},
 a \ge b.
 \label{elliptisch:equation:umfangE}
 \end{equation}
-Für den Kreis ist $k = 0$, und mit $E(0) = \pi/2$ folgt
+Für den Kreis ist $k = 0$ und mit $E(0) = \pi/2$ folgt
 $U = 4a\cdot\pi/2 = 2\pi a$.
 Die Frage vom Anfang des Kapitels ist damit beantwortet, wenn auch
 nicht durch eine elementare Formel, sondern durch eine eigens
@@ -337,14 +336,14 @@ u
 \label{elliptisch:equation:amplitude}
 \end{equation}
 über, und das Auflösen dieser Beziehung nach $\varphi$ liefert die
-\emph{Amplitude} $\varphi = \operatorname{am}(u,k)$.
+sogenannte \emph{Amplitude} $\varphi = \operatorname{am}(u,k)$.
 Damit ist $\operatorname{sn}(u,k) = \sin\operatorname{am}(u,k)$,
 der Sinus der Amplitude, also genau das, was der Name sagt.
 \index{Amplitude}%
 
 Die Bezeichnung \emph{sinus amplitudinis} stammt von Jacobi und
 erklärt die Abkürzung $\operatorname{sn}$
-\cite[Kapitel~11.2]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.2]{elliptisch:mueller-spezielle}.
 Der Schritt zur Umkehrung ist auch historisch der entscheidende.
 Die elliptischen Integrale sind lange untersucht und tabelliert
 worden, vor allem von Legendre.
@@ -417,12 +416,12 @@ nach und findet
 \end{equation}
 \input{papers/elliptisch/fig/sn-konstruktionFIG.tex}
 
-Der Parameter $u$ ist dabei weder der Winkel $\varphi$ noch die
+Der Parameter $u$ ist weder der Winkel $\varphi$ noch die
 Bogenlänge der Ellipse.
 Nur im Kreisfall $k = 0$ fallen alle drei zusammen.
 Dann ist $a = 1$, die Ellipse wird zum Einheitskreis, und es gilt
 $\operatorname{sn}(u,0) = \sin u$, $\operatorname{cn}(u,0) = \cos u$
-und $\operatorname{dn}(u,0) = 1$, wie es sein muss.
+und $\operatorname{dn}(u,0) = 1$, wie gewohnt.
 
 Lässt man $\varphi$ von $0$ bis $2\pi$ laufen, durchläuft $P$ die
 Ellipse einmal, und $u$ wächst von $0$ auf $4K(k)$.
@@ -460,10 +459,14 @@ Der volle Funktionsverlauf zeigt sich aber erst in der komplexen
 Ebene.
 Dort besitzt $\operatorname{sn}$ neben der reellen Periode $4K$
 noch die rein imaginäre Periode $2iK'$ mit $K' = K(k')$
-\cite[Kapitel~11.1.4, S.~307--308]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.1.4, S.~307--308]{elliptisch:mueller-spezielle}.
 Eine meromorphe Funktion mit zwei unabhängigen Perioden heisst
-\emph{elliptische Funktion} und hat der ganzen Theorie den Namen
-gegeben.
+\emph{elliptische Funktion}.
+Historisch waren die Umkehrfunktionen der elliptischen Integrale
+die ersten bekannten Beispiele doppelt periodischer Funktionen,
+weshalb die Bezeichnung von der Bogenlänge der Ellipse über die
+Integrale zu diesen Funktionen wanderte
+\cite{elliptisch:wiki-elliptische-funktion}.
 \index{elliptische Funktion}%
 
 \subsection{Der Werkzeugkasten
@@ -529,7 +532,7 @@ Sie hat die Signatur
 ein Polynom vierten Grades in $y$ ohne ungerade Potenzen.
 Die Funktionen $\operatorname{cn}$ und $\operatorname{dn}$ erfüllen
 Gleichungen derselben Signatur mit anderen Koeffizienten
-\cite[Kapitel~11.2.2]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.2.2]{elliptisch:mueller-spezielle}.
 Genau diese Signatur wird in den Anwendungen von
 Abschnitt~\ref{elliptisch:section:anwendungen} wieder auftauchen.
 Führt die Physik auf eine Gleichung der Form
@@ -545,7 +548,7 @@ $y' = 1 - y^2$ mit der Lösung $\operatorname{sn}(u,1) = \tanh u$,
 und entsprechend
 $\operatorname{cn}(u,1) = \operatorname{dn}(u,1)
 = \operatorname{sech} u$
-\cite[Kapitel~11.2.1]{elliptisch:mueller-spezielle}.
+\cite[Abschnitt~11.2.1]{elliptisch:mueller-spezielle}.
 Zwischen den Kreisfunktionen und den hyperbolischen Funktionen
 liegt also eine ganze Schar von Funktionen, parametrisiert durch
 $k$.
@@ -554,6 +557,5 @@ Zur Notation sei noch erwähnt, dass Kehrwerte und Quotienten der
 drei Grundfunktionen eigene zweibuchstabige Namen tragen, etwa
 $\operatorname{sc} = \operatorname{sn}/\operatorname{cn}$,
 insgesamt zwölf Funktionen nach Glaisher
-\cite[Kapitel~11.2, Tabelle~11.3]{elliptisch:mueller-spezielle}.
-Wir brauchen sie im Weiteren nicht.
+\cite[Abschnitt~11.2, Tabelle~11.3]{elliptisch:mueller-spezielle}.
 \index{Glaisher-Notation}%
