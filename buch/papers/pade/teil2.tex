@@ -1,43 +1,184 @@
-%
-% teil2.tex -- Beispiel-File für teil2 
-%
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
-%
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Teil 2 
-\label{pade:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
+\section{Die Padé-Approximation}
+\label{pade:section:pade}
+\kopfrechts{Padé-Approximation}
 
-\subsection{De finibus bonorum et malorum
-\label{pade:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+Im vorherigen Abschnitt wurde gezeigt, dass Taylor-Polynome eine Funktion lediglich in der Umgebung ihres Entwicklungspunktes gut approximieren. Obwohl die Taylor-Reihe wichtige Informationen über das lokale Verhalten einer Funktion liefert, nimmt ihre Genauigkeit mit zunehmendem Abstand vom Entwicklungspunkt häufig deutlich ab. Daraus ergibt sich unmittelbar die Frage, ob sich dieselben Informationen der Taylor-Reihe auf eine andere Weise nutzen lassen.
 
+Genau diese Fragestellung führte Henri Padé Ende des 19.~Jahrhunderts zur Entwicklung seines Approximationsverfahrens. Anstatt die Koeffizienten der Taylor-Reihe direkt zu einem Polynom zusammenzufassen, werden sie verwendet, um eine rationale Funktion zu bestimmen. Unter einer rationalen Funktion versteht man den Quotienten zweier Polynome. Durch den zusätzlichen Nenner besitzt eine solche Funktion mehr Freiheitsgrade als ein einzelnes Polynom und kann den Verlauf vieler Funktionen genauer nachbilden.
 
+Allgemein besitzt eine Padé-Approximation vom Typ \([m/n]\) die Form
+\begin{equation}
+R_{m,n}(x)
+=
+\frac{P_m(x)}{Q_n(x)}
+=
+\frac{a_0+a_1x+\cdots+a_mx^m}
+{1+b_1x+\cdots+b_nx^n}.
+\label{pade:eq:allgemein}
+\end{equation}
+
+Dabei bezeichnet \(m\) den Grad des Zählerpolynoms und \(n\) den Grad des Nennerpolynoms. Die Koeffizienten \(a_i\) und \(b_i\) sind zunächst unbekannt und müssen mithilfe der Taylor-Reihe bestimmt werden. Der konstante Term des Nennerpolynoms wird auf den Wert \(1\) normiert. Diese Normierung verändert die Approximation nicht, sorgt jedoch dafür, dass jede Padé-Approximation eindeutig dargestellt wird. Würde auch dieser Koeffizient als Unbekannte betrachtet, könnten dieselben rationalen Funktionen durch beliebig viele verschiedene Koeffizientensätze beschrieben werden. Zudem müssen die Koeffizienten \(a_m\) und \(b_n\) von null verschieden sein. Andernfalls wäre der tatsächliche Grad des Zähler- beziehungsweise Nennerpolynoms kleiner und es würde sich nicht mehr um eine echte \([m/n]\)-Approximation handeln.
+
+Das Ziel besteht darin, die unbekannten Koeffizienten so zu bestimmen, dass die Reihenentwicklung der Padé-Approximation möglichst viele Anfangsterme der Taylor-Reihe reproduziert. Die Taylor-Reihe liefert somit sämtliche Informationen, welche zur Konstruktion der Padé-Approximation benötigt werden. Zusätzliche Ableitungen oder weitere Funktionswerte sind nicht erforderlich.
+
+Allgemein gilt für eine Padé-Approximation vom Typ \([m/n]\), dass sich ihre Reihenentwicklung möglichst lange mit der Taylor-Reihe der ursprünglichen Funktion decken soll. Mathematisch lässt sich diese Forderung durch
+\begin{equation}
+f(x)-R_{m,n}(x)
+=
+O\!\left(x^{m+n+1}\right)
+\label{pade:eq:ordnung}
+\end{equation}
+ausdrücken. Die Landau-Notation \(O\) beschreibt hierbei die Ordnung des verbleibenden Approximationsfehlers. Die Gleichung bedeutet, dass sich die Taylor-Reihe der Funktion und die Reihenentwicklung der Padé-Approximation erst ab der Potenz \(x^{m+n+1}\) unterscheiden. Alle vorhergehenden Koeffizienten stimmen exakt überein.
+
+Zur Veranschaulichung wird im Folgenden die Exponentialfunktion betrachtet. Für diese Funktion wird Schritt für Schritt eine Padé-Approximation vom Typ \([1/1]\) hergeleitet. Dieses Beispiel zeigt das grundlegende Prinzip des Verfahrens und bildet gleichzeitig die Grundlage für Approximationen höherer Ordnung.
+
+\subsection{Herleitung der Padé-[1/1]-Approximation}
+\label{pade:subsection:pade11}
+
+Zur Veranschaulichung wird die Exponentialfunktion \(f(x)=e^x\) betrachtet. Gesucht wird eine Padé-Approximation vom Typ \([1/1]\). Dies bedeutet, dass sowohl der Zähler als auch der Nenner aus einem Polynom ersten Grades bestehen.
+
+Der allgemeine Ansatz lautet
+\begin{equation}
+R_{1,1}(x)
+=
+\frac{a_0+a_1x}{1+b_1x}.
+\label{pade:eq:pade11_ansatz}
+\end{equation}
+
+Da der Zähler zwei unbekannte Koeffizienten und der Nenner einen weiteren unbekannten Koeffizienten enthält, müssen insgesamt drei Unbekannte bestimmt werden. Dementsprechend werden auch drei unabhängige Gleichungen benötigt.
+
+Diese Gleichungen erhält man durch den Vergleich mit der Taylor-Reihe der Exponentialfunktion. Aus Abschnitt~\ref{pade:section:taylor} ist bekannt, dass diese lautet
+\begin{equation}
+e^x
+=
+1
++
+x
++
+\frac{x^2}{2}
++
+\frac{x^3}{6}
++
+\frac{x^4}{24}
++
+\cdots.
+\label{pade:eq:exp_taylor}
+\end{equation}
+
+Ein direkter Vergleich der Koeffizienten ist zunächst nicht möglich, da die Padé-Approximation als Bruch vorliegt. Deshalb muss zunächst der Nenner entwickelt werden.
+
+Hierzu wird die geometrische Reihe verwendet. Für \(|y|<1\) gilt
+\begin{equation}
+\frac{1}{1+y}
+=
+1-y+y^2-y^3+y^4-\cdots.
+\label{pade:eq:geometrisch}
+\end{equation}
+
+Setzt man \(y=b_1x\), so erhält man
+\begin{equation}
+\frac{1}{1+b_1x}
+=
+1
+-
+b_1x
++
+b_1^2x^2
+-
+b_1^3x^3
++\cdots.
+\label{pade:eq:nennerentwicklung}
+\end{equation}
+
+Damit kann auch die Padé-Approximation als Potenzreihe dargestellt werden:
+\begin{equation}
+R_{1,1}(x)
+=
+(a_0+a_1x)
+\left(
+1
+-
+b_1x
++
+b_1^2x^2
+-
+b_1^3x^3
++\cdots
+\right).
+\label{pade:eq:potenzreihe}
+\end{equation}
+
+Im nächsten Schritt wird dieses Produkt ausmultipliziert. Dabei wird zunächst jeder Summand des Zählerpolynoms mit jedem Summanden der Potenzreihe multipliziert. Anschliessend werden alle Terme gleicher Ordnung zusammengefasst. Dadurch erhält man
+\begin{equation}
+R_{1,1}(x)
+=
+a_0
++
+(a_1-a_0b_1)x
++
+(a_0b_1^2-a_1b_1)x^2
++
+(a_1b_1^2-a_0b_1^3)x^3
++\cdots.
+\label{pade:eq:entwicklung}
+\end{equation}
+
+Nun liegen sowohl die Exponentialfunktion als auch die Padé-Approximation in Form einer Potenzreihe vor. Dadurch können die Koeffizienten gleicher Potenzen direkt miteinander verglichen werden. Aus dem Koeffizientenvergleich ergeben sich die drei Gleichungen
+\begin{equation}
+\begin{aligned}
+a_0 &= 1,\\
+a_1-a_0b_1 &= 1,\\
+a_0b_1^2-a_1b_1 &= \frac{1}{2}.
+\end{aligned}
+\label{pade:eq:gleichungssystem}
+\end{equation}
+
+Aus der ersten Gleichung folgt unmittelbar \(a_0=1\). Damit reduziert sich das Gleichungssystem auf
+\begin{equation}
+\begin{aligned}
+a_1-b_1 &= 1,\\
+b_1^2-a_1b_1 &= \frac{1}{2}.
+\end{aligned}
+\label{pade:eq:gleichungssystem_reduziert}
+\end{equation}
+
+Die linke Seite der zweiten Gleichung lässt sich als
+\[
+b_1(b_1-a_1)
+\]
+schreiben. Aus der ersten Gleichung folgt \(a_1-b_1=1\) beziehungsweise \(b_1-a_1=-1\). Somit ergibt sich
+\[
+-b_1=\frac{1}{2},
+\]
+woraus unmittelbar
+\begin{equation}
+b_1=-\frac{1}{2}
+\label{pade:eq:b1}
+\end{equation}
+folgt.
+
+Durch Einsetzen von \(b_1=-\frac{1}{2}\) in die erste Gleichung des reduzierten Systems erhält man
+\begin{equation}
+a_1
+=
+1-\frac{1}{2}
+=
+\frac{1}{2}.
+\label{pade:eq:a1final}
+\end{equation}
+
+Damit sind sämtliche unbekannten Koeffizienten bestimmt. Durch Einsetzen in Gleichung~\eqref{pade:eq:pade11_ansatz} ergibt sich die Padé-Approximation
+\begin{equation}
+R_{1,1}(x)
+=
+\frac{1+\frac{x}{2}}
+{1-\frac{x}{2}}.
+\label{pade:eq:pade11}
+\end{equation}
+
+Dieses Ergebnis stellt die Padé-[1/1]-Approximation der Exponentialfunktion dar. Obwohl zu ihrer Herleitung ausschliesslich die ersten Koeffizienten der Taylor-Reihe verwendet wurden, entsteht keine Polynomfunktion, sondern eine rationale Funktion. Gerade diese unterschiedliche mathematische Struktur führt häufig dazu, dass die Padé-Approximation den Verlauf einer Funktion genauer beschreibt als ein Taylor-Polynom gleicher Ordnung.
+
+Um diesen Unterschied zu verdeutlichen, wird im folgenden Abschnitt die Padé-[1/1]-Approximation anhand eines konkreten Zahlenbeispiels mit dem Taylor-Polynom zweiter Ordnung verglichen.
