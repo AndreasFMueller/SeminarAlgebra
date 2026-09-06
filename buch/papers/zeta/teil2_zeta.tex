@@ -7,42 +7,38 @@
 % !TEX encoding = UTF-8
 %
 \section{Riemannsche Zeta-Funktion}\label{Riemannsche Zeta-Funktion}
+\kopfrechts{Riemannsche Zeta-Funktion}
 
-Die Riemannsche Zeta-Funktion wurde 1859 von Bernhard Riemann untersucht und ist eine zentrale Funktion der
+Die riemannsche Zeta-Funktion wurde 1859 von Bernhard Riemann untersucht und ist eine zentrale Funktion der
+\index{Bernhard Riemann}%
+\index{Riemann, Bernhard}%
 analytischen Zahlentheorie. Sie wird üblicherweise als unendliche Reihe
-definiert. Für alle komplexen Variablen s mit Realteil grösser als 1
-ergibt sich ihre Darstellung als
+\index{analytische Zahlentheorie}%
+definiert. Für alle komplexen Variablen $s$ mit Realteil grösser als 1 ergibt sich ihre Darstellung als
 \[
 \zeta(s) = \sum_{n = 1}^{\infty}\frac{1}{n^{s}}.
 \]
-Diese Definition beschreibt eine Dirichlet-Reihe, deren Konvergenz für Re(s) \textgreater{} 1 gewährleistet ist. 
+Diese Definition beschreibt eine Dirichlet-Reihe, deren Konvergenz für $\operatorname{Re}(s) > 1$ gewährleistet ist. 
 Bereits in diesem Definitionsbereich zeigt die Funktion bemerkenswerte Eigenschaften. 
-So nimmt sie für bestimmte Argumente konkrete Werte an:
+So nimmt sie für bestimmte Argumente konkrete Werte an, wie in Tabelle \ref{tab:zeta} dargestellt ist.
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
-		\rowcolor{blue!40}
-		\textcolor{white}{\textbf{\textit{s}}} & 
-		\textcolor{white}{\textbf{$\zeta(s)$}} & 
-		\textcolor{white}{\textbf{Ungefährer Wert}} \\
-		\hline
-		$2$ & $\pi^2/6$ & $\approx 1{,}6449$ \\
-		\hline
-		$4$ & $\pi^4/90$ & $\approx 1{,}0823$ \\
-		\hline
-		$0$ & $-1/2$ & (analytische Fortsetzung) \\
-		\hline
-	\end{tabular}
-	\caption{Ausgewählte Werte der Zeta-Funktion}
-	\label{tab:zeta}
-\end{table}
+\input{papers/zeta/fig/table.tex}
 
-Besonders bemerkenswert ist hier der Wert $\zeta$(2) = $\frac{\pi^2}{6}$, den Euler bereits 1735 nachwies, bekannt als das Basler Problem. 
+Besonders bemerkenswert ist hier der Wert $\zeta$(2) = $\frac{\pi^2}{6}$, den Euler bereits 1735 nachwies, bekannt als das Basler Problem (siehe Kapitel \ref{chapter:basel}).
+\index{Euler, Leonhard}%
+\index{Basel-Problem}%
 Die letze Zeile der Tabelle gehört jedoch nicht zum ursprünglichen Definitionsbereich (s > 1), sondern ist nur durch analytische Fortsetzung erreichbar. 
 
-Ein besonders interessanter Fall ist $s = -1$.
+Bereits der Fall $s = 0$ zeigt, dass es sich bei solchen divergenten Werten nicht um Einzelfälle handelt.
+Setzt man $s = 0$ formal in die Reihendefinition ein, so erhält man
+\[
+\zeta(0) \overset{?}{=} \sum_{n=1}^{\infty} 1 = 1 + 1 + 1 + \ldots,
+\]
+also genau die in Abschnitt~\ref{konvergente-und-divergente-reihen} als bestimmt divergent identifizierte Reihe.
+Dennoch liefert die analytische Fortsetzung dafür den wohldefinierten Wert $\zeta(0) = -1/2$ (vgl. Tabelle~\ref{tab:zeta}).
+Das deutet darauf hin, dass hinter solchen Werten eine globale, einheitliche Methode steht und nicht eine Sammlung von Einzelfällen, die man je einzeln erklären müsste.
+
+Ein besonders interessanter Fall ist $s = -1$, mit dem wir uns im weiteren Verlauf dieses Papers eingehender beschäftigen.
 Setzt man diesen Wert formal in die Reihendefinition ein, so erhält man
 \[
 \zeta(-1) \overset{?}{=} \sum_{n=1}^{\infty} \frac{1}{n^{-1}} = \sum_{n=1}^{\infty} n = 1 + 2 + 3 + \ldots,
@@ -54,19 +50,20 @@ Wie dies mit Hilfe der analytischen Fortsetzung gelingt, wird in Abschnitt~\ref{
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{papers/zeta/Abbildung_Zeta.png}
-	\caption{Zeta-Funktion in der komplexen Ebene}
+	\includegraphics[width=1.0\linewidth]{papers/zeta/Abbildung_Zeta.png}
+	\caption{Werte der riemannschen Zeta-Funktion auf der kritischen Geraden $\operatorname{Re}(s) = \frac{1}{2}$, dargestellt als Polarkurve $\zeta\bigl(\frac12 + it\bigr)$ für variierendes $t$.}
 	\label{fig:abbildungzeta}
 \end{figure}
 
-Die spiralförmige Darstellung in Abbildung \ref{fig:abbildungzeta} zeigt den Verlauf der Zeta-Funktion $\zeta$(s) in der komplexen Ebene, wobei s entlang einer vertikalen Linie mit festem Realteil variiert. Die Schnittpunkte der Kurve mit dem Ursprung (sichtbar als die Stellen, an denen die Spirale durch den Mittelpunkt verläuft) entsprechen den sogenannten nicht-trivialen Nullstellen der Zeta-Funktion. Diese liegen alle auf der Linie Re(s) = $\frac{1}{2}$ und sind Gegenstand der berühmten, bis heute unbewiesenen Riemannschen Vermutung, einem der bedeutendsten offenen Probleme der Mathematik. 
+Die spiralförmige Darstellung in Abbildung \ref{fig:abbildungzeta} zeigt die Werte der Zeta-Funktion $\zeta(s)$ auf der kritischen Geraden $\operatorname{Re}(s) = \frac{1}{2}$, das heisst für $s = \frac12 + it$ mit variierendem reellen Parameter $t$. Die Schnittpunkte der Kurve mit dem Ursprung (sichtbar als die Stellen, an denen die Spirale durch den Mittelpunkt verläuft) entsprechen den sogenannten nicht-trivialen Nullstellen der Zeta-Funktion, die auf dieser Geraden liegen. Dass tatsächlich alle nicht-trivialen Nullstellen auf der Linie $\operatorname{Re}(s) = \frac{1}{2}$ liegen, ist Gegenstand der berühmten, bis heute unbewiesenen riemannschen Vermutung, einem der bedeutendsten offenen Probleme der Mathematik.
+\index{kritische Gerade}%
 
-Nützlich ist die Riemannsche Zeta-Funktion ebenfalls, um eine Annäherung der Primzahlfunktion zu schaffen. 
+Nützlich ist die riemannsche Zeta-Funktion ebenfalls, um eine Annäherung der Primzahlfunktion zu schaffen. 
 Das Euler-Produkt
 \[
 \zeta(s) = \prod_{p \ \text{prim}} \frac{1}{1 - p^{-s}}
 \]
-beschreibt eine geometrische Reihe,welche den Zusammenhang aller Primzahlen aufzeigt. 
+beschreibt eine geometrische Reihe, welche den Zusammenhang aller Primzahlen aufzeigt. 
 
 \begin{figure}
 	\centering
@@ -75,8 +72,9 @@ beschreibt eine geometrische Reihe,welche den Zusammenhang aller Primzahlen aufz
 	\label{fig:primzahlen}
 \end{figure}
 
-Die blaue Treppenkurve in Abbildung \ref{fig:primzahlen} zeigt die Primzahlzählfunktion $\pi(x)$, welche für jede reelle Zahl $x$ angibt, wie viele Primzahlen kleiner oder gleich $x$ existieren.
-Die orangefarbene Kurve stellt den logarithmischen Integralausdruck $\operatorname{Li}(x)$ dar, eine glatte, sprungfreie Funktion.
-Das ist eine von Riemann entwickelte Näherungsformel für $\pi(x)$, die direkt aus der Zeta-Funktion abgeleitet wird.
+Die blaue Treppenkurve in Abbildung~\ref{fig:primzahlen} zeigt die Primzahlzählfunktion $\pi(x)$, welche für jede reelle Zahl $x$ angibt, wie viele Primzahlen kleiner oder gleich $x$ existieren.
+\index{Primzahlzählfunktion}%
+Die orangefarbene Kurve stellt den logarithmischen Integralausdruck $\operatorname{Li}(x)$ dar, eine glatte, sprungfreie Funktion. Er wird in Definition \ref{buch:intalg:risch:def:integrallogarithmus} eingeführt.
+Das ist eine von Riemann entwickelte Näherungsformel für $\pi(x)$, die direkt aus der Zeta-Funktion abgeleitet wird. Eine ausführliche, gut nachvollziehbare Herleitung deses Zusammenhangs findet sich bei \cite{edwards1974riemann}.
 Man erkennt, wie eng beide Kurven beieinander liegen: $\operatorname{Li}(x)$ approximiert die Verteilung der Primzahlen, wobei die relative Genauigkeit dieser Näherung mit wachsendem $x$ zunimmt.
 

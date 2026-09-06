@@ -1,0 +1,108 @@
+%
+% 05_ableitung.tex -- Quaternionische Ableitung
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Eine quaternionische Ableitung?\label{qa:section:ableitung}}
+\kopfrechts{Quaternionische Ableitung}
+
+Es ist naheliegend, die Differentialrechnung der komplexen Zahlen als Vorbild zu 
+nehmen und zu fragen, ob sich dieser Aufbau auf $\mathbb{H}$ übertragen lässt. Die
+Antwort ist eher enttäuschend, und der Grund dafür ist gerade jene Formel
+$P' = qPq^{-1}$, die in Abschnitt~\ref{qa:section:drehungen} die Drehungen
+möglich gemacht hat.
+
+\subsection{Die komplexe Ableitung als Vorbild}
+Eine Funktion $f\colon \mathbb{C} \to \mathbb{C}$ heisst in $z$ komplex
+differenzierbar, wenn der Grenzwert
+\begin{equation*}
+    f'(z) = \lim_{h \to 0} \frac{f(z+h) - f(z)}{h}, \qquad h \in \mathbb{C}
+    \setminus \{0\},
+\end{equation*}
+existiert. Entscheidend ist dabei, dass $h$ eine \emph{komplexe} Zahl ist und
+sich der Null aus jeder beliebigen Richtung der Ebene nähern darf. Die
+Forderung, dass der Grenzwert für alle diese Richtungen derselbe ist, ist eine
+starke Bedingung. Es hat zur Folge, dass eine einmal
+komplex differenzierbare Funktion automatisch beliebig oft differenzierbar und
+in eine Potenzreihe entwickelbar sein soll.
+
+Zwei Dinge werden in dieser Definition stillschweigend benutzt: Erstens ist die
+Division durch $h$ eindeutig, weil $\mathbb{C}$ kommutativ ist. Ob man
+$h^{-1}$ von links oder von rechts multipliziert, spielt keine Rolle. Zweitens ist
+der Ausdruck $h^{-1} z h = z$ für alle $h$, die Richtung von $h$ ist also für
+die Lage von $z$ ohne Bedeutung. Beide Punkte gehen in $\mathbb{H}$ verloren.
+
+\subsection{Zwei Differenzenquotienten}
+Da die Multiplikation von Quaternionen nicht kommutativ ist, zerfällt der
+Differenzenquotient in zwei verschiedene Ausdrücke. Man kann
+\begin{equation*}
+    \Delta_R(h) = \bigl(f(q+h) - f(q)\bigr)\,h^{-1}
+    \qquad\text{oder}\qquad
+    \Delta_L(h) = h^{-1}\,\bigl(f(q+h) - f(q)\bigr)
+\end{equation*}
+bilden, und diese beiden Grössen stimmen im Allgemeinen nicht überein. Schon
+die Schreibweise $\frac{f(q+h)-f(q)}{h}$ ist also nicht mehr eindeutig. Das
+allein wäre noch kein grundsätzliches Hindernis, denn man könnte sich für eine der
+beiden Varianten entscheiden. Im Folgenden wird mit $\Delta_R$ gearbeitet; für
+$\Delta_L$ verläuft alles analog. Das eigentliche Problem liegt tiefer, wie das
+folgende Beispiel zeigt.
+
+\begin{beispiel}
+    Untersucht wird die einfachste nichtlineare Funktion überhaupt,
+    $f(q) = q^2$. Wegen $(q+h)^2 = q^2 + qh + hq + h^2$ ist die Differenz
+    $f(q+h) - f(q) = qh + hq + h^2$, und der Differenzenquotient lautet
+    \begin{equation*}
+        \Delta_R(h) = (qh + hq + h^2)\,h^{-1}
+        = q + h\,q\,h^{-1} + h .
+    \end{equation*}
+    Der erste und der letzte Term verhalten sich unproblematisch: $q$ ist
+    konstant und $h \to 0$. Der mittlere Term $h q h^{-1}$ ist jedoch genau die
+    Drehformel aus Abschnitt~\ref{qa:section:drehungen:drehformel}. Schreibt man
+    $h = t \cdot \hat{h}$ mit einer reellen Zahl $t > 0$ und einer 
+    Einheitsquaternion
+    $\hat{h}$, so kürzt sich der reelle Faktor heraus,
+    \begin{equation*}
+        h\,q\,h^{-1} 
+        = t\,\hat{h}\,q\,\hat{h}^{-1}\,t^{-1} 
+        = \hat{h}\,q\,\hat{h}^{-1},
+    \end{equation*}
+    und übrig bleibt die Drehung von $q$ um die Achse $\operatorname{Im}(\hat{h})$.
+    Dieser Term wird also nicht klein, wenn $h$ klein wird, sondern hängt nur von 
+    der Richtung ab, in der $h$ gegen null geht.
+\end{beispiel}
+
+
+
+Um das Beispiel konkret zu machen, sei $q = k$, also der Punkt $(0,0,1)$. Nähert 
+man sich der Null entlang
+der reellen Achse, $h = t \in \mathbb{R}$, so ist $hqh^{-1} = q$ und
+\begin{equation*}
+    \Delta_R(t) 
+    = k + k + t \;\longrightarrow\; 2k .
+\end{equation*}
+Nähert man sich dagegen entlang der $i$-Achse, $h = ti$, so ist
+$i k i^{-1} = -k$, denn nach Abschnitt~\ref{qa:section:drehungen} bewirkt $i$
+eine Drehung um $180^\circ$ um die $x$-Achse, und diese führt $(0,0,1)$ in
+$(0,0,-1)$ über. Damit ist
+\begin{equation*}
+    \Delta_R(ti) 
+    = k - k + ti \;\longrightarrow\; 0 .
+\end{equation*}
+Die beiden Grenzwerte $2k$ und $0$ sind verschieden, der Grenzwert existiert
+also nicht. Durchläuft $u$ alle Einheitsquaternionen, so durchläuft
+$\hat{h}\,q\,\hat{h}^{-1}$ die gesamte Kugel vom Radius $|\operatorname{Im}(q)|$ 
+um den Realteil von $q$; die möglichen Richtungsgrenzwerte bilden eine ganze
+Kugelschale und nicht einen einzelnen Punkt. Sie fallen genau dann zusammen,
+wenn $\operatorname{Im}(q) = 0$ ist, wenn also jede Drehung $q$ festhält. Die
+Funktion $q^2$ ist somit nur in den reellen Punkten differenzierbar, und dort
+ergibt sich mit $\Delta_R \to 2q$ erwartungsgemäss die reelle Ableitung.
+
+\subsection{Fazit}
+Quaternionen sind ein hervorragendes
+\emph{algebraisches} Werkzeug, um Drehungen zu beschreiben und zu verketten. Für 
+Differenzialrechnungen sind sie jedoch nicht geeignet. Wo man in einer Anwendung 
+Ableitungen benötigt, etwa bei
+der Geschwindigkeitsbestimmung von Drehungen, arbeitet man deshalb
+nicht mit einer quaternionischen Ableitung, sondern differenziert die vier
+reellen Komponenten einzeln.

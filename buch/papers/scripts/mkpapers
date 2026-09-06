@@ -11,6 +11,9 @@ awk 'BEGIN {
 	printf("%% (c) 2023 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule\n")
 	printf("%%\n")
 }
+/^#/ {
+	next
+}
 {
 	printf("\\input{papers/%s/main.tex}\n", $1)
 }' common/paperlist > common/addpapers.tex

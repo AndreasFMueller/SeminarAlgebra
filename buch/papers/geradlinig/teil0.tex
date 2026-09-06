@@ -1,5 +1,5 @@
 %
-% einleitung.tex -- Beispiel-File für die Einleitung
+% einleitung.tex -- Einführung
 %
 % (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
@@ -15,6 +15,11 @@ geradlinige Bewegungen durch äussere Einflüsse wie Schwerkraft,
 Reibung oder Fertigungsungenauigkeiten nur schwer präzise geführt
 werden konnten. Aus diesem Grund etablierten sich Kreisbewegungen als
 Grundlage zahlreicher Mechanismen und Antriebssysteme.
+\index{Industrialisierung}%
+\index{Rotation}%
+\index{Translation}%
+\index{Schwerkraft}%
+\index{Reibung}%
 
 Mit der fortschreitenden Industrialisierung stieg jedoch der Bedarf an
 Mechanismen, die eine möglichst exakte geradlinige Bewegung erzeugen
@@ -25,27 +30,27 @@ Mechanismen auseinanderzusetzen.
 \subsection{Newcomens Dampfmaschine\label{geradlinig:subsection:newcomen}}
 Eine der ersten Maschinen, welche mechanische Arbeit mithilfe einer
 geradlinigen Kolbenbewegung verrichtete, war die von Thomas Newcomen im
+\index{Newcomen, Thomas}%
 Jahr 1712 entwickelte atmosphärische Dampfmaschine
+\index{Dampfmaschine}%
 \cite{wiki_newcomen}. Dabei wurde Wasserdampf in einen Zylinder
 eingeleitet und anschliessend durch Einspritzen von kaltem Wasser
 kondensiert. Dadurch entstand im Zylinder ein Unterdruck, sodass der
 atmosphärische Druck den Kolben in den Zylinder drückte. Die dadurch
-erzeugte lineare Bewegung wurde über einen Balancier auf die
-gegenüberliegende Seite übertragen und zum Verrichten mechanischer
+erzeugte lineare Bewegung wurde über 
+einen Balancier\footnote{Als Balancier wird der zweiarmige Hebel an 
+Dampfmaschinen bezeichnet.}
+auf die gegenüberliegende Seite übertragen und zum Verrichten mechanischer
 Arbeit genutzt.
 
 Die Newcomen-Dampfmaschine gilt als die erste praktisch einsetzbare
 Dampfmaschine und ist in Abbildung~\ref{fig:newcomen_engine}
 dargestellt.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{papers/geradlinig/figures/newcomen_engine.jpg}
-    \caption{Illustration der Newcomen-Dampfmaschine~\cite{newcomen_pic}.}
-    \label{fig:newcomen_engine}
-\end{figure}
+\input{papers/geradlinig/fig/fig-newcomen-engine.tex}
 
 \subsection{Watts Dampfmaschine\label{geradlinig:subsection:watts_steam}}
 James Watt erkannte das Potenzial, die Newcomen-Dampfmaschine zu verbessern.
+\index{Watt, James}%
 Insbesondere hielt er es für ineffizient, 
 denselben Zylinder abwechselnd zu erhitzen 
 und wieder abzukühlen~\cite{wiki_watt_steam}.
@@ -63,29 +68,26 @@ wodurch sowohl die Aufwärts- als auch die Abwärtsbewegung
 Arbeit verrichteten.
 Die bisher verwendete Kette konnte hierfür nicht mehr 
 eingesetzt werden und wurde durch eine starre Kolbenstange ersetzt.
-Da sich die Kolbenstange geradlinig bewegte, der Balancier 
+Da sich die Kolbenstange geradlinig bewegte, der Balancier
 jedoch um einen festen Drehpunkt schwenkte, 
 war eine direkte Verbindung nicht möglich.
-Aus diesem Grund entwickelte Watt den in Abbildung~\ref{fig:watts_engine} 
-dargestellten Mechanismus.
+Aus diesem Grund entwickelte Watt den in 
+Abbildung~\ref{fig:watts_engine} dargestellten Mechanismus.
 Er kombinierte den Viergelenkmechanismus mit einem Pantographen, 
+\index{Pantograph}%
 um die Kolbenstange näherungsweise auf einer geraden Bahn zu führen.
+\index{Kolbenstange}%
 Diese Lösung war deutlich einfacher und kostengünstiger 
 als eine präzise Linearführung.
 Die verbesserte Kraftübertragung und die höhere Leistung machten 
-die Maschine besonders geeignet zum Antrieb von Maschinen 
-und später auch von Rädern.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{papers/geradlinig/figures/watts_engine.jpeg}
-    \caption{Illustration der Wattschen Dampfmaschine~\cite{wiki_watt_steam}.}
-    \label{fig:watts_engine}
-\end{figure}
+die Maschine besonders geeignet zum Antrieb von Rädern.
+\input{papers/geradlinig/fig/fig-watts-engine.tex}
 
 \subsection{Kinematische Synthese
 \label{geradlinig:subsection:kinematische_synthese}}
+\index{kinematische Synthese}%
 Mit seiner Konstruktion legte James Watt den Grundstein 
-für die kinematische Synthese~\cite{kin_synth}.
+für die \emph{kinematische Synthese}~\cite{kin_synth}.
 Die kinematische Synthese beschreibt die systematische Entwicklung 
 eines Mechanismus, der eine vorgegebene Bewegung erzeugt.
 Dabei werden die Anordnung und die Abmessungen der 

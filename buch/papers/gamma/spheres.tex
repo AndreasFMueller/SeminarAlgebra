@@ -2,6 +2,7 @@
 \kopfrechts{Kugelvolumen}
 
 $\pi$ ist definiert als die Konstante, welche
+\index{pi@$\pi$}%
 \begin{equation}
 \label{gamma-eq:circumference}
     2 \pi r = \text{Umfang eines Kreises mit dem Radius $r$}
@@ -9,6 +10,7 @@ $\pi$ ist definiert als die Konstante, welche
 erfüllt.
 
 Eine Kreisscheibe ist die von einem Kreisrand begrenzte, vollständig ausgefüllte Fläche eines Kreises.
+\index{Kreisscheibe}%
 Mit Hilfe von \eqref{gamma-eq:circumference} lässt sich die Fläche einer Kreisscheibe herleiten. 
 Geht die Breite eines Rings gegen 0, verhält sich das 
 Wachtstum des Flächeninhalts gleich wie das des Umfangs des Rings.
@@ -22,6 +24,7 @@ Für eine grafische Darstellung dieser
 Intuition siehe Abb. \ref{gamma-fig:ring-integration}.
 
 Der Satz des Pythagoras gibt uns eine einfache Beschreibung aller
+\index{Pythagoras}%
 Punkte $(x, y)$, welche
 \begin{equation}
 \label{gamma-eq:pythagoras}
@@ -34,9 +37,9 @@ lässt sich eine weitere Definition der Kreisfläche herleiten,
 indem wir nach $y$ auflösen und danach für jedes $x$ den jeweils höchsten $y$-Wert integrieren:
 \begin{gather}
 \label{gamma-eq:pythagoras-y}
-    y \leq \sqrt{r^2 - x^2} \\
+    y \leq \!\sqrt{r^2 - x^2} \\
 \label{gamma-eq:area-pythagoras}
-    A(r) = 2 \int_{-r}^{r} \sqrt{r^2-x^2} \,dx.
+    A(r) = 2 \int_{-r}^{r} \!\sqrt{r^2-x^2} \,dx.
 \end{gather}
 Die Intuition dahinter wird in Abb.~\ref{gamma-fig:rect-integration} dargestellt.
 Das Integral aus~\eqref{gamma-eq:area-pythagoras} ist nicht trivial zu lösen
@@ -47,7 +50,7 @@ einfach auf weitere Dimensionen erweitern lässt, beispielsweise mit
 \label{gamma-eq:pythagoras-3d}
     \begin{split}
     x^2 + y^2 + z^2 \leq r^2 \\
-    z \leq \sqrt{r^2 - x^2 - y^2}
+    z \leq \!\sqrt{r^2 - x^2 - y^2}
     \end{split}
 \end{equation}
 auf 3 Dimensionen.
@@ -57,9 +60,11 @@ Grösse entlang $x$ integrieren (siehe Abb. \ref{gamma-fig:semicircle-integratio
 während iterativ in jedem Halbkreis entlang der $y$-Achse integriert wird. Das Volumen kann also mit
 \begin{equation}
 \label{gamma-eq:sphere-volume}
-    V(r) = 2 \int_{-r}^{r} \int_{-\sqrt{r^2-x^2}}^{\sqrt{r^2-x^2}} \sqrt{r^2-x^2-y^2} \,dy \,dx
+    V(r) = 2 \int_{-r}^{r} \int_{-\!\sqrt{r^2-x^2}}^{\!\sqrt{r^2-x^2}} \sqrt{r^2-x^2-y^2} \,dy \,dx
 \end{equation}
 berechnet werden. Eine formelle Begründung für diese iterative angehensweise ist der Satz von Fubini \cite{fubini1907integrali}.
+\index{Satz!von Fubini}%
+\index{Fubini, Satz von}%
 Die Grenzen des inneren Integrals kommen zustande, weil für ein bestimmtes $x$ die möglichen $y$-Werte gemäss Ungleichung~\eqref{gamma-eq:pythagoras-y} eingeschränkt sind.
 Für ein bestimmtes $x$ und $y$ wird dann über den maximalen Wert für $z$ gemäss Ungleichung~\eqref{gamma-eq:pythagoras-3d} integriert.
 
@@ -69,7 +74,7 @@ Da wir aber bereits die Fläche eines Kreises berechnen können, können wir $A(
 zur Berechnung des Kugelvolumens anstatt der Pythagoras-Methode verwenden, indem wir in
 \begin{equation}
 \label{gamma-eq:composed-sphere-volume}
-    V(r) = 2 \int_{-r}^{r} A\left(\sqrt{r^2-x^2}\right) \,dx
+    V(r) = 2 \int_{-r}^{r} A\left(\!\sqrt{r^2-x^2}\right) \,dx
 \end{equation}
 das innere Integral von~\eqref{gamma-eq:sphere-volume} durch die entsprechende Flächenberechnung ersetzen.
 Das ist interessant, weil wir die Berechnung für zwei Dimensionen verwendet haben,
@@ -79,7 +84,7 @@ Auf die gleiche Weise lässt sich das Volumen auf beliebige Dimensionen $> 2$ er
 und zwar mit
 \begin{equation}
 \label{gamma-eq:n-sphere-volume-recursive}
-    V_{n+1}(r) = \int_{-r}^{r} V_n\left(\sqrt{r^2-x^2}\right) \,dx
+    V_{n+1}(r) = \int_{-r}^{r} V_n\left(\!\sqrt{r^2-x^2}\right) \,dx
 .
 \end{equation}
 
@@ -90,48 +95,56 @@ Wir können induktiv beweisen, dass $V_{n+1}$ dieser Form entspricht, sofern
 $V_n$ dieser Form entspricht.
 Nehme an, dass $V_n(r) = C_n r^n$. Dann gilt:
 
-\begin{gather}
-\label{gamma-eq:const-structure-induction}
-    \begin{split}
-         V_{n+1}(r) &= \int_{-r}^{r} C_n \left(\sqrt{r^2-x^2}\right)^n \,dx  \\ 
+\begin{align*}
+%\label{gamma-eq:const-structure-induction}
+         V_{n+1}(r) &= \int_{-r}^{r} C_n \left(\!\sqrt{r^2-x^2}\right)^n \,dx  \\ 
         &= \int_{-r}^{r} C_n \left(r^2-x^2\right)^{n/2} \,dx \\
         &= \int_{-1}^{1} C_n \left(r^2 - (ru)^2\right)^{n/2} r \,du \\
         &= \int_{-1}^{1} C_n \left(r^2 (1 - u^2)\right)^{n/2} r \,du \\
         &= \int_{-1}^{1} C_n r^{n+1} (1- u^2)^{n/2} \,du \\
-        &= r^{n+1} \underbrace{C_n \int_{-1}^{1} (1- u^2)^{n/2} \,du}_{C_{n+1}} \\
-    \end{split}
-\end{gather}.
+        &= r^{n+1} \underbrace{C_n \int_{-1}^{1} (1- u^2)^{n/2} \,du}_{C_{n+1}}.
+\end{align*}
 
 \noindent
 Wir sehen, dass $C_n$ ein Faktor von $C_{n+1}$ ist. Die mit dem Volumen assoziierte Konstante 
-scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. Eine Untersuchung des Terms $I_n = \int_{-1}^1 (1- u^2)^{n/2} \,du$ ergibt weiter die rekursive Struktur: $I_n = \frac{n}{n+1} I_{n-2}$. Dies kann durch die Rechnung
-\begin{equation}
-\label{gamma-eq:n-sphere-constant}
-    \begin{split}
-        I_n &= \int_{-1}^1 (1- u^2)^{n/2} \,du \\
-        &= \left[ u (1-u^2)^{n/2} \right]_{-1}^{1} - \int_{-1}^1 u \cdot (-nu(1-u^2)^{n/2 - 1}) \,du \\
-        &= (0 - 0) - \int_{-1}^1 -nu^2(1-u^2)^{n/2 - 1} \,du \\
-        &= n \int_{-1}^1 u^2 (1 - u^2)^{n/2 - 1} \,du \\
-        &= n \int_{-1}^1 (1 - (1 - u^2)) (1-u^2)^{n/2 - 1} \,du \\
-        &= n \int_{-1}^1 (1 - u^2)^{n/2 - 1} \,du - n \int_{-1}^1 (1-u^2)^{n/2} \,du \\
+scheint also eine rekursive Struktur ähnlich der einer Fakultät aufzuweisen. Eine Untersuchung des Terms $I_n = \int_{-1}^1 (1- u^2)^{n/2} \,du$ ergibt weiter die rekursive Struktur $I_n = \frac{n}{n+1} I_{n-2}$. Dies kann durch die Rechnung
+\begin{align*}
+%\label{gamma-eq:n-sphere-constant}
+        I_n &= \int_{-1}^1 (1- u^2)^{n/2} \,du
+\\
+        &= \left[ u (1-u^2)^{n/2} \right]_{-1}^{1} - \int_{-1}^1 u \cdot (-nu(1-u^2)^{n/2 - 1}) \,du
+\\
+        &= (0 - 0) - \int_{-1}^1 -nu^2(1-u^2)^{n/2 - 1} \,du
+\\
+        &= n \int_{-1}^1 u^2 (1 - u^2)^{n/2 - 1} \,du
+\\
+        &= n \int_{-1}^1 (1 - (1 - u^2)) (1-u^2)^{n/2 - 1} \,du
+\\
+        &= n \int_{-1}^1 (1 - u^2)^{n/2 - 1} \,du - n \int_{-1}^1 (1-u^2)^{n/2} \,du
+\\
         &= n I_{n-2} - n I_n \\
         (n+1) I_n &= n I_{n-2} \\
-        I_n &= \frac{n}{n+1} I_{n-2} \\
-    \end{split}
-\end{equation}
+        I_n &= \frac{n}{n+1} I_{n-2}
+\end{align*}
 gezeigt werden.
 
 Mit diesem Wissen lässt sich der konstante Faktor des Volumens einer $n$-dimensionalen Kugel herleiten als
 $C_n = C_{n-1} I_{n-1} = C_{n-2} I_{n-1} I_{n-2} = C_{n-2} \frac{2}{n} I_1 I_0$.
 Der letzte Schritt ist durch
-\begin{equation}
+\begin{align}
+    I_{n-1} I_{n-2}
+&=
+\biggl(\frac{n-1}{n} \cdot \frac{n-3}{n-2} \cdot \ldots \cdot \frac{3}{4}
+\cdot I_1\biggr)
+\cdot
+\biggl(\frac{n-2}{n-1} \cdot \frac{n-4}{n-2} \cdot \ldots \cdot \frac{2}{3} \cdot I_0\biggr)
+\notag\\
+    &= \frac{n-1}{n} \cdot \frac{n}{n-1} \cdot \ldots \cdot \frac{3}{4} \cdot  \frac{2}{3} \cdot I_1 I_0
 \label{gamma-eq:n-sphere-constant-2}
-    \begin{split}
-    I_{n-1} I_{n-2} &= \left(\frac{n-1}{n} \cdot \frac{n-3}{n-2} \cdot \ldots \cdot \frac{3}{4} \cdot I_1\right) \cdot \left(\frac{n-2}{n-1} \cdot \frac{n-4}{n-2} \cdot \ldots \cdot \frac{2}{3} \cdot I_0\right) \\
-    &= \frac{n-1}{n} \cdot \frac{n}{n-1} \cdot \ldots \cdot \frac{3}{4} \cdot  \frac{2}{3} \cdot I_1 I_0 \\
+\\
     &= \frac{2}{n} \cdot I_1 I_0
-    \end{split}
-\end{equation}
+\notag
+\end{align}
 begründet, funktioniert aber nur mit geraden $n$.
 
 Von~\eqref{gamma-eq:area} wissen wir, dass $C_2 = \pi$.

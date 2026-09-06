@@ -1,0 +1,88 @@
+%
+% teil1.tex -- Beispiel-File für das Paper
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+
+\section{Riemannscher Abbildungssatz
+\label{elektro:section:RiemannSatz}}
+\kopfrechts{Riemannscher Abbildungssatz}
+
+Georg Fridrich Bernhard Riemann (1826-1866) \cite{elektro:riemann} war ein deutscher Mathematiker, der sich mit diversen Gebieten der Mathematik beschäftigte.
+Auf vielen hat er bahnbrechende Ergebnisse erzielt, die bis heute von grosser Bedeutung sind.
+Auch Einstein hat von seinen Theorien Gebrauch gemacht.
+Den Riemannschen Abbildungssatz hat er erstmals als Skizze im Jahre 1851 in seiner Dissertation veröffentlicht. 
+Erst später wurde dieser Satz von anderen Mathematikern formal bewiesen und in die Mathematik eingeführt. 
+Es wurden verschiedene Beweise für den Riemannschen Abbildungssatz gefunden, die alle auf unterschiedlichen mathematischen Gebieten basieren.
+Hier wird der verbreitetste Beweis vorgestellt, der auf dem Satz von Montel basiert, welcher die Existenz konformer Abbildungen auf einfach zusammenhängende Gebiete beschreibt.
+Beschreiben ist hier wörtlich gemeint, denn es gibt für den Riemannschen Abbildungssatz keine allgemeine Formel, die für alle Gebiete gilt, sondern nur den Existenzbeweis einer Abbildung.
+Das bedeutet, dass für jegliche Figuren eine Transformation existiert.
+Diese muss aber auf anderem Weg ermittelt werden, dazu mehr in Abschnitt \ref{elektro:section:KreisTrafo}.
+
+Im Allgemeinen ist unser Ziel ein Gebiet $G$ auf ein einfacheres Gebiet $G'$ abzubilden, um die Berechnung von Potentialfeldern und elektrischen Feldern zu vereinfachen. 
+Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\mathbf{E}$ aus Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} bereits bekannt sind.
+
+\subsection{Voraussetzungen
+\label{elektro:subsection:RiemannVoraussetzungen}}
+Zunächst müssen ein paar Voraussetzungen für den Riemannschen Abbildungssatz erfüllt sein, damit der Satz überhaupt angewendet werden kann:
+
+\subsubsection{Einfach zusammenhängende Gebiete}
+Das ursprüngliche Gebiet $G$ muss einfach zusammenhängend sein, das bedeutet, dass es keine Löcher in dem Gebiet gibt. 
+Das Gebiet $G$ darf beliebig gross und beliebig geformt sein, solange es keine ausgeschnittenen Bereiche enthält.
+Zu dieser Definition gehört auch, dass das Gebiet offen sein muss. 
+Der Rand des Gebiets gehört demzufolge nicht zum Gebiet dazu.
+Der Rand müsste separat betrachtet werden, wobei sich meistens herausstellt, dass dieser sich $\grqq$brav$\grqq$ mit verformt und die Abbildung auf dem Rand ebenfalls konform ist.
+Es entstehen erst dann Abweichungen, wenn der Rand ausgefallene Fraktale bildet.
+Dies ist in diesen Beispielen nicht der Fall, daher wird stets angenommen, dass der Rand analog zur Fläche verformt wird.
+
+\subsubsection{Teilgebiete der komplexen Ebene}
+$ G \subset \mathbb{C} $ muss gelten, dies bedeutet, dass $G$ ein Subset und nicht äquivalent zu $\mathbb{C}$ sein darf.
+Für die komplette komplexe Ebene gilt der Riemannsche Abbildungssatz.
+Würde die gesamte komplexe Ebene auf den Einheitskreis abgebildet werden, dann müssten Punkte, die bereits im Innern des Einheitskreises liegen, unberührt bleiben und jene, welche ausserhalb liegen, müssten auf bereits besetzte Punkte transformiert werden. 
+Dies stünde im Widerspruch zur nächsten Voraussetzung, nämlich der Bijektivität der Abbildung.
+
+\subsubsection{Bijektive Abbildung}
+Eine bijektive Abbildung ist sowohl injektiv (verschiedene Elemente der Definitionsmenge werden auf verschiedene Elemente der Zielmenge abgebildet) als auch surjektiv (jedes Element der Zielmenge wird getroffen).
+Es gibt keine zwei Punkte, welche auf denselben Zielpunkt abgebildet werden. 
+Bei der Transformation und auch bei der Rücktransformation geht keine Information verloren und die Abbildung ist umkehrbar.
+
+% \subsection{Existenzbeweis
+% \label{elektro:subsection:Riemannbeweis}}
+% Im Folgenden wird der Existenzbeweis für den Riemannschen Abbildungssatz vorgestellt in einer Version die auf grundlegenden Eigenschaften von holomorphen Funktionen basiert.
+% Er macht sich den Satz von Montel und den Satz von Hurwitz zu Nutze. 
+
+% Es sei $z_0 \in G$ gewählt, $G$ ist dabei das einfach zusammenhängende Gebiet, dass alle voraussetzen wie in Abschnitt \ref{elektro:subsection:RiemannVoraussetzungen} beschrieben erfüllt.
+% Es werden nun alle holomorphen Funktionen $f$ betrachtet, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
+% Dann wird die Funktion gesucht für die $\vert f(z_0) \vert '$ maximal ist, damit haben wir ein Maximierungsproblem formuliert, dass es zu lösen gilt.
+
+% \subsubsection{Funktionsklasse
+% \label{elektro:subsubsection:RiemannFunktionsklasse}}
+% Die holomorphen Funktionen bilden eine Funktionsklasse, die wir mit $\mathcal{F}$ bezeichnen.
+% Es muss nun gezeigt werden, dass diese Klasse nicht leer sein kann. 
+% Dazu wird ein weiterer Punkt definiert der ausserhalb des Gebiets $G$ liegt der als Abbildungspunkt für $z$ dient.
+% Das $a \notin G$ gewählt wird, ist dabei wichtig, da sonst die Abbildung nicht bijektiv wäre.
+% $z - a \neq 0$ für alle $z \in G$, existiert auf $G$ ein holomorpher Zweig der Quadratwurzel, $g(z)= \sqrt{z-a}$n. \textcolor{red}{Beschreib wie dies zustande kommt.}
+% Die Funktion $g(z)$ ist injektiv, $g(z_1) = g(z_2)$ ist impliziert durch $z_1 -a = g(z_2)^2 = z_2 - a$, damit ist klar, das die Wahl der Lösung der Quadratwurzel eindeutig sein wird. \textcolor{red}{evtl. unverständlich}
+
+% \subsubsection{Maximierungsproblem
+% \label{elektro:subsubsection:RiemannMax}}
+% $M = \sup (\vert f'(z_0) \vert)$ ist die maximale Ableitung der holomorphen Funktion $f$ an der Stelle $z_0$.
+% Dafür wird nun eine Folge $(f_n) \in \mathcal{F}$ gesucht, die die Bedingung $\vert f_n'(z_0) \vert \to M$ erfüllt.
+
+
+\subsection{Existenzbeweis
+\label{elektro:subsection:Riemannbeweis}}
+Der Existenzbeweis basiert auf dem Satz von Montel und dem Satz von Hurwitz, wobei ein Maximierungsproblem formuliert wird, das es zu lösen gilt.
+Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen. \textcolor{red}{Quelle wo er nachgesehen werden kann}
+Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
+Es gilt $z \in G \land a \neq G$.
+Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.
+Mit der Quadratwurzelfunktion kann eine holomorphe Funktion (siehe Abschnitt \ref{elektro:subsection:holomorph}) $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
+Daraus ergibt sich eine Funktionsklasse $\mathcal{F}$, die alle holomorphen Funktionen $f$ enthält, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
+Für den weiteren Beweis werden verschiedene Eigenschaften der holomorphen Funktionen verwendet, wie die Surjektivität, welche die Extremalfunktion aufweisen muss, sowie Automorphien der Einheitskreisscheibe, welche die Abbildung auf den Kreis beschreiben.
+Das Ganze läuft darauf hinaus, das gezeigt werden kann das die Abbildungsfunktion $f$ sowie auch die Rücktransformation $f^{-1}$ holomorph sind und damit die Abbildung konform ist. 
+Womit der Satz von Riemann bewiesen ist.

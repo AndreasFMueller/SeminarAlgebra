@@ -1,0 +1,176 @@
+%
+% definition.tex -- Basics
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Algebraische Definition\label{qa:section:definition}}
+\kopfrechts{Algebraische Definition}
+
+Naheliegend wäre, für dreidimensionale Drehungen auch dreidimensionale
+Zahlen zu verwenden. Mit $\mathbb{R}, i, j$ hätte man genau so viele, wie der
+Anschauungsraum besitzt. An diesem Ansatz ist Hamilton gescheitert, 
+und zwar an der Multiplikation. Es werden vier Dimensionen benötigt, 
+welche Schritt für Schritt erläutert werden.
+
+
+\subsection{Addition und Multiplikation komplexer Zahlen}
+Sei eine positive reelle Zahl $x$: Wenn $x$ mit $i$ multipliziert 
+wird, dann entsteht aus einer rein reeller Zahl eine rein imaginäre 
+Zahl $ix$. Dies kann als eine 90° Drehung im Gegenuhrzeigersinn 
+interpretiert werden. Wird nun das Ergebnis $ix$ ein weiteres Mal 
+mit $i$ multipliziert, sodass $iix = i^2x$, dann greift die oben 
+genannte Regel und $-x$ entsteht. Die Zahl wurde somit um weitere 
+90° im Gegenuhrzeigersinn gedreht. Die selbe Regel gilt auch 
+allgemein: Selbst wenn $x$ keine reelle positive Zahl, sondern eine 
+komplexe Zahl ist, geschieht die Drehung auf gleicher Weise. 
+
+Für eine ganze 360° Drehung muss $x$ vier mal mit $i$ multipliziert 
+werden. Potenzen mit Basis $i$ wiederholen sich also nach vier 
+Iterationen.
+
+% Tabelle und Bild einfügen
+
+Mit Multiplikationen können nicht nur Drehungen vollzogen werden., 
+Statt eine Zahl mit $i$ zu multiplizieren, kann mit einer 
+Multiplikation von zwei komplexen Zahlen $c_1, c_2$ eine präzise 
+Platzierung mit bestimmter Drehung und Skalierung durchgeführt 
+werden. Dies geschieht distributiv, wobei das Ergebnis wieder in 
+Real- und Imaginärteil aufgeteilt wird:
+\begin{equation*}
+    (a + ib) \cdot (c + id) 
+    = ac + iad + ibc - bd = 
+    (ac - bd) + i(ad + bc), \qquad a,b,c,d \in \mathbb{R}
+\end{equation*}
+
+Die Addition zweier komplexer Zahlen gleicht dem Vorgang einer 
+Vektoraddition, wobei die Zahlen komponentenweise zusammengezählt   
+werden:
+\begin{equation*}
+    (a + ib) + (d + id) = a+c + ib + id = (a+c) + i(b+d)
+\end{equation*}
+Auch hier wird das Ergebnis auf den Real- und Imaginärteil 
+aufgeteilt. Quaternionen verhalten sich sehr ähnlich, wie im 
+nächsten Abschnitt beschrieben ist.
+
+\subsection{Addition und Multiplikationen von Quaternionen}
+Für Quaternionen werden zwei neue Regeln eingeführt. Die erste 
+Regel ist die selbe wie bei den Komplexen Zahlen. Sie besagt, dass 
+das Quadrat einer imaginären Achse jeweils $-1$ ergibt:
+\begin{equation*}
+    i^2 = j^2 = k^2 = -1
+\end{equation*}
+Die zweite Regel führt eine Abhängigkeit zwischen den imaginären 
+Achsen ein. Eine Folge der drei Imaginärachsen in alphabetischer 
+Reihenfolge $ijk$ ergibt ebenfalls $-1$. Dies gilt auch für 
+zyklische Verschiebungen, wie in
+\begin{equation*}
+    ijk = kij = jki = -1
+\end{equation*}
+beschrieben. Damit entstehen weitere Eigenschaften: Da $ijk = kk = 
+-1$, muss $ij = k$ entsprechen. Dasselbe gilt auch für $ki = j$ und 
+$jk = i$. Die Reihenfolge einer Multiplikation spielt dabei eine 
+grosse Rolle, denn $ik \neq ki$. Dies kann wie folgt nachgewiesen 
+werden, indem das folgende Experiment durchgeführt wird:
+\begin{align*}
+    ik &= i \cdot 1 \cdot k \\
+       &= -i \cdot j^2 \cdot k \\
+       &= -\underbrace{i \cdot j}_k \cdot 
+    \underbrace{j \cdot k}_{i} \\
+    ik  &= -ki\\
+\end{align*}
+Wenn die Reihenfolge der Multiplikation vertauscht wird, dann 
+ändert sich das Vorzeichen. Quaternionen sind also nicht 
+kommutativ. Dies kann intuitiv verstanden werden, wenn man sich 
+eine Drehung um die $x$-Achse und eine Drehung um die $y$-Achse 
+vorstellt. Die Reihenfolge der beiden Drehungen spielt eine Rolle, 
+da das Ergebnis unterschiedlich ausfällt.
+
+Die Addition von zwei Quaternionen funktioniert analog zu den 
+komplexen Zahlen. Die Komponenten werden komponentenweise addiert:
+\begin{equation*}
+    (a + ib + jc + kd) + (e + if + jg + kh) 
+    = (a+e) + i(b+f) + j(c+g) + k(d+h)
+\end{equation*}
+Auch das Multiplizieren zweier Quaternionen funktioniert analog zu 
+den komplexen Zahlen. Die Komponenten werden distributiv 
+multipliziert und das Ergebnis wieder in Real- und Imaginärteile 
+aufgeteilt:
+\begin{align*}
+    (a + ib + jc + kd) \cdot (e + if + jg + kh) 
+    &= ae + aif + ajg + akh \\
+    &+ ibe + i^2bf + ijbg + ikbh \\
+    &+ jce + jif + j^2cg + jkch \\
+    &+ kde + kif + kjcg + k^2dh \\
+    &= (ae - bf - cg - dh) \\
+    &+ i(af + be + ch - dg) \\
+    &+ j(ag - bh + ce + df) \\
+    &+ k(ah + bg - cf + de)
+\end{align*}
+
+\subsection{Warum vier Dimensionen?}
+Angenommen, es gäbe eine dreidimensionale Zahlenmenge mit Basis $1, i, j$ und
+$i^2 = j^2 = -1$, in der uneingeschränkt dividiert werden kann. Dann
+müsste insbesondere das Produkt $ij$ wieder in dieser Menge liegen,
+sich also als Linearkombination
+\begin{equation*}
+    ij = a + bi + cj, \qquad a,b,c \in \mathbb{R}
+\end{equation*}
+schreiben lassen. Multipliziert man diese Gleichung von links mit $i$,
+so ergibt die Gleichung $i(ij) = i^2 j = -j$, die Linearkombination
+dagegen
+\begin{align*}
+    i(a + bi + cj) &= ai + bi^2 + c(ij) \\
+                   &= -b + ai + c(a + bi + cj) \\
+                   &= (ca - b) + (a + cb)i + c^2 j .
+\end{align*}
+Ein Koeffizientenvergleich beim Term $j$ liefert $c^2 = -1$, was für
+eine reelle Zahl $c$ unmöglich ist. Das Produkt $ij$ lässt sich also
+nicht im dreidimensionalen Raum unterbringen.
+
+Hamiltons Ausweg bestand darin, dieses Produkt nicht mehr erklären zu
+wollen, sondern es als neue, vierte Basisgrösse zu akzeptieren:
+$k := ij$. Die Erweiterung ist damit zwangsläufig vierdimensional. Der
+Preis dafür ist die Kommutativität, denn aus $k = ij$ folgt $ji = -k$,
+wie oben bereits gezeigt wurde.
+
+\subsection{Konjugation, Norm und Inverse}
+
+Auch für Quaternionen existiert die Komplex-Konjugation. Wie bei 
+den komplexen Zahlen wird der Realteil nicht verändert, während die 
+Imaginärteile negiert werden:
+\begin{equation*}
+    q^* = (a + ib + jc + kd)^* = a - ib - jc - kd
+\end{equation*}
+Die euklidische Norm einer Quaternion ist die Summe der Quadrate aller 
+Komponenten. Sie wird wie folgt berechnet:
+\begin{equation*}
+    |q|^2 = |a + ib + jc + kd|^2 = a^2 + b^2 + c^2 + d^2
+\end{equation*}
+Die Norm lässt sich auch mit der Konjugation berechnen:
+\begin{equation*}
+    |q|^2 = q \cdot q^* 
+    = (a + ib + jc + kd) \cdot (a - ib - jc - kd)
+\end{equation*}
+Eine Einheitsquaternion ist eine Quaternion mit der Norm 1. Sie 
+bilden die Einheitskugel im vierdimensionalen Raum, wie die komplexen 
+Zahlen z mit $|z| = 1$ den 
+Einheitskreis im komplexen Raum. In den folgenden Abschnitten wird 
+gezeigt, dass vor allem Einheitsquaternionen von grosser 
+Wichtigkeit sind.
+
+Um die Inverse einer Quaternion zu berechnen, werden die Norm und 
+die Konjugation benötigt. Das Ziel ist, dass $q \cdot q^{-1} = 1$ 
+ergibt. Diese Gleichung kann wie folgt umgestellt werden:
+\begin{align*}
+    q \cdot q^{-1} &= 1 \\
+    q^{-1} &= \frac{1}{q} \\
+    q^{-1} &= \frac{q^*}{q \cdot q^*} \\
+    q^{-1} &= \frac{q^*}{|q|^2}
+\end{align*}
+Was auffällt ist, dass die Inverse einer Einheitsquaternion gleich 
+der Konjugation ist. Damit lassen sich Einheitsquaternionen sehr 
+einfach invertieren.

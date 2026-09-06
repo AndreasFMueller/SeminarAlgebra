@@ -13,10 +13,11 @@ papers/common/Makefile.inc:	papers/common/paperlist
 
 include common/Makefile.inc
 include chapters/Makefile.inc
+include papers/Makefile.inc
 include papers/common/Makefile.inc
 include papers/common/includes.inc
 
-ALLTEXFILES = $(TEXFILES) $(CHAPTERFILES) $(AUFGABENFILES)
+ALLTEXFILES = $(TEXFILES) $(CHAPTERFILES) $(AUFGABENFILES) $(PAPERTEXFILES)
 
 #
 # Buchblock für Druckerei

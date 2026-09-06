@@ -1,0 +1,62 @@
+%
+% 04_eigenschaften.tex -- Eigenschaften
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Eigenschaften und Vergleiche mit anderen Methoden\label{qa:section:eigenschaften}}
+\kopfrechts{Eigenschaften}
+\subsection{Mehrfache Multiplikationen}
+Im letzten Kapitel wurde gezeigt, dass für eine Verzerrungsfreie 
+Drehung eines Punktes $P$, der Punkt zwischen $q$ und $q^{-1}$ 
+eingeklemmt werden muss. Mit der Eigenschaft, dass zwei negative 
+Multiplikationen sich gegenseitig aufheben, kann die folgende 
+Gleichung
+\begin{equation*}
+    q P q^{-1} = (-q) P (-q)^{-1}
+\end{equation*}
+aufgestellt werden. Dies zeigt, dass die Multiplikation mit $q$ und 
+$-q$ die gleiche Drehung erzeugt. Je nachdem, ob $q$ oder $-q$ 
+verwendet wird, können für die gleiche Berechung mit 
+Computeralgebra Rechenoperationen gespart werden.
+
+\subsection{Vergleich mit Drehmatrizen}
+Die folgende Tabelle \ref{qa:tab:vergleich} zeigt die 
+Gegenüberstellung beider Methoden für die Beschreibung einer 
+Drehung im 3D Raum:
+\begin{table}
+        \centering
+        \small
+        \begin{tabular}{llll}
+            \textbf{Eigenschaft} & \textbf{Quaternionen} & \textbf{Drehmatrizen}\\
+            \hline
+            Anz. Parameter & 4 Parameter & 9 Parameter  \\
+            \hline
+            Normalisierung & Länge 1 & Orthogonal   \\
+            \hline
+            Inverse & Konjugiert & Transponiert  \\
+        \end{tabular}
+        \caption{Vergleich von Quaternionen und Drehmatrizen}
+        \label{qa:tab:vergleich}
+\end{table}
+Für Drehmatrizen gilt die Bedingung, dass sie orthogonal sein 
+müssen. Das bedeutet, dass aus den 9 Parametern nur 3 frei gewählt 
+werden können. Die restlichen 6 Parameter müssen so gewählt werden, 
+dass die Orthogonalität der Matrix erhalten bleibt. Bei 
+Quaternionen reicht die Bedingung, dass die Norm 1 betragen muss, 
+und somit können 3 aus den 4 Parametern frei gewählt werden.
+
+\subsection{Vergleich mit Eulerwinkeln}
+Eulerwinkel sind eine weitere Möglichkeit, eine Drehung im 3D Raum 
+zu beschreiben. Sie bestehen aus drei Winkeln, welche die Drehung 
+um die drei Achsen beschreiben. Die Eulerwinkel haben den Vorteil, 
+dass sie leicht verständlich sind und intuitiv verwendet werden 
+können. Der Nachteil ist jedoch, dass sie nicht eindeutig sind und 
+es zum Gimbal Lock kommen kann, was bedeutet, dass zwei Achsen in 
+einer Linie liegen und somit ein Freiheitsgrad verloren geht. 
+Quaternionen haben diesen Nachteil nicht und sind daher für viele 
+Anwendungen besser geeignet. In der Astronomie finden Eulerwinkel 
+jedoch noch weiterhin Anwendung.

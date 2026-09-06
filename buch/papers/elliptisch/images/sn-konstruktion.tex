@@ -1,0 +1,97 @@
+%
+% sn-konstruktion.tex -- geometrische Definition von sn, cn, dn
+% (Mueller, Spezielle Funktionen 2022, Abb. 11.4)
+%
+% phi = am(0.9, 0.8) = 0.834564, numerisch per RK4 auf dphi/du = dn.
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usetikzlibrary{calc}
+\input{farben.tex}
+%\definecolor{darkblue}{rgb}{0,0,0.6}
+\definecolor{lightblue}{rgb}{0.2,0.2,1.0}
+\begin{document}
+\def\skala{1.923}
+\begin{tikzpicture}[>=latex, thick, scale=\skala]
+
+% numerische Werte
+\def\a{1.66667}        % grosse Halbachse 1/sqrt(1-k^2), k = 0.8
+\def\cq{0.671471}      % cos(phi), phi = am(0.9, 0.8)
+\def\sq{0.741031}      % sin(phi)
+\def\px{1.119119}      % a*cos(phi), x-Koordinate von P
+
+% ---------- linkes Panel: Einheitskreis ----------
+\draw[->, black!45] (-1.15,0) -- (1.35,0);
+\draw[->, black!45] (0,-1.35) -- (0,1.55);
+\node[anchor=north east] at (1.35,0) {$x$};
+\node[anchor=south east] at (0,1.33) {$y$};
+
+\draw (0,0) circle (1);
+\draw[thin] (0,0) -- (0.621610,0.783327);
+
+% Bogen = Bogenlaenge u
+\draw[darkred, line width=1.6pt]
+	(1,0) arc[start angle=0, end angle=51.570, radius=1];
+\node[darkred] at (25.79:1.22) {$u$};
+
+\fill[darkred] (0.621610,0.783327) circle (0.035);
+\node[darkred, anchor=south west] at (0.621610,0.783327) {$(\cos u, \sin u)$};
+
+% ---------- rechtes Panel: Ellipse mit Hilfskreis ----------
+\begin{scope}[xshift=3.4cm]
+
+\draw[->, black!45] (-1.7,0) -- (1.9,0);
+\draw[->, black!45] (0,-1.35) -- (0,1.6);
+\node[anchor=north] at (1.9,0) {$x$};
+\node[anchor=south east] at (0,1.38) {$y$};
+
+\draw[dashed, thin] (0,0) circle (1);
+\draw (0,0) ellipse ({\a} and 1);
+
+% Halbachsen
+\draw[thin] (0,0) -- (\a,0);
+\fill (\a,0) circle (0.03);
+\node[anchor=south west] at (\a,0) {$a$};
+\draw[thin] (0,0) -- (0,1);
+\fill (0,1) circle (0.03);
+\node[anchor=south east] at (0,1) {$1$};
+
+% Strecke vom Nullpunkt zum Fusspunkt von P
+\draw[orange] (0,0) -- (\px,0);
+\node[orange, below=0.1pt, inner sep=1.5pt] at ({\px/2},0)
+	{$a\,\operatorname{cn}(u,k)$};
+
+% Winkel phi
+\draw[thin] (0,0) -- (\cq,\sq);
+\draw[thin] (0.32,0) arc[start angle=0, end angle=47.823, radius=0.32];
+\node at (17:0.40) {$\varphi$};
+
+% sn(u,k)
+\draw[darkgreen] (\px,0) -- (\px,\sq)
+	node[midway, sloped, below=0.1pt, inner sep=0.5pt]
+	{$\operatorname{sn}(u,k)$};
+
+% cn(u,k)
+\draw[lightblue] (0,\sq) -- (\cq,\sq)
+	node[midway, above=0.1pt, inner sep=0.5pt] {$\operatorname{cn}(u,k)$};
+
+\draw[dashed, thin] (\cq,\sq) -- (\px,\sq);
+
+% r = a dn(u,k)
+\draw[darkred] (0,0) -- (\px,\sq)
+	node[pos=0.55, below=0.2pt, darkred] {$r$};
+\node[darkred, anchor=south west] at ($(\px,\sq)+(-0.2,0.3)$)
+	{$r = a\,\operatorname{dn}(u,k)$};
+
+\fill (\cq,\sq) circle (0.028);
+\node[anchor=north, yshift=1.5pt] at (\cq,\sq) {$Q$};
+
+\fill[darkred] (\px,\sq) circle (0.035);
+\node[darkred, anchor=south] at (\px,\sq) {$P$};
+
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

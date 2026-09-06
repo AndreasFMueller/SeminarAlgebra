@@ -1,5 +1,5 @@
 %
-% teil1.tex -- Beispiel-File für das Paper
+% teil1.tex -- geradlinige Bewegung
 %
 % (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
@@ -9,74 +9,42 @@
 \section{Approximative geradlinige Bewegung
 \label{geradlinig:section:approximative_geradlinig}}
 \kopfrechts{Approximative geradlinige Bewegung}
-Der erste approximative geradlinige Mechanismus war derjenige von James Watt, 
-den er im Jahr 1784 patentieren liess.
+Der erste approximativ geradlinige Mechanismus war derjenige von James Watt.
 In Abbildung~\ref{fig:watts_link} ist der Mechanismus vereinfacht 
 dargestellt.
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/watts_linkage1.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/watts_linkage2.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/watts_linkage3.png}
-    \end{minipage}
-    \caption{Der Mechanismus von Watt~\cite{watt_linkage}.}
-    \label{fig:watts_link}
-\end{figure}
-
-Die beiden gelben Gelenke müssen zwingend die gleiche Länge besitzen.
+\input{papers/geradlinig/fig/fig-watt-linkage.tex}
+Die beiden gelben Gelenke müssen zwingend gleich lang sein.
 Das grüne Gelenk verbindet anschliessend die beiden Endpunkte 
 der gelben Gelenke.
 Dabei entsteht nur eine approximative Gerade, da der erzeugte Pfad 
 nur in einem begrenzten Bereich nahezu geradlinig ist.
-Der vollständige erzeugte Pfad entspricht einer Wattschen Kurve.
-Ein Spezialfall der Wattschen Kurve ist in Abbildung~\ref{fig:lemniskate} 
-dargestellt, bei welcher eine Lemniskate von Bernoulli entsteht.
-In derselben Abbildung ist ersichtlich, 
+Den vollständig erzeugten Pfad nennt man die wattsche Kurve.
+Ein Spezialfall der wattschen Kurve ist in Abbildung~\ref{fig:lemniskate} 
+dargestellt oder auch in Abbildung~\ref{buch:integration:homologie:fig:paar}, 
+dabei handelt es sich um die Lemniskate von Bernoulli.
+\index{Lemniskate von Bernoulli}%
+\index{wattsche Kurve}%
+In derselben Abbildung~\ref{fig:lemniskate} ist ersichtlich, 
 dass der Pfad nur im Zentrum einer Geraden entspricht.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\textwidth]{papers/geradlinig/figures/lemniskate.png}
-    \caption{Lemniskate von Bernoulli als Spezialfall der Wattschen Kurve~\cite{watt_curve}.}
-    \label{fig:lemniskate}
-\end{figure}
+\input{papers/geradlinig/fig/fig-lemniskate.tex}
+
+Später entwickelte Watt eine modifizierte Version seines Mechanismus,
+welcher in Abbildung~\ref{fig:watts_parallel_link} dargestellt ist.
+Diesen liess er anschliessend auch patentieren und verbaute ihn in seiner Maschine,
+gemäss Abbildung~\ref{fig:watts_engine}.
+Diese Konstruktion wird als Parallelbewegungsmechanismus bezeichnet.
+Sie war für den praktischen Einsatz besser geeignet 
+als die ursprüngliche Ausführung, da sich damit zwei Kolben antreiben liessen.
+\input{papers/geradlinig/fig/fig-watts-parallel-link.tex}
 
 Ein weiteres Beispiel ist der Chebyshev-Mechanismus, 
+\index{Chebyshev-Mechanismus}%
 welcher in Abbildung~\ref{fig:chebyshev_link} dargestellt ist.
-Dieser besitzt die gleiche Anzahl an Gelenken wie der Watts-Mechanismus, 
+Dieser besitzt die gleiche Anzahl an Gelenken wie der Watt-Mechanismus, 
 verwendet jedoch eine andere Anordnung, 
 um eine Rotationsbewegung in eine geradlinige Bewegung umzuwandeln.
-Dabei gelten jedoch strengere Bedingungen für 
-die Abmessungen der einzelnen Gelenke.
 Das Verhältnis der gelben Gelenklänge zur blauen beträgt $2.5:1$.
 Weitere Mechanismen, welche approximative geradlinige Bewegungen erzeugen, 
 sind in~\cite{wiki_straight_line} aufgeführt.
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/chebyshev_linkage1.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/chebyshev_linkage2.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/chebyshev_linkage3.png}
-    \end{minipage}
-    \caption{Der Mechanismus von Chebyshev~\cite{chebyshev_linkage}.}
-    \label{fig:chebyshev_link}
-\end{figure}
+\input{papers/geradlinig/fig/fig-chebyshev-link.tex}
 
