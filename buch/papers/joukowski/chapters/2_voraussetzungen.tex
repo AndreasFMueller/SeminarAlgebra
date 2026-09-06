@@ -11,52 +11,57 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 
 \subsection{Physikalische Voraussetzungen}
 
+\subsubsection{Reibungsfreihei}
+	Reibungsfreiheit bedeutet,
+	dass das Fluid,
+	in unserem Fall die Luft, 
+	keine Viskosität,
+	d.h. innere Reibung,
+	aufweist.
+	Somit gibt es keine Tangential-, bzw. Scherkräfte,
+	sondern nur Normal-, bzw. Druckkräfte auf die Oberfläche des Flügels.
+	
+	Zudem gilt die Bernoulli Gleichung,
+	welches unserem Modell zugrunde liegt,
+	nur bei reibungsfreier Strömung.
+
+\subsubsection{Inkompressibilität}
+	Inkompressibilität bedeutet, dass die Dichte des Fluides überall im Raum und zu jeder Zeit konstant ist.
+	Somit gilt sie in allen Formeln nur als Skalierungsfaktor.
+	Diese Annahme können wir bei unserer Luftströmung anwenden,
+	sofern die Anströmungsgeschwindigkeit nicht zu gross wird.
+	Unter $100\frac{m}{s}$ gilt diese Approximation sehr gut.
+
 \subsubsection{Stationarität}
 	Stationäre Strömung bedeutet kurz gesagt 
 	``Alles sieht \emph{für alle Zeit gleich} aus'',
 	aber es muss nicht überall im Raum gleich sein.
 	Von Punkt zu Punkt im Strömungsfeld gibt es sehr wohl Unterschiede.
-		
+	
 	In der Strömungslehre bedeutet die Stationarität,
 	dass sich die physikalischen Strömungsgrössen wie Geschwindigkeit, Druck und Dichte an jedem Ort im Strömungsfeld mit der Zeit nicht ändern.
 	
 	Mathematisch formuliert bedeutet stationär
 	\[
-		\frac{\partial f(z)}{\partial t}
-		=
-		0
-		\qquad
-		\forall
-		z \in \mathbb{C},
+	\frac{\partial f(z)}{\partial t}
+	=
+	0
+	\qquad
+	\forall
+	z \in \mathbb{C},
 	\]
 	wobei $f(z)$ eine physikalsiche Strömungsgrösse darstellt.
 	Örtlich dürfen Unterschiede vorhanden sein, somit gilt im Allgemeinen
 	\[
-		\frac{\partial f(z)}{\partial z}
-		\neq
-		0.
+	\frac{\partial f(z)}{\partial z}
+	\neq
+	0.
 	\]
 	Die Rolle der Stationarität ist im Gegensatz zu den anderen physikalischen Voraussetzungen weniger offensichtlich.
 	Bei einer stationären Strömung ist der Ausgleichsprozess abgeschlossen.
 	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im ausgeglichenem Zustand.
 	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
 	Somit kann der Satz von Kutta-Joukowski nur für stationäre Strömung angewendet werden.
-
-\subsubsection{Reibungsfreihei}
-	Reibungsfreiheit bedeutet,
-	dass das Fluid,
-	in unserem Fall die Luft, 
-	keine Viskosität aufweist.
-	Somit gibt es keine Tangential-, bzw. Scherkräfte,
-	sondern nur Normal-, bzw. Druckkräfte auf die Oberfläche des Flügels.
-	
-	Zudem gilt die Beroulli-Gleichung,
-	welches unserem Modell zugrunde liegt,
-	nur bei reibungsfreier Strömung.
-
-\subsubsection{Inkompressibilität}
-	Inkompressibilität bedeutet, dass die Dichte des Fluides mit der Zeit nicht ändert.
-	Diese Annahme gilt bei Flüssigkeiten wie Wasser sehr 
 
 \subsubsection{Laminarität}
 	Das Fluid strömt in Schichten, die sich nicht miteinander vermischen.

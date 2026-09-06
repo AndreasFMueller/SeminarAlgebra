@@ -9,12 +9,16 @@ Grafisch lässt sich dieser Effekt aufzeigen, indem die Funktion $f(z)$ aus Beis
 zum Ausdruck
 \begin{equation}
 	\label{joukowski:Stroemungslinien:equation_magnus}
-	f(z) = \frac{v_\infty}{2} \cdot \biggl(z+ \frac{1}{z}\biggr) - i\cdot A\cdot \log(z)
+	f(z) = v_\infty \cdot \biggl(z+ \frac{1}{z}\biggr) - i\cdot A\cdot \log(z)
 \end{equation}
 erweitert wird.
-Mit dem Parameter $A$ kann der Effekt eines rotierenden Zylinders in einem Strömungsfeld gesteuert werden. Der rotierende Zylinder führt durch Oberflächenreibung dazu, dass die Luft ebenfalls zirkuliert. Mit dem Parameter $A$
-% TODO die Luft muss aber reibungsfrei sein?
-kann somit direkt Einfluss auf die Zirkulation genommen werden. Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\ref{joukowski:Stroemungslinien:fig_magnus}. Anhand der Abbildung der Geschwindigkeitsvektoren kann erkannt werden, dass oberhalb des rotierenden Zylinders die Strömung eine höhere Geschwindigkeit aufweist wie unterhalb.
+Mit dem Parameter $A$ kann der Effekt eines rotierenden Zylinders in einem Strömungsfeld gesteuert werden.
+Der rotierende Zylinder führt dazu, dass die Luft ebenfalls zirkuliert.
+Mit dem Parameter $A$
+kann somit direkt Einfluss auf die Zirkulation genommen werden.
+Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\ref{joukowski:Stroemungslinien:fig_magnus}.
+Anhand der Abbildung der Geschwindigkeitsvektoren kann erkannt werden,
+dass oberhalb des rotierenden Zylinders die Strömung eine höhere Geschwindigkeit aufweist wie unterhalb.
 Höhere Geschwindigkeit bedeutet tieferer Druck und somit eine Auftriebskraft.
 
 Leiten wir die Funktion $f(z)$ nach $z$ ab, erhalten wir
@@ -24,14 +28,20 @@ Leiten wir die Funktion $f(z)$ nach $z$ ab, erhalten wir
 	v_{\infty} \cdot \biggl(1 - \frac{1}{z^2}\biggr) 
 	- \frac{i \cdot A}{z}.
 \]
-Vergleichen wir dies mit dem Reihenausdruck~\eqref{joukowski:komplexe-analysis:laurent-reihe},
+Sortieren wir die Terme nach ihren Potenzen von $z$ im Nenner erhalten wir
+\[
+	\overline{v(z)}
+	=
+	v_{\infty} - \frac{i \cdot A}{z} - \frac{v_{\infty}}{z^2}.
+\]
+Vergleichen wir dies mit dem Reihenausdruck~\eqref{joukowski:komplexe-analysis:original-laurent-reihe},
 sehen wir, dass nur die ersten drei Terme vorkommen.
 Aus Satz~\ref{joukowski:komplexe-analysis:satz:zirkulation} ist uns aber bekannt, dass nur der Term
 \[
 	\frac{a_1}{z}
 \]
 einen Beitrag leistet.
-Daraus folgt
+Daraus folgt aus der Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
 \[
 	\Gamma
 	=
