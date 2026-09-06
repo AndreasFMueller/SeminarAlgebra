@@ -14,7 +14,7 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 \subsubsection{Stationarität}
 	Stationäre Strömung bedeutet kurz gesagt 
 	``Alles sieht \emph{für alle Zeit gleich} aus'',
-	aber nicht überall im Raum muss es gleich sein.
+	aber es muss nicht überall im Raum gleich sein.
 	Von Punkt zu Punkt im Strömungsfeld gibt es sehr wohl Unterschiede.
 		
 	In der Strömungslehre bedeutet die Stationarität,
@@ -24,23 +24,27 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	\[
 		\frac{\partial f(z)}{\partial t}
 		=
-		0,
+		0
+		\qquad
+		\forall
+		z \in \mathbb{C},
 	\]
 	wobei $f(z)$ eine physikalsiche Strömungsgrösse darstellt.
 	Örtlich dürfen Unterschiede vorhanden sein, somit gilt im Allgemeinen
 	\[
-		\frac{\partial v}{\partial z}
+		\frac{\partial f(z)}{\partial z}
 		\neq
 		0.
 	\]
 	Die Rolle der Stationarität ist im Gegensatz zu den anderen physikalischen Voraussetzungen weniger offensichtlich.
 	Bei einer stationären Strömung ist der Ausgleichsprozess abgeschlossen.
-	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im eingeschwungenen Zustand.
+	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im ausgeglichenem Zustand.
 	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
+	Somit kann der Satz von Kutta-Joukowski nur für stationäre Strömung angewendet werden.
 
 \subsubsection{Reibungsfreihei}
 	Reibungsfreiheit bedeutet,
-	dass die Flüssigkeit,
+	dass das Fluid,
 	in unserem Fall die Luft, 
 	keine Viskosität aufweist.
 	Somit gibt es keine Tangential-, bzw. Scherkräfte,
