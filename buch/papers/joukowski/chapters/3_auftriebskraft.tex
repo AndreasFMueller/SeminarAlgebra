@@ -21,7 +21,7 @@
 		F'
 		=
 		\displaystyle\oint_{\gamma}
-		dF'
+		\, dF'
 		\label{joukowski:auftriebskraft:Integral-aus-dF}
 	\end{equation}
 	entsteht.
@@ -49,7 +49,7 @@
 		=
 		i \cdot \displaystyle\oint_{\gamma}
 		p(z)
-		dz
+		\, dz
 		\label{joukowski:auftriebskraft:Integral-aus-p}
 	\end{equation}
 	geschrieben werden kann.
@@ -60,31 +60,33 @@
 	\input{papers/joukowski/fig/03_auftriebskraft/fig-kontourintegral_fluegel.tex}
 
 \subsection{Aus Anströmungsgeschwindigkeit wird Auftrieb}
-	Bei der Betrachtung eines Objektes in einem beliebigen Medium kann eine Auftriebskraft festgestellt werden.
-	Hierbei muss die Unterscheidung zwischen statischen und dynamischen Auftrieb gemacht werden.
-	Der statische Auftrieb entsteht durch den Druckgradienten. 
-	Dies ist auf den Druckunterschied zurückzuführen,
-	wobei Strömungen zum dynamischen Auftrieb führen.
-	
+	Ein Medium übt auf ein darin platziertes Objekt eine Kraft aus.
+	Zwei Hauptursachen können dafür identifiziert werden.
+	Das Schwerefeld der Erde verursacht im Medium einen vertikalen Druckgradienten.
+	Die Kräfte auf der Unterseite des Objektes sind daher grösser als auf der Oberseite,
+	was in einer statischen Auftriebskraft resultiert, die auch der hydrostatische Auftrieb genannt wird.
+	Bewegt sich das Fluid, entstehen zusätzlich dynamische Kräfte.
+	Ziel dieses Abschnitts ist, den Zusammenhang zwischen Anströmgeschwindigkeit $v_\infty$ und Auftriebs- und Widerstandskraft zu klären.
+		
 	Ein Beispiel für den statischen Druck ist ein Eiswürfel im Wasserglas. Der Druckgradient beschreibt die Druckveränderung zwischen zwei Punkten,
 	daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
 		
 	Bei einem Flugzeug ist dies wesentlich komplizierter.
 	Hierbei handelt sich um dynamischen Auftrieb. Für die Strömung gilt Energieerhaltung.
-	Der Druck, an einem beliebigen Punkt im Raum, kann somit mit der Bernoulli Gleichung
+	Der Druck an einem beliebigen Punkt im Raum kann somit mit der Bernoulli Gleichung
 	
 	\begin{equation}
 		\label{joukowski:Auftriebskarft:Bernoulli}
-		p(z) + \frac{\rho}{2} \cdot |v(z)|^2 + \rho g h(z) 
+		p(z) + \frac{\varrho}{2} \cdot |v(z)|^2 + \varrho g h(z) 
 		=
-		p_{\infty} + \frac{\rho}{2} \cdot |v_{\infty}|^2 + \rho g h_{\infty}
+		p_{\infty} + \frac{\varrho}{2} \cdot |v_{\infty}|^2 + \varrho g h_{\infty}
 	\end{equation}
 	beschrieben werden.
-	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Höhendruck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
+	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Druck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
 	\[
 		p(z)
 		= 
-		-\frac{\rho}{2} \cdot |v(z)|^2 + C,
+		-\frac{\varrho}{2} \cdot |v(z)|^2 + C,
 	\]
 	wobei der konstante Teil $C$ aus dem Referenzwert im Unendlichen besteht.
 	Um nun die Auftriebskraft zu erhalten,
@@ -95,7 +97,7 @@
 		=
 		F_x' + i F_y'
 		=
-		- i \frac{\rho}{2} \cdot
+		- i \frac{\varrho}{2} \cdot
 		\displaystyle\oint_{\gamma}
 		|v(z)|^2 + C \, dz 
 		\notag
@@ -108,7 +110,7 @@
 		=
 		F_x' + i F_y'
 		=
-		- i \frac{\rho}{2} \cdot
+		- i \frac{\varrho}{2} \cdot
 		\displaystyle\oint_{\gamma}
 		|v(z)|^2 \, dz.
 	\end{align}
