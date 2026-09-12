@@ -1,0 +1,21 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \draw[->,darkblue] (0,0) -- (2,0) node[midway,above] {$r$};
+    \filldraw[darkred] (0,0) circle (1pt) node[above left] {$0$};
+    \draw[thick] (0,0) circle (2);
+    \draw (0,0) circle (2);
+    \node at (0,2.5) {$A$: $|e| > r$};
+    \node at (0,-1) {$I$: $|e| < r$};
+\end{tikzpicture}
+\end{document}
+

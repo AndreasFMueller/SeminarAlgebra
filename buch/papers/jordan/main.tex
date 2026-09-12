@@ -1,39 +1,46 @@
 %
 % main.tex -- Paper zum Thema <jordan>
 %
-% (c) 2020 Autor, OST Ostschweizer Fachhochschule
+% (c) 2026 Dominik Castelberg, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\chapter{Thema\label{chapter:jordan}}
-\kopflinks{Thema}
+\chapter{Der Beweis des Satzes von Jordan\label{chapter:jordan}}
+\kopflinks{Der Beweis des Satzes von Jordan}
 \begin{refsection}
-\chapterauthor{Hans Muster}
+\chapterauthor{Dominik Castelberg}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+\begin{quote}
+    \itshape Nichts ist so täuschend wie eine offenkundige Tatsache.
 
-\input{papers/jordan/teil0.tex}
-\input{papers/jordan/teil1.tex}
-\input{papers/jordan/teil2.tex}
-\input{papers/jordan/teil3.tex}
+    \hfill\normalfont --- \cite{jordan:doyle}
+\end{quote}
+
+% Ein paar Hinweise für die korrekte Formatierung des Textes
+% \begin{itemize}
+% \item
+% Absätze werden gebildet, indem man eine Leerzeile einfügt.
+% Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
+% \item
+% Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
+% Optionen werden gelöscht. 
+% Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
+% \item
+% Beginnen Sie jeden Satz auf einer neuen Zeile. 
+% Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
+% in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
+% anzuwenden.
+% \item 
+% Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
+% Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern. 
+% \end{itemize}
+
+%\cite{jordan:bibtex}
+
+\input{papers/jordan/01_satz.tex}
+\input{papers/jordan/02_konstruktion.tex}
+\input{papers/jordan/03_generalisierung.tex}
 
 \printbibliography[heading=subbibliography]
 \end{refsection}

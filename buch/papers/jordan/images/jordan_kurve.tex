@@ -1,0 +1,27 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \draw[darkred]{
+        (0.5,3) .. controls (1,2) and (2,2) .. (2.5,3) .. controls (1.5,2.5) and (1,4) .. cycle
+    };
+    \draw[darkgreen]{
+        (2.5,1) .. controls (3,0) and (3,0) .. (4,1) .. controls (3,0.5) and (1,2) .. cycle
+    };
+    \draw[darkblue]{
+        (4,3.5) circle (0.5)
+    };
+    \draw[->] (0,0) -- (5,0) coordinate[label={$x$}];
+    \draw[->] (0,0) -- (0,5) coordinate[label={right:$y$}];
+\end{tikzpicture}
+\end{document}
+
