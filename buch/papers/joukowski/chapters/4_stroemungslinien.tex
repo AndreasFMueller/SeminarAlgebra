@@ -1,19 +1,43 @@
 \section{Strömungslinien}
 \label{joukowski:sec:stroemungslinien}
 	\subsection{Allgemeine Definition}
-		Die Bewegung von Luft oder Flüssigkeiten im drei Dimensionalen Raum wird durch die Navier-Stokes-Gleichungen, oder die reibungsfreien Euler-Gleichungen, beschrieben. Dabei handelt es sich um komplizierte partielle Differentialgleichungen, deren Anwendung für dieses Seminar zu weit führt.
+		Die Bewegung von Fluiden im dreidimensionalen Raum wird durch die Navier-Stokes-Gleichungen,
+		oder die reibungsfreien Euler-Gleichungen beschrieben.
+		Dabei handelt es sich um komplizierte partielle Differentialgleichungen,
+		deren Anwendung für dieses Seminar zu weit führt.
 		
-		Sobald die Strömung nur von x und y abhängig ist kann man die Gleichungen vereinfachen.
-		Für eine Laminare Strömung in der Ebene, gilt dass die Geschwindigkeit der Gradient einer Funktion ist. Hierbei geht es nur darum den Physikalischen Ursprung mit den Komplexen Zahlen in verbindung zu bringen. Das exakte verstäntnis für die entstehung der Strömungsgleichung wird nicht Vorrausgesetzt.
-	
-		
-		Unsere komplexe Strömungsfunktion kann als
+		Sobald die Strömung nur von $x$ und $y$ abhängig ist,
+		können wir die komplexen Zahlen zur Hand nehmen und die Gleichungen vereinfachen sich.
+		Für eine laminare Strömung in der Ebene gilt, dass die Geschwindigkeit $v(z)$ der Gradient der Potentialfunktion $\varphi$ ist.
+		Mathematisch geschrieben als
+		\[
+			u(z)
+			=
+			\nabla \varphi(z).
+		\]
+		Setzen wir unsere Voraussetzung der Inkompressibilität des Fluides aus Gleichung~\eqref{joukowski:voraussetzungen:inkompressibel} ein,
+		erhalten wir die Laplace-Gleichung
+		\[
+			\nabla \cdot \nabla \varphi(z)
+			=
+			\Delta \varphi(z)
+			=
+			0.
+		\]
+		Das beduetet, wenn wir nach einer Funktion suchen
+		welche die Strömung eines inkompressiblen, laminaren Fluides beschreibt, muss diese die Laplace-Gleichung erfüllen.		
+		Wir können eine komplexe Strömungsfunktion als
 		\[
 			f(z)
 			= 
 			\varphi(z) + i \psi(z)
 		\]
-		geschrieben werden.
+		schreiben, wobei $\varphi(z)$ der Potentialfunktion des Fluides entspricht.
+		Dabei können wir ausnutzen, dass der Realteil einer holomorphen Funktion automatisch die Laplace-Gleichung erfüllt.
+		Somit ist jede komplexe Funktion $f(z)$ welche holomorph ist eine gültige Beschreibung einer Fluidströmung.
+		
+		% Hierbei geht es nur darum den Physikalischen Ursprung mit den Komplexen Zahlen in verbindung zu bringen. Das exakte verstäntnis für die entstehung der Strömungsgleichung wird nicht Vorrausgesetzt.
+		
 		Punkte in der $z$-Ebene, für welche $\varphi(z)$ einer Konstanten entsprechen, werden \emph{Äquipotentiallinien} genannt
 		und Punkte, für welche $\psi(z)$ einer Konstanten entsprechen, werden \emph{Strömungslinien} genannt.
 		Für unsere Betrachtungen sind die Strömungslinien von grosser Bedeutung.
