@@ -11,7 +11,7 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 
 \subsection{Physikalische Voraussetzungen}
 
-\subsubsection{Reibungsfreihei}
+\subsubsection{Reibungsfreiheit}
 	Reibungsfreiheit bedeutet,
 	dass das Fluid,
 	in unserem Fall die Luft, 
@@ -20,17 +20,25 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	aufweist.
 	Somit gibt es keine Tangential-, bzw. Scherkräfte,
 	sondern nur Normal-, bzw. Druckkräfte auf die Oberfläche des Flügels.
-	
 	Zudem gilt die Bernoulli Gleichung,
 	welches unserem Modell zugrunde liegt,
-	nur bei reibungsfreier Strömung.
+	nur bei einer reibungsfreier Strömung.
 
 \subsubsection{Inkompressibilität}
 	Inkompressibilität bedeutet, dass die Dichte des Fluides überall im Raum und zu jeder Zeit konstant ist.
 	Somit gilt sie in allen Formeln nur als Skalierungsfaktor.
 	Diese Annahme können wir bei unserer Luftströmung anwenden,
 	sofern die Anströmungsgeschwindigkeit nicht zu gross wird.
-	Unter $100\frac{m}{s}$ gilt diese Approximation sehr gut.
+	Unter $100\frac{\text{m}}{\text{s}}$ gilt diese Approximation sehr gut.
+	Mathematisch formuliert können wir die Inkompressibilität als
+	\begin{equation}
+		\label{joukowski:voraussetzungen:inkompressibel}
+		\nabla \cdot \vec{v}
+		=
+		0
+	\end{equation}
+	schreiben, wobei $\vec{v}$ die Geschwindigkeit des Fluides ist. 
+	Diese Gleichung besagt, dass es nirgends im Raum eine Ansammlung des Fluides gibt.
 
 \subsubsection{Laminarität}
 	Laminarität bedeutet, dass das Fluid in Schichten strömt, die sich nicht untereinander vermischen.
@@ -49,17 +57,38 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	
 	Mathematisch formuliert bedeutet stationär
 	\[
-	\frac{\partial f(z)}{\partial t}
-	=
-	0
-	\qquad
-	\forall
-	z \in \mathbb{C},
+		\frac{\partial f}{\partial t}
+		=
+		0,
 	\]
-	wobei $f(z)$ eine physikalsiche Strömungsgrösse darstellt.
+	wobei $f$ eine physikalische Strömungsgrösse darstellt.
 	
 	Die Rolle der Stationarität ist im Gegensatz zu den anderen physikalischen Voraussetzungen weniger offensichtlich.
 	Bei einer stationären Strömung ist der Ausgleichsprozess abgeschlossen.
 	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im ausgeglichenem Zustand.
 	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
-	Somit kann der Satz von Kutta-Joukowski nur für stationäre Strömung angewendet werden.
+	Dies beschreibt zum Beispiel die Situation beim Anfahren des Flugzeuges.
+	Somit kann der Satz von Kutta-Joukowski nicht für diese Situation angewendet werden. 
+	
+\subsection{Situationsbeschreibung}
+	Obwohl wir uns in einer dreidimensionalen Welt befinden,
+	können wir uns in userem mathematischen Modell auf zwei Dimensionen begrenzen.
+	Diese Vereinfachung ist nur möglich, da wir voraussetzen, dass die Strömung entlang dem ganzen Flügel identisch ist.
+	Somit müssen wir bei den Berechnungen nicht den gesamten dreidimensionalen Flügel betrachten,
+	sondern können uns auf einen zweidimensionalen Querschnitt davon beschränken.
+	Somit haben wir ein Flügelprofil, welches von einem inkompressiblen, reibungsfreien Fluid lamiar umströmt wird.
+	In grosser Entfernung besitzt die Strömung eine konstante Geschwindigkeit und einen konstanten Luftdruck,
+	welche wir mit $v_\infty$, respektive $p_\infty$ bezeichnen.
+	Das $\infty$ bezieht sich darauf, dass in der Theorie dieser Punkt unendlich weit vom Flügelprofil entfernt sein müsste.
+	Eine Folge der Entfernung einer Dimension ist,
+	dass Grössen wie die Kraft $F$ zur Kraft pro Flügellänge $F'$ gewandelt werden.
+	Wobei sich $F'$ mit
+	\[
+		F'
+		=
+		\frac{\partial F}{\partial l}
+	\]
+	berechnen lässt.
+	
+	Durch die beschränkung auf zwei Dimensionen können wir zudem unsere Situation mittels der komplexen Zahlenebene vollständig beschreiben.
+	In den folgenden Kapitel wird also die örtliche Abhängigkeit mit $z = x + iy$ beschrieben.

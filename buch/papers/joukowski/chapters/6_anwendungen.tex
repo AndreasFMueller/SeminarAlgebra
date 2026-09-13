@@ -2,6 +2,7 @@
 \label{joukowski:anwendungen}
 
 \subsection{Magnus Effekt}
+\label{joukowski:anwendungen:magnus}
 \input{papers/joukowski/fig/05_stroemungslinien/fig_magnus.tex}
 Bei rotierenden Zylindern entsteht eine Kraft, sofern eine Luftströmung existiert. Dieser Effekt kann beispielsweise eingesetzt werden, um den Kraftstoffverbrauch von Schiffen zu senken.
 
@@ -34,8 +35,8 @@ Sortieren wir die Terme nach ihren Potenzen von $z$ im Nenner erhalten wir
 	=
 	v_{\infty} - \frac{i \cdot A}{z} - \frac{v_{\infty}}{z^2}.
 \]
-Vergleichen wir dies mit dem Reihenausdruck~\eqref{joukowski:komplexe-analysis:original-laurent-reihe},
-sehen wir, dass nur die ersten drei Terme vorkommen.
+Wir können dies mit dem Reihenausdruck~\eqref{joukowski:komplexe-analysis:original-laurent-reihe} vergleichen,
+dabei sehen wir, dass nur die ersten drei Terme vorkommen.
 Aus Satz~\ref{joukowski:komplexe-analysis:satz:zirkulation} ist uns aber bekannt, dass nur der Term
 \[
 	\frac{a_1}{z}
@@ -54,13 +55,13 @@ erhalten wir für die komplex konjugierte Kraft
 \[
 	\overline{F'}
 	=
-	i \rho v_{\infty} 2 \pi A.
+	i \varrho v_{\infty} 2 \pi A.
 \]
 Es folgt eine reine Auftriebskraft mit dem Ausdruck
 \[
 	F'_y
 	=
-	-\rho v_{\infty} 2 \pi A.
+	-\varrho v_{\infty} 2 \pi A.
 \]
 
 \subsection{Tragflügel}
@@ -69,13 +70,25 @@ Es folgt eine reine Auftriebskraft mit dem Ausdruck
 Nun haben wir bereits viel über Geschwindigkeiten und Strömungen gesprochen.
 Die interessante Frage ist jedoch, was das alles mit einem Flügelprofil zu tun hat.
 Ein Einheitskreis kann relativ einfach so transformiert werden, dass er einem an der reellen Achse symmetrischen Flügelprofil entspricht.
-Hierzu braucht es lediglich eine Verschiebung mit kleinem Realanteil und anschlissend erneut die Transformation $z + \frac{1}{z}$. Eben diese Transformation wird die Kutta-Joukowski Transformation genannt.
-Da Strömungslinien holomorph sind, können auch diese transformiert werden.
+Hierzu braucht es lediglich eine Verschiebung mit kleinem Realanteil und anschlissend erneut die Kutta-Joukowski Transformation 
+\[
+	f(z)
+	=
+	z + \frac{1}{z}	
+\].
+In Abbildung~\ref{joukowski:Stroemungslinien:fig_fluegel1} wird ein symmetrisches Flügelprofil gezeigt. Dieses erzeugt zunächst keinen Auftrieb und dient lediglich zu Anschauungszwecken.
 
-In Abbildung ~\eqref{joukowski:Stroemungslinien:fig_fluegel1} wird ein symmetrisches Flügelprofil gezeigt. Dieses erzeugt zunächst keinen Auftrieb und dient lediglich zu Anschauungszwecken.
-
-Abbildung ~\eqref{joukowski:Stroemungslinien:fig_fluegel2} entspricht einem Flügelprofil mit Anstellwinkel.
-Hierzu muss der transformierte Flügel in der komplexen Ebene im Uhrzeigersinn rotiert werden.~
-Damit die Strömungslinien der Realität entsprechen, muss der Faktor $A$ in Gleichung ~\eqref{joukowski:Stroemungslinien:equation_magnus} passend gewählt werden. Dies haben wir numerisch mithilfe unserer Visualisierung ermittelt.
+Abbildung~\ref{joukowski:Stroemungslinien:fig_fluegel2} entspricht einem Flügelprofil mit Anstellwinkel.
+Hierzu muss der transformierte Flügel in der komplexen Ebene im Uhrzeigersinn rotiert werden.
+Damit die Strömungslinien der Realität entsprechen,
+muss der Faktor $A$ in Gleichung~\eqref{joukowski:Stroemungslinien:equation_magnus} passend gewählt werden.
+Dies haben wir numerisch mithilfe unserer Visualisierung ermittelt.
+Auch in diesem Beispiel ensteht eine reine Auftriebskraft mit dem Ausdruck
+\[
+	F'_y
+	=
+	-\varrho v_{\infty} 2 \pi A.
+\]
 Mit diesem Modell können wir die Strömungslinien um ein Flügelprofil ermitteln.
-Es wird ausserdem deutlich, dass dieser Flügel Auftrieb generieren muss, da eine Asymmetrie in den Strömungslinien entsteht.
+Es wird ausserdem deutlich, dass dieser Flügel Auftrieb generieren muss,
+da eine Asymmetrie in den Strömungslinien entsteht.
