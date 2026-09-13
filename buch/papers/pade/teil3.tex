@@ -1,7 +1,7 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Anwendung und Erweiterung der Padé-Approximation}
+\section{Anwendung und Erweiterung}
 \label{pade:section:anwendung}
 \kopfrechts{Anwendung und Erweiterung}
 
@@ -39,13 +39,6 @@ Durch Einsetzen von \(x=0.5\) erhält man
 	\frac{0.5^2}{2}
 	\\
 	&=
-	1
-	+
-	0.5
-	+
-	0.125
-	\\
-	&=
 	1.625.
 \end{align}
 
@@ -72,7 +65,7 @@ Für denselben Wert ergibt sich
 	1.66667.
 \end{align}
 
-Zur objektiven Beurteilung beider Verfahren werden nun der absolute und der relative Fehler berechnet. Der absolute Fehler ist definiert durch
+Zur objektiven Beurteilung beider Verfahren werden der absolute und der relative Fehler betrachtet. Der absolute Fehler ist definiert durch
 \begin{equation}
 	\varepsilon_{\mathrm{abs}}
 	=
@@ -86,7 +79,7 @@ Der relative Fehler ergibt sich zu
 	=
 	\frac{|x_{\mathrm{exakt}}-x_{\mathrm{approx}}|}
 	{|x_{\mathrm{exakt}}|}.
-	\label{pade:eq:relativ}
+	label{pade:eq:relativ}
 \end{equation}
 
 Die Ergebnisse sind in Tabelle~\ref{pade:tab:vergleich} zusammengefasst.
@@ -108,7 +101,7 @@ Die Ergebnisse sind in Tabelle~\ref{pade:tab:vergleich} zusammengefasst.
 
 Bereits dieses einfache Beispiel zeigt, dass beide Verfahren mit wenigen Rechenschritten eine gute Näherung liefern. Die Padé-[1/1]-Approximation weist jedoch sowohl einen kleineren absoluten als auch einen kleineren relativen Fehler auf als das Taylorpolynom gleicher Ordnung.
 
-Dieses Ergebnis verdeutlicht den grundlegenden Vorteil der Padé-Approximation. Beide Verfahren verwenden ausschliesslich dieselben Informationen der Taylorreihe. Während die Taylorapproximation diese Informationen direkt zu einem Polynom zusammenfasst, nutzt die Padé-Approximation sie zur Konstruktion einer rationalen Funktion. Dadurch kann häufig eine höhere Genauigkeit erreicht werden \cite{baker_graves_morris_1996}.
+Dieses Ergebnis verdeutlicht den grundlegenden Vorteil der Padé-Approximation. Beide Verfahren verwenden dieselben Informationen der Taylorreihe. Während die Taylorapproximation diese Informationen direkt zu einem Polynom zusammenfasst, nutzt die Padé-Approximation sie zur Konstruktion einer rationalen Funktion. Dadurch kann häufig eine höhere Genauigkeit erreicht werden \cite{baker_graves_morris_1996}.
 
 Ein einzelnes Zahlenbeispiel erlaubt jedoch nur eine begrenzte Aussage über die Qualität einer Approximation. Daher wird im folgenden Abschnitt das Verhalten beider Verfahren über einen grösseren Wertebereich miteinander verglichen.
 
@@ -121,10 +114,11 @@ Abbildung~\ref{pade:fig:vergleich} zeigt den Verlauf der Exponentialfunktion, de
 
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
-	\clip (-6.3,-4) rectangle (6.3,4);
-	\node at (0,0) {\includegraphics[width=\textwidth]{papers/pade/images/vergleich.pdf}};
-	\end{tikzpicture}
+	% Hier den bestehenden Plot der Abbildung 19.2 einfügen.
+        \begin{tikzpicture}
+        \clip (-6.3,-4) rectangle (6.3,4);
+        \node at (0,0) {\includegraphics[width=\textwidth]{papers/pade/images/vergleich.pdf}};
+        \end{tikzpicture}
 	\caption{Vergleich der Exponentialfunktion \(e^x\) mit dem Taylorpolynom zweiter Ordnung und der Padé-[1/1]-Approximation über einen grösseren Wertebereich.}
 	\label{pade:fig:vergleich}
 \end{figure}
@@ -133,9 +127,9 @@ In der unmittelbaren Umgebung des Entwicklungspunktes stimmen beide Approximatio
 
 Der Grund hierfür liegt in der mathematischen Struktur der Approximation. Während ein Taylorpolynom ausschliesslich aus Potenzen der Variablen besteht, besitzt die Padé-Approximation zusätzlich ein Nennerpolynom. Dadurch stehen weitere Freiheitsgrade zur Verfügung, welche eine bessere Anpassung an den Funktionsverlauf ermöglichen \cite{baker_graves_morris_1996}.
 
-Die Padé-[1/1]-Approximation besitzt allerdings auch Einschränkungen. Ihr Nenner \(1-\frac{x}{2}\) verschwindet für \(x=2\), wodurch die Approximation an dieser Stelle eine Polstelle besitzt. Die Exponentialfunktion selbst besitzt keine Polstellen. Man spricht deshalb von einer künstlichen Polstelle, welche ausschliesslich durch die Approximation entsteht.
+Die Padé-[1/1]-Approximation besitzt allerdings auch Einschränkungen. Ihr Nenner \(1-\frac{x}{2}\) verschwindet für \(x=2\). Die Approximation besitzt an dieser Stelle deshalb eine Polstelle, während die Exponentialfunktion selbst keine Polstellen besitzt. Es handelt sich somit um eine künstliche Polstelle, welche ausschliesslich durch die Approximation entsteht.
 
-Dieses Beispiel zeigt, dass auch Padé-Approximationen nicht exakt sind. Dennoch liefern sie in vielen Anwendungen eine deutlich bessere Näherung als Taylorpolynome gleicher Ordnung. Eine weitere Verbesserung kann durch Padé-Approximationen höherer Ordnung erreicht werden \cite{baker_graves_morris_1996}.
+Dieses Beispiel zeigt, dass auch Padé-Approximationen nicht exakt sind. Dennoch liefern sie in vielen Anwendungen eine bessere Näherung als Taylorpolynome gleicher Ordnung. Eine weitere Verbesserung kann durch Padé-Approximationen höherer Ordnung erreicht werden \cite{baker_graves_morris_1996}.
 
 \subsection{Padé-Approximationen höherer Ordnung}
 \label{pade:subsection:hoehere}
@@ -162,26 +156,24 @@ Zur Bestimmung dieser Koeffizienten wird wiederum die Taylorreihe der ursprüngl
 	\label{pade:eq:ordnung2}
 \end{equation}
 
-Dies bedeutet, dass die Taylorreihe der Funktion und die Reihenentwicklung der Padé-Approximation bis einschliesslich des Terms \(x^{m+n}\) übereinstimmen. Erst ab höheren Potenzen treten Unterschiede auf \cite{baker_graves_morris_1996}.
+Dies bedeutet, dass die Taylorreihe der Funktion und die Reihenentwicklung der Padé-Approximation bis einschliesslich des Terms \(x^{m+n}\) übereinstimmen. Erst bei höheren Potenzen treten Unterschiede auf \cite{baker_graves_morris_1996}.
 
-Als Beispiel wird nun die Padé-Approximation vom Typ \([2/2]\) betrachtet. Sie besitzt die Form
-\begin{equation}
-	R_{2,2}(x)
-	=
-	\frac
-	{a_0+a_1x+a_2x^2}
-	{1+b_1x+b_2x^2}.
-	\label{pade:eq:pade22_ansatz}
-\end{equation}
+Als Beispiel wird nun die Padé-Approximation vom Typ \([2/2]\) betrachtet. Sie besitzt den Ansatz
+\[
+R_{2,2}(x)
+=
+\frac{a_0+a_1x+a_2x^2}
+{1+b_1x+b_2x^2}.
+\]
 
-Im Vergleich zur Padé-[1/1]-Approximation treten nun insgesamt fünf unbekannte Koeffizienten auf. Nach der Entwicklung des Nenners, dem Ausmultiplizieren sowie dem Koeffizientenvergleich erhält man das entsprechende lineare Gleichungssystem. Die vollständige Herleitung erfolgt analog zur Padé-[1/1]-Approximation und wird deshalb an dieser Stelle nicht vollständig ausgeschrieben.
+Im Vergleich zur Padé-[1/1]-Approximation treten nun insgesamt fünf unbekannte Koeffizienten auf. Nach der Entwicklung des Nenners, dem Ausmultiplizieren und dem Koeffizientenvergleich erhält man das entsprechende lineare Gleichungssystem. Die vollständige Herleitung erfolgt analog zur Padé-[1/1]-Approximation und wird deshalb an dieser Stelle nicht vollständig ausgeschrieben.
 
 Für die Exponentialfunktion ergeben sich die Koeffizienten
 \begin{align}
-	a_0 &= 1,\\
-	a_1 &= \frac12,\\
+	a_0 &= 1, &
+	a_1 &= \frac12, &
 	a_2 &= \frac1{12},\\
-	b_1 &= -\frac12,\\
+	b_1 &= -\frac12, &
 	b_2 &= \frac1{12}.
 \end{align}
 
@@ -195,64 +187,98 @@ Damit erhält man die Padé-[2/2]-Approximation
 	\label{pade:eq:pade22}
 \end{equation}
 
-Im Vergleich zur Padé-[1/1]-Approximation werden nun mehr Koeffizienten der Taylorreihe exakt reproduziert. Dadurch verbessert sich die Genauigkeit der Approximation über einen grösseren Bereich \cite{baker_graves_morris_1996}.
+Im Vergleich zur Padé-[1/1]-Approximation werden nun mehr Koeffizienten der Taylorreihe exakt reproduziert. Dadurch verbessert sich die Genauigkeit der Approximation über einen grösseren Bereich.
 
 Abbildung~\ref{pade:fig:pade22} zeigt den Vergleich zwischen der Exponentialfunktion sowie den Padé-Approximationen erster und zweiter Ordnung.
 
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
-	\clip (-6.3,-4) rectangle (6.3,4);
-	\node at (0,0) {\includegraphics[width=\textwidth]{papers/pade/images/pade22.pdf}}; 
-	\end{tikzpicture}
-	\caption{Vergleich der Exponentialfunktion \(e^x\) mit den Padé-Approximationen \([1/1]\) und \([2/2]\). Die höhergradige Approximation beschreibt den Verlauf der Exponentialfunktion über einen grösseren Wertebereich genauer.}
+	% Hier den bestehenden Plot der Abbildung 19.3 einfügen.
+        \begin{tikzpicture}
+        \clip (-6.3,-4) rectangle (6.3,4);
+        \node at (0,0) {\includegraphics[width=\textwidth]{papers/pade/images/pade22.pdf}};
+        \end{tikzpicture}
+	\caption{Vergleich der Exponentialfunktion \(e^x\) mit den Padé-Approximationen \([1/1]\) und \([2/2]\). Die Padé-[2/2]-Approximation folgt dem exakten Funktionsverlauf über einen grösseren Bereich genauer als die Padé-[1/1]-Approximation.}
 	\label{pade:fig:pade22}
 \end{figure}
 
-Wie zu erwarten, nähert sich die Padé-[2/2]-Approximation dem exakten Funktionsverlauf über einen deutlich grösseren Bereich an als die Padé-[1/1]-Approximation. Mit steigender Ordnung verbessert sich die Approximation im Allgemeinen weiter, gleichzeitig nimmt jedoch auch der Rechenaufwand zur Bestimmung der Koeffizienten zu.
+Wie zu erwarten, nähert sich die Padé-[2/2]-Approximation dem exakten Funktionsverlauf über einen deutlich grösseren Bereich an als die Padé-[1/1]-Approximation. Mit steigender Ordnung verbessert sich die Approximation im Allgemeinen weiter, gleichzeitig nimmt jedoch auch der Rechenaufwand zur Bestimmung der Koeffizienten zu \cite{baker_graves_morris_1996}.
 
-Im letzten Abschnitt dieses Kapitels werden die wichtigsten Anwendungsgebiete der Padé-Approximation vorgestellt sowie ihre Vor- und Nachteile zusammengefasst.
+\subsection{Ableitungseigenschaft}
+\label{pade:subsection:ableitung}
 
-\subsection{Anwendungen der Padé-Approximation}
+Ein weiterer Vorteil der Padé-Approximation ergibt sich aus ihrer engen Verbindung zur Taylorreihe. Da die Reihenentwicklung der Padé-Approximation bis zur Ordnung \(m+n\) mit der Taylorreihe der ursprünglichen Funktion übereinstimmt, stimmen auch die entsprechenden Ableitungen am Entwicklungspunkt überein.
+
+Ist die Funktion \(f\) hinreichend oft differenzierbar, gilt für \(k\leq m+n\)
+\begin{equation}
+	R_{m,n}^{(k)}(0)
+	=
+	f^{(k)}(0).
+	\label{pade:eq:ableitungen}
+\end{equation}
+
+Die Padé-Approximation stellt somit nicht nur eine Approximation der Funktionswerte dar, sondern reproduziert am Entwicklungspunkt auch die entsprechenden Ableitungen. Dies ist insbesondere im Vergleich zu allgemeinen Interpolationsverfahren ein Vorteil, da diese die Ableitung der Funktion nicht zwangsläufig berücksichtigen \cite{baker_graves_morris_1996}.
+
+\subsection{Anwendungen}
 \label{pade:subsection:anwendungen}
 
 Nachdem die mathematischen Grundlagen der Padé-Approximation vorgestellt wurden, stellt sich die Frage nach ihrer praktischen Bedeutung. Obwohl das Verfahren ursprünglich im Rahmen der Approximationstheorie entwickelt wurde, findet es heute in zahlreichen wissenschaftlichen und technischen Anwendungen Verwendung. Überall dort, wo Funktionen effizient und gleichzeitig mit hoher Genauigkeit ausgewertet werden müssen, kann die Padé-Approximation ihre Stärken ausspielen \cite{baker_graves_morris_1996}.
 
-Eine wichtige Anwendung findet sich in der numerischen Mathematik. Viele elementare Funktionen wie die Exponentialfunktion, der natürliche Logarithmus oder trigonometrische Funktionen können durch rationale Approximationen beschrieben werden. Padé-Approximationen liefern dabei häufig genaue Ergebnisse und werden deshalb in verschiedenen numerischen Verfahren eingesetzt \cite{baker_graves_morris_1996}.
+Eine wichtige Anwendung findet sich in der numerischen Mathematik. Viele elementare Funktionen wie die Exponentialfunktion, der natürliche Logarithmus oder trigonometrische Funktionen können durch rationale Approximationen dargestellt werden. Padé-Approximationen werden dabei insbesondere dann eingesetzt, wenn eine höhere Genauigkeit über einen grösseren Bereich erreicht werden soll \cite{baker_graves_morris_1996}.
 
-Auch für komplexwertige Funktionen lässt sich die Padé-Approximation verwenden. Dies ist insbesondere bei Funktionen wie der Exponentialfunktion sowie bei trigonometrischen Funktionen von Bedeutung. Die entsprechenden rationalen Approximationen ermöglichen es, Eigenschaften komplexwertiger Funktionen mit einer rationalen Darstellung zu untersuchen \cite{nist_dlmf_pade}.
+Auch für komplexwertige Funktionen lässt sich die Padé-Approximation verwenden. Dies ist insbesondere bei der komplexen Exponentialfunktion von Bedeutung. Aufgrund der Euler-Identität
 
-Ein weiteres bedeutendes Anwendungsgebiet ist die Regelungstechnik. Viele technische Systeme besitzen sogenannte Totzeiten. Zwischen einer Änderung der Eingangsgrösse und der Reaktion des Systems vergeht dabei eine bestimmte Zeit. Im Laplace-Bereich wird eine Totzeit durch
-\begin{equation}
-	e^{-sT}
-	\label{pade:eq:totzeit}
-\end{equation}
-beschrieben.
+\[
+e^{ix}=\cos(x)+i\sin(x)
+\]
 
-Da diese Exponentialfunktion analytische Berechnungen erschwert, wird sie häufig durch eine Padé-Approximation ersetzt. Für eine Padé-[1/1]-Approximation ergibt sich
-\begin{equation}
-	e^{-sT}
-	\approx
-	\frac{1-\frac{sT}{2}}
-	{1+\frac{sT}{2}}.
-	\label{pade:eq:totzeit_pade}
-\end{equation}
-
-Dadurch entsteht eine rationale Übertragungsfunktion, welche sich mit den Methoden der klassischen Regelungstechnik wesentlich einfacher untersuchen lässt \cite{holst_1969_pade_delay}.
+kann die Padé-Approximation von \(e^{ix}\) getrennt hinsichtlich ihres Real- und Imaginärteils betrachtet werden. Abbildung~\ref{pade:fig:komplex} zeigt den Vergleich von \(\cos(x)\) und \(\sin(x)\) mit dem Real- beziehungsweise Imaginärteil der Padé-[1/1]-Approximation \(R_{1,1}(ix)\). Dadurch wird sichtbar, wie die rationale Approximation das Verhalten der komplexen Exponentialfunktion nachbildet \cite{nist_dlmf_pade}.
 
 \begin{figure}
 	\centering
+	% Hier den Plot der komplexen Funktionen einfügen.
 	\begin{tikzpicture}
-	\clip (-6.3,-4.9) rectangle (6.3,4.3);
-	\node at (0,0) {\includegraphics[width=1.5\textwidth]{papers/pade/images/totzeit.pdf}};
-	\end{tikzpicture}
-	\caption{Vergleich einer Totzeitfunktion mit ihrer Padé-[1/1]-Approximation. Die rationale Approximation ermöglicht eine vereinfachte Darstellung der Totzeit im Rahmen der regelungstechnischen Analyse.}
+        \clip (-6.3,-4.9) rectangle (6.3,4.3);
+        \node at (0,0) {\includegraphics[width=1.5\textwidth]{papers/pade/images/komplex.pdf}};
+        \end{tikzpicture}
+	\caption{Vergleich von \(\cos(x)\) und \(\sin(x)\) mit dem Real- und Imaginärteil der Padé-[1/1]-Approximation \(R_{1,1}(ix)\). Die Abbildung zeigt, wie die rationale Approximation das Verhalten der komplexen Exponentialfunktion im betrachteten Bereich nachbildet.}
+	\label{pade:fig:komplex}
+\end{figure}
+
+Ein weiteres bedeutendes Anwendungsgebiet ist die Regelungstechnik. Viele technische Systeme besitzen sogenannte Totzeiten. Zwischen einer Änderung der Eingangsgrösse und der Reaktion des Systems vergeht dabei eine bestimmte Zeit. Im Laplace-Bereich wird eine Totzeit durch
+\[
+e^{-sT}
+\]
+beschrieben.
+
+Da diese Exponentialfunktion analytische Berechnungen erschwert, wird sie häufig durch eine Padé-Approximation ersetzt. Für eine Padé-[1/1]-Approximation ergibt sich
+
+\[
+e^{-sT}
+\approx
+\frac{1-\frac{sT}{2}}
+{1+\frac{sT}{2}}.
+\]
+
+Dadurch entsteht eine rationale Übertragungsfunktion, welche sich mit den Methoden der klassischen Regelungstechnik einfacher untersuchen lässt \cite{holst_1969_pade_delay}.
+
+Abbildung~\ref{pade:fig:totzeit} zeigt den Vergleich zwischen einer exakten Totzeit und ihrer Padé-[1/1]-Approximation.
+
+\begin{figure}
+	\centering
+	% Hier den bestehenden Totzeit-Plot einfügen.
+        \begin{tikzpicture}
+        \clip (-6.3,-4.9) rectangle (6.3,4.3);
+        \node at (0,0) {\includegraphics[width=1.5\textwidth]{papers/pade/images/totzeit.pdf}};
+        \end{tikzpicture}
+	%\includegraphics[width=0.8\textwidth]{images/totzeit}
+	\caption{Vergleich der exakten Totzeit mit ihrer Padé-[1/1]-Approximation für \(T=2\,\mathrm{s}\). Die rationale Approximation ersetzt die Totzeit durch eine rationale Funktion und ermöglicht dadurch eine vereinfachte mathematische Behandlung.}
 	\label{pade:fig:totzeit}
 \end{figure}
 
-Auch bei der numerischen Lösung gewöhnlicher und partieller Differentialgleichungen werden Padé-Approximationen eingesetzt. Häufig wird zunächst eine Taylorreihe der Lösung bestimmt und anschliessend in eine Padé-Approximation umgewandelt. Dadurch kann die Lösung oftmals über einen grösseren Bereich mit höherer Genauigkeit beschrieben werden \cite{baker_graves_morris_1996}.
+Auch bei der numerischen Lösung gewöhnlicher und partieller Differentialgleichungen werden Padé-Approximationen eingesetzt. Häufig wird zunächst eine Reihenentwicklung der Lösung bestimmt und anschliessend in eine rationale Approximation umgewandelt. Dadurch kann die Lösung oftmals über einen grösseren Bereich mit höherer Genauigkeit beschrieben werden \cite{baker_graves_morris_1996}.
 
-Darüber hinaus finden Padé-Approximationen zahlreiche Anwendungen in der theoretischen Physik. Insbesondere in der Quantenmechanik, der statistischen Physik und der Strömungsmechanik treten Reihenentwicklungen auf, deren Konvergenzbereich begrenzt ist. Durch die Umwandlung dieser Reihen in rationale Funktionen lassen sich häufig genauere numerische Ergebnisse erzielen \cite{baker_graves_morris_1996}.
+Darüber hinaus finden Padé-Approximationen Anwendungen in verschiedenen Bereichen der theoretischen Physik. Insbesondere bei Reihenentwicklungen mit begrenztem Konvergenzbereich können rationale Approximationen dazu beitragen, die Funktion auch ausserhalb des ursprünglichen Konvergenzbereichs sinnvoll zu beschreiben \cite{baker_graves_morris_1996}.
 
 \subsection{Vor- und Nachteile}
 \label{pade:subsection:vorteile}
@@ -262,7 +288,9 @@ Wie jedes Approximationsverfahren besitzt auch die Padé-Approximation sowohl Vo
 
 Ein wesentlicher Vorteil besteht darin, dass ausschliesslich die Koeffizienten der Taylorreihe benötigt werden. Zusätzliche Informationen über die Funktion sind nicht erforderlich. Durch die Darstellung als rationale Funktion kann der Verlauf vieler Funktionen genauer beschrieben werden als mit einem Taylorpolynom gleicher Ordnung \cite{baker_graves_morris_1996}.
 
-Insbesondere ausserhalb der unmittelbaren Umgebung des Entwicklungspunktes liefern Padé-Approximationen häufig deutlich kleinere Approximationsfehler. Darüber hinaus können rationale Funktionen Eigenschaften beschreiben, welche mit Polynomen grundsätzlich nicht dargestellt werden können, beispielsweise asymptotisches Verhalten \cite{baker_graves_morris_1996}.
+Insbesondere ausserhalb der unmittelbaren Umgebung des Entwicklungspunktes liefern Padé-Approximationen häufig kleinere Approximationsfehler. Darüber hinaus können rationale Funktionen Eigenschaften beschreiben, welche mit Polynomen grundsätzlich nicht dargestellt werden können, beispielsweise bestimmte asymptotische Verläufe \cite{baker_graves_morris_1996}.
+
+Ein weiterer Vorteil besteht darin, dass die Padé-Approximation aufgrund der Übereinstimmung ihrer Reihenentwicklung mit der Taylorreihe auch die entsprechenden Ableitungen am Entwicklungspunkt reproduziert.
 
 Demgegenüber stehen jedoch auch einige Nachteile. Je höher die Ordnung der Padé-Approximation gewählt wird, desto grösser wird das zu lösende lineare Gleichungssystem und damit auch der Rechenaufwand. Zudem können künstliche Polstellen entstehen, welche in der ursprünglichen Funktion nicht vorhanden sind \cite{baker_graves_morris_1996}.
 
@@ -272,14 +300,14 @@ Die wichtigsten Eigenschaften beider Verfahren sind in Tabelle~\ref{pade:tab:vor
 	\centering
 	\begin{tabular}{lll}
 		\hline
-		Eigenschaft & Taylor & Padé\\
+		Eigenschaft   & Taylor               & Padé\\
 		\hline
-		Grundlage & Taylorreihe & Taylorreihe\\
-		Darstellung & Polynom & rationale Funktion\\
-		Genauigkeit & lokal sehr gut & häufig auf grösserem Bereich\\
-		Polstellen & keine & künstliche Polstellen möglich\\
-		Rechenaufwand & gering & höher\\
-		Anwendungen & lokale Approximation & Numerik, Regelungstechnik, Physik\\
+		Grundlage     & Taylorreihe          & Taylorreihe\\
+		Darstellung   & Polynom              & rationale Funktion\\
+		Genauigkeit   & lokal sehr gut       & häufig auf grösserem Bereich\\
+		Polstellen    & keine                & künstliche Polstellen möglich\\
+		Rechenaufwand & gering               & höher\\
+		Anwendungen   & lokale Approximation & Numerik, Regelungstechnik, Physik\\
 		\hline
 	\end{tabular}
 	\caption{Vergleich zwischen Taylor- und Padé-Approximation.}
