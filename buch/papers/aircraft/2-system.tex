@@ -59,13 +59,13 @@
 \kopfrechts{Dynamisches System}
 Um die Bewegung nach einer Störung berechnen zu können, übersetzen wir
 das Flugzeug in diesem Abschnitt in ein \emph{dynamisches System}.
-Ein mathematisches Objekt, dessen Zustand sich mit der Zeit verändert.
+Ein dynamisches System ist ein mathematisches Objekt, dessen Zustand sich mit
+der Zeit verändert.
 Dazu führen wir zuerst den Zustandsvektor ein, dann das
 Bewegungsgesetz, das seine Änderung bestimmt, und die Systemmatrix mit ihren
 Einträgen.
 
-Wir beschränken uns dabei auf die \emph{Seitenbewegung} (lateral
-motion): das Gieren, das Schieben und das Rollen.
+Wir beschränken uns dabei auf die Seitenbewegung.
 Wir nehmen an, dass die Störung klein ist, und betrachten die
 Bewegung in der Nähe der Ruhelage.
 
@@ -97,10 +97,6 @@ zusammen.
 Der Zustandsvektor ist die Momentaufnahme der Bewegung zur Zeit $t$.
 Seine Ableitung $\dot{\vec{x}}(t)$ beschreibt, wie sich der Zustand
 verändert.
-
-Der Schiebewinkel verbindet dabei das Gieren mit dem Rollen.
-Welche Folgen diese Verbindung für die Berechnung hat, zeigt sich in
-Abschnitt~\ref{aircraft:subsection:eigenwertgleichung}.
 % // TODO Referenz anpassen oder evtl. ganz streichen
 
 \subsection{Das Bewegungsgesetz
@@ -116,11 +112,12 @@ und es gilt
     \label{aircraft:eqn:bewegungsgesetz}
 \end{equation}
 mit einer Matrix $A$, der \emph{Systemmatrix}.
-Die Herleitung findet sich bei Nelson~\cite{aircraft:nelson}.
-Die Änderung jeder Zustandsgrösse ist also eine Linearkombination
+Die Änderung jeder Zustandsgrösse ist damit eine Linearkombination
 der momentanen Zustandsgrössen.
+Die Herleitung der Gleichung aus den Kräften und Momenten am Flugzeug
+findet sich bei Nelson~\cite[Kapitel 3 und 5]{aircraft:nelson}.
 
-\subsection{Die Systemmatrix und Ihre Einträge
+\subsection{Die Systemmatrix und ihre Einträge
 \label{aircraft:subsection:systemmatrix}}
 Für die Seitenbewegung lautet die Systemmatrix
 \begin{equation}
@@ -134,12 +131,33 @@ Für die Seitenbewegung lautet die Systemmatrix
     \end{pmatrix}.
     \label{aircraft:eqn:systemmatrix}
 \end{equation}
-Ausgeschrieben ist die zweite Zeile der Systemmatrix
-~\eqref{aircraft:eqn:bewegungsgesetz} $\dot{p} = L_\beta\beta + L_p p + L_r r$.
-Die Änderung der Rollrate entsteht aus dem momentanen Schiebewinkel,
-der momentanen Rollrate und der momentanen Gierrate.
-Die Einträge der Systemmatrix heissen aerodynamische Derivative.
-Das Derivativ $L_\beta$ gibt zum Beispiel an, wie stark der
-Schiebewinkel auf das Rollen wirkt.
+Die Einträge der Systemmatrix heissen \emph{aerodynamische Derivative}
+(stability derivatives).
+Die zweite Zeile der Gleichung \eqref{aircraft:eqn:bewegungsgesetz}
+lautet ausgeschrieben $\dot p = L_\beta \beta + L_p p + L_r r$.
+Darin lesen wir ab, dass die Änderung der Rollrate aus dem momentanen
+Schiebewinkel, der momentanen Rollrate und der momentanen Gierrate entsteht.
+Jedes Derivativ gibt an, wie stark eine Zustandsgrösse auf die Änderung
+einer Zustandsgrösse wirkt.
+Das Derivativ $L_\beta$ gibt zum Beispiel an, wie stark der Schiebewinkel
+auf die Rollrate wirkt.
+Das ist der Zusammenhang aus Abschnitt~\ref{aircraft:section:1-grundbegriffe},
+nach dem Schieben Rollen erzeugt.
+Man beachte, dass in dieser Zeile neben der Rollrate zwei weitere
+Zustandsgrössen auftreten.
+Ein System heisst \emph{gekoppelt} (coupled), wenn die Änderung einer
+Zustandsgrösse von anderen Zustandsgrössen abhängt.
+
 Die Struktur der Matrix ist für alle Flugzeuge gleich.
 Die Werte der Derivative hängen vom Flugzeug und vom Flugzustand ab.
+Die Derivative sind physikalische Grössen und beschreiben die Aerodynamik
+des Flugzeugs.
+Im Entwurf werden sie aus der Geometrie der Flügel und des Seitenleitwerks
+geschätzt.
+Nelson~\cite[Kapitel 3]{aircraft:nelson} gibt dafür Näherungsformeln an.
+Genauere Werte liefern Windkanalversuche und Strömungssimulationen.
+Am gebauten Flugzeug lassen sich die Derivative aus Flugversuchen bestimmen.
+Für den Entwurf ist entscheidend, dass die Derivative bereits aus der Geometrie
+vorliegen, bevor das Flugzeug fliegt.
+Für das Rechenbeispiel in Abschnitt~\ref{aircraft:section:6-rechenbeispiel}
+übernehmen wir die Werte aus Nelson~\cite[Tabelle 5.2]{aircraft:nelson}.

@@ -9,19 +9,28 @@
 
 \section{Einleitung}
 Elektrostatik wird für uns Menschen primär dann erfahrbar, wenn es im Vorfeld zur Ladungstrennung gekommen ist.
-Blitze, Van de Graaff Bandgeneratoren, klebende Styroporkügelchen -- Grundlage für diese physikalischen Ereignisse ist folgendes Prinzip:
+Blitze, Van de Graaff Bandgeneratoren, klebende Styroporkügelchen --- Grundlage für diese physikalischen Ereignisse ist folgendes Prinzip:
 Gleichartige Ladungen stossen sich ab, ungleichartige Ladungen ziehen sich an.
 So kann es passieren, dass wir einen synthetischen Pullover über den Kopf ziehen, ein Knistern hören, und sobald wir dann einen anderen (geerdeten) Menschen berühren, funkt es.
 Dieses kurze Zwicken beweist die unsichtbare elektrostatische Aufladung, die durch Reibung des Pullovers erzeugt worden ist.
 Als Fachpersonen im Bereich der Elektrotechnik haben wir häufig Bauteilchen in der Hand, die wir vor elektrostatischer Entladung (ESD) schützen müssen, da diese Chips oder ICs (Integrated Circuits) schon durch kleine Ladungsspitzen zerstört werden können.
 Zum Schutz empfindlicher Bauteile tragen wir daher geerdete Armbänder, was Ladungstrennung, welche zu ESD führt, verhindert. 
+
 Um elektrostatische Aufladung zu demonstrieren, wird die (langhaarige) Versuchsperson daher zuallererst auf ein isoliertes Podest gestellt.
 Ladung, die durch den von Robert Van de Graaff 1929 erfundenen Generator auf eine Metallkugel gebracht wird, gelangt mittels Berührung der Handflächen auf die Versuchsperson.
+\textcolor{red}{TODO Foto Versuchsperson mit Feldlinien eingezeichnet}
 Der Van de Graaff Generator nutzt die mechanische Reibung eines Gummibandes, um gleichartige Ladungsträger auf einer Metallkugel abzuladen, welche sich anschliessend durch Influenz auf der ganzen Oberfläche verteilen.
 Es spielt dabei keine Rolle, ob die Ladungsträger positiv oder negativ sind.
 Die Ladungen wandern auf die Versuchsperson, und da sie sich abstossen entsteht eine kleine Kraft.
 Diese reicht bei genügend trockener Luft aus, um die Haare der Versuchsperson zu Berge stehen zu lassen.
 Trotz seines tiefen Wirkungsgrades kommt der Van de Graaff Generator zur Erzeugung hoher Gleichspannungen als Teilchenbeschleuniger zum Einsatz \cite{elektro:lexikon}.
+
+In diesem Paper wird zweidimensionale Elektrostatik durch das Werkzeug Geometrie sichtbar gemacht.
+Die Reduktion auf zwei Dimensionen führt dazu, dass von den vier Maxwell-Gleichungen nur noch eine relevant ist, nämlich die Laplace Gleichung für das Potential. 
+Diese Gleichung wird hergeleitet und genauer erklärt.
+Der Fokus liegt auf dem Zusammenhang zwischen elektrischen Feldlinien und Äquipotentiallinien im zweidimensionalen Raum.
+Feldlinien und Potential werden als komplexe Funktionen interpretiert und über komplexe Abbildungen miteinander verknüpft.
+Wie das funktioniert, wird anhand von vielen Beispielen in diesem Kapitel erklärt, bewiesen und veranschaulicht. 
 
 
 
@@ -44,31 +53,33 @@ Elektrostatische Felder sind Quellenfelder.
 Sie sind statisch, also nicht dynamisch, und stehen im Gegensatz zu Wirbelfeldern, welche beispielsweise durch sich zeitlich ändernde Magnetfelder erzeugt werden können.
 Die Feldlinien des elektrostatischen Felds beginnen immer auf positiven Ladungen und enden auf negativen. 
 Die Ladung kann sich dabei auch im Unendlichen befinden.
-TODO: Bild einfügen.
+
 
 Verlaufen die Feldlinien parallel, spricht man von einem homogenen Feld, ansonsten von einem inhomogenen Feld.
 Das Feld zwischen zwei parallelen Kondensatorplatten beispielsweise ist homogen, was die mathematische Berechnung erheblich erleichtert. 
+
+\textcolor{red}{kondensator Grafik (brauchts die wirklich?)}
 
 \subsection{Das Coulomb-Gesetz
 \label{elektro:subsection:Coulomb}}
 Das Coulomb-Gesetz beschreibt die Kraft zwischen zwei ruhenden Punktladungen.
 Eine Punktladung ist per Definition eine punktsymmetrische Ladung ohne  räumliche Ausdehnung.
-In der Praxis für reale geladene Körper ist das Coulomb-Gesetz in guter Näherung gültig.
+In der Praxis ist das Coulomb-Gesetz für reale geladene Körper in guter Näherung gültig.
 Insbesondere, wenn der Abstand zwischen den geladenen Körpern viel grösser ist als die Körper selbst.
 
 \begin{equation}
-	\vec{F} = \frac{Q_1 Q_2}{4\pi\epsilon_0 R^{2}}\hat{R}
+	\vec{F} = \frac{Q_1 Q_2}{4\pi\varepsilon_0 R^{2}}\hat{R}
     \label{equation:Coulomb}
 \end{equation}
 
 Die Coulomb-Kraft nimmt mit dem Produkt der Ladungen $Q_1$ und $Q_2$ zu und mit dem Quadrat des Abstands $R$ zwischen den Ladungen ab.
 $\vec{R} = R \cdot \hat{R}$ ist der Distanzvektor zwischen den Ladungen und zeigt vom Ort der Ursache auf den Ort der Wirkung.
+$\hat{R}$ ist in der Elektrotechnik der Einheitsvektor mit Richtung von $\vec{R}$.
 Liegt einer der Punkte im Ursprung wird die Variable $r$ verwendet.
-Die beiden Komponenten des Vektors sind der Betrag $R$ und die Richtung $\hat{R}$, diese werden in der Formel \ref{equation:Coulomb} separat verwendet.
+Die beiden Komponenten des Vektors sind der Betrag $R$ und die Richtung $\hat{R}$, diese werden in der Formel \eqref{equation:Coulomb} separat verwendet.
 Das Coulomb-Gesetz gilt für Distanzen zwischen $10^{-16}$ und $10^{8}$ Metern. 
-Für $R \to 0$ ist es nicht definiert. 
-
-$\epsilon_0$ ist die elektrische Permittivität des Vakuums und beträgt ungefähr 8.854 pF/m. 
+Für $R = 0$ ist es nicht definiert. 
+$\varepsilon_0$ ist die elektrische Permittivität des Vakuums und beträgt ungefähr 8.854 pF/m. 
 
 \subsection{Das elektrische Feld}
 Das elektrische Feld und die Coulomb-Kraft sind definitionsgemäss eng verwandt.
@@ -76,22 +87,33 @@ Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die K
 Sie ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben.
 Es handelt sich um ein Radialfeld (ausgehend von der positiven oder führend zur negativen Quelle).
 \begin{equation}
-	E = \frac{F}{q} = \frac{Kraft}{Probeladung} = \frac{Q}{4\pi\epsilon_0 r^{2}}\hat{r}
+	\vec{E} = \frac{\vec{F}}{q} = \frac{\text{Kraft}}{\text{Probeladung}} = \frac{Q}{4\pi\varepsilon_0 r^{2}}\hat{r}
     \label{equation:EFeld}
 \end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/e_feld_kreis.png}
+	\label{elektro:figure:e_feld}
+\end{figure}
+
 
 
 \subsection{Das elektrische Potential $\varphi$
 \label{elektro:subsection:Potential}}
-Genau wie beim E-Feld, das durch Normalisierung der Coulomb-Kraft mit einer Probeladung definiert wird, ist das elektrische Potential durch Normalisierung der Energie $W$ mit einer Probeladung definiert.
+Genau wie beim $\vec{E}$-Feld, das durch Normalisierung der Coulomb-Kraft mit einer Probeladung definiert wird, ist das elektrische Potential durch Normalisierung der Energie $W$ mit einer Probeladung definiert.
 \begin{equation}
-	\varphi = \frac{W}{q} = \frac{Q}{4\pi\epsilon_0r} = - \int_{Ref}^P \vec{E} \cdot d\vec{l}
-    \label{equatiom:Potential}
+	\varphi = \frac{W}{q} = \frac{Q}{4\pi\varepsilon_0r} = - \int_{\text{Ref}}^P \vec{E} \cdot d\vec{l}
+    \label{equation:Potential}
 \end{equation}
 Die Einheit von $\varphi$ ist Volt, genau wie bei der Spannung, denn die Spannung ist nichts anderes als die Differenz zweier Potentiale.
 Im Gegensatz zum elektrischen Feld, welches ein Vektorfeld ist, ist das Potentialfeld ein Skalarfeld.
 Die Potentiale jedes einzelnen Punktes ergeben einen Gradienten, aus dem die elektrische Feldstärke berechnet werden kann.
-Das negative Vorzeichen in der Formel \ref{equatiom:Potential} hat seinen Ursprung in der Wahl des Bezugssystem, der Referenz ref.
+Das negative Vorzeichen in der Formel \eqref{equation:Potential} hat seinen Ursprung in der Wahl des Bezugssystem, der Referenz Ref, von wo aus integriert wird.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/phi_feld_kreis.png}
+	\label{elektro:figure:phi_feld}
+\end{figure}
 
 
 \subsection{Äquipotentiallinien
@@ -99,14 +121,15 @@ Das negative Vorzeichen in der Formel \ref{equatiom:Potential} hat seinen Urspru
 Orte, die dasselbe Potential aufweisen, also äquipotential sind, nennt man im zweidimensionalen Raum Äquipotentiallinien.
 Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass dabei Arbeit aufgewandt werden muss.
 Äquipotentiallinien liegen stets senkrecht zum elektrischen Feld.
-Im Dreidimensionalen heisst es Äquipotentialflächen.
-Die Anwendung der komplexen Transformation ist aber nur im zweidimensionalen Bereich möglich, wie nachfolgend gezeigt.
 
 \subsection{Beispiel Einheitskreis
 	\label{elektro:subsection:Einheitskreis-Beispiel}}
 Zeichnet man im elektrostatischen Radialfeld einer positiven oder negativen Punktladung die Äquipotentiallinien ein, resultieren Kreise mit unterschiedlichen Radien.
-Es erscheint intuitiv, dass man bei bekanntem E-Feld die Äquipotentiallinien sofort einzeichnen kann, was in diesem Beispiel besonders einfach ist.
+Es erscheint intuitiv, dass man bei bekanntem $\vec{E}$-Feld die Äquipotentiallinien sofort einzeichnen kann, was in diesem Beispiel besonders einfach ist.
 Umgekehrt funktioniert es aber auch: Dazu werden komplexe Funktionen und konforme Abbildungen verwendet.
+
+
+\textcolor{red}{erklären das der Realteil E ist und der Imaginärteil phi ist} 
 
 \section{Komplexe Funktionen in der Elektrostatik
 \label{elektro:section:Funktionen-komplexer-Var}}
@@ -146,10 +169,11 @@ Das Integral der Funktion entlang eines geschlossenen Weges in der komplexen Zah
 \begin{equation}
 	\oint f(z) \,dz = 0.
 \end{equation}
+\textcolor{red}{Streichen, auf Kapitel 1 und 2 verweisen}
 
 \subsection{Laplace Gleichung
 	\label{elektro:subsection:Laplace}}
-Leitet man die beiden Cauchy-Riemann Gleichungen \ref{elektro:subsection:holomorph:Cauchy1} und \ref{elektro:subsection:holomorph:Cauchy2} noch einmal ab nach x und y und addiert bzw. subtrahiert die Ergebnisse, dann resultieren
+Leitet man die beiden Cauchy-Riemann Gleichungen \eqref{elektro:subsection:holomorph:Cauchy1} und \eqref{elektro:subsection:holomorph:Cauchy2} noch einmal ab nach x und y und addiert bzw. subtrahiert die Ergebnisse, dann resultieren
 \begin{equation}
 	\frac{\partial^{2}u}{\partial x^{2}} + \frac{\partial^{2}u}{\partial y^{2}} = 0
 \end{equation}
@@ -175,21 +199,22 @@ und diese Gleichung integrieren, um v zu bestimmen.
 
 Die beiden Vektoren
 \begin{equation}
-	\mathbf{u} \left(\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right)
+	\nabla{u} = \left(\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right)
 \end{equation}
 und 
 \begin{equation}
-	\mathbf{v} \left(\frac{\partial v}{\partial x}, \frac{\partial v}{\partial y} \right)
+	\nabla{v} = \left(\frac{\partial v}{\partial x}, \frac{\partial v}{\partial y} \right)
 \end{equation}
 stehen senkrecht aufeinander, das heisst sie sind normal zu einander:
 \begin{equation}
-	\mathbf{u} \cdot \mathbf{v} = 0.
+	\vec{u} \cdot \vec{v} = 0.
 \end{equation}
 Das bedeutet, die beiden Funktionen $u(x,y)$ und $v(x,y)$ sind lokal senkrecht in ihren Schnittpunkten.
 
 \subsection{Konforme Abbildung
 	\label{elektro:subsection:KonformeAbb}}
-Eine Abbildung eines Gebietes der komplexen Ebene 1 in ein Gebiet der komplexen Ebene 2 mittels einer komplexwertigen Funktion f(z) heisst konforme Abbildung, wenn die Schnittwinkel zweier beliebiger Kurven der Grösse nach erhalten bleiben. Die durch eine analytische Funktion f(z) erzeugte Abbildung ist für alle Punkte z konform, für die die erste Ableitung nicht verschwindet \cite{elektro:mathematik-alpha}.
+Eine Abbildung eines Gebietes der komplexen Ebene 1 in ein Gebiet der komplexen Ebene 2 mittels einer komplexwertigen Funktion $f(z)$ heisst konforme Abbildung, wenn die Schnittwinkel zweier beliebiger Kurven der Grösse nach erhalten bleiben. 
+Die durch eine analytische Funktion f(z) erzeugte Abbildung ist für alle Punkte z konform, für die die erste Ableitung nicht verschwindet \cite{elektro:mathematik-alpha}.
 
 %\subsection{Gausssches Gesetz
 %\label{elektro:subsection:Gauss}}

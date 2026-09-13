@@ -14,4 +14,41 @@
 \section{Komplexe Eigenwerte als Entwurfswerkzeug
 \label{aircraft:section:fazit}}
 \kopfrechts{Entwurfswerkzeug}
+Die Leitfrage lautet, warum wir die Stabilität eines Flugzeugs berechnen
+müssen und wie wir es können.
+Berechnen müssen wir die Stabilität, weil die Beobachtung im Flug erst möglich
+ist, wenn das Flugzeug existiert, und weil die Beobachtung kein Mass für die
+Stabilität liefert (Abschnitt~\ref{aircraft:section:3-mathematische-stabilitaet}).
+Berechnen können wir die Stabilität, weil die Seitenbewegung für kleine
+Störungen dem linearen Bewegungsgesetz \eqref{aircraft:eqn:bewegungsgesetz}
+folgt.
+Stabilität bedeutet in diesem Modell, dass jede Lösung abklingt
+(Abschnitt~\ref{aircraft:section:3-mathematische-stabilitaet}).
 
+Der Exponentialansatz \eqref{aircraft:eqn:ansatz} führt das Bewegungsgesetz
+auf die Eigenwertgleichung \eqref{aircraft:eqn:eigenwertgleichung} zurück.
+Die Eigenwerte sind die Nullstellen der charakteristischen Gleichung
+\eqref{aircraft:eqn:charakteristisch}.
+Der Realteil eines Eigenwerts entscheidet nach
+Abschnitt~\ref{aircraft:section:5-interpretation}, ob die zugehörige Bewegung
+abklingt, der Imaginärteil, ob sie schwingt.
+Halbwertszeit \eqref{aircraft:eqn:halbwertszeit} und Periode übersetzen die
+Eigenwerte in Zeiten, die der Pilot im Flug wahrnimmt.
+Das dynamische Verhalten der Seitenbewegung ist damit durch vier komplexe
+Zahlen bestimmt.
+
+Die Derivative in der Systemmatrix liegen aus der Geometrie vor, bevor das
+Flugzeug fliegt (Abschnitt~\ref{aircraft:subsection:systemmatrix}).
+Die Eigenwerte lassen sich deshalb im Entwurf berechnen und mit den
+Anforderungen an die Flugeigenschaften vergleichen.
+Die Anforderungen, die Nelson \cite{aircraft:nelson} in Tabelle~5.4
+wiedergibt, verlangen für Flugzeuge mittleren Gewichts eine Verdopplungszeit
+der Spiralbewegung von mindestens $20$\,s.
+Der Business Jet aus Abschnitt~\ref{aircraft:section:6-beispiel} erfüllt diese
+Anforderung mit $78$\,s, obwohl seine Spiralbewegung instabil ist.
+Genügt ein Entwurf den Anforderungen nicht, so zeigt
+Abschnitt~\ref{aircraft:section:fluegel}, welche Derivative zu verändern sind,
+und Abschnitt~\ref{aircraft:section:grenzen}, wie ein Gierdämpfer die Dämpfung
+künstlich erhöht.
+Die Frage, ob ein Flugzeug stabil ist, beantworten wir damit, bevor das
+Flugzeug gebaut ist.

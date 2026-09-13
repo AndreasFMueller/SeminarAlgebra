@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \coordinate (A) at (2,0);
+    \coordinate (B) at (1,1.732);
+    \coordinate (C) at (-1,1.732);
+    \coordinate (D) at (-2,0);
+    \coordinate (E) at (-1,-1.732);
+    \coordinate (F) at (1,-1.732);
+
+    \fill[darkblue!12] (-3,1.732) rectangle (3,4);
+    \fill[darkred!12] (-3,-2) rectangle (3,1.732);
+
+    \draw[green!70, very thick] (-3,1.732) -- (3,1.732);
+    \node[green!70] at (2.4,2.0) {$g$};
+
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- cycle;
+
+    \node[text=darkblue] at (-2.3,2.6) {$E_1$};
+    \node[text=darkred] at (-2.3,0.8) {$E_2$};
+\end{tikzpicture}
+\end{document}
+

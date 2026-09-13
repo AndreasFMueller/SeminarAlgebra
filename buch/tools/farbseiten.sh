@@ -106,6 +106,18 @@ chapter=moebius
 #
 # Kapitel 11 geradlinig
 chapter=geradlinig
+4
+5
+6
+7
+8
+9
+10
+12
+13
+14
+15
+16
 #
 # Kapitel 12 julia
 chapter=julia
@@ -127,6 +139,8 @@ chapter=jordan
 #
 # Kapitel 14 qa
 chapter=qa
+3
+6
 #
 # Kapitel 15 elektro
 chapter=elektro
@@ -136,18 +150,41 @@ chapter=joukowski
 #
 # Kapitel 17 aircraft
 chapter=aircraft
+2
+3
+8
+12
 #
 # Kapitel 18 fresnel
 chapter=fresnel
+2
+3
+4
+6
+9
+11
 #
 # Kapitel 19 pade
 chapter=pade
+12
+13
 #
 # Kapitel 20 step
 chapter=step
+5
+6
+16
+17
 #
 # Kapitel 21 hauptwert
 chapter=hauptwert
+2
+3
+5
+6
+7
+8
+9
 #
 # Kapitel 22 kepler
 chapter=kepler
@@ -195,6 +232,10 @@ chapter=bessel
 #
 # Kapitel 29 hankel
 chapter=hankel
+8
+12
+13
+16
 #
 # Kapitel 30 zeta
 chapter=zeta
@@ -210,14 +251,19 @@ chapter=buchberger
 # Kapitel 32 resultante
 chapter=resultante
 4
+5
 6
-
 #
 # Kapitel 33 elliptisch
 chapter=elliptisch
 2
 4
 7
+8
 11
-13
+14
+16
+17
+19
+20
 EOF

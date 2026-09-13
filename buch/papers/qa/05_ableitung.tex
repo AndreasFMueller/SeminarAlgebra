@@ -23,9 +23,9 @@ differenzierbar, wenn der Grenzwert
 existiert. Entscheidend ist dabei, dass $h$ eine \emph{komplexe} Zahl ist und
 sich der Null aus jeder beliebigen Richtung der Ebene nähern darf. Die
 Forderung, dass der Grenzwert für alle diese Richtungen derselbe ist, ist eine
-starke Bedingung. Es hat zur Folge, dass eine einmal
+starke Bedingung. Sie hat zur Folge, dass eine einmal
 komplex differenzierbare Funktion automatisch beliebig oft differenzierbar und
-in eine Potenzreihe entwickelbar sein soll.
+in eine Potenzreihe entwickelbar ist.
 
 Zwei Dinge werden in dieser Definition stillschweigend benutzt: Erstens ist die
 Division durch $h$ eindeutig, weil $\mathbb{C}$ kommutativ ist. Ob man
@@ -41,7 +41,9 @@ Differenzenquotient in zwei verschiedene Ausdrücke. Man kann
     \qquad\text{oder}\qquad
     \Delta_L(h) = h^{-1}\,\bigl(f(q+h) - f(q)\bigr)
 \end{equation*}
-bilden, und diese beiden Grössen stimmen im Allgemeinen nicht überein. Schon
+\index{Quaternionen!Differenzenquotienten}%
+\index{Quaternionen!Ableitung}%
+bilden, doch diese beiden Grössen stimmen im Allgemeinen nicht überein. Schon
 die Schreibweise $\frac{f(q+h)-f(q)}{h}$ ist also nicht mehr eindeutig. Das
 allein wäre noch kein grundsätzliches Hindernis, denn man könnte sich für eine der
 beiden Varianten entscheiden. Im Folgenden wird mit $\Delta_R$ gearbeitet; für
@@ -79,7 +81,7 @@ man sich der Null entlang
 der reellen Achse, $h = t \in \mathbb{R}$, so ist $hqh^{-1} = q$ und
 \begin{equation*}
     \Delta_R(t) 
-    = k + k + t \;\longrightarrow\; 2k .
+    = k + k + t \;\rightarrow\; 2k .
 \end{equation*}
 Nähert man sich dagegen entlang der $i$-Achse, $h = ti$, so ist
 $i k i^{-1} = -k$, denn nach Abschnitt~\ref{qa:section:drehungen} bewirkt $i$
@@ -87,7 +89,7 @@ eine Drehung um $180^\circ$ um die $x$-Achse, und diese führt $(0,0,1)$ in
 $(0,0,-1)$ über. Damit ist
 \begin{equation*}
     \Delta_R(ti) 
-    = k - k + ti \;\longrightarrow\; 0 .
+    = k - k + ti \;\rightarrow\; 0 .
 \end{equation*}
 Die beiden Grenzwerte $2k$ und $0$ sind verschieden, der Grenzwert existiert
 also nicht. Durchläuft $u$ alle Einheitsquaternionen, so durchläuft

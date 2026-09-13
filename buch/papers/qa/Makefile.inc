@@ -11,6 +11,5 @@ dependencies-qa =						\
 	papers/qa/02_definition.tex				\
 	papers/qa/03_drehung.tex				\
 	papers/qa/04_eigenschaften.tex				\
-	papers/qa/05_ableitung.tex				\
-	papers/qa/06_anwendungen.tex
+	papers/qa/05_ableitung.tex
 

@@ -1,25 +1,53 @@
 %
-% einleitung.tex -- Beispiel-File für die Einleitung
+% teil0.tex -- Einleitung
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+% (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
+% !TeX spellcheck = de_CH
 %
-\section{Teil 0\label{bessel:section:teil0}}
-\kopfrechts{Teil 0}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua \cite{bessel:bibtex}.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-dolor sit amet.
+\section{Einleitung\label{bessel:section:einleitung}}
+\kopfrechts{Einleitung}
+%
+% Aufgabe dieses Abschnitts.
+% Den Leser abholen, motivieren, ankündigen.
+% Eine bis anderthalb Seiten, keine Unterabschnitte.
+% Zuletzt schreiben -- die Einleitung verspricht, was das Kapitel hält.
+%
+Eine gespannte Saite und ein Trommelfell gehorchen derselben Wellengleichung.
+Trotzdem klingt eine Saite harmonisch und eine Trommel nicht.
+Der Grund dafür liegt nicht in der Physik, sondern in der Geometrie.
+Die Saite ist eindimensional, die Membran ist kreisförmig.
+Sobald man die Wellengleichung in Polarkoordinaten schreibt und den winkelabhängigen Anteil abspaltet, bleibt für den radialen Anteil eine gewöhnliche Differentialgleichung zweiter Ordnung übrig, deren Lösungen nicht mehr die vertrauten Sinus- und Kosinusfunktionen sind.
+Diese Lösungen sind die Bessel-Funktionen.
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.  Stet clita
-kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-amet.
+Bessel-Funktionen treten überall dort auf, wo ein Problem rotationssymmetrisch ist.
+Die Schwingungen einer kreisförmigen Membran gehören dazu, ebenso die Wärmeleitung in einem Zylinder, die Beugung von Licht an einer runden Blende und die Ausbreitung von Wellen in einem Rohr.
+Sie sind damit für die Kreisgeometrie das, was Sinus und Kosinus für die Gerade sind.
 
+Ihren Namen tragen sie nach Friedrich Wilhelm Bessel (1784--1846), der sie 1824 systematisch untersuchte \cite{bessel:bessel1824}.
+Bemerkenswert ist, dass Bessel dabei überhaupt nicht von einem Schwingungsproblem ausging, sondern von der Himmelsmechanik.
+Er suchte eine Reihenentwicklung für die Lösung der Kepler-Gleichung, also für die Position eines Planeten auf seiner Ellipsenbahn als Funktion der Zeit.
+Einzelne Funktionen dieser Familie waren allerdings schon lange vorher aufgetaucht.
+Daniel Bernoulli stiess bei der Untersuchung der schwingenden Kette auf diejenige Funktion, die wir heute $J_0$ nennen; seine Arbeit erschien im Band der Petersburger \emph{Commentarii} für die Jahre 1732/33, der allerdings erst 1738 gedruckt wurde \cite{bessel:bernoulli1732}.
+Euler behandelte die schwingende kreisförmige Membran und gelangte dabei zur Differentialgleichung selbst, ebenfalls in einem Band für das Jahr 1764, der erst zwei Jahre später erschien \cite{bessel:euler1764}.
+Noch früher, in einem Brief an Leibniz vom 3.~Oktober 1703, hatte Jakob Bernoulli eine Reihe angegeben, die sich rückblickend als Bessel-Funktion der Ordnung $\frac13$ lesen lässt \cite{bessel:dutka1995}.
+Erst Bessel hat die Funktionen dieser Familie als Ganzes untersucht und ihre Eigenschaften systematisch zusammengetragen.
+Beide Zugänge, der schwingungstheoretische und der himmelsmechanische, kommen in diesem Kapitel vor.
 
+Das Kapitel schliesst unmittelbar an Kapitel~\ref{chapter:differentialgleichungen} an.
+Dort wurde gezeigt, dass sich Lösungen einer Differentialgleichung mit analytischen Koeffizienten als Potenzreihe ansetzen lassen, und im Abschnitt über die fuchssche Differentialgleichung wurde dieser Ansatz auf verallgemeinerte Potenzreihen ausgedehnt.
+Genau dieser erweiterte Ansatz wird hier gebraucht.
+% teil0, Z. 42
+Die Bessel-Gleichung hat im Ursprung eine Singularität.
+Ein gewöhnlicher Potenzreihenansatz liefert dort für nicht ganzzahlige Ordnung nur die triviale Lösung und für ganzzahlige Ordnung nie die zweite Lösung.
+Die Bessel-Funktionen sind also nicht nur ein weiteres Beispiel für die Theorie aus Kapitel~\ref{chapter:differentialgleichungen}, sondern gewissermassen deren Musterbeispiel.
+An ihnen lässt sich ablesen, wozu der Aufwand mit dem zusätzlichen Exponenten $\varrho$ überhaupt betrieben wurde.
+
+Der Aufbau ist der folgende.
+Abschnitt~\ref{bessel:section:herleitung} leitet die Bessel-Differentialgleichung aus der Wellengleichung einer kreisförmigen Membran her und macht dabei sichtbar, an welcher Stelle die Rotationssymmetrie ins Spiel kommt.
+Abschnitt~\ref{bessel:section:loesung} löst diese Gleichung mit dem Ansatz aus Kapitel~\ref{chapter:differentialgleichungen} und liefert die Bessel-Funktionen erster und Art.
+Abschnitt~\ref{bessel:section:eigenschaften} stellt die Eigenschaften zusammen, die für das Rechnen mit diesen Funktionen nötig sind, also Rekursionsformeln, Nullstellen, Orthogonalität und asymptotisches Verhalten.
+Abschnitt~\ref{bessel:section:modifiziert} behandelt die modifizierten Bessel-Funktionen, die bei rein imaginärem Argument entstehen.
+% Die beiden letzten Abschnitte zeigen die Theorie in Aktion, einmal an der Lichtbeugung am Kreisspalt (Abschnitt~\ref{bessel:section:lichtbeugung}) und einmal an der Kepler-Gleichung (Abschnitt~\ref{bessel:section:kepler}), also an genau jenem Problem, das Bessel ursprünglich zu diesen Funktionen geführt hat.

@@ -6,12 +6,105 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-% Rolle im Paper: Rückübersetzung ins Problem
-% Roter Faden: Diederwinkel und Pfeilung wirken über die Einträge von A
-% auf den Realteil; Zielkonflikt mit der Spiralmode.
-% Überleitung aus dem vorangehenden Abschnitt: Woher kommen die Unterschiede?
-%
 \section{Einfluss der Flügelgeometrie auf die Eigenwerte
 \label{aircraft:section:fluegel}}
 \kopfrechts{Flügelgeometrie}
+Die Systemmatrizen des Propellerflugzeugs und des Business Jets in
+Abschnitt~\ref{aircraft:section:6-beispiel} haben dieselbe Form.
+Die beiden Flugzeuge unterscheiden sich nur in den Werten der Derivative.
+Diese Werte entstehen aus der Geometrie des Flugzeugs.
+Wir betrachten die drei Derivative $L_\beta$, $N_\beta$ und $N_r$.
+Diese drei bestimmen die Spiralbewegung und die Dutch Roll, und der
+Konstrukteur legt sie über die Form der Flügel und des Seitenleitwerks fest.
 
+Die \emph{V-Form} (dihedral) ist der Winkel, um den die Flügel gegenüber der
+Querachse nach oben geneigt sind.
+Schiebt das Flugzeug, so trifft die Luft den Flügel auf der Seite, zu der das
+Flugzeug schiebt, unter einem grösseren Anstellwinkel als den anderen Flügel.
+Dieser Flügel erzeugt mehr Auftrieb, und das Flugzeug rollt von dieser Seite
+weg.
+Dieses Rollmoment infolge Schiebens ist das Derivativ $L_\beta$ aus
+Abschnitt~\ref{aircraft:section:system}.
+Mit wachsender V-Form wächst der Betrag von $L_\beta$.
+
+Die \emph{Pfeilung} (sweep) ist der Winkel, um den die Flügel gegenüber der
+Querachse nach hinten geneigt sind.
+Beim Schieben steht der Flügel auf der Seite, zu der das Flugzeug schiebt,
+weniger schräg zur Anströmung als der andere Flügel und erzeugt ebenfalls mehr
+Auftrieb.
+Die Pfeilung vergrössert den Betrag von $L_\beta$ ebenso wie die V-Form.
+
+Das \emph{Seitenleitwerk} (vertical tail) bestimmt die beiden
+Derivative $N_\beta$ und $N_r$.
+Schiebt das Flugzeug, so wird das Seitenleitwerk schräg angeströmt und erzeugt
+ein Giermoment, das die Nase in die Anströmung dreht.
+Dieses Giermoment infolge Schiebens ist die Richtungsstabilität $N_\beta$.
+Giert das Flugzeug, so bewegt sich das Seitenleitwerk quer zur Flugrichtung und
+erzeugt ein Giermoment gegen die Drehung.
+Dieses Giermoment infolge Gierens ist die Gierdämpfung $N_r$.
+Ein grösseres Seitenleitwerk vergrössert die Beträge von $N_\beta$ und $N_r$
+zugleich.
+Die Dutch Roll wird begünstigt, wenn der Betrag von $L_\beta$ gross ist im
+Vergleich zu $N_\beta$.
+
+Wie die Derivative die Eigenwerte festlegen, zeigt die Spiralbewegung am
+einfachsten, denn ihr Eigenwert ist reell und lässt sich näherungsweise in
+geschlossener Form angeben.
+Nelson \cite{aircraft:nelson} gibt die Näherung
+\begin{equation}
+    \lambda_{\text{S}}
+    \approx
+    \frac{L_\beta N_r - L_r N_\beta}{L_\beta}
+    \label{aircraft:eqn:spiralnaeherung}
+\end{equation}
+an, wobei $L_r$ das Rollmoment infolge Gierens ist.
+Bei üblichen Vorzeichen sind $L_\beta$ und $N_r$ negativ, $L_r$ und $N_\beta$
+positiv.
+Der Nenner ist also negativ, und der Eigenwert der Spiralbewegung ist genau dann
+negativ, wenn
+\begin{equation}
+    L_\beta N_r - L_r N_\beta > 0
+    \label{aircraft:eqn:spiralbedingung}
+\end{equation}
+gilt.
+Tatsächlich ist für das Propellerflugzeug mit den Werten aus Nelson Tabelle~5.2
+\[
+    L_\beta N_r - L_r N_\beta
+    =
+    (-16{,}02)\cdot(-0{,}76) - 2{,}19\cdot 4{,}49
+    =
+    12{,}18 - 9{,}83
+    >
+    0.
+\]
+Der Eigenwert der Spiralbewegung ist nach
+Abschnitt~\ref{aircraft:section:6-beispiel} negativ, wie es die Bedingung
+verlangt.
+Die Bedingung \eqref{aircraft:eqn:spiralbedingung} wird umso leichter erfüllt,
+je grösser die Beträge von $L_\beta$ und $N_r$ sind.
+Ob die Spiralbewegung abklingt oder anwächst, entscheidet das Verhältnis der
+vier Derivative und damit die Konstruktion.
+
+Nelsons Näherung für die Dutch Roll vernachlässigt die Rollbewegung und enthält
+$L_\beta$ deshalb nicht.
+Nelson \cite[Abb.~5.14]{aircraft:nelson} zeigt stattdessen, wie die Eigenwerte
+in der komplexen Ebene wandern, wenn der Betrag von $L_\beta$ wächst.
+Der Eigenwert der Spiralbewegung wandert nach links, das Eigenwertpaar der
+Dutch Roll wandert nach rechts.
+Eine grosse V-Form stabilisiert die Spiralbewegung und schwächt die Dämpfung der
+Dutch Roll.
+Eine grosse Richtungsstabilität $N_\beta$ wirkt umgekehrt, denn sie erhöht die
+Frequenz der Dutch Roll und zieht den Eigenwert der Spiralbewegung zum Ursprung.
+Der Konstrukteur muss beide Eigenwerte zugleich in der linken Halbebene halten.
+Die Gierdämpfung $N_r$ vergrössert die Dämpfung beider Bewegungen, lässt sich
+durch ein grösseres Seitenleitwerk aber nur zusammen mit $N_\beta$ vergrössern.
+
+Der Vergleich in Abschnitt~\ref{aircraft:section:6-beispiel} ist mit diesem
+Zusammenhang verträglich.
+Der Business Jet hat gepfeilte Flügel, das Propellerflugzeug gerade.
+Die Dutch Roll des Business Jets ist mit $\sigma = -0{,}116$ schwächer gedämpft
+als die des Propellerflugzeugs mit $\sigma = -0{,}487$.
+
+Die Geometrie legt die Derivative fest, und die Derivative legen die
+Eigenwerte fest.
+Ob ein Flugzeug stabil ist, wird damit beim Entwurf entschieden.

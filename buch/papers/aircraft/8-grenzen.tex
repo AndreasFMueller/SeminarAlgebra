@@ -14,4 +14,66 @@
 \section{Grenzen des Modells und aktive Dämpfung
 \label{aircraft:section:grenzen}}
 \kopfrechts{Grenzen des Modells}
+Das Bewegungsgesetz gilt nach Abschnitt~\ref{aircraft:section:system} nur für
+kleine Störungen um die Ruhelage.
+Bei grossen Auslenkungen hängen die Kräfte und Momente nicht mehr linear von den
+Zustandsgrössen ab, und die Derivative sind keine Konstanten mehr.
+Bei hohen Anstellwinkeln kann die Rolldämpfung $L_p$ ihr Vorzeichen wechseln und
+positiv werden \cite{aircraft:stengel}.
+Die Rollbewegung, die nach Abschnitt~\ref{aircraft:section:1-grundbegriffe} bei
+gewöhnlichen Anstellwinkeln rasch abklingt, wächst dann an.
+Das lineare Modell sagt dieses Verhalten nicht voraus, weil es mit den
+Derivativen der Ruhelage rechnet.
 
+Die Werte in der Systemmatrix gelten für ein Flugzeug in einem Flugzustand.
+Eine andere Geschwindigkeit, eine andere Höhe oder eine andere Klappenstellung
+ergibt andere Derivative und damit andere Eigenwerte.
+Ein Flugzeug muss das Stabilitätskriterium in jedem Flugzustand erfüllen, den
+es erreicht.
+Die Rechnung aus Abschnitt~\ref{aircraft:section:4-eigenwerte} ist deshalb für
+jeden Flugzustand zu wiederholen.
+Dabei kann sich auch die Art der Eigenwerte ändern.
+Der Fall zweier komplexer Eigenwertpaare tritt ein, wenn Rollbewegung und
+Spiralbewegung zu einer gemeinsamen Schwingung verschmelzen, wie
+Stengel \cite{aircraft:stengel} am Versuchsflugzeug M2-F2 zeigt.
+
+Wir haben uns in Abschnitt~\ref{aircraft:section:system} auf die
+Seitenbewegung beschränkt und die Längsbewegung ausgeblendet.
+Für kleine Störungen ist das gerechtfertigt, weil die beiden Bewegungen dann
+voneinander unabhängig sind.
+Bei schnellen Rollmanövern und bei hohen Anstellwinkeln koppeln Trägheitskräfte
+und aerodynamische Kräfte die Seitenbewegung mit der Längsbewegung
+\cite{aircraft:nelson}.
+Diese Fälle liegen ausserhalb des Modells.
+
+Liefert die Geometrie nicht genügend Dämpfung, so wird die Dämpfung künstlich
+erzeugt.
+Ein \emph{Gierdämpfer} (yaw damper) ist ein automatisches System, das die
+Gierrate $r$ misst und das Seitenruder proportional dazu ausschlägt, so dass
+das Ruder der Drehung entgegenwirkt \cite{aircraft:nelson}.
+Das zusätzliche Giermoment ist proportional zu $r$ und wirkt in der
+Systemmatrix wie eine grössere Gierdämpfung $N_r$.
+Nach Abschnitt~\ref{aircraft:section:fluegel} verschiebt ein grösserer Betrag
+von $N_r$ das Eigenwertpaar der Dutch Roll nach links.
+In der Sprache von Abschnitt~\ref{aircraft:subsection:realteil} wird der
+Realteil $\sigma$ kleiner, und die Störung klingt schneller ab.
+Diese Rückkopplung einer gemessenen Grösse auf ein Ruder heisst
+\emph{Stabilitätsaugmentation} (stability augmentation) und verändert die
+Einträge der Systemmatrix durch Regelung \cite{aircraft:nelson}.
+Die meisten Verkehrsflugzeuge sind mit einem Gierdämpfer ausgerüstet
+\cite{aircraft:nelson}.
+Ein Verkehrsflugzeug muss auch bei Ausfall des Gierdämpfers fliegbar bleiben,
+und der Konstrukteur berechnet deshalb die Eigenwerte der ungeregelten und der
+geregelten Systemmatrix.
+
+Bei Kampfflugzeugen wird die Stabilität zugunsten der Wendigkeit meist
+deutlich reduziert.
+\cite{aircraft:sadraey}.
+Für ein solches Flugzeug ist die Stabilitätsaugmentation keine Verbesserung,
+sondern die Bedingung dafür, dass es fliegbar ist.
+Ein \emph{automatisches Flugregelsystem} (automatic flight control system)
+steuert die Ruder durchgehend.
+Der Gierdämpfer verändert einen Eintrag der Systemmatrix, das
+automatische Flugregelsystem verändert mehrere Einträge zugleich.
+Über die Stabilität eines solchen Flugzeugs entscheiden die Eigenwerte der
+geregelten Systemmatrix.
