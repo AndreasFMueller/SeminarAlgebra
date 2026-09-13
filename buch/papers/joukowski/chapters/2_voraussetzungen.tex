@@ -69,3 +69,26 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
 	Dies beschreibt zum Beispiel die Situation beim Anfahren des Flugzeuges.
 	Somit kann der Satz von Kutta-Joukowski nicht für diese Situation angewendet werden. 
+	
+\subsection{Situationsbeschreibung}
+	Obwohl wir uns in einer dreidimensionalen Welt befinden,
+	können wir uns in userem mathematischen Modell auf zwei Dimensionen begrenzen.
+	Diese Vereinfachung ist nur möglich, da wir voraussetzen, dass die Strömung entlang dem ganzen Flügel identisch ist.
+	Somit müssen wir bei den Berechnungen nicht den gesamten dreidimensionalen Flügel betrachten,
+	sondern können uns auf einen zweidimensionalen Querschnitt davon beschränken.
+	Somit haben wir ein Flügelprofil, welches von einem inkompressiblen, reibungsfreien Fluid lamiar umströmt wird.
+	In grosser Entfernung besitzt die Strömung eine konstante Geschwindigkeit und einen konstanten Luftdruck,
+	welche wir mit $v_\infty$, respektive $p_\infty$ bezeichnen.
+	Das $\infty$ bezieht sich darauf, dass in der Theorie dieser Punkt unendlich weit vom Flügelprofil entfernt sein müsste.
+	Eine Folge der Entfernung einer Dimension ist,
+	dass Grössen wie die Kraft $F$ zur Kraft pro Flügellänge $F'$ gewandelt werden.
+	Wobei sich $F'$ mit
+	\[
+		F'
+		=
+		\frac{\partial F}{\partial l}
+	\]
+	berechnen lässt.
+	
+	Durch die beschränkung auf zwei Dimensionen können wir zudem unsere Situation mittels der komplexen Zahlenebene vollständig beschreiben.
+	In den folgenden Kapitel wird also die örtliche Abhängigkeit mit $z = x + iy$ beschrieben.
