@@ -9,7 +9,6 @@
 # Kapitel  1
 chapter=1
 2
-6
 #
 # Kapitel  2
 chapter=2
@@ -20,6 +19,8 @@ chapter=2
 33
 34
 43
+53
+54
 55
 # Kapitel  3
 chapter=3
@@ -117,7 +118,6 @@ chapter=geradlinig
 13
 14
 15
-16
 #
 # Kapitel 12 julia
 chapter=julia
@@ -224,8 +224,8 @@ chapter=basel
 #
 # Kapitel 27 gamma
 chapter=gamma
-5
 6
+7
 #
 # Kapitel 28 bessel
 chapter=bessel
