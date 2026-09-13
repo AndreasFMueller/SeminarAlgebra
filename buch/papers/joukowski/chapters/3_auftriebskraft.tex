@@ -1,5 +1,34 @@
 \section{Auftriebskraft}
+	Ein Medium übt auf ein darin platziertes Objekt eine Kraft aus.
+	Zwei Hauptursachen können dafür identifiziert werden.
+	Das Schwerefeld der Erde verursacht im Medium einen vertikalen Druckgradienten.
+	Die Kräfte auf der Unterseite des Objektes sind daher grösser als auf der Oberseite,
+	was in einer statischen Auftriebskraft resultiert, die auch der hydrostatische Auftrieb genannt wird. Bewegt sich das Fluid, entstehen zusätzlich dynamische Kräfte. 
+			
+	Sowohl beim statischen als auch beim dynamischen Auftrieb ist die Wirkung identisch: Die ungleiche Druckverteilung im Raum erzeugt eine resultierende Kraftkomponente.
+		
+\subsection{Bernoulli}
+	Um den Druckgradienten zu bestimmen muss bekannt sein. Wie sich der Druck im Raum verhält. Dies kann mit der Bernoulli Gleichung
+	
+	\begin{equation}
+		\label{joukowski:Auftriebskarft:Bernoulli}
+		p(z) + \frac{\varrho}{2} \cdot |v(z)|^2 + \varrho g h(z) 
+		=
+		p_{\infty} + \frac{\varrho}{2} \cdot |v_{\infty}|^2 + \varrho g h_{\infty}
+	\end{equation}
+	beschreiben.
+	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Druck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
+	\begin{equation}
+	\label{joukowski:Auftriebskarft:Bernoulli2}
+	p(z)
+	= 
+	-\frac{\varrho}{2} \cdot |v(z)|^2 + C,
+	\end{equation}
+	wobei der konstante Teil $C$ aus dem Referenzwert im Unendlichen besteht.
 
+	
+	
+	
 \subsection{Grundlage der Auftriebskraft}
 	Obwohl im Folgenden immer von der Auftriebskraft die Rede ist,
 	wird in der Anwendung des Flügels immer nur den Querschnitt davon betrachtet,
@@ -60,35 +89,8 @@
 	\input{papers/joukowski/fig/03_auftriebskraft/fig-kontourintegral_fluegel.tex}
 
 \subsection{Aus Anströmungsgeschwindigkeit wird Auftrieb}
-	Ein Medium übt auf ein darin platziertes Objekt eine Kraft aus.
-	Zwei Hauptursachen können dafür identifiziert werden.
-	Das Schwerefeld der Erde verursacht im Medium einen vertikalen Druckgradienten.
-	Die Kräfte auf der Unterseite des Objektes sind daher grösser als auf der Oberseite,
-	was in einer statischen Auftriebskraft resultiert, die auch der hydrostatische Auftrieb genannt wird.
-	Bewegt sich das Fluid, entstehen zusätzlich dynamische Kräfte.
 	Ziel dieses Abschnitts ist, den Zusammenhang zwischen Anströmgeschwindigkeit $v_\infty$ und Auftriebs- und Widerstandskraft zu klären.
-		
-	Ein Beispiel für den statischen Druck ist ein Eiswürfel im Wasserglas. Der Druckgradient beschreibt die Druckveränderung zwischen zwei Punkten,
-	daher kann relativ einfach über das verdrängte Volumen gerechnet werden.
-		
-	Bei einem Flugzeug ist dies wesentlich komplizierter.
-	Hierbei handelt sich um dynamischen Auftrieb. Für die Strömung gilt Energieerhaltung.
-	Der Druck an einem beliebigen Punkt im Raum kann somit mit der Bernoulli Gleichung
 	
-	\begin{equation}
-		\label{joukowski:Auftriebskarft:Bernoulli}
-		p(z) + \frac{\varrho}{2} \cdot |v(z)|^2 + \varrho g h(z) 
-		=
-		p_{\infty} + \frac{\varrho}{2} \cdot |v_{\infty}|^2 + \varrho g h_{\infty}
-	\end{equation}
-	beschrieben werden.
-	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Druck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
-	\[
-		p(z)
-		= 
-		-\frac{\varrho}{2} \cdot |v(z)|^2 + C,
-	\]
-	wobei der konstante Teil $C$ aus dem Referenzwert im Unendlichen besteht.
 	Um nun die Auftriebskraft zu erhalten,
 	kann die Formel für $p(z)$ in Gleichung~\eqref{joukowski:auftriebskraft:Integral-aus-p} eingesetzt werden,
 	damit
