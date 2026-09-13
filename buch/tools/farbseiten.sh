@@ -4,7 +4,7 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
-./chapters --auxfile=../build/buch.aux <<EOF
+./chapters --debug --auxfile=../build/buch.aux <<EOF
 #
 # Kapitel  1
 chapter=1
