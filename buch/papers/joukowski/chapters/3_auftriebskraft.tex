@@ -4,44 +4,41 @@
 	Das Schwerefeld der Erde verursacht im Medium einen vertikalen Druckgradienten.
 	Die Kräfte auf der Unterseite des Objektes sind daher grösser als auf der Oberseite,
 	was in einer statischen Auftriebskraft resultiert, die auch der hydrostatische Auftrieb genannt wird. Bewegt sich das Fluid, entstehen zusätzlich dynamische Kräfte. 
-			
+
 	Sowohl beim statischen als auch beim dynamischen Auftrieb ist die Wirkung identisch: Die ungleiche Druckverteilung im Raum erzeugt eine resultierende Kraftkomponente.
-		
+
 \subsection{Bernoulli}
-	Um den Druckgradienten zu bestimmen muss bekannt sein. Wie sich der Druck im Raum verhält. Dies kann mit der Bernoulli Gleichung
+	Um den Druckgradienten zu bestimmen muss bekannt sein wie sich der Druck im Raum verhält. Dies kann mit der Bernoulli Gleichung
 	
-	\begin{equation}
-		\label{joukowski:Auftriebskarft:Bernoulli}
+	\[
+		%\label{joukowski:Auftriebskarft:Bernoulli}
 		p(z) + \frac{\varrho}{2} \cdot |v(z)|^2 + \varrho g h(z) 
 		=
 		p_{\infty} + \frac{\varrho}{2} \cdot |v_{\infty}|^2 + \varrho g h_{\infty}
-	\end{equation}
-	beschreiben.
+	\]
+	beschrieben werden.
 	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Druck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
-	\begin{equation}
-	\label{joukowski:Auftriebskarft:Bernoulli2}
+	\[
+		p(z)
+		=
+		-\frac{\varrho}{2} \cdot |v(z)|^2
+		+
+		p_{\infty}
+		+
+		\frac{\varrho}{2} \cdot |v_{\infty}|^2		
+	\]
+	Wir können den gesamten konstanten Teil,
+	welche dem Referenzwert im Unendlichen entspricht in eine einzelne Konstante $C$ zusammenfassen
+	und somit
+	\[
+	%\label{joukowski:Auftriebskarft:Bernoulli2}
 	p(z)
 	= 
-	-\frac{\varrho}{2} \cdot |v(z)|^2 + C,
-	\end{equation}
-	wobei der konstante Teil $C$ aus dem Referenzwert im Unendlichen besteht.
-
-	
-	
-	
-\subsection{Grundlage der Auftriebskraft}
-	Obwohl im Folgenden immer von der Auftriebskraft die Rede ist,
-	wird in der Anwendung des Flügels immer nur den Querschnitt davon betrachtet,
-	wie in Abbildung~\ref{joukowski:auftriebskraft:fig:kontourintegral-fluegel} zu sehen ist.
-	Somit wird nicht die Kraft selbst,
-	sondern die Kraft pro Flügellänge berechnet.
-	Diese wird mit
-	\[
-		F'
-		=
-		\frac{\partial F}{\partial l}
+	-\frac{\varrho}{2} \cdot |v(z)|^2 + C
 	\]
-	notiert.
+	entsteht.
+
+\subsection{Grundlage der Auftriebskraft}
 	Um die resultierende Kraft pro Flügellänge zu erhalten,	
 	müssen alle kleinen Kraftanteile $dF'$ um das geschlossene Profil des Flügels,
 	welche wir mit $\gamma$ bezeichnen,
