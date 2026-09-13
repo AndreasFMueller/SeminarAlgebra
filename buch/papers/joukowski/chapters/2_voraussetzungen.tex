@@ -22,7 +22,7 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	sondern nur Normal-, bzw. Druckkräfte auf die Oberfläche des Flügels.
 	Zudem gilt die Bernoulli Gleichung,
 	welches unserem Modell zugrunde liegt,
-	nur bei reibungsfreier Strömung.
+	nur bei einer reibungsfreier Strömung.
 
 \subsubsection{Inkompressibilität}
 	Inkompressibilität bedeutet, dass die Dichte des Fluides überall im Raum und zu jeder Zeit konstant ist.
@@ -57,19 +57,15 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	
 	Mathematisch formuliert bedeutet stationär
 	\[
-	\frac{\partial f(z)}{\partial t}
-	=
-	0
-	\qquad
-	\forall
-	z \in \mathbb{C},
+		\frac{\partial f}{\partial t}
+		=
+		0,
 	\]
-	wobei $f(z)$ eine physikalische Strömungsgrösse darstellt.
+	wobei $f$ eine physikalische Strömungsgrösse darstellt.
 	
 	Die Rolle der Stationarität ist im Gegensatz zu den anderen physikalischen Voraussetzungen weniger offensichtlich.
 	Bei einer stationären Strömung ist der Ausgleichsprozess abgeschlossen.
 	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im ausgeglichenem Zustand.
 	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
-	Dies beschreibt zum Beispiel die Situation beim Anfahren des Flugzeuges,
-	bei welcher sich das Strömungsbild mit der Zeit ändert.
-	Somit kann der Satz von Kutta-Joukowski nur für stationäre Strömung angewendet werden. 
+	Dies beschreibt zum Beispiel die Situation beim Anfahren des Flugzeuges.
+	Somit kann der Satz von Kutta-Joukowski nicht für diese Situation angewendet werden. 
