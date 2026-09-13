@@ -11,6 +11,7 @@
 Nachdem im vorherigen Abschnitt die Padé-[1/1]-Approximation hergeleitet wurde, soll sie nun anhand eines einfachen Zahlenbeispiels angewendet werden. Ziel ist es, die Genauigkeit der Padé-Approximation mit jener des entsprechenden Taylorpolynoms zu vergleichen.
 
 Als Beispiel dient wiederum die Exponentialfunktion \(f(x)=e^x\). Der Funktionswert soll für \(x=0.5\) approximiert werden.
+\index{Exponentialfunktion}%
 
 Der exakte Wert beträgt
 \begin{equation}
@@ -43,6 +44,7 @@ Durch Einsetzen von \(x=0.5\) erhält man
 \end{align}
 
 Nun wird die Padé-[1/1]-Approximation verwendet,
+\index{Pade-[1/1]-Approximation@Padé-[1/1]-Approximation}%
 \begin{equation}
 	R_{1,1}(x)
 	=
@@ -66,6 +68,7 @@ Für denselben Wert ergibt sich
 \end{align}
 
 Zur objektiven Beurteilung beider Verfahren werden der absolute und der relative Fehler betrachtet. Der absolute Fehler ist definiert durch
+\index{Fehler}%
 \begin{equation}
 	\varepsilon_{\mathrm{abs}}
 	=
@@ -159,6 +162,7 @@ Zur Bestimmung dieser Koeffizienten wird wiederum die Taylorreihe der ursprüngl
 Dies bedeutet, dass die Taylorreihe der Funktion und die Reihenentwicklung der Padé-Approximation bis einschliesslich des Terms \(x^{m+n}\) übereinstimmen. Erst bei höheren Potenzen treten Unterschiede auf \cite{baker_graves_morris_1996}.
 
 Als Beispiel wird nun die Padé-Approximation vom Typ \([2/2]\) betrachtet. Sie besitzt den Ansatz
+\index{Pade-[2/2]-Approximation@Padé-[2/2]-Approximation}%
 \[
 R_{2,2}(x)
 =
@@ -246,6 +250,7 @@ kann die Padé-Approximation von \(e^{ix}\) getrennt hinsichtlich ihres Real- un
 \end{figure}
 
 Ein weiteres bedeutendes Anwendungsgebiet ist die Regelungstechnik. Viele technische Systeme besitzen sogenannte Totzeiten. Zwischen einer Änderung der Eingangsgrösse und der Reaktion des Systems vergeht dabei eine bestimmte Zeit. Im Laplace-Bereich wird eine Totzeit durch
+\index{Totzeit}%
 \[
 e^{-sT}
 \]
