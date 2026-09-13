@@ -29,7 +29,7 @@ In vielen Anwendungen wird der Entwicklungspunkt auf \(a=0\) gelegt. Man spricht
 
 Ein besonders anschauliches Beispiel ist die Exponentialfunktion \(f(x)=e^x\). Ihre Ableitung ist wiederum die Exponentialfunktion selbst. Daraus folgt, dass sämtliche Ableitungen an der Stelle \(x=0\) den Wert \(1\) besitzen. Durch Einsetzen in Gleichung~\eqref{eq:maclaurin} erhält man die bekannte Reihenentwicklung
 \index{Exponentialfunktion}%
-\begin{equation}
+\begin{equation*}
 	e^x
 	=
 	1
@@ -43,13 +43,13 @@ Ein besonders anschauliches Beispiel ist die Exponentialfunktion \(f(x)=e^x\). I
 	\frac{x^4}{4!}
 	+
 	\cdots.
-	\label{eq:exp_reihe}
-\end{equation}
+%	\label{eq:exp_reihe}
+\end{equation*}
 
 Da eine unendliche Reihe auf einem Computer nicht vollständig berechnet werden kann, wird sie nach endlich vielen Summanden abgebrochen. Das entstehende Polynom wird als Taylor-Polynom bezeichnet. Die endlichen Partialsummen einer Taylor-Reihe bilden somit Taylor-Polynome und dienen zur Approximation der ursprünglichen Funktion \cite{phillips_taylor_1996}.
 
 Für die Exponentialfunktion ergibt sich beispielsweise das Taylor-Polynom zweiter Ordnung zu
-\begin{equation}
+\begin{equation*}
 	T_2(x)
 	=
 	1
@@ -57,9 +57,8 @@ Für die Exponentialfunktion ergibt sich beispielsweise das Taylor-Polynom zweit
 	x
 	+
 	\frac{x^2}{2}.
-	\label{eq:taylor2}
-\end{equation}
-
+%	\label{eq:taylor2}
+\end{equation*}
 Mit steigender Ordnung werden mehr Terme der Taylor-Reihe berücksichtigt, wodurch sich die Genauigkeit der Approximation im Allgemeinen verbessert.
 
 \section{Grenzen der Taylor-Reihe}
