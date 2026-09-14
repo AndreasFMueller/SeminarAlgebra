@@ -8,14 +8,18 @@
 		Hierbei geht es nur darum den physikalischen Ursprung mit den komplexen Zahlen in Verbindung zu bringen.
 		Das exakte Verstäntnis für die Entstehung der Strömungsgleichung wird nicht vorausgesetzt.
 		
-		Für eine laminare Strömung in der Ebene gilt, dass die Geschwindigkeit $\vec{v}$ der Gradient einer Potentialfunktion $\varphi$ ist.
-		Mathematisch geschrieben als
+		Haben wir eine inkompressible Strömung in zwei Dimensionen,
+		können wir aus der Bedingung~\eqref{joukowski:voraussetzungen:inkompressibel} schliessen,
+		dass eine sogenannten Potentialfunktion $\varphi$ existiert,
+		welche sich mit
 		\[
 			\vec{v}
 			=
 			\nabla \varphi.
 		\]
-		Setzen wir unsere Voraussetzung der Inkompressibilität des Fluides aus Gleichung~\eqref{joukowski:voraussetzungen:inkompressibel} ein,
+		berechnen lässt.
+		Dies beschreibt die Situation einer sogenannter Potentialströmung.
+		Setzen wir unsere Gleichung für $\varphi$ in die Bedinung der Inkompressibilität des Fluides aus Gleichung~\eqref{joukowski:voraussetzungen:inkompressibel} ein,
 		erhalten wir die Laplace-Gleichung
 		\[
 			\nabla \cdot \nabla \varphi
@@ -24,7 +28,6 @@
 			=
 			0.
 		\]
-		Dies beschreibt die Situation einer sogenannter Potentialströmung.
 		Das beduetet jede Potentialfunktion, welche die Strömung eines inkompressiblen, laminaren Fluid beschreibt, muss die Laplace Gleichung erfüllen.
 		Aus Abschnitt~\ref{joukowski:voraussetzungen:situationsbeschreibung}
 		wissen wir aber, dass das Problem auf zwei Dimensionen begrenzt werden kann.
@@ -46,7 +49,7 @@
 			\label{joukowski:stroemungslinien:satz:holomorphe-funktion}
 		\end{satz}
 		
-		Jetzt können wir alle Werkzeuge der komplexen Analysis anwenden, um unsere Strömung zu beschreiben.
+		Jetzt können wir alle Werkzeuge der komplexen Analysis anwenden, um unsere Strömung zu beschreiben.		
 		Dafür müssen wir unsere komplexe Funktion weiter untersuchen.
 		Punkte in der $z$-Ebene, für welche die Potentialfunktion $\varphi(z)$ einer Konstanten entsprechen, werden \emph{Äquipotentiallinien} genannt
 		und Punkte, für welche $\psi(z)$ einer Konstanten entsprechen, werden \emph{Strömungslinien} genannt.
