@@ -84,6 +84,7 @@ Wir folgen dabei der Notation von Nelson~\cite{aircraft:nelson}, der
 die Seitenbewegung mit denselben Grössen beschreibt.
 
 Wir fassen die vier Grössen zum \emph{Zustandsvektor}
+\index{Zustandsvektor}%
 \begin{equation}
     \vec{x}(t)
     =
@@ -119,6 +120,7 @@ findet sich bei Nelson~\cite[Kapitel 3 und 5]{aircraft:nelson}.
 \subsection{Die Systemmatrix und ihre Einträge
 \label{aircraft:subsection:systemmatrix}}
 Für die Seitenbewegung lautet die Systemmatrix
+\index{Systemmatrix}%
 \begin{equation}
     A
     =
@@ -132,6 +134,8 @@ Für die Seitenbewegung lautet die Systemmatrix
 \end{equation}
 Die Einträge der Systemmatrix heissen \emph{aerodynamische Derivative}
 (stability derivatives).
+\index{aerodynamische Derivative}%
+\index{stability derivatives}%
 Die zweite Zeile der Gleichung \eqref{aircraft:eqn:bewegungsgesetz}
 lautet ausgeschrieben $\dot p = L_\beta \beta + L_p p + L_r r$.
 Darin lesen wir ab, dass die Änderung der Rollrate aus dem momentanen
@@ -145,17 +149,23 @@ nach dem Schieben Rollen erzeugt.
 Man beachte, dass in dieser Zeile neben der Rollrate zwei weitere
 Zustandsgrössen auftreten.
 Ein System heisst \emph{gekoppelt} (coupled), wenn die Änderung einer
+\index{gekoppelt}%
+\index{coupled}%
 Zustandsgrösse von anderen Zustandsgrössen abhängt.
 
 Die Struktur der Matrix ist für alle Flugzeuge gleich.
 Die Werte der Derivative hängen vom Flugzeug und vom Flugzustand ab.
 Die Derivative sind physikalische Grössen und beschreiben die Aerodynamik
 des Flugzeugs.
+\index{Aerodynamik}%
 Im Entwurf werden sie aus der Geometrie der Flügel und des Seitenleitwerks
 geschätzt.
 Nelson~\cite[Kapitel 3]{aircraft:nelson} gibt dafür Näherungsformeln an.
 Genauere Werte liefern Windkanalversuche und Strömungssimulationen.
+\index{Windkanalversuch}%
+\index{Stromungssimulation@Strömungssimulation}%
 Am gebauten Flugzeug lassen sich die Derivative aus Flugversuchen bestimmen.
+\index{Flugversuch}%
 Für den Entwurf ist entscheidend, dass die Derivative bereits aus der Geometrie
 vorliegen, bevor das Flugzeug fliegt.
 Für das Rechenbeispiel in Abschnitt~\ref{aircraft:section:6-rechenbeispiel}
