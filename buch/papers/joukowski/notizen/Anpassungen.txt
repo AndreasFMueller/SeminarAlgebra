@@ -1,6 +1,6 @@
 2. In 16.2.2 legen Sie die Grundlage, für die ganze folgende mathematische Diskussion. Im Moment beschränken Sie sich darauf, das komplexe Koordinatensystem einzuführen. Warum nicht auch Vektoren? \vec{a} als a_x + i a_y schreiben. Die Geschwindigkeit wäre besonders wichtig, Sie könnten hier schon die Konvention v(z) = u + iw einführen, damit Sie das später nicht mehr tun müssen, wenn Sie dann die konjugiert komplexe Geschwindigkeit diskutieren. u und w haben auch eine konkrete Bedeuttung: u ist die Längskomponente, w die Querkomponente (Frau Märklin würde in ihrem Paper bei w\ne 0 von "Schieben" (horizontal) oder vom Anstellwinkel sprechen).
 
-Sie könnten hier sogar den Zweck dieser Darstellung ankündigen: Sie wollen alles komplex schreiben, um die Werkzeuge der komplexen Funktionentheorie für die weiteren Rechnungen verfügbar zu machen.
+Sie könnten hier sogar den Zweck dieser Darstellung ankündigen: Sie wollen alles komplex schreiben, um die Werkzeuge der komplexen Funktionentheorie für die weiteren Rechnungen verfügbar zu machen. v(z) beschreiben.
 
 3. In 16.3.1 sprechen Sie von _der_ Potentialfunktion, ohne sie vorher eingeführt zu haben. Was Sie sagen wollen, ist dass man aus der allgemeinen Theorie ableiten kann, dass \vec{v} = als Gradient _einer_ sogenannten Potentialfunktion geschrieben werden kann. Eigentlich ist die Folgerung umgekehrt: aus \div v = 0 folgt in der Ebene, dass es \varphi gibt mit v = \grad\varphi. Das dürften Sie in FuVar auch so gelernt haben.
 
@@ -9,17 +9,9 @@ Sie könnten hier sogar den Zweck dieser Darstellung ankündigen: Sie wollen all
 
 Hier schreiben Sie auch, es ist üblich, u = \partial\varphi/\partial x und w = ... zu schreiben. Das ist eigentlich wieder am falschen Ort im logischen Aufbau. Es gehört auf die Seite 485, wo Sie erklären, dass \vec{v} der Gradient von \varphi ist. Da \vec{v} -> u + iw ist, leitet man daraus ab, dass u = \partial\varphi/\partial x und w = \partial\varphi/\partial y sein muss. D.h. Sie haben gelogen! Es ist gar keine Konvention, sondern eine Folge der Konvention v = u + iw!
 
-8. 16.4.1 Bernoulli
 
-In diesem Abschnitt tauchen wieder viele Symbole auf, die noch nirgends erklärt sind. \varrho könnten Sie in 16.2.2 unterbringen. h(z) ebenfalls: "Manchmal wird die vertikale Koordinate y auch mit h(z) bezeichnet, weil sie zum Beispiel die Höhe eines fliegenden Flugzeugs darstellt."
-
-Wo auch immer Sie diese Definitionen platzieren, am Ende von 16.4.1 muss dem Leser klar sein, was jedes Symbol bedeutet. Für p(z) und p_\infty ist es dabei durchaus sinnvoll, diese erst hier zu erklären. Der Druck spielt ja hier erstmals eine Rolle. Vorher brauchten Sie den nicht. Die Dichte wäre aber schon früher wichtig, Sie möchten ja erklären, dass diese sich nicht ändert, weil das Fluid inkompressibel ist.
-
-9. 16.4.3 Dieser Abschnitt endet etwas abrupt. Hier haben Sie erstmals eine Formel für F', und diese Formel hat eine besondere Eigenschaft: die rechte Seite ist imaginär. Dies bedeutet, dass es keine Längskraft F_x gibt, also keinen Widerstand. Dies offenbart die Einschränkung des Modells noch bevor Sie überhaupt F_y zu berechnen beginnen. Hier sollten Sie dem Leser sagen, dass das Modell also den Widerstand nicht berechnen kann, aber eine Aussage zum Auftrieb machen kann.
-
-11. p. 491: zum riemannschen Abbildungssatz. Ihre Formulierung klingt so, als wäre der riemannsche Abbildungssatz eine wahnsinnige Einschränkung. Das ist aber nicht so. Der Satz sagt ja genau das Gegenteil: Jedes einfach zusammenhängende Gebiet kann abgebildet werden! Einzige Bedingung: es muss einfach zusammenhängend sein. Das Flügelprofil darf also nur aus einem Teil bestehen. Die Ju-52 zB hat hinter dem eigentlichen Flügel einen kleinen Hilfsflügel, der den Auftrieb nochmals vergrössert. Das Profil besteht in diesem Fall also aus zwei Teilen, so etwas ist nicht erlaubt.
-
-14. p. 495: In diesem Abschnitt folgen sich mehrere \begin{proof} ... \end{proof} aufeinander. Dabei wird mir nicht mehr klar, welche Aussage jetzt eigentlich bewiesen werden soll. Wenn ich richtig verstanden habe, ist der Beweis, der Auf Seite 495 beginnt, nur für das Integral einer Potenz von e^{ikt} zuständig. Dann sollten Sie diese Aussage auch entsprechend klar machen. Zum Beispiel als Lemma:
+14. p. 495: In diesem Abschnitt folgen sich mehrere \begin{proof} ... \end{proof} aufeinander.
+Dabei wird mir nicht mehr klar, welche Aussage jetzt eigentlich bewiesen werden soll. Wenn ich richtig verstanden habe, ist der Beweis, der Auf Seite 495 beginnt, nur für das Integral einer Potenz von e^{ikt} zuständig. Dann sollten Sie diese Aussage auch entsprechend klar machen. Zum Beispiel als Lemma:
 
 \begin{lemma}
 \label{joukowski:lemma:inteikt}
