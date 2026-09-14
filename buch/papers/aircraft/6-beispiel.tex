@@ -15,7 +15,7 @@ Eigenwerte und Eigenvektoren.
 Nach Abschnitt~\ref{aircraft:section:5-interpretation} lassen sich
 Stabilität und Abklingzeit an den Eigenwerten ablesen.
 Der Vergleich zeigt, wie sich zwei Konstruktionen in ihren Eigenwerten
-unterscheiden, und damit in ihrer Stabilität.
+unterscheiden und damit in ihrer Stabilität.
 
 \subsection{Das Propellerflugzeug
 \label{aircraft:section:6-propellerflugzeug}}
@@ -50,7 +50,7 @@ Gleichung~\eqref{aircraft:eqn:halbwertszeit},
 Sie stimmen bis auf Rundungsunterschiede in den Derivativen mit den von
 Nelson~\cite[Beispiel 5.3]{aircraft:nelson} angegebenen Werten überein.
 Zwei Eigenwerte sind reell, zwei bilden ein komplexes Paar.
-Nach Abschnitt~\ref{aircraft:section:5-eigenvektoren} besteht die
+Nach Abschnitt~\ref{aircraft:subsection:eigenwertpaar} besteht die
 Seitenbewegung dieses Flugzeugs also aus zwei Eigenbewegungen ohne Schwingung
 und einer Schwingung.
 
@@ -71,16 +71,14 @@ Spiralbewegung.
 Beim Paar $\lambda_{3,4}$ sind alle vier Komponenten von derselben
 Grössenordnung.
 Damit ist diese Eigenbewegung gekoppelt im Sinne von
-Abschnitt~\ref{aircraft:section:system}, das ist die Dutch Roll.
+Abschnitt~\ref{aircraft:subsection:systemmatrix}, das ist die Dutch Roll.
 Die drei Eigenbewegungen sind genau die drei Bewegungsformen aus
 Abschnitt~\ref{aircraft:section:1-grundbegriffe}.
 
 Mit der Zuordnung lassen sich die Halbwertszeiten aus
 Gleichung~\eqref{aircraft:eqn:eigenwerte-ga} deuten.
 Die Rollbewegung ist nach einer Zehntelsekunde auf die Hälfte abgeklungen.
-Die Spiralbewegung braucht dafür über eine Minute und verläuft nach
-Nelson~\cite[Abschnitt 5.1]{aircraft:nelson} so allmählich, dass der Pilot
-sie nicht bewusst wahrnimmt.
+Die Spiralbewegung braucht dafür über eine Minute.
 Die Dutch Roll ist nach etwa einer halben Periode auf die Hälfte abgeklungen.
 Alle vier Realteile sind negativ.
 Die Seitenbewegung dieses Flugzeugs ist nach
@@ -111,7 +109,7 @@ schnell.
 \end{table}
 
 \subsection{Der Business Jet
-\label{aircraft:section:6-businessjet}}
+\label{aircraft:subsection:businessjet}}
 Für den Business Jet gibt
 Stengel~\cite[Lecture 20, Supplemental Material]{aircraft:stengel} die
 Systemmatrix an, mit den Zustandsgrössen in der Reihenfolge $r$, $\beta$,
@@ -154,11 +152,22 @@ Die negative Halbwertszeit ist nach
 Abschnitt~\ref{aircraft:section:5-interpretation} eine Verdoppelungszeit
 von $78$\,s.
 Eine Störung braucht über eine Minute, um sich zu verdoppeln.
-Nelson~\cite[Tabelle 5.4]{aircraft:nelson} verlangt für gute
-Flugeigenschaften eine Verdoppelungszeit von mindestens $20$\,s, ein
-Pilot korrigiert diese Spiralbewegung also nebenbei.
+Nach Nelson~\cite[Abschnitt 5.1]{aircraft:nelson} verläuft die
+Spiralbewegung so allmählich, dass der Pilot sie unbewusst korrigiert.
 Damit ist die Aussage aus Abschnitt~\ref{aircraft:section:1-grundbegriffe}
 bestätigt, dass die Spiralbewegung leicht korrigierbar ist.
+Diese Korrektur setzt voraus, dass der Pilot die Lageänderung gegenüber dem
+Horizont feststellt.
+Im \emph{Instrumentenflug} (instrument flight) mit wenig oder keiner
+Sichtreferenz kann der Pilot den Rollwinkel nur anhand der
+Instrumentenanzeige erkennen.
+Bleibt der Rollwinkel unbemerkt, so wächst er weiter, und das
+Flugzeug dreht in eine immer engere Kurve.
+Dabei senkt sich die Nase, und die Geschwindigkeit nimmt im Sinkflug
+rasch zu.
+Diese Bewegung heisst \emph{Spiralsturz} (spiral dive).
+Greift der Pilot nicht ein, so kann das Überschreiten der strukturellen
+Betriebsgrenzen des Flugzeugs oder die Kollision mit dem Gelände die Folge sein.
 Die Dutch Roll ist stabil, braucht aber mehr als eine Periode, bis sie auf
 die Hälfte abgeklungen ist, beim Propellerflugzeug reicht dafür eine halbe
 Periode.
@@ -184,7 +193,7 @@ Periode.
 \end{table}
 
 \subsection{Vergleich
-\label{aircraft:section:6-vergleich}}
+\label{aircraft:subsection:vergleich}}
 Die Tabelle~\ref{aircraft:table:vergleich} stellt Dämpfung, Frequenz,
 Periode und Halbwertszeit der drei Bewegungsformen beider Flugzeuge
 gegenüber.
@@ -212,18 +221,18 @@ vollständig aus der Lage der Eigenwerte ablesen.
         & $\sigma$ & $\omega$ & $T$ [s] & $t_{1/2}$ [s] \\
         \hline
         Propellerflugzeug & Rollbewegung
-        & $-8.433$           & --      & --    & $0.08$ \\
+        & $-8.433\phantom{00}$           & --      & --    & $0.08$ \\
         & Spiralbewegung
-        & $-0.00891$         & --      & --    & $78$   \\
+        & $-0.00891$         & --      & --    & $78\phantom{.00}$   \\
         & Dutch Roll
-        & $-0.486$           & $2.334$ & $2.7$ & $1.4$  \\
+        & $-0.486\phantom{00}$           & $2.334$ & $2.7$ & $1.4\phantom{0}$  \\
         \hline
         Business Jet      & Rollbewegung
-        & $-1.203$           & --      & --    & $0.6$  \\
+        & $-1.203\phantom{00}$           & --      & --    & $0.6\phantom{0}$  \\
         & Spiralbewegung
-        & $+0.00883$         & --      & --    & $-78$  \\
+        & $+0.00883$         & --      & --    & $-78\phantom{.00}$  \\
         & Dutch Roll
-        & $-0.116$           & $1.390$ & $4.5$ & $6.0$  \\
+        & $-0.116\phantom{00}$           & $1.390$ & $4.5$ & $6.0\phantom{0}$  \\
         \hline
     \end{tabular}
     \caption{Dämpfung, Frequenz, Periode und Halbwertszeit der drei

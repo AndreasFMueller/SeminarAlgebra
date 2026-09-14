@@ -49,14 +49,14 @@ Diese Fälle liegen ausserhalb des Modells.
 Liefert die Geometrie nicht genügend Dämpfung, so wird die Dämpfung künstlich
 erzeugt.
 Ein \emph{Gierdämpfer} (yaw damper) ist ein automatisches System, das die
-Gierrate $r$ misst und das Seitenruder proportional dazu ausschlägt, so dass
+Gierrate $r$ misst und das Seitenruder proportional dazu betätigt, so dass
 das Ruder der Drehung entgegenwirkt \cite{aircraft:nelson}.
 Das zusätzliche Giermoment ist proportional zu $r$ und wirkt in der
 Systemmatrix wie eine grössere Gierdämpfung $N_r$.
 Nach Abschnitt~\ref{aircraft:section:fluegel} verschiebt ein grösserer Betrag
 von $N_r$ das Eigenwertpaar der Dutch Roll nach links.
-In der Sprache von Abschnitt~\ref{aircraft:subsection:realteil} wird der
-Realteil $\sigma$ kleiner, und die Störung klingt schneller ab.
+In der Sprache von Abschnitt~\ref{aircraft:subsection:realteil-imaginaerteil}
+wird der Realteil $\sigma$ kleiner, und die Störung klingt schneller ab.
 Diese Rückkopplung einer gemessenen Grösse auf ein Ruder heisst
 \emph{Stabilitätsaugmentation} (stability augmentation) und verändert die
 Einträge der Systemmatrix durch Regelung \cite{aircraft:nelson}.
@@ -67,8 +67,7 @@ und der Konstrukteur berechnet deshalb die Eigenwerte der ungeregelten und der
 geregelten Systemmatrix.
 
 Bei Kampfflugzeugen wird die Stabilität zugunsten der Wendigkeit meist
-deutlich reduziert.
-\cite{aircraft:sadraey}.
+deutlich reduziert \cite{aircraft:sadraey}.
 Für ein solches Flugzeug ist die Stabilitätsaugmentation keine Verbesserung,
 sondern die Bedingung dafür, dass es fliegbar ist.
 Ein \emph{automatisches Flugregelsystem} (automatic flight control system)
