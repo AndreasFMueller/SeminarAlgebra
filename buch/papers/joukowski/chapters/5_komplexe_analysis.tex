@@ -24,9 +24,10 @@ Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overl
 	\label{joukowski:komplexe-analysis:original-laurent-reihe}
 \end{equation}
 Dieser Reihenausdruck hilft uns weitere Flügelprofile zu analysieren.
-Wichtig anzumerken ist, dass wir nicht beliebige Flügelprofile mit diesem Prinzip beschreiben können.
-Die Auftriebskraft kann nur für Flügelprofile welche den riemannschen Abbildungssatz~\ref{buch:holomorph:riemann:satz:riemann} erfüllen,
-mithilfe dieser Reihenentwicklung berechnet werden.
+Wichtig anzumerken ist, dass dieses Prinzip nur für einfach zusammenhängende Flügelprofile anwendbar ist.
+Das heisst der Flügel darf nicht aus mehreren, voneinander getrennten Teilen bestehen.
+Dies ist Inhalt des sogenannten riemannschen Abbildungssatzes~\ref{buch:holomorph:riemann:satz:riemann}.
+\input{papers/joukowski/fig/04_komplexe_analysis/fig-ju_52.tex}
 
 Da $\overline{v(z)}$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
@@ -407,13 +408,8 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	\end{align}
 	auf.
 	
-	Die Auswertung des Integrals erfolgt sehr schnell, weil
-	\[
-	\frac{1}{e^{k \cdot i t}}
-	=
-	e^{-k \cdot i t}
-	\]
-	periodisch ist, ist daher
+	Die Auswertung des Integrals erfolgt sehr schnell, 
+	weil wegen Lemma~\ref{joukowski:lemma:inteikt}
 	\begin{equation}
 		\displaystyle\int_{0}^{2\pi}
 		\frac{1}{e^{k \cdot i t}}
@@ -425,8 +421,22 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		k \neq 0.
 		\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
 	\end{equation}
+	gilt
 	Damit ist der Satz~\ref{joukowski:komplexe-analysis:satz:Lambda} bewiesen.
 \end{proof}
+
+\begin{lemma}
+	\label{joukowski:lemma:inteikt}
+	Für alle ganzen Zahlen $k\in\mathbb{Z}$ gilt
+	\[
+	\int_0^{2\pi} e^{ikt}\,dt
+	=
+	\begin{cases}
+		0 & \qquad\text{für $k\ne 0$} \\
+		2\pi&\qquad\text{für $k=0$}
+	\end{cases}
+	\]
+\end{lemma}
 
 \begin{proof}
 	\label{joukowski:komplexe-analysis:proof:integral-e-hoch-kit}
