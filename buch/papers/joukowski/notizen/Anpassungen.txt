@@ -1,0 +1,41 @@
+2. In 16.2.2 legen Sie die Grundlage, für die ganze folgende mathematische Diskussion. Im Moment beschränken Sie sich darauf, das komplexe Koordinatensystem einzuführen. Warum nicht auch Vektoren? \vec{a} als a_x + i a_y schreiben. Die Geschwindigkeit wäre besonders wichtig, Sie könnten hier schon die Konvention v(z) = u + iw einführen, damit Sie das später nicht mehr tun müssen, wenn Sie dann die konjugiert komplexe Geschwindigkeit diskutieren. u und w haben auch eine konkrete Bedeuttung: u ist die Längskomponente, w die Querkomponente (Frau Märklin würde in ihrem Paper bei w\ne 0 von "Schieben" (horizontal) oder vom Anstellwinkel sprechen).
+
+Sie könnten hier sogar den Zweck dieser Darstellung ankündigen: Sie wollen alles komplex schreiben, um die Werkzeuge der komplexen Funktionentheorie für die weiteren Rechnungen verfügbar zu machen. v(z) beschreiben.
+
+3. In 16.3.1 sprechen Sie von _der_ Potentialfunktion, ohne sie vorher eingeführt zu haben. Was Sie sagen wollen, ist dass man aus der allgemeinen Theorie ableiten kann, dass \vec{v} = als Gradient _einer_ sogenannten Potentialfunktion geschrieben werden kann. Eigentlich ist die Folgerung umgekehrt: aus \div v = 0 folgt in der Ebene, dass es \varphi gibt mit v = \grad\varphi. Das dürften Sie in FuVar auch so gelernt haben.
+
+
+7. p. 488: Mitte der Seite ist der Satz verunglückt. 
+
+Hier schreiben Sie auch, es ist üblich, u = \partial\varphi/\partial x und w = ... zu schreiben. Das ist eigentlich wieder am falschen Ort im logischen Aufbau. Es gehört auf die Seite 485, wo Sie erklären, dass \vec{v} der Gradient von \varphi ist. Da \vec{v} -> u + iw ist, leitet man daraus ab, dass u = \partial\varphi/\partial x und w = \partial\varphi/\partial y sein muss. D.h. Sie haben gelogen! Es ist gar keine Konvention, sondern eine Folge der Konvention v = u + iw!
+
+
+14. p. 495: In diesem Abschnitt folgen sich mehrere \begin{proof} ... \end{proof} aufeinander.
+Dabei wird mir nicht mehr klar, welche Aussage jetzt eigentlich bewiesen werden soll. Wenn ich richtig verstanden habe, ist der Beweis, der Auf Seite 495 beginnt, nur für das Integral einer Potenz von e^{ikt} zuständig. Dann sollten Sie diese Aussage auch entsprechend klar machen. Zum Beispiel als Lemma:
+
+\begin{lemma}
+\label{joukowski:lemma:inteikt}
+Für alle ganzen Zahlen $k\in\mathbb{Z}$ gilt
+\[
+\int_0^{2\pi} e^{ikt}\,dt
+=
+\begin{cases}
+0 & \qquad\text{für $k\ne 0$} \\
+2\pi&\qquad\text{für $k=0$}
+\end{cases}
+\]
+\end{lemma}
+
+Der Beweis steht dann unmittelbar danach.
+
+Und im vorangegenen Beweis bei (16.17) müssten Sie sagen "... wegen Lemma~\ref{joukowski:lemma:inteikt} gilt..."
+
+Wichtig: Immer wenn Sie einen Beweis beginnen, muss dem Leser klar sein, was Sie jetzt beweisen. Sie können das machen, indem Sie das Statement als Satz oder Lemma formulieren, oder indem sie es im proof-Environment erwähnen: \begin{proof}[Beweis von Formel (x.y)]...\end{proof}. Dann setzt TeX nicht einfach nur "Beweis:", sondern "Beweis von Formel (x,y):"
+
+14. p. 497: Bei der Motivation des Magnus-Effekt: ein Bild von so einem Flettner-Rotorschiff sagt mehr als 1000 Worte. Google findet so ein Bild ganz leicht für Sie.
+
+15. p. 499: Am Ende sprechen Sie etwas unbestimmt von einer "Asymmetrie". Ich denke, Sie können das viel eindeutiger sagen: Die Strömung zeigt, dass die Geschwindigkeit ändert. Das ist nur möglich, wenn eine Kraft auf das Fluid wirkt. Nach actio=reactio (Newton), muss das Fluid daher auch eine Kraft auf das Profil ausüben, diese Kraft ist der Auftrieb.
+
+16. Sie haben ja nicht alles in diesem Paper slebst erfunden, also sollten Sie noch auf eine paar Quellen verweisen, die Sie zu diesem Zweck im references.bib eintragen müssten.
+
+
