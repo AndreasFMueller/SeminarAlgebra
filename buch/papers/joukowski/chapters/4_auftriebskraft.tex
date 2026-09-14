@@ -7,8 +7,8 @@
 
 	Sowohl beim statischen als auch beim dynamischen Auftrieb ist die Wirkung identisch: Die ungleiche Druckverteilung im Raum erzeugt eine resultierende Kraftkomponente.
 
-\subsection{Bernoulli}
-	Um den Druckgradienten zu bestimmen muss bekannt sein wie sich der Druck im Raum verhält. Dies kann mit der Bernoulli Gleichung
+\subsection{Das Bernoulli-Prinzip}
+	Um den Druckgradienten zu bestimmen, muss bekannt sein, wie sich der Druck im Raum verhält. Dies kann mit der Bernoulli-Gleichung
 	
 	\[
 		%\label{joukowski:Auftriebskarft:Bernoulli}
@@ -67,7 +67,8 @@
 	\[
 		dF'
 		=
-		i \cdot p(z) dz,
+		i \cdot p(z)
+		\, dz,
 	\]
 	wobei jetzt Gleichung~\eqref{joukowski:auftriebskraft:Integral-aus-dF} als
 	\begin{equation}
@@ -113,4 +114,7 @@
 		\displaystyle\oint_{\gamma}
 		|v(z)|^2 \, dz.
 	\end{align}
-
+	Dieser Zwischenschritt hat eine besondere Eigenschaft.
+	Die rechte Seite dieses Ausdrucks enthält keinen Realteil, das bedeutet, dass es keine Kraftkomponente $F'_x$ hat.
+	
+	

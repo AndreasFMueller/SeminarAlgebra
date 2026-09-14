@@ -11,7 +11,7 @@ da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzielt werden kann.
 
 Wie in Abschnitt~\ref{joukowski:sec:stroemungslinien} beschrieben,
-können wir die komplex konjugierte Geschwindigkeit mittels eines einfachen Ausdrucks beschreiben.
+können wir die komplex konjugierte Geschwindigkeit für die Umströmung eines Kreises mittels eines einfachen Ausdrucks beschreiben.
 Für eine allgemeine Form eines Flügelprofils kann diese Formel jedoch beliebig kompliziert werden.
 Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ mittels einer Laurent-Reihe der Form
 
@@ -90,7 +90,6 @@ müssen wir noch den Zusammenhang zwischen
 \]
 beschreiben.
 Wir können ausnutzen, dass
-
 \[
 	|v(z)|^2
 	=
@@ -199,7 +198,6 @@ wobei wir den Zusammenhang~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen
 erhalten.
 
 \subsection{Berechnung der Kraft}
-
 Wir setzen die Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe}
 in die Gleichung~\eqref{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat} ein
 und multiplizieren gleich aus.
@@ -230,8 +228,8 @@ Dabei erhalten wir
 	\, dz 
 	\label{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty}
 	\\
-	\intertext{entsteht.}
-	\intertext{Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
+	\intertext{entsteht.
+	Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
 	erweitern. 
 	Dies lässt uns die Gleichung~\eqref{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty} als}
 	\overline{F}'
@@ -248,8 +246,8 @@ Dabei erhalten wir
 	\, dz 
 	\notag
 	\\
-	\intertext{schreiben.}
-	\intertext{Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
+	\intertext{schreiben.
+	Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
 	Nachdem der konstante Faktor $2 v_\infty$ vor das erste Integral genommen wird, kann jetzt}
 	\overline{F}'
 	&= 
@@ -277,8 +275,8 @@ Dabei erhalten wir
 	\, dz 
 	\notag
 	\\
-	\intertext{umgeschrieben werden.}
-	\intertext{Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
+	\intertext{umgeschrieben werden.
+	Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
 	und es entsteht}
 	\overline{F}'
 	&= 
@@ -509,7 +507,7 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 \begin{proof}
 	\label{joukowski:komplexe-analysis:proof:zirkulation}
 	Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
-	Auch da wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
+	Auch hier wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
 	Für die Funtion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
 	Somit wird aus dem Integral
 	\[
