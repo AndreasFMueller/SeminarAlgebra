@@ -20,8 +20,8 @@
 \usetikzlibrary{math}
 \geometry{papersize={417mm,278mm},total={417mm,278mm},top=72.27pt, bottom=0pt, left=72.27pt, right=0pt}
 \newboolean{guidelines}
-\setboolean{guidelines}{true}
 \setboolean{guidelines}{false}
+\setboolean{guidelines}{true}
 \newboolean{teilnehmer}
 \setboolean{teilnehmer}{false}
 \setboolean{teilnehmer}{true}
@@ -30,7 +30,7 @@
 \begin{tikzpicture}[>=latex, scale=1]
 \tikzmath{
 	real \ruecken, \einschlag, \gelenk, \breite, \hoehe;
-	\ruecken = 3.0;
+	\ruecken = 4.6;
 	\einschlag = 1.6;
 	\gelenk = 0.8;
 	\breite = 16.7;
@@ -67,7 +67,7 @@
 
 \begin{scope}
 %\clip (D) -- (E) -- (F) -- (G) -- (H) -- cycle;
-\node at ({0.55*\bogenbreite},14.4)
+\node at ({0.54*\bogenbreite},14.4)
 	{\includegraphics[width=60cm]{images/farben-transparent.png}};
 \end{scope}
 

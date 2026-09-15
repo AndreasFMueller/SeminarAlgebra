@@ -136,6 +136,9 @@ chapter=julia
 #
 # Kapitel 13 jordan
 chapter=jordan
+2
+4
+5
 #
 # Kapitel 14 qa
 chapter=qa
@@ -144,9 +147,22 @@ chapter=qa
 #
 # Kapitel 15 elektro
 chapter=elektro
+1
+2
+4
+5
+6
+9
+11
+12
+13
+14
+15
 #
 # Kapitel 16 joukowski
 chapter=joukowski
+8
+13
 #
 # Kapitel 17 aircraft
 chapter=aircraft
@@ -229,6 +245,8 @@ chapter=gamma
 #
 # Kapitel 28 bessel
 chapter=bessel
+8
+13
 #
 # Kapitel 29 hankel
 chapter=hankel
