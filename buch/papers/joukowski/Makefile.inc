@@ -8,8 +8,8 @@ dependencies-joukowski =						\
 	papers/joukowski/main.tex					\
 	papers/joukowski/chapters/1_einleitung.tex			\
 	papers/joukowski/chapters/2_voraussetzungen.tex			\
-	papers/joukowski/chapters/3_auftriebskraft.tex			\
-	papers/joukowski/chapters/4_stroemungslinien.tex		\
+	papers/joukowski/chapters/3_stroemungslinien.tex		\
+	papers/joukowski/chapters/4_auftriebskraft.tex			\
 	papers/joukowski/chapters/5_komplexe_analysis.tex		\
 	papers/joukowski/chapters/6_anwendungen.tex			\
 	papers/joukowski/chapters/7_beispiel.tex			\
