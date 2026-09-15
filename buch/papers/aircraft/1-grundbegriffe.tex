@@ -52,6 +52,9 @@ Die Abbildung~\ref{aircraft:fig:achsen} zeigt die drei Achsen mit den
 zugehörigen Drehbewegungen.
 Das \emph{Nicken} (pitch) ist die Drehbewegung um die Querachse, das
 \emph{Rollen} (roll) die Drehbewegung um die Längsachse und das \emph{Gieren}
+\index{Rollen}%
+\index{Gieren}%
+\index{Nicken}%
 (yaw) die Drehbewegung um die Hochachse.
 \input{papers/aircraft/fig/fig-achsen}
 Als Ruhelage betrachten wir den getrimmten Geradeausflug:
@@ -76,6 +79,7 @@ Flugzeug gebaut ist, und damit zu spät für den Entwurf.
 Wir müssen die Bewegung nach einer Störung bereits vorher berechnen können.
 Welche Grössen diese Bewegung beschreiben, zeigt sich an einem Phänomen,
 bei dem sich die Drehbewegungen gegenseitig beeinflussen: der Dutch Roll.
+\index{Dutch Roll}%
 
 \subsection{Die Dutch Roll
 \label{aircraft:subsection:dutchroll}}
@@ -112,12 +116,18 @@ Wie intensiv eine Dutch Roll ausfallen kann, zeigt die Aufnahme
 
 Die Dutch Roll ist eine von drei Bewegungsformen, mit denen ein
 Flugzeug auf eine Störung der \emph{Seitenbewegung} (lateral motion) antwortet.
+\index{lateral motion}%
 Die Seitenbewegung umfasst das Gieren, das Schieben und das Rollen.
 Die \emph{Rollbewegung} (roll mode) ist eine Drehung um die Längsachse.
+\index{Rollbewegung}%
+\index{roll mode}%
 Der absinkende Flügel erzeugt dabei mehr Auftrieb als der steigende und bremst
 die Drehung.
 Bei gewöhnlichen Anstellwinkeln klingt die Rollbewegung deshalb rasch ab.
-Die \emph{Spiralbewegung} (spiral mode) verläuft ohne Schwingung.
+
+Auch die \emph{Spiralbewegung} (spiral mode) verläuft ohne Schwingung.
+\index{Spiralbewegung}%
+\index{spiral mode}%
 Das Flugzeug neigt sich langsam zur Seite, die Nase dreht in die Kurve, und der
 Rollwinkel wächst weiter.
 Ob die Spiralbewegung abklingt oder anwächst, hängt von der Konstruktion ab.
@@ -129,4 +139,4 @@ Im Folgenden untersuchen wir deshalb die Dutch Roll.
 
 Ob die Schwingung abklingt und wie schnell, lässt sich am Schwingungsmuster
 nicht direkt ablesen.
-Dafür brauchen wir Grössen, die die Bewegung beschreiben.
+Dafür brauchen wir mess- und berechenbare Grössen, die die Bewegung beschreiben.

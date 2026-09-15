@@ -61,22 +61,28 @@ Satz~\ref{buch:holomorph:holomorph:satz:eulerformel} ein und erhalten
     \label{aircraft:eqn:euler}
 \end{equation}
 Der Realteil $\sigma$ heisst \emph{Dämpfung} (damping),
+\index{Dampfung@Dämpfung}%
 der Imaginärteil $\omega$ \emph{Frequenz} (frequency).
+\index{Frequenz}%
 Die Abbildung~\ref{aircraft:fig:eigenwerte} zeigt den Verlauf der Lösung für
 die drei Fälle $\sigma < 0$, $\sigma = 0$ und $\sigma > 0$.
 Die gestrichelte Kurve ist die \emph{Hüllkurve} (envelope) $e^{\sigma t}$,
+\index{Hullkurve@Hüllkurve}%
 welche die Schwingung von oben einschliesst.
 Für $\sigma < 0$ fällt die Hüllkurve gegen null.
 Die Schwingung klingt ab, und das Flugzeug kehrt in die Ruhelage zurück.
-Dieser Fall heisst stabil.
+Dieser Fall heisst \emph{stabil}.
+\index{stabil}%
 Für $\sigma = 0$ ist die Hüllkurve konstant.
 Die Schwingung klingt weder ab noch schaukelt sie sich auf, und das Flugzeug
 bleibt in der Nähe der Ruhelage.
 Dieser Fall heisst \emph{indifferent}.
+\index{indifferent}%
 Für $\sigma > 0$ wächst die Hüllkurve.
 Die Schwingung schaukelt sich auf, und das Flugzeug entfernt sich
 von der Ruhelage.
-Dieser Fall heisst instabil.
+Dieser Fall heisst \emph{instabil}.
+\index{instabil}%
 Der Name Dämpfung gilt also mit Vorzeichen.
 Im instabilen Fall spricht man von negativer Dämpfung.
 Die Stabilität nach Abschnitt~\ref{aircraft:section:3-mathematische-stabilitaet}
@@ -90,8 +96,10 @@ Das Vorzeichen des Realteils entscheidet also über die Stabilität.
 Zwei Zeiten charakterisieren die Schwingung, die Periode $T$ und die
 Halbwertszeit $t_{1/2}$.
 Die \emph{Periode} (period) ist die Dauer einer vollen Schwingung.
+\index{Periode}%
 Aus $\omega T = 2\pi$ folgt $T = 2\pi/\omega$.
 Die \emph{Halbwertszeit} (time to half amplitude) ist die Zeit, nach der die
+\index{Halbwertszeit}%
 Hüllkurve $e^{\sigma t}$ auf die Hälfte gefallen ist.
 Aus $e^{\sigma t_{1/2}} = \frac{1}{2}$ folgt
 \begin{equation}
@@ -107,6 +115,7 @@ die Hälfte, sondern wächst.
 Der Betrag $|t_{1/2}| = \ln 2/\sigma$ ist dann die Zeit, in der die Hüllkurve
 auf das Doppelte anwächst.
 Diese Zeit heisst \emph{Verdoppelungszeit} (time to double amplitude).
+\index{Verdoppelungszeit}%
 Je grösser die Verdoppelungszeit ist, desto schwächer ist die Instabilität.
 Entsprechend ist die Stabilität umso schwächer, je grösser die Halbwertszeit
 ist.
@@ -133,7 +142,7 @@ Sie klingt genau dann ab, wenn $\sigma < 0$ ist.
 \subsection{Die Eigenvektoren
 \label{aircraft:section:5-eigenvektoren}}
 Bisher haben wir nur die Eigenwerte gedeutet.
-Die Lösung \eqref{aircraft:eqn:exponentialansatz} enthält aber auch den
+Die Lösung \eqref{aircraft:eqn:ansatz} enthält aber auch den
 Eigenvektor $\vec x_0$.
 Der Eigenvektor ist ein Zustand, der sich unter dem Bewegungsgesetz nur um
 den Faktor $e^{\lambda t}$ verändert.
@@ -141,8 +150,9 @@ Die Verhältnisse seiner vier Komponenten bleiben also erhalten.
 Die Komponenten geben deshalb an, mit welcher Amplitude der Schiebewinkel, die
 Rollrate, die Gierrate und der Rollwinkel an der Lösung beteiligt sind.
 Eine Lösung $\vec x_0 e^{\lambda t}$ heisst \emph{Eigenbewegung} (mode).
+\index{Eigenbewegung}%
 Bei einem komplexen Eigenwert $\lambda$ hat die Gleichung
-\eqref{aircraft:eqn:eigenwertgleichung-homogen} komplexe Koeffizienten, und der
+\eqref{aircraft:eqn:eigenwertgleichung} komplexe Koeffizienten, und der
 Eigenvektor ist deshalb ebenfalls komplex.
 Für den Vergleich der Komponenten verwenden wir dann ihre Beträge.
 
@@ -152,6 +162,6 @@ Ist eine Komponente von $\vec x_0$ gross und sind die übrigen klein, so
 betrifft die Eigenbewegung fast nur eine Zustandsgrösse.
 Sind alle Komponenten von vergleichbarer Grösse, so sind alle Zustandsgrössen
 beteiligt, und die Eigenbewegung ist gekoppelt im Sinne von
-Abschnitt~\ref{aircraft:section:2-dynamisches-system}.
+Abschnitt~\ref{aircraft:subsection:systemmatrix}.
 Wäre die Systemmatrix $A$ eine Diagonalmatrix, so wären die Eigenvektoren die
-Einheitsvektoren, und keine Eigenbewegung wäre gekoppelt.
+Standardbasisvektoren, und keine Eigenbewegung wäre gekoppelt.
