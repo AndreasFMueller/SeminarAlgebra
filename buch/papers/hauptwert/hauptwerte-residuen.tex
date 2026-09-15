@@ -81,7 +81,7 @@ folgt für jedes $R > 1$
 \end{equation}
 
 
-\subsection{Satz vom kleinen Kreisbogen
+\subsection{Lemma vom kleinen Kreisbogen
 \label{hauptwert:subsection:halbresiduen}}
 \input{papers/hauptwert/fig/halbkreiskontur.tex}
 Man betrachte ein Integral von einer beliebigen reellen Funktion mit einer
@@ -148,6 +148,19 @@ Zusammen folgt die Behauptung.
 \label{hauptwert:subsection:jordan}}
 \input{papers/hauptwert/fig/jordan-ungleichung.tex}
 
+Bei grösser werdendem $R$ wird auch der Bogen $C_R$ immer länger, seine Länge
+ist $\pi R$.
+Ein Integrand, der nur mit $1/|z|$ kleiner wird, reicht deshalb nicht aus, er
+muss schneller schrumpfen, damit das Integral über $C_R$ verschwindet.
+
+Genau das macht das Lemma von Jordan überraschend.
+Trägt der Integrand zusätzlich den Faktor $e^{iaz}$, dann genügt bereits,
+dass $f$ überhaupt gegen $0$ geht, wie schnell spielt keine Rolle.
+Den Rest übernimmt die Dämpfung durch $|e^{iaz}| = e^{-aR\sin\theta}$, die in
+der oberen Halbebene wirkt.
+Die Bedingung ist insbesondere für rationale Funktionen der Form
+$\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
+
 \begin{lemma}
 \label{hauptwert:lemma:jordan}
 Sei $a > 0$ und $C_R$ ein Halbkreis in der oberen Halbebene mit Radius $R$.
@@ -162,9 +175,6 @@ dann ist
   \lim_{R \to \infty} \int_{C_R} f(z) e^{i a z}\,dz = 0.
 \end{equation}
 \end{lemma}
-
-Die Bedingung \eqref{hauptwert:equation:jordanbedingung} ist insbesondere
-für rationale Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
 \begin{proof}
   Der Bogen $C_R$ wird durch
@@ -258,6 +268,7 @@ für rationale Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
 \subsection{Die Halbkreiskontur
 \label{hauptwert:subsection:halbkreiskontur}}
+\input{papers/hauptwert/fig/kontur-allgemein.tex}
 
 Dank der beiden Lemmas kann nun der Residuensatz auf Integrale über die
 reelle Achse angewandt werden.
@@ -273,7 +284,7 @@ Achse werden durch kleine Kreisbogen umgangen
 Damit der Residuensatz funktioniert, muss der Integrand vier Bedingungen
 erfüllen.
 
-\begin{satz}
+\begin{satz}[Hauptwertformel]
 \label{hauptwert:satz:hauptformel}
 Die Funktion $f$ erfülle die folgenden Voraussetzungen:
 \begin{enumerate}
@@ -297,8 +308,216 @@ Dann gilt
 \end{satz}
 
 \begin{proof}
+  Es wird entlang des Weges $\Gamma$ integriert
+  (Abbildung~\ref{hauptwert:figure:kontur-allgemein}). Dieser setzt sich
+  aus verschiedenen Teilen zusammen und wird im positiven Sinn
+  (d.h. im Gegenuhrzeigersinn) durchlaufen. Auf der reellen Achse
+  wird von $-R$ bis $R$ integriert, wobei um jede Polstelle $x_j$
+  das Intervall $[x_j - \varepsilon, x_j + \varepsilon]$ ausgespart und
+  durch den kleinen Halbkreisbogen $C_{\varepsilon,j}$ mit Radius
+  $\varepsilon$ ersetzt wird. $\varepsilon$ wird so klein
+  gewählt, dass keine kleinen Kreisbogen sich mit anderen
+  Polstellen überschneiden.
+  Geschlossen wird der Weg mit dem grossen Halbkreis $C_R$, welcher
+  in der oberen Halbebene von $R$ zurück nach $-R$ verläuft. Der
+  Radius $R$ wird so gross gewählt, dass alle Singularitäten in
+  dieser oberen Halbebene innerhalb von $\Gamma$ liegen.
+  Die Einbuchtungen schliessen die Polstellen $x_1, \dots, x_m$ aus dem
+  umlaufenen Gebiet aus.
+  Innerhalb von $\Gamma$ liegen daher genau die Polstellen
+  $z_1, \dots, z_n$.
+
+  Wäre $f$ im umlaufenen Gebiet überall holomorph, dann wäre das
+  Wegintegral nach
+  Satz~\ref{buch:integration:wegintegral:satz:zusammenziehbar} gleich $0$.
+  Innerhalb von $\Gamma$ liegen aber die Polstellen $z_1, \dots, z_n$, und
+  nach \eqref{buch:analytisch:laurentreihen:residuum:eqn:integralres} wird
+  das Wegintegral allein durch deren Residuen bestimmt,
+  \begin{equation}
+    \oint_{\Gamma} f(z)\,dz
+    =
+    2i\pi \sum_{k=1}^{n} \res(z_k;f).
+    \label{hauptwert:equation:gamma-residuen}
+  \end{equation}
+
+  Derselbe Weg lässt sich andererseits in seine Bestandteile zerlegen.
+  Für die Streckenstücke auf der reellen Achse, aus denen die Intervalle
+  $[x_j-\varepsilon, x_j+\varepsilon]$ ausgespart sind, wird zur Abkürzung
+  \begin{equation}
+    S(\varepsilon, R)
+    =
+    \int_{-R}^{x_1-\varepsilon} f(x)\,dx
+    +
+    \sum_{j=1}^{m-1} \int_{x_j+\varepsilon}^{x_{j+1}-\varepsilon} f(x)\,dx
+    +
+    \int_{x_m+\varepsilon}^{R} f(x)\,dx
+    \label{hauptwert:equation:strecken}
+  \end{equation}
+  geschrieben.
+  Alle Einbuchtungen haben denselben Radius $\varepsilon$ und die äusseren
+  Grenzen sind symmetrisch, $S(\varepsilon,R)$ ist also genau die
+  symmetrische Annäherung aus
+  Definition~\ref{hauptwert:definition:pol}, übertragen auf $m$ Polstellen.
+  Zusammen mit den Einbuchtungen und dem grossen Halbkreis ist
+  \begin{equation}
+    \oint_{\Gamma} f(z)\,dz
+    =
+    S(\varepsilon, R)
+    +
+    \sum_{j=1}^{m} \int_{C_{\varepsilon,j}} f(z)\,dz
+    +
+    \int_{C_R} f(z)\,dz.
+    \label{hauptwert:equation:zerlegung}
+  \end{equation}
+
+  Die drei Summanden werden nun einzeln für $\varepsilon \to 0^+$ und
+  $R \to \infty$ untersucht.
+  Nach der zweiten Voraussetzung hat $f$ in jeder Stelle $x_j$ eine
+  Polstelle erster Ordnung, auf jede Einbuchtung lässt sich also
+  Lemma~\ref{hauptwert:lemma:halbresiduen} anwenden, und zusammen ergeben
+  sie
+  \begin{equation}
+    \lim_{\varepsilon \to 0^+} \sum_{j=1}^{m} \int_{C_{\varepsilon,j}} f(z)\,dz
+    =
+    -i\pi \sum_{j=1}^{m} \res(x_j;f).
+    \label{hauptwert:equation:einbuchtungen}
+  \end{equation}
+  Der grosse Halbkreis hat die Länge $\pi R$, und auf ihm ist $|z| = R$.
+  Mit der vierten Voraussetzung verschwindet sein Beitrag daher,
+  \begin{equation}
+    \biggl| \int_{C_R} f(z)\,dz \biggr|
+    \le
+    \pi R \max_{z \in C_R} |f(z)|
+    =
+    \pi \max_{z \in C_R} |z\,f(z)|
+    \to 0
+    \qquad (R \to \infty).
+    \label{hauptwert:equation:grosserbogen}
+  \end{equation}
+
+  Die linke Seite von \eqref{hauptwert:equation:zerlegung} hängt weder von
+  $\varepsilon$ noch von $R$ ab, und die beiden letzten Summanden besitzen
+  nach \eqref{hauptwert:equation:einbuchtungen} und
+  \eqref{hauptwert:equation:grosserbogen} je einen Grenzwert.
+  Also besitzt auch $S(\varepsilon,R)$ einen Grenzwert, und dieser ist nach
+  Definition~\ref{hauptwert:definition:pol} der Hauptwert
+  $\pv \int_{-\infty}^{\infty} f(x)\,dx$.
+  Der Grenzübergang in \eqref{hauptwert:equation:zerlegung} liefert mit
+  \eqref{hauptwert:equation:gamma-residuen} somit
+  \begin{equation}
+    \begin{aligned}
+      \pv \int_{-\infty}^{\infty} f(x)\,dx
+      - i\pi \sum_{j=1}^{m} \res(x_j;f)
+      &=
+      2i\pi \sum_{k=1}^{n} \res(z_k;f)
+      \\
+      \pv \int_{-\infty}^{\infty} f(x)\,dx
+      &=
+      2i\pi \sum_{k=1}^{n} \res(z_k;f)
+      +
+      i\pi \sum_{j=1}^{m} \res(x_j;f).
+    \end{aligned}
+  \end{equation}
+
+  Jede Einbuchtung hat links und rechts denselben Radius $\varepsilon$, die
+  Kontur nähert sich der Polstelle also von beiden Seiten gleich schnell und
+  erzwingt damit die symmetrische Annäherung.
+  
 \end{proof}
 
 
-\subsection{Ein Warnbeispiel
+\subsection{Ein Warnbeispiel -- Was passiert, wenn die vierte Voraussetzung
+nicht erfüllt ist?
 \label{hauptwert:subsection:warnbeispiel}}
+
+Das Integral
+\begin{equation}
+  \int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx
+\end{equation}
+haben wir in Abschnitt~\ref{hauptwert:subsection:weiteres-beispiel} bereits
+mit dem reellen Hauptwert erfolgreich gelöst.
+Wenn man hier jedoch den komplexen Weg mit der Halbkreiskontur geht,
+entdeckt man, dass die vierte Voraussetzung nicht erfüllt ist.
+Mit $f(z) = \frac{z + 1}{1 + z^2}$ ist
+\begin{equation}
+  |z\,f(z)|
+  =
+  \biggl| \frac{z(z + 1)}{1 + z^2} \biggr|
+  \to
+  1
+  \qquad (|z| \to \infty),
+  \label{hauptwert:equation:warnbeispiel-abfall}
+\end{equation}
+der Integrand fällt also genau wie $1/|z|$ und damit zu langsam.
+
+Die übrigen Voraussetzungen sind dagegen erfüllt.
+Auf der reellen Achse hat $f$ keine Polstelle, und in der oberen Halbebene
+liegt mit $z_1 = i$ genau eine.
+Satz~\ref{hauptwert:satz:hauptformel} ist damit nicht anwendbar, die rechte
+Seite von \eqref{hauptwert:equation:hauptformel} lässt sich aber dennoch
+ausrechnen.
+Das Residuum in $z_1$ ist
+\begin{equation}
+  \res(z_1;f)
+  =
+  \biggl.\frac{z + 1}{(1 + z^2)'}\biggr|_{z = i}
+  =
+  \frac{i + 1}{2i}
+  =
+  \frac{(i + 1)(-i)}{2i \cdot (-i)}
+  =
+  \frac{1 - i}{2},
+  \label{hauptwert:equation:warnbeispiel-residuum}
+\end{equation}
+und die Residuensumme wird damit
+\begin{equation}
+  2i\pi \res(z_1;f)
+  =
+  2i\pi \cdot \frac{1 - i}{2}
+  =
+  i\pi (1 - i)
+  =
+  \pi + i\pi .
+  \label{hauptwert:equation:warnbeispiel-falsch}
+\end{equation}
+
+Diese Zahl ist nicht reell, sie kann also nicht der Hauptwert des Integrals
+einer reellen Funktion sein.
+Der Vergleich mit
+Abschnitt~\ref{hauptwert:subsection:weiteres-beispiel} bestätigt es:
+Dort ergab dasselbe Integral den Wert $\pi$.
+
+Verantwortlich dafür ist der grosse Halbkreis.
+Die Abschätzung \eqref{hauptwert:equation:grosserbogen} aus dem Beweis
+liefert wegen \eqref{hauptwert:equation:warnbeispiel-abfall} nur noch die
+Schranke $\pi$ statt $0$, sein Beitrag muss also nicht mehr verschwinden.
+Wie gross er ist, lässt sich ohne weitere Rechnung ablesen.
+Da $f$ auf der reellen Achse keine Polstelle hat, besteht der geschlossene
+Weg nur aus der Strecke und dem Bogen, und der Residuensatz liefert für
+jedes $R > 1$
+\begin{equation}
+  \int_{-R}^{R} f(x)\,dx
+  +
+  \int_{C_R} f(z)\,dz
+  =
+  \pi + i\pi .
+  \label{hauptwert:equation:warnbeispiel-bilanz}
+\end{equation}
+Das erste Integral geht nach
+Abschnitt~\ref{hauptwert:subsection:weiteres-beispiel} gegen $\pi$, für den
+Bogen bleibt also
+\begin{equation}
+  \lim_{R \to \infty} \int_{C_R} f(z)\,dz
+  =
+  \pi + i\pi - \pi
+  =
+  i\pi
+  \neq
+  0 .
+  \label{hauptwert:equation:warnbeispiel-bogen}
+\end{equation}
+Genau um diesen Term liegt die Residuensumme neben dem Hauptwert.
+
+Gefährlich ist dabei, dass die Rechnung trotz fehlender Voraussetzung zu
+funktionieren scheint:
+Es divergiert nichts, und trotzdem ist das Resultat falsch.

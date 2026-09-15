@@ -8,7 +8,8 @@
 \label{hauptwert:section:reelle-beispiele}}
 \kopfrechts{Reelle Beispiele}
 
-\subsection{Ein weiteres Beispiel in der reellen Analysis}
+\subsection{Ein weiteres Beispiel in der reellen Analysis
+\label{hauptwert:subsection:weiteres-beispiel}}
 \input{papers/hauptwert/fig/nichtungerade.tex}
 Als zweites Beispiel betrachten wir die Funktion $f(x) = \frac{x + 1}{1 + x^2}$
 und deren uneigentliches Integral $\int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx$.
@@ -26,9 +27,12 @@ erhält man
 \end{aligned}
 \end{equation}
 also wieder den unbestimmten Ausdruck $\infty - \infty$.
-Das uneigentliche Integral existiert also nicht.
-Da der Integrand aber wieder ungerade ist, liefert die symmetrische
-Annäherung nach Cauchy den Hauptwert
+Das uneigentliche Integral existiert daher nicht.
+Der Integrand ist zwar nicht ungerade, er zerfällt aber in den ungeraden
+Anteil $\frac{x}{1 + x^2}$, dessen Beiträge sich bei symmetrischer
+Annäherung wegheben, und den geraden Anteil $\frac{1}{1 + x^2}$, dessen
+Integral konvergiert.
+Die symmetrische Annäherung nach Cauchy liefert deshalb den Hauptwert
 \begin{equation}
 \begin{aligned}
   \pv \int_{-\infty}^{\infty} \frac{x + 1}{1 + x^2}\,dx
