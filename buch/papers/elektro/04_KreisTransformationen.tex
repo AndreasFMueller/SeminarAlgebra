@@ -34,38 +34,38 @@ Die Ecken des Polygons werden als $z_1, z_2, ..., z_n$ bezeichnet.
 Und jetzt wird die Funktion $f(w_n) = z_n$ gesucht, welche die $w_n$ auf die $z_n$ abbildet. \textcolor{red}{Laufvariable k oder n ?}
 Die Konstruktion beruht auf den bekannten Innenwinkeln der Ecken des Polygons, die als $\alpha_1, \alpha_2, ..., \alpha_n$ bezeichnet werden, und auf den Seitenlängen des Polygons, $L_k = \vert z_{k+1} - z_k \vert$.
 
-Als erster Schritt in der Berechnung wird nun die Ableitung der Schwarz-Christoffel Formel verwendet, da vorerst nur die Richtungsänderung an den Ecken des Polygons von Bedeutung ist. 
+Als erster Schritt in der Berechnung wird nun die Ableitung der Schwarz-Christoffel Formel verwendet, da vorerst nur die Richtungsänderung an den Ecken des Polygons von Bedeutung ist
 \begin{equation}
-	f'(w) = C \prod_{k=1}^{n} \biggl(1-\frac{w}{w_k}\biggr)^{\alpha_k-1}
+	f'(w) = C \prod_{k=1}^{n} \biggl(1-\frac{w}{w_k}\biggr)^{\alpha_k-1}.
 	\label{elektro:equation:SchwarzChristoffelDerivative}
 \end{equation}
-C ist eine komplexe Konstante, die später bestimmt wird und $\alpha_k$ ist bereits bekannt.
+$C$ ist eine komplexe Konstante, die später bestimmt wird und $\alpha_k$ ist bereits bekannt.
 Daher fehlen nur noch die Prevertices $w_k$.
 Diese werden durch die Seitenlängen des Polygons aufgespürt, da durch die Konformität der Abbildung die Seitenlängen des Polygons erhalten bleiben müssen. 
 Damit ohne den Faktor C vorgegangen werden kann, wird das Verhältnis zweier benachbarter Seiten gebildet.
-Damit entsteht das folgende Gleichungssystem für die Prevertices $w_k$:
+Damit entsteht das folgende Gleichungssystem für die Prevertices $w_k$
 \begin{equation}
-	\frac{L_k}{L_1} = \frac{\bigg\vert \int_{w_k}^{w_{k+1}} \prod_{j=1}^{n}(1-\frac{w}{w_j})^{\alpha_j-1} dw \bigg\vert}{\bigg\vert \int_{w_1}^{w_2} \prod_{j=1}^{n}(1-\frac{w}{w_j})^{\alpha_j-1} dw \bigg\vert}
+	\frac{L_k}{L_1} = \frac{\bigg\vert \int_{w_k}^{w_{k+1}} \prod_{j=1}^{n}(1-\frac{w}{w_j})^{\alpha_j-1} dw \bigg\vert}{\bigg\vert \int_{w_1}^{w_2} \prod_{j=1}^{n}(1-\frac{w}{w_j})^{\alpha_j-1} dw \bigg\vert}.
 	\label{elektro:equation:SchwarzChristoffelPrevertices}
 \end{equation}
 Dieses Gleichungssystem ist nichtlinear, weswegen es immer von einem Computer gelöst wird, indem er die Prevertices solange hin und her schiebt bis die Seitenlängenverhältnisse übereinstimmen.
-
-Die gesamte Abbildung wird durch das Integral aller Teile der Ableitung gebildet, wobei die Integrationsgrenze $w_0$ auf einen beliebigen Punkt des Einheitskreises gesetzt werden kann, da die Abbildung bis auf eine Translation eindeutig ist.
+Die gesamte Abbildung wird durch das Integral aller Teile der Ableitung gebildet
 \begin{equation}
-	f(w) = A + C \int_{w_0}^{w} \prod_{k=1}^{n}(1-\frac{\zeta}{w_k})^{\alpha_k-1} d\zeta
+	f(w) = A + C \int_{w_0}^{w} \prod_{k=1}^{n}(1-\frac{\zeta}{w_k})^{\alpha_k-1} d\zeta,
 	\label{elektro:equation:SchwarzChristoffel}
 \end{equation}
-
+wobei die Integrationsgrenze $w_0$ auf einen beliebigen Punkt des Einheitskreises gesetzt werden kann, da die Abbildung bis auf eine Translation eindeutig ist.
 In diesem Anwendungsfall ist vielleicht aufgefallen, dass immer das Feld ausserhalb des Polygons betrachtet wird, daher muss hier noch die feine Unterscheidung gemacht werden, dass die Aussenwinkel betrachtet werden müssen. 
 Dazu kommt dass die Fläche des Einheitskreises von innen nach aussen gestülpt werden muss, was wie in Abschnitt \ref{elektro:subsection:Kreisspiegelung} beschrieben durch die Kreisspiegelung erreicht wird. 
+In der Gleichung
 \begin{equation}
 	f(w) = A + C \int_{w_0}^{w} \frac{1}{{\zeta}^2}\prod_{k=1}^{n}(1-\frac{\zeta}{w_k})^{-\alpha_k-1} d\zeta
 	\label{elektro:equation:SchwarzChristoffelExterior}
 \end{equation}
-Was bedeuten die dazugekommenen Faktoren in der Gleichung \ref{elektro:equation:SchwarzChristoffelExterior}:
+kommen weitere Faktoren hinzu: \ref{elektro:equation:SchwarzChristoffelExterior}:
 \begin{itemize}
-	\item $\frac{1}{\zeta^2} $ dieser Faktor sorgt dafür dass der Ursprung des Kreises in die Unendlichkeit gefördert wird.
-	\item $-\alpha_k-1$ das Minus vor dem Exponenten sorgt dafür dass die Aussenwinkel des Polygons betrachtet werden.
+	\item $\frac{1}{\zeta^2}$: Dieser Faktor sorgt dafür dass der Ursprung des Kreises nach $\infty$ gefördert wird.
+	\item $-\alpha_k-1$: Das Minus vor dem Exponenten sorgt dafür dass die Aussenwinkel des Polygons betrachtet werden.
 \end{itemize}
 
 Um das Beschriebene zu veranschaulichen sind in Abbildung \ref{elektro:figure:SchwarzChristoffel_erklaerung} die Prevertices $w_n$, die Ecken des Polygons $z_n$ und die Winkel $\alpha_k$ eingezeichnet.
@@ -84,43 +84,43 @@ Um das Beschriebene zu veranschaulichen sind in Abbildung \ref{elektro:figure:Sc
 % \label{papers:elektro:subsection:sc-toolbox}
 
 
-\subsection{Beispiel: Dreiech auf Kreis}
-Ein dreieckige Kontur eines ladungsbehafteten Objektes kann als einfaches beispiel vieler Effekte der Transformation zeigen.
-Mit der Schwarz-Christoffel Transformation kann nun der Einheitskreis so transformiert werden, dass deren Rand die Form unseres Dreiecks annimmt.
-Und damit ein Feld berechnet werden kann das exakt die Form des Dreiecks hat.
-Für die Berechnung der Prevertices und alle anderen Parameter wird das MATLAB Tool benutzt das in Abschnitt \ref{papers:elektro:subsection:sc-toolbox} beschrieben wurde. \textcolor{red}{ist die Beschreibung des Tools überhaupt nötig ?}
-Danach wird die Transformation angewendet und damit kommt das Feld so heraus wie in Abbildung \ref{elektro:figure:SC_triag_trafo} dargestellt, heraus.
+\subsection{Beispiel: Dreieck auf Kreis}
+Ein dreieckige Kontur eines ladungsbehafteten Objektes kann als einfaches Beispiel viele Effekte der Transformation zeigen.
+Mit der Schwarz-Christoffel Transformation kann nun der Einheitskreis so transformiert werden, dass deren Rand die Form unseres Dreiecks annimmt und damit ein Feld berechnet werden kann, das exakt die Form des Dreiecks hat.
+Für die Berechnung der Prevertices und alle anderen Parameter wird das MATLAB-Tool benutzt, das in Abschnitt \ref{papers:elektro:subsection:sc-toolbox} beschrieben wurde. 
+%\textcolor{red}{ist die Beschreibung des Tools überhaupt nötig ?}
+Danach wird die Transformation angewendet, wodurch das Feld so herauskommt wie in Abbildung \ref{elektro:figure:SC_triag_trafo} dargestellt.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{papers/elektro/grafik/SC_trafo_triag.png}
-	\caption{Schwarz-Christoffel transformiertes Polygon auf das innere des Einheitskreises}
+	\caption{Schwarz-Christoffel transformiertes Polygon auf das Innere des Einheitskreises}
 	\label{elektro:figure:SC_triag_trafo}
 \end{figure}
 
-Auf der Abbildung \ref{elektro:figure:SC_triag_trafo} ist zu sehen wie die Feldlinien auf der Oberfläche des Dreiecks senkrecht aufkommen und sich im Raum ausbreiten und dabei auch die Potentiallinen immer senkrecht kreuzen.
-Es sind auch die Prevertices auf dem Einheitskreis eingezeichnet die die Punkte markieren die exakt auf die Ecken des Dreiecks transformiert werden, die Farben zeigen welcher Punkt auf welche Ecke transformiert wird. 
-Dabei fällt auf, dass die Prevertices nicht intuitiv in der selben Richtung wie die Ecken des Dreiecks angeordnet sind, sondern in entgegengesetzten Richtungen. 
-Die ist auf eine Regel zurückzuführen die besagt dass die Fläche die bearbeitet wird, im mathematischen sinne, immer auf der linken Seite der Kurve liegen muss.
-Dies kann so vorgestellt werden: wenn die Laufvariable des Integrals sich auf der Kurve fortbewegt muss die Fläche die bearbeitet wird immer auf der linken Seite liegen.
-Die Verlaufsrichtung wird also immer so gewählt, dass dies Wahr ist.
-Mit einem kleinen Gedanklichen experiment kann nun festgestellt werden dass die Verlaufsrichtung auf dem dreieck im Uhrzeigersinn sein muss und beim Einheitskreis gegen den Uhrzeigersinn.
+In Abbildung \ref{elektro:figure:SC_triag_trafo} ist zu sehen, wie die Feldlinien auf der Oberfläche des Dreiecks senkrecht aufkommen und sich im Raum ausbreiten und dabei auch die Potentiallinen immer senkrecht kreuzen.
+Es sind auch die Prevertices auf dem Einheitskreis eingezeichnet, welche diejenigen Punkte markieren, die exakt auf die Ecken des Dreiecks transformiert werden.
+Die Farben zeigen welcher Punkt auf welche Ecke transformiert wird. 
+Dabei fällt auf, dass die Prevertices nicht intuitiv in derselben Richtung wie die Ecken des Dreiecks angeordnet sind, sondern in entgegengesetzter Richtung. 
+Dies ist auf eine Regel innerhalb von Matlab zurückzuführen, die besagt dass die Fläche die bearbeitet wird, im mathematischen Sinn, immer auf der linken Seite der Kurve liegen muss.
+Wenn die Laufvariable des Integrals sich auf der Kurve fortbewegt, muss die Fläche, die bearbeitet wird, immer auf der linken Seite liegen.
+Mit einem kleinen gedanklichen Experiment kann nun festgestellt werden, dass die Verlaufsrichtung auf dem Dreieck im Uhrzeigersinn sein muss und beim Einheitskreis gegen den Uhrzeigersinn.
 
-
-Als etwas komplexere Geometrie mit Mehreren Ecken darunter auch welche die einen grösseren Innenwinkel als $180^{\circ}$ haben, wird ein Hufeisenförmiges Polygon gezeigt.
+\subsection{Komplexere Geometrie}
+Als etwas komplexere Geometrie mit mehreren Ecken, darunter auch einige, die einen Innenwinkel grösser als $180^{\circ}$ haben, wird ein hufeisenförmiges Polygon gezeigt.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/SC_trafo_huf.png}
-	\caption{Schwarz-Christoffel transformiertes Polygon auf das innere des Einheitskreises}
+	\caption{Schwarz-Christoffel transformiertes Polygon auf das Innere des Einheitskreises}
 	\label{elektro:figure:SC_huf_trafo}
 \end{figure}
 
-In den Beiden bereits besprochenen Beispielen ist das folgende auch schon zu sehen aber hier kommt noch ein etwas anschaulicheres Beispiel, in Abbildung \ref{elektro:figure:SC_star_trafo} sind drei verschiedene Winkel zu finden, die alle eine andere Konzentration an Feldlinen aufweisen die senkrecht dort aufkommen.
-Bei spitzen winkeln ist zu sehen das die Feldlinen näher beieinander sind und bei den stumpferen oder sogar überstumpfen Winkeln ist zu sehen dass die Feldlinen weiter auseinander liegen.
-Dies ist auf die Ladungsverteilung zurückzuführen die sich auf dem Objekt verteilt.
-Bei spitzeren winkeln hat es weniger platz zwischen den beieden Kanten und LAdungsträger drücken die vor ihnen liegenden Ladungsträger näher zusammen, was zu einer höheren Ladungsdichte an den spitzen führt.
-Bei den stumpferen Winkeln ist es genau umgekehrt, dort hat es mehr Platz und die Ladungsträger können sich weiter auseinander verteilen, da dies sowieso das ist was ladungsträger mit gleicher Polarität am liebsten tun. 
-Genau wie die $E$-Feldlinen die sich gegenseitig abstossen und sich so weit wie möglich voneinander entfernen.
+In Abbildung \ref{elektro:figure:SC_star_trafo} sind drei verschiedene Winkel zu finden, die alle eine andere Konzentration an Feldlinen aufweisen die senkrecht dort aufkommen.
+Bei spitzen winkeln ist zu sehen, dass die Feldlinen näher beieinander sind und bei den stumpferen oder sogar überstumpfen Winkeln sieht man, dass die Feldlinen weiter auseinander liegen.
+Dies ist auf die Ladungsverteilung auf dem Objekt zurückzuführen:
+Bei spitzeren Winkeln hat es weniger Platz zwischen den beiden Kanten und Ladungsträger drücken die vor ihnen liegenden Ladungsträger näher zusammen, was zu einer höheren Ladungsdichte an den Spitzen führt.
+Bei den stumpferen Winkeln ist es genau umgekehrt, dort hat es mehr Platz und die Ladungsträger können sich weiter auseinander verteilen (was genau das ist, was Ladungsträger mit gleicher Polarität am liebsten tun). 
+Genau wie die $E$-Feldlinen, die sich gegenseitig abstossen und sich so weit wie möglich voneinander entfernen.
 
 \begin{figure}
 	\centering
@@ -129,9 +129,9 @@ Genau wie die $E$-Feldlinen die sich gegenseitig abstossen und sich so weit wie 
 	\label{elektro:figure:SC_star_trafo}
 \end{figure}
 
-Diese Spitzeneffekte sind nicht auf die Elektrostatik beschränkt sondern kommen in allen Bereichen der Physik vor.
+Diese Spitzeneffekte sind nicht auf die Elektrostatik beschränkt, sondern kommen in allen Bereichen der Physik vor.
 In der Mechanik ist es das gleiche Prinzip, dass sich Kräfte an den Spitzen von Objekten konzentrieren und dort zu einer höheren Belastung führen.
-In Abbildung \ref{elektro:figure:mech_triag} ist ein Beispiel zu sehen wie sich die Kräfte an den Spitzen eines Dreiecks konzentrieren.
+In Abbildung \ref{elektro:figure:mech_triag} ist ein Beispiel davon zu sehen, wie sich die Kräfte an den Spitzen eines Dreiecks konzentrieren.
 
 \begin{figure}
 	\centering

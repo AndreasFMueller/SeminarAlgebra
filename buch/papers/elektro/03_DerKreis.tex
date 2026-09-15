@@ -21,23 +21,24 @@ Im Kreis ist das Potential radialsymmetrisch verteilt.
 Der Kreis stellt eine Punktladung mit der Ladungsdichte $\rho$ dar.
 %Zur Berechnung des Feldes wird das ... verwendet in seiner Integralform. 
 Dank der Punktsymmetrie des Kreises ist das Potentialfeld durch Polarkoordinaten, die den Abstand $r$ und den Winkel $\varphi$ darstellen, vollständig beschrieben.  
-Im Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} wurde gezeigt wie das Potentialfeld $\varphi$ und das elektrische Feld $\vec{E}$ zusammenhängen.
+Im Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} wurde gezeigt wie das Potentialfeld
+\begin{equation}
+	\varphi = \int_{-\infty}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} dV
+	\label{elektro:equation:potentialbegin}
+\end{equation}
+und das elektrische Feld $\vec{E}$ zusammenhängen.
 Es ergibt sich ein Kreislauf von Integralen, in welchem stets von einem Fall auf den anderen geschlossen werden kann und umgekehrt.
 Dazu muss jedoch eine dieser Formeln, die für den Kreis gültig ist, aufgestellt worden.
 Es braucht also einen Einstieg, durch den die Integralformel des elektrischen Feldes $\vec{E}$ gefunden werden kann. 
-
-\begin{equation}
-    \varphi = \int_{-\infty}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} dV
-    \label{elektro:equation:potentialbegin}
-\end{equation}
 Wie zuvor gezeigt, stellt der Kreis die Ladung dar und wir wollen das Potentialfeld ausserhalb des Kreises beschreiben.
-Dazu können wir das Integral von der Kreisoberfläche bis in die Unendlichkeit lösen.
+Dazu können wir das Integral des Potentials 
 \begin{equation}
     \varphi = \int_{0}^{2\pi} \int_{r}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} r \, dr \, d\varphi
     = \frac{\rho}{2\varepsilon_0} \int_{r}^{\infty} dr
     = \frac{\rho}{2\varepsilon_0} [r]_{r}^{\infty}
     = -\frac{\rho}{2\varepsilon_0} r
 \end{equation}
+von der Kreisoberfläche bis in die Unendlichkeit lösen.
 Die Abbildung dieser Formel ist in Abbildung \ref{elektro:figure:phi_feld_kreis} dargestellt.
 
 Verständnis: 
@@ -58,38 +59,37 @@ Mathematisch wird die Kreisspiegelung durch die Transformation
 \begin{equation}
     z \mapsto \frac{1}{\overline{z}}
 \end{equation}
-beschrieben.
-\textcolor{red}{Kreisspiegelung Fallüberführung rechenbeispiel}
-
+beschrieben, wie im Kapitel \ref{chapter:geradlinig} erklärt wird. 
 
 \subsection{Zusammenhang zwischen $\vec{E}$-Feld und Potential
 \label{elektro:subsection:ephizusammenhang}}
-Anhand des Beispiels des Einheitskreises wird hier gezeigt wie von einem Potentialfeld $\varphi$ auf das elektrische Feld $\vec{E}$ geschlossen werden kann, wie im Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} behauptet wird.
+Anhand des Beispiels des Einheitskreises wird hier gezeigt, wie von einem Potentialfeld $\varphi$ auf das elektrische Feld $\vec{E}$ geschlossen werden kann, wie im Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} behauptet wird.
 
 Unser Ausgangspunkt ist das elektrische Feld $\vec{E}$, das durch die Umformung zu zylindrischen Koordinaten auf $ \vec{E} = \frac{\rho}{2\pi\varepsilon_0 r} \hat{r} $ vereinfacht werden kann.
-Wird dies in die Formel \ref{equation:Potential} eingesetzt, so ergibt sich das Potentialfeld $\varphi$. 
+Wird dies in die Formel \eqref{equation:Potential} eingesetzt, so ergibt sich das Potentialfeld 
 \begin{equation}
     \varphi = - \int_{1}^{k} \frac{\rho}{2\pi\varepsilon_0 r} \hat{r} \cdot d\mathbf{r}
     = - \frac{\rho}{2\pi\varepsilon_0}\vert ln(k) \vert_{1}^{r}
-    = - \frac{\rho}{2\pi\varepsilon_0} \operatorname{ln}(r)
+    = - \frac{\rho}{2\pi\varepsilon_0} \operatorname{ln}(r).
     \label{elektro:equation:potential}
 \end{equation}
-Ist nun das Elektrische Feld bekannt, kann daraus auch das elektrische Potential berechnet werden.
+Ist nun das elektrische Feld bekannt, kann daraus auch das elektrische Potential berechnet werden.
 % Kontinuierlich kann auch vom Potentialfeld $\varphi$ auf das elektrische Feld $\mathbf{E}$ geschlossen weerden indem die Formel die sich aus dem soeben ausgeführen Integrals umgestellt wird. 
 Der Rückschluss vom Potentialfeld $\varphi$ auf das elektrische Feld $\vec{E}$ ist über die Laplace-Gleichung \ref{elektro:subsection:Laplace} möglich.
-Es muss konsistent in zylindrischen Koordinaten gearbeitet werden, damit die Ableitung des Potentials $\varphi$ nach $r$ das elektrische Feld $\vec{E}$ ergibt.
-
+Es muss konsistent in zylindrischen Koordinaten gearbeitet werden, damit die Ableitung des Potentials $\varphi$ nach $r$ das elektrische Feld $\vec{E}$
 \begin{equation}
     \vec{E} = - \nabla \varphi = - \frac{\partial}{\partial r} \left( - \frac{\rho}{2\pi\varepsilon_0} \operatorname{ln}(r) \right) = \frac{\rho}{2\pi\varepsilon_0 r} \hat{r}
     \label{elektro:equation:efeld}
 \end{equation}
-
+ergibt.
 Hiermit ist gezeigt, dass die Integrale in einem Kreislauf miteinander verbunden sind und von einem zum anderen geschlossen werden kann.
 
 \subsubsection{Komplexe Darstellung}
-Die formeln können nun noch für Komplexe Zahlen tauglich gemacht werden indem der Vektor $\vec{r}$ in kartesischen Koordinaten dargestellt wird und danach die Feldanteile Komplex geschrieben werden.
+Die Formeln können nun noch für Komplexe Zahlen tauglich gemacht werden, indem der Vektor $\vec{r}$ in kartesischen Koordinaten dargestellt wird und danach die Feldanteile komplex geschrieben werden.
+
 //TODO: nochmals darübergehen bezüglich der Schreibweise und der Herleitung.
 
+Das elektrische Feld wird aufgeteilt in
 \begin{equation}
 \begin{aligned}
     \vec{E}
@@ -118,10 +118,10 @@ Die formeln können nun noch für Komplexe Zahlen tauglich gemacht werden indem 
     \frac{x}{x^2+y^2}\hat{x}
     +
     \frac{y}{x^2+y^2}\hat{y}
-    \right).
+    \right), 
 \end{aligned}
 \end{equation}
-Damit ergeben sich die Feldanteile in $x$- und $y$-Richtung zu:
+wodurch sich die Feldanteile in $x$- und $y$-Richtung zu
 
 \begin{equation}
     E_x=
@@ -132,20 +132,19 @@ Damit ergeben sich die Feldanteile in $x$- und $y$-Richtung zu:
     \frac{\rho}{2\pi\varepsilon_0}
     \frac{y}{x^2+y^2}
 \end{equation}
-
-mit 
+ergeben.
+Mit der Notation
 \begin{equation}
     \mathcal{E}(z)=E_x-iE_y
 \end{equation}
-wird nun das Feld Komplex geschrieben
+wird nun das Feld komplex geschrieben:
 \begin{equation}
     \mathcal{E}(z)
     =
     \frac{\rho}{2\pi\varepsilon_0}
-    \frac{x-iy}{x^2+y^2}
+    \frac{x-iy}{x^2+y^2}.
 \end{equation}
-Eine Komplexe Zahl ist bekanntlich definiert als $z = x + iy$.
-
+Bildet man den Kehrwert
 \begin{equation}
 \begin{aligned}
     \frac{1}{z}
@@ -159,22 +158,23 @@ Eine Komplexe Zahl ist bekanntlich definiert als $z = x + iy$.
     \frac{x-iy}{x^2+y^2}.
 \end{aligned}
 \end{equation}
-Wird damit die Formel für $\mathcal{E}(z)$ umgeschrieben, so ergibt sich:
+kann die Formel für $\mathcal{E}(z)$ in
 \begin{equation}
-    \boxed{
-    \mathcal{E}(z)
-    =
-    \frac{\rho}{2\pi\varepsilon_0}
-    \frac{1}{z}
-    }
+	\boxed{
+		\mathcal{E}(z)
+		=
+		\frac{\rho}{2\pi\varepsilon_0}
+		\frac{1}{z}
+	}
 \end{equation}
+umgeschrieben werden.
 
-
-Für das Potential kann ein ähnliche Umformung vorgenommen werden und es ergibt sich analog zum $E$-Feld 
+Mit der Umformung
 \begin{equation}
     \varphi(z) = 
     - \frac{\rho}{2\pi\varepsilon_0} \operatorname{ln}|z|
 \end{equation}
+resultiert das Analoge für das Potential. 
 
 % \subsection{Cayley-Transformation
 % \label{elektro:subsection:Cayley}}
