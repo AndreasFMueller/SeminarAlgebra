@@ -9,4 +9,4 @@ dependencies-jordan =							\
 	papers/jordan/references.bib					\
 	papers/jordan/01_satz.tex					\
 	papers/jordan/02_konstruktion.tex				\
-	papers/jordan/03_generalisierung.tex
+	papers/jordan/03_verallgemeinerung.tex
