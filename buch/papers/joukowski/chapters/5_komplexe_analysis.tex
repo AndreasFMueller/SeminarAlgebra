@@ -11,7 +11,7 @@ da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzielt werden kann.
 
 Wie in Abschnitt~\ref{joukowski:sec:stroemungslinien} beschrieben,
-können wir die komplex konjugierte Geschwindigkeit mittels eines einfachen Ausdrucks beschreiben.
+können wir die komplex konjugierte Geschwindigkeit für die Umströmung eines Kreises mittels eines einfachen Ausdrucks beschreiben.
 Für eine allgemeine Form eines Flügelprofils kann diese Formel jedoch beliebig kompliziert werden.
 Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ mittels einer Laurent-Reihe der Form
 
@@ -24,9 +24,10 @@ Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overl
 	\label{joukowski:komplexe-analysis:original-laurent-reihe}
 \end{equation}
 Dieser Reihenausdruck hilft uns weitere Flügelprofile zu analysieren.
-Wichtig anzumerken ist, dass wir nicht beliebige Flügelprofile mit diesem Prinzip beschreiben können.
-Die Auftriebskraft kann nur für Flügelprofile welche den riemannschen Abbildungssatz~\ref{buch:holomorph:riemann:satz:riemann} erfüllen,
-mithilfe dieser Reihenentwicklung berechnet werden.
+Wichtig anzumerken ist, dass dieses Prinzip nur für einfach zusammenhängende Flügelprofile anwendbar ist.
+Das heisst der Flügel darf nicht aus mehreren, voneinander getrennten Teilen bestehen, wie das in Abbildung~\ref{joukowski:komplexe-analysis:fig:ju-52} der Fall ist.
+Dies ist Inhalt des sogenannten riemannschen Abbildungssatzes~\ref{buch:holomorph:riemann:satz:riemann}.
+\input{papers/joukowski/fig/04_komplexe_analysis/fig-ju_52.tex}
 
 Da $\overline{v(z)}$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
@@ -90,7 +91,6 @@ müssen wir noch den Zusammenhang zwischen
 \]
 beschreiben.
 Wir können ausnutzen, dass
-
 \[
 	|v(z)|^2
 	=
@@ -199,7 +199,6 @@ wobei wir den Zusammenhang~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen
 erhalten.
 
 \subsection{Berechnung der Kraft}
-
 Wir setzen die Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe}
 in die Gleichung~\eqref{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat} ein
 und multiplizieren gleich aus.
@@ -230,8 +229,8 @@ Dabei erhalten wir
 	\, dz 
 	\label{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty}
 	\\
-	\intertext{entsteht.}
-	\intertext{Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
+	\intertext{entsteht.
+	Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
 	erweitern. 
 	Dies lässt uns die Gleichung~\eqref{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty} als}
 	\overline{F}'
@@ -248,8 +247,8 @@ Dabei erhalten wir
 	\, dz 
 	\notag
 	\\
-	\intertext{schreiben.}
-	\intertext{Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
+	\intertext{schreiben.
+	Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
 	Nachdem der konstante Faktor $2 v_\infty$ vor das erste Integral genommen wird, kann jetzt}
 	\overline{F}'
 	&= 
@@ -277,8 +276,8 @@ Dabei erhalten wir
 	\, dz 
 	\notag
 	\\
-	\intertext{umgeschrieben werden.}
-	\intertext{Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
+	\intertext{umgeschrieben werden.
+	Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
 	und es entsteht}
 	\overline{F}'
 	&= 
@@ -409,13 +408,8 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	\end{align}
 	auf.
 	
-	Die Auswertung des Integrals erfolgt sehr schnell, weil
-	\[
-	\frac{1}{e^{k \cdot i t}}
-	=
-	e^{-k \cdot i t}
-	\]
-	periodisch ist, ist daher
+	Die Auswertung des Integrals erfolgt sehr schnell, 
+	weil wegen Lemma~\ref{joukowski:lemma:inteikt}
 	\begin{equation}
 		\displaystyle\int_{0}^{2\pi}
 		\frac{1}{e^{k \cdot i t}}
@@ -427,8 +421,22 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		k \neq 0.
 		\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
 	\end{equation}
+	gilt
 	Damit ist der Satz~\ref{joukowski:komplexe-analysis:satz:Lambda} bewiesen.
 \end{proof}
+
+\begin{lemma}
+	\label{joukowski:lemma:inteikt}
+	Für alle ganzen Zahlen $k\in\mathbb{Z}$ gilt
+	\[
+	\int_0^{2\pi} e^{ikt}\,dt
+	=
+	\begin{cases}
+		0 & \qquad\text{für $k\ne 0$} \\
+		2\pi&\qquad\text{für $k=0$}
+	\end{cases}
+	\]
+\end{lemma}
 
 \begin{proof}
 	\label{joukowski:komplexe-analysis:proof:integral-e-hoch-kit}
@@ -509,7 +517,7 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 \begin{proof}
 	\label{joukowski:komplexe-analysis:proof:zirkulation}
 	Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
-	Auch da wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
+	Auch hier wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
 	Für die Funtion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
 	Somit wird aus dem Integral
 	\[
