@@ -78,9 +78,9 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Diese Vereinfachung ist nur möglich, da wir voraussetzen, dass die Strömung entlang dem ganzen Flügel identisch ist.
 	Somit müssen wir bei den Berechnungen nicht den gesamten dreidimensionalen Flügel betrachten,
 	sondern können uns auf einen zweidimensionalen Querschnitt davon beschränken.
-	Somit haben wir ein Flügelprofil, welches von einem inkompressiblen, reibungsfreien Fluid lamiar umströmt wird.
-	In grosser Entfernung besitzt die Strömung eine konstante Geschwindigkeit und einen konstanten Luftdruck,
-	welche wir mit $v_\infty$, respektive $p_\infty$ bezeichnen. 
+	Jetzt haben wir ein sogenanntes Flügelprofil, welches von einem inkompressiblen, reibungsfreien Fluid lamiar umströmt wird.
+	In grosser Entfernung besitzt diese Strömung eine konstante Geschwindigkeit,
+	welche wir mit $v_\infty$ bezeichnen. 
 	Das $\infty$ bezieht sich darauf, dass in der Theorie dieser Punkt unendlich weit vom Flügelprofil entfernt sein müsste.
 	Eine Folge der Entfernung einer Dimension ist,
 	dass Grössen wie die Kraft $F$ zur Kraft pro Flügellänge $F'$ gewandelt werden.
@@ -95,4 +95,23 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Durch die Beschränkung auf zwei Dimensionen können wir zudem unsere Situation mittels der komplexen Zahlenebene vollständig beschreiben.
 	In den folgenden Kapitel wird also die örtliche Abhängigkeit mit $z = x + iy$ beschrieben. Manchmal wird die vertikale Koordinate y auch mit $h(z)$ bezeichnet,
 	weil sie zum Beispiel die Höhe eines fliegenden Flugzeugs darstellt. $h_\infty$ beschreibt die Höhe im Referenzpunkt.
+	Des weiteren können wir auch zweidimensionale Vektoren als komplexen Zahlen darstellen.
+	Dies kann bei der Geschwindigkeit $\vec{v}$ als
+	\[
+		\vec{v}
+		=
+		v(z)
+		=
+		v_x + i v_y
+	\]
+	geschrieben werden.
+	Dabei ist es eine Konvention
+	\[
+		v(z)
+		=
+		u + iw
+	\]
+	zu schreiben.
+	Dabei entspricht $u$ der sogenannten Längskomponente und $w$ der sogenannten Querkomponente der Geschwindigkeit $v(z)$.
 	
+	Dadurch, dass wir unsere Grössen mit den komplexen Zahlen formuliert haben, können wir alle Werkzeuge, welche uns die komplexe Analysis zur verfügung stellt, für den Rest unseres Kapitels nutzen.
