@@ -10,14 +10,6 @@
 \section{Herleitung der Bessel-Differentialgleichung
 \label{bessel:section:herleitung}}
 \kopfrechts{Herleitung}
-%
-% Ziel dieses Abschnitts.
-% Zeigen, dass die Bessel-DGL nicht vom Himmel fällt, sondern
-% zwangsläufig entsteht, sobald man ein Wellenproblem auf einem
-% Kreisgebiet separiert.
-% Roter Faden, Rechteck -> Kreis. Am Rechteck geht alles mit sin/cos
-% auf, am Kreis nicht mehr.
-%
 Die Bessel-Differentialgleichung fällt nicht vom Himmel.
 Sie entsteht zwangsläufig, sobald man ein Schwingungsproblem auf einem kreisförmigen Gebiet in Koordinaten zerlegt, die zur Geometrie passen.
 Dieser Abschnitt führt die Rechnung von der Wellengleichung bis zur fertigen Differentialgleichung durch.
@@ -117,7 +109,7 @@ Die ganze Information über die Form der Membran steckt in
 \subsection{Rechteck und Kreis
 \label{bessel:herleitung:subsection:rechteckkreis}}
 An dieser Stelle lohnt sich ein Vergleich, der zeigt, wo die Schwierigkeit liegt.
- 
+
 Für eine rechteckige Membran mit den Seitenlängen $a$ und $b$ führt der Ansatz $v(x,y)=X(x)Y(y)$ auf die beiden Gleichungen
 $X''=-\alpha^2X$ und $Y''=-\beta^2Y$ mit $\alpha^2+\beta^2=k^2$.
 Beide sind Schwingungsgleichungen mit konstanten Koeffizienten, ihre Lösungen sind Sinus- und Kosinusfunktionen, und die Randbedingungen liefern
@@ -130,7 +122,7 @@ v_{mn}(x,y)
 m,n = 1,2,3,\dots
 \]
 Das Problem ist mit den Funktionen der elementaren Analysis vollständig gelöst.
- 
+
 Bei einer kreisförmigen Membran versagt dieser Ansatz.
 Der Rand ist ein Kreis, und in kartesischen Koordinaten lässt sich die Randbedingung nicht in eine Bedingung an $X$ und eine an $Y$ zerlegen.
 Man muss Koordinaten wählen, in denen der Rand eine Koordinatenlinie ist, und das sind die Polarkoordinaten.
@@ -213,7 +205,7 @@ Einsetzen in~\eqref{bessel:herleitung:eqn:helmholtzpolar} und Multiplikation mit
 \]
 Wieder hängt die linke Seite nur von $r$ ab und die rechte nur von $\varphi$, beide sind also konstant.
 Wir nennen die Konstante $n^2$.
- 
+
 Für den Winkelanteil bleibt
 \begin{equation}
 \Phi''(\varphi) + n^2\Phi(\varphi) = 0
@@ -224,7 +216,7 @@ Hier kommt eine Bedingung ins Spiel, die es beim Rechteck nicht gibt.
 Die Winkelkoordinate ist periodisch, es muss $\Phi(\varphi+2\pi)=\Phi(\varphi)$ gelten.
 Daraus folgt $n\in\mathbb{Z}$.
 Die Separationskonstante ist also nicht frei wählbar, sondern durch die Geometrie auf ganze Zahlen festgelegt.
- 
+
 %
 % Die Bessel-Differentialgleichung
 %
@@ -245,7 +237,7 @@ x^2y''(x) + xy'(x) + (x^2-n^2)y(x) = 0.
 Das ist die \emph{Bessel-Differentialgleichung}
 \index{Bessel-Differentialgleichung}%
 der Ordnung $n$.
- 
+
 Aus der Herleitung ergibt sich $n$ als ganze Zahl.
 Die Gleichung~\eqref{bessel:herleitung:eqn:bessel} ist aber für jeden reellen oder komplexen Parameter sinnvoll, und die Lösungstheorie des nächsten Abschnitts setzt die Ganzzahligkeit nirgends voraus.
 Wir schreiben deshalb ab jetzt
@@ -259,7 +251,7 @@ und nennen $\nu$ die \emph{Ordnung}
 \index{Ordnung einer Bessel-Funktion}%
 der Gleichung.
 Halbzahlige Ordnungen treten zum Beispiel bei kugelsymmetrischen Problemen auf, wo dieselbe Rechnung in Kugelkoordinaten durchgeführt wird.
- 
+
 Ein Blick auf~\eqref{bessel:herleitung:eqn:besselnu} zeigt schon, wo die Schwierigkeit liegt.
 Dividiert man durch $x^2$, so lautet die Gleichung
 \[

@@ -10,15 +10,6 @@
 \section{Eigenschaften der Bessel-Funktionen
 \label{bessel:section:eigenschaften}}
 \kopfrechts{Eigenschaften}
-%
-% Dieser Abschnitt ist der Werkzeugkasten. Alles, was hier steht, wird
-% später gebraucht.
-%   - Rekursionsformeln       -> Rechnen allgemein
-%   - Integraldarstellung     -> teil6 (Kepler), das ist die Brücke!
-%   - Nullstellen             -> Membran
-%   - Orthogonalität          -> Fourier-Bessel-Reihe, Membran
-%   - Asymptotik              -> Vergleich mit cos
-%
 Die Reihe~\eqref{bessel:loesung:eqn:jnu} definiert die Bessel-Funktionen, ist zum Rechnen aber unhandlich.
 Dieser Abschnitt stellt die Eigenschaften zusammen, mit denen man tatsächlich arbeitet.
 Es lohnt sich, dabei immer den Vergleich mit den trigonometrischen Funktionen im Auge zu behalten.
@@ -48,7 +39,7 @@ x^{\nu} J_{\nu-1}(x),
 \label{bessel:eigenschaften:eqn:ableitung2}
 \end{align}
 \end{satz}
- 
+
 \begin{proof}
 Aus~\eqref{bessel:loesung:eqn:jnu} folgt
 \[
@@ -77,9 +68,9 @@ auch dann, wenn $\nu+k$ eine nichtpositive ganze Zahl ist.
 Damit bleibt genau die Reihe von $x^\nu J_{\nu-1}(x)$.
 Die zweite Formel folgt analog.
 \end{proof}
- 
+
 Führt man die Produktregel aus und eliminiert einmal die Ableitung und einmal $J_\nu$, erhält man die beiden für die Praxis wichtigsten Beziehungen.
- 
+
 \begin{korollar}
 \label{bessel:eigenschaften:korollar:rekursion}
 Es gilt
@@ -95,7 +86,7 @@ J_{\nu-1}(x) - J_{\nu+1}(x)
 \label{bessel:eigenschaften:eqn:ableitungrek}
 \end{align}
 \end{korollar}
- 
+
 Die erste Formel ist eine Dreitermrekursion.
 \index{Dreitermrekursion}%
 Kennt man $J_0$ und $J_1$, so lassen sich alle weiteren Ordnungen daraus berechnen.
@@ -105,7 +96,7 @@ J_0'(x) = -J_1(x),
 \label{bessel:eigenschaften:eqn:j0strich}
 \end{equation}
 das genaue Gegenstück zu $\cos' = -\sin$.
- 
+
 %
 % Erzeugende Funktion und Integraldarstellung
 %
@@ -113,7 +104,7 @@ das genaue Gegenstück zu $\cos' = -\sin$.
 \label{bessel:eigenschaften:subsection:erzeugend}}
 Für ganzzahlige Ordnungen gibt es eine überraschend kompakte Beschreibung aller $J_n$ auf einmal.
 \index{erzeugende Funktion}%
- 
+
 \begin{satz}
 \label{bessel:eigenschaften:satz:erzeugend}
 Für $t\ne 0$ gilt
@@ -125,7 +116,7 @@ J_n(x)\, t^n.
 \label{bessel:eigenschaften:eqn:erzeugend}
 \end{equation}
 \end{satz}
- 
+
 \begin{proof}
 Beide Faktoren lassen sich in ihre Exponentialreihe entwickeln,
 \[
@@ -174,7 +165,7 @@ J_{-m}(x),
 \]
 wobei im letzten Schritt das in Abschnitt~\ref{bessel:loesung:subsection:ynu} bewiesene Verhalten von $J_{-n}$ verwendet wurde.
 \end{proof}
- 
+
 Setzt man $t=e^{i\tau}$, so wird $t-1/t = 2i\sin\tau$, und \eqref{bessel:eigenschaften:eqn:erzeugend} geht über in
 \begin{equation}
 e^{ix\sin\tau}
@@ -204,7 +195,7 @@ e^{i(x\sin\tau - n\tau)}\,d\tau
 \label{bessel:eigenschaften:eqn:integral}
 \end{equation}
 \end{korollar}
- 
+
 Diese Integraldarstellung ist historisch die ursprüngliche.
 \index{Integraldarstellung, Bessel-Funktion}%
 \index{Bessel-Funktion!Integraldarstellung}%
@@ -229,11 +220,11 @@ Ist $y$ eine Lösung von~\eqref{bessel:loesung:eqn:bessel}, zum Beispiel $y=J_\n
 \begin{equation}
 u''
 +
-\Bigl(
+\Biggl(
 1
 +
 \frac{\frac14-\nu^2}{x^2}
-\Bigr)
+\Biggr)
 u
 =
 0.
@@ -278,7 +269,7 @@ $2$ & $5.1356$ & $8.4172$ & $11.6198$ & $14.7960$ \\
 $3$ & $6.3802$ & $9.7610$ & $13.0152$ & $16.2235$
 \end{tabular}
 \end{table}
- 
+
 Anders als bei $\sin$ sind die Nullstellen nicht äquidistant, ihre Abstände nähern sich aber für grosse $x$ dem Wert $\pi$ an.
 Das ist die Erklärung für den unharmonischen Klang einer Trommel.
 Die Eigenfrequenzen der kreisförmigen Membran vom Radius $a$ ergeben sich aus der Randbedingung $R(a)=0$ für die Lösung $R(r)=J_n(kr)$ von~\eqref{bessel:herleitung:eqn:radial}, also aus $J_n(ka)=0$, zu
@@ -336,7 +327,7 @@ Der innere Knotenkreis der Mode $(0,2)$ liegt bei $j_{0,1}/j_{0,2}\approx 0.436$
 Die Frequenzen verhalten sich nach \eqref{bessel:eigenschaften:eqn:eigenfrequenzen} wie $1 : 1.593 : 2.136 : 2.295$.
 \label{bessel:eigenschaften:fig:moden}}
 \end{figure}
- 
+
 %
 % Orthogonalität
 %
@@ -414,7 +405,7 @@ Für $x\to\infty$ gilt
 J_\nu(x)
 =
 \sqrt{\frac{2}{\pi x}}
-\cos\Bigl(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\Bigr)
+\cos\biggl(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\biggr)
 +
 O(x^{-3/2}).
 \label{bessel:eigenschaften:eqn:asymptotikj}

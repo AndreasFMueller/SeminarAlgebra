@@ -10,14 +10,6 @@
 \section{Lösung mit verallgemeinerten Potenzreihen
 \label{bessel:section:loesung}}
 \kopfrechts{Lösung}
-%
-% Ziel dieses Abschnitts.
-% Die allgemeine Theorie aus dem Fuchs-Abschnitt nicht wiederholen,
-% sondern anwenden.
-% Der Mehrwert liegt darin, dass die Bessel-Gleichung ein besonders
-% sauberer Spezialfall ist.
-% Es gilt F(varrho) = varrho^2 - nu^2, also varrho = +- nu.
-%
 Die Bessel-Gleichung
 \begin{equation}
 x^2y'' + xy' + (x^2-\nu^2)y = 0
@@ -28,7 +20,7 @@ Das in Abschnitt~\ref{buch:differentialgleichungen:section:fuchs} entwickelte Ve
 Wir wiederholen die allgemeine Theorie hier nicht, sondern setzen ein und beobachten, was dabei herauskommt.
 Bemerkenswert ist, wie einfach der Spezialfall wird.
 Alle Grössen der allgemeinen Rekursion nehmen für die Bessel-Gleichung eine besonders übersichtliche Form an.
- 
+
 %
 % Die Bessel-Gleichung als fuchssche Gleichung
 %
@@ -75,7 +67,7 @@ a_0 \ne 0.
 \end{equation}
 Der Faktor $x^\varrho$ ist der ganze Unterschied zu einem gewöhnlichen Potenzreihenansatz.
 Er ist genau das, was das Verfahren rettet, denn er erlaubt der Lösung, sich bei $x=0$ wie eine beliebige, auch nicht ganzzahlige Potenz zu verhalten.
- 
+
 %
 % Indexgleichung
 %
@@ -110,7 +102,7 @@ x^2y'' + xy' - \nu^2 y = 0
 über.
 Das ist eine eulersche Differentialgleichung, deren Lösungen für $\nu>0$ genau $x^{\nu}$ und $x^{-\nu}$ sind.
 Die Indexgleichung beschreibt also das Verhalten der Lösung in unmittelbarer Nähe der Singularität.
- 
+
 %
 % Rekursionsformel
 %
@@ -131,7 +123,7 @@ Für $n=1$ bleibt
 \bigl((1+\varrho)^2-\nu^2\bigr)a_1 = 0.
 \label{bessel:loesung:eqn:a1}
 \end{equation}
- 
+
 Wir wählen zunächst $\varrho=\nu$ mit $\nu\ge 0$.
 Dann ist $(1+\nu)^2-\nu^2 = 1+2\nu > 0$, aus \eqref{bessel:loesung:eqn:a1} folgt also $a_1=0$.
 Wegen~\eqref{bessel:loesung:eqn:rekursion} verschwinden damit sämtliche Koeffizienten mit ungeradem Index,
@@ -140,7 +132,7 @@ a_1 = a_3 = a_5 = \dots = 0.
 \label{bessel:loesung:eqn:ungerade}
 \end{equation}
 Die Reihe enthält nur gerade Potenzen.
- 
+
 Für die geraden Koeffizienten liefert \eqref{bessel:loesung:eqn:rekursion} mit $\varrho=\nu$
 \begin{equation}
 a_n
@@ -184,7 +176,7 @@ Weil alle ungeraden Koeffizienten verschwinden, ist der Quotient zweier aufeinan
 \]
 Der Grenzwert ist null, also für jedes feste $x$ kleiner als eins, und die Reihe konvergiert auf der ganzen reellen Achse.
 Der Konvergenzradius ist unendlich, die gewöhnliche Potenzreihe $\sum_k a_{2k}x^{2k}$ stellt also eine ganze Funktion dar.
- 
+
 %
 % Die Bessel-Funktion erster Art
 %
@@ -228,7 +220,7 @@ J_\nu(x)
 \label{bessel:loesung:eqn:jnu}
 \end{equation}
 \end{definition}
- 
+
 Die Reihe~\eqref{bessel:loesung:eqn:jnu} konvergiert für alle $x$, und zwar nicht nur für reelle, sondern auch für komplexe.
 Damit ist der Anschluss an den ersten Teil des Buches hergestellt.
 Der Faktor $x^{-\nu}J_\nu(x)$ ist eine ganze Funktion, für ganzzahliges $\nu$ also auch $J_\nu$ selbst.

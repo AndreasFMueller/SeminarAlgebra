@@ -10,12 +10,6 @@
 \section{Die Kepler-Gleichung
 \label{bessel:section:kepler}}
 \kopfrechts{Kepler-Gleichung}
-%
-% Ziel dieses Abschnitts.
-% Kurz und anschaulich zeigen, wie Bessel von der Himmelsmechanik zu
-% seinen Funktionen kam. Die Integraldarstellung aus teil3 ist die
-% Brücke, mehr Theorie braucht es nicht.
-%
 Zum Schluss kehren wir zu dem Problem zurück, das Bessel zu seinen Funktionen geführt hat.
 \index{Kepler, Johannes}%
 Die keplerschen Gesetze und der Flächensatz werden in Kapitel~\ref{chapter:kepler} aus dem Gravitationsgesetz hergeleitet, hier brauchen wir nur zwei Aussagen daraus.
@@ -114,7 +108,7 @@ b_n
 &=
 \frac{2}{n\pi}
 \int_0^\pi
-\Bigl(\frac{dE}{dM}-1\Bigr)\cos nM\,dM
+\biggl(\frac{dE}{dM}-1\biggr)\cos nM\,dM
 \\
 &=
 \frac{2}{n\pi}
@@ -184,10 +178,10 @@ Gestrichelt und gepunktet ist die Bessel-Reihe~\eqref{bessel:kepler:eqn:besselre
 \end{figure}
 
 Die Reihe konvergiert für jede Exzentrizität $\varepsilon<1$, also für jede Ellipsenbahn, für $\varepsilon$ nahe bei $1$ allerdings langsam, siehe \cite[Kapitel~XVII]{bessel:watson}.
-Wie langsam, zeigen die gestrichelte und die gepunktete Kurve in Abbildung~\ref{bessel:kepler:fig:reihe}.
-Ein Glied ist ein reiner Sinus und kann die schiefe Form nicht wiedergeben, drei Glieder folgen ihr schon recht gut, und die grösste Abweichung bleibt in Sonnennähe, wo die Kurve am steilsten ist.
 Das ist bemerkenswert, denn die Entwicklung von $E$ nach Potenzen von $\varepsilon$ konvergiert nur für $\varepsilon<0.6627$, diese Schranke heisst Laplace-Grenze, siehe \cite[S.~270]{bessel:watson} und \cite[Abschnitt~4.8]{bessel:finch}.
 \index{Laplace-Grenze}%
+Wie langsam die Bessel-Reihe für grosse $\varepsilon$ konvergiert, zeigen die gestrichelte und die gepunktete Kurve in Abbildung~\ref{bessel:kepler:fig:reihe}.
+Ein Glied ist ein reiner Sinus und kann die schiefe Form nicht wiedergeben, drei Glieder folgen ihr schon recht gut, und die grösste Abweichung bleibt in Sonnennähe, wo die Kurve am steilsten ist.
 Für kleine $\varepsilon$ fallen die Glieder nach~\eqref{bessel:loesung:eqn:kleinx} wie $\varepsilon^n$ ab, und wenige Glieder genügen.
 Für die Erde mit $\varepsilon\approx 0.0167$ liefert schon das erste Glied $E\approx M+\varepsilon\sin M$ die exzentrische Anomalie auf rund ein Hundertstel Grad genau.
 Damit schliesst sich der Kreis.
