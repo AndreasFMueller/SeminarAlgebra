@@ -1,0 +1,48 @@
+%
+% moden.tex -- Die vier tiefsten Schwingungsmoden der kreisförmigen Membran
+%
+% (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,scale=\skala]
+% Mode (0,1)
+\begin{scope}
+	\draw[thick] (0,0) circle (1.2);
+	\node at (0,0) {$+$};
+	\node at (0,-1.7) {$(0,1)$};
+\end{scope}
+% Mode (1,1)
+\begin{scope}[xshift=3.1cm]
+	\draw[thick] (0,0) circle (1.2);
+	\draw[dashed] (0,-1.2) -- (0,1.2);
+	\node at (-0.55,0) {$+$};
+	\node at (0.55,0) {$-$};
+	\node at (0,-1.7) {$(1,1)$};
+\end{scope}
+% Mode (2,1)
+\begin{scope}[xshift=6.2cm]
+	\draw[thick] (0,0) circle (1.2);
+	\draw[dashed] (-0.849,-0.849) -- (0.849,0.849);
+	\draw[dashed] (-0.849,0.849) -- (0.849,-0.849);
+	\node at (0,0.62) {$+$};
+	\node at (0,-0.62) {$+$};
+	\node at (-0.62,0) {$-$};
+	\node at (0.62,0) {$-$};
+	\node at (0,-1.7) {$(2,1)$};
+\end{scope}
+% Mode (0,2)
+\begin{scope}[xshift=9.3cm]
+	\draw[thick] (0,0) circle (1.2);
+	\draw[dashed] (0,0) circle (0.523);
+	\node at (0,0) {$+$};
+	\node at (0,0.86) {$-$};
+	\node at (0,-1.7) {$(0,2)$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

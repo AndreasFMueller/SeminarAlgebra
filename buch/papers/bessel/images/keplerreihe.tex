@@ -1,0 +1,54 @@
+%
+% keplerreihe.tex -- Lösung der Kepler-Gleichung, E-M über M für drei
+%                    Exzentrizitäten und die Bessel-Reihe für
+%                    epsilon = 0.8, Daten aus kepler.dat (kepler.py)
+%
+% (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,scale=\skala]
+\begin{axis}[
+	width=11.4cm,
+	height=8cm,
+	xmin=0, xmax=6.2832,
+	ymin=-0.9, ymax=0.9,
+	xtick={0,1.5708,3.1416,4.7124,6.2832},
+	xticklabels={$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$},
+	ytick={-0.8,-0.4,0.4,0.8},
+	axis lines=middle,
+	axis line style={-},
+	clip=false,
+	grid=both,
+	grid style={very thin,gray!25},
+	legend pos=north east,
+	legend cell align=left,
+	tick label style={font=\small},
+	xticklabel style={yshift=-2pt}
+]
+\addplot[thick,blue]      table[x=M,y=d02] {kepler.dat};
+\addlegendentry{$\varepsilon=0.2$}
+\addplot[thick,red]       table[x=M,y=d05] {kepler.dat};
+\addlegendentry{$\varepsilon=0.5$}
+\addplot[thick,darkgreen] table[x=M,y=d08] {kepler.dat};
+\addlegendentry{$\varepsilon=0.8$}
+% Bessel-Reihe fuer epsilon = 0.8, gestrichelt ein Glied, gepunktet drei Glieder
+\addplot[thick,darkgreen,dashed]         table[x=M,y=s1] {kepler.dat};
+\addlegendentry{$\varepsilon=0.8$ (1 Glied)}
+\addplot[thick,darkgreen,densely dotted] table[x=M,y=s3] {kepler.dat};
+\addlegendentry{$\varepsilon=0.8$ (3 Glieder)}
+% Achsen über das Gitter hinaus verlängern, wie in den übrigen Abbildungen des Buches
+\draw[->] (axis cs:6.2832,0) -- (axis cs:6.65,0) node[below] {$M$};
+\draw[->] (axis cs:0,0.9) -- (axis cs:0,1.02) node[right] {$E-M$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
