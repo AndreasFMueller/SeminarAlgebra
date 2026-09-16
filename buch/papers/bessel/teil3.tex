@@ -254,8 +254,7 @@ und zwischen zwei aufeinanderfolgenden Nullstellen von $J_\nu$ liegt genau eine 
 \end{satz}
 
 Der erste Teil ist die präzise Form der eben beschriebenen Beobachtung.
-Sein Beweis vergleicht~\eqref{bessel:eigenschaften:eqn:normalform} mit der Schwingungsgleichung und findet sich bei \cite{bessel:watson}.
-% [TODO: Kapitel über die Nullstellen bei Watson nachschlagen und im \cite ergänzen]
+Sein Beweis vergleicht~\eqref{bessel:eigenschaften:eqn:normalform} mit der Schwingungsgleichung und findet sich bei \cite[Kapitel~XV]{bessel:watson}, eine Übersicht über die Nullstellen gibt \cite[Abschnitt~10.21]{bessel:dlmf}.
 Der zweite Teil steckt in der Ableitungsformel~\eqref{bessel:eigenschaften:eqn:ableitung2}.
 \index{Satz!von Rolle}%
 Die Funktion $x^{-\nu}J_\nu(x)$ verschwindet an zwei aufeinanderfolgenden Nullstellen von $J_\nu$, nach dem Satz von Rolle verschwindet ihre Ableitung dazwischen, und diese Ableitung ist bis auf den Faktor $-x^{-\nu}$ gerade $J_{\nu+1}$.
@@ -268,8 +267,7 @@ Tabelle~\ref{bessel:eigenschaften:tab:nullstellen} zeigt die ersten Werte.
 \begin{table}
 \centering
 \caption{Die ersten vier positiven Nullstellen $j_{\nu,m}$ der Bessel-Funktionen $J_\nu$ für ganzzahlige Ordnung, gerundet auf vier Nachkommastellen.
-Die Werte sind \cite[Tabelle~9.5]{bessel:abramowitz} entnommen.
-% [TODO: Tabellennummer bei Abramowitz und Stegun prüfen]
+Die Werte sind \cite[Abschnitt~9.5]{bessel:abramowitz} entnommen.
 \label{bessel:eigenschaften:tab:nullstellen}}
 \begin{tabular}{c|cccc}
 $\nu$ & $j_{\nu,1}$ & $j_{\nu,2}$ & $j_{\nu,3}$ & $j_{\nu,4}$ \\
@@ -344,55 +342,12 @@ Die Frequenzen verhalten sich nach \eqref{bessel:eigenschaften:eqn:eigenfrequenz
 %
 \subsection{Orthogonalität
 \label{bessel:eigenschaften:subsection:orthogonalitaet}}
-Wie die trigonometrischen Funktionen bilden auch die Bessel-Funktionen ein Orthogonalsystem, allerdings mit einer Gewichtsfunktion.
+Die Sinusfunktionen $\sin m\pi s$ sind auf $[0,1]$ orthogonal, darauf beruht die Fourier-Reihe der Saite.
 \index{Orthogonalitat@Orthogonalität}%
 \index{Bessel-Funktion!Orthogonalitat@Orthogonalität}%
+\index{Fourier-Reihe}%
+Für die Bessel-Funktionen gilt dasselbe, wenn man als Variable den auf den Membranradius bezogenen Radius $s=r/a$ nimmt, die Nullstellen $j_{\nu,m}$ als Skalierung verwendet und das Integral mit dem Gewicht $s$ versieht.
 \index{Gewichtsfunktion}%
-Der Grund dafür ist derselbe wie in der linearen Algebra, wo Eigenvektoren einer symmetrischen Matrix zu verschiedenen Eigenwerten orthogonal sind.
-Die Rolle der Vektoren übernehmen Funktionen, die Rolle des Skalarprodukts ein Integral, und die Rolle der Matrix eine Rechenvorschrift $L$, die aus einer Funktion durch Ableiten und Multiplizieren eine neue Funktion macht.
-
-Wir kehren zur Membran vom Radius $a$ zurück und schreiben $s=r/a$ für den auf den Membranradius bezogenen Radius.
-Für eine Nullstelle $\alpha=j_{\nu,m}$ ist $u(s)=J_\nu(\alpha s)$ der Radialanteil einer Eigenschwingung, die Funktion erfüllt die Randbedingung $u(1)=0$ und bleibt bei $s=0$ beschränkt.
-Setzt man $x=\alpha s$ in~\eqref{bessel:loesung:eqn:bessel} ein und dividiert durch $s$, so wird die Bessel-Gleichung wegen $su''+u'=(su')'$ zu
-\begin{equation}
--(s\,u')'
-+
-\frac{\nu^2}{s}\,u
-=
-\alpha^2\,s\,u.
-\label{bessel:eigenschaften:eqn:eigenwert}
-\end{equation}
-Links steht das Ergebnis einer solchen Rechenvorschrift, angewandt auf $u$, wir schreiben dafür kurz $Lu=-(su')'+\nu^2u/s$.
-Rechts steht $u$ selbst, multipliziert mit der Zahl $\alpha^2$ und dem Gewicht $s$.
-Die Vorschrift $L$ ist linear, denn Ableiten und Multiplizieren mit einer festen Funktion sind lineare Rechenschritte, genau wie die Multiplikation eines Vektors mit einer Matrix.
-Die Gleichung ist also ein Eigenwertproblem $Lu=\lambda\,s\,u$, und die Quadrate der Nullstellen $j_{\nu,m}$ sind seine Eigenwerte.
-
-Als Skalarprodukt zweier Funktionen dient das Integral
-\[
-\langle u,v\rangle
-=
-\int_0^1 u(s)\,v(s)\,ds.
-\]
-Bezüglich dieses Skalarprodukts gilt $\langle Lu,v\rangle=\langle u,Lv\rangle$, das ist das Gegenstück zur Symmetrie einer Matrix.
-Man zeigt es mit partieller Integration, die Randterme fallen weg, weil die Funktionen bei $s=1$ verschwinden und bei $s=0$ beschränkt bleiben.
-Sind nun $u$ und $v$ Eigenfunktionen zu den Eigenwerten $\alpha^2$ und $\beta^2$, so folgt genau wie bei symmetrischen Matrizen
-\[
-\alpha^2\int_0^1 u\,v\,s\,ds
-=
-\langle Lu,v\rangle
-=
-\langle u,Lv\rangle
-=
-\beta^2\int_0^1 u\,v\,s\,ds,
-\]
-und für $\alpha^2\ne\beta^2$ muss das Integral verschwinden.
-Eigenfunktionen zu verschiedenen Eigenwerten sind also orthogonal, allerdings bezüglich des Skalarprodukts mit dem Gewicht $s$,
-\begin{equation}
-\langle u,v\rangle_s
-=
-\int_0^1 u(s)\,v(s)\,s\,ds.
-\label{bessel:eigenschaften:eqn:gewichtetesskalarprodukt}
-\end{equation}
 
 \begin{satz}
 \label{bessel:eigenschaften:satz:orthogonalitaet}
@@ -411,12 +366,13 @@ s\,ds
 \end{equation}
 \end{satz}
 
-Der Fall $m\ne l$ ist die eben hergeleitete Orthogonalität.
-Der Wert für $m=l$ ergibt sich aus einer ähnlichen Rechnung mit den Rekursionsformeln aus Abschnitt~\ref{bessel:eigenschaften:subsection:rekursion}, sie ist bei \cite{bessel:watson} und in \cite{bessel:dlmf} nachzulesen.
-% [TODO: Abschnitt über die Lommel-Integrale bei Watson und die Formelnummer in der DLMF nachschlagen]
+Der Grund für die Orthogonalität ist derselbe wie bei den Eigenvektoren einer symmetrischen Matrix.
+Die Funktionen $J_\nu(j_{\nu,m}s)$ sind die Radialanteile der Eigenschwingungen der Membran aus Abschnitt~\ref{bessel:eigenschaften:subsection:nullstellen}, und Eigenschwingungen zu verschiedenen Frequenzen stehen senkrecht aufeinander.
+Der Beweis schreibt die Bessel-Gleichung für beide Funktionen hin, multipliziert über Kreuz, subtrahiert und integriert, die Randterme fallen wegen $J_\nu(j_{\nu,m})=0$ weg.
+Er findet sich zusammen mit der Rechnung für den Fall $m=l$ bei \cite[S.~132--136]{bessel:watson} und in \cite[Formel~10.22.37]{bessel:dlmf}.
 
 Die Bedeutung der Orthogonalität ist dieselbe wie bei jeder Orthogonalbasis.
-Eine Funktion lässt sich eindeutig als Linearkombination der Basisfunktionen darstellen, und die Koeffizienten erhält man durch Skalarprodukte mit den Basisfunktionen.
+Eine Funktion lässt sich eindeutig als Linearkombination der Basisfunktionen darstellen, und die Koeffizienten erhält man durch Skalarprodukte mit den Basisfunktionen, wobei das Skalarprodukt hier das Integral mit dem Gewicht $s$ ist.
 Eine auf $[0,1]$ hinreichend gutartige Funktion $f$ lässt sich als
 \begin{equation}
 f(s)
@@ -425,9 +381,7 @@ f(s)
 c_m J_\nu(j_{\nu,m}s)
 \label{bessel:eigenschaften:eqn:fourierbessel}
 \end{equation}
-entwickeln.
-Bildet man auf beiden Seiten das Skalarprodukt~\eqref{bessel:eigenschaften:eqn:gewichtetesskalarprodukt} mit $J_\nu(j_{\nu,m}s)$, so bleibt wegen der Orthogonalität von der Summe nur ein einziges Glied übrig.
-Mit der Normierung aus Satz~\ref{bessel:eigenschaften:satz:orthogonalitaet} folgt daraus
+entwickeln, mit den Koeffizienten
 \begin{equation}
 c_m
 =
@@ -437,13 +391,12 @@ c_m
 \end{equation}
 Das ist die \emph{Fourier-Bessel-Reihe}.
 \index{Fourier-Bessel-Reihe}%
-Für welche Funktionen sie konvergiert, ist eine eigene Frage, die bei \cite{bessel:watson} beantwortet wird.
-% [TODO: Kapitel über Fourier-Bessel-Reihen bei Watson nachschlagen und im \cite ergänzen]
+Die Formel für $c_m$ erhält man, indem man die Reihe mit $J_\nu(j_{\nu,m}s)\,s$ multipliziert und über $[0,1]$ integriert, denn nach Satz~\ref{bessel:eigenschaften:satz:orthogonalitaet} bleibt von der Summe nur ein Glied übrig.
+Für welche Funktionen die Reihe konvergiert, ist eine eigene Frage, die bei \cite[Kapitel~XVIII]{bessel:watson} und in \cite[Abschnitt~10.23]{bessel:dlmf} beantwortet wird.
 
 Für die Membran heisst das, dass sich jede rotationssymmetrische Anfangsauslenkung $f(r/a)$ eindeutig in die Eigenschwingungen $J_0(j_{0,m}r/a)$ zerlegen lässt, genau wie eine Fourier-Reihe die Anfangsauslenkung einer Saite in ihre Obertöne zerlegt.
-\index{Fourier-Reihe}%
 Das Gewicht $s$ ist dabei kein Schönheitsfehler, sondern das Flächenelement der Polarkoordinaten, denn mit $s=r/a$ ist $dA=r\,dr\,d\varphi=a^2s\,ds\,d\varphi$.
-Das Skalarprodukt~\eqref{bessel:eigenschaften:eqn:gewichtetesskalarprodukt} ist also das Integral über die Kreisscheibe, und die Orthogonalität der Bessel-Funktionen ist die natürliche Orthogonalität auf der Scheibe.
+Das Integral mit dem Gewicht $s$ ist also das Integral über die Kreisscheibe, und die Orthogonalität der Bessel-Funktionen ist die natürliche Orthogonalität auf der Scheibe.
 
 %
 % Asymptotisches Verhalten
@@ -470,8 +423,7 @@ O(x^{-3/2}).
 
 Die Gestalt dieser Formel erklärt sich aus der Normalform~\eqref{bessel:eigenschaften:eqn:normalform} in Abschnitt~\ref{bessel:eigenschaften:subsection:nullstellen}.
 Für grosse $x$ bleibt von ihr die Schwingungsgleichung $u''+u=0$ übrig, $u$ ist also asymptotisch eine Schwingung mit Kreisfrequenz eins, und der Faktor $1/\sqrt{x}$ kommt von der Rücksubstitution $J_\nu=x^{-1/2}u$.
-Die Amplitude $\sqrt{2/\pi}$ und die Phase $-\nu\pi/2-\pi/4$ liefert dieses Argument nicht, sie erfordern eine genauere Analyse, die bei \cite{bessel:watson} und \cite{bessel:dlmf} nachzulesen ist.
-% [TODO: Kapitel über die Asymptotik bei Watson und den Abschnitt der DLMF nachschlagen und in den \cite ergänzen]
+Die Amplitude $\sqrt{2/\pi}$ und die Phase $-\nu\pi/2-\pi/4$ liefert dieses Argument nicht, sie erfordern eine genauere Analyse, die bei \cite[Kapitel~VII]{bessel:watson} und in \cite[Formel~10.17.3]{bessel:dlmf} nachzulesen ist.
 Ein Sonderfall lässt sich aber direkt nachrechnen.
 Für $\nu=\frac12$ verschwindet der Bruch in~\eqref{bessel:eigenschaften:eqn:normalform}, die Normalform ist dann exakt die Schwingungsgleichung, und tatsächlich gilt
 \begin{equation}
