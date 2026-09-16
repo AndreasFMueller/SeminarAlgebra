@@ -1,0 +1,32 @@
+%
+% komplexer-summand.tex -- 
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{document}
+\def\skala{1.05}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+
+	\draw[->] (-0.4,0) -- (4.7,0) coordinate[label={$\operatorname{Re}$}];
+	\draw[->] (0,-2.5) -- (0,2.7) coordinate[label={left:$\operatorname{Im}$}];
+	\draw[dashed] (0,0) circle[radius=2.0];
+	\draw[->,very thick] (0,0) -- (1.55,-1.26)
+		node[midway,below left] {$n^{-\sigma}$};
+	\draw (0.75,0) arc[start angle=0,end angle=-39,radius=0.75];
+	\node at (1.35,-0.36) {$-t\log n$};
+	\fill (1.55,-1.26) circle[radius=1.5pt];
+	\node[right] at (1.55,-1.26)
+		{$n^{-\sigma}e^{-it\log n}$};
+
+\end{tikzpicture}
+\end{document}
+

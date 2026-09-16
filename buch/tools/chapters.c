@@ -165,7 +165,15 @@ static int	build_entries(const char *filename) {
 	}
 
 	/* initialize the regular expression */
+#ifdef __linux__
+	char	*R = "\\\\newlabel\\{chapter:([a-z]*)\\}\\{\\{([0-9]+)\\}\\{([0-9]+)\\}.*";
+#else
 	char	*R = "\\newlabel{chapter:([a-z]*)}{{([0-9]+)}{([0-9]+)}.*";
+#endif
+	if (debug) {
+		fprintf(stderr, "%s:%d: compiling regex %s\n",
+			__FILE__, __LINE__, R);
+	}
 	regex_t	r;
 	int	rc = regcomp(&r, R, REG_EXTENDED | REG_ICASE);
 	if (rc) {
@@ -180,34 +188,49 @@ static int	build_entries(const char *filename) {
 	size_t	l = 0;
 	int	counter = 0;
 	while (0 < (getline(&line, &l, f))) {
-		regmatch_t	m[4];
-		if (0 == regexec(&r, line, 4, m, 0)) {
+		if (strstr(line, "newlabel{chapter")) {
 			if (debug) {
-				int	i;
-				for (i = 0; i < 4; i++) {
-					fprintf(stderr, "%s:%d: match %d %d\n", 
+				fprintf(stderr, "%s:%d: matching line '%s'\n",
+					__FILE__, __LINE__, line);
+			}
+			regmatch_t	m[4];
+			if (0 == (rc = regexec(&r, line, 4, m, 0))) {
+				if (debug) {
+					int	i;
+					for (i = 0; i < 4; i++) {
+						fprintf(stderr,
+							"%s:%d: match %d %d\n", 
+							__FILE__, __LINE__,
+							(int)m[i].rm_so,
+							(int)m[i].rm_eo);
+					}
+				}
+				/* chapter */
+				line[m[1].rm_eo] = '\0';
+				char	*chapter = line + m[1].rm_so;
+				/* chapterno */
+				int	chapterno = get_number(line, m + 2);
+				/* pageno */
+				int	pageno = get_number(line, m + 3);
+				/* debug */
+				if (debug) {
+					fprintf(stderr, "%s:%d: chapter='%s', "
+						"page='%d', chapterno='%d'\n",
 						__FILE__, __LINE__,
-						(int)m[i].rm_so,
-						(int)m[i].rm_eo);
+						chapter, pageno, chapterno);
+				}
+				/* add the entry */
+				add_entry(chapter, chapterno, pageno);
+				counter++;
+			} else {
+				if (debug) {
+					char	error[1024];
+					regerror(rc, &r, error, sizeof(error));
+					fprintf(stderr,
+						"%s:%d: no match: %d, %s\n",
+						__FILE__, __LINE__, rc, error);
 				}
 			}
-			/* chapter */
-			line[m[1].rm_eo] = '\0';
-			char	*chapter = line + m[1].rm_so;
-			/* chapterno */
-			int	chapterno = get_number(line, m + 2);
-			/* pageno */
-			int	pageno = get_number(line, m + 3);
-			/* debug */
-			if (debug) {
-				fprintf(stderr, "%s:%d: chapter='%s', "
-					"page='%d', chapterno='%d'\n",
-					__FILE__, __LINE__,
-					chapter, pageno, chapterno);
-			}
-			/* add the entry */
-			add_entry(chapter, chapterno, pageno);
-			counter++;
 		}
 	}
 

@@ -1,43 +1,347 @@
 %
-% teil2.tex -- Beispiel-File für teil2 
+% teil2.tex -- Lösung mit verallgemeinerten Potenzreihen
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+% (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
 %
-% !TEX root = ../../buch.tex
-% !TEX encoding = UTF-8
+\section{Lösung mit verallgemeinerten Potenzreihen
+\label{bessel:section:loesung}}
+\kopfrechts{Lösung}
 %
-\section{Teil 2 
-\label{bessel:section:teil2}}
-\kopfrechts{Teil 2}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-velit, sed quia non numquam eius modi tempora incidunt ut labore
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-pariatur?
+% Ziel dieses Abschnitts.
+% Die allgemeine Theorie aus dem Fuchs-Abschnitt nicht wiederholen,
+% sondern anwenden.
+% Der Mehrwert liegt darin, dass die Bessel-Gleichung ein besonders
+% sauberer Spezialfall ist.
+% Es gilt F(varrho) = varrho^2 - nu^2, also varrho = +- nu.
+%
+Die Bessel-Gleichung
+\begin{equation}
+x^2y'' + xy' + (x^2-\nu^2)y = 0
+\label{bessel:loesung:eqn:bessel}
+\end{equation}
+ist eine fuchssche Differentialgleichung.
+Das in Abschnitt~\ref{buch:differentialgleichungen:section:fuchs} entwickelte Verfahren lässt sich deshalb direkt anwenden.
+Wir wiederholen die allgemeine Theorie hier nicht, sondern setzen ein und beobachten, was dabei herauskommt.
+Bemerkenswert ist, wie einfach der Spezialfall wird.
+Alle Grössen der allgemeinen Rekursion nehmen für die Bessel-Gleichung eine besonders übersichtliche Form an.
+ 
+%
+% Die Bessel-Gleichung als fuchssche Gleichung
+%
+\subsection{Die Bessel-Gleichung als fuchssche Gleichung
+\label{bessel:loesung:subsection:fuchssch}}
+Der Vergleich von~\eqref{bessel:loesung:eqn:bessel} mit der allgemeinen Form \eqref{buch:differentialgleichungen:fuchs:eqn:dgl} liefert
+\begin{equation}
+p(x) = 1,
+\qquad
+q(x) = x^2-\nu^2.
+\label{bessel:loesung:eqn:pq}
+\end{equation}
+Beide Funktionen sind Polynome, ihre Potenzreihenentwicklungen um $0$ brechen also nach wenigen Gliedern ab.
+Für die Koeffizienten $p_l$ und $q_l$ bedeutet das
+\begin{equation}
+p_0 = 1,
+\quad
+p_l = 0
+\ \text{für}\ l \ge 1,
+\qquad
+q_0 = -\nu^2,
+\quad
+q_1 = 0,
+\quad
+q_2 = 1,
+\quad
+q_l = 0
+\ \text{für}\ l\ge 3.
+\label{bessel:loesung:eqn:koeffizienten}
+\end{equation}
+Der Ansatz ist eine verallgemeinerte Potenzreihe im Sinne der Definition~\ref{buch:differentialgleichungen:verallgemeinert:def}, also
+\begin{equation}
+y(x)
+=
+\sum_{k=0}^\infty
+a_k x^{k+\varrho}
+=
+x^\varrho
+\sum_{k=0}^\infty
+a_k x^k,
+\qquad
+a_0 \ne 0.
+\label{bessel:loesung:eqn:ansatz}
+\end{equation}
+Der Faktor $x^\varrho$ ist der ganze Unterschied zu einem gewöhnlichen Potenzreihenansatz.
+Er ist genau das, was das Verfahren rettet, denn er erlaubt der Lösung, sich bei $x=0$ wie eine beliebige, auch nicht ganzzahlige Potenz zu verhalten.
+ 
+%
+% Indexgleichung
+%
+\subsection{Die Indexgleichung
+\label{bessel:loesung:subsection:index}}
+Die Indexgleichung des Fuchs-Verfahrens lautet $F(\varrho) = \varrho(\varrho-1) + \varrho p_0 + q_0 = 0$.
+Mit den Werten~\eqref{bessel:loesung:eqn:koeffizienten} wird daraus
+\begin{equation}
+F(\varrho)
+=
+\varrho(\varrho-1) + \varrho - \nu^2
+=
+\varrho^2 - \nu^2.
+\label{bessel:loesung:eqn:index}
+\end{equation}
+Die beiden linearen Terme heben sich weg, und es bleibt die denkbar einfachste quadratische Gleichung.
+Ihre Lösungen sind
+\begin{equation}
+\varrho_1 = \nu,
+\qquad
+\varrho_2 = -\nu.
+\label{bessel:loesung:eqn:varrho}
+\end{equation}
+Der Exponent der verallgemeinerten Potenzreihe ist also nichts anderes als die Ordnung der Gleichung, mit beiden Vorzeichen.
+Das ist keine blosse Rechenkuriosität, sondern lässt sich direkt ablesen.
+Für kleine $x$ ist der Term $x^2$ in~\eqref{bessel:loesung:eqn:bessel}
+gegenüber $\nu^2$ vernachlässigbar, und die Gleichung geht in
+\[
+x^2y'' + xy' - \nu^2 y = 0
+\]
+über.
+Das ist eine eulersche Differentialgleichung, deren Lösungen für $\nu>0$ genau $x^{\nu}$ und $x^{-\nu}$ sind.
+Die Indexgleichung beschreibt also das Verhalten der Lösung in unmittelbarer Nähe der Singularität.
+ 
+%
+% Rekursionsformel
+%
+\subsection{Die Rekursionsformel für die Koeffizienten
+\label{bessel:loesung:subsection:rekursion}}
+Setzt man den Ansatz~\eqref{bessel:loesung:eqn:ansatz} in~\eqref{bessel:loesung:eqn:bessel} ein, so liefert der Koeffizientenvergleich die Bedingungen \eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}.
+Für die Bessel-Gleichung vereinfachen sie sich drastisch, weil von den $p_l$ und $q_l$ nur $p_0$, $q_0$ und $q_2$ von null verschieden sind.
+Der Koeffizient von $x^{n+\varrho}$ ist
+\begin{equation}
+\bigl((n+\varrho)^2-\nu^2\bigr)a_n + a_{n-2} = 0,
+\qquad n \ge 2,
+\label{bessel:loesung:eqn:rekursion}
+\end{equation}
+wobei der Term $a_{n-2}$ genau von $q_2=1$ herrührt.
+Für $n=1$ bleibt
+\begin{equation}
+\bigl((1+\varrho)^2-\nu^2\bigr)a_1 = 0.
+\label{bessel:loesung:eqn:a1}
+\end{equation}
+ 
+Wir wählen zunächst $\varrho=\nu$ mit $\nu\ge 0$.
+Dann ist $(1+\nu)^2-\nu^2 = 1+2\nu > 0$, aus \eqref{bessel:loesung:eqn:a1} folgt also $a_1=0$.
+Wegen~\eqref{bessel:loesung:eqn:rekursion} verschwinden damit sämtliche Koeffizienten mit ungeradem Index,
+\begin{equation}
+a_1 = a_3 = a_5 = \dots = 0.
+\label{bessel:loesung:eqn:ungerade}
+\end{equation}
+Die Reihe enthält nur gerade Potenzen.
+ 
+Für die geraden Koeffizienten liefert \eqref{bessel:loesung:eqn:rekursion} mit $\varrho=\nu$
+\begin{equation}
+a_n
+=
+-\frac{a_{n-2}}{(n+\nu)^2-\nu^2}
+=
+-\frac{a_{n-2}}{n(n+2\nu)}.
+\label{bessel:loesung:eqn:rekursionnu}
+\end{equation}
+Schreibt man $n=2k$, so wird daraus
+\[
+a_{2k}
+=
+-\frac{a_{2k-2}}{2k\,(2k+2\nu)}
+=
+-\frac{a_{2k-2}}{4k(k+\nu)},
+\]
+und durch wiederholtes Einsetzen ergibt sich die geschlossene Form
+\begin{equation}
+a_{2k}
+=
+\frac{(-1)^k a_0}{4^k\, k!\,(\nu+1)(\nu+2)\cdots(\nu+k)}.
+\label{bessel:loesung:eqn:a2k}
+\end{equation}
+Der Nenner wächst wie $4^k(k!)^2$, die Reihe konvergiert daher für alle $x\in\mathbb{R}$.
 
-\subsection{De finibus bonorum et malorum
-\label{bessel:subsection:bonorum}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-est et expedita distinctio. Nam libero tempore, cum soluta nobis
-est eligendi optio cumque nihil impedit quo minus id quod maxime
-placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-consequatur aut perferendis doloribus asperiores repellat.
+Das lässt sich mit dem Quotientenkriterium sauber begründen.
+Nach~\eqref{buch:differentialgleichungen:verallgemeinert:eqn:gewoehnlich} unterscheidet sich die verallgemeinerte Potenzreihe von der
+gewöhnlichen Potenzreihe $\sum_k a_kx^k$ nur um den Faktor $x^{\varrho}$, das Konvergenzverhalten ist also dasselbe.
+Weil alle ungeraden Koeffizienten verschwinden, ist der Quotient zweier aufeinanderfolgender nicht verschwindender Glieder nach
+\eqref{bessel:loesung:eqn:rekursionnu}
+\[
+\biggl|
+\frac{a_{2k+2}\,x^{2k+2}}{a_{2k}\,x^{2k}}
+\biggr|
+=
+\frac{x^2}{4(k+1)(k+1+\nu)}
+\longrightarrow
+0
+\qquad (k\to\infty).
+\]
+Für jedes feste $x$ ist dieser Grenzwert kleiner als eins, die Reihe konvergiert also auf der ganzen reellen Achse.
+Der Konvergenzradius ist unendlich, und $x^{-\nu}J_\nu(x)$ ist eine ganze Funktion.
+ 
+%
+% Die Bessel-Funktion erster Art
+%
+\subsection{Die Bessel-Funktion erster Art
+\label{bessel:loesung:subsection:jnu}}
+Der Koeffizient $a_0$ ist frei wählbar.
+Die übliche Normierung ist
+\begin{equation}
+a_0
+=
+\frac{1}{2^\nu\,\Gamma(\nu+1)},
+\label{bessel:loesung:eqn:normierung}
+\end{equation}
+und sie ist nicht willkürlich.
+Wegen $\Gamma(\nu+k+1) = \Gamma(\nu+1)(\nu+1)(\nu+2)\cdots(\nu+k)$ verschluckt die Gammafunktion genau das Produkt aus dem Nenner von~\eqref{bessel:loesung:eqn:a2k}.
+Damit erhält die Lösung die Gestalt
+\begin{definition}
+\label{bessel:loesung:def:jnu}
+Die \emph{Bessel-Funktion erster Art} der Ordnung $\nu$
+\index{Bessel-Funktion erster Art}%
+ist
+\begin{equation}
+J_\nu(x)
+=
+\sum_{k=0}^\infty
+\frac{(-1)^k}{k!\,\Gamma(\nu+k+1)}
+\Bigl(\frac{x}{2}\Bigr)^{2k+\nu}.
+\label{bessel:loesung:eqn:jnu}
+\end{equation}
+\end{definition}
+ 
+Die Reihe~\eqref{bessel:loesung:eqn:jnu} konvergiert für alle $x$.
+Für ganzzahliges $\nu=n$ ist $\Gamma(n+k+1)=(n+k)!$, und man erhält
+\[
+J_n(x)
+=
+\sum_{k=0}^\infty
+\frac{(-1)^k}{k!\,(n+k)!}
+\Bigl(\frac{x}{2}\Bigr)^{2k+n}.
+\]
+Besonders anschaulich ist der Fall $n=0$,
+\[
+J_0(x)
+=
+1
+-
+\frac{x^2}{4}
++
+\frac{x^4}{64}
+-
+\frac{x^6}{2304}
++
+\dots,
+\]
+der an die Reihe des Kosinus erinnert, aber schneller abfällt.
+Abbildung~\ref{bessel:loesung:fig:jnu} zeigt die ersten drei
+Bessel-Funktionen erster Art.
 
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	width=\textwidth,
+	height=6cm,
+	xlabel={$x$},
+	xmin=0, xmax=20,
+	ymin=-0.6, ymax=1.05,
+	axis lines=middle,
+	grid=both,
+	grid style={very thin,gray!25},
+	legend pos=north east,
+	legend cell align=left,
+	tick label style={font=\small}
+]
+\addplot[thick,blue]       table[x=x,y=J0] {papers/bessel/images/besselj.dat};
+\addlegendentry{$J_0(x)$}
+\addplot[thick,red]        table[x=x,y=J1] {papers/bessel/images/besselj.dat};
+\addlegendentry{$J_1(x)$}
+\addplot[thick,darkgreen]  table[x=x,y=J2] {papers/bessel/images/besselj.dat};
+\addlegendentry{$J_2(x)$}
+\addplot[only marks,mark=*,mark size=1.3pt,blue]
+	table[x=x,y=y] {papers/bessel/images/besselj-zeros.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{Die Bessel-Funktionen $J_0$, $J_1$ und $J_2$.
+Die Punkte markieren die Nullstellen von $J_0$.
+Die Abstände der Nullstellen sind nicht konstant, sie nähern sich für wachsendes $x$ aber dem Wert $\pi$ an.
+Die Amplitude klingt wie $1/\sqrt{x}$ ab.
+\label{bessel:loesung:fig:jnu}}
+\end{figure}
+Für kleine Argumente dominiert der erste Term,
+\begin{equation}
+J_\nu(x)
+\approx
+\frac{1}{\Gamma(\nu+1)}
+\Bigl(\frac{x}{2}\Bigr)^{\nu}
+\qquad (x\to 0),
+\label{bessel:loesung:eqn:kleinx}
+\end{equation}
+insbesondere ist $J_0(0)=1$ und $J_\nu(0)=0$ für $\nu>0$.
 
+%
+% Die zweite Lösung
+%
+\subsection{Die zweite Lösung
+\label{bessel:loesung:subsection:ynu}}
+Eine Differentialgleichung zweiter Ordnung hat einen zweidimensionalen Lösungsraum, und bisher ist erst eine Lösung gefunden.
+Die Indexgleichung~\eqref{bessel:loesung:eqn:index} hat aber eine zweite Wurzel $\varrho_2=-\nu$, und die ganze Rechnung lässt sich mit diesem Exponenten wiederholen.
+Man erhält
+\begin{equation}
+J_{-\nu}(x)
+=
+\sum_{k=0}^\infty
+\frac{(-1)^k}{k!\,\Gamma(-\nu+k+1)}
+\Bigl(\frac{x}{2}\Bigr)^{2k-\nu}.
+\label{bessel:loesung:eqn:jminusnu}
+\end{equation}
+
+Für halbzahliges $\nu$ verschwindet dabei der Faktor $(n-\nu)^2-\nu^2=n(n-2\nu)$ bei $n=2\nu$, der Koeffizient $a_{2\nu}$ bleibt also unbestimmt.
+Man setzt ihn null, denn jeder andere Wert fügt nur ein Vielfaches von $J_\nu$ hinzu.
+
+Für $\nu\notin\mathbb{Z}$ ist damit alles erledigt.
+Bei $x=0$ verhält sich $J_\nu$ wie $x^{\nu}$ und $J_{-\nu}$ wie $x^{-\nu}$, die eine Funktion bleibt also beschränkt und die andere nicht.
+Proportional können sie deshalb nicht sein, und
+\[
+y(x)
+=
+C_1 J_\nu(x) + C_2 J_{-\nu}(x)
+\]
+ist die allgemeine Lösung.
+
+Für ganzzahliges $\nu=n$ bricht dieses Argument zusammen.
+Die Gammafunktion hat an den nichtpositiven ganzen Zahlen Pole, ihr Kehrwert verschwindet dort, und in~\eqref{bessel:loesung:eqn:jminusnu} fallen deshalb die ersten $n$ Glieder weg.
+Mit der Substitution $k=m+n$ wird daraus
+\begin{align*}
+J_{-n}(x)
+&=
+\sum_{k=n}^\infty
+\frac{(-1)^k}{k!\,\Gamma(k-n+1)}
+\Bigl(\frac{x}{2}\Bigr)^{2k-n}
+=
+\sum_{m=0}^\infty
+\frac{(-1)^{m+n}}{(m+n)!\,\Gamma(m+1)}
+\Bigl(\frac{x}{2}\Bigr)^{2m+n}
+\\
+&=
+(-1)^n
+\sum_{m=0}^\infty
+\frac{(-1)^m}{m!\,(m+n)!}
+\Bigl(\frac{x}{2}\Bigr)^{2m+n}
+=
+(-1)^n J_n(x),
+\end{align*}
+die zweite Wurzel der Indexgleichung liefert also nichts Neues.
+Das ist kein Zufall, sondern der im Fuchs-Abschnitt beschriebene Ausnahmefall.
+Für $n\ge 1$ unterscheiden sich die beiden Wurzeln $\varrho_1=n$ und $\varrho_2=-n$ um die ganze Zahl $2n$, und dann kann die Rekursion für den kleineren Exponenten zusammenbrechen.
+Für $n=0$ fallen die beiden Wurzeln zusammen, und der Ansatz liefert von vornherein nur eine Lösung.
+
+Eine zweite, von $J_n$ unabhängige Lösung existiert trotzdem.
+Sie enthält einen logarithmischen Term und lässt sich deshalb durch keine verallgemeinerte Potenzreihe~\eqref{bessel:loesung:eqn:ansatz} darstellen.
+Man nennt sie die \emph{Bessel-Funktion zweiter Art} $Y_\nu$
+\index{Bessel-Funktion zweiter Art}%
+und gewinnt sie als Grenzwert einer Linearkombination von $J_\nu$ und $J_{-\nu}$ für $\nu\to n$.
+Für $x\to 0$ gilt $Y_\nu(x)\to-\infty$.
+Im weiteren Verlauf dieses Kapitels wird $Y_\nu$ nicht gebraucht, weil alle behandelten Anwendungen auf Gebieten spielen, die den Ursprung enthalten, und dort muss die Lösung beschränkt bleiben.
+Bei Ringgebieten und Aussenraumproblemen ist $Y_\nu$ dagegen unentbehrlich, die Einzelheiten finden sich bei \cite{bessel:watson}.

@@ -33,7 +33,7 @@ U
 Dieselbe Rechnung führen wir nun für die Ellipse mit den Halbachsen
 $a \ge b$ durch, parametrisiert durch
 $(x,y) = (a\cos t,\, b\sin t)$
-(Abbildung~\ref{fig:elliptisch:ellipse}).
+(siehe Abbildung~\ref{fig:elliptisch:ellipse}).
 \input{papers/elliptisch/fig/ellipseFIG.tex}
 Das Bogenelement ist
 \begin{equation}
@@ -49,7 +49,8 @@ k^2 = \frac{a^2-b^2}{a^2},
 \label{elliptisch:equation:bogenelement}
 \end{equation}
 wobei $k$ die numerische Exzentrizität ist
-\cite{elliptisch:mueller-spezielle}.
+\cite{elliptisch:mueller-spezielle}, später auch Modul
+genannt.
 \index{Ellipse}%
 \index{Exzentrizitat@Exzentrizität}%
 Bemerkenswert ist, dass diesmal die Wurzel nicht verschwindet.
@@ -59,6 +60,7 @@ volle Umfang
 U
 =
 4a \int_0^{\pi/2} \sqrt{1 - k^2\cos^2 t}\,dt
+\label{elliptisch:equation:umfangcos}
 \end{equation}
 ist das Vierfache davon.
 Die Substitution $t \mapsto \frac{\pi}{2} - t$ bildet das Intervall
@@ -124,12 +126,12 @@ garantiert eine elementare Stammfunktion.
 Ein Computeralgebrasystem liefert sie auch, nämlich
 \begin{equation}
 \frac{\sqrt{2}}{4}
-\log\frac{\sqrt{\tan x}-\sqrt{2}\sqrt[4]{\tan x}+1}
-        {\sqrt{\tan x}+\sqrt{2}\sqrt[4]{\tan x}+1}
+\log\frac{\tan x-\sqrt{2}\sqrt{\tan x}+1}
+        {\tan x+\sqrt{2}\sqrt{\tan x}+1}
 +
-\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt[4]{\tan x}-1\right)
+\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt{\tan x}-1\right)
 +
-\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt[4]{\tan x}+1\right).
+\frac{\sqrt{2}}{2}\arctan\left(\sqrt{2}\sqrt{\tan x}+1\right).
 \label{elliptisch:equation:tanxmonster}
 \end{equation}
 Der Ausdruck ist so unhandlich, dass er für praktische Zwecke
@@ -178,15 +180,18 @@ zu einem $v$ des bisherigen Körpers die Gleichung $\vartheta' = v'/v$
 erfüllt, also ein Logarithmus ist, oder die Gleichung
 $\vartheta'/\vartheta = v'$, also eine Exponentialfunktion
 (siehe Abschnitt~\ref{buch:intalg:section:elementar}).
-So entsteht ein Turm
+So entsteht ein \emph{Turm}
 \begin{equation}
 F_0 \subset F_1 \subset \dots \subset F_N,
 \qquad
 F_i = F_{i-1}(\vartheta_i),
 \label{elliptisch:equation:koerperturm}
 \end{equation}
-und \emph{elementar} heissen genau jene Funktionen, die in einem
-solchen Turm mit endlich vielen Schritten liegen
+von Körpererweiterungen.
+Jeder Körper $F_i$ darin ist eine Erweiterung seines Vorgängers um
+genau eine neue Funktion $\vartheta_i$.
+Eine Funktion heisst \emph{elementar}, wenn sie sich in endlich
+vielen solchen Schritten aufbauen lässt
 (Abbildung~\ref{fig:elliptisch:koerperturm}).
 \index{elementare Funktion}%
 \index{Korperturm@Körperturm}%
@@ -228,14 +233,14 @@ v_0 + \sum_{i=1}^n c_i \log v_i.
 \end{equation}
 \end{satz}
 Der Beweis wird in Abschnitt~\ref{buch:intalg:section:liouville}
-geführt \cite[Kapitel~8]{elliptisch:mueller-algebra}.
+geführt.
 An dieser Stelle interessiert uns, was die Aussage leistet.
 
 Ohne diesen Satz müsste die Stammfunktion in einer beliebig grossen
 elementaren Erweiterung von $F$ gesucht werden, mit beliebig vielen
 neuen Wurzeln, Exponentialfunktionen und ineinander geschachtelten
 Logarithmen.
-Somit ist die Art wie die Stammfunktion aussieht, relativ starr.
+Somit ist die Art, wie die Stammfunktion aussieht, relativ starr.
 Die Bausteine $v_0$ und $v_i$ liegen bereits in $F$, hinzu kommen
 einzig die Logarithmen $\log v_i$, und deren Vorfaktoren $c_i$ sind
 Konstanten.

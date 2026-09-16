@@ -4,12 +4,11 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
 #
-./chapters --auxfile=../build/buch.aux <<EOF
+./chapters --debug --auxfile=../build/buch.aux <<EOF
 #
 # Kapitel  1
 chapter=1
 2
-6
 #
 # Kapitel  2
 chapter=2
@@ -20,6 +19,8 @@ chapter=2
 33
 34
 43
+53
+54
 55
 # Kapitel  3
 chapter=3
@@ -106,6 +107,17 @@ chapter=moebius
 #
 # Kapitel 11 geradlinig
 chapter=geradlinig
+4
+5
+6
+7
+8
+9
+10
+12
+13
+14
+15
 #
 # Kapitel 12 julia
 chapter=julia
@@ -124,30 +136,71 @@ chapter=julia
 #
 # Kapitel 13 jordan
 chapter=jordan
+2
+4
+5
 #
 # Kapitel 14 qa
 chapter=qa
+3
+6
 #
 # Kapitel 15 elektro
 chapter=elektro
+1
+2
+4
+5
+6
+9
+11
+12
+13
+14
+15
 #
 # Kapitel 16 joukowski
 chapter=joukowski
+8
+13
 #
 # Kapitel 17 aircraft
 chapter=aircraft
+2
+3
+8
+12
 #
 # Kapitel 18 fresnel
 chapter=fresnel
+2
+3
+4
+6
+9
+11
 #
 # Kapitel 19 pade
 chapter=pade
+12
+13
 #
 # Kapitel 20 step
 chapter=step
+5
+6
+16
+17
 #
 # Kapitel 21 hauptwert
 chapter=hauptwert
+2
+3
+5
+6
+7
+8
+9
 #
 # Kapitel 22 kepler
 chapter=kepler
@@ -187,14 +240,20 @@ chapter=basel
 #
 # Kapitel 27 gamma
 chapter=gamma
-5
 6
+7
 #
 # Kapitel 28 bessel
 chapter=bessel
+8
+13
 #
 # Kapitel 29 hankel
 chapter=hankel
+8
+12
+13
+16
 #
 # Kapitel 30 zeta
 chapter=zeta
@@ -210,14 +269,19 @@ chapter=buchberger
 # Kapitel 32 resultante
 chapter=resultante
 4
+5
 6
-
 #
 # Kapitel 33 elliptisch
 chapter=elliptisch
 2
 4
 7
+8
 11
-13
+14
+16
+17
+19
+20
 EOF

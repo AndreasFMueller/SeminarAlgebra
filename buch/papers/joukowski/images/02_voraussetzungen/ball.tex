@@ -1,0 +1,97 @@
+\documentclass[tikz,border=0pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+	
+	\begin{tikzpicture}
+		
+		% -------------------------------------------------
+		% Background image
+		% -------------------------------------------------
+		\node[
+		anchor=south west,
+		inner sep=0
+		] at (0,0)
+		{\includegraphics[width=12cm]{ball.jpg}};
+		
+		% -------------------------------------------------
+		% Red vectors
+		% -------------------------------------------------
+		
+		% Freestream velocity V_infinity
+		\draw[
+		red,
+		line width=2.5pt,
+		-{Latex[length=4.5mm,width=3mm]}
+		]
+		(1.20,8.82) -- (2.20,8.82);
+		
+		\node[
+		red,
+		font=\Large
+		] at (2.3,9.1)
+		{$v_\infty$};
+		
+		
+		% Vertical force F_y
+		\draw[
+		red,
+		line width=2.5pt,
+		-{Latex[length=4.5mm,width=3mm]}
+		]
+		(3.45,4.28) -- (3.45,6.03);
+		
+		\node[
+		red,
+		font=\Large
+		] at (3.8,6.05)
+		{$F_y$};
+		
+		
+		% -------------------------------------------------
+		% Coordinate system
+		% -------------------------------------------------
+		
+		% Origin
+		\coordinate (O) at (0.71,0.43);
+		
+		% x-axis
+		\draw[
+		red,
+		line width=1.5pt,
+		-{Latex[length=4.5mm,width=3mm]}
+		]
+		(O) -- (2.07,0.43);
+		
+		% y-axis
+		\draw[
+		red,
+		line width=1.5pt,
+		-{Latex[length=4.5mm,width=3mm]}
+		]
+		(O) -- (0.71,1.83);
+		
+		% -------------------------------------------------
+		% Coordinate labels
+		% -------------------------------------------------
+		
+		% x label
+		\node[
+		red,
+		font=\Large
+		] at (2.27,0.42)
+		{$x$};
+		
+		% i and y in the same label
+		\node[
+		red,
+		font=\Large
+		] at (0.78,2.08)
+		{$i y$};
+		
+	\end{tikzpicture}
+	
+\end{document}

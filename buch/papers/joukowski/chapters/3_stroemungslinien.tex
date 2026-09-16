@@ -1,0 +1,189 @@
+\section{Strömungslinien}
+\label{joukowski:sec:stroemungslinien}
+	\subsection{Allgemeine Definition}
+		Die Bewegung von Fluiden im dreidimensionalen Raum wird durch die Navier-Stokes-Gleichungen,
+		oder die reibungsfreien Euler-Gleichungen beschrieben.
+		Dabei handelt es sich um komplizierte partielle Differentialgleichungen,
+		deren Anwendung für dieses Seminar zu weit führt.
+		Hierbei geht es nur darum den physikalischen Ursprung mit den komplexen Zahlen in Verbindung zu bringen.
+		Das exakte Verstäntnis für die Entstehung der Strömungsgleichung wird nicht vorausgesetzt.
+		
+		Haben wir eine inkompressible Strömung in zwei Dimensionen,
+		können wir aus der Bedingung~\eqref{joukowski:voraussetzungen:inkompressibel} schliessen,
+		dass eine sogenannten Potentialfunktion $\varphi$ existiert,
+		welche sich mit
+		\[
+			\vec{v}
+			=
+			\nabla \varphi.
+		\]
+		berechnen lässt.
+		Dies beschreibt die Situation einer sogenannter Potentialströmung.
+		Setzen wir unsere Gleichung für $\varphi$ in die Bedinung der Inkompressibilität des Fluides aus Gleichung~\eqref{joukowski:voraussetzungen:inkompressibel} ein,
+		erhalten wir die Laplace-Gleichung
+		\[
+			\nabla \cdot \nabla \varphi
+			=
+			\Delta \varphi
+			=
+			0.
+		\]
+		Das beduetet jede Potentialfunktion, welche die Strömung eines inkompressiblen, laminaren Fluid beschreibt, muss die Laplace Gleichung erfüllen.
+		Aus Abschnitt~\ref{joukowski:voraussetzungen:situationsbeschreibung}
+		wissen wir aber, dass das Problem auf zwei Dimensionen begrenzt werden kann.
+		Sobald die Strömung nur von $x$ und $y$ abhängig ist,
+		können wir die komplexen Zahlen zur Hand nehmen und die Situation vereinfacht sich wesentlich.
+		Wir formulieren eine komplexe Funktion $f(z)$, welche die Strömung unseres Fluides mit der Gleichung
+		\[
+			f(z)
+			= 
+			\varphi(z) + i \psi(z)
+		\]
+		beschreibt, wobei $\varphi(z)$ unserer oben erwähnten Potentialfunktion entspricht.
+		Dabei können wir ausnutzen, dass der Realteil einer holomorphen Funktion automatisch die Laplace-Gleichung erfüllt.
+		Wir können daraus nun den folgenden Satz formulieren.
+		
+		\begin{satz}
+			Jede holomorphe Funktion $f(z)$ erfüllt die Laplace Gleichung
+			und ist eine gültige Beschreibung einer Fluidströmung in zwei Dimensionen.
+			\label{joukowski:stroemungslinien:satz:holomorphe-funktion}
+		\end{satz}
+		
+		Jetzt können wir alle Werkzeuge der komplexen Analysis anwenden, um unsere Strömung zu beschreiben.		
+		Dafür müssen wir unsere komplexe Funktion weiter untersuchen.
+		Punkte in der $z$-Ebene, für welche die Potentialfunktion $\varphi(z)$ einer Konstanten entsprechen, werden \emph{Äquipotentiallinien} genannt
+		und Punkte, für welche $\psi(z)$ einer Konstanten entsprechen, werden \emph{Strömungslinien} genannt.
+		Für unsere weiteren Betrachtungen sind die Strömungslinien von grosser Bedeutung.
+		
+		\begin{definition}[Strömungslinie]
+			\label{joukowski:stroemungslinien:proof:Stroemungslinie}
+			In der stationären Strömung beschreibt eine \emph{Strömungsline} den Weg, welcher ein Fluidteilchen nimmt
+			und gilt für alle Punkte $z$ die
+			\[
+				\psi(z) = C
+			\]
+			erfüllen.
+		\end{definition}
+		Unterschiedliche Konstanten $C$ bezeichnen dabei unterschiedliche Strömungslinien.
+		Um diese übersichtlich darzustellen, beschränken wir uns bei der Visualisierung auf eine diskrete Anzahl Konstanten $C$ aus der Definition~\ref{joukowski:stroemungslinien:proof:Stroemungslinie}.
+		
+		\input{papers/joukowski/fig/05_stroemungslinien/fig_Allgemein.tex}
+		\begin{beispiel}
+			\label{joukowski:stroemungslinien:beispiel:ungestoerte-Stroemung}
+			Beginnen wir mit einer möglichst einfachen Strömung: Eine homogene, ungehinderte Strömung von links nach rechts, wie in Abbildung~\ref{joukowski:Stroemungslinien:fig_Allgemein}.
+			Es wird sofort deutlich, dass die Strömungslinien horizontal verlaufen und vertikal gleichmässig verteilt sind.
+			Somit ist die Geschwindigkeit an jedem Punkt des Raumes identisch.
+			Die Abbildung~\ref{joukowski:Stroemungslinien:fig_Allgemein}, welche dieser Situation entspricht,
+			kann mit der holomorphen Strömungsfunktion $f(z) = z$ und der konstanten Geschwindigkeitsfunktion ${v(z)} = 1$ beschrieben werden.
+		\end{beispiel}
+		
+		\input{papers/joukowski/fig/05_stroemungslinien/fig_Zylinder.tex}
+		\begin{beispiel}
+		\label{joukowski:stroemungslinien:beispiel:joukowski-transformation}
+		Wir fügen einen Zylinder als Hindernis ein.
+		Im unserer zweidimensionalen Betrachtung gilt dieser Zylinder als Kreis mit Schwerpunkt im Ursprung.
+		Um diese Situation zu analysieren, müssen wir eine komplexe Funktion finden,
+		welche unser Hindernis auf eine horizontale Linie abbildet.
+		Eine eine horizontale Linie als ``Hindernis'' entspricht der gleichen Situation wie in Beispiel~\ref{joukowski:stroemungslinien:beispiel:ungestoerte-Stroemung}.
+		Finden wir diese Funktion,
+		so bildet diese auch die Strömungslinien um das Hindernis auf die horizontalen Strömungslinien aus Beispiel~\ref{joukowski:stroemungslinien:beispiel:ungestoerte-Stroemung} ab.
+		Diese Eigenschaft gilt nur,
+		wenn diese Funktion \emph{biholomorph} ist.
+		
+		\begin{definition}[Biholomorphe Funktion]
+			Eine komplexe Funktion $f(z)$ ist \emph{biholomorph}, wenn
+			\begin{enumerate}
+				\item $f(z)$ holomorph ist
+				und
+				\item ihre Umkehrfunktion $f^{-1}(z)$ auch holomorph ist.
+			\end{enumerate}
+		\end{definition}
+		
+		Die komplexe Funktion, welche einen Kreis im Ursprung auf eine horizontale Linie abbildet, ist die sogenannte Kutta-Joukowski-Transformation und lautet
+		\begin{equation}
+			\label{joukowski:Stroemungslinien:equation_zylinder}
+			f(z)
+			=
+			v_\infty \cdot \biggl(z+\frac{1}{z}\biggr).
+		\end{equation}
+		Die Ableitung dieser Funktion nach $z$ entspricht dann
+		\begin{equation}
+			\label{joukowski:Stroemungslinien:equation_zylinder_speed}
+			\frac{df}{dz}
+			=
+			\overline{v(z)}
+			=
+			v_\infty \cdot \biggl(1 - \frac{1}{z^2}\biggr).
+		\end{equation} 
+		Die Strömungslinien dieser Funktion sowie die Geschwindigkeiten werden in Abbildung ~\ref{joukowski:Stroemungslinien:fig_Zylinder} dargestellt.
+		\end{beispiel}
+		
+	\subsection{Zusammenhang zwischen $f(z)$ und $\overline{v(z)}$}
+		\label{joukowski:stroemungslinien:zusammenhang-fz-z}
+		In Beispiel~\ref{joukowski:stroemungslinien:beispiel:joukowski-transformation}
+		haben wir geschrieben
+		\begin{equation}
+			\label{joukowski:stroemungslinien:dfdz}
+			\frac{df}{dz}
+			=
+			\overline{v(z)}.
+		\end{equation}
+		Dies scheint auf den ersten Blick etwas merkwürdig zu sein,
+		da im Reellen die Ableitung direkt die Geschwindigkeit selbst gibt.
+		Dieses Resultat stammt aus den Cauchy-Riemann-Differentialgleichungen und der Konvention,
+		die komplexe Geschwindigkeit als $v(z) = u + iw$ zu schreiben.
+		
+		\begin{proof}[Beweis von Formel~\eqref{joukowski:stroemungslinien:dfdz}]
+			\label{joukowski:stroemungslinien:v-konjugiert-komplex}
+			Wir berechnen die komplexe Ableitung der Funktion $f(z)$ nach $z$.
+			Als erstes teilen wir $f(z)$ in Real- und Imaginärteil und schreiben
+			\[
+				\frac{df}{dz}
+				=
+				\frac{d\varphi}{dz} + i \frac{d\psi}{dz}.
+			\]
+			Jetzt können wir ausnutzen, dass es bei einer holomorphen Funktion keine Rolle spielt in welche Richtung die Ableitung erfolgt,
+			was heisst, dass
+			\[
+				\frac{df}{dz}
+				=
+				\frac{\partial f}{\partial x}
+				=
+				\frac{1}{i} \cdot \frac{\partial f}{\partial y}
+			\]
+			gilt.
+			Dabei nutzen wir aus den Cauchy-Riemann-Differentialgleichungen die Zusammenhänge
+			\[
+				\frac{d\varphi}{dz}
+				=
+				\frac{\partial \varphi}{\partial x}
+				\qquad
+				\text{und}
+				\qquad
+				\frac{d\psi}{dz}
+				=
+				-\frac{\partial \varphi}{\partial y}.
+			\]
+			Es ist üblich,
+			\[
+				u
+				=
+				\frac{\partial \varphi}{\partial x}
+				\qquad
+				\text{und}
+				\qquad
+				w
+				=
+				\frac{\partial \varphi}{\partial y}
+			\]
+			zu schreiben.
+			Somit ergibt sich schliesslich
+			\[
+				\frac{df}{dz}
+				=
+				u - iw
+				=
+				\overline{v(z)}. \qedhere
+			\]
+		\end{proof}
+	

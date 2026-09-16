@@ -1,39 +1,52 @@
 %
 % main.tex -- Paper zum Thema <bessel>
 %
-% (c) 2020 Autor, OST Ostschweizer Fachhochschule
+% (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
+% !TeX spellcheck = de_CH
 %
 \chapter{Bessel-Funktionen\label{chapter:bessel}}
 \kopflinks{Bessel-Funktionen}
 \begin{refsection}
 \chapterauthor{Gian Cavegn}
-
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
+ 
+%
+% Reihenfolge der Abschnitte
+%
+%   teil0  Einleitung
+%   teil1  Herleitung der Bessel-Differentialgleichung
+%   teil2  Lösung mit verallgemeinerten Potenzreihen
+%   teil3  Eigenschaften der Bessel-Funktionen
+%   teil4  Modifizierte Bessel-Funktionen I_nu und K_nu
+%   teil5  Anwendung, die Kepler-Gleichung vlt?
+%
+%
 
 \input{papers/bessel/teil0.tex}
 \input{papers/bessel/teil1.tex}
 \input{papers/bessel/teil2.tex}
 \input{papers/bessel/teil3.tex}
 
+ 
 \printbibliography[heading=subbibliography]
 \end{refsection}
+ 
+%
+% Notizen aus der ersten Planungsphase (nicht löschen, bis alles
+% eingearbeitet ist, dient als Kontrollliste)
+%
+% - Wie findet man die Gleichung?            -> teil1
+% - Warum keine gewöhnliche Potenzreihe?     -> teil2, Anschluss an
+%                                               Abschnitt "Fuchssche
+%                                               Differentialgleichung"
+% - Welche Phänomene, woher kommt die DGL?   -> teil1 (Membran),
+%                                               teil5 (Optik),
+%                                               teil6 (Himmelsmechanik)
+% - Wie löst man eine DGL mit Potenzreihen?  -> steht schon im Buch,
+%                                               nur referenzieren
+% - Rotationssymmetrie als roter Faden       -> teil1 und teil0
+% - "Braucht einen Trick" = verallgemeinerte
+%   Potenzreihe mit Exponent varrho          -> teil2
+%

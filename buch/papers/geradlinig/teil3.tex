@@ -1,5 +1,5 @@
 %
-% teil2.tex -- Beispiel-File für teil2 
+% teil3.tex -- Kreisspiegellung
 %
 % (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
@@ -22,28 +22,11 @@ erfüllt.
 Wird anstelle eines einzelnen Punktes eine Gerade gespiegelt, 
 entsteht wieder ein Kreis, 
 welcher durch den Mittelpunkt $M$ des Inversionskreises verläuft.
+\index{Inversionskreis}%
 Dies ist in Abbildung~\ref{fig:kreisspiegelung} dargestellt.
 Die Punkte der ursprünglichen Geraden, welche sich im Unendlichen befinden, 
 werden dabei auf den Mittelpunkt $M$ abgebildet.
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}{0.49\textwidth}
-        \centering
-        \raisebox{0.1\height}{%
-            \input{papers/geradlinig/figures/kreisspiegelung.tex}%
-        }
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.49\textwidth}
-        \centering
-        \input{papers/geradlinig/figures/kreisspiegelung2.tex}
-    \end{minipage}
-    \caption{Illustration der Kreisspiegelung~\cite{kreisspiegelung} links
-    mit einem roten Punkt $P'$ der in den blauen Punkt $P$ abgebildet wird. 
-    Rechts ein Beispiel an einem roten Kreis, welcher in eine blaue Gerade abgebildet wird.
-    Der grüne Kreis ist der sogenannte Inversionskreis dieser Transformation.}
-    \label{fig:kreisspiegelung}
-\end{figure}
+\input{papers/geradlinig/fig/fig-kreisspiegelung.tex}
 
 \subsection{Peaucellier-Lipkin-Mechanismus}
 Die Eigenschaft der Kreisspiegelung, einen Kreis auf eine Gerade abzubilden,
@@ -73,15 +56,8 @@ Unter dieser Bedingung müssen lediglich die Beziehungen
 $\overline{AB} = \overline{AD}$ sowie $\overline{BC} = \overline{DC}$
 erfüllt sein.
 Zusätzlich muss Punkt $B$ auf einer Kreisbahn geführt werden, 
-welche den Punkt $O$ schneidet.
-Eine feste Beziehung zwischen den Längen der Seiten des Vierecks $ABCD$ 
-ist nicht erforderlich.
-\begin{figure}[htbp]
-    \centering
-    \input{papers/geradlinig/figures/peauc_lip_inv.tex}
-    \caption{Kreisspiegelung am Peaucellier-Lipkin-Mechanismus~\cite{peauc_lip_linkage}.}
-    \label{fig:geometrie_peauc}
-\end{figure}
+welche den Punkt $O$ trifft.
+\input{papers/geradlinig/fig/fig-geometrie-peauc.tex}
 
 \begin{satz}
     Der Peaucellier-Lipkin-Mechanismus hat die Eigenschaft
@@ -146,25 +122,7 @@ Ein weiterer durch die Kreisspiegelung inspirierter Mechanismus
 ist der Mechanismus von Perrolatz, 
 welcher in Abbildung~\ref{fig:perrolatz_link} dargestellt ist.
 Dieser besteht ebenfalls aus sechs Stäben.
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage1.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage2.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{papers/geradlinig/figures/perrolatz_linkage3.png}
-    \end{minipage}
-    \caption{Der Mechanismus von Perrolatz~\cite{wiki_straight_line}.}
-    \label{fig:perrolatz_link}
-\end{figure}
+\input{papers/geradlinig/fig/fig-perrolatz-link.tex}
 
 Für diesen Mechanismus gelten die Beziehungen
 $\overline{CO}=\overline{AO}=\overline{BO}=\overline{DO}$ sowie
@@ -175,12 +133,7 @@ Dadurch bewegt sich der Punkt $F$ entlang einer Geraden.
 Wie beim Peaucellier-Lipkin-Mechanismus muss auch hier die Kreisbahn 
 durch den Punkt $O$ verlaufen.
 Zusätzlich bleiben die Punkte $O$, $E$ und $F$ während der gesamten Bewegung kollinear.
-\begin{figure}[htbp]
-    \centering
-    \input{papers/geradlinig/figures/perrolatz.tex}
-    \caption{Kreisspiegelung am Perrolatz-Mechanismus.}
-    \label{fig:geometrie_perrolatz}
-\end{figure}
+\input{papers/geradlinig/fig/fig-geometrie-perrolatz.tex}
 \begin{satz}
     Der Perrolatz-Mechanismus hat die Eigenschaft
     \begin{align}
@@ -196,14 +149,15 @@ Zusätzlich bleiben die Punkte $O$, $E$ und $F$ während der gesamten Bewegung k
     $\overline{OP}=h$ und $\overline{OE}=y$,
     wobei $P$ die Mitte der Strecke $CA$ ist.
     Da $\overline{EF}=2x$ gilt, folgt $\overline{OF}=y+2x$.
-    Damit kann man die Gleichung~\eqref{eq:constant2} schreiben als
+    Damit kann man die Gleichung~\eqref{eq:constant2} als
     \begin{align*}
         \overline{OE}\cdot\overline{OF}
         =
         y(y+2x)
         =
-        y^2+2xy.
+        y^2+2xy
     \end{align*}
+    schreiben.
     Mit dem Satz des Pythagoras erhält man
     \begin{align}
         \overline{CO}^2

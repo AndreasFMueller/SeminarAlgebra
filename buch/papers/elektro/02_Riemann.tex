@@ -15,33 +15,36 @@
 Georg Fridrich Bernhard Riemann (1826-1866) \cite{elektro:riemann} war ein deutscher Mathematiker, der sich mit diversen Gebieten der Mathematik beschäftigte.
 Auf vielen hat er bahnbrechende Ergebnisse erzielt, die bis heute von grosser Bedeutung sind.
 Auch Einstein hat von seinen Theorien Gebrauch gemacht.
-Den Riemannschen Abbildungssatz hat er erstmals als Skizze im Jahre 1851 in seiner Dissertation veröffentlicht. 
+Den riemannschen Abbildungssatz hat er erstmals als Skizze im Jahre 1851 in seiner Dissertation veröffentlicht. 
 Erst später wurde dieser Satz von anderen Mathematikern formal bewiesen und in die Mathematik eingeführt. 
-Es wurden verschiedene Beweise für den Riemannschen Abbildungssatz gefunden, die alle auf unterschiedlichen mathematischen Gebieten basieren.
+Es wurden verschiedene Beweise für den riemannschen Abbildungssatz gefunden, die alle auf unterschiedlichen mathematischen Gebieten basieren.
 Hier wird der verbreitetste Beweis vorgestellt, der auf dem Satz von Montel basiert, welcher die Existenz konformer Abbildungen auf einfach zusammenhängende Gebiete beschreibt.
 Beschreiben ist hier wörtlich gemeint, denn es gibt für den Riemannschen Abbildungssatz keine allgemeine Formel, die für alle Gebiete gilt, sondern nur den Existenzbeweis einer Abbildung.
 Das bedeutet, dass für jegliche Figuren eine Transformation existiert.
 Diese muss aber auf anderem Weg ermittelt werden, dazu mehr in Abschnitt \ref{elektro:section:KreisTrafo}.
 
 Im Allgemeinen ist unser Ziel ein Gebiet $G$ auf ein einfacheres Gebiet $G'$ abzubilden, um die Berechnung von Potentialfeldern und elektrischen Feldern zu vereinfachen. 
-Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\mathbf{E}$ aus Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} bereits bekannt sind.
+Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\vec{E}$ aus Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} bereits bekannt sind.
 
 \subsection{Voraussetzungen
 \label{elektro:subsection:RiemannVoraussetzungen}}
-Zunächst müssen ein paar Voraussetzungen für den Riemannschen Abbildungssatz erfüllt sein, damit der Satz überhaupt angewendet werden kann:
+Zunächst müssen ein paar Voraussetzungen für den riemannschen Abbildungssatz erfüllt sein, damit der Satz überhaupt angewendet werden kann:
 
 \subsubsection{Einfach zusammenhängende Gebiete}
 Das ursprüngliche Gebiet $G$ muss einfach zusammenhängend sein, das bedeutet, dass es keine Löcher in dem Gebiet gibt. 
 Das Gebiet $G$ darf beliebig gross und beliebig geformt sein, solange es keine ausgeschnittenen Bereiche enthält.
 Zu dieser Definition gehört auch, dass das Gebiet offen sein muss. 
 Der Rand des Gebiets gehört demzufolge nicht zum Gebiet dazu.
-Der Rand müsste separat betrachtet werden, wobei sich meistens herausstellt, dass dieser sich $\grqq$brav$\grqq$ mit verformt und die Abbildung auf dem Rand ebenfalls konform ist.
-Es entstehen erst dann Abweichungen, wenn der Rand ausgefallene Fraktale bildet.
-Dies ist in diesen Beispielen nicht der Fall, daher wird stets angenommen, dass der Rand analog zur Fläche verformt wird.
+Da sich meistens herausstellt, dass der Rand sich $\grqq$brav$\grqq$ mit verformt und die Abbildung auf dem Rand ebenfalls konform ist, wird in den nachfolgenden Beispielen stets angenommen, dass der Rand analog zur Fläche verformt wird.
+
+%1. Pull Request Version
+%Der Rand müsste separat betrachtet werden, wobei sich meistens herausstellt, dass dieser sich $\grqq$brav$\grqq$ mit verformt und die Abbildung auf dem Rand ebenfalls konform ist.
+%Es entstehen erst dann Abweichungen, wenn der Rand ausgefallene Fraktale bildet.
+%Dies ist in diesen Beispielen nicht der Fall, daher wird stets angenommen, dass der Rand analog zur Fläche verformt wird.
 
 \subsubsection{Teilgebiete der komplexen Ebene}
-$ G \subset \mathbb{C} $ muss gelten, dies bedeutet, dass $G$ ein Subset und nicht äquivalent zu $\mathbb{C}$ sein darf.
-Für die komplette komplexe Ebene gilt der Riemannsche Abbildungssatz.
+$ G \subset \mathbb{C} $ muss gelten, dies bedeutet, dass $G$ eine Teilmenge von $\mathbb{C}$ ist.
+Für die ganze komplexe Ebene gilt der riemannsche Abbildungssatz.
 Würde die gesamte komplexe Ebene auf den Einheitskreis abgebildet werden, dann müssten Punkte, die bereits im Innern des Einheitskreises liegen, unberührt bleiben und jene, welche ausserhalb liegen, müssten auf bereits besetzte Punkte transformiert werden. 
 Dies stünde im Widerspruch zur nächsten Voraussetzung, nämlich der Bijektivität der Abbildung.
 
@@ -77,7 +80,7 @@ Bei der Transformation und auch bei der Rücktransformation geht keine Informati
 \subsection{Existenzbeweis
 \label{elektro:subsection:Riemannbeweis}}
 Der Existenzbeweis basiert auf dem Satz von Montel und dem Satz von Hurwitz, wobei ein Maximierungsproblem formuliert wird, das es zu lösen gilt.
-Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen. \textcolor{red}{Quelle wo er nachgesehen werden kann}
+Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen, interesiete könne dazu im \cite[Buch]{elektro:Salamon} mehr nachlesen. 
 Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
 Es gilt $z \in G \land a \neq G$.
 Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.

@@ -1,58 +1,261 @@
 %
-% teil1.tex -- Beispiel-File für das Paper
+% teil1.tex -- Herleitung der Bessel-Differentialgleichung
 %
-% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+% (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
 %
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
+% !TeX spellcheck = de_CH
 %
-\section{Teil 1
-\label{bessel:section:teil1}}
-\kopfrechts{Problemstellung}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-quae ab illo inventore veritatis et quasi architecto beatae vitae
-dicta sunt explicabo.
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-aut fugit, sed quia consequuntur magni dolores eos qui ratione
-voluptatem sequi nesciunt
+\section{Herleitung der Bessel-Differentialgleichung
+\label{bessel:section:herleitung}}
+\kopfrechts{Herleitung}
+%
+% Ziel dieses Abschnitts.
+% Zeigen, dass die Bessel-DGL nicht vom Himmel fällt, sondern
+% zwangsläufig entsteht, sobald man ein Wellenproblem auf einem
+% Kreisgebiet separiert.
+% Roter Faden, Rechteck -> Kreis. Am Rechteck geht alles mit sin/cos
+% auf, am Kreis nicht mehr.
+%
+Die Bessel-Differentialgleichung fällt nicht vom Himmel.
+Sie entsteht zwangsläufig, sobald man ein Schwingungsproblem auf einem kreisförmigen Gebiet in Koordinaten zerlegt, die zur Geometrie passen.
+Dieser Abschnitt führt die Rechnung von der Wellengleichung bis zur fertigen Differentialgleichung durch.
+%
+% Die schwingende Membran
+%
+\subsection{Die schwingende Membran
+\label{bessel:herleitung:subsection:membran}}
+Eine eingespannte Membran wird durch ihre Auslenkung $u(x,y,t)$ senkrecht zur Ruhelage beschrieben.
+Für kleine Auslenkungen genügt $u$ der Wellengleichung
 \begin{equation}
-\int_a^b x^2\, dx
+\frac{\partial^2 u}{\partial t^2}
 =
-\left[ \frac13 x^3 \right]_a^b
+c^2 \Delta u,
+\qquad
+\Delta
 =
-\frac{b^3-a^3}3.
-\label{bessel:equation1}
+\frac{\partial^2}{\partial x^2}
++
+\frac{\partial^2}{\partial y^2},
+\label{bessel:herleitung:eqn:welle}
 \end{equation}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-consectetur, adipisci velit, sed quia non numquam eius modi tempora
-incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+wobei $c$ die Ausbreitungsgeschwindigkeit ist.
+Die Wellengleichung~\eqref{bessel:herleitung:eqn:welle} ergibt sich aus einer Kraftbilanz am Flächenelement.
+Die Membran habe die Flächendichte $\mu$ und stehe unter der homogenen Spannung $\sigma$, gemessen als Kraft pro Länge.
+An jeder Kante eines Rechtecks mit den Kantenlängen $dx$ und $dy$ zieht die Spannung tangential an der Membran.
+Für kleine Auslenkungen ist die vertikale Komponente dieser Kraft proportional zur Steigung, für die beiden Kanten senkrecht zur $x$-Achse also
+\[
+\sigma\,dy
+\bigl(
+u_x(x+dx,y) - u_x(x,y)
+\bigr)
+\approx
+\sigma\, u_{xx}\, dx\, dy .
+\]
+Der Beitrag der beiden anderen Kanten ist $\sigma u_{yy}\,dx\,dy$.
+Das zweite Newtonsche Gesetz liefert damit
+\[
+\mu\, dx\, dy\; u_{tt}
+=
+\sigma \bigl( u_{xx} + u_{yy} \bigr) dx\, dy ,
+\]
+und Division durch $\mu\,dx\,dy$ ergibt \eqref{bessel:herleitung:eqn:welle} mit $c^2 = \sigma/\mu$.
+Vorausgesetzt sind dabei kleine Auslenkungen, eine über die ganze Membran konstante Spannung und eine verschwindende Biegesteifigkeit.
+Eine ausführliche Herleitung findet sich bei \cite{bessel:courant}.
+Am Rand der Membran ist die Auslenkung null, es gilt also $u=0$ auf dem Rand des Gebietes.
+Für die Zeitabhängigkeit macht man den Separationsansatz
+\begin{equation}
+u(x,y,t)
+=
+T(t)\, v(x,y).
+\label{bessel:herleitung:eqn:zeitsep}
+\end{equation}
+Einsetzen in~\eqref{bessel:herleitung:eqn:welle} und Division durch
+$c^2Tv$ ergibt
+\[
+\frac{1}{c^2}\frac{T''(t)}{T(t)}
+=
+\frac{\Delta v(x,y)}{v(x,y)}.
+\]
+Die linke Seite hängt nur von $t$ ab, die rechte nur von $x$ und $y$.
+Beide Seiten müssen daher konstant sein.
+Nennt man diese Konstante $-k^2$, so zerfällt das Problem in die harmonische Schwingungsgleichung $T''=-c^2k^2T$ und in die
+\emph{Helmholtz-Gleichung}
+\index{Helmholtz-Gleichung}%
+\begin{equation}
+\Delta v + k^2 v = 0.
+\label{bessel:herleitung:eqn:helmholtz}
+\end{equation}
+Die zeitliche Abhängigkeit ist damit erledigt, sie ist immer sinusförmig mit der Kreisfrequenz $\omega = ck$.
+Die ganze Information über die Form der Membran steckt in
+\eqref{bessel:herleitung:eqn:helmholtz}.
+%
+% Rechteck und Kreis
+%
+\subsection{Rechteck und Kreis
+\label{bessel:herleitung:subsection:rechteckkreis}}
+An dieser Stelle lohnt sich ein Vergleich, der zeigt, wo die Schwierigkeit liegt.
+ 
+Für eine rechteckige Membran mit den Seitenlängen $a$ und $b$ führt der Ansatz $v(x,y)=X(x)Y(y)$ auf die beiden Gleichungen
+$X''=-\alpha^2X$ und $Y''=-\beta^2Y$ mit $\alpha^2+\beta^2=k^2$.
+Beide sind Schwingungsgleichungen mit konstanten Koeffizienten, ihre Lösungen sind Sinus- und Kosinusfunktionen, und die Randbedingungen liefern
+\[
+v_{mn}(x,y)
+=
+\sin\frac{m\pi x}{a}
+\sin\frac{n\pi y}{b},
+\qquad
+m,n \in \mathbb{N}.
+\]
+Das Problem ist mit den Funktionen der elementaren Analysis vollständig gelöst.
+ 
+Bei einer kreisförmigen Membran versagt dieser Ansatz.
+Der Rand ist ein Kreis, und in kartesischen Koordinaten lässt sich die Randbedingung nicht in eine Bedingung an $X$ und eine an $Y$ zerlegen.
+Man muss Koordinaten wählen, in denen der Rand eine Koordinatenfläche ist, und das sind die Polarkoordinaten.
+Der Preis dafür ist, dass der Laplace-Operator in diesen Koordinaten nicht mehr konstante Koeffizienten hat.
+Genau daraus entsteht die Bessel-Gleichung.
+%
+% Separation in Polarkoordinaten
+%
+\subsection{Separation in Polarkoordinaten
+\label{bessel:herleitung:subsection:polar}}
+In Polarkoordinaten $x=r\cos\varphi$, $y=r\sin\varphi$ lautet der Laplace-Operator
+\begin{equation}
+\Delta
+=
+\frac{\partial^2}{\partial r^2}
++
+\frac{1}{r}\frac{\partial}{\partial r}
++
+\frac{1}{r^2}\frac{\partial^2}{\partial\varphi^2}.
+\label{bessel:herleitung:eqn:laplacepolar}
+\end{equation}
+Diese Form erhält man mit der Kettenregel aus $r=\sqrt{x^2+y^2}$ und $\varphi=\arctan(y/x)$.
+Wegen
+\[
+\frac{\partial r}{\partial x} = \cos\varphi,
+\qquad
+\frac{\partial r}{\partial y} = \sin\varphi,
+\qquad
+\frac{\partial\varphi}{\partial x} = -\frac{\sin\varphi}{r},
+\qquad
+\frac{\partial\varphi}{\partial y} = \frac{\cos\varphi}{r}
+\]
+lauten die Ableitungsoperatoren
+\[
+\frac{\partial}{\partial x}
+=
+\cos\varphi\,\frac{\partial}{\partial r}
+-
+\frac{\sin\varphi}{r}\,\frac{\partial}{\partial\varphi},
+\qquad
+\frac{\partial}{\partial y}
+=
+\sin\varphi\,\frac{\partial}{\partial r}
++
+\frac{\cos\varphi}{r}\,\frac{\partial}{\partial\varphi}.
+\]
+Wendet man beide ein zweites Mal an und addiert, so heben sich die gemischten Ableitungen 
+$\partial^2/\partial r\,\partial\varphi$ und die Terme mit $\partial/\partial\varphi$ paarweise weg, 
+und mit $\cos^2\varphi+\sin^2\varphi=1$ bleibt\eqref{bessel:herleitung:eqn:laplacepolar} übrig.
+Zu beachten ist dabei, dass die Koeffizienten $\cos\varphi$ und $\sin\varphi/r$ selbst von $r$ und $\varphi$ abhängen und deshalb mitdifferenziert werden müssen.
+Genau daraus entsteht der Term $\frac{1}{r}\frac{\partial}{\partial r}$.
+Die Helmholtz-Gleichung~\eqref{bessel:herleitung:eqn:helmholtz} wird damit zu
+\begin{equation}
+\frac{\partial^2 v}{\partial r^2}
++
+\frac{1}{r}\frac{\partial v}{\partial r}
++
+\frac{1}{r^2}\frac{\partial^2 v}{\partial\varphi^2}
++
+k^2 v
+=
+0.
+\label{bessel:herleitung:eqn:helmholtzpolar}
+\end{equation}
+Die Koeffizienten $1/r$ und $1/r^2$ sind der entscheidende Unterschied zum kartesischen Fall.
+Sie sind bei $r=0$ singulär, und diese Singularität wird uns im nächsten Abschnitt wieder begegnen.
+Nun separiert man ein zweites Mal, diesmal in Radius und Winkel,
+\begin{equation}
+v(r,\varphi)
+=
+R(r)\,\Phi(\varphi).
+\label{bessel:herleitung:eqn:radialsep}
+\end{equation}
+Einsetzen in~\eqref{bessel:herleitung:eqn:helmholtzpolar} und Multiplikation mit $r^2/(R\Phi)$ ergibt
+\[
+\frac{r^2R''(r) + rR'(r) + k^2r^2R(r)}{R(r)}
+=
+-\frac{\Phi''(\varphi)}{\Phi(\varphi)}.
+\]
+Wieder hängt die linke Seite nur von $r$ ab und die rechte nur von $\varphi$, beide sind also konstant.
+Wir nennen die Konstante $n^2$.
+ 
+Für den Winkelanteil bleibt
+\begin{equation}
+\Phi''(\varphi) + n^2\Phi(\varphi) = 0
+\label{bessel:herleitung:eqn:winkel}
+\end{equation}
+mit den Lösungen $\Phi(\varphi)=\cos n\varphi$ und $\Phi(\varphi)=\sin n\varphi$.
+Hier kommt eine Bedingung ins Spiel, die es beim Rechteck nicht gibt.
+Die Winkelkoordinate ist periodisch, es muss $\Phi(\varphi+2\pi)=\Phi(\varphi)$ gelten.
+Daraus folgt $n\in\mathbb{Z}$.
+Die Separationskonstante ist also nicht frei wählbar, sondern durch die Geometrie auf ganze Zahlen festgelegt.
+ 
+%
+% Die Bessel-Differentialgleichung
+%
+\subsection{Die Bessel-Differentialgleichung
+\label{bessel:herleitung:subsection:besseldgl}}
+Für den Radialanteil bleibt
+\begin{equation}
+r^2R''(r) + rR'(r) + (k^2r^2-n^2)R(r) = 0.
+\label{bessel:herleitung:eqn:radial}
+\end{equation}
+Mit der Substitution $x=kr$ und $y(x)=R(x/k)$ verschwindet der
+Parameter $k$, denn es ist
+$R'(r)=k\,y'(x)$ und $R''(r)=k^2y''(x)$, und man erhält
+\begin{equation}
+x^2y''(x) + xy'(x) + (x^2-n^2)y(x) = 0.
+\label{bessel:herleitung:eqn:bessel}
+\end{equation}
+Das ist die \emph{Bessel-Differentialgleichung}
+\index{Bessel-Differentialgleichung}%
+der Ordnung $n$.
+ 
+Aus der Herleitung ergibt sich $n$ als ganze Zahl.
+Die Gleichung~\eqref{bessel:herleitung:eqn:bessel} ist aber für jeden reellen oder komplexen Parameter sinnvoll, und die Lösungstheorie des nächsten Abschnitts braucht die Ganzzahligkeit an keiner Stelle.
+Wir schreiben deshalb ab jetzt
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-fugiat quo voluptas nulla pariatur?
-
-\subsection{De finibus bonorum et malorum
-\label{bessel:subsection:finibus}}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui
-blanditiis praesentium voluptatum deleniti atque corrupti quos
-dolores et quas molestias excepturi sint occaecati cupiditate non
-provident, similique sunt in culpa qui officia deserunt mollitia
-animi, id est laborum et dolorum fuga \eqref{bessel:equation1}.
-
-Et harum quidem rerum facilis est et expedita distinctio
-\ref{bessel:section:teil2}.
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-impedit quo minus id quod maxime placeat facere possimus, omnis
-voluptas assumenda est, omnis dolor repellendus
-\ref{bessel:section:teil3}.
-Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-molestiae non recusandae.
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.
-
-
+\begin{equation}
+x^2y'' + xy' + (x^2-\nu^2)y = 0,
+\qquad
+\nu \in \mathbb{R},\ \nu \ge 0,
+\label{bessel:herleitung:eqn:besselnu}
+\end{equation}
+und nennen $\nu$ die \emph{Ordnung}
+\index{Ordnung einer Bessel-Funktion}%
+der Gleichung.
+Halbzahlige Ordnungen treten zum Beispiel bei kugelsymmetrischen Problemen auf, wo dieselbe Rechnung in Kugelkoordinaten durchgeführt wird.
+ 
+Ein Blick auf~\eqref{bessel:herleitung:eqn:besselnu} zeigt schon, wo die Schwierigkeit liegt.
+Dividiert man durch $x^2$, so lautet die Gleichung
+\[
+y''
++
+\frac{1}{x}y'
++
+\frac{x^2-\nu^2}{x^2}y
+=
+0,
+\]
+und die Koeffizienten haben bei $x=0$ einen Pol.
+Der Existenzsatz für Potenzreihenlösungen aus Kapitel~\ref{chapter:differentialgleichungen} ist daher nicht anwendbar.
+Tatsächlich ergibt der Ansatz $y=\sum_k a_kx^k$ die Bedingung $(k^2-\nu^2)a_k=-a_{k-2}$, und für nicht ganzzahliges $\nu$ bleibt davon nur die triviale Lösung übrig.
+Die Gleichung ist aber von genau der Bauart
+\[
+x^2y'' + p(x)\,xy' + q(x)\,y = 0
+\]
+mit den bei $0$ analytischen Funktionen $p(x)=1$ und $q(x)=x^2-\nu^2$, sie ist also eine fuchssche Differentialgleichung im Sinne von Abschnitt~\ref{buch:differentialgleichungen:section:fuchs}.
+Damit steht das Werkzeug für ihre Lösung bereits zur Verfügung.

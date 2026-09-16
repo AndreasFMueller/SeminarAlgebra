@@ -42,7 +42,7 @@ x
 \label{elliptisch:equation:eulersubst}
 \end{equation}
 und damit werden auch $dx$ und $\vartheta$ rational in $t$
-\cite[Kapitel~8.2]{elliptisch:mueller-algebra}.
+(Kapitel~\ref{chapter:ratint}).
 Der Integrand wird dadurch zu einer rationalen Funktion von $t$
 allein, und rationale Funktionen sind stets elementar integrierbar.
 Die Partialbruchzerlegung erzeugt nur Bausteine, deren
@@ -52,17 +52,16 @@ Ein Resultat dieser Rechnung ist
 \int \frac{dx}{\vartheta}
 =
 \frac{1}{\sqrt{a}}\,
-\log\bigl(2ax + b - 2\sqrt{a}\,\vartheta\bigr),
+\log\bigl(2ax + b + 2\sqrt{a}\,\vartheta\bigr),
 \label{elliptisch:equation:quadratisch}
 \end{equation}
 zu finden in
-\cite[Kapitel~8.2.6, S.~236]{elliptisch:mueller-algebra}.
-\todo{Vorzeichen falsch, Plus statt Minus. Fehler auch bei Müller?}
+Abschnitt~\ref{buch:intalg:wurzel:subsection:stammfunktiontheta}.
 Die Gestalt der rechten Seite ist typisch für diesen Fall.
 Sie besteht aus einem konstanten Vorfaktor und dem Logarithmus
 eines Elements des Funktionenkörpers.
-Das ist genau die Form, die der Satz von Liouville
-\eqref{elliptisch:equation:liouville} für eine elementare
+Das ist genau die Form \eqref{elliptisch:equation:liouville}, die der Satz 
+von Liouville für eine elementare
 Stammfunktion verlangt, hier mit $v_0 = 0$ und einem einzigen
 Logarithmusterm.
 Steht unter der Wurzel ein Polynom vom Grad $\le 2$, so ist das
@@ -86,7 +85,7 @@ Hätte $p$ eine doppelte Nullstelle, also
 $p(x) = (x-\alpha)^2 q(x)$, dann liesse sich der Faktor aus der
 Wurzel ziehen, $\sqrt{p(x)} = |x-\alpha|\sqrt{q(x)}$, und der
 effektive Grad sänke auf höchstens $2$.
-Wir wären damit wieder im elementaren Fall des vorangegangenen
+Wir wären damit wieder im quadratischen Fall des vorangegangenen
 Abschnitts.
 Die Grade $3$ und $4$ stehen in der Definition zusammen, weil sie
 dieselbe Schwierigkeitsklasse bilden.
@@ -95,13 +94,13 @@ wir $p(x) = (x-\alpha)q(x)$ mit $\deg q = 3$ und substituieren
 $x = \alpha + 1/u$.
 Wegen $dx = -du/u^2$ und
 \begin{equation}
-p\Bigl(\alpha+\frac{1}{u}\Bigr)
+p\biggl(\alpha+\frac{1}{u}\biggr)
 =
-\frac{1}{u}\,q\Bigl(\alpha+\frac{1}{u}\Bigr)
+\frac{1}{u}\,q\biggl(\alpha+\frac{1}{u}\biggr)
 =
 \frac{Q(u)}{u^4},
 \qquad
-Q(u) = u^3\,q\Bigl(\alpha+\frac{1}{u}\Bigr),
+Q(u) = u^3\,q\biggl(\alpha+\frac{1}{u}\biggr),
 \label{elliptisch:equation:gradreduktion}
 \end{equation}
 mit einem Polynom $Q$ vom Grad höchstens $3$ kürzt sich das $u^2$
@@ -122,7 +121,7 @@ Polynome vom Grad $5$ und mehr führen auf die
 \index{hyperelliptisches Integral}%
 Abbildung~\ref{fig:elliptisch:gradskala} fasst diese Einteilung
 zusammen.
-\input{papers/elliptisch/fig/gradskalaFIG.tex}
+\input{papers/elliptisch/fig/gradskalaFIG.tex}%
 Den Namen haben die elliptischen Integrale vom geometrischen
 Problem, zu dem wir jetzt zurückkehren, nämlich der Bogenlänge
 der Ellipse.
@@ -219,12 +218,14 @@ Divisoren aus der algebraischen Geometrie
 Abschnitt~\ref{buch:intalg:risch:algebraisch} beschreibt, was dazu
 nötig wäre, und verzichtet aus demselben Grund auf die Ausführung.
 Wir übernehmen das Resultat.
+\input{papers/elliptisch/fig/memeFIG.tex}
+
 \begin{satz}
 \label{elliptisch:satz:nichtelementar}
 Für $0 < k < 1$ besitzt keines der beiden Integrale
 \begin{equation}
-\int \frac{dx}{\sqrt{(1-x^2)(1-k^2x^2)}},
-\qquad
+\int \frac{dx}{\sqrt{(1-x^2)(1-k^2x^2)}}
+\qquad\text{und}\qquad
 \int \frac{\sqrt{1-k^2x^2}}{\sqrt{1-x^2}}\,dx
 \label{elliptisch:equation:nichtelementar}
 \end{equation}
