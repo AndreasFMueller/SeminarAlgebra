@@ -91,11 +91,11 @@ komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
 (Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
 \begin{lemma}
 \label{hauptwert:lemma:halbresiduen}
-Das Integral einer Funktion $f(z)$ mit Polstelle erster Ordnung in $x_0$
-entlang einer Kurve $C_\varepsilon$, wobei $C_\varepsilon$ einen kleinen
-Halbkreis über die Polstelle an $x_0$ von $x_0-\varepsilon$ nach
-$x_0+\varepsilon$ macht, ist
-(siehe Abbildung~\ref{hauptwert:figure:halbkreiskontur})
+Die Funktion $f$ habe in $x_0$ eine Polstelle erster Ordnung, und
+$C_\varepsilon$ sei der Halbkreis mit Radius $\varepsilon$ um $x_0$, der in
+der oberen Halbebene von $x_0-\varepsilon$ nach $x_0+\varepsilon$ verläuft
+(Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
+Dann ist
 \begin{equation}
   \lim_{\varepsilon \to 0^+} \int_{C_\varepsilon} f(z)\,dz = -i\pi \res(x_0;f).
 \end{equation}
@@ -183,7 +183,8 @@ dann ist
   \begin{equation}
     \int_{C_R} f(z) e^{iaz}\,dz
     =
-    \int_{0}^{\pi} f(R e^{i \theta}) e^{i a R e^{i \theta}} i R e^{i \theta}\,d\theta
+    \int_{0}^{\pi} f(R e^{i \theta}) e^{i a R e^{i \theta}}
+      \, i R e^{i \theta}\,d\theta
   \end{equation}
   ergibt.
 
@@ -278,8 +279,7 @@ Beispiel aus Abschnitt~\ref{hauptwert:subsection:aufwaermbeispiel}:
 Die Strecke $[-R, R]$ wird durch den grossen Halbkreis
 $C_R$ zu einem geschlossenen Weg ergänzt und die Polstellen auf der
 Achse werden durch kleine Kreisbogen umgangen
-(Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
-
+(Abbildung~\ref{hauptwert:figure:kontur-allgemein}).
 
 Damit der Residuensatz funktioniert, muss der Integrand vier Bedingungen
 erfüllen.
@@ -289,12 +289,18 @@ erfüllen.
 Die Funktion $f$ erfülle die folgenden Voraussetzungen:
 \begin{enumerate}
   \item $f$ ist in der oberen Halbebene holomorph, also überall komplex
-  differenzierbar, bis auf isolierte Singularitäten.
+  differenzierbar, bis auf endlich viele isolierte Singularitäten.
   \item Auf der reellen Achse hat $f$ höchstens Polstellen erster Ordnung
   $x_1,\dots,x_m$.
-  \item In der offenen oberen Halbebene hat $f$ endlich viele Polstellen
-  $z_1,\dots,z_n$.
-  \item Für $|z| \to \infty$ geht $|z\,f(z)|$ gleichmässig gegen $0$.
+  \item In der offenen oberen Halbebene hat $f$ keine anderen Singularitäten
+  als die Polstellen $z_1,\dots,z_n$.
+  \item Auf dem grossen Halbkreis $C_R$ fällt $f$ schneller als $1/|z|$,
+  es gilt also
+  \begin{equation}
+    \max_{z \in C_R} |z\,f(z)| \to 0
+    \qquad (R \to \infty).
+    \label{hauptwert:equation:abfallbedingung}
+  \end{equation}
 \end{enumerate}
 Dann gilt
 \begin{equation}
@@ -383,7 +389,8 @@ Dann gilt
     \label{hauptwert:equation:einbuchtungen}
   \end{equation}
   Der grosse Halbkreis hat die Länge $\pi R$, und auf ihm ist $|z| = R$.
-  Mit der vierten Voraussetzung verschwindet sein Beitrag daher,
+  Mit der Abfallbedingung \eqref{hauptwert:equation:abfallbedingung}
+  verschwindet sein Beitrag daher,
   \begin{equation}
     \biggl| \int_{C_R} f(z)\,dz \biggr|
     \le
@@ -419,10 +426,14 @@ Dann gilt
     \end{aligned}
   \end{equation}
 
+  Damit ist auch die Frage beantwortet, die die Rechnung
+  \eqref{hauptwert:equation:unsymmetrisch} offen gelassen hat.
   Jede Einbuchtung hat links und rechts denselben Radius $\varepsilon$, die
-  Kontur nähert sich der Polstelle also von beiden Seiten gleich schnell und
-  erzwingt damit die symmetrische Annäherung.
-  
+  Kontur nähert sich der Polstelle also von beiden Seiten gleich schnell.
+  Die symmetrische Annäherung ist hier keine Konvention mehr, sondern eine
+  Eigenschaft des Integrationsweges, und
+  \eqref{hauptwert:equation:einbuchtungen} zeigt, was sie kostet, nämlich
+  $-i\pi\res(x_j;f)$ für jede Polstelle auf der Achse.
 \end{proof}
 
 
@@ -449,13 +460,13 @@ Mit $f(z) = \frac{z + 1}{1 + z^2}$ ist
   \label{hauptwert:equation:warnbeispiel-abfall}
 \end{equation}
 der Integrand fällt also genau wie $1/|z|$ und damit zu langsam.
+Satz~\ref{hauptwert:satz:hauptformel} ist auf $f$ nicht anwendbar.
 
 Die übrigen Voraussetzungen sind dagegen erfüllt.
 Auf der reellen Achse hat $f$ keine Polstelle, und in der oberen Halbebene
 liegt mit $z_1 = i$ genau eine.
-Satz~\ref{hauptwert:satz:hauptformel} ist damit nicht anwendbar, die rechte
-Seite von \eqref{hauptwert:equation:hauptformel} lässt sich aber dennoch
-ausrechnen.
+Der rechten Seite von \eqref{hauptwert:equation:hauptformel} sieht man die
+fehlende Voraussetzung nicht an, sie lässt sich ohne weiteres ausrechnen.
 Das Residuum in $z_1$ ist
 \begin{equation}
   \res(z_1;f)
@@ -521,3 +532,105 @@ Genau um diesen Term liegt die Residuensumme neben dem Hauptwert.
 Gefährlich ist dabei, dass die Rechnung trotz fehlender Voraussetzung zu
 funktionieren scheint:
 Es divergiert nichts, und trotzdem ist das Resultat falsch.
+
+
+\subsection{Das Dirichlet-Integral
+\label{hauptwert:subsection:dirichlet}}
+
+Zum Abschluss eine Anwendung, die mit reellen Mitteln nur mühsam zugänglich
+ist, weil der Integrand keine elementare Stammfunktion hat.
+Gesucht ist der Wert des \emph{Dirichlet-Integrals}
+\begin{equation}
+  \int_{0}^{\infty} \frac{\sin x}{x}\,dx .
+  \label{hauptwert:equation:dirichlet}
+\end{equation}
+
+Da sich der Integrand bei $x = 0$ stetig ergänzen lässt, liegt gar keine
+Polstelle auf der reellen Achse vor.
+Die Polstelle entsteht erst durch den Übergang ins Komplexe.
+Betrachtet wird die Funktion
+\begin{equation}
+  f(z) = \frac{e^{iz}}{z}.
+\end{equation}
+Teilt man sie auf der reellen Achse in Kosinus und Sinus auf, so wird
+sichtbar, woher die Polstelle kommt,
+\begin{equation}
+  \frac{e^{ix}}{x} = \frac{\cos x}{x} + i\,\frac{\sin x}{x} .
+  \label{hauptwert:equation:dirichlet-zerlegen}
+\end{equation}
+Der Sinusanteil ist der gesuchte Integrand und in $x = 0$ stetig ergänzbar,
+der Kosinusanteil dagegen nicht.
+Er trägt die Singularität, und $f$ hat in $x_1 = 0$ eine Polstelle erster
+Ordnung.
+
+Satz~\ref{hauptwert:satz:hauptformel} ist auf $f$ nicht direkt anwendbar.
+Auf dem grossen Halbkreis ist $|z\,f(z)| = |e^{iz}| = e^{-R\sin\theta}$, was
+an den Endpunkten $\theta = 0$ und $\theta = \pi$ gleich $1$ ist, die
+vierte Bedingung \eqref{hauptwert:equation:abfallbedingung} ist also verletzt.
+Hier hilft uns das Lemma von Jordan.
+
+Integriert wird über denselben Weg $\Gamma$ wie im Beweis von
+Satz~\ref{hauptwert:satz:hauptformel}, mit einer einzigen Einbuchtung
+$C_\varepsilon$ um $x_1 = 0$.
+Weitere Singularitäten hat $f$ in der oberen Halbebene nicht und gemäss
+Satz~\ref{buch:integration:wegintegral:satz:zusammenziehbar} verschwindet das
+Wegintegral,
+\begin{equation}
+  \int_{-R}^{-\varepsilon} f(x)\,dx
+  +
+  \int_{\varepsilon}^{R} f(x)\,dx
+  +
+  \int_{C_\varepsilon} f(z)\,dz
+  +
+  \int_{C_R} f(z)\,dz
+  =
+  0 .
+  \label{hauptwert:equation:dirichlet-zerlegung}
+\end{equation}
+
+Für die Einbuchtung ist das Residuum
+\begin{equation}
+  \res(x_1;f)
+  =
+  \lim_{z \to 0} z\,\frac{e^{iz}}{z}
+  =
+  1,
+\end{equation}
+nach Lemma~\ref{hauptwert:lemma:halbresiduen} trägt sie also
+$-i\pi\res(x_1;f) = -i\pi$ bei.
+Für den grossen Halbkreis ist $f(z) = g(z)e^{iaz}$ mit $g(z) = \frac{1}{z}$
+und $a = 1$, und wegen $\max_{z \in C_R} |g(z)| = \frac{1}{R} \to 0$
+verschwindet sein Beitrag nach Lemma~\ref{hauptwert:lemma:jordan}.
+Aus \eqref{hauptwert:equation:dirichlet-zerlegung} wird damit
+\begin{equation}
+  \pv \int_{-\infty}^{\infty} \frac{e^{ix}}{x}\,dx
+  -
+  i\pi
+  =
+  0 .
+  \label{hauptwert:equation:dirichlet-komplex}
+\end{equation}
+
+Der Realteil $\frac{\cos x}{x}$ aus
+\eqref{hauptwert:equation:dirichlet-zerlegen} ist ungerade, seine Beiträge
+heben sich bei symmetrischer Annäherung weg, und genau das spiegelt sich
+darin, dass
+\eqref{hauptwert:equation:dirichlet-komplex} rein imaginär ist.
+Der Imaginärteil liefert
+\begin{equation}
+  \pv \int_{-\infty}^{\infty} \frac{\sin x}{x}\,dx = \pi .
+\end{equation}
+Hier ist der Hauptwert allerdings nicht mehr nötig, denn der Integrand ist in
+$0$ stetig ergänzbar und gerade, es ist also
+$\int_{-R}^{R} = 2\int_{0}^{R}$.
+Der symmetrische Grenzwert ist damit das gewöhnliche uneigentliche Integral,
+und für \eqref{hauptwert:equation:dirichlet} folgt
+\begin{equation}
+  \int_{0}^{\infty} \frac{\sin x}{x}\,dx = \frac{\pi}{2}.
+\end{equation}
+
+Bemerkenswert daran ist die Rolle, die der Hauptwert hier spielt.
+Er rettet kein divergentes Integral, sondern ist ein Rechenwerkzeug.
+Der gesuchte Integrand hat gar keine Polstelle, erst der Ersatz durch
+$\frac{e^{iz}}{z}$ erzeugt eine, die dann durch den Hauptwert regularisiert
+wird.
