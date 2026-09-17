@@ -8,7 +8,7 @@
 %
 \section{Motivation und Definition
 \label{hauptwert:section:motivation-definition}}
-\kopfrechts{Teil 0}
+\kopfrechts{Motivation und Definition}
 \subsection{Uneigentliche Integrale}
 \input{papers/hauptwert/fig/kehrwert.tex}
 
@@ -63,14 +63,14 @@ das rechte Teilintegral existiert also nicht.
 Aus Symmetriegründen divergiert das linke Teilintegral
 mit den Grenzwerten $\varepsilon_1 \to 0^+$ und $R' \to -\infty$
 genauso gegen $-\infty$.
-Insgesamt treten also vier voneinander unabhängige Grenzwerte auf.
-Die Aufteilung \eqref{hauptwert:equation:aufteilung} führt also auf den
+Insgesamt treten vier voneinander unabhängige Grenzwerte auf.
+Die Aufteilung \eqref{hauptwert:equation:aufteilung} führt somit auf den
 unbestimmten Ausdruck $\infty - \infty$,
 das uneigentliche Integral existiert nicht.
 
 \subsection{Der Cauchy-Hauptwert --- Symmetrische Annäherung}
 \input{papers/hauptwert/fig/kehrwert-symmetrisch.tex}
-Die zugrunde liegende Idee vom Cauchy-Hauptwert ist, dass
+Die zugrunde liegende Idee des Cauchy-Hauptwerts ist, dass
 man sich der Polstelle symmetrisch annähert, das heisst mit
 einem einzigen, gemeinsamen $\varepsilon$ und symmetrischen Grenzen $\pm R$.
 Von den vier unabhängigen Grenzwerten bleiben so nur noch zwei übrig.
@@ -116,6 +116,7 @@ Mit der unsymmetrischen Annäherung erhalten wir dagegen
     &= \lim_{\varepsilon \to 0^+} (\ln\varepsilon - \ln 2 - \ln\varepsilon) \\
     &= -\ln 2,
   \end{aligned}
+  \label{hauptwert:equation:unsymmetrisch}
 \end{equation}
 also nicht den Hauptwert $0$.
 Der Grenzwert existiert zwar, er hängt aber vom Verhältnis der beiden
