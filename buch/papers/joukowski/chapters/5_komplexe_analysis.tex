@@ -124,20 +124,42 @@ Somit schreiben wir den Ausdruck für die komplexe Kraft als
 Dieser Ausdruck lässt sich weiter vereinfachen, wenn die komplex konjugierte Kraft $\overline{F'}$
 berechnet wird.
 Somit ergibt sich
-\[
+\begin{align}
 	\overline{F}'
-	=
+	&=
+	\overline{
+	-i \frac{\varrho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{dz}
+	\frac{\overline{df}}{\overline{dz}}
+	\, dz
+	}
+	\notag
+	\\
+	&=
+	i \frac{\varrho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{\overline{df}}{\overline{dz}}
+	\frac{df}{dz}
+	\, \overline{dz}
+	\notag
+	\\
+	&=
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\frac{df}{dz}
 	\frac{\overline{df}}{\overline{dz}}
 	\, \overline{dz}
-	=
+	\notag
+	\\
+	&=
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\frac{df}{dz}
 	\, \overline{df}.
-\]
+	\notag
+\end{align}
+
 Wir können aber $\overline{df}$ mit
 \[
 	\frac{\overline{df}}{dz} \, dz
@@ -214,8 +236,8 @@ Dabei erhalten wir
 	\, dz.
 	\notag
 	\\
-	\intertext{Im nächsten Schritt können wir den Ausdruck in ein Integral, mit allen Termen die mit $v_\infty$ 
-	multipliziert werden, und ein Integral mit allen Termen die nicht mit $v_\infty$ multipliziert werden, umformen, damit}
+	\intertext{Im nächsten Schritt können wir den Ausdruck in ein Integral mit allen Termen, die mit $v_\infty$ 
+	multipliziert werden, und ein Integral mit allen Termen, die nicht mit $v_\infty$ multipliziert werden, umformen, damit}
 	\overline{F}'
 	&= 
 	i\frac{\varrho}{2} \cdot  
@@ -308,15 +330,15 @@ Dabei erhalten wir
 \end{definition}
 
 Dem zweiten Integral der Gleichung~\eqref{joukowski:komplexe-analysis:kraft-mit-zwei-termen} geben wir den Namen $\Lambda$.
-Somit kann die komplex konjugierte Kraft $\overline{F}'$ vereinfacht geschrieben werden als
+Somit kann die komplex konjugierte Kraft $\overline{F}'$ vereinfacht als
 
 \begin{equation}
 	\overline{F}'
 	=
-	i \varrho v_\infty \Gamma + i \frac{\varrho}{2} \Lambda.
+	i \varrho v_\infty \Gamma + i \frac{\varrho}{2} \Lambda
 	\label{joukowski:komplexe-analysis:kraft-mit-lambda}
 \end{equation}
-
+geschrieben werden.
 Um die Kraft zu berechnen, können wir das Problem in zwei Teile aufteilen:
 Einerseits die Auswertung von $\Lambda$,
 andererseits die Berechnung der Zirkulation $\Gamma$.
@@ -365,7 +387,6 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		\frac{d\gamma(t)}{dt}
 		=
 		i r e^{i t}.
-		\\
 	\end{align*}
 	Weil wir einmal im Kreis integrieren, setzen wir die Grenzen des parametrisiertes Integrals auf $0$ respektive $2\pi$.
 	Somit stellen wir für den Ausdruck
@@ -409,7 +430,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	auf.
 	
 	Die Auswertung des Integrals erfolgt sehr schnell, 
-	weil wegen Lemma~\ref{joukowski:lemma:inteikt}
+	weil wegen Lemma~\ref{joukowski:lemma:inteikt} weiter unten
 	\begin{equation}
 		\displaystyle\int_{0}^{2\pi}
 		\frac{1}{e^{k \cdot i t}}
@@ -421,7 +442,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		k \neq 0.
 		\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
 	\end{equation}
-	gilt
+	gilt.
 	Damit ist der Satz~\ref{joukowski:komplexe-analysis:satz:Lambda} bewiesen.
 \end{proof}
 
@@ -433,7 +454,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	=
 	\begin{cases}
 		0 & \qquad\text{für $k\ne 0$} \\
-		2\pi&\qquad\text{für $k=0$}
+		2\pi&\qquad\text{für $k=0$}.
 	\end{cases}
 	\]
 \end{lemma}
@@ -518,7 +539,7 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 	\label{joukowski:komplexe-analysis:proof:zirkulation}
 	Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
 	Auch hier wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
-	Für die Funtion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
+	Für die Funktion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
 	Somit wird aus dem Integral
 	\[
 		\Gamma
@@ -549,7 +570,7 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 		\, dt.
 	\end{aligned}
 	\]
-	Für die Auswertung dieses Integrals gibt es für die einzelnen Terme zwei verschiedene Auswertungen.
+	Für die Auswertung dieses Integrals gibt es für die einzelnen Terme zwei verschiedene Resultate.
 	Die Terme
 	\[
 		v_\infty r e^{i t}
@@ -581,8 +602,8 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 	\end{equation}
 	Das Residuum ist definiert als $a_1$. Somit ist der Satz bewiesen.
 \end{proof}
-Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt ausrechnen.
-Durch das Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
+Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt, ausrechnen.
+Durch Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
 in Satz~\ref{joukowski:komplexe-analysis:satz:kutta-joukowski}
 erhalten wir den Term
 \begin{equation}
@@ -611,7 +632,7 @@ ist $F'$ eine imaginäre Grösse und wir können
 \]
 schreiben.
 Weil $F'$ keinen Realteil aufweist, darf auch die rechte Seite der Gleichung keinen Realteil besitzen sein.
-Da $\varrho$, $v_\infty$, $2$ und $\pi$ alles reele Grössen sind,
+Da $\varrho$, $v_\infty$, $2$ und $\pi$ alles reelle Grössen sind,
 bleibt nur $a_1$ übrig, welches somit rein imaginär sein muss.
 
 Im folgenden Abschnitt zeigen wir, wie der Koeffizient $a_1$ anhand von Beispielanwendungen von verschiedenen Flügelprofilen bestimmt werden kann.
