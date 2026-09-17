@@ -161,8 +161,11 @@ chapter=elektro
 #
 # Kapitel 16 joukowski
 chapter=joukowski
-8
-13
+3
+9
+10
+16
+18
 #
 # Kapitel 17 aircraft
 chapter=aircraft
