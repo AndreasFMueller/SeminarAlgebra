@@ -17,10 +17,12 @@ dependencies-hauptwert =						\
 	papers/hauptwert/fig/halbkreiskontur.tex			\
 	papers/hauptwert/fig/halbkreis-ohne-pol.tex			\
 	papers/hauptwert/fig/jordan-ungleichung.tex			\
+	papers/hauptwert/fig/kontur-allgemein.tex			\
 	papers/hauptwert/images/kehrwert.pdf				\
 	papers/hauptwert/images/kehrwert-symmetrisch.pdf		\
 	papers/hauptwert/images/nichtungerade.pdf			\
 	papers/hauptwert/images/pol-innen.pdf				\
 	papers/hauptwert/images/halbkreiskontur.pdf			\
 	papers/hauptwert/images/halbkreis-ohne-pol.pdf		\
-	papers/hauptwert/images/jordan-ungleichung.pdf
+	papers/hauptwert/images/jordan-ungleichung.pdf			\
+	papers/hauptwert/images/kontur-allgemein.pdf
