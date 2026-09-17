@@ -1,5 +1,6 @@
 \section{Komplexe Analysis}
 \label{joukowski:sec:komplexe-analysis}
+\kopfrechts{Komplexe Analysis}
 
 \subsection{Ausdruck für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$}
 Um den Ausdruck~\eqref{joukowski:Auftriebskarft:Auftrieb1} weiter aufzulösen, muss die Funktion $\overline{v(z)}$ von Gleichung~\eqref{joukowski:Stroemungslinien:equation_zylinder_speed}
@@ -28,6 +29,8 @@ Wichtig anzumerken ist, dass dieses Prinzip nur für einfach zusammenhängende F
 Das heisst der Flügel darf nicht aus mehreren, voneinander getrennten Teilen bestehen, wie das in Abbildung~\ref{joukowski:komplexe-analysis:fig:ju-52} der Fall ist.
 Dies ist Inhalt des sogenannten riemannschen Abbildungssatzes~\ref{buch:holomorph:riemann:satz:riemann}.
 \input{papers/joukowski/fig/04_komplexe_analysis/fig-ju_52.tex}
+\index{JU-52}%
+\index{Abbildungssatz, riemannsch}%
 
 Da $\overline{v(z)}$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
@@ -64,6 +67,7 @@ welche alle die Eigenschaft
 \end{equation}
 aufweisen, möglich.
 Auch das kann mit Taylor-Reihe so nicht erreicht werden, da diese für belibig grosse Werte von $|z|$ nicht gegen $0$ konvergieren.
+\index{Taylor-Reihe}%
 
 Aus der Eigenschaft~\eqref{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
 geht hervor, dass der Koeffizient $a_0$ direkt der Geschwindigkeit im Unendlichen entspricht, 
@@ -142,14 +146,14 @@ Diese formulieren wir als
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\frac{\overline{df}}{\overline{dz}}
-	\frac{df}{dz}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
 	\, \overline{dz}
 	\notag
 	\\
 	&=
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\frac{df}{dz}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
 	\frac{\overline{df}}{\overline{dz}}
 	\, \overline{dz}
 	\notag
@@ -322,6 +326,7 @@ Dabei erhalten wir
 \begin{definition}[Zirkulation]
 	\label{joukowski:komplexe-analysis:def:zirkulation}
 	Die \emph{Zirkulation} $\Gamma$ ist das Mass für die um ein Profil drehende Strömung 
+\index{Zirkulation}%
 	und ist der Wert des Linienintegrals
 	\[
 		\Gamma
@@ -519,6 +524,7 @@ dass der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} auf die kompa
 \]
 reduziert,
 welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
+\index{Satz!von Kutta-Joukowski}%
 
 \begin{satz}[Satz von Kutta-Joukowski]
 	\label{joukowski:komplexe-analysis:satz:kutta-joukowski}

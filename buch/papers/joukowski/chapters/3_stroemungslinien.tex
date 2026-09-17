@@ -1,5 +1,6 @@
 \section{Strömungslinien}
 \label{joukowski:sec:stroemungslinien}
+\kopfrechts{Strömungslinien}
 	\subsection{Allgemeine Definition}
 		Die Bewegung von Fluiden im dreidimensionalen Raum wird durch die Navier-Stokes-Gleichungen,
 		oder die reibungsfreien Euler-Gleichungen beschrieben.
@@ -19,8 +20,10 @@
 		\]
 		berechnen lässt.
 		Dies beschreibt die Situation einer sogenannter \emph{Potentialströmung}.
+\index{Potentialstromung@Potentialströmung}%
 		Setzen wir unsere Gleichung für $\varphi$ in die Bedinung der Inkompressibilität des Fluides aus Gleichung~\eqref{joukowski:voraussetzungen:inkompressibel} ein,
 		erhalten wir die Laplace-Gleichung
+\index{Laplace-Gleichung}%
 		\[
 			\nabla \cdot \nabla \varphi
 			=
@@ -28,7 +31,8 @@
 			=
 			0.
 		\]
-		Das beduetet jede Potentialfunktion, welche die Strömung eines inkompressiblen, laminaren Fluid beschreibt, muss die Laplace Gleichung erfüllen.
+		Das beduetet jede Potentialfunktion, welche die Strömung eines inkompressiblen, laminaren Fluid beschreibt, muss die Laplace-Gleichung erfüllen.
+\index{Potentialfunktion}%
 		Aus Abschnitt~\ref{joukowski:voraussetzungen:situationsbeschreibung}
 		wissen wir aber, dass das Problem auf zwei Dimensionen begrenzt werden kann.
 		Sobald die Strömung nur von $x$ und $y$ abhängig ist,
@@ -52,11 +56,13 @@
 		Jetzt können wir alle Werkzeuge der komplexen Analysis anwenden, um unsere Strömung zu beschreiben.		
 		Punkte in der $z$-Ebene, für welche die Potentialfunktion $\varphi(z)$ den gleichen Wert hat, werden \emph{Äquipotentiallinien} genannt
 		und Punkte, für welche $\psi(z)$ konstant ist, werden \emph{Strömungslinien} genannt.
+\index{Aquipotentiallinien@Äquipotentiallinien}%
 		Für unsere weiteren Betrachtungen sind die Strömungslinien von grosser Bedeutung.
 		
 		\begin{definition}[Strömungslinie]
 			\label{joukowski:stroemungslinien:proof:Stroemungslinie}
 			In der stationären Strömung beschreibt eine \emph{Strömungsline} den Weg, welcher ein Fluidteilchen nimmt
+\index{Stromungslinie@Strömungslinie}%
 			und gilt für alle Punkte $z$ die
 			\[
 				\psi(z) = C
@@ -91,6 +97,7 @@
 		
 		\begin{definition}[Biholomorphe Funktion]
 			Eine komplexe Funktion $f(z)$ ist \emph{biholomorph}, wenn
+\index{biholomorph}%
 			\begin{enumerate}
 				\item $f(z)$ holomorph ist
 				und
@@ -99,6 +106,7 @@
 		\end{definition}
 		
 		Die komplexe Funktion, welche einen Kreis im Ursprung auf eine horizontale Linie abbildet, ist die sogenannte \emph{Kutta-Joukowski-Transformation} und lautet
+\index{Kutta-Joukowski-Transformation}%
 		\begin{equation}
 			\label{joukowski:Stroemungslinien:equation_zylinder}
 			f(z)
@@ -130,6 +138,7 @@
 		Dies scheint auf den ersten Blick etwas merkwürdig zu sein,
 		da im Reellen die Ableitung direkt die Geschwindigkeit selbst gibt.
 		Dieses Resultat stammt aus den Cauchy-Riemann-Differentialgleichungen und der Konvention,
+\index{Cauchy-Riemann-Differentialgleichungen}%
 		die komplexe Geschwindigkeit als $v(z) = u + iw$ zu schreiben.
 		
 		\begin{proof}[Beweis von Formel~\eqref{joukowski:stroemungslinien:dfdz}]

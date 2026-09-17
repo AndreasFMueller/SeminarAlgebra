@@ -1,5 +1,6 @@
 \section{Voraussetzungen}
 \label{joukowski:sec:voraussetzungen}
+\kopfrechts{Voraussetzungen}
 
 Es handelt sich beim Satz von Kutta-Joukowski um ein approximatives mathematisches Modell. 
 Damit wir dieses Modell für eine reale physikalische Situation anwenden können,
@@ -12,6 +13,7 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 \subsection{Physikalische Voraussetzungen}
 
 \subsubsection{Reibungsfreiheit}
+\index{reibungsfrei}%
 	Reibungsfreiheit bedeutet,
 	dass das Fluid,
 	in unserem Fall die Luft, 
@@ -25,7 +27,10 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	nur bei einer reibungsfreien Strömung.
 
 \subsubsection{Inkompressibilität}
+\index{inkompressibel}%
 	Inkompressibilität bedeutet, dass die Dichte $\varrho$ des Fluides überall im Raum und zu jeder Zeit konstant ist.
+\index{rho@$\varrho$}%
+\index{Dichte}%
 	Somit gilt sie in allen Formeln nur als Skalierungsfaktor.
 	Diese Annahme können wir bei unserer Luftströmung anwenden,
 	sofern die Anströmungsgeschwindigkeit nicht zu gross wird.
@@ -41,12 +46,14 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Diese Gleichung besagt, dass es nirgends im Raum eine Ansammlung des Fluides gibt. Die Dichte  bleibt somit überall im Raum konstant.
 
 \subsubsection{Laminarität}
+\index{laminar}%
 	Laminarität bedeutet, dass das Fluid in Schichten strömt, die sich nicht untereinander vermischen.
 	Diese Voraussetzung führt direkt dazu, dass es in der Strömung keine Verwirbelungen gibt.
 	Ohne Verwirbelungen gibt es keine Luftreibung, was bedeutet,
 	dass in unserem Modell eine reine Auftriebskraft resultiert.
 	
 \subsubsection{Stationarität}
+\index{stationar@stationär}%
 	Stationäre Strömung bedeutet kurz gesagt 
 	``Alles sieht \emph{für alle Zeit gleich} aus'',
 	aber es muss nicht überall im Raum gleich sein.
@@ -78,10 +85,12 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Diese Vereinfachung ist nur möglich, da wir voraussetzen, dass die Strömung entlang des ganzen Flügels identisch ist.
 	Somit müssen wir bei den Berechnungen nicht den gesamten dreidimensionalen Flügel betrachten,
 	sondern können uns auf einen zweidimensionalen Querschnitt davon beschränken.
+\index{Flugelprofil@Flügelprofil}%
 	Jetzt haben wir ein sogenanntes Flügelprofil, welches von einem inkompressiblen, reibungsfreien Fluid lamiar umströmt wird.
 	In grosser Entfernung besitzt diese Strömung eine konstante Geschwindigkeit,
 	welche wir mit $v_\infty$ bezeichnen. 
 	Das $\infty$ bezieht sich darauf, dass in der Theorie dieser Punkt unendlich weit vom Flügelprofil entfernt sein müsste. Diesen Punkt bezeichnen wir als Referenzpunkt.
+\index{Referenzpunkt}%
 	Eine Folge der Entfernung einer Dimension ist,
 	dass Grössen wie die Kraft $F$ zur Kraft pro Flügellänge $F'$ gewandelt werden.
 	Wobei sich $F'$ mit
@@ -95,6 +104,7 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Durch die Beschränkung auf zwei Dimensionen können wir zudem unsere Situation mittels der komplexen Zahlenebene vollständig beschreiben.
 	In den folgenden Abschnitten wird also die örtliche Abhängigkeit mit $z = x + iy$ beschrieben. Manchmal wird die vertikale Koordinate $y$ auch mit $h(z)$ bezeichnet,
 	weil sie zum Beispiel die Höhe eines fliegenden Flugzeugs darstellt. $h_\infty$ beschreibt die Höhe im Referenzpunkt.
+\index{Flugzeug}%
 	Des weiteren können wir auch zweidimensionale Vektoren als komplexen Zahlen darstellen.
 	Dies kann bei der Geschwindigkeit $\vec{v}$ als
 	\[
