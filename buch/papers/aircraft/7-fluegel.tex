@@ -10,7 +10,7 @@
 \label{aircraft:section:fluegel}}
 \kopfrechts{Flügelgeometrie}
 Die Systemmatrizen des Propellerflugzeugs und des Business Jets in
-Abschnitt~\ref{aircraft:section:6-beispiel} haben dieselbe Form.
+Abschnitt~\ref{aircraft:section:6-rechenbeispiel} haben dieselbe Form.
 Die beiden Flugzeuge unterscheiden sich nur in den Werten der Derivative.
 Diese Werte entstehen aus der Geometrie des Flugzeugs.
 Wir betrachten die drei Derivative $L_\beta$, $N_\beta$ und $N_r$.
@@ -18,6 +18,7 @@ Diese drei bestimmen die Spiralbewegung und die Dutch Roll, und der
 Konstrukteur legt sie über die Form der Flügel und des Seitenleitwerks fest.
 
 Die \emph{V-Form} (dihedral) ist der Winkel, um den die Flügel gegenüber der
+\index{V-Form}%
 Querachse nach oben geneigt sind.
 Schiebt das Flugzeug, so trifft die Luft den Flügel auf der Seite, zu der das
 Flugzeug schiebt, unter einem grösseren Anstellwinkel als den anderen Flügel.
@@ -28,13 +29,15 @@ Abschnitt~\ref{aircraft:section:system}.
 Mit wachsender V-Form wächst der Betrag von $L_\beta$.
 
 Die \emph{Pfeilung} (sweep) ist der Winkel, um den die Flügel gegenüber der
-Querachse nach hinten geneigt sind.
+\index{Pfeilung}%
+Querachse nach hinten zeigen.
 Beim Schieben steht der Flügel auf der Seite, zu der das Flugzeug schiebt,
 weniger schräg zur Anströmung als der andere Flügel und erzeugt ebenfalls mehr
 Auftrieb.
 Die Pfeilung vergrössert den Betrag von $L_\beta$ ebenso wie die V-Form.
 
 Das \emph{Seitenleitwerk} (vertical tail) bestimmt die beiden
+\index{Seitenleitwerk}%
 Derivative $N_\beta$ und $N_r$.
 Schiebt das Flugzeug, so wird das Seitenleitwerk schräg angeströmt und erzeugt
 ein Giermoment, das die Nase in die Anströmung dreht.
@@ -71,14 +74,14 @@ Tatsächlich ist für das Propellerflugzeug mit den Werten aus Nelson Tabelle~5.
 \[
     L_\beta N_r - L_r N_\beta
     =
-    (-16{,}02)\cdot(-0{,}76) - 2{,}19\cdot 4{,}49
+    (-16.02)\cdot(-0.76) - 2.19\cdot 4.49
     =
-    12{,}18 - 9{,}83
+    12.18 - 9.83
     >
     0.
 \]
 Der Eigenwert der Spiralbewegung ist nach
-Abschnitt~\ref{aircraft:section:6-beispiel} negativ, wie es die Bedingung
+Gleichung~\eqref{aircraft:eqn:eigenwerte-ga} negativ, wie es die Bedingung
 verlangt.
 Die Bedingung \eqref{aircraft:eqn:spiralbedingung} wird umso leichter erfüllt,
 je grösser die Beträge von $L_\beta$ und $N_r$ sind.
@@ -99,11 +102,11 @@ Der Konstrukteur muss beide Eigenwerte zugleich in der linken Halbebene halten.
 Die Gierdämpfung $N_r$ vergrössert die Dämpfung beider Bewegungen, lässt sich
 durch ein grösseres Seitenleitwerk aber nur zusammen mit $N_\beta$ vergrössern.
 
-Der Vergleich in Abschnitt~\ref{aircraft:section:6-beispiel} ist mit diesem
+Der Vergleich in Abschnitt~\ref{aircraft:subsection:vergleich} ist mit diesem
 Zusammenhang verträglich.
 Der Business Jet hat gepfeilte Flügel, das Propellerflugzeug gerade.
-Die Dutch Roll des Business Jets ist mit $\sigma = -0{,}116$ schwächer gedämpft
-als die des Propellerflugzeugs mit $\sigma = -0{,}487$.
+Die Dutch Roll des Business Jets ist mit $\sigma = -0.116$ schwächer gedämpft
+als die des Propellerflugzeugs mit $\sigma = -0.486$.
 
 Die Geometrie legt die Derivative fest, und die Derivative legen die
 Eigenwerte fest.

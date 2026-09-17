@@ -9,60 +9,56 @@ Die Padé-Approximation baut vollständig auf der Taylor-Reihe einer Funktion au
 
 Die Grundidee der Taylor-Reihe besteht darin, eine genügend oft differenzierbare Funktion in der Umgebung eines bestimmten Punktes durch eine Potenzreihe zu beschreiben. Dieser Punkt wird als Entwicklungspunkt bezeichnet und üblicherweise mit \(a\) notiert. Die allgemeine Taylor-Reihe einer Funktion \(f(x)\) lautet
 \begin{equation}
-f(x)
-=
-\sum_{k=0}^{\infty}
-\frac{f^{(k)}(a)}{k!}(x-a)^k.
-\label{eq:taylor_allgemein}
+	f(x)
+	=
+	\sum_{k=0}^{\infty}
+	\frac{f^{(k)}(a)}{k!}(x-a)^k.
+	\label{eq:taylor_allgemein}
 \end{equation}
-
-Jeder Summand dieser Reihe enthält eine Ableitung der Funktion am Entwicklungspunkt. Die erste Ableitung beschreibt die Steigung der Funktion, höhere Ableitungen liefern Informationen über ihre Krümmung und ihr weiteres Verhalten. Werden genügend viele Terme berücksichtigt, kann das Verhalten einer Funktion in der Umgebung des Entwicklungspunktes sehr genau beschrieben werden.
+Jeder Summand dieser Reihe enthält eine Ableitung der Funktion am Entwicklungspunkt. Die erste Ableitung beschreibt die Steigung der Funktion, höhere Ableitungen liefern Informationen über ihre Krümmung und ihr weiteres Verhalten. Werden genügend viele Terme berücksichtigt, kann das Verhalten einer Funktion in der Umgebung des Entwicklungspunktes sehr genau beschrieben werden \cite{phillips_taylor_1996}.
 
 In vielen Anwendungen wird der Entwicklungspunkt auf \(a=0\) gelegt. Man spricht dann von einer \emph{Maclaurin-Reihe}. Gleichung~\eqref{eq:taylor_allgemein} vereinfacht sich dadurch zu
+\index{Maclaurin-Reihe}%
 \begin{equation}
-f(x)
-=
-\sum_{k=0}^{\infty}
-\frac{f^{(k)}(0)}{k!}x^k.
-\label{eq:maclaurin}
+	f(x)
+	=
+	\sum_{k=0}^{\infty}
+	\frac{f^{(k)}(0)}{k!}x^k.
+	\label{eq:maclaurin}
 \end{equation}
 
-Ein besonders anschauliches Beispiel ist die Exponentialfunktion
-\[
-f(x)=e^x.
-\]
-Ihre Ableitung ist wiederum die Exponentialfunktion selbst. Daraus folgt, dass sämtliche Ableitungen an der Stelle \(x=0\) den Wert \(1\) besitzen. Durch Einsetzen in Gleichung~\eqref{eq:maclaurin} erhält man die bekannte Reihenentwicklung
-\begin{equation}
-e^x
-=
-1
-+
-x
-+
-\frac{x^2}{2!}
-+
-\frac{x^3}{3!}
-+
-\frac{x^4}{4!}
-+
-\cdots.
-\label{eq:exp_reihe}
-\end{equation}
+Ein besonders anschauliches Beispiel ist die Exponentialfunktion \(f(x)=e^x\). Ihre Ableitung ist wiederum die Exponentialfunktion selbst. Daraus folgt, dass sämtliche Ableitungen an der Stelle \(x=0\) den Wert \(1\) besitzen. Durch Einsetzen in Gleichung~\eqref{eq:maclaurin} erhält man die bekannte Reihenentwicklung
+\index{Exponentialfunktion}%
+\begin{equation*}
+	e^x
+	=
+	1
+	+
+	x
+	+
+	\frac{x^2}{2!}
+	+
+	\frac{x^3}{3!}
+	+
+	\frac{x^4}{4!}
+	+
+	\cdots.
+%	\label{eq:exp_reihe}
+\end{equation*}
 
-Da eine unendliche Reihe auf einem Computer nicht vollständig berechnet werden kann, wird sie nach endlich vielen Summanden abgebrochen. Das entstehende Polynom wird als Taylor-Polynom bezeichnet.
+Da eine unendliche Reihe auf einem Computer nicht vollständig berechnet werden kann, wird sie nach endlich vielen Summanden abgebrochen. Das entstehende Polynom wird als Taylor-Polynom bezeichnet. Die endlichen Partialsummen einer Taylor-Reihe bilden somit Taylor-Polynome und dienen zur Approximation der ursprünglichen Funktion \cite{phillips_taylor_1996}.
 
 Für die Exponentialfunktion ergibt sich beispielsweise das Taylor-Polynom zweiter Ordnung zu
-\begin{equation}
-T_2(x)
-=
-1
-+
-x
-+
-\frac{x^2}{2}.
-\label{eq:taylor2}
-\end{equation}
-
+\begin{equation*}
+	T_2(x)
+	=
+	1
+	+
+	x
+	+
+	\frac{x^2}{2}.
+%	\label{eq:taylor2}
+\end{equation*}
 Mit steigender Ordnung werden mehr Terme der Taylor-Reihe berücksichtigt, wodurch sich die Genauigkeit der Approximation im Allgemeinen verbessert.
 
 \section{Grenzen der Taylor-Reihe}
@@ -73,15 +69,14 @@ Obwohl Taylor-Polynome in vielen mathematischen Anwendungen sehr erfolgreich ein
 
 Dieses Verhalten lässt sich am Beispiel der Exponentialfunktion beobachten. In der Nähe von \(x=0\) stimmen die Werte des Taylor-Polynoms nahezu mit der Exponentialfunktion überein. Für grössere Werte von \(x\) wird jedoch sichtbar, dass das Polynom das starke Wachstum der Exponentialfunktion immer schlechter beschreibt. Abbildung~\ref{fig:taylorvergleich} zeigt diesen Vergleich.
 
-%Bild 1, Teil1, (taylorvergleich), Taylorpolynom vs Exponentialfunktion
 \begin{figure}
-\centering
-\begin{tikzpicture}
-\clip(-6.3,-4) rectangle (6.3,4);
-\node at (0,0) {\includegraphics[width=\textwidth]{papers/pade/images/taylorvergleich.pdf}};
-\end{tikzpicture}
-\caption{TODO
-\label{pader:taylorvergleich}}
+	\centering
+	\begin{tikzpicture}
+		\clip(-6.3,-4) rectangle (6.3,4);
+		\node at (0,0) {\includegraphics[width=\textwidth]{papers/pade/images/taylorvergleich.pdf}};
+	\end{tikzpicture}
+	\caption{Vergleich der Exponentialfunktion \(e^x\) mit dem Taylor-Polynom zweiter Ordnung \(T_2(x)\). In der Umgebung des Entwicklungspunktes \(x=0\) stimmen beide Verläufe gut überein, während die Abweichung mit zunehmendem Abstand von \(x=0\) deutlich zunimmt.}
+	\label{fig:taylorvergleich}
 \end{figure}
 
 Die Ursache hierfür liegt im Aufbau eines Polynoms. Ein Polynom besteht ausschliesslich aus Potenzen der Variablen und besitzt deshalb nur eine begrenzte Flexibilität. Eigenschaften wie starkes exponentielles Wachstum oder asymptotisches Verhalten lassen sich damit nur eingeschränkt beschreiben.
