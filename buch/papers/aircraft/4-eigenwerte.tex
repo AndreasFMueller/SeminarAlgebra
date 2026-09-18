@@ -65,6 +65,7 @@ $x(0) = x_0$.
 Tatsächlich löst die Funktion~\eqref{aircraft:eqn:skalarloesung} die
 Gleichung~\eqref{aircraft:eqn:skalar}, denn ihre Ableitung ist
 $\dot{x}(t) = a x_0 e^{at} = a x(t)$.
+
 In Kapitel~\ref{chapter:differentialgleichungen} wurde die verwandte Gleichung
 $y' = -ky$ mit einem Potenzreihenansatz gelöst; auch dort war die
 Lösung die Exponentialfunktion.
@@ -73,7 +74,7 @@ Lösung die Exponentialfunktion.
 \label{aircraft:subsection:eigenwertgleichung}}
 Das skalare Rezept überträgt sich nicht direkt auf die
 Bewegungsgleichung, denn das System ist nach
-Abschnitt~\ref{aircraft:section:2-dynamisches-system} gekoppelt.
+Abschnitt~\ref{aircraft:subsection:systemmatrix} gekoppelt.
 Wünschenswert ist ein entkoppeltes System, in dem jede Gleichung nur
 ihre eigene Funktion enthält.
 Den Weg dorthin liefert die Eigentheorie der Matrix $A$.
@@ -104,6 +105,8 @@ Da $e^{\lambda t} \neq 0$ ist, dürfen wir kürzen und erhalten die
 \end{equation}
 Die Zahl $\lambda$ heisst \emph{Eigenwert}, der Vektor $\vec{x}_0$
 \emph{Eigenvektor} der Matrix $A$.
+\index{Eigenwert}%
+\index{Eigenvektor}%
 
 \subsection{Die Eigenwerte als Nullstellen der charakteristischen
 Gleichung
@@ -131,6 +134,7 @@ ist, also
     \label{aircraft:eqn:charakteristisch}
 \end{equation}
 gilt, die \emph{charakteristische Gleichung}.
+\index{charakteristische Gleichung}%
 Ausgeschrieben ist sie ein Polynom vierten Grades in $\lambda$ und
 hat vier Nullstellen, die im Allgemeinen komplex sind.
 Das sind die vier Eigenwerte der Matrix $A$.

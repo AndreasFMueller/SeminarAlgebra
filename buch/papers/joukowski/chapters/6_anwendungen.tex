@@ -1,10 +1,12 @@
 \section{Anwedungen des Satzes von Kutta-Joukowski}
 \label{joukowski:anwendungen}
+\kopfrechts{Anwendungen des Satzes von Kutta-Joukowski}
 
-\subsection{Magnus Effekt}
+\subsection{Magnus-Effekt}
 \label{joukowski:anwendungen:magnus}
 \input{papers/joukowski/fig/05_stroemungslinien/fig_magnus.tex}
-Bei rotierenden Zylindern entsteht eine Kraft, sofern eine Luftströmung existiert. Dieser Effekt kann beispielsweise eingesetzt werden, um den Kraftstoffverbrauch von Schiffen zu senken.
+\input{papers/joukowski/fig/05_stroemungslinien/fig_magnus_anwendung.tex}
+Bei rotierenden Zylindern entsteht eine Kraft, sofern eine Luftströmung existiert. Dieser Effekt kann beispielsweise eingesetzt werden, um den Kraftstoffverbrauch von Schiffen zu senken wie in Abbildung~\ref{joukowski:Stroemungslinien:fig_magnus_anwendung}.
 
 Grafisch lässt sich dieser Effekt aufzeigen, indem die Funktion $f(z)$ aus Beispiel~\ref{joukowski:stroemungslinien:beispiel:joukowski-transformation} 
 zum Ausdruck
@@ -17,8 +19,8 @@ Mit dem Parameter $A$ kann der Effekt eines rotierenden Zylinders in einem Strö
 Der rotierende Zylinder führt dazu, dass die Luft ebenfalls zirkuliert.
 Mit dem Parameter $A$
 kann somit direkt Einfluss auf die Zirkulation genommen werden.
-Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung ~\ref{joukowski:Stroemungslinien:fig_magnus}.
-Anhand der Abbildung der Geschwindigkeitsvektoren kann erkannt werden,
+Wird der Parameter $A$ beispielsweise auf $-0.75$ gesetzt, resultiert ein Strömungs- und Geschwindigkeitsfeld wie in Abbildung~\ref{joukowski:Stroemungslinien:fig_magnus}.
+Die Abbildung der Geschwindigkeitsvektoren zeigt,
 dass oberhalb des rotierenden Zylinders die Strömung eine höhere Geschwindigkeit aufweist wie unterhalb.
 Höhere Geschwindigkeit bedeutet tieferer Druck und somit eine Auftriebskraft.
 
@@ -69,17 +71,17 @@ Es folgt eine reine Auftriebskraft mit dem Ausdruck
 \input{papers/joukowski/fig/05_stroemungslinien/fig_fluegel2.tex}
 Nun haben wir bereits viel über Geschwindigkeiten und Strömungen gesprochen.
 Die interessante Frage ist jedoch, was das alles mit einem Flügelprofil zu tun hat.
-Ein Einheitskreis kann relativ einfach so transformiert werden, dass er einem an der reellen Achse symmetrischen Flügelprofil entspricht.
+Ein Einheitskreis kann relativ einfach so transformiert werden, dass er einem bezüglich der reellen Achse symmetrischen Flügelprofil entspricht.
 Hierzu braucht es lediglich eine Verschiebung mit kleinem Realanteil und anschlissend erneut die Kutta-Joukowski Transformation 
 \[
 	f(z)
 	=
-	z + \frac{1}{z}	
-\].
+	z + \frac{1}{z}.
+\]
 In Abbildung~\ref{joukowski:Stroemungslinien:fig_fluegel1} wird ein symmetrisches Flügelprofil gezeigt. Dieses erzeugt zunächst keinen Auftrieb und dient lediglich zu Anschauungszwecken.
 
 Abbildung~\ref{joukowski:Stroemungslinien:fig_fluegel2} entspricht einem Flügelprofil mit Anstellwinkel.
-Hierzu muss der transformierte Flügel in der komplexen Ebene im Uhrzeigersinn rotiert werden.
+Hierzu muss der transformierte Flügel in der komplexen Ebene im Uhrzeigersinn gedreht werden.
 Damit die Strömungslinien der Realität entsprechen,
 muss der Faktor $A$ in Gleichung~\eqref{joukowski:Stroemungslinien:equation_magnus} passend gewählt werden.
 Dies haben wir numerisch mithilfe unserer Visualisierung ermittelt.
@@ -90,5 +92,6 @@ Auch in diesem Beispiel ensteht eine reine Auftriebskraft mit dem Ausdruck
 	-\varrho v_{\infty} 2 \pi A.
 \]
 Mit diesem Modell können wir die Strömungslinien um ein Flügelprofil ermitteln.
-Es wird ausserdem deutlich, dass dieser Flügel Auftrieb generieren muss,
-da eine Asymmetrie in den Strömungslinien entsteht.
+Die Strömung zeigt, dass die Geschwindigkeit ändert.
+Das ist nur möglich, wenn eine Kraft auf das Fluid wirkt.
+Nach $\text{actio}=\text{reactio}$ (Newton), muss das Fluid daher auch eine Kraft auf das Profil ausüben, diese Kraft ist der Auftrieb.

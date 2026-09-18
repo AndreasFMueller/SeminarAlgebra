@@ -8,7 +8,7 @@
 %
 \section{Motivation und Definition
 \label{hauptwert:section:motivation-definition}}
-\kopfrechts{Teil 0}
+\kopfrechts{Motivation und Definition}
 \subsection{Uneigentliche Integrale}
 \input{papers/hauptwert/fig/kehrwert.tex}
 
@@ -27,13 +27,17 @@ Abbildung \ref{hauptwert:figure:kehrwert} zeigt den Graphen des Integranden.
 Dieses Integral ist in zweifacher Hinsicht kritisch:
 Der Integrand ist an der Stelle $x = 0$ nicht definiert
 und hat dort eine Polstelle,
+\index{Polstelle}%
 und die Integrationsgrenzen $\pm\infty$ sind selbst uneigentlich.
+\index{Integral!uneigentlich}%
 Gerade weil beide Arten von Divergenz gleichzeitig auftreten,
+\index{Divergenz}%
 eignet sich dieses Integral als durchgehendes Beispiel.
 
 \subsection{Ein erster Versuch}
 Da der Integrand an der Stelle $x = 0$ nicht definiert und dort unbeschränkt
 ist, handelt es sich nicht um ein Riemann-Integral.
+\index{Riemann-Integral}%
 Seine Bedeutung erhält der Ausdruck erst durch die Definition des
 uneigentlichen Integrals, welche jede kritische Stelle durch einen eigenen,
 unabhängigen Grenzwert ersetzt.
@@ -63,14 +67,16 @@ das rechte Teilintegral existiert also nicht.
 Aus Symmetriegründen divergiert das linke Teilintegral
 mit den Grenzwerten $\varepsilon_1 \to 0^+$ und $R' \to -\infty$
 genauso gegen $-\infty$.
-Insgesamt treten also vier voneinander unabhängige Grenzwerte auf.
-Die Aufteilung \eqref{hauptwert:equation:aufteilung} führt also auf den
+Insgesamt treten vier voneinander unabhängige Grenzwerte auf.
+Die Aufteilung \eqref{hauptwert:equation:aufteilung} führt somit auf den
 unbestimmten Ausdruck $\infty - \infty$,
 das uneigentliche Integral existiert nicht.
 
 \subsection{Der Cauchy-Hauptwert --- Symmetrische Annäherung}
 \input{papers/hauptwert/fig/kehrwert-symmetrisch.tex}
-Die zugrunde liegende Idee vom Cauchy-Hauptwert ist, dass
+Die zugrunde liegende Idee des Cauchy-Hauptwerts ist, dass
+\index{Hauptwert}%
+\index{Cauchy-Hauptwert}%
 man sich der Polstelle symmetrisch annähert, das heisst mit
 einem einzigen, gemeinsamen $\varepsilon$ und symmetrischen Grenzen $\pm R$.
 Von den vier unabhängigen Grenzwerten bleiben so nur noch zwei übrig.
@@ -103,7 +109,10 @@ Resultat, jedoch ist es falsch. Nehmen wir zum Beispiel die verschiedenen
 Integrationsgrenzen $\varepsilon$ und $2\varepsilon$. Der Einfachheit halber
 wird hier über $[-1, 1]$ integriert, statt über den Bereich $(-\infty, \infty)$.
 Aus denselben Symmetriegründen wie in
-\eqref{hauptwert:equation:symmetrisch} ist $\pv\int_{-1}^{1} \frac{dx}{x} = 0$.
+\eqref{hauptwert:equation:symmetrisch} ist
+\[
+\pv\int_{-1}^{1} \frac{dx}{x} = 0.
+\]
 Mit der unsymmetrischen Annäherung erhalten wir dagegen
 \begin{equation}
   \begin{aligned}
@@ -116,6 +125,7 @@ Mit der unsymmetrischen Annäherung erhalten wir dagegen
     &= \lim_{\varepsilon \to 0^+} (\ln\varepsilon - \ln 2 - \ln\varepsilon) \\
     &= -\ln 2,
   \end{aligned}
+  \label{hauptwert:equation:unsymmetrisch}
 \end{equation}
 also nicht den Hauptwert $0$.
 Der Grenzwert existiert zwar, er hängt aber vom Verhältnis der beiden
@@ -147,6 +157,7 @@ Divergenz an den unendlichen Integrationsgrenzen $\pm\infty$.
 Sei $f$ auf $[a,b]\setminus\{x_0\}$ stetig mit einer Singularität
 an der inneren Stelle $x_0 \in (a,b)$.
 Der \emph{Cauchy-Hauptwert} des Integrals von $f$ über $[a,b]$ ist
+\index{Cauchy-Hauptwert}%
 \begin{equation*}
 \pv\int_a^b f(x)\,dx
 = \lim_{\varepsilon\to 0^+}

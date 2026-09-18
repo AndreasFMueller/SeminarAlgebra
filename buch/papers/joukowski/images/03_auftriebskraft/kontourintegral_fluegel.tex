@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{external}
+\usetikzlibrary{calc}
+\usepackage{newtxtext, newtxmath} % Sets document-wide Times New Roman
 
 \input{wing.tex}
 
@@ -9,83 +11,86 @@
 
 \begin{document}
 	
-	\begin{tikzpicture}[>=Latex]
-		
-		%--------------------------------------------------
-		% Left figure
-		%--------------------------------------------------
-		\begin{scope}[xshift=0cm, scale=0.4]
-			\coordinate (P) at (-0.6,0.26);
-			\draw[white, very thick] (-10,-3) rectangle (2,3);
-			\node[shape=wing, scale=0.8] at (0,0) {};
-			
-			\begin{scope}[rotate=-20]
-				\fill (P)+(-0.17,-0.17) circle (0.05);
-				
-				\draw[thick]
-				(P)+(-0.5,0)
-				arc[start angle=180,end angle=270,radius=0.5];
-				
-				\draw[->, thick, red]
-				(P) -- node[midway, above] {$dz$} +(180:2);
-				
-				\draw[->, thick, teal]
-				(P) -- node[midway, right] {$dF'$} +(270:1);
-			\end{scope}
-			
-			\fill (P) circle (3pt);
-		\end{scope}
-		
-		%--------------------------------------------------
-		% Middle figure
-		%--------------------------------------------------
-		\begin{scope}[xshift=5.5cm, scale=0.4]
-			\coordinate (P) at (-7.9,0.35);
-			\draw[white, very thick] (-10,-3) rectangle (2,3);
-			\node[shape=wing, scale=0.8] at (0,0) {};
-			
-			\begin{scope}[rotate=35]
-				\fill (P)+(-0.17,-0.17) circle (0.05);
-				
-				\draw[thick]
-				(P)+(-0.5,0)
-				arc[start angle=180,end angle=270,radius=0.5];
-				
-				\draw[->, thick, red]
-				(P) -- node[midway, above] {$dz$} +(180:2);
-				
-				\draw[->, thick, teal]
-				(P) -- node[midway, right] {$dF'$} +(270:1);
-			\end{scope}
-			
-			\fill (P) circle (3pt);
-		\end{scope}
-		
-		%--------------------------------------------------
-		% Right figure
-		%--------------------------------------------------
-		\begin{scope}[xshift=11cm, scale=0.4]
-			\coordinate (P) at (-5.2,-0.83);
-			\draw[white, very thick] (-10,-3) rectangle (2,3);
-			\node[shape=wing, scale=0.8] at (0,0) {};
-			
-			\begin{scope}[rotate=192]
-				\fill (P)+(-0.17,-0.17) circle (0.05);
-				
-				\draw[thick]
-				(P)+(-0.5,0)
-				arc[start angle=180,end angle=270,radius=0.5];
-				
-				\draw[->, thick, red]
-				(P) -- node[midway, below] {$dz$} +(180:2);
-				
-				\draw[->, thick, teal]
-				(P) -- node[midway, right] {$dF'$} +(270:3);
-			\end{scope}
-			
-			\fill (P) circle (3pt);
-		\end{scope}
-		
-	\end{tikzpicture}
+\begin{tikzpicture}[>=Latex]
+	\clip (-3.4,-0.7) rectangle ++(12.6,1.7);
+%	\draw[color=red] (-3.4,-0.7) rectangle ++(12.6,1.7);
 	
+	%--------------------------------------------------
+	% Left figure
+	%--------------------------------------------------
+	\begin{scope}[xshift=0cm, scale=0.4]
+		\coordinate (P) at (-0.6,0.26);
+		%\draw[white, very thick] (-10,-3) rectangle (2,3);
+		\node[shape=wing, scale=0.8] at (0,0) {};
+		
+		\begin{scope}[rotate=-20]
+			\fill (P)+(-0.17,-0.17) circle (0.05);
+			
+			\draw[thick]
+			(P)+(-0.5,0)
+			arc[start angle=180,end angle=270,radius=0.5];
+			
+			\draw[->, thick, red]
+			(P) -- node[midway, above] {$dz$} +(180:2);
+			
+			\draw[->, thick, teal]
+			(P) -- +(270:1);
+			\node[color=teal] at ($(P)+(270:1)$) [right] {$dF'$};
+		\end{scope}
+		
+		\fill (P) circle (3pt);
+	\end{scope}
+	
+	%--------------------------------------------------
+	% Middle figure
+	%--------------------------------------------------
+	\begin{scope}[xshift=4.7cm, scale=0.4]
+		\coordinate (P) at (-7.9,0.35);
+		%\draw[white, very thick] (-10,-3) rectangle (2,3);
+		\node[shape=wing, scale=0.8] at (0,0) {};
+		
+		\begin{scope}[rotate=35]
+			\fill (P)+(-0.17,-0.17) circle (0.05);
+			
+			\draw[thick]
+			(P)+(-0.5,0)
+			arc[start angle=180,end angle=270,radius=0.5];
+			
+			\draw[->, thick, red]
+			(P) -- node[midway, above] {$dz$} +(180:2);
+			
+			\draw[->, thick, teal]
+			(P) -- node[midway, right] {$dF'$} +(270:1);
+		\end{scope}
+		
+		\fill (P) circle (3pt);
+	\end{scope}
+	
+	%--------------------------------------------------
+	% Right figure
+	%--------------------------------------------------
+	\begin{scope}[xshift=9.1cm, scale=0.4]
+		\coordinate (P) at (-5.2,-0.83);
+		%\draw[white, very thick] (-10,-3) rectangle (2,3);
+		\node[shape=wing, scale=0.8] at (0,0) {};
+		
+		\begin{scope}[rotate=192]
+			\fill (P)+(-0.17,-0.17) circle (0.05);
+			
+			\draw[thick]
+			(P)+(-0.5,0)
+			arc[start angle=180,end angle=270,radius=0.5];
+			
+			\draw[->, thick, red]
+			(P) -- node[midway, below] {$dz$} +(180:2);
+			
+			\draw[->, thick, teal] (P) -- +(270:3);
+			\node[color=teal] at ($(P)+(270:3)$) [right] {$dF'$};
+		\end{scope}
+		
+		\fill (P) circle (3pt);
+	\end{scope}
+	
+\end{tikzpicture}
+
 \end{document}

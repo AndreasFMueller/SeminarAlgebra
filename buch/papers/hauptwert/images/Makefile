@@ -5,7 +5,7 @@
 #
 all:	kehrwert.pdf kehrwert-symmetrisch.pdf nichtungerade.pdf pol-innen.pdf \
 	halbkreiskontur.pdf halbkreis-ohne-pol.pdf \
-	jordan-ungleichung.pdf
+	jordan-ungleichung.pdf kontur-allgemein.pdf
 
 kehrwert.pdf:	kehrwert.tex
 	pdflatex kehrwert.tex
@@ -27,3 +27,6 @@ halbkreis-ohne-pol.pdf:	halbkreis-ohne-pol.tex
 
 jordan-ungleichung.pdf:	jordan-ungleichung.tex
 	pdflatex jordan-ungleichung.tex
+
+kontur-allgemein.pdf:	kontur-allgemein.tex
+	pdflatex kontur-allgemein.tex

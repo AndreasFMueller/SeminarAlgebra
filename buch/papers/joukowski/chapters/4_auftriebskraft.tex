@@ -1,23 +1,28 @@
 \section{Auftriebskraft}
+\kopfrechts{Auftriebskraft}
 	Ein Medium übt auf ein darin platziertes Objekt eine Kraft aus.
 	Zwei Hauptursachen können dafür identifiziert werden.
 	Das Schwerefeld der Erde verursacht im Medium einen vertikalen Druckgradienten.
-	Die Kräfte auf der Unterseite des Objektes sind daher grösser als auf der Oberseite,
+\index{Druckgradient}%
+\index{Schwerefeld}%
+	Die Druckkräfte auf der Unterseite des Objektes sind daher grösser als auf der Oberseite,
 	was in einer statischen Auftriebskraft resultiert, die auch der hydrostatische Auftrieb genannt wird. Bewegt sich das Fluid, entstehen zusätzlich dynamische Kräfte. 
+\index{hydrostatischer Auftrieb}%
 
 	Sowohl beim statischen als auch beim dynamischen Auftrieb ist die Wirkung identisch: Die ungleiche Druckverteilung im Raum erzeugt eine resultierende Kraftkomponente.
 
-\subsection{Bernoulli}
-	Um den Druckgradienten zu bestimmen muss bekannt sein wie sich der Druck im Raum verhält. Dies kann mit der Bernoulli Gleichung
+\subsection{Das Bernoulli-Prinzip}
+\index{Bernoulli-Prinzip}%
+	Um den Druckgradienten zu bestimmen, muss bekannt sein, wie sich der Druck im Raum $p(z)$ verhält. Dies kann mit der \emph{Bernoulli-Gleichung}
+\index{Bernoulli-Gleichung}%
 	
 	\[
-		%\label{joukowski:Auftriebskarft:Bernoulli}
 		p(z) + \frac{\varrho}{2} \cdot |v(z)|^2 + \varrho g h(z) 
 		=
 		p_{\infty} + \frac{\varrho}{2} \cdot |v_{\infty}|^2 + \varrho g h_{\infty}
 	\]
 	beschrieben werden.
-	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Druck. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
+	Dabei werden immer zwei Punkte gewählt, in diesem Fall der Punkt $z$ und ein Punkt, in der Theorie unendlich, weit weg vom Flügelprofil. Wir können den Punkt in der Unendlichkeit auf der gleichen Höhe $h(z)$ wählen, somit verschwindet der statische Druck. $p_\infty$ beschreibt hierbei den Druck im Referenzpunkt. Aufgelöst nach dem Druck am Punkt $z$ ergibt sich die Form
 	\[
 		p(z)
 		=
@@ -31,18 +36,17 @@
 	welche dem Referenzwert im Unendlichen entspricht in eine einzelne Konstante $C$ zusammenfassen
 	und somit
 	\[
-	%\label{joukowski:Auftriebskarft:Bernoulli2}
-	p(z)
-	= 
-	-\frac{\varrho}{2} \cdot |v(z)|^2 + C
+		p(z)
+		= 
+		-\frac{\varrho}{2} \cdot |v(z)|^2 + C
 	\]
 	entsteht.
 
 \subsection{Grundlage der Auftriebskraft}
 	Um die resultierende Kraft pro Flügellänge zu erhalten,	
 	müssen alle kleinen Kraftanteile $dF'$ um das geschlossene Profil des Flügels,
-	welche wir mit $\gamma$ bezeichnen,
-	aufsummiert werden, womit
+	welches wir mit $\gamma$ bezeichnen,
+	aufsummiert werden, woraus
 	\begin{equation}
 		F'
 		=
@@ -67,7 +71,8 @@
 	\[
 		dF'
 		=
-		i \cdot p(z) dz,
+		i \cdot p(z)
+		\, dz,
 	\]
 	wobei jetzt Gleichung~\eqref{joukowski:auftriebskraft:Integral-aus-dF} als
 	\begin{equation}
@@ -79,7 +84,7 @@
 		\label{joukowski:auftriebskraft:Integral-aus-p}
 	\end{equation}
 	geschrieben werden kann.
-	Mithilfe der Multiplikation mit $i$ können wir ausdrucken,
+	Mithilfe der Multiplikation mit $i$ können wir ausdrücken,
 	dass jeder Kraftanteil immer nur senkrecht zur Umfahrtrichtung $dz$ wirkt,
 	wie in Abbildung~\ref{joukowski:auftriebskraft:fig:kontourintegral-fluegel} dargestellt wird.
 	
@@ -87,6 +92,8 @@
 
 \subsection{Aus Anströmungsgeschwindigkeit wird Auftrieb}
 	Ziel dieses Abschnitts ist, den Zusammenhang zwischen Anströmgeschwindigkeit $v_\infty$ und Auftriebs- und Widerstandskraft zu klären.
+\index{Auftriebskraft}%
+\index{Widerstandskraft}%
 	
 	Um nun die Auftriebskraft zu erhalten,
 	kann die Formel für $p(z)$ in Gleichung~\eqref{joukowski:auftriebskraft:Integral-aus-p} eingesetzt werden,
@@ -102,7 +109,7 @@
 		\notag
 		\\
 		\intertext{	entsteht.
-					Der konstante Teil $C$ kürzt sich durch die Integration um die geschlossene Kontour $\gamma$ heraus.
+					Der konstante Teil $C$ kürzt sich durch die Integration um die geschlossene Kontur $\gamma$ heraus.
 					Übrig bleibt nur noch der Ausdruck}
 		\label{joukowski:Auftriebskarft:Auftrieb1}
 		&F'
@@ -113,4 +120,9 @@
 		\displaystyle\oint_{\gamma}
 		|v(z)|^2 \, dz.
 	\end{align}
-
+	Dieser Zwischenschritt hat eine besondere Eigenschaft.
+	Die rechte Seite dieses Ausdrucks enthält keinen Realteil, was bedeutet, dass auch die horizontale Kraftkomponente $F'_x$, also der Luftwiderstand, zu $0$ resultiert.
+	Unser Modell kann also keinen Widerstand berechnen,
+	jedoch kann es eine quantitative Aussage zur Auftriebskraft $F'_y$ machen.
+	Im nächsten Abschnitt zeigen wir genau, wie diese quantitative Aussage der Auftriebskraft aussieht.
+	

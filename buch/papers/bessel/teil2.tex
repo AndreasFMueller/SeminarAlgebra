@@ -3,17 +3,13 @@
 %
 % (c) 2026 Gian Cavegn, OST Ostschweizer Fachhochschule
 %
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = de_CH
+%
 \section{Lösung mit verallgemeinerten Potenzreihen
 \label{bessel:section:loesung}}
 \kopfrechts{Lösung}
-%
-% Ziel dieses Abschnitts.
-% Die allgemeine Theorie aus dem Fuchs-Abschnitt nicht wiederholen,
-% sondern anwenden.
-% Der Mehrwert liegt darin, dass die Bessel-Gleichung ein besonders
-% sauberer Spezialfall ist.
-% Es gilt F(varrho) = varrho^2 - nu^2, also varrho = +- nu.
-%
 Die Bessel-Gleichung
 \begin{equation}
 x^2y'' + xy' + (x^2-\nu^2)y = 0
@@ -24,7 +20,7 @@ Das in Abschnitt~\ref{buch:differentialgleichungen:section:fuchs} entwickelte Ve
 Wir wiederholen die allgemeine Theorie hier nicht, sondern setzen ein und beobachten, was dabei herauskommt.
 Bemerkenswert ist, wie einfach der Spezialfall wird.
 Alle Grössen der allgemeinen Rekursion nehmen für die Bessel-Gleichung eine besonders übersichtliche Form an.
- 
+
 %
 % Die Bessel-Gleichung als fuchssche Gleichung
 %
@@ -71,13 +67,14 @@ a_0 \ne 0.
 \end{equation}
 Der Faktor $x^\varrho$ ist der ganze Unterschied zu einem gewöhnlichen Potenzreihenansatz.
 Er ist genau das, was das Verfahren rettet, denn er erlaubt der Lösung, sich bei $x=0$ wie eine beliebige, auch nicht ganzzahlige Potenz zu verhalten.
- 
+
 %
 % Indexgleichung
 %
 \subsection{Die Indexgleichung
 \label{bessel:loesung:subsection:index}}
 Die Indexgleichung des Fuchs-Verfahrens lautet $F(\varrho) = \varrho(\varrho-1) + \varrho p_0 + q_0 = 0$.
+\index{Indexgleichung}%
 Mit den Werten~\eqref{bessel:loesung:eqn:koeffizienten} wird daraus
 \begin{equation}
 F(\varrho)
@@ -105,7 +102,7 @@ x^2y'' + xy' - \nu^2 y = 0
 über.
 Das ist eine eulersche Differentialgleichung, deren Lösungen für $\nu>0$ genau $x^{\nu}$ und $x^{-\nu}$ sind.
 Die Indexgleichung beschreibt also das Verhalten der Lösung in unmittelbarer Nähe der Singularität.
- 
+
 %
 % Rekursionsformel
 %
@@ -114,6 +111,7 @@ Die Indexgleichung beschreibt also das Verhalten der Lösung in unmittelbarer N�
 Setzt man den Ansatz~\eqref{bessel:loesung:eqn:ansatz} in~\eqref{bessel:loesung:eqn:bessel} ein, so liefert der Koeffizientenvergleich die Bedingungen \eqref{buch:differentialgleichungen:fuchs:eqn:bedingungen}.
 Für die Bessel-Gleichung vereinfachen sie sich drastisch, weil von den $p_l$ und $q_l$ nur $p_0$, $q_0$ und $q_2$ von null verschieden sind.
 Der Koeffizient von $x^{n+\varrho}$ ist
+\index{Rekursionsformel}%
 \begin{equation}
 \bigl((n+\varrho)^2-\nu^2\bigr)a_n + a_{n-2} = 0,
 \qquad n \ge 2,
@@ -125,7 +123,7 @@ Für $n=1$ bleibt
 \bigl((1+\varrho)^2-\nu^2\bigr)a_1 = 0.
 \label{bessel:loesung:eqn:a1}
 \end{equation}
- 
+
 Wir wählen zunächst $\varrho=\nu$ mit $\nu\ge 0$.
 Dann ist $(1+\nu)^2-\nu^2 = 1+2\nu > 0$, aus \eqref{bessel:loesung:eqn:a1} folgt also $a_1=0$.
 Wegen~\eqref{bessel:loesung:eqn:rekursion} verschwinden damit sämtliche Koeffizienten mit ungeradem Index,
@@ -134,7 +132,7 @@ a_1 = a_3 = a_5 = \dots = 0.
 \label{bessel:loesung:eqn:ungerade}
 \end{equation}
 Die Reihe enthält nur gerade Potenzen.
- 
+
 Für die geraden Koeffizienten liefert \eqref{bessel:loesung:eqn:rekursion} mit $\varrho=\nu$
 \begin{equation}
 a_n
@@ -159,7 +157,7 @@ a_{2k}
 \frac{(-1)^k a_0}{4^k\, k!\,(\nu+1)(\nu+2)\cdots(\nu+k)}.
 \label{bessel:loesung:eqn:a2k}
 \end{equation}
-Der Nenner wächst wie $4^k(k!)^2$, die Reihe konvergiert daher für alle $x\in\mathbb{R}$.
+Der Nenner wächst mindestens wie $4^k(k!)^2$, die Reihe konvergiert daher für alle $x\in\mathbb{R}$.
 
 Das lässt sich mit dem Quotientenkriterium sauber begründen.
 Nach~\eqref{buch:differentialgleichungen:verallgemeinert:eqn:gewoehnlich} unterscheidet sich die verallgemeinerte Potenzreihe von der
@@ -176,14 +174,27 @@ Weil alle ungeraden Koeffizienten verschwinden, ist der Quotient zweier aufeinan
 0
 \qquad (k\to\infty).
 \]
-Für jedes feste $x$ ist dieser Grenzwert kleiner als eins, die Reihe konvergiert also auf der ganzen reellen Achse.
-Der Konvergenzradius ist unendlich, und $x^{-\nu}J_\nu(x)$ ist eine ganze Funktion.
- 
+Der Grenzwert ist null, also für jedes feste $x$ kleiner als eins, und die Reihe konvergiert auf der ganzen reellen Achse.
+Der Konvergenzradius ist unendlich, die gewöhnliche Potenzreihe $\sum_k a_{2k}x^{2k}$ stellt also eine ganze Funktion dar.
+
 %
 % Die Bessel-Funktion erster Art
 %
 \subsection{Die Bessel-Funktion erster Art
 \label{bessel:loesung:subsection:jnu}}
+Für die übliche Normierung von $a_0$ brauchen wir die Gamma-Funktion aus Kapitel~\ref{chapter:gamma}.
+\index{Gamma-Funktion}%
+Von ihren Eigenschaften werden hier nur vier gebraucht.
+Das sind die Funktionalgleichung
+\begin{equation}
+\Gamma(z+1)
+=
+z\,\Gamma(z)
+\label{bessel:loesung:eqn:gammafunktional}
+\end{equation}
+aus~\eqref{gamma-eq:integral-recursive-property}, die daraus und aus $\Gamma(1)=1$ folgende Beziehung $\Gamma(n+1)=n!$ zur Fakultät, der Wert $\Gamma(\frac12)=\sqrt{\pi}$ und die Lage der Pole.
+Die Gamma-Funktion hat keine Nullstellen und einfache Pole an den Stellen $0,-1,-2,\dots$, ihr Kehrwert $1/\Gamma$ ist deshalb eine ganze Funktion, die genau dort verschwindet, siehe Kapitel~\ref{chapter:produkt}.
+
 Der Koeffizient $a_0$ ist frei wählbar.
 Die übliche Normierung ist
 \begin{equation}
@@ -193,8 +204,8 @@ a_0
 \label{bessel:loesung:eqn:normierung}
 \end{equation}
 und sie ist nicht willkürlich.
-Wegen $\Gamma(\nu+k+1) = \Gamma(\nu+1)(\nu+1)(\nu+2)\cdots(\nu+k)$ verschluckt die Gammafunktion genau das Produkt aus dem Nenner von~\eqref{bessel:loesung:eqn:a2k}.
-Damit erhält die Lösung die Gestalt
+Wegen $\Gamma(\nu+k+1) = \Gamma(\nu+1)(\nu+1)(\nu+2)\cdots(\nu+k)$ nimmt die Gamma-Funktion genau das Produkt aus dem Nenner von~\eqref{bessel:loesung:eqn:a2k} auf.
+Damit erhält die Lösung die folgende Gestalt.
 \begin{definition}
 \label{bessel:loesung:def:jnu}
 Die \emph{Bessel-Funktion erster Art} der Ordnung $\nu$
@@ -205,19 +216,25 @@ J_\nu(x)
 =
 \sum_{k=0}^\infty
 \frac{(-1)^k}{k!\,\Gamma(\nu+k+1)}
-\Bigl(\frac{x}{2}\Bigr)^{2k+\nu}.
+\biggl(\frac{x}{2}\biggr)^{2k+\nu}.
 \label{bessel:loesung:eqn:jnu}
 \end{equation}
 \end{definition}
- 
-Die Reihe~\eqref{bessel:loesung:eqn:jnu} konvergiert für alle $x$.
+
+Die Reihe~\eqref{bessel:loesung:eqn:jnu} konvergiert für alle $x$, und zwar nicht nur für reelle, sondern auch für komplexe.
+
+Damit ist der Anschluss an den ersten Teil des Buches hergestellt.
+Der Faktor $x^{-\nu}J_\nu(x)$ ist eine ganze Funktion, für ganzzahliges $\nu$ also auch $J_\nu$ selbst.
+Für nicht ganzzahliges $\nu$ ist $x^\nu$ nur auf der längs der negativen reellen Achse aufgeschnittenen Ebene eindeutig, und dort ist $J_\nu$ holomorph.
+In diesem Kapitel bleibt $x$ reell und positiv, weil das für die Anwendungen genügt.
+
 Für ganzzahliges $\nu=n$ ist $\Gamma(n+k+1)=(n+k)!$, und man erhält
 \[
 J_n(x)
 =
 \sum_{k=0}^\infty
 \frac{(-1)^k}{k!\,(n+k)!}
-\Bigl(\frac{x}{2}\Bigr)^{2k+n}.
+\biggl(\frac{x}{2}\biggr)^{2k+n}.
 \]
 Besonders anschaulich ist der Fall $n=0$,
 \[
@@ -233,7 +250,7 @@ J_0(x)
 +
 \dots,
 \]
-der an die Reihe des Kosinus erinnert, aber schneller abfällt.
+der an die Reihe des Kosinus erinnert, dessen Koeffizienten aber schneller abnehmen.
 Abbildung~\ref{bessel:loesung:fig:jnu} zeigt die ersten drei
 Bessel-Funktionen erster Art.
 
@@ -241,12 +258,14 @@ Bessel-Funktionen erster Art.
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-	width=\textwidth,
-	height=6cm,
-	xlabel={$x$},
+	width=0.95\textwidth,
+	height=6.5cm,
 	xmin=0, xmax=20,
 	ymin=-0.6, ymax=1.05,
+	xtick={0,2,...,20},
 	axis lines=middle,
+	axis line style={-},
+	clip=false,
 	grid=both,
 	grid style={very thin,gray!25},
 	legend pos=north east,
@@ -261,6 +280,9 @@ Bessel-Funktionen erster Art.
 \addlegendentry{$J_2(x)$}
 \addplot[only marks,mark=*,mark size=1.3pt,blue]
 	table[x=x,y=y] {papers/bessel/images/besselj-zeros.dat};
+% Achsen über das Gitter hinaus verlängern, wie in den übrigen Abbildungen des Buches
+\draw[->] (axis cs:20,0) -- (axis cs:21.2,0) node[below] {$x$};
+\draw[->] (axis cs:0,1.05) -- (axis cs:0,1.2);
 \end{axis}
 \end{tikzpicture}
 \caption{Die Bessel-Funktionen $J_0$, $J_1$ und $J_2$.
@@ -274,7 +296,7 @@ Für kleine Argumente dominiert der erste Term,
 J_\nu(x)
 \approx
 \frac{1}{\Gamma(\nu+1)}
-\Bigl(\frac{x}{2}\Bigr)^{\nu}
+\biggl(\frac{x}{2}\biggr)^{\nu}
 \qquad (x\to 0),
 \label{bessel:loesung:eqn:kleinx}
 \end{equation}
@@ -293,7 +315,7 @@ J_{-\nu}(x)
 =
 \sum_{k=0}^\infty
 \frac{(-1)^k}{k!\,\Gamma(-\nu+k+1)}
-\Bigl(\frac{x}{2}\Bigr)^{2k-\nu}.
+\biggl(\frac{x}{2}\biggr)^{2k-\nu}.
 \label{bessel:loesung:eqn:jminusnu}
 \end{equation}
 
@@ -311,24 +333,24 @@ C_1 J_\nu(x) + C_2 J_{-\nu}(x)
 ist die allgemeine Lösung.
 
 Für ganzzahliges $\nu=n$ bricht dieses Argument zusammen.
-Die Gammafunktion hat an den nichtpositiven ganzen Zahlen Pole, ihr Kehrwert verschwindet dort, und in~\eqref{bessel:loesung:eqn:jminusnu} fallen deshalb die ersten $n$ Glieder weg.
+Die Gamma-Funktion hat an den nichtpositiven ganzen Zahlen Pole, ihr Kehrwert verschwindet dort, und in~\eqref{bessel:loesung:eqn:jminusnu} fallen deshalb die ersten $n$ Glieder weg.
 Mit der Substitution $k=m+n$ wird daraus
 \begin{align*}
 J_{-n}(x)
 &=
 \sum_{k=n}^\infty
 \frac{(-1)^k}{k!\,\Gamma(k-n+1)}
-\Bigl(\frac{x}{2}\Bigr)^{2k-n}
+\biggl(\frac{x}{2}\biggr)^{2k-n}
 =
 \sum_{m=0}^\infty
 \frac{(-1)^{m+n}}{(m+n)!\,\Gamma(m+1)}
-\Bigl(\frac{x}{2}\Bigr)^{2m+n}
+\biggl(\frac{x}{2}\biggr)^{2m+n}
 \\
 &=
 (-1)^n
 \sum_{m=0}^\infty
 \frac{(-1)^m}{m!\,(m+n)!}
-\Bigl(\frac{x}{2}\Bigr)^{2m+n}
+\biggl(\frac{x}{2}\biggr)^{2m+n}
 =
 (-1)^n J_n(x),
 \end{align*}
@@ -339,7 +361,7 @@ Für $n=0$ fallen die beiden Wurzeln zusammen, und der Ansatz liefert von vornhe
 
 Eine zweite, von $J_n$ unabhängige Lösung existiert trotzdem.
 Sie enthält einen logarithmischen Term und lässt sich deshalb durch keine verallgemeinerte Potenzreihe~\eqref{bessel:loesung:eqn:ansatz} darstellen.
-Man nennt sie die \emph{Bessel-Funktion zweiter Art} $Y_\nu$
+Eine geeignet normierte zweite Lösung nennt man die \emph{Bessel-Funktion zweiter Art} $Y_\nu$
 \index{Bessel-Funktion zweiter Art}%
 und gewinnt sie als Grenzwert einer Linearkombination von $J_\nu$ und $J_{-\nu}$ für $\nu\to n$.
 Für $x\to 0$ gilt $Y_\nu(x)\to-\infty$.

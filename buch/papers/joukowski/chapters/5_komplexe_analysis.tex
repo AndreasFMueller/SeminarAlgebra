@@ -1,5 +1,6 @@
 \section{Komplexe Analysis}
 \label{joukowski:sec:komplexe-analysis}
+\kopfrechts{Komplexe Analysis}
 
 \subsection{Ausdruck für die komplex konjugierte Geschwindigkeit $\overline{v(z)}$}
 Um den Ausdruck~\eqref{joukowski:Auftriebskarft:Auftrieb1} weiter aufzulösen, muss die Funktion $\overline{v(z)}$ von Gleichung~\eqref{joukowski:Stroemungslinien:equation_zylinder_speed}
@@ -11,7 +12,7 @@ da sonst das Wegintegral um das Flügelprofil konstant $0$ wäre,
 was darauf hindeuten würde, dass keinen Auftrieb erzielt werden kann.
 
 Wie in Abschnitt~\ref{joukowski:sec:stroemungslinien} beschrieben,
-können wir die komplex konjugierte Geschwindigkeit mittels eines einfachen Ausdrucks beschreiben.
+können wir die komplex konjugierte Geschwindigkeit für die Umströmung eines Kreises mittels eines einfachen Ausdrucks beschreiben.
 Für eine allgemeine Form eines Flügelprofils kann diese Formel jedoch beliebig kompliziert werden.
 Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overline{v(z)}$ mittels einer Laurent-Reihe der Form
 
@@ -23,10 +24,13 @@ Aus diesem Grund beschreiben wir die komplex konjugierte Geschwindigkeit $\overl
 	\sum_{k=0}^{\infty} \frac{a_k}{z^k}.
 	\label{joukowski:komplexe-analysis:original-laurent-reihe}
 \end{equation}
-Dieser Reihenausdruck hilft uns weitere Flügelprofile zu analysieren.
-Wichtig anzumerken ist, dass wir nicht beliebige Flügelprofile mit diesem Prinzip beschreiben können.
-Die Auftriebskraft kann nur für Flügelprofile welche den riemannschen Abbildungssatz~\ref{buch:holomorph:riemann:satz:riemann} erfüllen,
-mithilfe dieser Reihenentwicklung berechnet werden.
+Dieser Reihenausdruck aus der Darstellung von \cite{joukowski:smirnov} hilft uns weitere Flügelprofile zu analysieren.
+Wichtig anzumerken ist, dass dieses Prinzip nur für einfach zusammenhängende Flügelprofile anwendbar ist.
+Das heisst der Flügel darf nicht aus mehreren, voneinander getrennten Teilen bestehen, wie das in Abbildung~\ref{joukowski:komplexe-analysis:fig:ju-52} der Fall ist.
+Dies ist Inhalt des riemannschen Abbildungssatzes~\ref{buch:holomorph:riemann:satz:riemann}.
+\input{papers/joukowski/fig/04_komplexe_analysis/fig-ju_52.tex}
+\index{JU-52}%
+\index{Abbildungssatz, riemannsch}%
 
 Da $\overline{v(z)}$ im Punkt $z_0 = 0$ eine Definitionslücke aufweist,
 muss auch der Reihenausdruck diese Eigenschaft teilen.
@@ -63,6 +67,7 @@ welche alle die Eigenschaft
 \end{equation}
 aufweisen, möglich.
 Auch das kann mit Taylor-Reihe so nicht erreicht werden, da diese für belibig grosse Werte von $|z|$ nicht gegen $0$ konvergieren.
+\index{Taylor-Reihe}%
 
 Aus der Eigenschaft~\eqref{joukowski:komplexe-analysis:grenzwert-von-laurent-reihe}
 geht hervor, dass der Koeffizient $a_0$ direkt der Geschwindigkeit im Unendlichen entspricht, 
@@ -86,11 +91,10 @@ müssen wir noch den Zusammenhang zwischen
 	\qquad
 	\text{und}
 	\qquad
-	\biggl(\overline{v(z)}\biggr)^2
+	\Bigl(\overline{v(z)}\Bigr)^2
 \]
 beschreiben.
 Wir können ausnutzen, dass
-
 \[
 	|v(z)|^2
 	=
@@ -101,7 +105,7 @@ wobei aus Abschnitt~\ref{joukowski:stroemungslinien:zusammenhang-fz-z} bekannt i
 \begin{equation}
 	\overline{v(z)}
 	=
-	\frac{df}{dz}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
 	\qquad
 	\text{und}
 	\qquad
@@ -117,27 +121,52 @@ Somit schreiben wir den Ausdruck für die komplexe Kraft als
 	=
 	-i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\frac{df}{dz}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
 	\frac{\overline{df}}{\overline{dz}}
 	\, dz.
 \]
 Dieser Ausdruck lässt sich weiter vereinfachen, wenn die komplex konjugierte Kraft $\overline{F'}$
 berechnet wird.
-Somit ergibt sich
-\[
+Diese formulieren wir als
+\begin{align}
 	\overline{F}'
-	=
+	&=
+	\overline{
+	-i \frac{\varrho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
+	\frac{\overline{df}}{\overline{dz}}
+	\, dz
+	}.
+	\notag
+	\\
+	\intertext{Die komplexe Konjugation können wir ins Integral nehmen, wobei wir}
+	\overline{F}'
+	&=
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\frac{df}{dz}
+	\frac{\overline{df}}{\overline{dz}}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
+	\, \overline{dz}
+	\notag
+	\\
+	&=
+	i \frac{\varrho}{2} \cdot
+	\displaystyle\oint_{\gamma}
+	\frac{df}{\rlap{$\phantom{\overline{dz}}$}dz}
 	\frac{\overline{df}}{\overline{dz}}
 	\, \overline{dz}
-	=
+	\notag
+	\\
+	&=
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
 	\frac{df}{dz}
-	\, \overline{df}.
-\]
+	\, \overline{df}
+	\notag
+\end{align}
+erhalten.
+
 Wir können aber $\overline{df}$ mit
 \[
 	\frac{\overline{df}}{dz} \, dz
@@ -170,7 +199,7 @@ Auf einer Strömungslinie gilt die Funktion
 	\notag
 \end{align}
 
-Leiten wir also die Strömung auf einer Strömungslinie ab,
+Leiten wir also die Strömung entlang einer Strömungslinie ab,
 spielt das Vorzeichen des konstanten Imaginärteils keine Rolle mehr und es gilt
 \[
 	\frac{df}{dz}
@@ -192,14 +221,13 @@ wobei wir den Zusammenhang~\eqref{joukowski:komplexe-analysis:v-df-dz} einsetzen
 	=
 	i \frac{\varrho}{2} \cdot
 	\displaystyle\oint_{\gamma}
-	\biggl(\overline{v(z)}\biggr)^2
+	\Bigl(\overline{v(z)}\Bigr)^2
 	\, dz
 	\label{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat}
 \end{equation}
 erhalten.
 
 \subsection{Berechnung der Kraft}
-
 Wir setzen die Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe}
 in die Gleichung~\eqref{joukowski:komplexe-analysis:komplexe-kraft-mit-v-quadrat} ein
 und multiplizieren gleich aus.
@@ -215,8 +243,8 @@ Dabei erhalten wir
 	\, dz.
 	\notag
 	\\
-	\intertext{Im nächsten Schritt können wir den Ausdruck in ein Integral, mit allen Termen die mit $v_\infty$ 
-	multipliziert werden, und ein Integral mit allen Termen die nicht mit $v_\infty$ multipliziert werden, umformen, damit}
+	\intertext{Im nächsten Schritt können wir den Ausdruck in ein Integral mit allen Termen, die mit $v_\infty$ 
+	multipliziert werden, und ein Integral mit allen Termen, die nicht mit $v_\infty$ multipliziert werden, umformen, damit}
 	\overline{F}'
 	&= 
 	i\frac{\varrho}{2} \cdot  
@@ -230,64 +258,64 @@ Dabei erhalten wir
 	\, dz 
 	\label{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty}
 	\\
-	\intertext{entsteht.}
-	\intertext{Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
+	\intertext{entsteht.
+	Beim ersten Ausdruck können wir einen Trick anwenden, indem wir den Term $\frac{v_\infty}{2}$ in $v_\infty - \frac{v_\infty}{2}$ 
 	erweitern. 
 	Dies lässt uns die Gleichung~\eqref{joukowski:komplexe-analysis:integral-mit-und-ohne-v-infty} als}
 	\overline{F}'
 	&= 
 	i\frac{\varrho}{2} \cdot  
-	\displaystyle\oint_{\gamma} 
+	\oint_{\gamma} 
 	2 v_\infty \biggl(v_\infty - \frac{v_\infty}{2}
 	+ \sum_{k=1}^{\infty} \frac{a_k}{z^k} \biggr)
 	\, dz
 	+
 	i\frac{\varrho}{2} \cdot 
-	\displaystyle\oint_{\gamma} 
+	\oint_{\gamma} 
 	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
 	\, dz 
 	\notag
 	\\
-	\intertext{schreiben.}
-	\intertext{Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
+	\intertext{schreiben.
+	Wir können $2 v_\infty (-\frac{v_\infty}{2}) = -v_\infty^2$ ins zweite Integral verschieben.
 	Nachdem der konstante Faktor $2 v_\infty$ vor das erste Integral genommen wird, kann jetzt}
 	\overline{F}'
 	&= 
 	i \varrho v_\infty \cdot
-	\displaystyle\oint_{\gamma} 
+	\oint_{\gamma} 
 	\biggl(v_\infty + \sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)
 	\, dz
 	+
 	i\frac{\varrho}{2} \cdot 
-	\displaystyle\oint_{\gamma} 
+	\oint_{\gamma} 
 	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2 - v_\infty^2
 	\, dz 
 	\notag
 	\\
-	\intertext{durch Einsetzen der Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in}
+	\intertext{durch Einsetzen der Reihenentwicklung~\eqref{joukowski:komplexe-analysis:laurent-reihe} in das erste Integral in}
 	\overline{F}'
 	&= 
 	i \varrho v_\infty \cdot
-	\displaystyle\oint_{\gamma} \overline{v(z)}
+	\oint_{\gamma} \overline{v(z)}
 	\, dz
 	+
 	i\frac{\varrho}{2} \cdot 
-	\displaystyle\oint_{\gamma} 
+	\oint_{\gamma} 
 	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2 - v_\infty^2
 	\, dz 
 	\notag
 	\\
-	\intertext{umgeschrieben werden.}
-	\intertext{Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
+	\intertext{umgeschrieben werden.
+	Da $v_\infty^2$ über den ganzen Weg $\gamma$ konstant ist, verschwindet es beim Integrieren um die geschlossene Kurve
 	und es entsteht}
 	\overline{F}'
 	&= 
 	i \varrho v_\infty \cdot
-	\displaystyle\oint_{\gamma} \overline{v(z)}
+	\oint_{\gamma} \overline{v(z)}
 	\, dz
 	+
 	i\frac{\varrho}{2} \cdot 
-	\displaystyle\oint_{\gamma} 
+	\oint_{\gamma} 
 	\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
 	\, dz.
 	\label{joukowski:komplexe-analysis:kraft-mit-zwei-termen}
@@ -298,29 +326,30 @@ Dabei erhalten wir
 \begin{definition}[Zirkulation]
 	\label{joukowski:komplexe-analysis:def:zirkulation}
 	Die \emph{Zirkulation} $\Gamma$ ist das Mass für die um ein Profil drehende Strömung 
+\index{Zirkulation}%
 	und ist der Wert des Linienintegrals
 	\[
 		\Gamma
 		=
-		\displaystyle\oint_{\gamma} \overline{v(z)}
+		\oint_{\gamma} \overline{v(z)}
 		\, dz
 	\]
 	um die geschlossene Kurve $\gamma$.
 \end{definition}
 
 Dem zweiten Integral der Gleichung~\eqref{joukowski:komplexe-analysis:kraft-mit-zwei-termen} geben wir den Namen $\Lambda$.
-Somit kann die komplex konjugierte Kraft $\overline{F}'$ vereinfacht geschrieben werden als
+Somit kann die komplex konjugierte Kraft $\overline{F}'$ vereinfacht als
 
 \begin{equation}
 	\overline{F}'
 	=
-	i \varrho v_\infty \Gamma + i \frac{\varrho}{2} \Lambda.
+	i \varrho v_\infty \Gamma + i \frac{\varrho}{2} \Lambda
 	\label{joukowski:komplexe-analysis:kraft-mit-lambda}
 \end{equation}
-
+geschrieben werden.
 Um die Kraft zu berechnen, können wir das Problem in zwei Teile aufteilen:
 Einerseits die Auswertung von $\Lambda$,
-andererseits die Berechnung der Zirkulation $\Gamma$.
+andererseits die Berechnung der Zirkulation~$\Gamma$.
 
 \subsubsection{Berechnung von $\Lambda$}
 \label{joukowski:komplexe-analysis:berechnung-von-lambda}
@@ -336,12 +365,12 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	\[
 		\Lambda
 		=
-		\displaystyle\oint_{\gamma} 
+		\oint_{\gamma} 
 		\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2
 		\, dz.
 	\]
 	Aus der Gleichung~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} können wir ausnutzen,
-	dass nicht um die Kontour des Flügelprofils direkt integriert werden muss,
+	dass nicht um die Kontur des Flügelprofils direkt integriert werden muss,
 	sondern dass jeder Weg, welcher das Flügelprofil komplett umschliesst, dasselbe Resultat gibt.
 	Dies kann so nur angewendet werden, da der Integrand von $\Lambda$ holomorph ist.
 	Wir wählen als Weg den Kreis mit Zentrum bei $z_0 = 0$ und mit Radius $r$.
@@ -350,7 +379,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	\[
 		f(z)
 		=
-		\biggl(\displaystyle\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2.
+		\biggl(\sum_{k=1}^{\infty} \frac{a_k}{z^k}\biggr)^2.
 	\]
 	Die Parametrisierung von $z$ wählen wir dabei als
 	\begin{align*}
@@ -366,18 +395,17 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		\frac{d\gamma(t)}{dt}
 		=
 		i r e^{i t}.
-		\\
 	\end{align*}
 	Weil wir einmal im Kreis integrieren, setzen wir die Grenzen des parametrisiertes Integrals auf $0$ respektive $2\pi$.
 	Somit stellen wir für den Ausdruck
 	\begin{align}
 		\Lambda
 		&=
-		\displaystyle\oint_{\gamma}
+		\oint_{\gamma}
 		f(z)
 		\, dz
 		=
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		f(\gamma(t))
 		\dot{\gamma}(t)
 		\, dt
@@ -386,7 +414,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		\intertext{das Integral}
 		\Lambda
 		&=
-		\displaystyle\int_{0}^{2\pi} 
+		\int_{0}^{2\pi} 
 		\biggl(\sum_{k=1}^{\infty} \frac{a_k}{r^k e^{k \cdot i t}}\biggr)^2
 		i r e^{i t}
 		\, dt 
@@ -394,7 +422,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		\\
 		\quad
 		&=
-		i \displaystyle\int_{0}^{2\pi}
+		i \int_{0}^{2\pi}
 		\bigg(\frac{a_1^2}{r^2 e^{2i t}} + \frac{a_1 a_2}{r^3 e^{3i t}} + \frac{a_2^2}{r^4 e^{4i t}} + \dots \bigg) 
 		r e^{i t}
 		\, dt
@@ -402,22 +430,17 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		\\
 		\quad
 		&=
-		i \displaystyle\int_{0}^{2\pi}
-		\bigg(\frac{a_1^2}{r e^{i t}} + \frac{a_1 a_2}{r^2 e^{2i t}} + \frac{a_2^2}{r^3 e^{3i t}} + \dots \bigg) 
+		i \int_{0}^{2\pi}
+		\biggl(\frac{a_1^2}{r e^{i t}} + \frac{a_1 a_2}{r^2 e^{2i t}} + \frac{a_2^2}{r^3 e^{3i t}} + \dots \biggr) 
 		\, dt
 		\label{joukowski:komplexe-analysis:parametrisiertes-lambda}
 	\end{align}
 	auf.
 	
-	Die Auswertung des Integrals erfolgt sehr schnell, weil
-	\[
-	\frac{1}{e^{k \cdot i t}}
-	=
-	e^{-k \cdot i t}
-	\]
-	periodisch ist, ist daher
+	Die Auswertung des Integrals erfolgt sehr schnell, 
+	weil wegen Lemma~\ref{joukowski:lemma:inteikt} weiter unten
 	\begin{equation}
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		\frac{1}{e^{k \cdot i t}}
 		\, dt
 		=
@@ -427,25 +450,39 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 		k \neq 0.
 		\label{joukowski:komplexe-analysis:integral-e-hoch-kit}
 	\end{equation}
+	gilt.
 	Damit ist der Satz~\ref{joukowski:komplexe-analysis:satz:Lambda} bewiesen.
 \end{proof}
+
+\begin{lemma}
+	\label{joukowski:lemma:inteikt}
+	Für alle ganzen Zahlen $k\in\mathbb{Z}$ gilt
+	\[
+	\int_0^{2\pi} e^{ikt}\,dt
+	=
+	\begin{cases}
+		0 & \qquad\text{für $k\ne 0$} \\
+		2\pi&\qquad\text{für $k=0$}.
+	\end{cases}
+	\]
+\end{lemma}
 
 \begin{proof}
 	\label{joukowski:komplexe-analysis:proof:integral-e-hoch-kit}
 	Wir berechnen das Integral
 	\[
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		\frac{1}{e^{k \cdot i t}}
 		\, dt
 		=
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		e^{-k \cdot i t}
 		\, dt.
 	\]
 	Die Stammfunktion von
-	\[
+	\(
 		e^{-k \cdot i t}
-	\]
+	\)
 	ist für den allgemeinen Fall $k \neq 0$
 	\[
 		\frac{e^{-k \cdot i t}}{-k \cdot i}
@@ -456,7 +493,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	\[
 		\biggl[\frac{i e^{-k \cdot i t}}{k}\biggr]_{0}^{2\pi}
 		=
-		\frac{i}{k} \biggl(e^{-k \cdot 2\pi i} - e^{0}\biggr)
+		\frac{i}{k} \bigl(e^{-k \cdot 2\pi i} - e^{0}\bigr)
 		=
 		\frac{i}{k} (1 - 1)
 		=
@@ -465,11 +502,11 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 	
 	Für den Spezialfall $k = 0$ gilt
 	\[
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		e^{0}
 		\, dt
 		=
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		1
 		\, dt
 		=
@@ -479,7 +516,7 @@ Wir finden das folgende, auf den ersten Blick überraschende Resultat.
 \end{proof}
 
 Aus Satz~\ref{joukowski:komplexe-analysis:satz:Lambda} geht direkt hervor,
-dass der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} auf die kompakten Gleichung
+dass der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} auf die kompakte Gleichung
 \[
 	\overline{F}'
 	=
@@ -487,6 +524,7 @@ dass der Term~\eqref{joukowski:komplexe-analysis:kraft-mit-lambda} auf die kompa
 \]
 reduziert,
 welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
+\index{Satz!von Kutta-Joukowski}%
 
 \begin{satz}[Satz von Kutta-Joukowski]
 	\label{joukowski:komplexe-analysis:satz:kutta-joukowski}
@@ -509,13 +547,13 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 \begin{proof}
 	\label{joukowski:komplexe-analysis:proof:zirkulation}
 	Für die Auswertung von $\Gamma$ kann sehr ähnlich vorgegangen werden, wie bei der Berechnung von $\Lambda$ in Abschnitt~\ref{joukowski:komplexe-analysis:berechnung-von-lambda}.
-	Auch da wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
-	Für die Funtion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
+	Auch hier wählen wir den Kreis mit Zentrum bei $z_0 = 0$, mit Radius $r$ und die gleiche Parametrisierung von $z$.
+	Für die Funktion $f(z) = \overline{v(z)}$ setzen wir die Reihenentwicklung aus der Gleichung~\eqref{joukowski:komplexe-analysis:laurent-reihe} ein.
 	Somit wird aus dem Integral
 	\[
 		\Gamma
 		=
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		\overline{v(r e^{i t})} \cdot i r e^{i t}
 		\, dt
 		\]
@@ -524,7 +562,7 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 	\begin{aligned}
 		\Gamma
 		&=
-		\displaystyle\int_{0}^{2\pi}
+		\int_{0}^{2\pi}
 		\biggl(v_\infty + \sum_{k=1}^{\infty} \frac{a_k}{r^k e^{k \cdot i t}}\biggr)
 		i r e^{i t}
 		\, dt \\
@@ -541,7 +579,7 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 		\, dt.
 	\end{aligned}
 	\]
-	Für die Auswertung dieses Integrals gibt es für die einzelnen Terme zwei verschiedene Auswertungen.
+	Für die Auswertung dieses Integrals gibt es für die einzelnen Terme zwei verschiedene Resultate.
 	Die Terme
 	\[
 		v_\infty r e^{i t}
@@ -573,8 +611,8 @@ welche als \emph{Satz von Kutta-Joukowski} bekannt ist.
 	\end{equation}
 	Das Residuum ist definiert als $a_1$. Somit ist der Satz bewiesen.
 \end{proof}
-Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt ausrechnen.
-Durch das Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
+Mit diesem Resultat können wir endlich die komplexe Kraft, welche auf das Flügelprofil wirkt, ausrechnen.
+Durch Einsetzen von Gleichung~\eqref{joukowski:komplexe-analysis:zirkulation-berechnet}
 in Satz~\ref{joukowski:komplexe-analysis:satz:kutta-joukowski}
 erhalten wir den Term
 \begin{equation}
@@ -588,8 +626,8 @@ Somit zeigt sich, dass nur ein Koeffizient der Laurent-Reihe,
 ausser die von uns vorgegebene Geschwindigkeit im Unendlichen $v_\infty$, 
 einen Beitrag an der komplexen Kraft leistet, nämlich $a_1$.
 Das heisst, dass dieser Koeffizient direkt bestimmt, 
-ob eine reine Auftriebskraft resultiert, so wie wir das von unseren Voraussetzungen im Abschnitt~\ref{joukowski:sec:voraussetzungen} erwarten.
-Oder ob zusätzlich noch einen Luftwiderstand sich bemerkbar macht.
+ob eine reine Auftriebskraft resultiert, so wie wir das von unseren Voraussetzungen im Abschnitt~\ref{joukowski:sec:voraussetzungen} erwarten,
+oder ob sich zusätzlich noch ein Luftwiderstand bemerkbar macht.
 
 Aus unseren Voraussetzungen folgt, dass wir eine reine Auftriebskraft erwarten.
 Da der Imaginärteil der komplexen Kraft unserer Auftriebskraft entspricht,
@@ -603,7 +641,7 @@ ist $F'$ eine imaginäre Grösse und wir können
 \]
 schreiben.
 Weil $F'$ keinen Realteil aufweist, darf auch die rechte Seite der Gleichung keinen Realteil besitzen sein.
-Da $\varrho$, $v_\infty$, $2$ und $\pi$ alles reele Grössen sind,
+Da $\varrho$, $v_\infty$, $2$ und $\pi$ alles reelle Grössen sind,
 bleibt nur $a_1$ übrig, welches somit rein imaginär sein muss.
 
 Im folgenden Abschnitt zeigen wir, wie der Koeffizient $a_1$ anhand von Beispielanwendungen von verschiedenen Flügelprofilen bestimmt werden kann.
