@@ -86,11 +86,12 @@ folgt für jedes $R > 1$
 \label{hauptwert:subsection:halbresiduen}}
 \input{papers/hauptwert/fig/halbkreiskontur.tex}
 Man betrachte ein Integral von einer beliebigen reellen Funktion mit einer
-Singularität an einem Punkt $x_0$ (z. B. $\int_{a}^{b} \frac{1}{x}\,dx$). Da das
+Singularität an einem Punkt $x_0$ (z.~B.~\smash{$\int_{a}^{b} \frac{1}{x}\,dx$}). Da das
 direkte Integrieren durch $x_0$ nicht funktioniert, weicht man über die
 komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
 (Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
-\begin{lemma}
+\begin{lemma}[kleiner Kreisbogen]
+\index{Lemma!vom kleinen Kreisbogen}%
 \label{hauptwert:lemma:halbresiduen}
 Die Funktion $f$ habe in $x_0$ eine Polstelle erster Ordnung, und
 $C_\varepsilon$ sei der Halbkreis mit Radius $\varepsilon$ um $x_0$, der in
@@ -164,6 +165,7 @@ $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
 \begin{lemma}[Jordan]
 \label{hauptwert:lemma:jordan}
+\index{Lemma!von Jordan}%
 Sei $a > 0$ und $C_R$ ein Halbkreis in der oberen Halbebene mit Radius $R$.
 Geht $f(z)$ für $|z| \to \infty$ gleichmässig gegen $0$, gilt also
 \begin{equation}
@@ -287,6 +289,8 @@ erfüllen.
 
 \begin{satz}[Hauptwertformel]
 \label{hauptwert:satz:hauptformel}
+\index{Hauptwertformel}%
+\index{Satz!Hauptwertformel}%
 Die Funktion $f$ erfülle die folgenden Voraussetzungen:
 \begin{enumerate}
   \item $f$ ist in der oberen Halbebene holomorph, also überall komplex
@@ -438,7 +442,7 @@ Dann gilt
 \end{proof}
 
 
-\subsection{Ein Warnbeispiel -- Was passiert, wenn die vierte Voraussetzung
+\subsection{Ein Warnbeispiel --- Was passiert, wenn die vierte Voraussetzung
 nicht erfüllt ist?
 \label{hauptwert:subsection:warnbeispiel}}
 
@@ -623,7 +627,14 @@ Der Imaginärteil liefert
 \end{equation}
 Hier ist der Hauptwert allerdings nicht mehr nötig, denn der Integrand ist in
 $0$ stetig ergänzbar und gerade, es ist also
-$\int_{-R}^{R} = 2\int_{0}^{R}$.
+\[
+\int_{-R}^{R}
+\frac{\sin x}{x}\,dx
+=
+2\int_{0}^{R}
+\frac{\sin x}{x}\,dx
+.
+\]
 Der symmetrische Grenzwert ist damit das gewöhnliche uneigentliche Integral,
 und für \eqref{hauptwert:equation:dirichlet} folgt
 \begin{equation}
