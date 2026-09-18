@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\include{styles}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \begin{scope}
+    \clip (-4.6,-3.2) rectangle (4.6,3.2);
+    \fill[jcInnen]
+    (8,-10.392) -- (-5,12.124) -- (-22.32,2.124) -- (-9.32,-20.392) -- cycle;
+    \fill[jcAussen]
+    (8,-10.392) -- (-5,12.124) -- (12.32,22.124) -- (25.32,-0.392) -- cycle;
+    \draw[dashedhelp] (8,-10.392) -- (-5,12.124);
+    \end{scope}
+    \draw[kurvedick]
+    (0:2) -- (60:2) -- (120:2) -- (180:2) -- (240:2) -- (300:2) -- cycle;
+    \draw[draw=jcAkzent, line width=1.7pt] (0:2) -- (60:2);
+    \foreach \w in {0,60,...,300}{\node[punkt] at (\w:2) {};}
+    \node[gebietslabel] at (0,0) {$E_1$};
+    \node[gebietslabel] at (3.2,1.8) {$E_2$};
+\end{tikzpicture}
+\end{document}
+

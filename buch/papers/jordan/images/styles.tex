@@ -1,0 +1,31 @@
+\usetikzlibrary{
+    calc,
+    arrows.meta,
+    decorations.markings,
+    decorations.fractals,
+    backgrounds,
+    positioning,
+    shapes.misc
+}
+
+\definecolor{jcInnen}{HTML}{FBE9A0} % gelb = Inneres
+\definecolor{jcAussen}{HTML}{C9DDF0} % hellblau = Aeusseres
+\definecolor{jcKurve}{HTML}{1F3A5F} % Kurvenfarbe
+\definecolor{jcAkzent}{HTML}{C0392B} % Hilfslinien
+\definecolor{jcGrau}{HTML}{6B6B6B} % Hintergrundgeometrie
+
+\tikzset{
+    kurve/.style = {draw=jcKurve, line width=1.1pt},
+    kurvedick/.style = {draw=jcKurve, line width=1.4pt},
+    strahl/.style = {draw=jcAkzent, line width=0.9pt,
+    -{Stealth[length=2.5mm]}},
+    tangente/.style = {draw=jcAkzent, line width=0.9pt,
+    -{Stealth[length=2mm]}},
+    punkt/.style = {circle, fill=jcKurve, inner sep=1.5pt},
+    punktrot/.style = {circle, fill=jcAkzent, inner sep=1.5pt},
+    schnitt/.style = {cross out, draw=jcAkzent, line width=1pt,
+    minimum size=5pt, inner sep=0pt},
+    gebietslabel/.style = {font=\large\bfseries, text=jcKurve},
+    dashedhelp/.style = {draw=jcGrau, dashed, line width=0.7pt},
+    bildtext/.style = {font=\small, text=jcKurve}
+}
