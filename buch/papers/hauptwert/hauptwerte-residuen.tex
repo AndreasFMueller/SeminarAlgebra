@@ -17,7 +17,6 @@ Als nächstes betrachten wir das uneigentliche Integral
 \begin{equation}
   \int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,dx.
 \end{equation}
-
 In der reellen Analysis kennt man dazu die Stammfunktion $\arctan$ und
 kommt mit
 \begin{equation}
@@ -85,7 +84,7 @@ folgt für jedes $R > 1$
 \label{hauptwert:subsection:halbresiduen}}
 \input{papers/hauptwert/fig/halbkreiskontur.tex}
 Man betrachte ein Integral von einer beliebigen reellen Funktion mit einer
-Singularität an einem Punkt $x_0$ (z.B. $\int_{a}^{b} \frac{1}{x}\,dx$). Da das
+Singularität an einem Punkt $x_0$ (z. B. $\int_{a}^{b} \frac{1}{x}\,dx$). Da das
 direkte Integrieren durch $x_0$ nicht funktioniert, weicht man über die
 komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
 (Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
@@ -161,7 +160,7 @@ der oberen Halbebene wirkt.
 Die Bedingung ist insbesondere für rationale Funktionen der Form
 $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
-\begin{lemma}
+\begin{lemma}[Jordan]
 \label{hauptwert:lemma:jordan}
 Sei $a > 0$ und $C_R$ ein Halbkreis in der oberen Halbebene mit Radius $R$.
 Geht $f(z)$ für $|z| \to \infty$ gleichmässig gegen $0$, gilt also
@@ -244,9 +243,9 @@ dann ist
     \int_{0}^{\pi} e^{-aR\sin\theta}\,d\theta
     &= 2 \int_{0}^{\pi/2} e^{-aR\sin\theta}\,d\theta
      \le 2 \int_{0}^{\pi/2} e^{-2aR\theta/\pi}\,d\theta \\
-    &= 2 \Bigl[
+    &= 2 \biggl[
          -\frac{\pi}{2aR} e^{-2aR\theta/\pi}
-       \Bigr]_{0}^{\pi/2}
+       \biggr]_{0}^{\pi/2}
      = \frac{\pi}{aR}\bigl(1 - e^{-aR}\bigr)
      \le \frac{\pi}{aR}.
   \end{aligned}
@@ -271,7 +270,7 @@ dann ist
 \label{hauptwert:subsection:halbkreiskontur}}
 \input{papers/hauptwert/fig/kontur-allgemein.tex}
 
-Dank der beiden Lemmas kann nun der Residuensatz auf Integrale über die
+Dank der beiden Lemmata kann nun der Residuensatz auf Integrale über die
 reelle Achse angewandt werden.
 Das ermöglicht uns, uneigentliche Integrale mit dem Hauptwert zu berechnen.
 Die Strategie ist dabei dieselbe wie im
@@ -491,7 +490,6 @@ und die Residuensumme wird damit
   \pi + i\pi .
   \label{hauptwert:equation:warnbeispiel-falsch}
 \end{equation}
-
 Diese Zahl ist nicht reell, sie kann also nicht der Hauptwert des Integrals
 einer reellen Funktion sein.
 Der Vergleich mit
