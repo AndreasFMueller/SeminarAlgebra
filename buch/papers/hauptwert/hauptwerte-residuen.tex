@@ -19,6 +19,7 @@ Als nächstes betrachten wir das uneigentliche Integral
 \end{equation}
 
 In der reellen Analysis kennt man dazu die Stammfunktion $\arctan$ und
+\index{arctan@$\arctan$}%
 kommt mit
 \begin{equation}
   \int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,dx
@@ -56,6 +57,7 @@ wird für $z_1 = i$ und $z_2 = -i$ singulär.
 Von den beiden liegt einzig $z_1 = i$ im umlaufenen Gebiet.
 
 Das Wegintegral ist daher nicht $0$, sondern wird allein durch das Residuum
+\index{Residuum}%
 in $z_1$ bestimmt.
 Nach Satz~\ref{buch:analytisch:laurent:residuum:satz} ist dieses Residuum
 der Quotient aus dem Zähler und der Ableitung des Nenners,
@@ -107,7 +109,7 @@ Umgebung von $x_0$ nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe}
 als
 \begin{equation}
   f(z) = \frac{\res(x_0;f)}{z - x_0}
-       + \underbrace{g(z)}_{\text{Taylorreihe}}
+       + \underbrace{g(z)}_{\text{Taylor-Reihe}}
   \label{hauptwert:halbresiduen:zerlegung}
 \end{equation}
 schreiben, wobei $g$ in dieser Umgebung holomorph und damit auf einer
@@ -491,7 +493,6 @@ und die Residuensumme wird damit
   \pi + i\pi .
   \label{hauptwert:equation:warnbeispiel-falsch}
 \end{equation}
-
 Diese Zahl ist nicht reell, sie kann also nicht der Hauptwert des Integrals
 einer reellen Funktion sein.
 Der Vergleich mit
@@ -540,6 +541,7 @@ Es divergiert nichts, und trotzdem ist das Resultat falsch.
 Zum Abschluss eine Anwendung, die mit reellen Mitteln nur mühsam zugänglich
 ist, weil der Integrand keine elementare Stammfunktion hat.
 Gesucht ist der Wert des \emph{Dirichlet-Integrals}
+\index{Dirichlet-Integral}%
 \begin{equation}
   \int_{0}^{\infty} \frac{\sin x}{x}\,dx .
   \label{hauptwert:equation:dirichlet}

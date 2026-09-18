@@ -27,13 +27,17 @@ Abbildung \ref{hauptwert:figure:kehrwert} zeigt den Graphen des Integranden.
 Dieses Integral ist in zweifacher Hinsicht kritisch:
 Der Integrand ist an der Stelle $x = 0$ nicht definiert
 und hat dort eine Polstelle,
+\index{Polstelle}%
 und die Integrationsgrenzen $\pm\infty$ sind selbst uneigentlich.
+\index{Integral!uneigentlich}%
 Gerade weil beide Arten von Divergenz gleichzeitig auftreten,
+\index{Divergenz}%
 eignet sich dieses Integral als durchgehendes Beispiel.
 
 \subsection{Ein erster Versuch}
 Da der Integrand an der Stelle $x = 0$ nicht definiert und dort unbeschränkt
 ist, handelt es sich nicht um ein Riemann-Integral.
+\index{Riemann-Integral}%
 Seine Bedeutung erhält der Ausdruck erst durch die Definition des
 uneigentlichen Integrals, welche jede kritische Stelle durch einen eigenen,
 unabhängigen Grenzwert ersetzt.
@@ -71,6 +75,8 @@ das uneigentliche Integral existiert nicht.
 \subsection{Der Cauchy-Hauptwert --- Symmetrische Annäherung}
 \input{papers/hauptwert/fig/kehrwert-symmetrisch.tex}
 Die zugrunde liegende Idee des Cauchy-Hauptwerts ist, dass
+\index{Hauptwert}%
+\index{Cauchy-Hauptwert}%
 man sich der Polstelle symmetrisch annähert, das heisst mit
 einem einzigen, gemeinsamen $\varepsilon$ und symmetrischen Grenzen $\pm R$.
 Von den vier unabhängigen Grenzwerten bleiben so nur noch zwei übrig.
@@ -148,6 +154,7 @@ Divergenz an den unendlichen Integrationsgrenzen $\pm\infty$.
 Sei $f$ auf $[a,b]\setminus\{x_0\}$ stetig mit einer Singularität
 an der inneren Stelle $x_0 \in (a,b)$.
 Der \emph{Cauchy-Hauptwert} des Integrals von $f$ über $[a,b]$ ist
+\index{Cauchy-Hauptwert}%
 \begin{equation*}
 \pv\int_a^b f(x)\,dx
 = \lim_{\varepsilon\to 0^+}
