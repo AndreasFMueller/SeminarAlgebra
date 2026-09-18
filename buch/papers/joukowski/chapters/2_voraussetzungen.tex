@@ -18,12 +18,12 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	dass das Fluid,
 	in unserem Fall die Luft, 
 	keine Viskosität,
-	d. h. innere Reibung,
+	d.~h. innere Reibung,
 	aufweist.
 	Somit gibt es keine Tangential-, bzw. Scherkräfte,
 	sondern nur Normal-, bzw. Druckkräfte auf die Oberfläche des Flügels.
 	Zudem gilt die Bernoulli-Gleichung,
-	welches unserem Modell zugrunde liegt,
+	welche unserem Modell zugrunde liegt,
 	nur bei einer reibungsfreien Strömung.
 
 \subsubsection{Inkompressibilität}
@@ -61,7 +61,7 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	
 	In der Strömungslehre bedeutet die Stationarität,
 	dass sich die physikalischen Strömungsgrössen wie Geschwindigkeit, Druck und Dichte an jedem Ort im Strömungsfeld mit der Zeit nicht ändern.
-	
+%	
 	Mathematisch formuliert bedeutet stationär
 	\[
 		\frac{\partial f}{\partial t}
@@ -72,16 +72,16 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	
 	Die Rolle der Stationarität ist im Gegensatz zu den anderen physikalischen Voraussetzungen weniger offensichtlich.
 	Bei einer stationären Strömung ist der Ausgleichsprozess abgeschlossen.
-	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im ausgeglichenem Zustand.
+	Während einem Ausgleichsprozess kann sich die Strömung wesentlich anders verhalten, wie im ausgeglichenen Zustand.
 	Dabei steigt die Komplexität so weit, dass sich die Strömung im Allgemeinen nur numerisch berechnen lässt.
 	Dies beschreibt zum Beispiel die Situation beim Anfahren des Flugzeuges.
-	Somit kann der Satz von Kutta-Joukowski nicht für diese Situation angewendet werden. 
+	Somit kann der Satz von Kutta-Joukowski nicht auf diese Situation angewendet werden. 
 	
 \subsection{Situationsbeschreibung}
 \label{joukowski:voraussetzungen:situationsbeschreibung}
 \input{papers/joukowski/fig/02_Voraussetzungen/fig_ball.tex}
 	Obwohl wir uns in einer dreidimensionalen Welt befinden,
-	können wir uns in userem mathematischen Modell auf zwei Dimensionen begrenzen.
+	können wir uns in userem mathematischen Modell auf zwei Dimensionen beschränken.
 	Diese Vereinfachung ist nur möglich, da wir voraussetzen, dass die Strömung entlang des ganzen Flügels identisch ist.
 	Somit müssen wir bei den Berechnungen nicht den gesamten dreidimensionalen Flügel betrachten,
 	sondern können uns auf einen zweidimensionalen Querschnitt davon beschränken.
@@ -92,8 +92,8 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	Das $\infty$ bezieht sich darauf, dass in der Theorie dieser Punkt unendlich weit vom Flügelprofil entfernt sein müsste. Diesen Punkt bezeichnen wir als Referenzpunkt.
 \index{Referenzpunkt}%
 	Eine Folge der Entfernung einer Dimension ist,
-	dass Grössen wie die Kraft $F$ zur Kraft pro Flügellänge $F'$ gewandelt werden.
-	Wobei sich $F'$ mit
+	dass Grössen wie die Kraft $F$ zur Kraft pro Flügellänge $F'$ gewandelt werden,
+	wobei sich $F'$ mit
 	\[
 		F'
 		=
@@ -116,12 +116,13 @@ dass das Resultat vom Modell eine grosse Diskrepanz zur Realität aufweist.
 	\]
 	geschrieben werden.
 	Dabei ist es Konvention,
-	\[
+	\begin{equation}
 		v(z)
 		=
 		u + iw
-	\]
+\label{joukowski:vkonvention}
+	\end{equation}
 	zu schreiben.
-	Dabei entspricht $u$ der sogenannten Längskomponente und $w$ der sogenannten Querkomponente der Geschwindigkeit $v(z)$.
+	Dabei entspricht $u$ der Längskomponente und $w$ der Querkomponente der Geschwindigkeit $v(z)$.
 	
 	Dadurch, dass wir unsere Grössen mit den komplexen Zahlen formuliert haben, können wir alle Werkzeuge, welche uns die komplexe Analysis zur Verfügung stellt, für den Rest unseres Kapitels nutzen.
