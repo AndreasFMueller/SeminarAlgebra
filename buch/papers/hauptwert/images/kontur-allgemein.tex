@@ -45,15 +45,19 @@
 
 % Einbuchtungen: kleine Halbkreise oberhalb der Polstellen,
 % jeweils im negativen Sinn durchlaufen
-\draw[color=darkblue,line width=1.4pt,midarrow=0.5]
+\draw[color=darkblue,line width=1.4pt]
 	(\xa-\e,0) arc[start angle=180, end angle=0, radius=\e];
 \node[color=darkblue,font=\small] at (\xa,\e+0.36) {$C_{\varepsilon,1}$};
-\draw[color=darkblue,line width=1.4pt,midarrow=0.5]
+\draw[color=darkblue,line width=1.4pt]
 	(\xb-\e,0) arc[start angle=180, end angle=0, radius=\e];
 \node[color=darkblue,font=\small] at (\xb,\e+0.36) {$C_{\varepsilon,2}$};
-\draw[color=darkblue,line width=1.4pt,midarrow=0.5]
+\draw[color=darkblue,line width=1.4pt]
 	(\xm-\e,0) arc[start angle=180, end angle=0, radius=\e];
 \node[color=darkblue,font=\small] at (\xm,\e+0.36) {$C_{\varepsilon,m}$};
+
+\draw[->,color=darkblue,line width=1.4pt] ({\xa+0.07},\e) -- ++(0.1,0);
+\draw[->,color=darkblue,line width=1.4pt] ({\xb+0.07},\e) -- ++(0.1,0);
+\draw[->,color=darkblue,line width=1.4pt] ({\xm+0.07},\e) -- ++(0.1,0);
 
 % Polstellen erster Ordnung auf der reellen Achse
 \fill[color=darkred] (\xa,0) circle[radius=0.06];

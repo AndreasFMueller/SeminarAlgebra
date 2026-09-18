@@ -204,6 +204,7 @@ chapter=hauptwert
 7
 8
 9
+11
 #
 # Kapitel 22 kepler
 chapter=kepler
@@ -248,8 +249,8 @@ chapter=gamma
 #
 # Kapitel 28 bessel
 chapter=bessel
-8
-13
+9
+18
 #
 # Kapitel 29 hankel
 chapter=hankel

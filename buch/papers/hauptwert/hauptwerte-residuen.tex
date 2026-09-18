@@ -18,6 +18,7 @@ Als nächstes betrachten wir das uneigentliche Integral
   \int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,dx.
 \end{equation}
 In der reellen Analysis kennt man dazu die Stammfunktion $\arctan$ und
+\index{arctan@$\arctan$}%
 kommt mit
 \begin{equation}
   \int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,dx
@@ -55,6 +56,7 @@ wird für $z_1 = i$ und $z_2 = -i$ singulär.
 Von den beiden liegt einzig $z_1 = i$ im umlaufenen Gebiet.
 
 Das Wegintegral ist daher nicht $0$, sondern wird allein durch das Residuum
+\index{Residuum}%
 in $z_1$ bestimmt.
 Nach Satz~\ref{buch:analytisch:laurent:residuum:satz} ist dieses Residuum
 der Quotient aus dem Zähler und der Ableitung des Nenners,
@@ -84,11 +86,12 @@ folgt für jedes $R > 1$
 \label{hauptwert:subsection:halbresiduen}}
 \input{papers/hauptwert/fig/halbkreiskontur.tex}
 Man betrachte ein Integral von einer beliebigen reellen Funktion mit einer
-Singularität an einem Punkt $x_0$ (z. B. $\int_{a}^{b} \frac{1}{x}\,dx$). Da das
+Singularität an einem Punkt $x_0$ (z.~B.~\smash{$\int_{a}^{b} \frac{1}{x}\,dx$}). Da das
 direkte Integrieren durch $x_0$ nicht funktioniert, weicht man über die
 komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
 (Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
-\begin{lemma}
+\begin{lemma}[kleiner Kreisbogen]
+\index{Lemma!vom kleinen Kreisbogen}%
 \label{hauptwert:lemma:halbresiduen}
 Die Funktion $f$ habe in $x_0$ eine Polstelle erster Ordnung, und
 $C_\varepsilon$ sei der Halbkreis mit Radius $\varepsilon$ um $x_0$, der in
@@ -106,7 +109,7 @@ Umgebung von $x_0$ nach Satz~\ref{buch:analytisch:laurent:satz:laurentreihe}
 als
 \begin{equation}
   f(z) = \frac{\res(x_0;f)}{z - x_0}
-       + \underbrace{g(z)}_{\text{Taylorreihe}}
+       + \underbrace{g(z)}_{\text{Taylor-Reihe}}
   \label{hauptwert:halbresiduen:zerlegung}
 \end{equation}
 schreiben, wobei $g$ in dieser Umgebung holomorph und damit auf einer
@@ -162,6 +165,7 @@ $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
 \begin{lemma}[Jordan]
 \label{hauptwert:lemma:jordan}
+\index{Lemma!von Jordan}%
 Sei $a > 0$ und $C_R$ ein Halbkreis in der oberen Halbebene mit Radius $R$.
 Geht $f(z)$ für $|z| \to \infty$ gleichmässig gegen $0$, gilt also
 \begin{equation}
@@ -285,6 +289,8 @@ erfüllen.
 
 \begin{satz}[Hauptwertformel]
 \label{hauptwert:satz:hauptformel}
+\index{Hauptwertformel}%
+\index{Satz!Hauptwertformel}%
 Die Funktion $f$ erfülle die folgenden Voraussetzungen:
 \begin{enumerate}
   \item $f$ ist in der oberen Halbebene holomorph, also überall komplex
@@ -436,7 +442,7 @@ Dann gilt
 \end{proof}
 
 
-\subsection{Ein Warnbeispiel -- Was passiert, wenn die vierte Voraussetzung
+\subsection{Ein Warnbeispiel --- Was passiert, wenn die vierte Voraussetzung
 nicht erfüllt ist?
 \label{hauptwert:subsection:warnbeispiel}}
 
@@ -538,6 +544,7 @@ Es divergiert nichts, und trotzdem ist das Resultat falsch.
 Zum Abschluss eine Anwendung, die mit reellen Mitteln nur mühsam zugänglich
 ist, weil der Integrand keine elementare Stammfunktion hat.
 Gesucht ist der Wert des \emph{Dirichlet-Integrals}
+\index{Dirichlet-Integral}%
 \begin{equation}
   \int_{0}^{\infty} \frac{\sin x}{x}\,dx .
   \label{hauptwert:equation:dirichlet}
@@ -620,7 +627,14 @@ Der Imaginärteil liefert
 \end{equation}
 Hier ist der Hauptwert allerdings nicht mehr nötig, denn der Integrand ist in
 $0$ stetig ergänzbar und gerade, es ist also
-$\int_{-R}^{R} = 2\int_{0}^{R}$.
+\[
+\int_{-R}^{R}
+\frac{\sin x}{x}\,dx
+=
+2\int_{0}^{R}
+\frac{\sin x}{x}\,dx
+.
+\]
 Der symmetrische Grenzwert ist damit das gewöhnliche uneigentliche Integral,
 und für \eqref{hauptwert:equation:dirichlet} folgt
 \begin{equation}
