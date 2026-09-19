@@ -1,0 +1,53 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\include{styles}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \fill[jcAussen] (-4.1,-4.3) rectangle (4.1,4.1);
+    \fill[jcInnen, smooth, samples=300, domain=0:360, variable=\x]
+    plot ({(2.3+0.35*sin(3*\x))*cos(\x)}, {(2.3+0.35*sin(3*\x))*sin(\x)}) -- cycle;
+    \draw[line width=22pt, jcAkzent, opacity=0.16, smooth, samples=300,
+    domain=0:360, variable=\x]
+    plot ({(2.3+0.35*sin(3*\x))*cos(\x)}, {(2.3+0.35*sin(3*\x))*sin(\x)}) -- cycle;
+    \foreach \t in {0,15,...,345}{
+        \pgfmathsetmacro{\rr}{2.3+0.35*sin(3*\t)}
+        \pgfmathsetmacro{\rs}{1.05*cos(3*\t)}
+        \pgfmathsetmacro{\tx}{\rs*cos(\t)-\rr*sin(\t)}
+        \pgfmathsetmacro{\ty}{\rs*sin(\t)+\rr*cos(\t)}
+        \pgfmathsetmacro{\lng}{sqrt(\tx*\tx+\ty*\ty)}
+        \pgfmathsetmacro{\nx}{ \ty/\lng}
+        \pgfmathsetmacro{\ny}{-\tx/\lng}
+        \pgfmathsetmacro{\px}{\rr*cos(\t)}
+        \pgfmathsetmacro{\py}{\rr*sin(\t)}
+        \draw[jcGrau, line width=0.5pt]
+        ({\px-0.38*\nx},{\py-0.38*\ny}) -- ({\px+0.38*\nx},{\py+0.38*\ny});
+    }
+    \pgfmathsetmacro{\t}{75}
+    \pgfmathsetmacro{\rr}{2.3+0.35*sin(3*\t)}
+    \pgfmathsetmacro{\rs}{1.05*cos(3*\t)}
+    \pgfmathsetmacro{\tx}{\rs*cos(\t)-\rr*sin(\t)}
+    \pgfmathsetmacro{\ty}{\rs*sin(\t)+\rr*cos(\t)}
+    \pgfmathsetmacro{\lng}{sqrt(\tx*\tx+\ty*\ty)}
+    \pgfmathsetmacro{\nx}{ \ty/\lng}
+    \pgfmathsetmacro{\ny}{-\tx/\lng}
+    \pgfmathsetmacro{\px}{\rr*cos(\t)}
+    \pgfmathsetmacro{\py}{\rr*sin(\t)}
+    \draw[tangente, line width=1.1pt]
+    ({\px},{\py}) -- ({\px+0.55*\nx},{\py+0.55*\ny});
+    \node[font=\small, text=jcAkzent]
+    at ({\px+1.05*\nx},{\py+1.05*\ny}) {$n(t)$};
+    \draw[kurvedick, smooth, samples=300, domain=0:360, variable=\x]
+    plot ({(2.3+0.35*sin(3*\x))*cos(\x)}, {(2.3+0.35*sin(3*\x))*sin(\x)}) -- cycle;
+    \node[gebietslabel] at (0,0) {I};
+    \node[gebietslabel] at (3.4,3.4) {A};
+    \node[font=\small, text=jcAkzent] at (0,-3.6)
+    {$T_\varepsilon=\Phi\bigl(S^1\times(-\varepsilon,\varepsilon)\bigr)$};
+\end{tikzpicture}
+\end{document}
+

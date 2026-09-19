@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\include{styles}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \fill[jcAussen] (-4.6,-3.2) rectangle (4.6,3.2);
+    \fill[jcInnen] (0,0) circle (2.2);
+    \draw[kurvedick] (0,0) circle (2.2);
+    \node[punkt] (M) at (0,0) {};
+    \node[font=\small, left=0pt of M] {$M$};
+    \draw[strahl] (0,0) -- (58:2.2);
+    \node[font=\small, text=jcAkzent] at (58:1.3) [above left=-2pt] {$r$};
+    \node[punktrot] (p) at (-1.0,-1.1) {};
+    \draw[dashedhelp] (0,0) -- (p);
+    \node[font=\footnotesize, text=jcAkzent, anchor=east] (plab) at (-2.7,-2.15)
+    {$\|p-M\|<r$};
+    \draw[jcAkzent, line width=0.4pt] (plab.east) -- (p);
+    \node[punktrot] (q) at (3.2,-1.6) {};
+    \draw[dashedhelp] (0,0) -- (q);
+    \node[font=\footnotesize, text=jcAkzent, below=3pt of q]
+    {$\|q-M\|>r$};
+    \node[gebietslabel] at (-0.95,0.95) {I};
+    \node[gebietslabel] at (3.6,2.4) {A};
+\end{tikzpicture}
+\end{document}
+

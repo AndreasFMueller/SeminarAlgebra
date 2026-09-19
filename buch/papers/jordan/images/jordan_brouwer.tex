@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\include{styles}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \fill[jcAussen] (-5.4,-3.5) rectangle (5.4,3.6);
+    \fill[jcInnen] plot[smooth cycle, tension=0.85] coordinates {(-2.6,0.3) (-1.9,1.9) (-0.2,2.5) (1.7,2.0) (2.7,0.5) (2.1,-1.3) (0.4,-2.1) (-1.5,-1.6)};
+    \draw[kurvedick] plot[smooth cycle, tension=0.85] coordinates {(-2.6,0.3) (-1.9,1.9) (-0.2,2.5) (1.7,2.0) (2.7,0.5) (2.1,-1.3) (0.4,-2.1) (-1.5,-1.6)};
+    \draw[jcGrau, line width=0.5pt, dashed] (-2.45,0.15) arc (180:360:2.55 and 0.75);
+    \draw[jcGrau, line width=0.5pt] (-2.45,0.15) arc (180:0:2.55 and 0.75);
+    \draw[jcGrau, line width=0.5pt, dashed] (-0.1,2.48) arc (90:270:0.9 and 2.3);
+    \draw[jcGrau, line width=0.5pt] (-0.1,2.48) arc (90:-90:0.9 and 2.3);
+    \node[punktrot] (p) at (0.1,0.2) {};
+    \node[font=\small, text=jcAkzent, below=3pt of p] {$p$};
+    \node[punktrot] (q) at (4.3,2.5) {};
+    \node[font=\small, text=jcAkzent, above=2pt of q] {$q$};
+    \draw[jcAkzent, line width=0.9pt, dashed] (0.1,0.2) .. controls (1.6,0.1) and (2.7,1.7) .. (4.3,2.5);
+    \node[schnitt] at (2.25,1.065) {};
+    \node[font=\footnotesize, text=jcAkzent, anchor=west] at (2.55,1.1) {trifft $\Sigma$};
+    \node[gebietslabel] at (-1.35,-0.75) {I};
+    \node[gebietslabel] at (-4.5,2.9) {A};
+    \node[bildtext] at (-3.9,1.35) {$\Sigma\cong S^{2}$};
+    \draw[jcKurve, line width=0.6pt, -{Stealth[length=2mm]}] (-3.5,1.1) -- (-2.2,0.55);
+\end{tikzpicture}
+\end{document}
+

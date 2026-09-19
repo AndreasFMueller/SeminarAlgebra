@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math,calc}
+\include{styles}
+\begin{document}
+\def\skala{1}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    \foreach \n/\shift in {6/0, 12/7.6, 36/15.2}{
+        \begin{scope}[xshift=\shift cm]
+            \fill[jcAussen] (-3.5,-4.1) rectangle (3.5,3.5);
+            \fill[jcInnen, smooth, samples=250, domain=0:360, variable=\x] plot ({(2.3+0.5*cos(3*\x))*cos(\x)}, {(2.3+0.5*cos(3*\x))*sin(\x)}) -- cycle;
+            \draw[jcGrau, line width=0.6pt, smooth, samples=250, domain=0:360, variable=\x] plot ({(2.3+0.5*cos(3*\x))*cos(\x)}, {(2.3+0.5*cos(3*\x))*sin(\x)}) -- cycle;
+            \pgfmathsetmacro{\step}{360/\n}\pgfmathtruncatemacro{\np}{\n+1}
+            \draw[draw=jcAkzent, line width=1.1pt] plot[samples=\np, domain=0:360, variable=\x] ({(2.3+0.5*cos(3*\x))*cos(\x)}, {(2.3+0.5*cos(3*\x))*sin(\x)});
+            \foreach \k in {0,...,\n}{
+                \pgfmathsetmacro{\t}{\k*\step}
+                \pgfmathsetmacro{\rr}{2.3+0.5*cos(3*\t)}
+                \node[circle, fill=jcAkzent, inner sep=1pt] at ({\rr*cos(\t)},{\rr*sin(\t)}) {};
+            }
+            \node[gebietslabel] at (0,0) {I};
+            \node[gebietslabel] at (2.6,2.6) {A};
+            \node[font=\large, text=jcKurve] at (0,-3.75) {$n=\n$};
+        \end{scope}
+    }
+\end{tikzpicture}
+\end{document}
+
