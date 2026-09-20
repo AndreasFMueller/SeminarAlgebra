@@ -52,12 +52,41 @@ Die Schwierigkeit liegt primär in der allgemeinen Formulierung des Satzes. Wäh
 Stetigkeit wirkt nur als eine schwache Einschränkung auf die Kurve und erlaubt wilde Formen wie Fraktale, raumfüllende Kurven im Inneren oder Ränder mit positivem Lebesgue-Mass. All diese Beispiele sind über menschliche Intuition nur schwer zu erfassen und sind aufwändig zu analysieren, was die Beweisführung für den Satz von Jordan deutlich erschwert. 
 
 \begin{definition}[Fraktal]
-    Ein Fraktal ist eine geometrische Struktur, die auf allen Skalen selbstähnlich ist. 
-    Fraktale können durch iterative Prozesse oder rekursive Algorithmen erzeugt werden und haben häufig nicht-integer Dimensionen.
+    Ein Fraktal ist eine geometrische Struktur, deren Hausdorff-Dimension $\dim_{\mathcal{H}(A)}$ größer als ihre topologische Dimension ist.
+\end{definition}
+
+\begin{definition}[Hausdorff-Dimension]
+    Die Hausdorff-Dimension $\dim_{\mathcal{H}(A)}$ einer Teilmenge $A$ eines metrischen Raumes ist der Schwellenwert,
+     bei dem das $s$-dimensionale Hausdorff-Mass $\mathcal{H}^s(A)$ von $\infty$ auf $0$ übergeht. 
+\end{definition}
+
+\begin{definition}[Hausdorff-Mass]
+    Das $s$-dimensionale Hausdorff-Mass $\mathcal{H}^s(A)$ einer Teilmenge $A$ eines metrischen Raumes ist definiert als
+    \[
+        \mathcal{H}^s(A) = \lim_{\delta \to 0} \inf \left\{ \sum_{i} (\text{diam}(U_i))^s : A \subseteq \bigcup_{i} U_i, \text{diam}(U_i) < \delta \right\},
+    \]
+    wobei die Infimum über alle Überdeckungen von $A$ durch Mengen $U_i$ mit Durchmesser kleiner als $\delta$ genommen wird.
+    
+\end{definition}
+
+\begin{definition}[Topologische Dimension]
+    Die topologische Dimension ist eine Eigenschaft eines topologischen Raums, die angibt, wie viele unabhängige Richtungen in der Umgebung jedes Punktes existieren. 
+    Sie wird durch die minimale Anzahl von Koordinaten bestimmt, die benötigt werden, um den Raum lokal zu beschreiben.
 \end{definition}
 
 \begin{definition}[Lebesgue-Mass]
-    Das Lebesgue-Mass ist eine mathematische Konstruktion, die es ermöglicht, die "Grösse von Mengen in einem Raum zu messen, insbesondere in $\mathbb{R}^n$. 
-    Es verallgemeinert das Konzept der Länge, Fläche und Volumen auf komplexere Mengen, die nicht notwendigerweise reguläre geometrische Formen sind.
+    Das Lebesgue-Mass $\Lambda(A)$ ist die Einschränkung des äusseren Masses $\Lambda^*$ auf die $\sigma$-Algebra $\mathcal{A}$, die die Borelsche $\sigma$-Algebra enthält.
 \end{definition}
 
+\begin{definition}[Borelsche $\sigma$-Algebra]
+    Die Borelsche $\sigma$-Algebra $\mathcal{B}(\mathbb{R}^n)$ ist die kleinste $\sigma$-Algebra, die alle offenen Mengen in $\mathbb{R}^n$ enthält.
+\end{definition}
+
+\begin{definition}[$\sigma$-Algebra]
+    Eine $\sigma$-Algebra $\mathcal{A}$ über einer Menge $X$ ist eine Sammlung von Teilmengen von $X$, die folgende Eigenschaften erfüllt:
+    \begin{enumerate}
+        \item $X \in \mathcal{A}$,
+        \item Wenn $A \in \mathcal{A}$, dann ist auch das Komplement $X \setminus A \in \mathcal{A}$,
+        \item Wenn $\{A_n\}_{n=1}^{\infty} \subseteq \mathcal{A}$, dann ist auch die Vereinigung $\bigcup_{n=1}^{\infty} A_n \in \mathcal{A}$.
+    \end{enumerate}
+\end{definition}
