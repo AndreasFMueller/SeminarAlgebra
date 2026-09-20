@@ -25,7 +25,7 @@ So wäre der Beweis für eine Kreisform $\gamma(t) = (r \cos(2\pi t), r \sin(2\p
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/beweis_kreis.pdf}
+    \includegraphics{papers/jordan/images/beweis_kreis.pdf}
     \caption{Aufteilung der Ebene $E$ durch eine Kreisform in ein inneres Gebiet $I$ und ein äusseres Gebiet $A$.}
 \end{figure}
 
@@ -50,7 +50,7 @@ Der Beweis des Jordan'schen Satzes für konvexe Polygone kann aus der Definition
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/polygon_halbebene.pdf}
+    \includegraphics{papers/jordan/images/polygon_halbebene.pdf}
     \caption{Aufteilung der Ebene $E$ durch eine erweiterte Hexagonseite $g$ in zwei Halbebenen $E_1$ und $E_2$.}
 \end{figure}
 
@@ -62,7 +62,7 @@ Der Beweis des Jordan'schen Satzes für konvexe Polygone kann aus der Definition
     Daher hält der Satz von Jordan für konvexe Polygone.
 \end{proof}
 
-Einfache geschlossene Kurven können jedoch auch nicht-konvexe Formen annehmen, was den Beweis für konvexe Polygone erneut unzureichend macht, um den Satz von Jordan im Generellen zu beweisen.
+Einfache geschlossene Kurven können jedoch auch nicht-konvexe Formen annehmen, was den Beweis für konvexe Polygone erneut unzureichend macht, um den Satz von Jordan im Allgemeinen zu beweisen.
 
 \subsection{Beweis für einfache Polygone\label{jordan:section:einfache_polygone}}
 
@@ -83,7 +83,7 @@ Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaf
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/strahlenparitaet.pdf}
+    \includegraphics{papers/jordan/images/strahlenparitaet.pdf}
     \caption{Strahlenparität am Beispiel einer Jordan-Kurve.}
 \end{figure}
 
@@ -144,7 +144,7 @@ Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/triangulierung.pdf}
+    \includegraphics{papers/jordan/images/triangulierung.pdf}
     \caption{Triangulierung eines einfachen Polygons in nicht überlappende Dreiecke an Reflexpunkt $v$.}
 \end{figure}
 
@@ -239,24 +239,24 @@ Dies ist ein wichtiger Schritt in der Fortführung des Strahlenparitäts-Argumen
 Mit dem Beweis der endlichen Schnittstruktur abgeschlossen, können wir nun die Tubulare Umgebung einführen, die es uns erlaubt, die Strahlenparität auf reell-analytische Kurven zu erweitern.
 
 \begin{lemma}[Tubulare Umgebung]
-    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$. Dann existiert $\epsilon > 0$, so dass die Abbildung $\Phi: S\textsuperscript{1} \times (-\epsilon, \epsilon) \to \mathbb{R}^2$, $\Phi(t,s) = \gamma(t) + s \cdot n(t)$, ein reell-analytischer Diffeomorphismus auf eine offene Umgebung $T$ von $\gamma$ ist, wobei $n(t)$ der nach aussen gerichtete Einheitsnormalenvektor ist. 
+    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$. Dann existiert $\varepsilon > 0$, so dass die Abbildung $\varphi: S\textsuperscript{1} \times (-\varepsilon, \varepsilon) \to \mathbb{R}^2$, $\varphi(t,s) = \gamma(t) + s \cdot n(t)$, ein reell-analytischer Diffeomorphismus auf eine offene Umgebung $T$ von $\gamma$ ist, wobei $n(t)$ der nach aussen gerichtete Einheitsnormalenvektor ist. 
     Das Komplement $T \setminus \gamma$ zerfällt in zwei zusammenhängende Komponenten entsprechend $s > 0$ und $s < 0$, die als innere und äussere tubulare Umgebung bezeichnet werden.    
 \end{lemma}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/tubulare_umgebung.pdf}
+    \includegraphics{papers/jordan/images/tubulare_umgebung.pdf}
     \caption{Die tubulare Umgebung einer reell-analytischen Kurve.}
 \end{figure}
 
 Das Lemma der tubularen Umgebung kann mithilfe der Determinanten der im Abschnitt \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} eingeführten Jacobi-Matrix bewiesen werden.  
 
 \begin{proof}[Beweis des Lemmas der tubulären Umgebung]
-    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$ und $\Phi$ die durch $\Phi(t,s) = \gamma(t) + s \cdot n(t)$ definierte Abbildung. 
-    Die Jacobi-Determinante von $\Phi$ in $(t,0)$ ist $||\gamma'(t)|| \neq 0$. 
-    Nach dem Satz über die Umkehrfunktion ist $\Phi$ lokal ein Diffeomorphismus um jeden Punkt $(t,0)$. 
+    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$ und $\varphi$ die durch $\varphi(t,s) = \gamma(t) + s \cdot n(t)$ definierte Abbildung. 
+    Die Jacobi-Determinante von $\varphi$ in $(t,0)$ ist $||\gamma'(t)|| \neq 0$. 
+    Nach dem Satz über die Umkehrfunktion ist $\varphi$ lokal ein Diffeomorphismus um jeden Punkt $(t,0)$. 
     Globale Injektivität auf einem Streifen $S\textsuperscript{1} \times (-\epsilon, \epsilon)$ folgt aus der Kompaktheit und der Einfachheit von $\gamma$: 
-    Wäre $\Phi(t_1,s_1) = \Phi(t_2,s_2)$ für $(t_1,s_1) \neq (t_2,s_2)$, so würde dies bedeuten, dass $\gamma(t_1) + s_1 n(t_1) = \gamma(t_2) + s_2 n(t_2)$, was im Widerspruch zur Injektivität von $\gamma$ steht.
+    Wäre $\varphi(t_1,s_1) = \varphi(t_2,s_2)$ für $(t_1,s_1) \neq (t_2,s_2)$, so würde dies bedeuten, dass $\gamma(t_1) + s_1 n(t_1) = \gamma(t_2) + s_2 n(t_2)$, was im Widerspruch zur Injektivität von $\gamma$ steht.
 \end{proof}
 
 Mit diesen beiden Werkzeugen können wir die Strahlenparität auf reell-analytische Kurven erweitern und somit den Beweis des Satzes von Jordan für diese Kurven fortsetzen. 
@@ -326,11 +326,14 @@ Auf der unbeschränkten Komponente ist dieser Wert $0$.
 
 Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindestens eine Komponente gibt, auf der $n(\gamma, z) \neq 0$ gilt und dass es auf jeder beschränkten Komponente den Wert $\pm 1$ gibt.
 
+\begin{satz}[Hopfscher Umlaufsatz]
+    Für jede einfach geschlossene reguläre C\textsuperscript{1}-Kurve $\gamma$ ist die Totaldrehung $\pm 1$. 
+\end{satz}
 
 %TODO Tangentenwindungszahl
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{papers/jordan/images/tangentenwindungszahl.pdf}
+    \includegraphics{papers/jordan/images/tangentenwindungszahl.pdf}
     \caption{Drehung der Tangenten beim Umlauf einer Kurve (links). Die Nettodrehung der Tangentenvektoren $\tau(t)$ entlang der Kurve $\gamma$ ist $2\pi$, was der Umlaufzahl $n(\gamma, z_0) = 1$ entspricht (rechts).}
 \end{figure}
 
@@ -338,7 +341,7 @@ Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindest
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{papers/jordan/images/umlaufzahl.pdf}
+    \includegraphics{papers/jordan/images/umlaufzahl.pdf}
     \caption{Konstruktion der Umlaufzahl am Beilspiel eines Punkts innerhalb (links) und ausserhalb (rechts) einer Jordan-Kurve.}
 \end{figure}
 
@@ -346,7 +349,7 @@ Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindest
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{papers/jordan/images/spitzen_ecken.pdf}
+    \includegraphics{papers/jordan/images/spitzen_ecken.pdf}
     \caption{Tangentenrichtung springt an Ecken (links) und kehrt an Spitzen (rechts).}
 \end{figure}
 
@@ -356,7 +359,7 @@ Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindest
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/koch_schneeflocke.pdf}
+    \includegraphics{papers/jordan/images/koch_schneeflocke.pdf}
     \caption{Koch-Schneeflocke als Beispiel für ein Fraktal, dargestellt mit Iterationstiefe 3.}
 \end{figure}
 
@@ -364,7 +367,7 @@ Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindest
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{papers/jordan/images/polygonale_approximation.pdf}
+    \includegraphics{papers/jordan/images/polygonale_approximation.pdf}
     \caption{Polygonale Approximation einer stetigen Kurve.}
 \end{figure}
 

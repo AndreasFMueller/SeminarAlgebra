@@ -7,27 +7,28 @@
 \usetikzlibrary{arrows,intersections,math,calc}
 \include{styles}
 \begin{document}
-\def\skala{1}
+\def\skala{0.85}
 \begin{tikzpicture}[>=latex,thick,scale=\skala]
-\begin{scope}[xshift=-4.3cm]
-    \fill[jcAussen] (-3.3,-2.2) rectangle (3.3,3.4);
+\begin{scope}[xshift=-3.2cm]
+    \fill[jcAussen] (-3,-2.2) rectangle (3,3.4);
     \fill[jcInnen] (2,0) arc (0:180:2) arc (225:315:2.828427) -- cycle;
     \draw[kurvedick] (2,0) arc (0:180:2) arc (225:315:2.828427);
     \node[punktrot] (e1) at (2,0) {};
     \node[punktrot] (e2) at (-2,0) {};
-    \node[font=\footnotesize, text=jcAkzent, below right=1pt and 6pt of e1] {Ecke};
-    \node[font=\footnotesize, text=jcAkzent, above left=0pt and 10pt of e2] {Ecke};
+    \node[text=jcAkzent, below right=1pt and -6pt of e1] {Ecke};
+    \node[text=jcAkzent, below left=1pt and -6pt of e2] {Ecke};
     \draw[tangente] ($(2,0)+(225:1.15)$) -- (2,0);
-    \node[font=\footnotesize, text=jcAkzent, anchor=north east] at ($(2,0)+(225:1.2)$) {$\tau^-$};
+    \node[text=jcAkzent, anchor=north east] at ($(2,0)+(225:1.2)$) {$\tau^-$};
     \draw[tangente] (2,0) -- ++(90:1.15);
-    \node[font=\footnotesize, text=jcAkzent, anchor=south west] at ($(2,0)+(90:1.2)$) {$\tau^+$};
+    \node[text=jcAkzent, anchor=south west] at ($(2,0)+(90:1.2)$) {$\tau^+$};
     \draw[jcGrau, line width=0.6pt] ($(2,0)+(45:0.62)$) arc (45:90:0.62);
     \draw[jcGrau, dashed, line width=0.5pt] (2,0) -- ++(45:0.95);
-    \node[font=\footnotesize, text=jcGrau] at ($(2,0)+(67:0.92)$) {$\alpha$};
-    \node[gebietslabel] at (0,0.75) {I};\node[gebietslabel] at (2.85,2.9) {A};
+    \node[text=jcGrau] at ($(2,0)+(67:0.92)$) {$\alpha$};
+    \node[gebietslabel] at (0,0.75) {$I$};
+    \node[gebietslabel] at (2.6,2.7) {$A$};
 \end{scope}
-\begin{scope}[xshift=4.3cm]
-    \fill[jcAussen] (-3.3,-2.2) rectangle (3.3,3.4);
+\begin{scope}[xshift=3.2cm]
+    \fill[jcAussen] (-3,-2.2) rectangle (3,3.4);
     \fill[jcInnen]plot[domain=-1.25:1.25, samples=180, smooth, variable=\s] ({0.9*\s*\s*\s},{1.25*\s*\s}) -- cycle;
     \draw[dashedhelp] ({0.9*1.25*1.25*1.25},{1.25*1.25*1.25}) -- ({-0.9*1.25*1.25*1.25},{1.25*1.25*1.25});
     \draw[kurvedick] plot[domain=-1.25:1.25, samples=180, smooth, variable=\s] ({0.9*\s*\s*\s},{1.25*\s*\s});
@@ -35,19 +36,19 @@
     \foreach \s in {0.5,0.8,1.1}{
         \pgfmathsetmacro{\px}{0.9*\s*\s*\s}
         \pgfmathsetmacro{\py}{1.25*\s*\s}
-        \draw[jcAkzent, dotted, line width=0.7pt] (0,0) -- ({\px},{\py});
-        \draw[jcAkzent, dotted, line width=0.7pt] (0,0) -- ({-\px},{\py});
+        \draw[jcAkzent, dotted, line width=0.4pt] (0,0) -- ({\px},{\py});
+        \draw[jcAkzent, dotted, line width=0.4pt] (0,0) -- ({-\px},{\py});
     }
-    \draw[tangente, line width=1.1pt] (-1.42,0.46) -- (-1.42,-0.46);
-    \draw[dashedhelp, line width=0.4pt] (0,0) -- (-1.42,0);
-    \draw[tangente, line width=1.1pt] (1.42,0.-0.46) -- (1.42,0.46);
-    \draw[dashedhelp, line width=0.4pt] (0,0) -- (1.42,0);
-    \node[font=\footnotesize, text=jcAkzent, anchor=east] at (-1.55,0) {$\tau^-=(0,-1)$};
-    \node[font=\footnotesize, text=jcAkzent, anchor=west] at (1.55,0) {$\tau^+=(0,+1)$};
+    \draw[tangente, line width=1.1pt] (-1,0.46) -- (-1,-0.46);
+    \draw[dashedhelp, line width=0.4pt] (0,0) -- (-1,0);
+    \draw[tangente, line width=1.1pt] (1,-0.46) -- (1,0.46);
+    \draw[dashedhelp, line width=0.4pt] (0,0) -- (1,0);
+    \node[text=jcAkzent, anchor=east] at (-1.13,0) {$\tau^-$};
+    \node[text=jcAkzent, anchor=west] at (1.13,0) {$\tau^+$};
     \node[punktrot] at (0,0) {};
-    \node[font=\footnotesize, text=jcAkzent, anchor=north east] at (0,-0.12){$\gamma(0)$};
-    \node[gebietslabel] at (0.2,1.45) {I};
-    \node[gebietslabel] at (2.75,-1.25) {A};
+    \node[text=jcAkzent, anchor=north] at (0,-0.12){$\gamma(0)$};
+    \node[gebietslabel] at (0.4,1.45) {$I$};
+    \node[gebietslabel] at (2.4,-1.25) {$A$};
 \end{scope}
 \end{tikzpicture}
 \end{document}

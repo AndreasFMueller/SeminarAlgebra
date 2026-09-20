@@ -8,7 +8,7 @@
 \include{styles}
 \begin{document}
 \def\skala{1}
-\begin{tikzpicture}[>=latex,thick,scale=\skala]
+\begin{tikzpicture}[>=latex,thick,scale=\skala, transform shape]
     \fill[jcAussen] (-4.1,-4.3) rectangle (4.1,4.1);
     \fill[jcInnen, smooth, samples=300, domain=0:360, variable=\x]
     plot ({(2.3+0.35*sin(3*\x))*cos(\x)}, {(2.3+0.35*sin(3*\x))*sin(\x)}) -- cycle;
@@ -40,14 +40,14 @@
     \pgfmathsetmacro{\py}{\rr*sin(\t)}
     \draw[tangente, line width=1.1pt]
     ({\px},{\py}) -- ({\px+0.55*\nx},{\py+0.55*\ny});
-    \node[font=\small, text=jcAkzent]
+    \node[text=jcAkzent]
     at ({\px+1.05*\nx},{\py+1.05*\ny}) {$n(t)$};
     \draw[kurvedick, smooth, samples=300, domain=0:360, variable=\x]
     plot ({(2.3+0.35*sin(3*\x))*cos(\x)}, {(2.3+0.35*sin(3*\x))*sin(\x)}) -- cycle;
-    \node[gebietslabel] at (0,0) {I};
-    \node[gebietslabel] at (3.4,3.4) {A};
-    \node[font=\small, text=jcAkzent] at (0,-3.6)
-    {$T_\varepsilon=\Phi\bigl(S^1\times(-\varepsilon,\varepsilon)\bigr)$};
+    \node[gebietslabel] at (0,0) {$I$};
+    \node[gebietslabel] at (3.4,3.4) {$A$};
+    \node[text=jcAkzent] at (0,-3.6)
+    {$T_\varepsilon=\varphi\bigl(S^1\times(-\varepsilon,\varepsilon)\bigr)$};
 \end{tikzpicture}
 \end{document}
 

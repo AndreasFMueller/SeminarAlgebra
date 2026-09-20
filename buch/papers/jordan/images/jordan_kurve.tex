@@ -8,7 +8,7 @@
 \include{styles}
 \begin{document}
 \def\skala{1}
-\begin{tikzpicture}[>=latex,thick,scale=\skala]
+\begin{tikzpicture}[>=latex, thick, scale=\skala, transform shape]
     \fill[jcAussen] (0,0) rectangle (5,5);
     \filldraw[fill=jcInnen, draw=jcKurve]{
         (0.5,3) .. controls (1,2) and (2,2) .. (2.5,3) .. controls (1.5,2.5) and (1,4) .. cycle
