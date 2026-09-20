@@ -7,7 +7,7 @@
 \usetikzlibrary{arrows,intersections,math,calc}
 \include{styles}
 \begin{document}
-\def\skala{1}
+\def\skala{0.55}
 \begin{tikzpicture}[>=latex,thick,scale=\skala]
     \foreach \n/\shift in {6/0, 12/7.6, 36/15.2}{
         \begin{scope}[xshift=\shift cm]
@@ -21,9 +21,9 @@
                 \pgfmathsetmacro{\rr}{2.3+0.5*cos(3*\t)}
                 \node[circle, fill=jcAkzent, inner sep=1pt] at ({\rr*cos(\t)},{\rr*sin(\t)}) {};
             }
-            \node[gebietslabel] at (0,0) {I};
-            \node[gebietslabel] at (2.6,2.6) {A};
-            \node[font=\large, text=jcKurve] at (0,-3.75) {$n=\n$};
+            \node[gebietslabel] at (0,0) {$I$};
+            \node[gebietslabel] at (2.6,2.6) {$A$};
+            \node[font=\large, text=jcKurve] at (0,-3.4) {$n=\n$};
         \end{scope}
     }
 \end{tikzpicture}
