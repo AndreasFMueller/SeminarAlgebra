@@ -72,20 +72,34 @@ Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaf
 
 \begin{definition}[Strahlenparität]
     Sei $P$ ein einfaches Polygon und $p \in \mathbb{R}^2 \setminus \partial P$.
-    Für jeden strahl $L$ mit Anfangspunkt $p$, der keine Ecke von $P$ trifft und nicht entlang einer Kante von $P$ verläuft, sei $N(p,L)$ die Anzahl Schnittpunkte von $L$ mit $\partial P$. 
-    Dann gilt:
-    \begin{itemize}
-        \item $N(p,L)$ ist endlich.
-        \item Die Parität von $N(p,L)$ hängt nicht von $L$ ab, sondern nur von $p$.
-    \end{itemize}
+    Für jeden Strahl $L$ mit Anfangspunkt $p$, der keine Ecke von $P$ trifft und nicht entlang einer Kante von $P$ verläuft, sei $N(p,L)$ die Anzahl Schnittpunkte von $L$ mit $\partial P$ 
+    und $N(p,L) \mod 2$ die Parität dieser Anzahl.
 \end{definition}
+
+\begin{lemma}[Paritätsinvarianz \label{jordan:lemma:paritaetsinvarianz}]
+    Sei $\gamma_{pq}$ eine Kurve, die zwei verschiedene Punkte $p$ und $q$ in der Ebene $\mathbb{R}^2$ verbindet und $\gamma_{pq} \cap \partial P = \emptyset$.  
+    Dann haben $p$ und $q$ die gleiche Strahlenparität.
+\end{lemma}
+
+\begin{proof}[Beweis der Paritätsinvarianz]
+    Direkter Beweis.
+    \begin{enumerate}
+        \item Seien $p,q \in \mathbb{R}^2 \setminus \partial P$
+        \item Sei $v$ eine Richtung, welche für beide Punkte zulässig ist.
+        \item Sei $L_p$ der Strahl von $p$ in Richtung $v$ und $L_q$ der Strahl von $q$ in Richtung $v$.
+        \item Seien $p,q$ so positioniert und $v$ so gewählt, dass $p \neq q$ und $\overline{pq} \nparallel L_{p | q}$.
+        \item Sei $R$ der Halbstreifen, $L_p \cup L_q \cup \gamma_{pq}$.
+        \item Nach Voraussetzung ist $\partial P \cap \gamma_{pq} = \emptyset$ und $L_p \cap L_q = \emptyset$.
+        \item Daher $\left| \partial P \cap R \right| = N(p,L_p) + N(q,L_q)$.
+        \item Die $\left(N(p,L_p) + N(q,L_q)\right) \mod 2 = 0$, da $\partial P$ eine geschlossene Kurve ist und $R$ eine offene Menge ist.
+    \end{enumerate}
+\end{proof}
 
 \begin{figure}
     \centering
     \includegraphics{papers/jordan/images/strahlenparitaet.pdf}
     \caption{Strahlenparität am Beispiel einer Jordan-Kurve.}
 \end{figure}
-
 
 Diese Definition erlaubt es, die Punkte in der Ebene in zwei Mengen zu unterteilen: diejenigen, die eine gerade Anzahl von Schnittpunkten mit dem Polygon haben (die äussere Menge), und diejenigen, die eine ungerade Anzahl von Schnittpunkten haben (die innere Menge).
 
@@ -108,19 +122,56 @@ Um den Satz von Jordan rigoros zu beweisen, müssen wir jedoch noch folgende Pun
 \end{itemize}
 
 \begin{lemma}[Offenheit von $I$ und $A$]
-    Die Parität $N(p,L)$ ändert sich nicht, wenn $p$ innerhalb einer kleinen Umgebung verschoben wird, solange $p$ nicht auf $\partial P$ liegt. 
-    Daher sind $I$ und $A$ offen.
+    Wenn $P$ ein einfaches Polygon ist, dann sind $I$ und $A$ offen.
 \end{lemma}
+
+\begin{proof}[Beweis der Offenheit von $I$ und $A$]
+    Direkter Beweis durch Konstruktion von $r$. 
+    Sei $p \in \mathbb{R}^2 \setminus \partial P$ beliebig. Wir konstruieren ein
+    $r > 0$ mit der Eigenschaft, dass $\nu$ auf $U(p,r)$ konstant ist.
+
+    \begin{enumerate}
+        \item Sei $U(p,r)$ die offene Kugel um $p$ mit Radius $r$.
+
+        \item $\partial P = \bigcup_{i=1}^{n} e_i$ ist als endliche Vereinigung
+            abgeschlossener Strecken abgeschlossen.
+
+        \item Setze $r := \operatorname{dist}(p, \partial P)$. Wäre $r = 0$, so gäbe
+            es $x_k \in \partial P$ mit $x_k \to p$ und damit
+            $p \in \overline{\partial P} = \partial P$, im Widerspruch zur Wahl
+            von $p$. Also ist $r > 0$.
+
+        \item Nach Definition von $r$ gilt $\lVert p - x \rVert \ge r$ für alle
+            $x \in \partial P$, also $U(p,r) \cap \partial P = \emptyset$.
+
+        \item Sei $q \in U(p,r)$ beliebig. Da $U(p,r)$ konvex ist, liegt die
+            Strecke $\overline{pq}$ ganz in $U(p,r)$, nach (3) also
+            $\overline{pq} \cap \partial P = \emptyset$.
+
+        \item Die Paritätsinvarianz (\ref{jordan:lemma:paritaetsinvarianz}) liefert
+            $\nu(q) = \nu(p)$.
+\end{enumerate}
+
+Da $q \in U(p,r)$ beliebig war, ist $\nu$ auf $U(p,r)$ konstant. Für
+$p \in I$ folgt $U(p,r) \subseteq I$, für $p \in A$ folgt
+$U(p,r) \subseteq A$. Beide Mengen sind somit offen.
+\end{proof}
 
 \begin{lemma}[Nicht-Leerheit von $I$]
-    Per Definition kann $I$ nicht leer sein, da Polygone mindestens drei Eckpunkte besitzen müssen, die ein inneres Gebiet definieren. 
-    Daher ist $I$ nicht leer.
+    Wenn $P$ ein einfaches Polygon ist, dann ist $I$ nicht leer.
 \end{lemma}
 
+\begin{proof}[Beweis der Nicht-Leerheit von $I$]
+    Per Definition kann $I$ nicht leer sein, da Polygone mindestens drei Eckpunkte besitzen müssen, die ein inneres Gebiet definieren. 
+\end{proof}
+
 \begin{lemma}[Nicht-Leerheit von $A$]
-    Die Absenz von $A$ ist unmöglich, da die Ebene $\mathbb{R}^2$ unbeschränkt ist und es daher immer Punkte gibt, die ausserhalb des Polygons liegen.
-    Daher ist $A$ nicht leer.
+    Wenn $P$ ein einfaches Polygon ist, dann ist $A$ nicht leer.
 \end{lemma}
+
+\begin{proof}[Beweis der Nicht-Leerheit von $A$]
+    Die Leerheit von $A$ ist unmöglich, da die Ebene $\mathbb{R}^2$ unbeschränkt ist und es daher immer Punkte gibt, die ausserhalb des Polygons liegen.
+\end{proof}
 
 Die Etablierung des Wegzusammenhangs von $I$ und $A$ verlangt ein topologisch substantielleres Argument: Die Wegzusammenhangseigenschaften von triangulierten Polygonen. 
 
@@ -147,14 +198,14 @@ Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale 
     \caption{Triangulierung eines einfachen Polygons in nicht überlappende Dreiecke an Reflexpunkt $v$.}
 \end{figure}
 
-\begin{lemma}[Wegzusammenhang von $I$]
+\begin{lemma}[Wegzusammenhang von $I$ \label{jordan:lemma:wegzusammenhang_I}]
     Sei $P$ ein einfaches Polygon und $I$ das innere Gebiet von $P$. 
     Der Triangulierungssatz für einfache Polygone garantiert, dass jedes $P$ mit $n \geq 3$ Ecken in nicht überlappende Dreiecke zerlegt werden kann.
     Da Dreiecke als konvexe Polygone wegzusammenhängend sind, können wir einen Weg zwischen zwei Punkten in $I$ konstruieren, indem wir die Dreiecke durchqueren, die das Polygon bilden.
     Daher ist $I$ wegzusammenhängend.
 \end{lemma}
 
-\begin{lemma}[Wegzusammenhang von $A$]
+\begin{lemma}[Wegzusammenhang von $A$ \label{jordan:lemma:wegzusammenhang_A}]
     Sei $P$ ein einfaches Polygon, $I$ das innere Gebiet von $P$, $A$ das äussere Gebiet von $P$, und $K$ das innere Gebiet eines Kreises, welche $P$ umschliesst, ohne es zu berühren, und $A$ das äussere Gebiet von $P$. 
     Da $A$ unbeschränkt ist, können wir einen Weg von einem Punkt $k \in K \setminus P \cup I$ zu einem Punkt $a \in A$ konstruieren, der keine Punkte von $P$ enthält. 
     Daher ist $A$ wegzusammenhängend.
