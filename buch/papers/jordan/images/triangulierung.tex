@@ -7,8 +7,8 @@
 \usetikzlibrary{arrows,intersections,math,calc}
 \include{styles}
 \begin{document}
-\def\skala{1}
-\begin{tikzpicture}[>=latex,thick,scale=\skala]
+\def\skala{1.1}
+\begin{tikzpicture}[>=latex, thick, scale=\skala, transform shape]
     \coordinate (v1) at (0,0);
     \coordinate (v2) at (4,0);
     \coordinate (v3) at (5,2);
@@ -35,7 +35,7 @@
     \node[font=\footnotesize, text=jcKurve] at (2.0,2.95) {$v$};
     \draw[jcKurve, line width=0.5pt, -{Stealth[length=1.6mm]}]
     (2.0,2.78) -- (2.0,2.34);
-    \node[gebietslabel] at (5.7,4.2) {A};
+    \node[gebietslabel] at (5.7,4.2) {$A$};
 \end{tikzpicture}
 \end{document}
 
