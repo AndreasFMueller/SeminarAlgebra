@@ -239,24 +239,24 @@ Dies ist ein wichtiger Schritt in der Fortführung des Strahlenparitäts-Argumen
 Mit dem Beweis der endlichen Schnittstruktur abgeschlossen, können wir nun die Tubulare Umgebung einführen, die es uns erlaubt, die Strahlenparität auf reell-analytische Kurven zu erweitern.
 
 \begin{lemma}[Tubulare Umgebung]
-    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$. Dann existiert $\epsilon > 0$, so dass die Abbildung $\Phi: S\textsuperscript{1} \times (-\epsilon, \epsilon) \to \mathbb{R}^2$, $\Phi(t,s) = \gamma(t) + s \cdot n(t)$, ein reell-analytischer Diffeomorphismus auf eine offene Umgebung $T$ von $\gamma$ ist, wobei $n(t)$ der nach aussen gerichtete Einheitsnormalenvektor ist. 
+    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$. Dann existiert $\varepsilon > 0$, so dass die Abbildung $\varphi: S\textsuperscript{1} \times (-\varepsilon, \varepsilon) \to \mathbb{R}^2$, $\varphi(t,s) = \gamma(t) + s \cdot n(t)$, ein reell-analytischer Diffeomorphismus auf eine offene Umgebung $T$ von $\gamma$ ist, wobei $n(t)$ der nach aussen gerichtete Einheitsnormalenvektor ist. 
     Das Komplement $T \setminus \gamma$ zerfällt in zwei zusammenhängende Komponenten entsprechend $s > 0$ und $s < 0$, die als innere und äussere tubulare Umgebung bezeichnet werden.    
 \end{lemma}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{papers/jordan/images/tubulare_umgebung.pdf}
+    \includegraphics{papers/jordan/images/tubulare_umgebung.pdf}
     \caption{Die tubulare Umgebung einer reell-analytischen Kurve.}
 \end{figure}
 
 Das Lemma der tubularen Umgebung kann mithilfe der Determinanten der im Abschnitt \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} eingeführten Jacobi-Matrix bewiesen werden.  
 
 \begin{proof}[Beweis des Lemmas der tubulären Umgebung]
-    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$ und $\Phi$ die durch $\Phi(t,s) = \gamma(t) + s \cdot n(t)$ definierte Abbildung. 
-    Die Jacobi-Determinante von $\Phi$ in $(t,0)$ ist $||\gamma'(t)|| \neq 0$. 
-    Nach dem Satz über die Umkehrfunktion ist $\Phi$ lokal ein Diffeomorphismus um jeden Punkt $(t,0)$. 
+    Sei $\gamma$ eine reell-analytische Kurve in der Ebene $\mathbb{R}^2$ und $\varphi$ die durch $\varphi(t,s) = \gamma(t) + s \cdot n(t)$ definierte Abbildung. 
+    Die Jacobi-Determinante von $\varphi$ in $(t,0)$ ist $||\gamma'(t)|| \neq 0$. 
+    Nach dem Satz über die Umkehrfunktion ist $\varphi$ lokal ein Diffeomorphismus um jeden Punkt $(t,0)$. 
     Globale Injektivität auf einem Streifen $S\textsuperscript{1} \times (-\epsilon, \epsilon)$ folgt aus der Kompaktheit und der Einfachheit von $\gamma$: 
-    Wäre $\Phi(t_1,s_1) = \Phi(t_2,s_2)$ für $(t_1,s_1) \neq (t_2,s_2)$, so würde dies bedeuten, dass $\gamma(t_1) + s_1 n(t_1) = \gamma(t_2) + s_2 n(t_2)$, was im Widerspruch zur Injektivität von $\gamma$ steht.
+    Wäre $\varphi(t_1,s_1) = \varphi(t_2,s_2)$ für $(t_1,s_1) \neq (t_2,s_2)$, so würde dies bedeuten, dass $\gamma(t_1) + s_1 n(t_1) = \gamma(t_2) + s_2 n(t_2)$, was im Widerspruch zur Injektivität von $\gamma$ steht.
 \end{proof}
 
 Mit diesen beiden Werkzeugen können wir die Strahlenparität auf reell-analytische Kurven erweitern und somit den Beweis des Satzes von Jordan für diese Kurven fortsetzen. 
