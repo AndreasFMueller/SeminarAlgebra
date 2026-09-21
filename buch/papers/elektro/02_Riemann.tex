@@ -24,7 +24,7 @@ Das bedeutet, dass für jegliche Figuren eine Transformation existiert.
 Diese muss aber auf anderem Weg ermittelt werden, dazu mehr in Abschnitt \ref{elektro:section:KreisTrafo}.
 
 Im Allgemeinen ist unser Ziel ein Gebiet $G$ auf ein einfacheres Gebiet $G'$ abzubilden, um die Berechnung von Potentialfeldern und elektrischen Feldern zu vereinfachen. 
-Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\vec{E}$ aus Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} bereits bekannt sind.
+Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\vec{E}$ aus Abschnitt \ref{elektro:subsection:Radialsymmetrie} bereits bekannt sind.
 
 \subsection{Voraussetzungen
 \label{elektro:subsection:RiemannVoraussetzungen}}
@@ -53,6 +53,7 @@ Eine bijektive Abbildung ist sowohl injektiv (verschiedene Elemente der Definiti
 Es gibt keine zwei Punkte, welche auf denselben Zielpunkt abgebildet werden. 
 Bei der Transformation und auch bei der Rücktransformation geht keine Information verloren und die Abbildung ist umkehrbar.
 
+
 % \subsection{Existenzbeweis
 % \label{elektro:subsection:Riemannbeweis}}
 % Im Folgenden wird der Existenzbeweis für den Riemannschen Abbildungssatz vorgestellt in einer Version die auf grundlegenden Eigenschaften von holomorphen Funktionen basiert.
@@ -77,15 +78,16 @@ Bei der Transformation und auch bei der Rücktransformation geht keine Informati
 % Dafür wird nun eine Folge $(f_n) \in \mathcal{F}$ gesucht, die die Bedingung $\vert f_n'(z_0) \vert \to M$ erfüllt.
 
 
-\subsection{Existenzbeweis
-\label{elektro:subsection:Riemannbeweis}}
-Der Existenzbeweis basiert auf dem Satz von Montel und dem Satz von Hurwitz, wobei ein Maximierungsproblem formuliert wird, das es zu lösen gilt.
-Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen, interesiete könne dazu im \cite[Buch]{elektro:Salamon} mehr nachlesen. 
-Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
-Es gilt $z \in G \land a \neq G$.
-Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.
-Mit der Quadratwurzelfunktion kann eine holomorphe Funktion (siehe Abschnitt \ref{elektro:subsection:holomorph}) $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
-Daraus ergibt sich eine Funktionsklasse $\mathcal{F}$, die alle holomorphen Funktionen $f$ enthält, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
-Für den weiteren Beweis werden verschiedene Eigenschaften der holomorphen Funktionen verwendet, wie die Surjektivität, welche die Extremalfunktion aufweisen muss, sowie Automorphien der Einheitskreisscheibe, welche die Abbildung auf den Kreis beschreiben.
-Das Ganze läuft darauf hinaus, das gezeigt werden kann das die Abbildungsfunktion $f$ sowie auch die Rücktransformation $f^{-1}$ holomorph sind und damit die Abbildung konform ist. 
-Womit der Satz von Riemann bewiesen ist.
+
+% \subsection{Existenzbeweis
+% \label{elektro:subsection:Riemannbeweis}}
+% Der Existenzbeweis basiert auf dem Satz von Montel und dem Satz von Hurwitz, wobei ein Maximierungsproblem formuliert wird, das es zu lösen gilt.
+% Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen, interesiete könne dazu im \cite[Buch]{elektro:Salamon} mehr nachlesen. 
+% Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
+% Es gilt $z \in G \land a \neq G$.
+% Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.
+% Mit der Quadratwurzelfunktion kann eine holomorphe Funktion (siehe Abschnitt \ref{elektro:subsection:holomorph}) $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
+% Daraus ergibt sich eine Funktionsklasse $\mathcal{F}$, die alle holomorphen Funktionen $f$ enthält, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
+% Für den weiteren Beweis werden verschiedene Eigenschaften der holomorphen Funktionen verwendet, wie die Surjektivität, welche die Extremalfunktion aufweisen muss, sowie Automorphien der Einheitskreisscheibe, welche die Abbildung auf den Kreis beschreiben.
+% Das Ganze läuft darauf hinaus, das gezeigt werden kann das die Abbildungsfunktion $f$ sowie auch die Rücktransformation $f^{-1}$ holomorph sind und damit die Abbildung konform ist. 
+% Womit der Satz von Riemann bewiesen ist.
