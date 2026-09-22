@@ -21,13 +21,13 @@ Ladung, die durch den von Robert Van de Graaff 1929 erfundenen Generator auf ein
 %\textcolor{red}{TODO Foto Versuchsperson mit Feldlinien eingezeichnet}
 Der Van de Graaff Generator nutzt die mechanische Reibung eines Gummibandes, um gleichartige Ladungsträger auf einer Metallkugel abzuladen, welche sich anschliessend durch Influenz auf der ganzen Oberfläche verteilen.
 Es spielt dabei keine Rolle, ob die Ladungsträger positiv oder negativ sind.
-Die Ladungen wandern auf die Versuchsperson, und da sie sich abstossen entsteht eine kleine Kraft.
+Die Ladungen wandern auf die Versuchsperson, und da sie sich abstossen, entsteht eine kleine Kraft.
 Diese reicht bei genügend trockener Luft aus, um die Haare der Versuchsperson zu Berge stehen zu lassen.
 Trotz seines tiefen Wirkungsgrades kommt der Van de Graaff Generator zur Erzeugung hoher Gleichspannungen als Teilchenbeschleuniger zum Einsatz \cite{elektro:lexikon}.
 
-In diesem Paper werden die zusammenhänge zwischen der Elektrostatik und Geometrie sichtbar gemacht. 
-ie Geometrie wird auf zweidimensionen reduziert da dies zu vielen Vereinfachungen führt.
-Die deutlichste Vereinfachung ist, dass von den vier Maxwell-Gleichungen nur noch eine relevant ist, nämlich die Laplace Gleichung (\ref{elektro:equtaion:laplace}) für das Potential. 
+In diesem Paper werden die Zusammenhänge zwischen Elektrostatik und Geometrie sichtbar gemacht. 
+Die Geometrie wird auf zwei Dimensionen reduziert, was zu vielen Vereinfachungen führt.
+Die deutlichste Vereinfachung ist, dass von den vier Maxwell-Gleichungen nur noch eine relevant ist, nämlich die Laplace Gleichung (\ref{elektro:equation:laplace}) für das Potential. 
 Der Fokus liegt auf dem Zusammenhang zwischen elektrischen Feldlinien und Äquipotentiallinien im zweidimensionalen Raum.
 Feldlinien und Potential werden als komplexe Funktionen interpretiert und über komplexe Abbildungen miteinander verknüpft.
 Wie das funktioniert, wird anhand von vielen Beispielen in diesem Kapitel erklärt, bewiesen und veranschaulicht. 
@@ -35,28 +35,30 @@ Wie das funktioniert, wird anhand von vielen Beispielen in diesem Kapitel erklä
 
 \section{Grundlagen der Elektrostatik\label{elektro:section:EFeld}}
 \kopfrechts{Grundlagen der Elektrostatik}
-Das Wort elektrostatik enthält zwei grundlegde Begriffe: Elektrizität und Statik.
-Unter dem ersten sind die Elektrischen Ladungsträger gemeint, Elektronen (-) oder deren Abwesenheit, die sich in der Materie befinden.
-Mit \textit{Elektro} ist nicht fliessender Strom gemeint, sondern ruhende Ladungen.
-In unseren Anwendungen verteilen sich die Ladungen auf der Oberfläche von leitenden Körpern, bis die Gräfte zwischen den Ladungen einen Stabilen Zustand erreicht haben, und still stehen bleiben. 
-Dies bringt uns zum zweiten Begriff, der Statik.
-Die Ladungen bewegen sich nicht mehr, sie sind statisch. wird also nach der Zeit abgeleitet um die änderung über die zeit zu sehen, so ist die Ableitung gleich Null.
-Mathematisch formuliert: Die Ableitung nach der Zeit der elektrostatischen Funktionen wird gleich Null: $\frac{\partial \vec{E}}{\partial t} = 0$.
+Das Wort Elektrostatik enthält zwei grundlegende Begriffe: Elektrizität und Statik. 
+Es fliesst aber kein Strom, es werden ausschliesslich ruhende elektrische Ladungsträger betrachtet.
+In unseren Anwendungen verteilen sich diese Ladungen auf der Oberfläche von leitenden Körpern, bis die Kräfte zwischen den Ladungen einen stabilen Zustand erreicht haben, und still stehen bleiben.
+Dann spricht man von Elektrostatik, denn die Ladungen bewegen sich nicht mehr, sie sind statisch. Wird nach der Zeit abgeleitet, um die Änderung über die Zeit zu sehen, so ist die Ableitung
+$\frac{\partial \vec{E}}{\partial t} = 0$.
+gleich Null. 
 
 \subsection{Vektor- und Skalarfeld, Quellenfeld und Homogenität
 \label{elektro:subsection:VektorSkalar}}
 Das \textbf{elektrische Feld} ist ein Vektorfeld.
-Das bedeutet, jedem Punkt im Raum wird ein Betrag und eine Richtung der elektrischen Feldstärke zugeordnet. 
-Es hat also ein Pfeil dessen Länge zeigt wie stark das Elektrische Feld an diesem Punkt ist und die Richtung in die er zeigt ist die Richtung in die eine Probeladung bewegt werden würde, wenn sie an diesem Punkt platziert wird.
+Das bedeutet, jedem Punkt im Raum wird ein Vektor mit einem Betrag und einer Richtung der elektrischen Feldstärke zugeordnet. 
+Die Länge des Vektors zeigt, wie stark das elektrische Feld an diesem Punkt ist. 
+Seine Richtung ist diejenige Richtung, in die eine Probeladung bewegt wird, wenn sie an diesem Punkt platziert würde.
+Eine Probeladung ist eine Ladung, die so klein ist, dass sie das Feld nicht beeinflusst.
+Sie ist nur da um die Stärke des Feldes zu messen, ist also nur ein Werkzeug und keine physische Ladung.
 Das \textbf{Potentialfeld} ist ein Skalarfeld.
-Jedem Punkt im Raum wird nur der Betrag, also nur die stärke des Potentials, aber keine Richtung.
-Diese stärke wird in Volt angegeben, das ist die definiere Einheit für das Potential.
+Jedem Punkt im Raum wird nur der Betrag, also nur die Stärke des Potentials zugeordnet, aber keine Richtung.
+Diese Stärke wird in Volt angegeben, das ist die definiere Einheit für das Potential.
 
-Elektrostatische Felder sind Quellenfelder, soll heissen es gibt einen Punkt von dem alle Feldlinien ausgehen oder auf den alle Feldlinien zulaufen. 
-Es hat kein Wirbel, die Pfeile sind aomit nicht in eine richtung gebogen sondern gerade.
-Es ergeben sich also keine geschlossenen Feldlinien, die in sich selbst zurückführen.
+Elektrostatische Felder sind Quellenfelder, das bedeutet, es gibt einen Punkt, von dem alle Feldlinien ausgehen oder auf den alle Feldlinien zulaufen. 
+Es hat keine Wirbel, die Pfeile sind somit nicht in eine Richtung gebogen, sondern immer gerade.
+Es ergeben sich also keine geschlossenen Feldlinien, die in sich selbst enden (wie es zum Beispiel beim Magnetfeld der Fall ist).
 Die Feldlinien des elektrostatischen Felds beginnen immer auf positiven Ladungen und enden auf negativen. 
-Die Ladung kann sich dabei auch im Unendlichen befinden, somit laufen die Feldlinien einfach Radial bis ins Unendliche.
+Die Feldlinien können sich aber im Unendlichen schliessen, somit laufen die Feldlinien einfach radial bis ins Unendliche.
 
 Verlaufen die Feldlinien parallel, spricht man von einem homogenen Feld, ansonsten von einem inhomogenen Feld.
 Das Feld zwischen zwei parallelen Kondensatorplatten beispielsweise ist homogen, was die mathematische Berechnung erheblich erleichtert. 
@@ -70,15 +72,16 @@ Das Coulomb-Gesetz
 	\vec{F} = \frac{Q_1 Q_2}{4\pi\varepsilon_0 R^{2}}\hat{R}
 	\label{equation:Coulomb}
 \end{equation}
-beschreibt die Kraft die zwei ruhenden Punktladungen aufeinander ausüben.
-Eine Punktladung ist per Definition eine punktsymmetrische Ladung ohne räumliche Ausdehnung.
-In der Praxis ist das Coulombe-Gesetz nur gültig wenn der Abstand zwischen den beiden Ladungen viel grösser ist als die Ausdehnung der Ladungen selbst.
-Ist dies nicht der Fall werden sich andere Physikalische Effekte bemerkbar machen, die das Coulomb-Gesetz nicht berücksichtigt.
-Die Coulomb-Kraft hängt von der Grösse der jeweiligen Ladung $Q_1$ und $Q_2$ ab, werden die Ladungen grösser so nimmt auch die Kraft zu.
-Der Abstand zwischen den beiden Ladungen ist der noch grössere bestimmende Faktor, da die Kraft mit dem Quadrat des Abstands $R$ zwischen den Ladungen ab nimmt.
-$\vec{R} = R \cdot \hat{R}$ ist der Distanzvektor zwischen den Ladungen und muss immer vom Ort der Ursache auf den Ort der Wirkung zeigen, damit die Resultierenden Kräfte die korrekte Richtung aufweisen.
-$\hat{R}$ ist in der Elektrotechnik der Einheitsvektor mit Richtung von $\vec{R}$.
-Liegt einer der Punkte im Ursprung wird die Variable $r$ verwendet, dies ist wichtig für das Verstehen der später herbegleiteten Formeln.
+beschreibt die Kraft, die zwei ruhende Punktladungen aufeinander ausüben.
+Eine Punktladung ist eine punktsymmetrische Ladung ohne räumliche Ausdehnung.
+In der Praxis ist das Coulomb-Gesetz nur gültig, wenn der Abstand zwischen den beiden Ladungen viel grösser ist als die Ausdehnung der Ladungen selbst.
+Ist dies nicht der Fall, werden sich andere physikalische Effekte bemerkbar machen, die das Coulomb-Gesetz nicht berücksichtigt.
+Die Coulomb-Kraft hängt von der Grösse der jeweiligen Ladung $Q_1$ und $Q_2$ ab.
+Werden die Ladungen grösser, so nimmt auch die Kraft zu.
+Der Abstand zwischen den beiden Ladungen ist der bestimmende Faktor, da die Kraft mit dem Quadrat des Abstands $R$ zwischen den Ladungen abnimmt.
+$\vec{R} = R \cdot \hat{R}$ ist der Distanzvektor zwischen den Ladungen und muss immer vom Ort der Ursache auf den Ort der Wirkung zeigen, damit die resultierenden Kräfte die korrekte Richtung aufweisen.
+$\hat{R}$ ist in der Elektrotechnik der Einheitsvektor der Länge 1 und Richtung von $\vec{R}$.
+Liegt einer der Punkte im Ursprung wird die Variable $r$ verwendet, dies ist wichtig für das Verstehen der später hergeleiteten Formeln.
 Die beiden Komponenten des Vektors sind der Betrag $R$ und die Richtung $\hat{R}$, diese werden in der Formel \eqref{equation:Coulomb} separat verwendet.
 Weitere wichtige Definitionen:
 \begin{itemize}
@@ -88,8 +91,8 @@ Weitere wichtige Definitionen:
 \end{itemize}
 
 \subsection{Das elektrische Feld}
-Im ersten Abschmitt \ref{elektro:section:EFeld} wurde das elektrische Feld als Vektorfeld definiert.
-Es geht nun noch darum das E-Feld auch Mathematisch zu definieren.
+Im ersten Abschnitt \ref{elektro:section:EFeld} wurde das elektrische Feld als Vektorfeld definiert.
+Es geht nun noch darum das E-Feld auch mathematisch zu definieren.
 Das elektrische Feld und die Coulomb-Kraft sind über die Normierung auf die Probeladung q
 \begin{equation}
 	\vec{E} = \frac{\vec{F}}{q} = \frac{\text{Kraft}}{\text{Probeladung}} = \frac{Q}{4\pi\varepsilon_0 r^{2}}\hat{r}
@@ -102,9 +105,7 @@ Das elektrische Feld und die Coulomb-Kraft sind über die Normierung auf die Pro
 	\caption[]{Normiert auf eine Punktladung q handelt es sich beim elektrischen Feld um ein Radialfeld.}
 \end{figure}
 verwandt.
-Eine Probeladung ist eine Ladung, die so klein ist, dass sie das Feld nicht beeinflusst.
-Sie ist nur da um die Stärke des Feldes zu messen, ist also nur ein Werkzeug und keine physische Ladung.
-Bringt man also eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die Kraft, welche auf die Probeladung wirkt, als elektrische Feldstärke definiert.
+Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die Kraft, welche auf die Probeladung wirkt, als elektrische Feldstärke definiert.
 Die Kraft ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben $[\vec{E}] = V/m$.
 Es handelt sich um ein Radialfeld (ausgehend von der positiven oder führend zur negativen Quelle).
 
