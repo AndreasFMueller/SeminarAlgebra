@@ -12,30 +12,31 @@
 \label{elektro:section:RiemannSatz}}
 \kopfrechts{Riemannscher Abbildungssatz}
 
-Georg Fridrich Bernhard Riemann (1826-1866) \cite{elektro:riemann} war ein deutscher Mathematiker, der sich mit diversen Gebieten der Mathematik beschäftigte.
+Georg Friedrich Bernhard Riemann (1826-1866) \cite{elektro:riemann} war ein deutscher Mathematiker, der sich mit verschiedenen Gebieten der Mathematik beschäftigte.
 Auf vielen hat er bahnbrechende Ergebnisse erzielt, die bis heute von grosser Bedeutung sind.
 Auch Einstein hat von seinen Theorien Gebrauch gemacht.
-Den riemannschen Abbildungssatz hat er erstmals als Skizze im Jahre 1851 in seiner Dissertation veröffentlicht. 
-Erst später wurde dieser Satz von anderen Mathematikern formal bewiesen und in die Mathematik eingeführt. 
-Es wurden verschiedene Beweise für den riemannschen Abbildungssatz gefunden, die alle auf unterschiedlichen mathematischen Gebieten basieren.
+Den Riemannschen Abbildungssatz hat er erstmals als Skizze im Jahre 1851 in seiner Dissertation veröffentlicht.
+Erst später wurde dieser Satz von anderen Mathematikern formal bewiesen und in die Mathematik eingeführt.
+Es wurden unterschiedliche Beweise für den Riemannschen Abbildungssatz erbracht.
 Hier wird der verbreitetste Beweis vorgestellt, der auf dem Satz von Montel basiert, welcher die Existenz konformer Abbildungen auf einfach zusammenhängende Gebiete beschreibt.
-Beschreiben ist hier wörtlich gemeint, denn es gibt für den Riemannschen Abbildungssatz keine allgemeine Formel, die für alle Gebiete gilt, sondern nur den Existenzbeweis einer Abbildung.
+Beschreiben ist hier wörtlich gemeint, denn es gibt für den riemannschen Abbildungssatz keine allgemeine Formel, die für alle Gebiete gilt, sondern nur den Existenzbeweis einer Abbildung.
 Das bedeutet, dass für jegliche Figuren eine Transformation existiert.
 Diese muss aber auf anderem Weg ermittelt werden, dazu mehr in Abschnitt \ref{elektro:section:KreisTrafo}.
 
-Im Allgemeinen ist unser Ziel ein Gebiet $G$ auf ein einfacheres Gebiet $G'$ abzubilden, um die Berechnung von Potentialfeldern und elektrischen Feldern zu vereinfachen. 
-Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\vec{E}$ aus Abschnitt \ref{elektro:subsection:Einheitskreis-Beispiel} bereits bekannt sind.
+Im Allgemeinen ist es das Ziel, ein Gebiet $G$ auf ein einfacheres Gebiet $G'$ abzubilden, um die Berechnung von Potentialfeldern und elektrischen Feldern zu vereinfachen.
+Das Zielgebiet $G'$ ist für uns der Einheitskreis, dessen Potentialfeld $\varphi$ und dessen elektrisches Feld $\vec{E}$ aus Abschnitt \ref{elektro:subsection:Radialsymmetrie} bereits bekannt sind.
 
 \subsection{Voraussetzungen
 \label{elektro:subsection:RiemannVoraussetzungen}}
-Zunächst müssen ein paar Voraussetzungen für den riemannschen Abbildungssatz erfüllt sein, damit der Satz überhaupt angewendet werden kann:
+Zunächst müssen ein paar Voraussetzungen für den Riemannschen Abbildungssatz erfüllt sein, damit der Satz überhaupt angewendet werden kann.
 
 \subsubsection{Einfach zusammenhängende Gebiete}
-Das ursprüngliche Gebiet $G$ muss einfach zusammenhängend sein, das bedeutet, dass es keine Löcher in dem Gebiet gibt. 
+Das ursprüngliche Gebiet $G$ muss einfach zusammenhängend sein. 
+Das bedeutet, dass es keine Löcher hat.
 Das Gebiet $G$ darf beliebig gross und beliebig geformt sein, solange es keine ausgeschnittenen Bereiche enthält.
-Zu dieser Definition gehört auch, dass das Gebiet offen sein muss. 
+Zu dieser Definition gehört auch, dass das Gebiet offen sein muss.
 Der Rand des Gebiets gehört demzufolge nicht zum Gebiet dazu.
-Da sich meistens herausstellt, dass der Rand sich $\grqq$brav$\grqq$ mit verformt und die Abbildung auf dem Rand ebenfalls konform ist, wird in den nachfolgenden Beispielen stets angenommen, dass der Rand analog zur Fläche verformt wird.
+Da sich jedoch herausstellt, dass der Rand sich meist mit verformt und die Abbildung auf dem Rand ebenfalls konform ist, wird in den nachfolgenden Beispielen angenommen, dass der Rand analog zur Fläche verformt wird.
 
 %1. Pull Request Version
 %Der Rand müsste separat betrachtet werden, wobei sich meistens herausstellt, dass dieser sich $\grqq$brav$\grqq$ mit verformt und die Abbildung auf dem Rand ebenfalls konform ist.
@@ -43,14 +44,14 @@ Da sich meistens herausstellt, dass der Rand sich $\grqq$brav$\grqq$ mit verform
 %Dies ist in diesen Beispielen nicht der Fall, daher wird stets angenommen, dass der Rand analog zur Fläche verformt wird.
 
 \subsubsection{Teilgebiete der komplexen Ebene}
-$ G \subset \mathbb{C} $ muss gelten, dies bedeutet, dass $G$ eine Teilmenge von $\mathbb{C}$ ist.
-Für die ganze komplexe Ebene gilt der riemannsche Abbildungssatz.
-Würde die gesamte komplexe Ebene auf den Einheitskreis abgebildet werden, dann müssten Punkte, die bereits im Innern des Einheitskreises liegen, unberührt bleiben und jene, welche ausserhalb liegen, müssten auf bereits besetzte Punkte transformiert werden. 
+$G \subset \mathbb{C}$ muss gelten, dies bedeutet, dass $G$ eine Teilmenge von $\mathbb{C}$ ist.
+Für die ganze komplexe Ebene gilt der Riemannsche Abbildungssatz.
+Würde die gesamte komplexe Ebene auf den Einheitskreis abgebildet werden, dann müssten Punkte, die bereits im Innern des Einheitskreises liegen, unberührt bleiben und jene, welche ausserhalb liegen, müssten auf bereits besetzte Punkte transformiert werden.
 Dies stünde im Widerspruch zur nächsten Voraussetzung, nämlich der Bijektivität der Abbildung.
 
 \subsubsection{Bijektive Abbildung}
 Eine bijektive Abbildung ist sowohl injektiv (verschiedene Elemente der Definitionsmenge werden auf verschiedene Elemente der Zielmenge abgebildet) als auch surjektiv (jedes Element der Zielmenge wird getroffen).
-Es gibt keine zwei Punkte, welche auf denselben Zielpunkt abgebildet werden. 
+Es gibt keine zwei Punkte, welche auf denselben Zielpunkt abgebildet werden.
 Bei der Transformation und auch bei der Rücktransformation geht keine Information verloren und die Abbildung ist umkehrbar.
 
 % \subsection{Existenzbeweis
@@ -77,15 +78,16 @@ Bei der Transformation und auch bei der Rücktransformation geht keine Informati
 % Dafür wird nun eine Folge $(f_n) \in \mathcal{F}$ gesucht, die die Bedingung $\vert f_n'(z_0) \vert \to M$ erfüllt.
 
 
-\subsection{Existenzbeweis
-\label{elektro:subsection:Riemannbeweis}}
-Der Existenzbeweis basiert auf dem Satz von Montel und dem Satz von Hurwitz, wobei ein Maximierungsproblem formuliert wird, das es zu lösen gilt.
-Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen, interesiete könne dazu im \cite[Buch]{elektro:Salamon} mehr nachlesen. 
-Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
-Es gilt $z \in G \land a \neq G$.
-Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.
-Mit der Quadratwurzelfunktion kann eine holomorphe Funktion (siehe Abschnitt \ref{elektro:subsection:holomorph}) $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
-Daraus ergibt sich eine Funktionsklasse $\mathcal{F}$, die alle holomorphen Funktionen $f$ enthält, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
-Für den weiteren Beweis werden verschiedene Eigenschaften der holomorphen Funktionen verwendet, wie die Surjektivität, welche die Extremalfunktion aufweisen muss, sowie Automorphien der Einheitskreisscheibe, welche die Abbildung auf den Kreis beschreiben.
-Das Ganze läuft darauf hinaus, das gezeigt werden kann das die Abbildungsfunktion $f$ sowie auch die Rücktransformation $f^{-1}$ holomorph sind und damit die Abbildung konform ist. 
-Womit der Satz von Riemann bewiesen ist.
+
+% \subsection{Existenzbeweis
+% \label{elektro:subsection:Riemannbeweis}}
+% Der Existenzbeweis basiert auf dem Satz von Montel und dem Satz von Hurwitz, wobei ein Maximierungsproblem formuliert wird, das es zu lösen gilt.
+% Es wird hier nur über das Vorgehen berichtet, der Beweis selbst ist zu umfangreich um ihn hier darzustellen, interesiete könne dazu im \cite[Buch]{elektro:Salamon} mehr nachlesen. 
+% Gestartet wird damit einen Punkt $z$ innerhalb und einen Punkt $a$ ausserhalb des Gebiets $G$ zu wählen, die als Abbildungspunkte dienen. 
+% Es gilt $z \in G \land a \neq G$.
+% Es wird die Distanz $d = \vert z - a \vert$ zwischen den beiden Punkten definiert.
+% Mit der Quadratwurzelfunktion kann eine holomorphe Funktion (siehe Abschnitt \ref{elektro:subsection:holomorph}) $g(z) = \sqrt{z - a}$ auf dem Gebiet $G$ definiert werden.
+% Daraus ergibt sich eine Funktionsklasse $\mathcal{F}$, die alle holomorphen Funktionen $f$ enthält, die $G$ auf die Einheitskreisscheibe $\mathbb{D}$ abbilden und dabei die Bedingung $f(z_0) = 0$ erfüllen.
+% Für den weiteren Beweis werden verschiedene Eigenschaften der holomorphen Funktionen verwendet, wie die Surjektivität, welche die Extremalfunktion aufweisen muss, sowie Automorphien der Einheitskreisscheibe, welche die Abbildung auf den Kreis beschreiben.
+% Das Ganze läuft darauf hinaus, das gezeigt werden kann das die Abbildungsfunktion $f$ sowie auch die Rücktransformation $f^{-1}$ holomorph sind und damit die Abbildung konform ist. 
+% Womit der Satz von Riemann bewiesen ist.
