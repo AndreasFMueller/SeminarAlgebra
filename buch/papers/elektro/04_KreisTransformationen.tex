@@ -11,9 +11,9 @@
 \label{elektro:section:KreisTrafo}}
 \kopfrechts{Kreis Transformationen}
 
-Im Abschnitt \ref{elektro:section:RiemannSatz} wurde beschrieben, under welchen Voraussetzungen ein Gebiet konform auf den Einheitskreis abgebildet werden kann.
+Im Abschnitt \ref{elektro:section:RiemannSatz} wurde beschrieben, unter welchen Voraussetzungen ein Gebiet konform auf den Einheitskreis abgebildet werden kann.
 Dabei wurde erwähnt, dass es keine allgemeine Formel für die Abbildung von beliebigen Gebieten auf den Einheitskreis gibt.
-Daher suchen wir nach einer Methode, mit der komplizierte Geometrien auf den Einheitskreis abgebildet werden können. 
+Daher suchen wir nach einer Methode, mit der komplizierte Geometrien auf den Einheitskreis abgebildet werden können.
 Dort sind das Potential und das elektrische Feld bereits bekannt (siehe Gleichung \eqref{elektro:equation:potential} und \eqref{elektro:equation:efeld}) und können anschliessend auf die ursprüngliche Geometrie zurückübertragen werden.
 Dafür wird im Folgenden die Schwarz-Christoffel-Transformation verwendet.
 
@@ -41,7 +41,7 @@ Gesucht wird somit eine Funktion $f$, für welche
 \end{equation}
 für $k = 1,\ldots,n$ gilt.
 Die Konstruktion beruht auf den Innenwinkeln $\alpha_k$ der Ecken sowie auf der Geometrie des Polygons, wobei $\alpha_k$ den jeweiligen Innenwinkel in Radiant bezeichnet.
-Als erster Schritt in der Berechnung wird nun die Ableitung der Schwarz-Christoffel Formel verwendet, da vorerst nur die Richtungsänderung an den Ecken des Polygons von Bedeutung ist
+Als erster Schritt in der Berechnung wird nun die Ableitung der Schwarz-Christoffel-Formel verwendet, da vorerst nur die Richtungsänderung an den Ecken des Polygons von Bedeutung ist
 \begin{equation}
 	f'(w) = C \prod_{k=1}^{n} \left(1-\frac{w}{w_k}\right)^{\frac{\alpha_k}{\pi}-1}.
 	\label{elektro:equation:SchwarzChristoffelDerivative}
@@ -102,9 +102,9 @@ Um das Beschriebene zu veranschaulichen sind in Abbildung \ref{elektro:figure:Sc
 
 \subsection{Beispiel: Dreieck auf Kreis}
 Ein dreieckige Kontur eines ladungsbehafteten Objektes kann als einfaches Beispiel viele Effekte der Transformation zeigen.
-Mit der Schwarz-Christoffel Transformation kann nun der Einheitskreis so transformiert werden, dass deren Rand die Form unseres Dreiecks annimmt und damit ein Feld berechnet werden kann, das exakt die Form des Dreiecks hat.
+Mit der Schwarz-Christoffel-Transformation kann nun der Einheitskreis so transformiert werden, dass deren Rand die Form unseres Dreiecks annimmt und damit ein Feld berechnet werden kann, das exakt die Form des Dreiecks hat.
 Für die Berechnung der Prevertices und der weiteren Parameter wird die (\cite[Schwarz-Christoffel-Toolbox]{elektro:sc-toolbox}) in MATLAB verwendet.
-Danach wird die Transformation angewendet, wodurch das Feld so herauskommt wie in Abbildung \ref{elektro:figure:SC_triag_trafo} dargestellt.
+Danach wird die Transformation angewendet, wodurch das Feld sich so zeigt wie in Abbildung \ref{elektro:figure:SC_triag_trafo} dargestellt.
 
 \begin{figure}
 	\centering
@@ -114,19 +114,20 @@ Danach wird die Transformation angewendet, wodurch das Feld so herauskommt wie i
 	\label{elektro:figure:SC_triag_trafo}
 \end{figure}
 
-In Abbildung \ref{elektro:figure:SC_triag_trafo} ist zu sehen, wie die Feldlinien auf der Oberfläche des Dreiecks senkrecht aufkommen und sich im Raum ausbreiten und dabei auch die Potentiallinen immer senkrecht kreuzen.
-Es sind auch die Prevertices auf dem Einheitskreis eingezeichnet, welche diejenigen Punkte markieren, die exakt auf die Ecken des Dreiecks transformiert werden.
-Die Farben zeigen welcher Punkt auf welche Ecke transformiert wird. 
-Dabei fällt auf, dass die Prevertices nicht intuitiv in derselben Richtung wie die Ecken des Dreiecks angeordnet sind, sondern in entgegengesetzter Richtung. 
+In Abbildung \ref{elektro:figure:SC_triag_trafo} ist zu sehen, wie die Feldlinien an den Kanten des Dreiecks senkrecht abgehen und sich im Raum ausbreiten.
+Dabei kreuzen sie die Potentiallinien immer senkrecht kreuzen.
+Es sind auch die Prevertices auf dem Einheitskreis eingezeichnet, welche jene Punkte markieren, die exakt auf die Ecken des Dreiecks transformiert werden.
+Die Farben zeigen welcher Punkt auf welche Ecke transformiert wird.
+Dabei fällt auf, dass die Prevertices nicht intuitiv in derselben Richtung wie die Ecken des Dreiecks angeordnet sind, sondern in entgegengesetzter Richtung.
 Dies liegt an der Orientierung der Randkurven.
-Die Randkurve wird jeweils so durchlaufen, dass das betrachtete Gebiet auf der linken Seite liegt. 
+Die Randkurve wird jeweils so durchlaufen, dass das betrachtete Gebiet auf der linken Seite liegt.
 Beim Inneren des Einheitskreises entspricht dies einer Orientierung gegen den Uhrzeigersinn, beim Aussengebiet des Polygons dagegen einer Orientierung im Uhrzeigersinn.
 % Dies ist auf eine Regel innerhalb von Matlab zurückzuführen, die besagt dass die Fläche die bearbeitet wird, im mathematischen Sinn, immer auf der linken Seite der Kurve liegen muss.
 % Wenn die Laufvariable des Integrals sich auf der Kurve fortbewegt, muss die Fläche, die bearbeitet wird, immer auf der linken Seite liegen.
 % Mit einem kleinen gedanklichen Experiment kann nun festgestellt werden, dass die Verlaufsrichtung auf dem Dreieck im Uhrzeigersinn sein muss und beim Einheitskreis gegen den Uhrzeigersinn.
 
 \subsection{Komplexere Geometrie}
-Als etwas komplexere Geometrie mit mehreren Ecken, darunter auch einige, die einen Innenwinkel grösser als $180^{\circ}$ haben, wird ein hufeisenförmiges Polygon gezeigt.
+Ein Beispiel für eine komplexere Geometrie mit mehreren Ecken, darunter auch einige, die einen Innenwinkel grösser als $180^{\circ}$ haben, wird ein hufeisenförmiges Polygon gezeigt.
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_huf.png}

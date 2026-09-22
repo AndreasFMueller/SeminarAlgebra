@@ -51,16 +51,16 @@ Aufgrund der Rotationssymmetrie hängen sowohl das elektrische Feld $\vec{E}$ al
 \subsection{Radialsymmetrie von $\vec{E}$-Feld und dem Potential $\varphi$
 \label{elektro:subsection:Radialsymmetrie}}
 
-Für die zweidimensionale Betrachtung wird ein kreisförmiger Leiter mit Radius $R$ betrachtet. 
+Für die zweidimensionale Betrachtung wird ein kreisförmiger Leiter mit Radius $R$ betrachtet.
 Aufgrund der Rotationssymmetrie hängt das elektrische Feld ausserhalb des Kreises nur vom Abstand $r$ zum Mittelpunkt ab und zeigt radial nach aussen.
 Die Ladung des Leiters wird durch die Ladung pro Längeneinheit $\rho$ beschrieben.
 Dabei bezeichnet $\rho$ die Ladung pro Längeneinheit senkrecht zur betrachteten Ebene und hat die Einheit $\mathrm{C/m}$.
 Gesucht ist nun das elektrische Feld an einem Punkt ausserhalb des Leiters.
 Da jeder Punkt mit demselben Abstand $r$ vom Mittelpunkt aufgrund der Symmetrie dieselbe Feldstärke besitzt, kann ein konzentrischer Kreis mit Radius $r>R$ betrachtet werden.
-Das gausssche Gesetz bezieht sich auf eine geschlossene Fläche.
+Das Gausssche Gesetz bezieht sich auf eine geschlossene Fläche.
 Da hier nur ein zweidimensionaler Querschnitt dargestellt wird, wird der Kreis gedanklich um eine beliebige Länge $\ell$ senkrecht zur Zeichenebene erweitert.
 Die eingeschlossene Ladung beträgt dann $\rho \ell$.
-Auf der seitlichen Fläche besitzt das elektrische Feld überall denselben Betrag $E(r)$ und zeigt senkrecht nach aussen. Damit ergibt sich aus dem gaussschen Gesetz
+Auf der seitlichen Fläche besitzt das elektrische Feld überall denselben Betrag $E(r)$ und zeigt senkrecht nach aussen. Damit ergibt sich aus dem Gaussschen Gesetz
 
 \begin{equation}
     E(r)\,2\pi r\,\ell = \frac{\rho\,\ell}{\varepsilon_0}.
@@ -83,8 +83,7 @@ Damit gilt
     =
     -\int_R^r \vec{E}\cdot d\vec{r}.
 \end{equation}
-Da das Feld radial verläuft, kann das zuvor bestimmte elektrische Feld eingesetzt
-werden:
+Da das Feld radial verläuft, kann das zuvor bestimmte elektrische Feld eingesetzt werden:
 \begin{equation}
 \begin{aligned}
     \varphi(r)-\varphi(R)
@@ -112,12 +111,13 @@ Wird das Potential auf der Kreisoberfläche auf $\varphi(1)=0$ gesetzt, vereinfa
 \subsection{Kreisspiegelung
 \label{elektro:subsection:Kreisspiegelung}}
 
-Damit man sich die Kreisspiegelung vorstellen kann, wird der Kreisrand als Spiegeloberfläche angenommen. 
+Damit man sich die Kreisspiegelung vorstellen kann, wird der Kreisrand als Spiegeloberfläche angenommen.
 Somit wird jeder Punkt ausserhalb des Kreises, auch die Unendlichkeit, in das Innere des Einheitskreises gespiegelt.
-Analog dazu wird alles innerhalb des Einheitskreises nach aussen gespiegelt, wobei der Ursprung auf alle Seiten in die Unendlichkeit gespiegelt wird. 
+Analog dazu wird alles innerhalb des Einheitskreises nach aussen gespiegelt, wobei der Ursprung auf alle Seiten in die Unendlichkeit gespiegelt wird.
 
 Diese Transformation wird hier nur gezeigt, weil durch diese Transformation die Wahl der Integralgrenzen im Abschnitt \ref{elektro:subsection:Radialsymmetrie} erklärt werden kann.
-Es kann vom Mittelpunkt zum Kreisrand oder vom Kreisrand bis in die Unendlichkeit integriert werden und mit einer einfachen Kreisspiegelung im Komplexen vom einen zum anderen Fall übergegangen werden. 
+Es kann vom Mittelpunkt zum Kreisrand oder vom Kreisrand bis in die Unendlichkeit integriert werden und mit einer einfachen Kreisspiegelung im Komplexen vom einen zum anderen Fall übergegangen werden.
+Mathematisch wird die Kreisspiegelung durch die Transformation
 Mathematisch wird die Kreisspiegelung durch die Transformation
 \begin{equation}
     z \mapsto \frac{1}{\overline{z}}
@@ -222,9 +222,7 @@ Damit kann das elektrische Feld kompakt als
 \end{equation}
 geschrieben werden.
 
-Auch das in Abschnitt
-\ref{elektro:subsection:Radialsymmetrie}
-bestimmte Potential kann mit der komplexen Koordinate $z$ dargestellt werden.
+Auch das in Abschnitt \ref{elektro:subsection:Radialsymmetrie} bestimmte Potential kann mit der komplexen Koordinate $z$ dargestellt werden.
 Da $r=|z|$ gilt, folgt für einen Kreis mit Radius $R$
 \begin{equation}
     \varphi(z)
