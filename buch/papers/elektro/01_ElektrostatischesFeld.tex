@@ -92,7 +92,7 @@ Weitere wichtige Definitionen:
 
 \subsection{Das elektrische Feld}
 Im ersten Abschnitt \ref{elektro:section:EFeld} wurde das elektrische Feld als Vektorfeld definiert.
-Es geht nun noch darum das E-Feld auch mathematisch zu definieren.
+Es geht nun darum, das E-Feld auch mathematisch zu definieren.
 Das elektrische Feld und die Coulomb-Kraft sind über die Normierung auf die Probeladung q
 \begin{equation}
 	\vec{E} = \frac{\vec{F}}{q} = \frac{\text{Kraft}}{\text{Probeladung}} = \frac{Q}{4\pi\varepsilon_0 r^{2}}\hat{r}
@@ -107,7 +107,7 @@ Das elektrische Feld und die Coulomb-Kraft sind über die Normierung auf die Pro
 verwandt.
 Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die Kraft, welche auf die Probeladung wirkt, als elektrische Feldstärke definiert.
 Die Kraft ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben $[\vec{E}] = V/m$.
-Es handelt sich um ein Radialfeld (ausgehend von der positiven oder führend zur negativen Quelle).
+Es handelt sich um ein Radialfeld (ausgehend von der positiven und führend zur negativen Quelle).
 
 \subsection{Das elektrische Potential $\varphi$
 \label{elektro:subsection:Potential}}
@@ -123,9 +123,11 @@ Somit ist jedem Punkt ein Betrag zugeordnet, und mit Beträgen kann eine Differe
 Diese Differenz zwischen zwei Potentialen ist die Spannung, es wird dabei oft ein Referenzpunkt gewählt, der als Nullpunkt dient.
 %Aus dem Potential jedes einzelnen Punktes kann die elektrische Feldstärke berechnet werden.
 Das negative Vorzeichen in der Formel \eqref{equation:Potential} hat seinen Ursprung in der Wahl des Bezugssystem, der Referenz Ref, von wo aus integriert wird.
-In der Formel \ref{equation:Potential} wird der Betrag des Elektrostischenfelds $E$ als Variable verwendet, das an jedem Punkt von $E$ auf das dort herrschende Potential geschlossen werden kann und umgekehrt. 
-Wenn an nebeneinanderliegenden Punkten das selbe Potential $\varphi$ herrscht werden diese mit einer Linie verbunden, die sogenannten Äquipotentiallinie.
-Diese linien sind immer geschlossen und verlaufen senkrecht zu den E-Feldlinien.
+In der Formel \ref{equation:Potential} wird der Betrag des elektrostatischen Felds $E$ als Variable verwendet, das an jedem Punkt von $E$ auf das dort herrschende Potential geschlossen werden kann und umgekehrt. 
+Wenn auf zwei nebeneinanderliegenden Punkten dasselbe Potential $\varphi$ herrscht, werden diese mit einer Linie verbunden, der sogenannten Äquipotentiallinie.
+Diese Linien sind immer geschlossen und verlaufen senkrecht zu den E-Feldlinien.
+Sie haben aber noch eine weitere wichtige Eigenschaft:
+Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass dabei Arbeit aufgewandt werden muss.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/phi_feld_kreis.png}
@@ -134,11 +136,10 @@ Diese linien sind immer geschlossen und verlaufen senkrecht zu den E-Feldlinien.
 \end{figure}
 
 
-\subsection{Äquipotentiallinien
-\label{elektro:subsection:Aequipotentiallinien}}
-Wie bereits erwähnt, sind die Äquipotentiallinien die Linien, auf denen das Potential $\varphi$ konstant ist.
-Sie haben aber noch eine weitere wichtige Eigenschaft:
-Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass dabei Arbeit aufgewandt werden muss.
+%\subsection{Äquipotentiallinien
+%\label{elektro:subsection:Aequipotentiallinien}}
+%Wie bereits erwähnt, sind die Äquipotentiallinien die Linien, auf denen das Potential $\varphi$ konstant ist.
+
 
 % \subsection{Beispiel Einheitskreis
 % \label{elektro:subsection:Einheitskreis-Beispiel}}
@@ -147,37 +148,35 @@ Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass da
 % Das Feld ausserhalb ist dabei immer gleich egal wie hoch das potential ist oder ob einfach nur angenommen wird das der Einheitskreis als einzelne ladung angenommen wird.
 % Theoretisch kann angenommen werden das der Kreis auf die Grösse eines Elektrons geschrumpft wird dabei würde das Feld immer noch gleich aussehen. 
 
-\subsection{das ganze noch komplex
+\subsection{Zusammenhang zwischen E-Feld und Potential über komplexe Funktionen
 \label{elektro:subsection:komplex}}
-\textcolor{red}{kann hier die Laplace gleichung noch so erklärt werden damit darauf verwiesen werden kann ? elektro:equation:laplace wird in der Einleitung erwähnt aber existiert nicht}
-Es geht nun darum die Äquipotentiallinien und das elektrische Feld in Beziehung zu einander zu setzen.
-Die beiden Funktionen $\vec{E}$ und $\varphi$ könne überlagert werden, so das die beiden abgebildeten Felder übereinander gelegt werden.
-Da das eine nur mit dem anderen zusammen existieren kann macht es Sinn die beiden gleichzeitig darstellen zu versuchen.
-Dazu werden komplexe Funktionen verwendet, die in Kapitel \ref{chapter:holomorph} eingeführt wurden.
-In diesem Kapitel wird auch die Cauchy-Riemann Gleichungen beschrieben, die die Grundlage für die Beziehung zwischen den beiden Feldern bilden.
-
-Die beiden Komponenten einer komplexen Zahlen haben die Eigenschaft, dass sie senkrecht aufeinander stehen. 
-Dies ist auch bei den beiden Feldern der Fall, die wir hier betrachten.
-Damit formen wie also eine komplexe Funktion $f(z) = u(x,y) + iv(x,y)$, hierbei hängen aber beide von den reellen Variablen x und y ab, also den zweidimensionalen Koordinaten
+Das Ziel dieses Abschnitts ist, die Beziehung zwischen Äquipotentiallinien und dem elektrische Feld zu zeigen.
+Die beiden Funktionen $\vec{E}$ und $\varphi$ können gemeinsam dargestellt werden.
+Dabei wird ein wichtiger Zusammenhang klar: Die Potentiallinien und E-Feldlinien stehen immer senkrecht aufeinander.
+Dies wird hier mit komplexen Funktionen erklärt, die in Kapitel \ref{chapter:holomorph} eingeführt wurden.
+Dort werden auch die Cauchy-Riemann Gleichungen beschrieben, welche die Grundlage für die Beziehung zwischen den beiden Feldern bilden.
+Wir bilden eine komplexe Funktion $f(z) = u(x,y) + iv(x,y)$, hierbei hängen Real- und Imaginärteil nur von den reellen Variablen x und y ab, also den zweidimensionalen Koordinaten unseres Abbildungssystems.
+Der Realteil $u$ wird als elektrostatisches Feld definiert und ist nun eine Funktion von $x$ und $y$.
+Der Imaginärteil $v$ ist das Potentialfeld.
 Beide Funktionen erfüllen die Cauchy-Riemann Gleichungen, und sind daher holomorph. 
-Es kann jetzt auch genau gezeigt werden wieso die beiden Felder senkrecht aufeinander stehen.
-Da diese Funktionen auch die Laplace-Gleichung 
+Es kann jetzt auch gezeigt werden, wieso die beiden Felder senkrecht aufeinander stehen.
+Da diese Funktionen die Laplace-Gleichung 
 \begin{equation}
 	\Delta u = 0
+	\label{elektro:equation:laplace}
 \end{equation}
 und 
 \begin{equation}
 	\Delta v = 0
 \end{equation}
 erfüllen,
-kann wenn eine der beiden bekannt ist, die jeweils andere Funktion sofort bestimmt werden.
+kann, wenn eine der beiden bekannt ist, die jeweils andere Funktion sofort bestimmt werden.
 Wenn zum Beispiel die Funktion $u$ des elektrischen Feldes bekannt ist, können wir schreiben:
 \begin{equation}
 	dv = \frac{\partial v}{\partial x}dx + \frac{\partial v}{\partial y} dy = 
 	-\frac{\partial u}{\partial y}dx + \frac{\partial u}{\partial x}dy
 \end{equation}
-und diese Gleichung integrieren, um v zu bestimmen.
-
+und diese Gleichung integrieren, um $v$ zu bestimmen.
 Die beiden Vektoren
 \begin{equation}
 	\nabla{u} = \left(\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right)
