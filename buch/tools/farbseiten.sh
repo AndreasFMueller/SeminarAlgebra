@@ -139,6 +139,13 @@ chapter=jordan
 2
 4
 5
+6
+8
+11
+13
+14
+15
+16
 #
 # Kapitel 14 qa
 chapter=qa
@@ -147,13 +154,8 @@ chapter=qa
 #
 # Kapitel 15 elektro
 chapter=elektro
-1
-2
 4
 5
-6
-9
-11
 12
 13
 14
