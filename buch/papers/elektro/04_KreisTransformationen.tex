@@ -14,7 +14,7 @@
 Im Abschnitt \ref{elektro:section:RiemannSatz} wurde beschrieben, unter welchen Voraussetzungen ein Gebiet konform auf den Einheitskreis abgebildet werden kann.
 Dabei wurde erwähnt, dass es keine allgemeine Formel für die Abbildung von beliebigen Gebieten auf den Einheitskreis gibt.
 Daher suchen wir nach einer Methode, mit der komplizierte Geometrien auf den Einheitskreis abgebildet werden können.
-Dort sind das Potential und das elektrische Feld bereits bekannt (siehe Gleichung \eqref{elektro:equation:potential} und \eqref{elektro:equation:efeld}) und können anschliessend auf die ursprüngliche Geometrie zurückübertragen werden.
+Dort sind das Potential und das elektrische Feld bereits bekannt (siehe Gleichung \eqref{elektro:equation:potential_radial} und \eqref{elektro:equation:efeld_radial}) und können anschliessend auf die ursprüngliche Geometrie zurückübertragen werden.
 Dafür wird im Folgenden die Schwarz-Christoffel-Transformation verwendet.
 
 \subsection{Schwarz-Christoffel-Transformation
@@ -50,12 +50,12 @@ Dabei ist $C$ eine komplexe Konstante.
 Die Positionen der Prevertices $w_k$ sind im Allgemeinen nicht direkt bekannt und müssen aus der Geometrie des Polygons bestimmt werden.
 Dabei entsteht ein nichtlineares Parameterproblem, das numerisch gelöst wird.
 Für diese Berechnung wird in dieser Arbeit die Schwarz-Christoffel-Toolbox in MATLAB verwendet.
-Die gesamte Abbildung wird durch das Integral aller Teile der Ableitung gebildet
+Die gesamte Abbildung wird durch das Integral
 \begin{equation}
-	f(w) = A + C \int_{w_0}^{w}\prod_{k=1}^{n} \left(1-\frac{\zeta}{w_k}\right)^{\frac{\alpha_k}{\pi}-1} d\zeta,
+	f(w) = A + C \int_{w_0}^{w}\prod_{k=1}^{n} \left(1-\frac{\zeta}{w_k}\right)^{\frac{\alpha_k}{\pi}-1} d\zeta
 	\label{elektro:equation:SchwarzChristoffel}
 \end{equation}
-wobei die Integrationsgrenze $w_0$ einfach ein gewählter Basispunkt ist.
+aller Teile der Ableitung gebildet wobei die Integrationsgrenze $w_0$ einfach ein gewählter Basispunkt ist.
 Eine andere Wahl von $w_0$ verändert lediglich die additive Konstante $A$.
 Das Integral ist als Wegintegral zu verstehen, wie es in \ref{buch:integration:section:wegintegral} eingeführt wurde.
 

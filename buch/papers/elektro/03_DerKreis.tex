@@ -18,13 +18,13 @@ Aufgrund der Rotationssymmetrie hängen sowohl das elektrische Feld $\vec{E}$ al
 % \subsection{Radialsymmetrische Potentiale
 % \label{elektro:subsection:RadialsymmetrischePotentiale}}
 % Im Kreis ist das Potential radialsymmetrisch verteilt.
-% Der Kreis kann eine Punktladung $Q$ darstellen oder eine Ladungsverteilung $\rho$, die sich auf der Kreisoberfläche befindet.
-% % Der Kreis stellt eine Punktladung mit der Ladungsdichte $\rho$ dar.
-% Da auch später immer von einer Ladungsverteilung $\rho$ auf verschiedenen Figuren ausgegangen wird, wird hier die Ladungsdichte $\rho$ als Ausgangspunkt genommen.
+% Der Kreis kann eine Punktladung $Q$ darstellen oder eine Ladungsverteilung $\varrho$, die sich auf der Kreisoberfläche befindet.
+% % Der Kreis stellt eine Punktladung mit der Ladungsdichte $\varrho$ dar.
+% Da auch später immer von einer Ladungsverteilung $\varrho$ auf verschiedenen Figuren ausgegangen wird, wird hier die Ladungsdichte $\varrho$ als Ausgangspunkt genommen.
 % Dank der Punktsymmetrie des Kreises ist das Potentialfeld durch Polarkoordinaten, die den Abstand $r$ und den Winkel $\varphi$ darstellen, vollständig beschrieben.  
 % Im Abschnitt \ref{elektro:subsection:komplex} wurde gezeigt wie das Potentialfeld
 % \begin{equation}
-% 	\varphi = \int_{-\infty}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} dV
+% 	\varphi = \int_{-\infty}^{\infty} \frac{\varrho}{4\pi\varepsilon_0 r} dV
 % 	\label{elektro:equation:potentialbegin}
 % \end{equation}
 % und das elektrische Feld $\vec{E}$ zusammenhängen.
@@ -34,10 +34,10 @@ Aufgrund der Rotationssymmetrie hängen sowohl das elektrische Feld $\vec{E}$ al
 % Wie zuvor gezeigt, stellt der Kreis die Ladung dar und wir wollen das Potentialfeld ausserhalb des Kreises beschreiben.
 % Dazu können wir das Integral des Potentials 
 % \begin{equation}
-%     \varphi = \int_{0}^{2\pi} \int_{r}^{\infty} \frac{\rho}{4\pi\varepsilon_0 r} r \, dr \, d\varphi
-%     = \frac{\rho}{2\varepsilon_0} \int_{r}^{\infty} dr
-%     = \frac{\rho}{2\varepsilon_0} [r]_{r}^{\infty}
-%     = -\frac{\rho}{2\varepsilon_0} r
+%     \varphi = \int_{0}^{2\pi} \int_{r}^{\infty} \frac{\varrho}{4\pi\varepsilon_0 r} r \, dr \, d\varphi
+%     = \frac{\varrho}{2\varepsilon_0} \int_{r}^{\infty} dr
+%     = \frac{\varrho}{2\varepsilon_0} [r]_{r}^{\infty}
+%     = -\frac{\varrho}{2\varepsilon_0} r
 % \end{equation}
 % von der Kreisoberfläche bis in die Unendlichkeit lösen.
 % Die Abbildung dieser Formel ist in Abbildung \ref{elektro:figure:phi_feld} dargestellt.
@@ -53,24 +53,24 @@ Aufgrund der Rotationssymmetrie hängen sowohl das elektrische Feld $\vec{E}$ al
 
 Für die zweidimensionale Betrachtung wird ein kreisförmiger Leiter mit Radius $R$ betrachtet.
 Aufgrund der Rotationssymmetrie hängt das elektrische Feld ausserhalb des Kreises nur vom Abstand $r$ zum Mittelpunkt ab und zeigt radial nach aussen.
-Die Ladung des Leiters wird durch die Ladung pro Längeneinheit $\rho$ beschrieben.
-Dabei bezeichnet $\rho$ die Ladung pro Längeneinheit senkrecht zur betrachteten Ebene und hat die Einheit $\mathrm{C/m}$.
+Die Ladung des Leiters wird durch die Ladung pro Längeneinheit $\varrho$ beschrieben.
+Dabei bezeichnet $\varrho$ die Ladung pro Längeneinheit senkrecht zur betrachteten Ebene und hat die Einheit $\mathrm{C/m}$.
 Gesucht ist nun das elektrische Feld an einem Punkt ausserhalb des Leiters.
 Da jeder Punkt mit demselben Abstand $r$ vom Mittelpunkt aufgrund der Symmetrie dieselbe Feldstärke besitzt, kann ein konzentrischer Kreis mit Radius $r>R$ betrachtet werden.
-Das Gausssche Gesetz bezieht sich auf eine geschlossene Fläche.
-Da hier nur ein zweidimensionaler Querschnitt dargestellt wird, wird der Kreis gedanklich um eine beliebige Länge $\ell$ senkrecht zur Zeichenebene erweitert.
-Die eingeschlossene Ladung beträgt dann $\rho \ell$.
-Auf der seitlichen Fläche besitzt das elektrische Feld überall denselben Betrag $E(r)$ und zeigt senkrecht nach aussen. Damit ergibt sich aus dem Gaussschen Gesetz
+Das gausssche Gesetz bezieht sich auf eine geschlossene Fläche.
+Da hier nur ein zweidimensionaler Querschnitt dargestellt wird, wird der Kreis gedanklich um eine beliebige Länge $l$ senkrecht zur Zeichenebene erweitert.
+Die eingeschlossene Ladung beträgt dann $\varrho l$.
+Auf der seitlichen Fläche besitzt das elektrische Feld überall denselben Betrag $E(r)$ und zeigt senkrecht nach aussen. Damit ergibt sich aus dem gaussschen Gesetz
 
 \begin{equation}
-    E(r)\,2\pi r\,\ell = \frac{\rho\,\ell}{\varepsilon_0}.
+    \lvert \vec{E}(r)\rvert \,2\pi r\,l = \frac{\varrho\,l}{\varepsilon_0}.
 \end{equation}
 
-Die beliebig gewählte Länge $\ell$ kürzt sich heraus. Für das elektrische Feld ausserhalb des Kreises folgt somit
+Die beliebig gewählte Länge $l$ kürzt sich heraus. Für das elektrische Feld ausserhalb des Kreises folgt somit
 \begin{equation}
     \vec{E}(r)
     =
-    \frac{\rho}{2\pi\varepsilon_0 r}\hat{r}.
+    \frac{\varrho}{2\pi\varepsilon_0 r}\hat{r}.
     \label{elektro:equation:efeld_radial}
 \end{equation}
 Das elektrische Feld beschreibt, wie stark und in welche Richtung eine positive Probeladung an einem bestimmten Ort beschleunigt würde.
@@ -89,10 +89,10 @@ Da das Feld radial verläuft, kann das zuvor bestimmte elektrische Feld eingeset
     \varphi(r)-\varphi(R)
     &=
     -\int_R^r
-    \frac{\rho}{2\pi\varepsilon_0 r'}\,dr'
+    \frac{\varrho}{2\pi\varepsilon_0 r'}\,dr'
     \\[1mm]
     &=
-    -\frac{\rho}{2\pi\varepsilon_0}
+    -\frac{\varrho}{2\pi\varepsilon_0}
     \ln\left(\frac{r}{R}\right).
 \end{aligned}
 \end{equation}
@@ -101,8 +101,8 @@ Wird das Potential auf der Kreisoberfläche auf $\varphi(1)=0$ gesetzt, vereinfa
 \begin{equation}
     \varphi(r)
     =
-    -\frac{\rho}{2\pi\varepsilon_0}\ln(r).
-    \label{elektro:equation:potential}
+    -\frac{\varrho}{2\pi\varepsilon_0}\ln(r).
+    \label{elektro:equation:potential_radial}
 \end{equation}
 
 
@@ -111,14 +111,15 @@ Wird das Potential auf der Kreisoberfläche auf $\varphi(1)=0$ gesetzt, vereinfa
 \subsection{Kreisspiegelung
 \label{elektro:subsection:Kreisspiegelung}}
 
-Damit man sich die Kreisspiegelung vorstellen kann, wird der Kreisrand als Spiegeloberfläche angenommen.
-Somit wird jeder Punkt ausserhalb des Kreises, auch die Unendlichkeit, in das Innere des Einheitskreises gespiegelt.
-Analog dazu wird alles innerhalb des Einheitskreises nach aussen gespiegelt, wobei der Ursprung auf alle Seiten in die Unendlichkeit gespiegelt wird.
+Um sich die Kreisspiegelung vorstellen zu können, kann der Kreisrand bildlich als Spiegeloberfläche betrachtet werden. Dabei ist jedoch zu beachten, dass es sich nicht um eine gewöhnliche euklidische Spiegelung an einem gebogenen Spiegel handelt. 
+Der Begriff „Spiegelung“ beschreibt hier lediglich, dass jeder Punkt außerhalb des Kreises – einschließlich der Unendlichkeit – einem Punkt im Inneren des Einheitskreises zugeordnet wird. 
+Analog dazu wird jeder Punkt innerhalb des Einheitskreises nach außen abgebildet, wobei der Ursprung der Unendlichkeit zugeordnet wird.
 
-Diese Transformation wird hier nur gezeigt, weil durch diese Transformation die Wahl der Integralgrenzen im Abschnitt \ref{elektro:subsection:Radialsymmetrie} erklärt werden kann.
-Es kann vom Mittelpunkt zum Kreisrand oder vom Kreisrand bis in die Unendlichkeit integriert werden und mit einer einfachen Kreisspiegelung im Komplexen vom einen zum anderen Fall übergegangen werden.
+Diese Transformation wird hier vorgestellt, weil sich damit die Wahl der Integrationsgrenzen im Abschnitt \ref{elektro:subsection:Radialsymmetrie} erklären lässt. 
+Es kann entweder vom Mittelpunkt bis zum Kreisrand oder vom Kreisrand bis in die Unendlichkeit integriert werden. 
+Mithilfe einer einfachen Kreisspiegelung in der komplexen Ebene kann zwischen diesen beiden Fällen übergegangen werden.
 Mathematisch wird die Kreisspiegelung durch die Transformation
-Mathematisch wird die Kreisspiegelung durch die Transformation
+
 \begin{equation}
     z \mapsto \frac{1}{\overline{z}}
 \end{equation}
@@ -150,11 +151,11 @@ beschrieben, wie im Kapitel \ref{chapter:geradlinig} erklärt wird.
 \subsection{Komplexe Darstellung}
 
 Das zuvor bestimmte radialsymmetrische elektrische Feld kann nun komplex dargestellt werden.
-Dabei bezeichnet $\rho$ weiterhin die Ladung pro Längeneinheit senkrecht zur betrachteten Ebene.
+Dabei bezeichnet $\varrho$ weiterhin die Ladung pro Längeneinheit senkrecht zur betrachteten Ebene.
 
 Für Punkte ausserhalb des Kreises mit $r>R$ gilt
 \begin{equation}
-    \vec{E} = \frac{\rho}{2\pi\varepsilon_0 r}\hat{r}.
+    \vec{E} = \frac{\varrho}{2\pi\varepsilon_0 r}\hat{r}.
 \end{equation}
 Mit
 \begin{equation}
@@ -169,7 +170,7 @@ und $r^2=x^2+y^2$ kann das elektrische Feld in kartesischen Koordinaten als
 \begin{aligned}
     \vec{E}
     &=
-    \frac{\rho}{2\pi\varepsilon_0 r}
+    \frac{\varrho}{2\pi\varepsilon_0 r}
     \left(
         \frac{x}{r}\hat{x}
         +
@@ -177,7 +178,7 @@ und $r^2=x^2+y^2$ kann das elektrische Feld in kartesischen Koordinaten als
     \right)
     \\[2mm]
     &=
-    \frac{\rho}{2\pi\varepsilon_0}
+    \frac{\varrho}{2\pi\varepsilon_0}
     \left(
         \frac{x}{x^2+y^2}\hat{x}
         +
@@ -188,17 +189,17 @@ und $r^2=x^2+y^2$ kann das elektrische Feld in kartesischen Koordinaten als
 geschrieben werden.
 Damit ergeben sich die Komponenten des elektrischen Feldes zu
 \begin{equation}
-    E_x = \frac{\rho}{2\pi\varepsilon_0}\frac{x}{x^2+y^2}\quad\text{und}\quad
-    E_y = \frac{\rho}{2\pi\varepsilon_0}\frac{y}{x^2+y^2}.
+    E_x = \frac{\varrho}{2\pi\varepsilon_0}\frac{x}{x^2+y^2}\quad\text{und}\quad
+    E_y = \frac{\varrho}{2\pi\varepsilon_0}\frac{y}{x^2+y^2}.
 \end{equation}
 Um die beiden Feldkomponenten in einer komplexen Funktion zusammenzufassen, wird die Notation
 \begin{equation}
-    \mathcal{E}(z)=E_x-iE_y
+    \vec{E}(z)=E_x-iE_y
 \end{equation}
 verwendet.
 Damit folgt
 \begin{equation}
-    \mathcal{E}(z) = \frac{\rho}{2\pi\varepsilon_0}\frac{x-iy}{x^2+y^2}.
+    \vec{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{x-iy}{x^2+y^2}.
 \end{equation}
 Für $z=x+iy$ gilt
 \begin{equation}
@@ -216,23 +217,19 @@ Für $z=x+iy$ gilt
 \end{equation}
 Damit kann das elektrische Feld kompakt als
 \begin{equation}
-    \boxed{
-        \mathcal{E}(z) = \frac{\rho}{2\pi\varepsilon_0}\frac{1}{z}
-    }
+        \vec{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{1}{z}
 \end{equation}
 geschrieben werden.
 
 Auch das in Abschnitt \ref{elektro:subsection:Radialsymmetrie} bestimmte Potential kann mit der komplexen Koordinate $z$ dargestellt werden.
-Da $r=|z|$ gilt, folgt für einen Kreis mit Radius $R$
+Da $r=\lvert z \rvert$ gilt, folgt für einen Kreis mit Radius $R$
 \begin{equation}
     \varphi(z)
-    = -\frac{\rho}{2\pi\varepsilon_0}\ln\left(\frac{|z|}{R}\right).
+    = -\frac{\varrho}{2\pi\varepsilon_0}\ln\left(\frac{\lvert z \rvert}{R}\right).
 \end{equation}
 Für den Einheitskreis mit $R=1$ und $\varphi(1)=0$ vereinfacht sich dies zu
 \begin{equation}
-    \boxed{
-        \varphi(z) = -\frac{\rho}{2\pi\varepsilon_0}\ln|z|
-    }.
+        \varphi(z) = -\frac{\varrho}{2\pi\varepsilon_0}\ln\lvert z \rvert.
 \end{equation}
 Das Potential $\varphi(z)$ bleibt dabei eine reellwertige Funktion.
-Die komplexe Schreibweise wird verwendet, weil sich das elektrische Feld $\mathcal{E}(z)$ dadurch als Funktion der komplexen Koordinate $z$ darstellen und später mit komplexen Abbildungen transformieren lässt.
+Die komplexe Schreibweise wird verwendet, weil sich das elektrische Feld $\vec{E}(z)$ dadurch als Funktion der komplexen Koordinate $z$ darstellen und später mit komplexen Abbildungen transformieren lässt.
