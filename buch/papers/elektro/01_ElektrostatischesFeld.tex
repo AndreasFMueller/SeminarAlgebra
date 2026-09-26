@@ -6,61 +6,80 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-
+\noindent
 In diesem Paper wird beschrieben, was unter zweidimensionaler Elektrostatik verstanden wird, welche physikalischen und mathematischen Gesetze ihr zugrunde liegen und wie diese zur Berechnung und Darstellung elektrostatischer Felder eingesetzt werden können.
 Ausgehend vom Coulomb-Gesetz werden das elektrische Feld und das elektrische Potential eingeführt und deren Zusammenhang beschrieben. 
+\index{Coulomb-Gesetz}%
 Dabei wird betrachtet, wie sich elektrische Felder und Potentiale im zweidimensionalen Raum darstellen lassen und welche Eigenschaften ihre Feld- und Äquipotentiallinien haben.
 Weiter wird erörtert, wie diese Grössen mithilfe komplexer Funktionen beschrieben werden können. 
 Dies dient als mathematische Grundlage, um elektrostatische Probleme nicht nur für einfache Geometrien wie den Kreis, sondern auch für kompliziertere Formen zu beschreiben.
 Es wird der riemannsche Abbildungssatz vorgestellt und erläutert, wie verschiedene Geometrien auf einfachere Gebiete abgebildet werden, für welche das elektrische Feld und das Potential bereits bekannt sind. 
+\index{Abbildungssatz}%
+\index{riemannscher Abbildungssatz}%
 Am Beispiel des Kreises und später mithilfe der Schwarz-Christoffel-Transformation wird gezeigt, wie dieses Prinzip angewendet werden kann.
+\index{Schwarz-Christoffel-Transformation}%
 
-\section{Van de Graaff Bandgenerator, Blitze und Styroporkügelchen --- alles Elektrostatik}
+\section{Van-de-Graaff-Bandgenerator, Blitze und Styroporkügelchen --- alles Elektrostatik}
+\kopfrechts{Elektrostatik}%
 Grundlage der Elektrostatik ist folgendes Prinzip:
 Gleichartige Ladungen stossen sich ab, ungleichartige Ladungen ziehen sich an.
 Elektrostatik wird für uns Menschen vor allem dann spürbar, wenn es zu Ladungstrennungen kommt.
 Beispielsweise ziehen wir einen synthetischen Pullover über den Kopf, hören ein Knistern und wenn wir dann einen anderen (geerdeten) Menschen berühren, funkt es.
 Ein kurzes Zwicken beweist diese unsichtbare elektrostatische Aufladung, die durch Reibung des Pullovers erzeugt worden ist.
 Als Fachpersonen im Bereich der Elektrotechnik haben wir häufig Bauteile in der Hand, die wir vor solcher elektrostatischer Entladung (ESD) schützen müssen.
+\index{ESD}%
+\index{elektrostatisch}%
 Zum Schutz empfindlicher Bauteile tragen wir daher geerdete Armbänder, was Ladungstrennung, welche zu ESD führt, verhindert. 
 
-Ein sehr anschauliches elektrostatisches Experiment bietet der Van de Graaff Bandgenerator.
+Ein sehr anschauliches elektrostatisches Experiment bietet der Van-de-Graaff-Bandgenerator.
+\index{Van-de-Graaff-Bandgenerator}%
 Von Robert van de Graaff 1929 erfunden, nutzt dieser die mechanische Reibung eines Gummibandes, um gleichartige Ladungsträger auf einer Metallkugel abzuladen, welche sich anschliessend durch Influenz auf der ganzen Kugeloberfläche verteilen.
+\index{Influenz}%
 Es spielt dabei keine Rolle, ob die Ladungsträger positiv oder negativ sind.
 Um die Ladungstrennung beizubehalten, wird eine (langhaarige) Versuchsperson auf ein isoliertes Podest gestellt.
-Sobald die Metllkugel angefassst wird,wandern die Ladungen auf die Versuchsperson, und da sie sich abstossen, entsteht eine kleine Kraft.
+\index{Ladungstrennung}%
+Sobald die Metallkugel angefassst wird, wandern die Ladungen auf die Versuchsperson und da sie sich abstossen, entsteht eine kleine Kraft.
 Diese reicht bei genügend trockener Luft aus, um die Haare der Versuchsperson zu Berge stehen zu lassen.
-Trotz seines tiefen Wirkungsgrades kommt der Van de Graaff Generator zur Erzeugung hoher Gleichspannungen als Teilchenbeschleuniger zum Einsatz \cite{elektro:lexikon}.
+Trotz seines tiefen Wirkungsgrades kommt der Van-de-Graaff-Generator zur Erzeugung hoher Gleichspannungen als Teilchenbeschleuniger zum Einsatz \cite{elektro:lexikon}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/What-is-a-Van-de-Graaff-Generator-2.JPG}
 	\label{elektro:figure:vandegraaff}
-	\caption[]{Der Van de Graaff Generator illustriert die Elektrostatik auf anschauliche Weise: Gleichartige Ladungen stossen sich ab.}
+	\caption[]{Der Van-de-Graaff-Generator illustriert die Elektrostatik auf anschauliche Weise: Gleichartige Ladungen stossen sich ab.}
 \end{figure}
 
 
 \section{Grundlagen der Elektrostatik\label{elektro:section:EFeld}}
 \kopfrechts{Grundlagen der Elektrostatik}
-Dieses Kapitel gibt einen Überblick über die Grundbegriffe der Elektrostatik basierend auf dem Elektrotechnik-2-Skript im gleichnamigen Modul für Elektrotechniker, mit dem Ziel, auch für Nicht-Elektrotechniker gut verständlich zu sein. \cite{elektro:elt2-skript}.
+Dieses Kapitel gibt einen Überblick über die Grundbegriffe
+der Elektrostatik basierend auf dem Elektrotechnik-2-Skript
+\cite{elektro:elt2_skript} im
+gleichnamigen Modul für Elektrotechniker, mit dem Ziel, auch für
+Nicht-Elektrotechniker gut verständlich zu sein.
 In der Elektrostatik liesst kein Strom, sondern es werden ausschliesslich ruhende --- statische --- elektrische Ladungsträger betrachtet.
 In unseren Anwendungen verteilen sich diese Ladungen auf der Oberfläche von leitenden Körpern, bis die Kräfte zwischen den Ladungen einen stabilen Zustand erreicht haben, und still stehen bleiben.
 Erst dann spricht man von Elektrostatik.
+\index{Elektrostatik}%
 Wird nach der Zeit abgeleitet, um die Änderung über die Zeit zu sehen, so ist die Ableitung
 $\frac{\partial \vec{E}}{\partial t} = 0$
-gleich Null \cite{elektro:elt2_skript}. 
+gleich Null.% \cite{elektro:elt2_skript}. 
 
 \subsection{Elektrisches Feld und Potentialfeld
 \label{elektro:subsection:VektorSkalar}}
 Das \emph{elektrische Feld} ist ein Vektorfeld.
+\index{Vektorfeld}%
+\index{elektrisches Feld}%
 Das bedeutet, jedem Punkt im Raum wird ein Vektor mit Betrag und Richtung der elektrischen Feldstärke zugeordnet. 
 Die Länge des Vektors zeigt, wie stark das elektrische Feld an diesem Punkt ist. 
 Seine Richtung ist diejenige Richtung, in die eine positive Probeladung bewegt wird, wenn sie an diesem Punkt platziert würde.
 Eine Probeladung ist eine Ladung, die so klein ist, dass sie das Feld nicht beeinflusst und dient dazu, die Stärke eines Feldes zu messen.
 Das \emph{Potentialfeld} ist ein Skalarfeld.
+\index{Potentialfeld}%
 Jedem Punkt im Raum wird der Betrag, also die Stärke des Potentials, zugeordnet, aber keine Richtung.
 Diese Stärke wird in Volt angegeben, der definierten Einheit für das Potential.
 
 Elektrostatische Felder sind Quellenfelder, das bedeutet, es gibt Punkte, von denen die Feldlinien ausgehen und Punkte, in denen sie zusammenlaufen. Die positiven Ladungen sind die Quellen des Feldes und die negativen Ladungen die Senken. 
+\index{Feldlinie}%
 Im elektrostatischen Feld gibt es keine Wirbel, die Pfeile sind somit immer gerade.
 Es ergeben sich keine geschlossenen Feldlinien, wie es zum Beispiel beim Magnetfeld der Fall ist.
 Die Feldlinien können sich aber im Unendlichen schliessen, in diesem Fall laufen die Feldlinien radial bis ins Unendliche.
@@ -74,6 +93,7 @@ Das Coulomb-Gesetz
 \end{equation}
 beschreibt die Kraft, welche zwei ruhende Punktladungen aufeinander ausüben.
 In der Praxis ist das Coulomb-Gesetz nur gültig, wenn der Abstand zwischen den beiden Ladungen viel grösser ist als die Grösse der Ladungen selbst.
+\index{Coulomb-Gesetz}%
 Ist dies nicht der Fall, werden sich andere physikalische Effekte bemerkbar machen, die das Coulomb-Gesetz nicht berücksichtigt.
 Die Coulomb-Kraft hängt von der Grösse der jeweiligen Ladung $Q_1$ und $Q_2$ ab.
 Werden die Ladungen grösser, so nimmt auch die Kraft zu.
@@ -102,6 +122,7 @@ verwandt.
 	\caption[]{Normiert auf eine Punktladung q handelt es sich beim elektrischen Feld um ein Radialfeld.}
 \end{figure}
 Bringt man eine Probeladung $q$ in die Nähe einer Punktladung $Q$, so ist die Kraft, welche auf die Probeladung wirkt, als elektrische Feldstärke definiert.
+\index{Feldstarke@Feldstärke}%
 Die Kraft ist das gesamte vektorielle Kraftfeld, das an der jeweiligen Stelle auf $q$ wirkt, und wird in Volt pro Meter angegeben $[\vec{E}] = V/m$.
 
 \subsection{Das elektrische Potential $\varphi$
@@ -121,7 +142,9 @@ Es wird dabei oft ein Referenzpunkt gewählt, der als Nullpunkt dient.
 Das negative Vorzeichen in der Formel \eqref{elektro:equation:Potential} hat seinen Ursprung in der Wahl des Bezugssystem, der Referenz $P_{\text{ref}}$, von wo aus integriert wird.
 In der Formel \eqref{elektro:equation:Potential} wird der Betrag des elektrostatischen Felds $\vec{E}$ als Variable verwendet, sodass an jedem Punkt von $\vec{E}$ auf das dort herrschende Potential geschlossen werden kann und umgekehrt. 
 Wenn auf zwei nebeneinanderliegenden Punkten dasselbe Potential $\varphi$ herrscht, werden diese mit einer Linie verbunden, der sogenannten Äquipotentiallinie.
-Diese Linien sind immer geschlossen und verlaufen senkrecht zu den E-Feldlinien.
+\index{Aquipotentiallinie@Äquivpotentiallinie}%
+Diese Linien sind immer geschlossen und verlaufen senkrecht zu den
+$\vec{E}$-Feldlinien.
 Sie haben aber noch eine weitere wichtige Eigenschaft:
 Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass dabei Arbeit aufgewendet werden muss.
 \begin{figure}
@@ -144,57 +167,69 @@ Auf diesen Linien kann eine Probeladung beliebig verschoben werden, ohne dass da
 % Das Feld ausserhalb ist dabei immer gleich egal wie hoch das potential ist oder ob einfach nur angenommen wird das der Einheitskreis als einzelne ladung angenommen wird.
 % Theoretisch kann angenommen werden das der Kreis auf die Grösse eines Elektrons geschrumpft wird dabei würde das Feld immer noch gleich aussehen. 
 
-\subsection{Zusammenhang zwischen E-Feld und Potential über komplexe Funktionen
+\subsection{Zusammenhang zwischen $\vec{E}$-Feld und Potential über komplexe Funktionen
 \label{elektro:subsection:komplex}}
 Das Ziel dieses Abschnitts ist, die Beziehung zwischen Äquipotentiallinien und dem elektrische Feld zu zeigen.
 Die beiden Funktionen $\vec{E}$ und $\varphi$ können gemeinsam dargestellt werden.
 Dabei wird ein wichtiger Zusammenhang klar: Die Potentiallinien und $\vec{E}$-Feldlinien stehen immer senkrecht aufeinander.
 Dies wird hier mit komplexen Funktionen erklärt, die in Kapitel \ref{chapter:holomorph} eingeführt wurden.
 Dort werden auch die Cauchy-Riemann-Gleichungen beschrieben, welche die Grundlage für die Beziehung zwischen den beiden Feldern bilden.
+\index{Cauchy-Riemann-Gleichungen}%
 Wir bilden eine komplexe Funktion $f(z) = u(x,y) + iv(x,y)$, hierbei hängen Real- und Imaginärteil nur von den reellen Variablen $x$ und $y$ ab, also den zweidimensionalen Koordinaten unseres Abbildungssystems.
-Der Realteil $u$ wird als elektrostatisches Feld definiert und ist nun eine Funktion von $x$ und $y$.
-Der Imaginärteil $v$ ist das Potentialfeld.
-Beide Funktionen erfüllen die Cauchy-Riemann-Gleichungen, und sind daher holomorph. 
-Es kann jetzt auch gezeigt werden, wieso die beiden Felder senkrecht aufeinander stehen, eine ausführlichere Herleitung ist im Buch Functions of Complex Variables and Electrostatics von Francesco Lacava zu finden \cite{elektro:Lacava2022}.
+%Der Realteil $u$ wird als elektrostatisches Feld definiert und ist nun eine Funktion von $x$ und $y$.
+%Der Imaginärteil $v$ ist das Potentialfeld.
+%Beide Funktionen erfüllen die Cauchy-Riemann-Gleichungen, und sind daher holomorph. 
+%Es kann jetzt auch gezeigt werden, wieso die beiden Felder senkrecht
+%aufeinander stehen, eine ausführlichere Herleitung ist im Buch
+%\cite{elektro:Lacava2022}
+%Functions
+%of Complex Variables and Electrostatics von Francesco Lacava zu finden.
+Der Realteil $u(x,y)$ ist das elektrostatisch Potential.
 Da diese Funktionen die Laplace-Gleichungen 
 \begin{equation}
 	\Delta u = 0
 	\label{elektro:equation:laplace}
 \end{equation}
 und 
-\begin{equation}
+\begin{equation*}
 	\Delta v = 0
-\end{equation}
+\end{equation*}
 erfüllen,
 kann, wenn eine der beiden bekannt ist, die jeweils andere Funktion sofort bestimmt werden.
-Wenn zum Beispiel die Funktion $u$ des elektrischen Feldes bekannt ist, können wir
-\begin{equation}
+Wenn zum Beispiel die Funktion $u$
+%des elektrischen Feldes
+bekannt ist, können wir
+\begin{equation*}
 	dv = \frac{\partial v}{\partial x}dx + \frac{\partial v}{\partial y} dy = 
 	-\frac{\partial u}{\partial y}dx + \frac{\partial u}{\partial x}dy
-\end{equation}
+\end{equation*}
 schreiben und diese Gleichung integrieren, um $v$ zu bestimmen.
 
 Die beiden Vektoren
-\begin{equation}
-	\nabla{u} = \left(\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right)
-\end{equation}
+\begin{equation*}
+	\nabla{u} = \left(\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right)'
+\end{equation*}
 und 
-\begin{equation}
-	\nabla{v} = \left(\frac{\partial v}{\partial x}, \frac{\partial v}{\partial y} \right)
-\end{equation}
+\begin{equation*}
+	\nabla{v} = \left(\frac{\partial v}{\partial x}, \frac{\partial v}{\partial y} \right)'
+\end{equation*}
 stehen senkrecht aufeinander, das heisst sie sind normal zu einander.
-Durch Einsetzen in die Cauchy-Riemann-Gleichungen
-\begin{equation}
-	\begin{aligned}
+Durch Einsetzen der Cauchy-Riemann-Gleichungen im Skalarprodukt
+\begin{align*}
 	\nabla u \cdot \nabla v
 	&= 
-	\begin{pmatrix} \frac{\partial u}{\partial x} \\
-	\frac{\partial u}{\partial y} 
-	\end{pmatrix}
-	\cdot 
-	\begin{pmatrix}
-	\frac{\partial v}{\partial x} \\ \frac{\partial v}{\partial y} 
-	\end{pmatrix}
+{
+\renewcommand{\arraystretch}{2.2}
+\begin{pmatrix}
+	\displaystyle \frac{\partial u}{\partial x} \\
+	\displaystyle \frac{\partial u}{\partial y} 
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+	\displaystyle \frac{\partial v}{\partial x} \\
+	\displaystyle \frac{\partial v}{\partial y} 
+\end{pmatrix}
+}
 	\\[2mm]
 	&= 
 	\frac{\partial u}{\partial x} 
@@ -203,13 +238,14 @@ Durch Einsetzen in die Cauchy-Riemann-Gleichungen
 	\\[2mm]
 	&=
 	- \frac{\partial u}{\partial x} \frac{\partial u}{\partial y} + \frac{\partial u}{\partial y} \frac{\partial u}{\partial x} = 0,
-	\end{aligned}
-\end{equation} 
-	kann man nachvollziehen dass,
-\begin{equation}
+\end{align*} 
+	kann man nachvollziehen, dass
+\begin{equation*}
 		\nabla u \cdot\nabla v = 0.
-\end{equation}
-Das bedeutet, die Niveaulinien der beiden Funktionen $u(x,y)$ und $v(x,y)$ sind lokal senkrecht in ihren Schnittpunkten. Bei jedem Kreuzungspunkt gibt es einen 90 Grad Winkel zwischen den beiden Kurven.
+\end{equation*}
+Das bedeutet, die Niveaulinien der beiden Funktionen $u(x,y)$ und $v(x,y)$ sind lokal senkrecht in ihren Schnittpunkten.
+Bei jedem Kreuzungspunkt gibt es einen $90^\circ$-Winkel zwischen den beiden Kurven.
+\index{Niveau-Linie}%
 Genau so wie das bei den Feldlinien des elektrischen Feldes und den Niveaulininen des Potentialfelds der Fall ist.
 
 

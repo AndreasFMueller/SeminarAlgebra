@@ -9,7 +9,8 @@
 
 \section{Komplexe Transformationen auf den Kreis
 \label{elektro:section:KreisTrafo}}
-\kopfrechts{Kreis Transformationen}
+\kopfrechts{Kreistransformationen}
+\input{papers/elektro/fig/sc_trafo_erklaerung.tex}%
 
 Im Abschnitt \ref{elektro:section:RiemannSatz} wurde beschrieben, unter welchen Voraussetzungen ein Gebiet konform auf den Einheitskreis abgebildet werden kann.
 Dabei wurde erwähnt, dass es keine allgemeine Formel für die Abbildung von beliebigen Gebieten auf den Einheitskreis gibt.
@@ -24,10 +25,11 @@ Es geht darum, den Rand des Einheitskreises auf den Rand des Polygons abzubilden
 Für unsere Anwendung ist dies besonders nützlich, da das elektrische Feld und das Potential für den Einheitskreis bereits bekannt sind.
 Mit einer konformen Abbildung können diese bekannten Grössen auf eine komplizierte polygonale Geometrien übertragen werden.
 
+
 Der Einheitskreis ist durch
-\begin{equation}
+\begin{equation*}
 	D = \{w \in \mathbb{C} \mid |w| < 1\}
-\end{equation}
+\end{equation*}
 gegeben und besitzt den Rand $|w|=1$.
 Auf diesem Rand werden Punkte festgelegt, die auf die Ecken des Polygons abgebildet werden.
 Diese Punkte werden als \emph{Prevertices} bezeichnet und mit
@@ -36,9 +38,9 @@ Sie können als komplexe Zeiger in der Form
 $w_k=e^{i\theta_k}$ dargestellt werden.
 Die Ecken des Polygons werden mit $z_1,z_2,\ldots,z_n$ bezeichnet.
 Gesucht wird somit eine Funktion $f$, für welche
-\begin{equation}
+\begin{equation*}
 	f(w_k) = z_k
-\end{equation}
+\end{equation*}
 für $k = 1,\ldots,n$ gilt.
 Die Konstruktion beruht auf den Innenwinkeln $\alpha_k$ der Ecken sowie auf der Geometrie des Polygons, wobei $\alpha_k$ den jeweiligen Innenwinkel in Radiant bezeichnet.
 Als erster Schritt in der Berechnung wird nun die Ableitung der Schwarz-Christoffel-Formel verwendet, da vorerst nur die Richtungsänderung an den Ecken des Polygons von Bedeutung ist
@@ -57,7 +59,7 @@ Die gesamte Abbildung wird durch das Integral
 \end{equation}
 aller Teile der Ableitung gebildet wobei die Integrationsgrenze $w_0$ einfach ein gewählter Basispunkt ist.
 Eine andere Wahl von $w_0$ verändert lediglich die additive Konstante $A$.
-Das Integral ist als Wegintegral zu verstehen, wie es in \ref{buch:integration:section:wegintegral} eingeführt wurde.
+Das Integral ist als Wegintegral zu verstehen, wie es in Abschnitt~\ref{buch:integration:section:wegintegral} eingeführt wurde.
 
 % In diesem Anwendungsfall ist vielleicht aufgefallen, dass immer das Feld ausserhalb des Polygons betrachtet wird, daher muss hier noch die feine Unterscheidung gemacht werden, dass die Aussenwinkel betrachtet werden müssen. 
 % Dazu kommt dass die Fläche des Einheitskreises von innen nach aussen gestülpt werden muss, was wie in Abschnitt \ref{elektro:subsection:Kreisspiegelung} beschrieben durch die Kreisspiegelung erreicht wird. 
@@ -75,29 +77,29 @@ Das Integral ist als Wegintegral zu verstehen, wie es in \ref{buch:integration:s
 In den folgenden Beispielen wird nicht das Innere des Polygons, sondern das Gebiet ausserhalb des geladenen Körpers betrachtet.
 Dieses Aussengebiet ist in der komplexen Ebene $\mathbb{C}$ zunächst nicht einfach zusammenhängend.
 Betrachtet man jedoch die erweiterte komplexe Ebene
-\begin{equation}
+\begin{equation*}
     \widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\},
-\end{equation}
+\end{equation*}
 gehört auch der Punkt $\infty$ zum Gebiet.
 Auf der riemannschen Zahlenkugel ist das Aussengebiet damit einfach zusammenhängend und der riemannsche Abbildungssatz kann angewendet werden.
 Die Abbildung wird so gewählt, dass
-\begin{equation}
+\begin{equation*}
     \infty \longmapsto 0
-\end{equation}
+\end{equation*}
 gilt.
 Damit entspricht das Aussengebiet des Polygons dem Inneren des Einheitskreises.
 Genau diese Situation wird in den folgenden Beispielen verwendet.
 Um das Beschriebene zu veranschaulichen sind in Abbildung \ref{elektro:figure:SchwarzChristoffel_erklaerung} die Prevertices $w_k$, die Ecken des Polygons $z_k$ und die Innenwinkel $\alpha_k$ eingezeichnet.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_erklaerung.png}
-	\caption{Zuordnung zwischen dem Einheitskreis und dem Polygon bei der Schwarz-Christoffel-Transformation.
-        Links liegen die Prevertices $w_k$ auf dem Rand des Einheitskreises.
-        Durch die Abbildung $f$ werden sie auf die entsprechenden Ecken $z_k$ des Polygons rechts abgebildet.
-        Die Winkel $\alpha_k$ bezeichnen die Innenwinkel des Polygons.}
-	\label{elektro:figure:SchwarzChristoffel_erklaerung}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_erklaerung.png}
+%	\caption{Zuordnung zwischen dem Einheitskreis und dem Polygon bei der Schwarz-Christoffel-Transformation.
+%        Links liegen die Prevertices $w_k$ auf dem Rand des Einheitskreises.
+%        Durch die Abbildung $f$ werden sie auf die entsprechenden Ecken $z_k$ des Polygons rechts abgebildet.
+%        Die Winkel $\alpha_k$ bezeichnen die Innenwinkel des Polygons.}
+%	\label{elektro:figure:SchwarzChristoffel_erklaerung}
+%\end{figure}
 
 
 \subsection{Beispiel: Dreieck auf Kreis}
@@ -106,13 +108,16 @@ Mit der Schwarz-Christoffel-Transformation kann nun der Einheitskreis so transfo
 Für die Berechnung der Prevertices und der weiteren Parameter wird die (\cite[Schwarz-Christoffel-Toolbox]{elektro:sc-toolbox}) in MATLAB verwendet.
 Danach wird die Transformation angewendet, wodurch das Feld sich so zeigt wie in Abbildung \ref{elektro:figure:SC_triag_trafo} dargestellt.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_triag.png}
-	\caption{Konforme Abbildung des Aussengebiets einer dreieckigen Kontur auf das Innere des Einheitskreises. 
-	Die eingezeichneten Prevertices auf dem Kreisrand entsprechen den Ecken des Dreiecks.}
-	\label{elektro:figure:SC_triag_trafo}
-\end{figure}
+\input{papers/elektro/fig/sc_trafo_triag.tex}
+\input{papers/elektro/fig/sc_trafo_huf.tex}%
+\input{papers/elektro/fig/sc_trafo_star.tex}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_triag.png}
+%	\caption{Konforme Abbildung des Aussengebiets einer dreieckigen Kontur auf das Innere des Einheitskreises. 
+%	Die eingezeichneten Prevertices auf dem Kreisrand entsprechen den Ecken des Dreiecks.}
+%	\label{elektro:figure:SC_triag_trafo}
+%\end{figure}
 
 In Abbildung \ref{elektro:figure:SC_triag_trafo} ist zu sehen, wie die Feldlinien an den Kanten des Dreiecks senkrecht abgehen und sich im Raum ausbreiten.
 Dabei kreuzen sie die Potentiallinien immer senkrecht kreuzen.
@@ -128,14 +133,14 @@ Beim Inneren des Einheitskreises entspricht dies einer Orientierung gegen den Uh
 
 \subsection{Komplexere Geometrie}
 Ein Beispiel für eine komplexere Geometrie mit mehreren Ecken, darunter auch einige, die einen Innenwinkel grösser als $180^{\circ}$ haben, wird ein hufeisenförmiges Polygon gezeigt.
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_huf.png}
-	\caption{Konforme Abbildung des Aussengebiets einer hufeisenförmigen Kontur auf das Innere des Einheitskreises. 
-	Die Prevertices auf dem Kreisrand entsprechen den Ecken der ursprünglichen Geometrie.}
-	\label{elektro:figure:SC_huf_trafo}
-\end{figure}
-
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_huf.png}
+%	\caption{Konforme Abbildung des Aussengebiets einer hufeisenförmigen Kontur auf das Innere des Einheitskreises. 
+%	Die Prevertices auf dem Kreisrand entsprechen den Ecken der ursprünglichen Geometrie.}
+%	\label{elektro:figure:SC_huf_trafo}
+%\end{figure}
+%
 % In Abbildung \ref{elektro:figure:SC_star_trafo} sind drei verschiedene Winkel zu finden, die alle eine andere Konzentration an Feldlinen aufweisen die senkrecht dort aufkommen.
 % Bei spitzen winkeln ist zu sehen, dass die Feldlinen näher beieinander sind und bei den stumpferen oder sogar überstumpfen Winkeln sieht man, dass die Feldlinen weiter auseinander liegen.
 % Dies ist auf die Ladungsverteilung auf dem Objekt zurückzuführen:
@@ -146,14 +151,13 @@ Ein Beispiel für eine komplexere Geometrie mit mehreren Ecken, darunter auch ei
 Bei spitzen Winkeln liegen die Feldlinien dichter beieinander als bei stumpfen Winkeln.
 Die höhere Feldliniendichte entspricht einer grösseren elektrischen Feldstärke.
 Bei leitenden Körpern tritt an Bereichen mit starker Krümmung zudem eine erhöhte Oberflächenladungsdichte auf.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_star.png}
-	\caption{Sternförmige Kontur mit unterschiedlich grossen Innenwinkeln.
-	An den spitzen Bereichen liegen die elektrischen Feldlinien dichter beieinander, was auf eine grössere elektrische Feldstärke hinweist.}
-	\label{elektro:figure:SC_star_trafo}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{papers/elektro/grafik/SC_trafo_star.png}
+%	\caption{Sternförmige Kontur mit unterschiedlich grossen Innenwinkeln.
+%	An den spitzen Bereichen liegen die elektrischen Feldlinien dichter beieinander, was auf eine grössere elektrische Feldstärke hinweist.}
+%	\label{elektro:figure:SC_star_trafo}
+%\end{figure}
 
 
 % Diese Spitzeneffekte sind nicht auf die Elektrostatik beschränkt, sondern kommen in allen Bereichen der Physik vor.
