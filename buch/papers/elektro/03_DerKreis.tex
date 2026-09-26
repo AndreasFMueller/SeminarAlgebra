@@ -13,7 +13,7 @@ Bevor wir im nächsten Kapitel die Transformation von Kreisen betrachten, wollen
 Der Kreis ist die einfachste und am besten verstandene Figur der Mathematik.
 Elektrostatische Feldlinien und auch das Potential können leicht berechnet werden.
 Für die elektrostatische Betrachtung dieses Kapitels ist der Kreis besonders geeignet.
-Aufgrund der Rotationssymmetrie hängen sowohl das elektrische Feld $\vec{E}$ als auch das Potential $\varphi$ nur vom Abstand $r$ zum Mittelpunkt ab.
+Aufgrund der Rotationssymmetrie hängen sowohl die Feldstärke $|\vec{E}|$ des elektrischen Feldes als auch das Potential $\varphi$ nur vom Abstand $r$ zum Mittelpunkt ab.
 
 % \subsection{Radialsymmetrische Potentiale
 % \label{elektro:subsection:RadialsymmetrischePotentiale}}
@@ -58,13 +58,14 @@ Dabei bezeichnet $\varrho$ die Ladung pro Längeneinheit senkrecht zur betrachte
 Gesucht ist nun das elektrische Feld an einem Punkt ausserhalb des Leiters.
 Da jeder Punkt mit demselben Abstand $r$ vom Mittelpunkt aufgrund der Symmetrie dieselbe Feldstärke besitzt, kann ein konzentrischer Kreis mit Radius $r>R$ betrachtet werden.
 Das gausssche Gesetz bezieht sich auf eine geschlossene Fläche.
+\index{Gesetz von Gauss}%
+\index{gausssches Gesetz}%
 Da hier nur ein zweidimensionaler Querschnitt dargestellt wird, wird der Kreis gedanklich um eine beliebige Länge $l$ senkrecht zur Zeichenebene erweitert.
 Die eingeschlossene Ladung beträgt dann $\varrho l$.
 Auf der seitlichen Fläche besitzt das elektrische Feld überall denselben Betrag $E(r)$ und zeigt senkrecht nach aussen. Damit ergibt sich aus dem gaussschen Gesetz
-
-\begin{equation}
+\begin{equation*}
     \lvert \vec{E}(r)\rvert \,2\pi r\,l = \frac{\varrho\,l}{\varepsilon_0}.
-\end{equation}
+\end{equation*}
 
 Die beliebig gewählte Länge $l$ kürzt sich heraus. Für das elektrische Feld ausserhalb des Kreises folgt somit
 \begin{equation}
@@ -78,24 +79,22 @@ Das Potential beschreibt dagegen die zugehörige potentielle Energie pro Ladung.
 Sind zwei Punkte durch das elektrische Feld verbunden, ergibt sich ihre Potentialdifferenz aus dem Integral des Feldes entlang des Weges.
 Als Referenz wird hier die Oberfläche des Leiters bei $r=R$ gewählt.
 Damit gilt
-\begin{equation}
+\begin{equation*}
     \varphi(r)-\varphi(R)
     =
     -\int_R^r \vec{E}\cdot d\vec{r}.
-\end{equation}
+\end{equation*}
 Da das Feld radial verläuft, kann das zuvor bestimmte elektrische Feld eingesetzt werden:
-\begin{equation}
-\begin{aligned}
+\begin{align*}
     \varphi(r)-\varphi(R)
     &=
     -\int_R^r
     \frac{\varrho}{2\pi\varepsilon_0 r'}\,dr'
-    \\[1mm]
+    \\
     &=
     -\frac{\varrho}{2\pi\varepsilon_0}
     \ln\left(\frac{r}{R}\right).
-\end{aligned}
-\end{equation}
+\end{align*}
 Für den Einheitskreis gilt $R=1$.
 Wird das Potential auf der Kreisoberfläche auf $\varphi(1)=0$ gesetzt, vereinfacht sich die Gleichung zu
 \begin{equation}
@@ -112,17 +111,17 @@ Wird das Potential auf der Kreisoberfläche auf $\varphi(1)=0$ gesetzt, vereinfa
 \label{elektro:subsection:Kreisspiegelung}}
 
 Um sich die Kreisspiegelung vorstellen zu können, kann der Kreisrand bildlich als Spiegeloberfläche betrachtet werden. Dabei ist jedoch zu beachten, dass es sich nicht um eine gewöhnliche euklidische Spiegelung an einem gebogenen Spiegel handelt. 
-Der Begriff „Spiegelung“ beschreibt hier lediglich, dass jeder Punkt außerhalb des Kreises – einschließlich der Unendlichkeit – einem Punkt im Inneren des Einheitskreises zugeordnet wird. 
-Analog dazu wird jeder Punkt innerhalb des Einheitskreises nach außen abgebildet, wobei der Ursprung der Unendlichkeit zugeordnet wird.
+Der Begriff ``Spiegelung'' beschreibt hier lediglich, dass jeder Punkt außerhalb des Kreises --- einschließlich dem Punkt im Unendlichen --- einem Punkt im Inneren des Einheitskreises zugeordnet wird. 
+Analog dazu wird jeder Punkt innerhalb des Einheitskreises nach außen abgebildet, wobei der Ursprung dem Punkt im Unendlichen zugeordnet wird.
 
 Diese Transformation wird hier vorgestellt, weil sich damit die Wahl der Integrationsgrenzen im Abschnitt \ref{elektro:subsection:Radialsymmetrie} erklären lässt. 
 Es kann entweder vom Mittelpunkt bis zum Kreisrand oder vom Kreisrand bis in die Unendlichkeit integriert werden. 
 Mithilfe einer einfachen Kreisspiegelung in der komplexen Ebene kann zwischen diesen beiden Fällen übergegangen werden.
 Mathematisch wird die Kreisspiegelung durch die Transformation
 
-\begin{equation}
+\begin{equation*}
     z \mapsto \frac{1}{\overline{z}}
-\end{equation}
+\end{equation*}
 beschrieben, wie im Kapitel \ref{chapter:geradlinig} erklärt wird. 
 
 % \subsection{Zusammenhang zwischen $\vec{E}$-Feld und Potential
@@ -154,20 +153,19 @@ Das zuvor bestimmte radialsymmetrische elektrische Feld kann nun komplex dargest
 Dabei bezeichnet $\varrho$ weiterhin die Ladung pro Längeneinheit senkrecht zur betrachteten Ebene.
 
 Für Punkte ausserhalb des Kreises mit $r>R$ gilt
-\begin{equation}
+\begin{equation*}
     \vec{E} = \frac{\varrho}{2\pi\varepsilon_0 r}\hat{r}.
-\end{equation}
+\end{equation*}
 Mit
-\begin{equation}
+\begin{equation*}
     \hat{r}
     =
     \frac{x}{r}\hat{x}
     +
     \frac{y}{r}\hat{y}
-\end{equation}
+\end{equation*}
 und $r^2=x^2+y^2$ kann das elektrische Feld in kartesischen Koordinaten als
-\begin{equation}
-\begin{aligned}
+\begin{align*}
     \vec{E}
     &=
     \frac{\varrho}{2\pi\varepsilon_0 r}
@@ -176,7 +174,7 @@ und $r^2=x^2+y^2$ kann das elektrische Feld in kartesischen Koordinaten als
         +
         \frac{y}{r}\hat{y}
     \right)
-    \\[2mm]
+    \\
     &=
     \frac{\varrho}{2\pi\varepsilon_0}
     \left(
@@ -184,54 +182,51 @@ und $r^2=x^2+y^2$ kann das elektrische Feld in kartesischen Koordinaten als
         +
         \frac{y}{x^2+y^2}\hat{y}
     \right)
-\end{aligned}
-\end{equation}
+\end{align*}
 geschrieben werden.
 Damit ergeben sich die Komponenten des elektrischen Feldes zu
-\begin{equation}
+\begin{equation*}
     E_x = \frac{\varrho}{2\pi\varepsilon_0}\frac{x}{x^2+y^2}\quad\text{und}\quad
     E_y = \frac{\varrho}{2\pi\varepsilon_0}\frac{y}{x^2+y^2}.
-\end{equation}
+\end{equation*}
 Um die beiden Feldkomponenten in einer komplexen Funktion zusammenzufassen, wird die Notation
-\begin{equation}
+\begin{equation*}
 	\overline{E}(z)=E_x-iE_y
-\end{equation}
+\end{equation*}
 für das konjugiert komplexe elektrische Feld verwendet.
 Damit folgt
-\begin{equation}
+\begin{equation*}
     \overline{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{x-iy}{x^2+y^2}.
-\end{equation}
+\end{equation*}
 Für $z=x+iy$ gilt
-\begin{equation}
-\begin{aligned}
+\begin{align*}
     \frac{1}{z}
     &=
     \frac{1}{x+iy}
-    \\[2mm]
+    \\
     &=
     \frac{x-iy}{(x+iy)(x-iy)}
-    \\[2mm]
+    \\
     &=
     \frac{x-iy}{x^2+y^2}.
-\end{aligned}
-\end{equation}
+\end{align*}
 Damit kann das elektrische Feld kompakt als
-\begin{equation}
+\begin{equation*}
         \overline{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{1}{z}
-\end{equation}
+\end{equation*}
 geschrieben werden.
 
 Auch das in Abschnitt \ref{elektro:subsection:Radialsymmetrie} bestimmte Potential kann mit der komplexen Koordinate $z$ dargestellt werden.
 Da $r=\lvert z \rvert$ gilt, folgt für den Einheitskreis mit $\varphi(1)=0$ das komplexe Potential
-\begin{equation}
+\begin{equation*}
     u(z)
     = \frac{\varrho}{2\pi\varepsilon_0}\ln(z)
-\end{equation}
+\end{equation*}
 mit der Eigenschaft
-\begin{equation}
+\begin{equation*}
 	u'(z) = \overline{E}(z).
-\end{equation}
+\end{equation*}
 Das heisst, der Gradient ist jetzt ersetzt worden durch eine komplexe Ableitung einer holomorphen Funktion. 
-Ausserdem ist u(z) das komplexe Wegintegral der komplexen Funktion $\overline{E}(z)$, in Analogie dazu, dass $\varphi(z)$ das reelle Wegintegral der Vektorfunktion $\vec{E}(z)$ ist.
+Ausserdem ist $u(z)$ das komplexe Wegintegral der komplexen Funktion $\overline{E}(z)$, in Analogie dazu, dass $\varphi(z)$ das reelle Wegintegral der Vektorfunktion $\vec{E}(z)$ ist.
 Das Potential $\varphi(z)$ bleibt dabei eine reellwertige Funktion.
-Die komplexe Schreibweise wird verwendet, weil sich das konjugiert komplexe elektrische Feld $\vec{E}(z)$ dadurch als holomorphe Funktion der komplexen Koordinate $z$ darstellen und später mit komplexen Abbildungen transformieren lässt.
+Die komplexe Schreibweise wird verwendet, weil sich das konjugiert komplexe elektrische Feld $\overline{E}(z)$ dadurch als holomorphe Funktion der komplexen Koordinate $z$ darstellen und später mit komplexen Abbildungen transformieren lässt.
