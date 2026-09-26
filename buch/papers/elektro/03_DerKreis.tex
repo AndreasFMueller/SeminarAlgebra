@@ -194,12 +194,12 @@ Damit ergeben sich die Komponenten des elektrischen Feldes zu
 \end{equation}
 Um die beiden Feldkomponenten in einer komplexen Funktion zusammenzufassen, wird die Notation
 \begin{equation}
-    \vec{E}(z)=E_x-iE_y
+	\overline{E}(z)=E_x-iE_y
 \end{equation}
-verwendet.
+für das konjugiert komplexe elektrische Feld verwendet.
 Damit folgt
 \begin{equation}
-    \vec{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{x-iy}{x^2+y^2}.
+    \overline{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{x-iy}{x^2+y^2}.
 \end{equation}
 Für $z=x+iy$ gilt
 \begin{equation}
@@ -217,19 +217,21 @@ Für $z=x+iy$ gilt
 \end{equation}
 Damit kann das elektrische Feld kompakt als
 \begin{equation}
-        \vec{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{1}{z}
+        \overline{E}(z) = \frac{\varrho}{2\pi\varepsilon_0}\frac{1}{z}
 \end{equation}
 geschrieben werden.
 
 Auch das in Abschnitt \ref{elektro:subsection:Radialsymmetrie} bestimmte Potential kann mit der komplexen Koordinate $z$ dargestellt werden.
-Da $r=\lvert z \rvert$ gilt, folgt für einen Kreis mit Radius $R$
+Da $r=\lvert z \rvert$ gilt, folgt für den Einheitskreis mit $\varphi(1)=0$ das komplexe Potential
 \begin{equation}
-    \varphi(z)
-    = -\frac{\varrho}{2\pi\varepsilon_0}\ln\left(\frac{\lvert z \rvert}{R}\right).
+    u(z)
+    = \frac{\varrho}{2\pi\varepsilon_0}\ln(z)
 \end{equation}
-Für den Einheitskreis mit $R=1$ und $\varphi(1)=0$ vereinfacht sich dies zu
+mit der Eigenschaft
 \begin{equation}
-        \varphi(z) = -\frac{\varrho}{2\pi\varepsilon_0}\ln\lvert z \rvert.
+	u'(z) = \overline{E}(z).
 \end{equation}
+Das heisst, der Gradient ist jetzt ersetzt worden durch eine komplexe Ableitung einer holomorphen Funktion. 
+Ausserdem ist u(z) das komplexe Wegintegral der komplexen Funktion $\overline{E}(z)$, in Analogie dazu, dass $\varphi(z)$ das reelle Wegintegral der Vektorfunktion $\vec{E}(z)$ ist.
 Das Potential $\varphi(z)$ bleibt dabei eine reellwertige Funktion.
-Die komplexe Schreibweise wird verwendet, weil sich das elektrische Feld $\vec{E}(z)$ dadurch als Funktion der komplexen Koordinate $z$ darstellen und später mit komplexen Abbildungen transformieren lässt.
+Die komplexe Schreibweise wird verwendet, weil sich das konjugiert komplexe elektrische Feld $\vec{E}(z)$ dadurch als holomorphe Funktion der komplexen Koordinate $z$ darstellen und später mit komplexen Abbildungen transformieren lässt.
