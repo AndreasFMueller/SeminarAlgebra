@@ -160,7 +160,7 @@ Dazu spalten wir in der Gleichung
 für $k=n$ von den Summen den $a_n$ enthaltenden ersten Term mit $s=0$ ab
 und erhalten
 \begin{equation*}
-(n+\varrho)(n+\varrho+1)
+(n+\varrho)(n+\varrho-1)
 a_n
 +
 (n+\varrho)a_np_0
@@ -179,7 +179,7 @@ Wir bringen die Terme mit $a_n$ auf die linke Seite
 von
 \begin{equation}
 \bigl(
-(n+\varrho)(n+\varrho+1)
+(n+\varrho)(n+\varrho-1)
 +
 (n+\varrho)p_0
 +
@@ -189,11 +189,11 @@ a_n
 =
 -
 \sum_{s=1}^n
-\Bigl(
+\bigl(
 (n-s+\varrho)p_s
--
++
 q_s
-\Bigr)
+\bigr)
 a_{n-s}
 \label{buch:differentialgleichungen:fuchs:eqn:anrekursion}
 \end{equation}
@@ -203,7 +203,7 @@ a_n
 &=
 -
 \frac{1}{
-(n+\varrho)(n+\varrho+1)
+(n+\varrho)(n+\varrho-1)
 +
 (n+\varrho)p_0
 +
@@ -212,7 +212,7 @@ q_0
 \sum_{s=1}^n
 \bigl(
 (n-s+\varrho)p_s
--
++
 q_s
 \bigr)
 a_{n-s}
@@ -224,7 +224,7 @@ a_{n-s}
 \sum_{s=1}^n
 \bigl(
 (n-s+\varrho)p_s
--
++
 q_s
 \bigr)
 a_{n-s}.
@@ -290,9 +290,10 @@ dann $F(n+\varrho_1)=F(\varrho_2)=0$.
 In diesem Fall kann es schwierig sein, zwei unabhängige Lösungen zu
 finden.
 
-Bei der Bessel-Gleichung ist es zum Beispiel nicht möglich, 
+Bei der Bessel-Gleichung, deren Lösung in Kapitel~\ref{chapter:bessel}
+ausführlich studiert wird, ist es zum Beispiel nicht möglich, 
 zwei unabhängig Lösungen finden, wenn die Lösungen der Indexgleichung
-ganz- oder halbzahlig sind.
+ganzzahlig sind.
 Man findet dann nur die sogenannten Bessel-Funktionen erster Art.
 Erst durch analytische Fortsetzung der Lösungsfunktion um die
 Singularität an der Stelle $x=0$ kann eine linear unabhängige
