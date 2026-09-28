@@ -19,7 +19,7 @@ Beispiele für stetige Kurven beinhalten:
 
 \begin{itemize}
     \item \textbf{Fraktale Jordan-Kurven:} Die Koch-Schneeflocke, der Rand der Mandelbrot-Menge und das Sierpinski-Dreieck sind klassische Beispiele für stetige Jordan-Kurven und haben eine Hausdorff-Dimension von $>1$. Solche Kurven sind lokal beliebig komplex.
-    \item \textbf{Die Weierstrassfunktion-basierte Kurve:} Der Graph der Weierstrassfunktion 
+    \item \textbf{Die Weierstrass-Funktion-basierte Kurve:} Der Graph der Weierstrass-Funktion 
     \[
     f(x) = \sum_{n=0}^{\infty} a^n \cos(b^n \pi x)
     \]
@@ -74,7 +74,7 @@ Da $\gamma$ auf dem kompakten Kreis $S^1$ definiert und stetig ist, ist sie glei
 Daher gibt es eine einzige Schranke, die überall auf der Kurve gleichzeitig funktioniert.
 Zu der Genauigkeit $\delta$ finden wir also ein $\eta > 0$ mit
 \[
-    |t - t'| < \eta \implies \|\gamma(t) - \gamma(t')\| < \frac{\delta}{4}
+    |t - t'| < \eta \rightarrow \|\gamma(t) - \gamma(t')\| < \frac{\delta}{4}
 \]
 Dabei misst $|t - t'|$ den Abstand der Parameterwerte auf dem Kreis $S^1$. 
 Die Zahl $\eta$ ist nicht eindeutig, da jedes kleinere $\eta$ die Bedingung ebenfalls erfüllt.
@@ -89,7 +89,7 @@ Beim Betrachten sämtlicher Paare von Parameterwerten $(t, t')$, die mindestens 
 Diese Paare bilden dabei eine kompakte Menge, weshalb der Abstand zwischen den Punkten auf $\gamma$ einen positiven Mindestabstand $\varepsilon$ hat.
 
 \[
-  |t - t'| \ge \eta \implies \|\gamma(t) - \gamma(t')\| \ge \varepsilon .
+  |t - t'| \ge \eta \rightarrow \|\gamma(t) - \gamma(t')\| \ge \varepsilon .
 \]
 
 Abschnitte der Kurve, die im Durchlauf weit auseinanderliegen, kommen sich also in der Ebene nie näher als $\varepsilon$.
@@ -102,7 +102,7 @@ Angenommen, zwei Kanten schneiden sich in einem Punkt: Da beide Kanten kurz sind
 Gemäss der Definition von $\varepsilon$ ist das nur möglich, wenn ihre Parameterwerte weniger als $\eta$ auseinanderliegen.
 
 \[
-  e_i \cap e_j \neq \emptyset \implies |t_i - t_j| < \eta .
+  e_i \cap e_j \neq \emptyset \rightarrow |t_i - t_j| < \eta .
 \]
 
 Wir können also daraus schliessen, dass Schnitte nur zwischen Kanten auftreten, die auf der Kurve nahe beieinander liegen.
@@ -119,7 +119,7 @@ Dieses Parameterstück bewegt die Kurve höchstens $\delta / 2$ von der original
 Wegen $\varepsilon < \delta$ ergibt sich also überall
 
 \[
-    \sup_{t \in S^1} \|\gamma(t) - p_\delta(t)\| < \tfrac{\delta}{2} + \tfrac{\varepsilon}{3} < \delta
+    \sup_{t \in S^1} \|\gamma(t) - p_\delta(t)\| < \frac{\delta}{2} + \frac{\varepsilon}{3} < \delta.
 \]
 
 Hiermit haben wir eine Approximation der stetigen Kurve $\gamma$ durch ein einfaches Polygon $p_\delta$ konstruiert, das beliebig nahe an $\gamma$ liegt und alle in Satz \ref{jordan:satz:polygonale_approximation_stetiger_jordan_kurven} erwähnten Eigenschaften erfüllt.
@@ -131,4 +131,4 @@ Nach der Approximation der stetigen Kurve $\gamma$ durch ein einfaches Polygon $
 Wenn wir jedoch ehrlich sind, haben wir den Satz von Jordan für stetige Kurven nicht wirklich bewiesen, sondern nur gezeigt, dass er für ein beliebig ähnliches einfaches Polygon gilt.
 Dieser Makel macht diesen Beweis unvollständig und für viele Leser unbefriedigend.
 
-Ein ähnliches Gefühl über damalig existierende Beweisansätze hatte wohl auch James W. Alexander, welcher im Jahr 1922 mit seinem Paper ``A proof and extension of the Jordan-Brouwer separation theorem''\cite{jordan:Alexander1922} einen rigorosen und verallgemeinerten Beweis des Jordan-Brouwer Zerlegungssatzes, und damit auch des Satzes von Jordan, veröffentlichte und dabei die Entwicklung des Forschungsgebiets der algebraischen Topologie massgeblich prägte.
+Ein ähnliches Gefühl über damalig existierende Beweisansätze hatte wohl auch James W. Alexander, welcher mit seinem Paper \cite{jordan:Alexander1922} einen rigorosen und verallgemeinerten Beweis des Jordan-Brouwer Zerlegungssatzes, und damit auch des Satzes von Jordan, veröffentlichte und dabei die Entwicklung des Forschungsgebiets der algebraischen Topologie massgeblich prägte.

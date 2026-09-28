@@ -44,9 +44,9 @@ wobei auf jedem glatten Teilbogen alles wohldefiniert ist. Punkte, die weder auf
 
 \input{papers/jordan/lemmata/06_umlaufzahl_stueckweise_c1_kurven.tex}
 
-\subsection{Modifizierter Hopfscher Umlaufsatz: Gauss-Bonnet für stückweise Ränder}
+\subsection{Modifizierter hopfscher Umlaufsatz: Gauss-Bonnet für stückweise $C^1$-Ränder}
 
-Der Hopfsche Umlaufsatz muss angepasst werden, um Ecken und Spitzen zu berücksichtigen.
+Der hopfsche Umlaufsatz muss angepasst werden, um Ecken und Spitzen zu berücksichtigen.
 Sei $\gamma$ eine einfach geschlossene stückweise $C^1$-Kurve mit endlich vielen Ecken an $t_{1}, \ldots, t_{m}$ und endlich vielen Spitzen an $t_{m+1}, \ldots, t_{m+1}$.
 An jeder Ecke $t_i$ definiert man den Aussenwinkel $\alpha_i$ als den orientierten Winkel zwischen der einlaufenden und auslaufenden Tangente (mit dem Vorzeichen: positive $\alpha_i$ für eine Linkskurve, negative $\alpha_i$ für eine Rechtskurve).
 An einer Spitze ist der Aussenwinkel $\pm \pi$, die Kurve klappt also um.
@@ -71,14 +71,14 @@ Sei $p$ eine Spitze mit Tangentenvektoren $\tau^{-}$ und $\tau^{+}$. Eine Puiseu
 Die Kurve berührt sich in $p$ tangential und trennt die Umgebung in zwei Komponenten: Das ``Innere'' der Spitze, umschlossen von der Kurve, und das ``Äussere''. 
 Der Umlaufzahl-Ansatz umgeht diese lokale Analyse weitgehend, weil das Integral
 \[
-    \oint d \zeta  / (\zeta - z)
+    \oint \frac{d \zeta}{\zeta - z}
 \]
 für $z$ nahe $p$, aber nicht auf $\gamma$, über die ganze Kurve weiterhin sinnvoll bleibt.
 Der Beitrag der Spitze selbst ist Mass 0, und stört entsprechend die Umlaufzahl nicht.
 
 \subsection{Der Satz von Jordan für stückweise $C^1$-Kurven}
 
-Mit diesen Modifikationen des Umlaufzahl-Beweises und des Hopfschen Umlaufsatzes gewinnen wir unsere verlorenen Bausteine zurück, und der Beweis des Satzes von Jordan für stückweise $C^1$-Kurven kann analog zum Beweis für reell-analytische Kurven durchgeführt werden.
+Mit diesen Modifikationen des Umlaufzahl-Beweises und des hopfschen Umlaufsatzes gewinnen wir unsere verlorenen Bausteine zurück, und der Beweis des Satzes von Jordan für stückweise $C^1$-Kurven kann analog zum Beweis für reell-analytische Kurven durchgeführt werden.
 
 Die tubuläre Umgebung mag global nicht mehr existieren, aber lokal auf jedem glatten Teilbogen kann sie konstruiert werden. Der Wegzusammenhang von $I$ und $A$ folgt durch Konstruktion lokaler Tuben, die an Ecken und Spitzen überlappend zusammengefügt werden.
 
