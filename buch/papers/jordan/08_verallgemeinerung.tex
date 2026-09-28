@@ -1,0 +1,160 @@
+%
+% 08_verallgemeinerung.tex -- Verallgemeinerung des Satzes von Jordan
+%
+% (c) 2026 Dominik Castelberg, Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+\section{Verallgemeinerung des Satzes von Jordan
+\label{jordan:section:verallgemeinerung}}
+\kopfrechts{Verallgemeinerung des Satzes von Jordan}
+
+\subsection{Von der Algebra in die Topologie
+\label{jordan:subsection:algebra_topologie}}
+
+Mit dem Jordan-Brouwer-Zerlegungssatz, dem Satz von Schoenflies und der Alexander-Dualität haben wir nun endgültig das Forschungsgebiet der Topologie betreten.
+Hiermit ändert sich auch die Art und Weise, wie wir über den Satz von Jordan denken:
+Bisher haben wir den Satz von Jordan über eine Kurve in einem euklidischen Raum analysiert.
+Im Bereich der Topologie arbeitet man jedoch mit allgemeineren Objekten, und spezifisch in unserem Fall werden wir häufiger vom Konzept einer $n$-Sphäre ($S^n$) Nutzen machen.
+
+$S^n$ ist der $\mathbb{R}^n$ mit einem zusätzlichen Punkt $\infty$ am Unendlichen, vergleichbar zur Riemannschen Zahlenkugel $\hat{\mathbb{C}}$, welche die komplexe Ebene um $\infty$ ergänzt.
+Ein Vorteil bei der Arbeit mit $S^n$ ist, dass $S^n$ inherent kompakt ist und somit die Unterscheidung zwischen beschränktem $I$ und unbeschränktem $A$ verschwindet.
+Die Aussagen werden also symmetrischer.
+Im $\mathbb{R}^n$-Raum und in $S^n$ gelten die Ergebnisse aber gleichermassen.
+
+Ein weiteres zentrales Konzept ist der Begriff der ``Einbettung'', welcher als eine stetige, injektive Abbildung ($h : X to S^n$) $X$ homöomorph auf ihr Bild abbildet.
+Man legt eine Form also verzerrt und ohne Selbstüberschneidungen in den Raum.
+Glattheit oder Differenzierbarkeit sind hierbei nicht erforderlich, und die Abbildung kann entsprechend schwierig zu analysierende Formen annehmen.
+
+\subsection{Der Jordan-Brouwer-Zerlegungssatz und der Satz von Schoenflies
+\label{jordan:subsection:jordanbrouwer}}
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/jordan_brouwer.pdf}
+    \caption{Visualisierung des Jordan-Brouwer-Zerlegungssatzes im 3-dimensionalen Raum. $\mathbb{R}^{3}\setminus\Sigma$ zerfällt in genau zwei Komponenten: $\mathrm{I}$ beschränkt, $\mathrm{A}$ unbeschränkt}
+\end{figure}
+
+\input{papers/jordan/saetze/08_jordan_brouwer.tex}
+
+Wie schon der originale Satz von Jordan, wirkt auch der Jordan-Brouwer-Zerlegungssatz auf den ersten Blick trivial, und genauso liegt die Schwierigkeit in der Allgemeinheit der Aussage.
+Die eingebettete Linie kann eine beliebige Form annehmen und zusätzlich in beliebig vielen Dimensionen eingebettet werden.
+
+Auch James W. Alexander selbst zeigte die potentielle Komplexität dieser Aussage, indem er 1924 die berühmte ``Gehörnte Sphäre'', konstruierte.
+Sie trennt den Raum in zwei Teile, wie vom Satz von Jordan-Brouwer verlangt, aber das Äussere ist kein einfaches Komplement einer Kugel.
+Es enthält eine unendliche Anzahl von Spitzen, die in den Raum hineinragen und Schleifen bilden, die sich nicht zusammenziehen lassen.
+
+Während der Jordan-Brouwer-Zerlegungssatz sagt, wie viele Gebiete eine eingebettete Kreislinie erzeugt, sagt er jedoch nichts über die exakte Form dieser Gebiete aus.
+Der Satz von Schoenflies liefert diese Information.
+
+\input{papers/jordan/saetze/08_schoenflies.tex}
+
+Veranschaulichen lässt sich der Satz von Schoenflies mit einem einfachen Gedankenexperiment: Man nehme eine beliebige Jordan-Kurve $\Sigma$ und befestige sie auf einem dehnbaren Tuch.
+Man kann das Tuch nun so dehnen, dass die Kurve $\Sigma$ auf den Einheitskreis $S^1$ abgebildet wird.
+Dies gilt für sämtliche $\Sigma$, egal wie wild sie auch sein mag.
+
+Während dieser Satz für $n=2$ gilt, ist er für $n>2$ nicht mehr gültig, da es in höheren Dimensionen möglich ist, dass die eingebettete Sphäre $\Sigma$ eine Form annimmt, die nicht homöomorph auf eine Standard-Sphäre ist.
+Trotz dieser Einschränkung bietet der Satz von Schoenflies eine Verallgemeinerung des Satzes von Jordan auf eine höhere Dimension.
+
+\subsection{Die Alexander-Dualität
+\label{jordan:subsection:alexander}}
+
+Mit der Alexander-Dualität haben wir das Ende unserer Reise zur Verallgemeinerung des Satzes von Jordan erreicht.
+Sie liefert eine Verallgemeinerung des Satzes von Jordan auf beliebige Dimensionen und beliebige topologische Räume.
+
+Um vom Jordan-Brouwer-Zerlegungssatz zur Alexander-Dualität zu gelangen, muüssen wir einige Fragen, die wir beantworten möchten, aus einer allgemeineren Perspektive betrachten.
+Die Frage ``In wie viele Teile zerlegt die Jordan-Kurve den Raum, in welchen sie eingebettet ist?'' muss als Spezialfall einer viel allgemeineren Frage betrachtet werden: ``Wie viele Löcher entstehen in welchen Dimensionen?''
+
+\subsubsection{Löcher in der Topologie}
+
+In der Topologie beschreibt das Konzept eines Lochs, mit welcher Art von geschlossenem Gebilde es umschlossen werden kann.
+Die Dimension eines Lochs ist dabei die Dimension des umschliessenden Gebildes.
+
+Das Konzept von Löchern erstreckt sich über beliebige Dimensionen, jedoch sind Löcher in Dimensionen $n>2$ schwer vorstellbar.
+Löcher in den Dimensionen $n=0,1,2$ lassen sich jedoch leicht beschreiben:
+
+\begin{itemize}
+    \item \textbf{Löcher in Dimension 0: Lücken zwischen Teilen.} Das einfachste geschlossene Gebilde ist ein Paar von Punkten. Ist der Wegzusammenhang zwischen den Punkten unterbrochen, sind die Punkte in verschiedenen Komponenten. Zwischen ihnen liegt also ein Loch.
+    \item \textbf{Löcher in Dimension 1: Tunnel.} Man nehme als Gebilde eine Schleife. Wenn sich diese Schleife innerhalb des Raumes nicht zusammenziehen lässt, hat sie ein Loch in Dimension 1. Bekannte Beispiele beinhalten den Kreis mit einem Loch im Inneren oder ein Bretzel, welcher von oben betrachtet wird, mit drei Löchern.
+    \item \textbf{Löcher in Dimension 2: Hohlräume.} Ein Loch in Dimension 2 ist ein Hohlraum, der von einer geschlossenen Fläche umschlossen wird. Ein Tennisball hat ein Loch in Dimension 2, während eine Billiardskugel nicht hohl ist und entsprechend kein Loch in Dimension 2 hat.
+\end{itemize}
+
+Auf den ersten Blick scheint die Höhe der Dimension, welche ein Loch beschreibt, etwas unintuitiv.
+So erwartet man, dass ein Loch in Dimension 1 durch ein 1-dimensionales Gebilde beschrieben wird.
+Doch das Loch selbst ist nicht das Gebilde, sondern der Raum, der von diesem Gebilde umschlossen wird, und dieser Raum ist in der Dimension um eins höher als das Gebilde selbst.
+
+Im Kontext des Satzes von Jordan betrachten wir die Jordan-Kurve $\gamma$ als ein geschlossenes Gebilde, das den Raum in zwei Teile trennt.
+Jordan-Brouwer betrachet dabei nur eine einzelne Dimension.
+Die Frage ``In wie viele Teile zerlegt die Jordan-Kurve den Raum, in welchen sie eingebettet ist?'' betrifft nur die 0-dimensionalen Löcher des Komplements.
+
+\subsubsection{Betti-Zahlen}
+
+Die Betti-Zahlen $b_i$ zählen die Anzahl der unabhängigen Löcher in Dimension $i$.
+Unabhängigkeit bedeutet hierbei, dass die Löcher nicht durch andere Löcher erzeugt werden können.
+Man nehme zum Beispiel die Form der Zahl 8: Grundsätzlich besteht sie aus zwei Kreisen, die sich in der Mitte berühren.
+Es gibt drei offensichtliche Schleifen: Die obere, die untere und eine, die beide nacheinander durchläuft.
+Trotzdem ist die Betti-Zahl $b_1$ nur 2, da die dritte Schleife durch die beiden anderen erzeugt werden kann.
+
+\subsubsection{Homologie und Kohomologie}
+
+Um die Alexander-Dualität nachvollziehen zu können, müssen wir erst die Konzepte der Homologie und Kohomologie verstehen.
+
+Die Homologie ist ein Werkzeug, welches uns erlaubt, Löcher in beliebigen Dimensionen zu zählen.
+Man zerlegt den Raum in eine endliche Anzahl von einfachen Gebilden, die als Simplizes bezeichnet werden.
+Eine Kette ist eine endliche Summe von Simplizes der gleichen Dimension, zum Beispiel eine Menge von Kanten, die zusammen einen Weg bilden.
+Jede Kette hat einen Rand, der aus Simplizes der nächstniedrigeren Dimension besteht.
+So ist beispielsweise der Rand einer Fläche eine Kette von Kanten, die die Fläche umschliessen.
+Eine Kette ohne Rand heisst Zyklus und wird auch als geschlossene Kette bezeichnet.
+Beispiele hierfür sind Schleifen ohne Enden oder Hüllen ohne offene Stellen.
+Hierbei wird $\mod 2$ gerechnet: Wird eine Kante zwei mal in einem Zyklus verwendet, hebt sie sich auf.
+Legt man zwei benachbarte Dreiecke zusammen, so hebt sich die gemeinsame Kante auf, und es bleibt nur der Rand des neu entstandenen Vierecks.
+Zyklen, welche als Ränder eines höherdimensionalen Gebildes auftreten sind trivial, da sie kein Loch umschliessen.
+Die Homologie ist die Menge aller Zyklen, welche nicht Ränder sind.
+
+Die Kohomologie verwendet die gleichen Konzepte, jedoch in umgekehrter Richtung.
+Statt Objekte in den Raum zu legen, definiert man Messvorschriften, welche die Objekte im Raum messen.
+Jedem Baustein des Raumes wird ein Wert zugeordnet, und die Summe der Werte über eine Kette ist der Wert der Kette.
+Ein einfach verständliches Beispiel ist eine sogenannte Mautstelle.
+Man stelle sich ein Torus vor, auf welchem eine Linie quer über den Schlauch gezogen wird.
+$\mod 2$ zählt nur, ob die Anzahl gerade oder ungerade ist.
+Verschiebt man die Schleife, ändert sich die Anzahl der Schnittpunkte, aber die Parität bleibt erhalten.
+Eine neue Kreuzung entsteht immer zusammen mit einer zweiten.
+Eine Schleife, die sich um den Torus windet, kann nicht auf eine Schleife ohne Kreuzung deformiert werden.
+
+Wie bei der Homologie benötigen wir zwei Filter.
+Konsistente Messungen, auch Kozyklen genannt, sind Messvorschriften, die auf jedem Rand null ergeben.
+Nur dann kann man sicherstellen, dass die Messung nur auf das Loch reagiert, und nicht auf den Rand.
+Triviale Messungen, auch Koränder genannt, sind Messvorschriften, die aus einem Potential, aus Höhendifferenzen einer Höhenfunktion, abgeleitet werden können.
+Eine solche Messung ergibt auf jeder geschlossenen Schleife null, weil man am Ende wieder auf derselben Höhe ist.
+Entsprechend kann sie nicht auf ein Loch reagieren.
+Die Kohomologie ist die Menge aller Kozyklen, welche nicht Koränder sind.
+
+\subsubsection{Alexanders Beweis}
+
+\input{papers/jordan/saetze/08_alexander.tex}
+
+In anderen Worten: Die $i$-te Betti-Zahl des Komplements einer eingebetteten Sphäre in $S^n$ ist gleich der $(n-i-1)$-ten Betti-Zahl der Sphäre selbst.
+Entsprechend besteht eine Dualität zwischen den Löchern in verschiedenen Dimensionen.
+
+Dieser Satz ist nicht nur Aussagengleich zum Satz von Jordan im spezifischen Fall der stetigen Kurve in einem 2-dimensionalen Raum, sondern er verallgemeinert den Satz von Jordan auf beliebige Dimensionen und beliebige topologische Räume.
+
+Der vollständige Beweis der Alexander-Dualität ist sehr komplex und würde den Rahmen dieses Artikels sprengen.
+Zusammenfassend lässt sich jedoch sagen, dass der Beweis auf der Konstruktion von Ketten und Kozyklen basiert, welche die Löcher in den verschiedenen Dimensionen zählen und die Beziehungen zwischen ihnen beschreiben.
+Homologien werden in der Regel mit Hilfe von Kettenkomplexen und exakten Sequenzen untersucht, während Kohomologien oft durch die Verwendung von Kohomologiegruppen und Cup-Produkte analysiert werden.
+
+\subsection{Die Auswirkung der Alexander-Dualität auf das Gebiet der algebraischen Topologie}
+
+Was als Ansatz der Verallgemeinerung des (nun nicht mehr so trivialen) Satzes von Jordan begann, hat das Gebiet der algebraischen Topologie stark geprägt.
+Bis Mitte der 1920er Jahre rechnete man primär mit Betti-Zahlen. 
+
+Emmy Noether setzte sich aber für die Verwendung von Gruppen als alternative zu Betti-Zahlen ein, wobei die Alexander-Dualität sich von einer Gleichheit von Zahlen zu einem Isomorphismus zwischen algebraischen Objekten entwickelte.
+Diese neue Sichtweise führte zu einer tieferen Einsicht in die Struktur von topologischen Räumen und deren Invarianten.
+
+In diesem Artikel wurde die Kohomologie als duales Konzept zur Homologie eingeführt. 
+Doch dieses Resultat war tatsächlich keine Voraussetzung für die initiale Formulierung der Alexander-Dualität, sondern eine Konsequenz daraus.
+Alexander führte die Kohomologie zeitgleich mit und unabhängig von Andrei N. Kolmogorov ein.
+
+Die Alexander-Dualität agierte auch als Prüfung der Kohomologiewahl. Für beliebige kompakte $X \subset S^n$ ist die naheliegende, aus Ketten bestehende Kohomologie nicht immer korrekt.
+Das zeigt beispielsweise der Warschauer Kreis, für welchen die Dualität nur mit der Cech-Kohomologie gilt.
+Die Alexander-Spanier-Kohomologie hat aus diesem Grund ihren Namen erhalten.

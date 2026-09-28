@@ -1,0 +1,116 @@
+%
+% 05_reell_analytische_kurven.tex -- Einfuhrung in den Satz von Jordan fuer reell-analytische Kurven
+%
+% (c) 2026 Dominik Castelberg, Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Der Fall reell-analytischer Kurven
+\label{jordan:section:reell_analytische_kurven}}
+\kopfrechts{Der Fall reell-analytischer Kurven}
+
+Mit dem Schritt von einfachen Polygonen zu reell-analytischen Kurven (im Folgenden als $\gamma$ bezeichnet) verlieren wir mehrere Eigenschaften und Werkzeuge, welche wir bisher für die Beweisführung verwendet haben. 
+
+Spezifisch verlieren wir:
+
+\begin{itemize}
+    \item \textbf{Strahlenparität:} Die Zahl der Schnittpunkte eines Strahls mit $\gamma$ ist nicht mehr offensichtlich endlich, da $\gamma$ keine Kanten mehr hat. 
+    \item \textbf{Triangulierung:} Es gibt keine kanonische Triangulierung von $I$ mit Ecken auf $\gamma$, weil $\gamma$ keine Ecken hat. 
+    \item \textbf{Diagonal-Lemma:} Aus dem gleichen Grund ist das Konzept einer Diagonale nicht mehr anwendbar, da $\gamma$ keine Ecken hat.
+\end{itemize}
+
+Entsprechend stehen wir vor einer Wegzweigung: Entweder wir erweitern das Werkzeug der Strahlenparität, sodass es auf reell-analytische Kurven anwendbar ist, oder wir finden ein neues Werkzeug, das die Strahlenparität ersetzt. 
+Wir werden in diesem Abschnitt beide Ansätze diskutieren dabei herausfinden, dass einer der Ansätze dabei deutlich eleganter ist. 
+
+Zusätzlich erhalten wir dank der Reell-Analytizität von $\gamma$ eine neue Kiste von analytischen Werkzeugen, die wir für unsere Beweisführung verwenden können:
+
+\subsection{Fortführung des Strahlenparität-Arguments}
+
+Um die Strahlenparität weiter zu entwickeln, betrachten wir die Wirkung von Deformationen auf die Anzahl der Schnittpunkte zwischen einer Kurve und einem Strahl. 
+Hierfür verwenden wir zwei neue, analytische Werkzeuge: Die endliche Schnittstruktur und die Tubulare Umgebung. 
+
+\input{papers/jordan/saetze/05_endliche_schnittstruktur.tex}
+
+\input{papers/jordan/saetze/05_identitaetssatz_reell_analytische_funktionen.tex}
+
+Da $\gamma \cap L = \emptyset$ bei geschlossenen Kurven nicht auftreten kann, und der Satz von Jordan eine geschlossene Kurve $\gamma$ voraussetzt, gilt der Satz der endlichen Schnittstruktur für sämtliche für uns relevanten Kurven. 
+
+Mit der endlichen Schnittstruktur können wir garantieren, dass die Anzahl der Schnittpunkte zwischen einem Strahl und einer reell-analytischen Kurve endlich ist. 
+Dies ist ein wichtiger Schritt in der Fortführung des Strahlenparitäts-Arguments, da mit der Modulo-Rechnung unser Mittel, die Parität der Schnittpunkte zu analysieren, nur auf endliche Mengen anwendbar ist. 
+
+Mit dem Beweis der endlichen Schnittstruktur abgeschlossen, können wir nun die Tubulare Umgebung einführen, die es uns erlaubt, die Strahlenparität auf reell-analytische Kurven zu erweitern.
+
+\input{papers/jordan/lemmata/05_tubulare_umgebung.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/tubulare_umgebung.pdf}
+    \caption{Die tubulare Umgebung einer reell-analytischen Kurve.}
+\end{figure}
+
+Das Lemma der tubularen Umgebung kann mithilfe der Determinanten der im Abschnitt \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} eingeführten Jacobi-Matrix bewiesen werden.  
+
+Mit diesen beiden Werkzeugen können wir die Strahlenparität auf reell-analytische Kurven erweitern und somit den Beweis des Satzes von Jordan für diese Kurven fortsetzen. 
+
+\input{papers/jordan/saetze/05_jordan_reell_analytische_kurven.tex}
+
+Dieser Beweis funktioniert, aber leider ist er auch analytisch aufwendig:
+
+\begin{itemize}
+    \item Fallunterscheidung zu Tangentenschnitten
+    \item Kontrolle der Paritätsinvarianz unter Strahlendeformationen
+    \item Genaue Analyse entarteter Strahlrichtungen
+\end{itemize}
+
+All diese Punkte verlangen sorgfältige analytische Arbeit, welche im polygonalen Fall durch die kombinatorische Endlichkeit ersetzt war. 
+Entsprechend werden wir uns nun einem alternativen Ansatz, der uns mit seiner Eleganz viel Arbeit erspart, zuwenden. 
+
+\subsection{Nutzung der Umlaufzahl statt der Strahlenparität}
+
+Im Abschnitt \ref{buch:integration:cauchy:subsetion:umlaufzahl} wurde die Umlaufzahl eines Weges um einen Punkt eingeführt. 
+Diese Umlaufzahl besitzt Eigenschaften, die es uns erlauben, die Strahlenparität als Argument komplett zu verwerfen. 
+
+\input{papers/jordan/lemmata/05_grundlegende_eigenschaften_umlaufzahl.tex}
+
+Aus diesen Eigenschaften folgt schon fast der Satz von Jordan im analytischen Fall: Die Funktion $z \mapsto n(\gamma, z)$ nimmt auf jeder zusammenhängenden Komponente von $\mathbb{C} \setminus \gamma$ einen konstanten ganzzahligen Wert an. 
+Auf der unbeschränkten Komponente ist dieser Wert $0$. 
+
+Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindestens eine Komponente gibt, auf der $n(\gamma, z) \neq 0$ gilt und dass es auf jeder beschränkten Komponente den Wert $\pm 1$ gibt.
+
+\input{papers/jordan/saetze/05_hopfscher_umlaufsatz.tex}
+
+\input{papers/jordan/definitionen/05_tangentenwindungszahl_totaldrehung.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/tangentenwindungszahl.pdf}
+    \caption{Drehung der Tangenten beim Umlauf einer Kurve (links). Die Nettodrehung der Tangentenvektoren $\tau(t)$ entlang der Kurve $\gamma$ ist $2\pi$, was der Umlaufzahl $n(\gamma, z_0) = 1$ entspricht (rechts).}
+\end{figure}
+
+Es gibt mehrere Beweise für den Hopfschen Umlaufsatz, wobei manche deutlich simpler sind als andere.
+Heinz Hopf selbst bewies den Satz in seinem Artikel ``Über die Drehung der Tangenten und Sehnen ebener Kurven''\cite{jordan:Hopf1935}, publiziert in der zweiten Ausgabe des Journals ``Compositio Mathematica'', über ein stetiges Deformationsargument über ein Dreieck im Parameterraum einer Funktion $f$.
+
+Beweise des Hopfschen Umlaufsatzes, welche auf den Satz von Jordan zurückzuführen sind, sind nicht trivial, aber bekannt. 
+Ein Beispiel für solch einen Beweis ist in Manfredo do Carmos ``Differential Geometry of Curves and Surfaces'' \cite{jordan:doCarmo1976} zu finden. 
+Er beruht auf einer Homotopie zwischen der Sehnen-Richtungs-Abbildung
+\[
+    \hat{\gamma}(s,t) = \frac{\left( \gamma(t) - \gamma(s) \right)}{\lVert \gamma(t) - \gamma(s) \rVert}
+\] 
+und der Tangentenabbildung 
+\[
+    \tau(t) = \frac{\gamma'(t)}{\lVert \gamma(t) - \gamma(s) \rVert}
+\] 
+. 
+
+Wir verwenden den Hopfschen Umlaufsatz, ohne ihn in diesem Text selbst zu beweisen.
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/umlaufzahl.pdf}
+    \caption{Konstruktion der Umlaufzahl am Beispiel eines Punkts innerhalb (links) und ausserhalb (rechts) einer Jordan-Kurve.}
+\end{figure}
+
+Der Beweis des Satzes von Jordan für reell-analytische Kurven unter Verwendung der Umlaufzahl ist nicht nur deutlich eleganter als der Ansatz basierend auf der Strahlenparität, sondern er zeigt sich auch deutlich robuster und flexibler.
+So kann man mit nur geringen Modifikationen den Beweis auf Kurven erweitern, welche moderate Singularitäten besitzen.
