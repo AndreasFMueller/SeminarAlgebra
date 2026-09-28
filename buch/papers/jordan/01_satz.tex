@@ -1,5 +1,5 @@
 %
-% 01_theorem.tex -- Einfuhrung in das Jordan'sche Kurventheorem
+% 01_satz.tex -- Einfuhrung in den Satz von Jordan
 %
 % (c) 2026 Dominik Castelberg, Ostschweizer Fachhochschule
 %
@@ -12,28 +12,11 @@
 Die meisten Sätze der höheren Mathematik setzen ein tiefes Verständnis der zugrunde liegenden mathematischen Strukturen voraus, damit über ihre Korrektheit argumentiert werden kann. 
 Andere Sätze erscheinen jedoch derart trivial, dass ihre Korrektheit auf den ersten Blick offensichtlich ist und man zum Fehlschluss kommen könnte, dass ein Beweis überflüssig ist. 
 
-\begin{satz}[Satz von Jordan\label{jordan:theorem:jordan}]
-    Sei $\gamma$ eine einfache geschlossene Kurve in der Ebene $\mathbb{R}^2$. 
-    Dann teilt $\gamma$ die Ebene in genau zwei zusammenhängende Gebiete: ein inneres Gebiet, das von $\gamma$ eingeschlossen wird, und ein äusseres Gebiet, das unendlich ausgedehnt ist. 
-    Die Kurve $\gamma$ selbst bildet der gemeinsame Rand dieser beiden Gebiete.
-\end{satz}
+\input{papers/jordan/saetze/01_jordan}
 
-\begin{definition}[einfache geschlossene Kurve]
-    Eine einfache geschlossene Kurve $\gamma$ in der Ebene $\mathbb{R}^2$ ist eine stetige Abbildung $\gamma: [0,1] \to \mathbb{R}^2$, die folgende Eigenschaften erfüllt:
-    \begin{enumerate}
-        \item $\gamma(0) = \gamma(1)$ (die Kurve ist geschlossen),
-        \item $\gamma(t_1) \neq \gamma(t_2)$ für alle $t_1, t_2 \in [0,1)$ mit $t_1 \neq t_2$ (die Kurve schneidet sich nicht selbst).
-    \end{enumerate}
-\end{definition}
+\input{papers/jordan/definitionen/01_einfache_geschlossene_kurve}
 
-\begin{definition}[Rand]
-    Der Rand eines Gebietes $G \subset \mathbb{R}^2$ ist die Menge aller Punkte $p \in \mathbb{R}^2$, für die jede Umgebung von $p$ sowohl Punkte aus $G$ als auch Punkte aus dem Komplement von $G$ enthält.
-\end{definition}
-
-\begin{definition}[Zusammenhängendes Gebiet]
-    Ein Gebiet $G \subset \mathbb{R}^2$ ist zusammenhängend, wenn es nicht in zwei disjunkte, offene Teilmengen zerlegt werden kann. 
-    Für jedes Paar von Punkten $p, q \in G$ existiert eine stetige Kurve innerhalb von $G$, die $p$ und $q$ verbindet.
-\end{definition}
+\input{papers/jordan/definitionen/01_rand}
 
 \begin{figure}
     \centering
@@ -51,42 +34,16 @@ Die Schwierigkeit liegt primär in der allgemeinen Formulierung des Satzes. Wäh
 
 Stetigkeit wirkt nur als eine schwache Einschränkung auf die Kurve und erlaubt wilde Formen wie Fraktale, raumfüllende Kurven im Inneren oder Ränder mit positivem Lebesgue-Mass. All diese Beispiele sind über menschliche Intuition nur schwer zu erfassen und sind aufwändig zu analysieren, was die Beweisführung für den Satz von Jordan deutlich erschwert. 
 
-\begin{definition}[Fraktal]
-    Ein Fraktal ist eine geometrische Struktur, deren Hausdorff-Dimension $\dim_{\mathcal{H}(A)}$ größer als ihre topologische Dimension ist.
-\end{definition}
+% \input{papers/jordan/definitionen/01_fraktal}
 
-\begin{definition}[Hausdorff-Dimension]
-    Die Hausdorff-Dimension $\dim_{\mathcal{H}(A)}$ einer Teilmenge $A$ eines metrischen Raumes ist der Schwellenwert,
-     bei dem das $s$-dimensionale Hausdorff-Mass $\mathcal{H}^s(A)$ von $\infty$ auf $0$ übergeht. 
-\end{definition}
+% \input{papers/jordan/definitionen/01_hausdorff_dimension}
 
-\begin{definition}[Hausdorff-Mass]
-    Das $s$-dimensionale Hausdorff-Mass $\mathcal{H}^s(A)$ einer Teilmenge $A$ eines metrischen Raumes ist definiert als
-    \[
-        \mathcal{H}^s(A) = \lim_{\delta \to 0} \inf \left\{ \sum_{i} (\text{diam}(U_i))^s : A \subseteq \bigcup_{i} U_i, \text{diam}(U_i) < \delta \right\},
-    \]
-    wobei die Infimum über alle Überdeckungen von $A$ durch Mengen $U_i$ mit Durchmesser kleiner als $\delta$ genommen wird.
-    
-\end{definition}
+% \input{papers/jordan/definitionen/01_hausdorff_mass}
 
-\begin{definition}[Topologische Dimension]
-    Die topologische Dimension ist eine Eigenschaft eines topologischen Raums, die angibt, wie viele unabhängige Richtungen in der Umgebung jedes Punktes existieren. 
-    Sie wird durch die minimale Anzahl von Koordinaten bestimmt, die benötigt werden, um den Raum lokal zu beschreiben.
-\end{definition}
+% \input{papers/jordan/definitionen/01_topologische_dimension}
 
-\begin{definition}[Lebesgue-Mass]
-    Das Lebesgue-Mass $\Lambda(A)$ ist die Einschränkung des äusseren Masses $\Lambda^*$ auf die $\sigma$-Algebra $\mathcal{A}$, die die Borelsche $\sigma$-Algebra enthält.
-\end{definition}
+% \input{papers/jordan/definitionen/01_lebesgue_mass}
 
-\begin{definition}[Borelsche $\sigma$-Algebra]
-    Die Borelsche $\sigma$-Algebra $\mathcal{B}(\mathbb{R}^n)$ ist die kleinste $\sigma$-Algebra, die alle offenen Mengen in $\mathbb{R}^n$ enthält.
-\end{definition}
+% \input{papers/jordan/definitionen/01_borelsche_sigma_algebra}
 
-\begin{definition}[$\sigma$-Algebra]
-    Eine $\sigma$-Algebra $\mathcal{A}$ über einer Menge $X$ ist eine Sammlung von Teilmengen von $X$, die folgende Eigenschaften erfüllt:
-    \begin{enumerate}
-        \item $X \in \mathcal{A}$,
-        \item Wenn $A \in \mathcal{A}$, dann ist auch das Komplement $X \setminus A \in \mathcal{A}$,
-        \item Wenn $\{A_n\}_{n=1}^{\infty} \subseteq \mathcal{A}$, dann ist auch die Vereinigung $\bigcup_{n=1}^{\infty} A_n \in \mathcal{A}$.
-    \end{enumerate}
-\end{definition}
+% \input{papers/jordan/definitionen/01_sigma_algebra}

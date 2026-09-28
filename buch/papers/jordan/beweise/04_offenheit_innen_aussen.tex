@@ -1,0 +1,32 @@
+
+\begin{proof}[Beweis der Offenheit von $I$ und $A$\label{jordan:beweis:offenheit_innen_aussen}]
+    Direkter Beweis durch Konstruktion von $r$. 
+    Sei $p \in \mathbb{R}^2 \setminus \partial P$ beliebig. Wir konstruieren ein
+    $r > 0$ mit der Eigenschaft, dass $\nu$ auf $U(p,r)$ konstant ist.
+
+    \begin{enumerate}
+        \item Sei $U(p,r)$ die offene Kugel um $p$ mit Radius $r$.
+
+        \item $\partial P = \bigcup_{i=1}^{n} e_i$ ist als endliche Vereinigung
+            abgeschlossener Strecken abgeschlossen.
+
+        \item Setze $r := \operatorname{dist}(p, \partial P)$. Wäre $r = 0$, so gäbe
+            es $x_k \in \partial P$ mit $x_k \to p$ und damit
+            $p \in \overline{\partial P} = \partial P$, im Widerspruch zur Wahl
+            von $p$. Also ist $r > 0$.
+
+        \item Nach Definition von $r$ gilt $\lVert p - x \rVert \ge r$ für alle
+            $x \in \partial P$, also $U(p,r) \cap \partial P = \emptyset$.
+
+        \item Sei $q \in U(p,r)$ beliebig. Da $U(p,r)$ konvex ist, liegt die
+            Strecke $\overline{pq}$ ganz in $U(p,r)$, nach (3) also
+            $\overline{pq} \cap \partial P = \emptyset$.
+
+        \item Die Paritätsinvarianz (\ref{jordan:lemma:paritaetsinvarianz}) liefert
+            $\nu(q) = \nu(p)$.
+\end{enumerate}
+
+Da $q \in U(p,r)$ beliebig war, ist $\nu$ auf $U(p,r)$ konstant. Für
+$p \in I$ folgt $U(p,r) \subseteq I$, für $p \in A$ folgt
+$U(p,r) \subseteq A$. Beide Mengen sind somit offen.
+\end{proof}

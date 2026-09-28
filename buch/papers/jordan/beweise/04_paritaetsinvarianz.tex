@@ -1,0 +1,13 @@
+\begin{proof}[Beweis der Paritätsinvarianz\label{jordan:beweis:paritätsinvarianz}]
+    Direkter Beweis.
+    \begin{enumerate}
+        \item Seien $p,q \in \mathbb{R}^2 \setminus \partial P$
+        \item Sei $v$ eine Richtung, welche für beide Punkte zulässig ist.
+        \item Sei $L_p$ der Strahl von $p$ in Richtung $v$ und $L_q$ der Strahl von $q$ in Richtung $v$.
+        \item Seien $p,q$ so positioniert und $v$ so gewählt, dass $p \neq q$ und $\overline{pq} \nparallel L_{p | q}$.
+        \item Sei $R$ der Halbstreifen, $L_p \cup L_q \cup \gamma_{pq}$.
+        \item Nach Voraussetzung ist $\partial P \cap \gamma_{pq} = \emptyset$ und $L_p \cap L_q = \emptyset$.
+        \item Daher $\left| \partial P \cap R \right| = N(p,L_p) + N(q,L_q)$.
+        \item Die $\left(N(p,L_p) + N(q,L_q)\right) \mod 2 = 0$, da $\partial P$ eine geschlossene Kurve ist und $R$ eine offene Menge ist.
+    \end{enumerate}
+\end{proof}

@@ -1,0 +1,78 @@
+%
+% 04_einfache_polygone.tex -- Einfuhrung in den Satz von Jordan fuer einfache Polygone
+%
+% (c) 2026 Dominik Castelberg, Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Der Fall einfacher Polygone
+\label{jordan:section:einfache_polygone}}
+\kopfrechts{Der Fall einfacher Polygone}
+
+Einfache Polygone verwerfen die Einschränkng der Konvexität und erlauben es, dass die Kurve in sich selbst zurückkehrt, solange sie sich nicht schneidet. 
+Die Eigenschaft der Konvexität war jedoch in der vorherigen Beweisführung entscheidend, da sie die Definition der konvexen Hülle und die Trennung der Ebene in zwei Gebiete erleichtert hat. 
+
+Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaften der Konstruktion der behandelten Körper gegebenen, Definitionen für ``Innen'' und ``Aussen'' neu zu formulieren. Ein wertvolles Werkzeug ist hierbei die Strahlenparität.
+
+\input{papers/jordan/definitionen/04_strahlenparitaet.tex}
+
+\input{papers/jordan/lemmata/04_paritaetsinvarianz.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/strahlenparitaet.pdf}
+    \caption{Strahlenparität am Beispiel einer Jordan-Kurve.}
+\end{figure}
+
+Das Konzept der Strahlenparität erlaubt es uns, die Punkte in der Ebene in zwei Mengen zu unterteilen: diejenigen, die eine gerade Anzahl von Schnittpunkten mit dem Polygon haben (die äussere Menge), und diejenigen, die eine ungerade Anzahl von Schnittpunkten haben (die innere Menge).
+
+\input{papers/jordan/definitionen/04_innen_aussengebiet.tex}
+
+Damit der Satz von Jordan für einfache Polygone gilt, müssen noch weitere Eigenschaften von $I$ und $A$ aufgezeigt werden.
+
+\begin{itemize}
+    \item $I$ und $A$ sind beide offen und nicht leer.
+    \item $I$ und $A$ sind wegzusammenhängend.
+    \item $I$ ist beschränkt, während $A$ unbeschränkt ist.
+    \item $\partial P$ ist der gemeinsame Rand von $I$ und $A$.
+\end{itemize}
+
+\input{papers/jordan/lemmata/04_offenheit_innen_aussen.tex}
+
+\input{papers/jordan/lemmata/04_nicht_leerheit_innen.tex}
+
+\input{papers/jordan/lemmata/04_nicht_leerheit_aussen.tex}
+
+Die Etablierung des Wegzusammenhangs von $I$ und $A$ verlangt ein topologisch substantielleres Argument: Die Wegzusammenhangseigenschaften von triangulierten Polygonen. 
+
+\input{papers/jordan/definitionen/04_triangulierung_einfaches_polygon.tex}
+
+\input{papers/jordan/saetze/04_triangulierungssatz_einfache_polygone.tex}
+
+Dieser Triangulierungssatz wurde 1975 von G. H. Meisters präzise bewiesen \cite{jordan:meisters1975}.
+Der Beweis basiert auf folgendem Lemma:
+
+\input{papers/jordan/lemmata/04_existenz_diagonale.tex}
+
+Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale impliziert, dass das Polygon in zwei kleinere Polygone zerlegt werden kann.
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/triangulierung.pdf}
+    \caption{Triangulierung eines einfachen Polygons in nicht überlappende Dreiecke an Reflexpunkt $v$.}
+\end{figure}
+
+Mit dieser Triangulierung können wir nun den Wegzusammenhang zwischen zwei Punkten in $I$ aufzeigen.
+Da $I$ als Vereinigung von anliegenden Dreiecken dargestellt werden kann, und Dreiecke als konvexe Polygone inherent wegzusammenhängend sind, können wir einen Weg zwischen zwei Punkten in $I$ konstruieren, indem wir die Dreiecke durchqueren, die das Polygon bilden.
+
+\input{papers/jordan/lemmata/04_wegzusammenhang_innen.tex}
+
+\input{papers/jordan/lemmata/04_wegzusammenhang_aussen.tex}
+
+\input{papers/jordan/lemmata/04_beschraenktheit_innen.tex}
+
+\input{papers/jordan/lemmata/04_unbeschraenktheit_aussen.tex}
+
+In Kombination führen diese Lemmas und Definitionen zu einem vollständigen Beweis des Jordan'schen Satzes für einfache Polygone.

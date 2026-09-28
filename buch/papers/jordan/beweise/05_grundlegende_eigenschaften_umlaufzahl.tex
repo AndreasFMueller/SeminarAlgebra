@@ -1,0 +1,17 @@
+\begin{proof}[Beweis der grundlegenden Eigenschaften der Umlaufzahl\label{jordan:proof:grundlegende_eigenschaften_umlaufzahl}]
+    \begin{enumerate}
+        \item Man betrachte die Funktion $F(s) = exp(\int_0^s \frac{\gamma'(t)}{\gamma(t) - z} dt)$. 
+            Differenzieren zeigt $\frac{F'(s)}{F(s)} = \frac{\gamma'(s)}{\gamma(s) - z}$. 
+            Zugleich ist $\frac{d}{ds} \frac{[\gamma(s) -z]}{[\gamma(0) -z]} = \frac{\gamma'(s)}{\gamma(0) - z}$ und ein Vergleich zeigt, dass $F(s) \cdot [\gamma(0) - z] = \gamma(s) -z$. 
+            Im Falle von $s = 1$ erhalten wir $F(1) \cdot [\gamma(0) - z] = \gamma(1) -z = \gamma(0) - z$, also $F(1) = 1$.
+            Daher gilt $\int_0^1 \frac{\gamma'(t)}{\gamma(t) - z} dt = 2 \pi i n$ für ein $n \in \mathbb{Z}$.
+        \item Der Integrand $z \mapsto \frac{1}{\zeta - z}$ ist stetig in $z$ und gleichmässig auf $\gamma$, da $\gamma$ kompakt ist und $|\zeta - z|$ von unten beschränkt bleibt für $z$ in Kompakta von $\mathbb{C} \setminus \gamma$. 
+            Daher ist $n(\gamma, \cdot)$ stetig in $z$ und als stetige ganzzahlige Funktion lokal konstant.
+        \item Für $|z| \gg sup |\gamma|$ kann man unter dem Integral abschätzen: 
+            \[
+                \left| \frac{\gamma'(t)}{\gamma(t) - z} \right| \leq \frac{|\gamma'(t)|}{|z| - |\gamma(t)|} \leq \frac{|\gamma'(t)|}{|z| - sup |\gamma|}.
+            \]
+            Da $|\gamma'(t)|$ integrierbar ist, folgt, dass das Integral gegen null geht, wenn $|z|$ gegen unendlich geht. 
+            Daher gilt $n(\gamma, z) = 0$ für $|z|$ hinreichend gross.
+    \end{enumerate}
+\end{proof}
