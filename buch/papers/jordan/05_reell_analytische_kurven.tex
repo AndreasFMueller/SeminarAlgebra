@@ -18,7 +18,7 @@ Spezifisch verlieren wir:
 \begin{itemize}
     \item \textbf{Strahlenparität:} Die Zahl der Schnittpunkte eines Strahls mit $\gamma$ ist nicht mehr offensichtlich endlich, da $\gamma$ keine Kanten mehr hat. 
     \item \textbf{Triangulierung:} Es gibt keine kanonische Triangulierung von $I$ mit Ecken auf $\gamma$, weil $\gamma$ keine Ecken hat. 
-    \item \textbf{Diagonal-Lemma:} Aus dem gleichen Grund ist das Konzept einer Diagonale nicht mehr anwendbar, da $\gamma$ keine Ecken hat.
+    \item \textbf{Diagonal-Lemma:} Aus dem gleichen Grund ist das Konzept einer Diagonale nicht mehr anwendbar.
 \end{itemize}
 
 Entsprechend stehen wir vor einer Wegzweigung: Entweder wir erweitern das Werkzeug der Strahlenparität, sodass es auf reell-analytische Kurven anwendbar ist, oder wir finden ein neues Werkzeug, das die Strahlenparität ersetzt. 
@@ -44,6 +44,8 @@ Mit dem Beweis der endlichen Schnittstruktur abgeschlossen, können wir nun die 
 
 \input{papers/jordan/lemmata/05_tubulare_umgebung.tex}
 
+Das Komplement $T \setminus \gamma$ zerfällt in zwei zusammenhängende Komponenten entsprechend $s > 0$ und $s < 0$, die als innere und äussere tubulare Umgebung bezeichnet werden.
+
 \begin{figure}
     \centering
     \includegraphics{papers/jordan/images/tubulare_umgebung.pdf}
@@ -52,11 +54,15 @@ Mit dem Beweis der endlichen Schnittstruktur abgeschlossen, können wir nun die 
 
 Das Lemma der tubularen Umgebung kann mithilfe der Determinanten der im Abschnitt \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} eingeführten Jacobi-Matrix bewiesen werden.  
 
-Mit diesen beiden Werkzeugen können wir die Strahlenparität auf reell-analytische Kurven erweitern und somit den Beweis des Satzes von Jordan für diese Kurven fortsetzen. 
+Mit diesen Werkzeugen können wir die Strahlenparität auf reell-analytische Kurven erweitern.
+Bewiesen wird dies über die endliche Schnittstruktur. Für $p \in \mathbb{R}^2 \setminus \gamma$ wählen wir einen Strahl $L$ mit Anfangspunkt $p$, der nicht tangential an $\gamma$ verläuft und durch keinen degenerierten Punkt von $\gamma$ geht.
+Gemäss der endlichen Schnittstruktur ist die Anzahl der Schnittpunkte $N(p,L)$ immer diskret, also ist jede Richtung zulässig. 
+Da die Schnittstruktur endlich ist, ist die Parität $N(p,L) \mod 2$ wieder wohldefiniert und hängt nicht von der Wahl des Strahls ab. 
 
-\input{papers/jordan/saetze/05_jordan_reell_analytische_kurven.tex}
+Der Wegzusammenhang von $I$ und $A$, genauso wie die Beschränktheit von $I$, ergeben sich aus der Konstruktion der tubulären Umgebung. 
+Die Beweise der Offenheit von $I$ und $A$, genauso wie die Unbeschränktheit von $A$, haben sich gegenüber \ref{jordan:section:einfache_polygone} nicht verändert.
 
-Dieser Beweis funktioniert, aber leider ist er auch analytisch aufwendig:
+Diese Beweisstrategie funktioniert, aber leider ist er auch analytisch aufwendig:
 
 \begin{itemize}
     \item Fallunterscheidung zu Tangentenschnitten

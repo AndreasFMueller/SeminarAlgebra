@@ -14,7 +14,8 @@
 Einfache Polygone verwerfen die Einschränkng der Konvexität und erlauben es, dass die Kurve in sich selbst zurückkehrt, solange sie sich nicht schneidet. 
 Die Eigenschaft der Konvexität war jedoch in der vorherigen Beweisführung entscheidend, da sie die Definition der konvexen Hülle und die Trennung der Ebene in zwei Gebiete erleichtert hat. 
 
-Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaften der Konstruktion der behandelten Körper gegebenen, Definitionen für ``Innen'' und ``Aussen'' neu zu formulieren. Ein wertvolles Werkzeug ist hierbei die Strahlenparität.
+Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaften der Konstruktion der behandelten Körper gegebenen, Definitionen für ``Innen'' und ``Aussen'' neu zu formulieren.
+Wertvolle Werkzeuge sind hierbei die Strahlenparität und die dazugehörige Paritätsinvarianz.
 
 \input{papers/jordan/definitionen/04_strahlenparitaet.tex}
 
@@ -26,7 +27,7 @@ Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaf
     \caption{Strahlenparität am Beispiel einer Jordan-Kurve.}
 \end{figure}
 
-Das Konzept der Strahlenparität erlaubt es uns, die Punkte in der Ebene in zwei Mengen zu unterteilen: diejenigen, die eine gerade Anzahl von Schnittpunkten mit dem Polygon haben (die äussere Menge), und diejenigen, die eine ungerade Anzahl von Schnittpunkten haben (die innere Menge).
+Das Konzept der Strahlenparität und deren Invarianz erlaubt es uns, die Punkte in der Ebene in zwei Mengen zu unterteilen: diejenigen, die eine gerade Anzahl von Schnittpunkten mit dem Polygon haben (die äussere Menge), und diejenigen, die eine ungerade Anzahl von Schnittpunkten haben (die innere Menge).
 
 \input{papers/jordan/definitionen/04_innen_aussengebiet.tex}
 
@@ -36,14 +37,23 @@ Damit der Satz von Jordan für einfache Polygone gilt, müssen noch weitere Eige
     \item $I$ und $A$ sind beide offen und nicht leer.
     \item $I$ und $A$ sind wegzusammenhängend.
     \item $I$ ist beschränkt, während $A$ unbeschränkt ist.
-    \item $\partial P$ ist der gemeinsame Rand von $I$ und $A$.
+    \item $P$ ist der gemeinsame Rand von $I$ und $A$.
 \end{itemize}
+
+
+\subsubsection{Offenheit von $I$ und $A$
+\label{jordan:subsubsection:offenheit_innen_aussen}}
 
 \input{papers/jordan/lemmata/04_offenheit_innen_aussen.tex}
 
-\input{papers/jordan/lemmata/04_nicht_leerheit_innen.tex}
+Der Beweis für die Offenheit von $I$ und $A$ basiert auf der lokalen Konstanz der Strahlenparität.
+Die Parität $N(p, L) \mod 2$ ist lokal konstant in $p$ für sämtliche gültigen Strahlen $L$, sofern $p$ nicht auf dem Polygon liegt.
+Wir können daher immer einen Punkt $p' \in I$ oder $p' \in A$ in der Nähe von $p$ finden, sodass $N(p', L) \mod 2 = N(p, L) \mod 2$ für alle gültigen Strahlen $L$ gilt.
 
-\input{papers/jordan/lemmata/04_nicht_leerheit_aussen.tex}
+\subsubsection{Wegzusammenhang von $I$ und $A$
+\label{jordan:subsubsection:wegzusammenhang_innen_aussen}}
+
+\input{papers/jordan/lemmata/04_wegzusammenhang_innen_aussen.tex}
 
 Die Etablierung des Wegzusammenhangs von $I$ und $A$ verlangt ein topologisch substantielleres Argument: Die Wegzusammenhangseigenschaften von triangulierten Polygonen. 
 
@@ -51,12 +61,13 @@ Die Etablierung des Wegzusammenhangs von $I$ und $A$ verlangt ein topologisch su
 
 \input{papers/jordan/saetze/04_triangulierungssatz_einfache_polygone.tex}
 
-Dieser Triangulierungssatz wurde 1975 von G. H. Meisters präzise bewiesen \cite{jordan:meisters1975}.
+Dieser Triangulierungssatz wurde 1975 von G. H. Meisters\cite{jordan:meisters1975} präzise bewiesen.
 Der Beweis basiert auf folgendem Lemma:
 
 \input{papers/jordan/lemmata/04_existenz_diagonale.tex}
 
 Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale impliziert, dass das Polygon in zwei kleinere Polygone zerlegt werden kann.
+
 
 \begin{figure}
     \centering
@@ -67,12 +78,64 @@ Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale 
 Mit dieser Triangulierung können wir nun den Wegzusammenhang zwischen zwei Punkten in $I$ aufzeigen.
 Da $I$ als Vereinigung von anliegenden Dreiecken dargestellt werden kann, und Dreiecke als konvexe Polygone inherent wegzusammenhängend sind, können wir einen Weg zwischen zwei Punkten in $I$ konstruieren, indem wir die Dreiecke durchqueren, die das Polygon bilden.
 
-\input{papers/jordan/lemmata/04_wegzusammenhang_innen.tex}
-
-\input{papers/jordan/lemmata/04_wegzusammenhang_aussen.tex}
+\subsubsection{Beschränktheit von $I$
+\label{jordan:subsubsection:beschraenktheit_innen}}
 
 \input{papers/jordan/lemmata/04_beschraenktheit_innen.tex}
 
+Der Beweis der Beschränktheit von $I$ ist relativ trivial und basiert darauf, dass eine konvexe Hülle mit endlichen Ecken beschränkt ist und man für jedes einfache Polygon eine konvexe Hülle finden kann.
+Das Innere eines konvexen Polygons ist beschränkt, da das Polygon aus einer endlichen Anzahl von Ecken besteht und entsprechend immer von einem Kreis mit genug grossem Radius vollständig umschlossen werden kann.
+Da dieser selbst Kreis beschränkt ist, ist auch das Innere des Polygons, als Teilmenge des Kreises, ebenfalls beschränkt.
+
+Die endliche Anzahl von Ecken garantiert auch, dass die konvexe Hülle eines einfachen Polygons konstruiert werden kann.
+
+\subsubsection{Unbeschränktheit von $A$
+\label{jordan:subsubsection:unbeschraenktheit_aussen}}
+
 \input{papers/jordan/lemmata/04_unbeschraenktheit_aussen.tex}
 
-In Kombination führen diese Lemmas und Definitionen zu einem vollständigen Beweis des Jordan'schen Satzes für einfache Polygone.
+Die Unbeschränktheit von $A$ ist elementar.
+Da $\mathbb{R}^2 = I \cup P \cup A$ und sowohl $I$ als auch $P$ beschränkt sind, muss $A$ unbeschränkt sein, damit $\mathbb{R}^2$ unbeschränkt ist.
+
+\subsubsection{Nicht-Leerheit von $I$
+\label{jordan:subsubsection:nicht_leerheit_innen}}
+
+\input{papers/jordan/lemmata/04_nicht_leerheit_innen.tex}
+
+Die nicht-Leerheit von $I$ kann aus einem geometrischen Argument abgeleitet werden: Jedes Polygon mit $n \geq 3$ Ecken muss eine nicht-leeres, inneres Gebiet haben.
+Wie schon in \ref{jordan:subsubsection:wegzusammenhang_innen_aussen} gezeigt, kann jedes Polygon mit $n \geq 3$ Ecken in nicht überlappende Dreiecke zerlegt werden.
+Da jedes Dreieck ein nicht-leeres inneres Gebiet hat, kann das innere Gebiet des Polygons nicht leer sein, da es die Vereinigung der inneren Gebiete der Dreiecke ist.
+
+\subsubsection{Nicht-Leerheit von $A$
+\label{jordan:subsubsection:nicht_leerheit_aussen}}
+
+\input{papers/jordan/lemmata/04_nicht_leerheit_aussen.tex}
+
+Die nicht-Leerheit von $A$ kann aus der Unbeschränktheit von $A$ abgeleitet werden, da eine leere Menge beschränkt ist.
+
+\subsubsection{$P$ als gemeinsamer Rand von $I$ und $A$
+\label{jordan:subsubsection:gemeinsamer_rand_innen_aussen}}
+
+\input{papers/jordan/lemmata/04_gemeinsamer_rand.tex}
+
+Der Beweis dafür, dass $P$ der gemeinsame Rand von $I$ und $A$ ist, wird in zwei Schritten durchgeführt.
+Erst wird gezeigt, dass jeder Punkt auf $P$ ein Randpunkt von $I$ und $A$ ist, und dann wird gezeigt, dass kein Punkt auf dem Rand von $I$ und $A$ nicht auf $P$ liegt.
+
+Für den ersten Schritt können wir eine Eigenschaft sämtlicher $p \in P$ verwenden: Um jeden dieser Punkte können wir einen beliebig kleinen Kreis zeichnen.
+Da $p$ auf einer Kante liegt, teilt diese Kante den Kreis lokal in zwei Hälften.
+Wenn wir nun je einen Strahl von einem beliebigen Punkt innerhalb beider Hälften in eine beliebige gültige Richtung ziehen, werden sie unterschiedliche Paritäten haben und somit auf unterschiedlichen Seiten des Randes sein.
+Daher muss sich $p$ auf dem Rand von $I$ und $A$ befinden.
+
+Für den zweiten Schritt nutzen wir eine Eigenschaft aller Punkte $x$, die nicht auf $P$ liegen.
+Da $P$ eine geschlossene Menge endlich vieler Segmente ist, gibt es einen minimalen positiven Abstand $d$ zwischen $x$ und $P$.
+Wir können einen Kreis um $x$ mit Radius $0 < r < d$ zeichnen, der $P$ nicht schneidet.
+Alle Punkte innerhalb dieses Kreises haben entsprechend die gleiche Parität gegenüber $P$.
+Das heisst, dass sämtliche Punkte innerhalb dieses Kreises entweder alle in $I$ oder alle in $A$ liegen.
+Daher kann $x$ nicht auf dem Rand von $I$ und $A$ liegen.
+
+
+\subsection{Der Satz von Jordan für einfache Polygone
+\label{jordan:subsection:satz_von_jordan_einfache_polygone}}
+
+Hiermit haben wir gezeigt, dass sämtliche Voraussetzungen für die Gültigkeit des Satzes von Jordan für den Fall einfacher Polygone erfüllt sind.
+Mit der Strahlenparität haben wir ein effizientes Werkzeug gefunden, welches für polygonale Jordan-Kurven beliebig einsetzbar ist.
