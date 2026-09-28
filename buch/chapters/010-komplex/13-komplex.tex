@@ -171,11 +171,14 @@ bezüglich der Addition eine abelsche Gruppe ist.
 \item
 Die Multiplikation ist assoziativ und \emph{distributiv}:
 \index{distributiv}%
-\begin{align*}
-a(bc) &= (ab)c
-\\
-a(b+c)&= ab + ac & (a+b)c &= ac + bc.
-\end{align*}
+\begin{equation}
+a(bc) = (ab)c
+\qquad\text{bzw.}\qquad
+\begin{aligned}
+a(b+c)&= ab + ac \\
+(a+b)c &= ac + bc.
+\end{aligned}
+\end{equation}
 \item
 $R$ heisst \emph{Ring mit Eins}, wenn es in $R^*=R\setminus\{0\}$ ein
 ein neutrales Element $1\in R^*$ der Multiplikation gibt.
@@ -363,7 +366,7 @@ a_0+a_1\alpha + \dots a_{n-1}\alpha^{n-1}
 a_0,\dots,a_{n-1}\in K
 \},
 \]
-die ein $n$-dimensionalers Vektorraum über dem Körper $K$.
+die ein $n$-dimensionaler Vektorraum über dem Körper $K$ ist.
 Die bereits früher konstruierte Definition der Multiplikation
 macht aus $K(\alpha)$ eine Körper, in dem $\alpha$ eine Nullstelle
 des Polynoms $m$ ist.
@@ -445,8 +448,7 @@ Polynom mit rationalen Koeffizienten irreduzibel.
 Daher lässt sich auch $\mathbb{Q}$ durch die imaginäre Einheit
 $i$ algebraisch zum Körper $\mathbb{Q}(i)$ erweitern.
 Im Gegensatz zu $\mathbb{C}$ lässt sich in $\mathbb{Q}(i)$
-exakt rechnen, es ist daher für Computeralgebrasysteme 
-unerlässlich.
+exakt rechnen, was für Computeralgebrasysteme unerlässlich ist.
 
 Die Gleichung $x^2+2=0$ hat in $\mathbb{C}$ die Lösungen
 \[
