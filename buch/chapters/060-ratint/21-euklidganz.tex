@@ -103,7 +103,8 @@ sa + tb
 \operatorname{ggT}(a,b)
 \]
 gilt.
-Die Berechnung nach Abschluss ist jedoch eher umständlich.
+Die Berechnung von $s$ und $t$ nach Abschluss der Berechnung des grössten
+gemeinsamen Teilers ist jedoch eher umständlich.
 Gewünscht ist eine Erweiterung des Grundalgorithmus, die die Zahlen
 $s$ und $t$ gleich mitberechnet.
 
@@ -114,7 +115,7 @@ und Zahlen $s$ und $t$ mit $g=sa+tb$.
 \begin{enumerate}
 \item
 Setze $a_0=a$, $b_0=b$, $k=0$ und $s_{-2}=1$, $t_{-2}=0$, $s_{-1}=0$
-und $t_{-1}=1$
+und $t_{-1}=1$.
 \item
 Finde $q_k$ und $q_k$ mit $a_k= q_kb_k+r_k$.
 \item
@@ -294,7 +295,7 @@ für die Folgen $s_k$ und $t_k$.
 %
 \subsubsection{Anwendung des erweiterten Algorithmus}
 Der erweiterte euklidische Algorithmus kann dazu verwendet werden,
-die multiplikative inverse in einem endlichen Körper zu finden.
+die multiplikative Inverse in einem endlichen Körper zu finden.
 Sei $p$ eine Primzahl und $\mathbb{F}_p$ die Menge der Reste modulo $p$.
 Die multiplikative Inverse eines Elementes $a\in\mathbb{F}_p$ kann
 jetzt wie folgt gefunden werden.
