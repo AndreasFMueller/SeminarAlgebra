@@ -11,9 +11,11 @@
 \kopfrechts{Naive Ansätze für den Beweis}
 
 Wie bereits erwähnt, ist der Satz von Jordan für spezielle Kurvenformen wie Kreise oder Ellipsen trivial zu beweisen.
-So wäre der Beweis für eine Kreisform $\gamma(t) = (r \cos(2\pi t), r \sin(2\pi t))$ mit $t \in [0,1]$ und $r > 0$ einfach zu führen, da die Kurve die Ebene in ein inneres Gebiet (den Kreis) und ein äusseres Gebiet (die unendliche Fläche ausserhalb des Kreises) teilt.
-
-\input{papers/jordan/beweise/02_jordan_kreise.tex}
+So wäre der Beweis für eine Kreisform 
+\[
+    \gamma(t) = (r \cos(2\pi t), r \sin(2\pi t))
+\]
+mit $t \in [0,1]$ und $r > 0$ einfach zu führen, da die Konstruktion der Kurve die Ebene zwangsläufig in ein inneres Gebiet bestehend aus Punkten mit einer Distanz zum Mittelpunkt, der kleiner als der Radius des Kreises ist, und ein äusseres Gebiet, bestehend aus Punkten mit einer Distanz zum Mittelpunkt, der grösser als der Radius des Kreises ist, teilt.
 
 \begin{figure}
     \centering
@@ -21,6 +23,6 @@ So wäre der Beweis für eine Kreisform $\gamma(t) = (r \cos(2\pi t), r \sin(2\p
     \caption{Aufteilung der Ebene $E$ durch eine Kreisform in ein inneres Gebiet $I$ und ein äusseres Gebiet $A$.}
 \end{figure}
 
-Doch dieser Beweis ist stark auf die spezielle Form der Kurve angewiesen und lässt sich nicht auf beliebige einfache geschlossene Kurven verallgemeinern. 
-Da es potentiell unendlich viele verschiedene Formen von einfachen geschlossenen  Kurven gibt, ist es unmöglich, für jede Form einen eigenen Beweis zu führen. 
+Doch Beweise dieser Art sind stark auf die spezielle Form der Kurve angewiesen und lassen sich nicht auf beliebige Jordan-Kurven verallgemeinern. 
+Da es potentiell unendlich viele verschiedene Formen von Jordan-Kurven gibt, ist es unmöglich, für jede Form einen eigenen Beweis zu führen. 
 Dies macht den Ansatz form-spezifischer Beweise unpraktikabel und ineffizient.
