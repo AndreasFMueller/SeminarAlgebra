@@ -1,0 +1,33 @@
+\begin{proof}[Beweis des Satzes von Jordan für reell-analytische Kurven (Umlaufzahl-Ansatz)\label{jordan:proof:jordan_reell_analytische_kurven_umlaufzahl}]
+    Direkter Beweis.
+
+    \begin{enumerate}
+        \item Sei $\gamma$ eine reell-analytische, einfache geschlossene Kurve in der Ebene $\mathbb{R}^2$ und positiv orientiert ($\deg(\tau) = +1$).
+        \item Die Umlaufzahl $n(\gamma, \cdot)$ ist auf $\mathbb{C} \setminus \gamma$ lokal konstant und ganzzahlig.
+        \item Sei $I = \{ z \in \mathbb{C} \setminus \gamma : n(\gamma, z) = 1 \}$ und $A = \{ z \in \mathbb{C} \setminus \gamma : n(\gamma, z) = 0 \}$.
+        \item Die Offenheit von $I$ und $A$ und dass $A$ unbeschränkt ist, kann aus der vorherigen Beweisführung des Satzes von Jordan für einfache Polygone übernommen werden.
+        \item Zu zeigen sind also: \begin{itemize}
+            \item $\mathbb{C} \setminus \gamma = I \cup A$.
+            \item $I$ ist nicht leer und beschränkt.
+            \item Wegzusammenhang von $I$ und $A$.
+        \end{itemize}
+        \item $I$ ist nicht leer \begin{enumerate}
+            \item Sei $t_0$ ein Punkt auf $\gamma$.
+            \item Sei $n(t_0)$ die innere Normale an $\gamma$ im Punkt $\gamma(t_0)$.
+            \item Seien $z_{I} = \gamma(t_0) + s n(t_0)$, mit beliebig kleinen $s > 0$, Punkte, welche sich direkt auf der ``Innenseite'' der Kurve $\gamma$ befinden und entsprechend eine Umlaufzahl von $\pm 1$ haben.
+            \item Gemäss dem Hopfschen Umlaufsatz gilt $n(\gamma, z) = \deg(\tau_{z})$, wobei $\tau_{z}$ die Tangentenabbildung beschränkt auf einen geeigneten Bogen, der $z$ umschliesst, ist.
+            \item Für die ganze Kurve $\gamma$ summieren sich diese Beiträge zur Totaldrehung $+1$ auf.
+            \item Entsprechend beinhaltet $I$ Punkte mit Umlaufzahl $+1$, und ist somit nicht leer.
+        \end{enumerate}
+        \item $I$ ist beschränkt \begin{enumerate}
+                \item Gegeben: $\mathbb{C} = I \cup A \cup \gamma$ und $A$ ist unbeschränkt.
+                \item Da $A$ die gesamte unbeschränkte Komponente für $\mathbb{C} \setminus \gamma$ ist, muss $I$ beschränkt sein.
+        \end{enumerate}
+        \item Wegzusammenhang von $I$ und $A$ \begin{enumerate}
+            \item Sowohl für $I$ als auch für $A$ kann der Beweis des Wegzusammenhangs aus der Existenz einer tubularen Umgebung und der Umlaufzahl hergeleitet werden.
+            \item Die Innenseite der tubularen Umgebung $T(\gamma)$, $T_{I}(\gamma)$, ist das homöomorphe Bild von $S^1 \times (0, \epsilon)$ unter $\varphi$, also ein wegzusammenhängendes Band.
+            \item Entsprechend kann jeder Punkt in $I$ durch einen Weg zu einem Punkt in $T_{I}(\gamma)$ verbunden werden, weil man entlang geeigneter Linien in $I$ wandern kann, ohne $\gamma$ zu kreuzen, da sich sonst die Umlaufzahl ändern würde.
+            \item Analoges gilt für $A$ mit der äusseren Hälfte der tubularen Umgebung, $T_{A}(\gamma)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{proof}

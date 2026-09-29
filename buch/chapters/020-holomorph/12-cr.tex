@@ -16,7 +16,7 @@ Diese Multiplikation kann als Multiplikation der Matrix
 &
 \phantom{-}\operatorname{Re}f'(z)
 \end{pmatrix}
-\qquad\text{mit}\qquad
+\qquad\text{mit dem Vektor}\qquad
 \begin{pmatrix}
 \operatorname{Re}\Delta z\\
 \operatorname{Im}\Delta z
@@ -25,8 +25,8 @@ Diese Multiplikation kann als Multiplikation der Matrix
 betrachtet werden.
 
 Andererseits zeigt \eqref{buch:holomorph:holomorph:2dersatz},
-dass diese Matrix auch mit der Jacobi-Matrix der Funktion $f$
-betrachtet als einer vektorwertigen Funktion von zwei reellen Variablen
+dass diese Matrix auch mit der Jacobi-Matrix der Funktion $f$,
+betrachtet als einer vektorwertigen Funktion von zwei reellen Variablen,
 übereinstimmen muss.
 Es gilt also
 \[
@@ -53,7 +53,7 @@ Es gilt also
 \displaystyle \frac{\partial v}{\partial y}(x,y)
 \end{pmatrix}.
 \]
-Insbesondere gilt
+Insbesondere muss
 \begin{align*}
 \frac{\partial u}{\partial x}(x,y)
 &=
@@ -67,6 +67,7 @@ Insbesondere gilt
 =
 \frac{\partial v}{\partial x}(x,y)
 \end{align*}
+sein.
 Dies sind zwei partielle Differentialgleichungen für Real- und Imaginärteil
 einer holomorphen Funktionen.
 
@@ -123,7 +124,7 @@ Entsprechend häufig ist man in den Anwendungen mit der Frage konfrontiert,
 ob eine Funktion $u$ eine Lösung der homogenen partiellen Differentialgleichung
 $\Delta u=0$ ist.
 
-\begin{definition}[harmonische Funktion]
+\begin{definition}[Harmonische Funktion]
 Eine \emph{harmonische Funktion} ist eine Funktion
 $u\colon\mathbb{R}^n\to\mathbb{R}$, die $\Delta u = 0$ erfüllt.
 \index{harmonische Funktion}%
@@ -291,10 +292,10 @@ bestimmt.
 
 \begin{proof}
 Damit $f$ holomorph ist, muss $v$ so konstruiert werden, dass die
-Cauchy-Riemann-Differentialgleichugen gelten.
+Cauchy-Riemann-Differentialgleichungen gelten.
 Diese legen nur die Ableitungen fest, bleiben also erhalten, wenn man
 zu $v$ eine beliebige Konstante hinzuaddiert.
-Die Funktion $v$ ist also ist also nur bis auf eine Konstante
+Die Funktion $v$ ist also nur bis auf eine Konstante
 festgelegt.
 Wir können daher $v(x_0,y_0)=v_0\in\mathbb{R}$ beliebig wählen.
 

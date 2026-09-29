@@ -154,10 +154,10 @@ chapter=qa
 #
 # Kapitel 15 elektro
 chapter=elektro
-4
+2
 5
+6
 12
-13
 14
 15
 #

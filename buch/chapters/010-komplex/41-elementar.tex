@@ -245,7 +245,7 @@ T^{n-2}
 \label{buch:komplex:symmetrisch:eqn:definition}
 \end{equation}
 mit Polynomen $\sigma_k(X_1,\dots,X_n)$, $k=0,\dots,n$.
-Da $p(T,X_1,\dots,X_n)$ symmetrisch ist, gilt
+Da $p(T,X_1,\dots,X_n)$ symmetrisch in $X_1,\dots,X_n$ ist, gilt
 \[
 p(T,X_{\sigma(1)},\dots,X_{\sigma(n)})
 =
@@ -259,7 +259,7 @@ Durch Koeffizientenvergleich folgt, dass
 \sigma_k(X_1,\dots,X_n)
 \]
 für jeden Koeffizienten $\sigma_k$, $k=1,\dots,n$, und für jede
-Permutation $\sigma\in S_n$.
+Permutation $\sigma\in S_n$ ist.
 Insbesondere sind die $\sigma_k(X_1,\dots,X_n)$ alle symmetrische
 Polynome.
 
@@ -546,7 +546,9 @@ c_1(X_1^2X_2+X_1X_2^2)
 \]
 konstruieren, welches die gleichen Terme enthält.
 Das neue Polynom
-$q_2(X_1,X_2) = q_1(X_1,X_2) - c_1\sigma_1(X_1,X_2)\sigma_2(X_1,X_2)$
+\[
+q_2(X_1,X_2) = q_1(X_1,X_2) - c_1\sigma_1(X_1,X_2)\sigma_2(X_1,X_2)
+\]
 enthält dann auch diese Terme nicht mehr.
 
 Da es keine weiteren Terme dritten Grades gibt, ist $q_2$ jetzt nur noch
@@ -717,7 +719,7 @@ aus
 ergibt.
 
 \begin{definition}[führendes Monom, führender Koeffizient]
-Das \emph{führende Monom} oder \emph{leading monimial}
+Das \emph{führende Monom} oder \emph{leading monomial}
 $\operatorname{LM}(p)$ eines Polynoms $p$ ist
 \index{fuhrendes Monom@führendes Monom}%
 \index{leading monomial}%
@@ -730,7 +732,7 @@ ist der Koeffizient des führenden Monoms in $p$.
 \index{fuhrender Koeffizient@führender Koeffizient}%
 \index{leading coefficient}%
 \index{LC}%
-\index{Koeffizient!fuhrend@Koeffizient!führend}%
+\index{Koeffizient!fuhrend@führend}%
 \end{definition}
 
 \begin{lemma}

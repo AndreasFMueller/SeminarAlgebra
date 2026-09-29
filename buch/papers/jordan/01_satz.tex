@@ -1,5 +1,5 @@
 %
-% 01_theorem.tex -- Einfuhrung in das Jordan'sche Kurventheorem
+% 01_satz.tex -- Einfuhrung in den Satz von Jordan
 %
 % (c) 2026 Dominik Castelberg, Ostschweizer Fachhochschule
 %
@@ -11,29 +11,15 @@
 
 Die meisten Sätze der höheren Mathematik setzen ein tiefes Verständnis der zugrunde liegenden mathematischen Strukturen voraus, damit über ihre Korrektheit argumentiert werden kann. 
 Andere Sätze erscheinen jedoch derart trivial, dass ihre Korrektheit auf den ersten Blick offensichtlich ist und man zum Fehlschluss kommen könnte, dass ein Beweis überflüssig ist. 
+Der Satz von Jordan ist einer dieser vermeintlich trivialen Sätze.
 
-\begin{satz}[Satz von Jordan\label{jordan:theorem:jordan}]
-    Sei $\gamma$ eine einfache geschlossene Kurve in der Ebene $\mathbb{R}^2$. 
-    Dann teilt $\gamma$ die Ebene in genau zwei zusammenhängende Gebiete: ein inneres Gebiet, das von $\gamma$ eingeschlossen wird, und ein äusseres Gebiet, das unendlich ausgedehnt ist. 
-    Die Kurve $\gamma$ selbst bildet der gemeinsame Rand dieser beiden Gebiete.
-\end{satz}
+\input{papers/jordan/saetze/01_jordan}
 
-\begin{definition}[einfache geschlossene Kurve]
-    Eine einfache geschlossene Kurve $\gamma$ in der Ebene $\mathbb{R}^2$ ist eine stetige Abbildung $\gamma: [0,1] \to \mathbb{R}^2$, die folgende Eigenschaften erfüllt:
-    \begin{enumerate}
-        \item $\gamma(0) = \gamma(1)$ (die Kurve ist geschlossen),
-        \item $\gamma(t_1) \neq \gamma(t_2)$ für alle $t_1, t_2 \in [0,1)$ mit $t_1 \neq t_2$ (die Kurve schneidet sich nicht selbst).
-    \end{enumerate}
-\end{definition}
+Der Begriff der einfachen geschlossenen Kurve schränkt den Gültigkeitsbereich des Satzes von Jordan auf Kurven, welche eine Schleife bilden und sich dabei nicht selbst schneiden, ein.
 
-\begin{definition}[Rand]
-    Der Rand eines Gebietes $G \subset \mathbb{R}^2$ ist die Menge aller Punkte $p \in \mathbb{R}^2$, für die jede Umgebung von $p$ sowohl Punkte aus $G$ als auch Punkte aus dem Komplement von $G$ enthält.
-\end{definition}
+\input{papers/jordan/definitionen/01_einfache_geschlossene_kurve}
 
-\begin{definition}[Zusammenhängendes Gebiet]
-    Ein Gebiet $G \subset \mathbb{R}^2$ ist zusammenhängend, wenn es nicht in zwei disjunkte, offene Teilmengen zerlegt werden kann. 
-    Für jedes Paar von Punkten $p, q \in G$ existiert eine stetige Kurve innerhalb von $G$, die $p$ und $q$ verbindet.
-\end{definition}
+Später werden wir Kurven, für welche der Satz von Jordan gilt, auch als Jordan-Kurven bezeichnen.
 
 \begin{figure}
     \centering
@@ -46,47 +32,18 @@ Seit seiner Formulierung im Jahr 1887 durch Camille Jordan versuchten Mathematik
 Die Beweise waren oft unvollständig oder fehlerhaft, und es dauerte mehrere Jahrzehnte, bis der erste, allgemein als vollständig und rigoros anerkannte Beweis durch Oswald Veblen im Jahr 1905 veröffentlicht wurde.
 
 Was macht diesen Satz so schwierig zu beweisen?
+Die Voraussetzungen, welche für den Beweis des Satzes von Jordan notwendig sind, sind für die meisten Fälle nicht sonderlich schwierig zu erfüllen.
+Spezifisch muss für den Beweis gezeigt werden:
 
-Die Schwierigkeit liegt primär in der allgemeinen Formulierung des Satzes. Während es geradezu trivial ist, den Satz für spezielle Kurvenformen wie Kreise oder Ellipsen zu beweisen, wird die Komplexität des Beweises grösser, wenn man die Bedingung der Einfachheit und Geschlossenheit auf beliebige Kurven anwendet.
+\begin{itemize}
+    \item Die einfache geschlossene Kurve $\gamma$ teilt die Ebene $\mathbb{R}^2$ in zwei Gebiete, das innere Gebiet $I$ und das äussere Gebiet $A$.
+    \item $I$ ist offen, nicht leer, wegzusammenhängend und beschränkt.
+    \item $A$ ist offen, nicht leer, wegzusammenhängend und unbeschränkt.
+    \item Die Kurve $\gamma$ ist der einzige gemeinsame Rand von $I$ und $A$.
+\end{itemize}
 
-Stetigkeit wirkt nur als eine schwache Einschränkung auf die Kurve und erlaubt wilde Formen wie Fraktale, raumfüllende Kurven im Inneren oder Ränder mit positivem Lebesgue-Mass. All diese Beispiele sind über menschliche Intuition nur schwer zu erfassen und sind aufwändig zu analysieren, was die Beweisführung für den Satz von Jordan deutlich erschwert. 
-
-\begin{definition}[Fraktal]
-    Ein Fraktal ist eine geometrische Struktur, deren Hausdorff-Dimension $\dim_{\mathcal{H}(A)}$ größer als ihre topologische Dimension ist.
-\end{definition}
-
-\begin{definition}[Hausdorff-Dimension]
-    Die Hausdorff-Dimension $\dim_{\mathcal{H}(A)}$ einer Teilmenge $A$ eines metrischen Raumes ist der Schwellenwert,
-     bei dem das $s$-dimensionale Hausdorff-Mass $\mathcal{H}^s(A)$ von $\infty$ auf $0$ übergeht. 
-\end{definition}
-
-\begin{definition}[Hausdorff-Mass]
-    Das $s$-dimensionale Hausdorff-Mass $\mathcal{H}^s(A)$ einer Teilmenge $A$ eines metrischen Raumes ist definiert als
-    \[
-        \mathcal{H}^s(A) = \lim_{\delta \to 0} \inf \left\{ \sum_{i} (\text{diam}(U_i))^s : A \subseteq \bigcup_{i} U_i, \text{diam}(U_i) < \delta \right\},
-    \]
-    wobei die Infimum über alle Überdeckungen von $A$ durch Mengen $U_i$ mit Durchmesser kleiner als $\delta$ genommen wird.
-    
-\end{definition}
-
-\begin{definition}[Topologische Dimension]
-    Die topologische Dimension ist eine Eigenschaft eines topologischen Raums, die angibt, wie viele unabhängige Richtungen in der Umgebung jedes Punktes existieren. 
-    Sie wird durch die minimale Anzahl von Koordinaten bestimmt, die benötigt werden, um den Raum lokal zu beschreiben.
-\end{definition}
-
-\begin{definition}[Lebesgue-Mass]
-    Das Lebesgue-Mass $\Lambda(A)$ ist die Einschränkung des äusseren Masses $\Lambda^*$ auf die $\sigma$-Algebra $\mathcal{A}$, die die Borelsche $\sigma$-Algebra enthält.
-\end{definition}
-
-\begin{definition}[Borelsche $\sigma$-Algebra]
-    Die Borelsche $\sigma$-Algebra $\mathcal{B}(\mathbb{R}^n)$ ist die kleinste $\sigma$-Algebra, die alle offenen Mengen in $\mathbb{R}^n$ enthält.
-\end{definition}
-
-\begin{definition}[$\sigma$-Algebra]
-    Eine $\sigma$-Algebra $\mathcal{A}$ über einer Menge $X$ ist eine Sammlung von Teilmengen von $X$, die folgende Eigenschaften erfüllt:
-    \begin{enumerate}
-        \item $X \in \mathcal{A}$,
-        \item Wenn $A \in \mathcal{A}$, dann ist auch das Komplement $X \setminus A \in \mathcal{A}$,
-        \item Wenn $\{A_n\}_{n=1}^{\infty} \subseteq \mathcal{A}$, dann ist auch die Vereinigung $\bigcup_{n=1}^{\infty} A_n \in \mathcal{A}$.
-    \end{enumerate}
-\end{definition}
+Die Schwierigkeit liegt primär in der allgemeinen Formulierung des Satzes.
+Während es geradezu trivial ist, den Satz für spezielle Kurvenformen wie Kreise oder Ellipsen zu beweisen, wird die Komplexität des Beweises grösser, wenn man die Bedingung der Einfachheit und Geschlossenheit auf beliebige Kurven anwendet.
+Stetigkeit wirkt nur als eine schwache Einschränkung auf die Kurve und erlaubt wilde Formen wie Fraktale, raumfüllende Kurven im Inneren oder Ränder mit positivem Lebesgue-Mass.
+Die Implikationen der Eigenschaften dieser Beispiele sind über menschliche Intuition nur schwer zu erfassen.
+Aber wie wir später sehen werden, sind solche Kurven enorm aufwändig zu analysieren, was die Beweisführung für den Satz von Jordan deutlich erschwert. 

@@ -1,0 +1,102 @@
+%
+% 04_einfache_polygone.tex -- Einfuhrung in den Satz von Jordan fuer einfache Polygone
+%
+% (c) 2026 Dominik Castelberg, Ostschweizer Fachhochschule
+%
+% !TEX root = ../../buch.tex
+% !TEX encoding = UTF-8
+%
+
+\section{Der Fall einfacher Polygone
+\label{jordan:section:einfache_polygone}}
+\kopfrechts{Der Fall einfacher Polygone}
+
+Einfache Polygone verwerfen die Einschränkng der Konvexität und erlauben es, dass die Kurve in sich selbst zurückkehrt, solange sie sich nicht schneidet. 
+Die Eigenschaft der Konvexität war jedoch in der vorherigen Beweisführung entscheidend, da sie die Definition der konvexen Hülle und die Trennung der Ebene in zwei Gebiete erleichtert hat. 
+
+Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaften der Konstruktion der behandelten Körper gegebenen, Definitionen für ``Innen'' und ``Aussen'' neu zu formulieren.
+Wertvolle Werkzeuge sind hierbei die Strahlenparität und die dazugehörige Paritätsinvarianz.
+
+\input{papers/jordan/definitionen/04_strahlenparitaet.tex}
+
+\input{papers/jordan/lemmata/04_paritaetsinvarianz.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/strahlenparitaet.pdf}
+    \caption{Strahlenparität am Beispiel einer Jordan-Kurve.}
+\end{figure}
+
+Das Konzept der Strahlenparität und deren Invarianz erlaubt es uns, die Punkte in der Ebene in zwei Mengen zu unterteilen: diejenigen, die eine gerade Anzahl von Schnittpunkten mit dem Polygon haben (die äussere Menge), und diejenigen, die eine ungerade Anzahl von Schnittpunkten haben (die innere Menge).
+
+\input{papers/jordan/definitionen/04_innen_aussengebiet.tex}
+
+Einige der Voraussetzungen für die Gültigkeit des Satzes von Jordan, welche durch ein konvexes Polygon erfüllt werden, werden auch durch ein einfaches Polygon erfüllt.
+So müssen wir nicht mehr die Unbeschränktheit, Nicht-Leerheit und Offenheit von $A$ aufzeigen, sofern wir die Beschränktheit von $I$ etablieren können.
+Gleichzeitig können wir auch die Offenheit von $I$ und $A$ weiterhin als Argument dafür, dass es keine anderen Ränder als $P$ zwischen $I$ und $A$ gibt, verwenden.
+Tatsächlich sind diese Eigenschaften mit unserer Argumentation für 2-Dimensionale Jordan-Kurven nun etabliert und müssen auch in Zukunft nicht mehr neu gezeigt werden.
+
+
+\subsubsection{Offenheit von $I$
+\label{jordan:subsubsection:offenheit_innen_aussen}}
+
+Der neue Beweis für die Offenheit von $I$ basiert auf der lokalen Konstanz der Strahlenparität.
+Die Parität $N(p, L) \mod 2$ ist lokal konstant in $p$ für sämtliche gültigen Strahlen $L$, sofern $p$ nicht auf dem Polygon liegt.
+Wir können daher immer einen Punkt $p' \in I$ oder $p' \in A$ in der Nähe von $p$ finden, sodass $N(p', L) \mod 2 = N(p, L) \mod 2$ für alle gültigen Strahlen $L$ gilt.
+
+\subsubsection{Wegzusammenhang von $I$ und $A$
+\label{jordan:subsubsection:wegzusammenhang_innen_aussen}}
+
+Die Etablierung des Wegzusammenhangs von $I$ und $A$ verlangt ein topologisch substantielleres Argument: Die Wegzusammenhangseigenschaften von triangulierten Polygonen. 
+
+\input{papers/jordan/definitionen/04_triangulierung_einfaches_polygon.tex}
+
+\input{papers/jordan/saetze/04_triangulierungssatz_einfache_polygone.tex}
+
+Dieser Triangulierungssatz wurde 1975 von G. H. Meisters\cite{jordan:meisters1975} präzise bewiesen.
+Der Beweis basiert auf folgendem Lemma:
+
+\input{papers/jordan/lemmata/04_existenz_diagonale.tex}
+
+Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale impliziert, dass das Polygon in zwei kleinere Polygone zerlegt werden kann.
+
+
+\begin{figure}
+    \centering
+    \includegraphics{papers/jordan/images/triangulierung.pdf}
+    \caption{Triangulierung eines einfachen Polygons in nicht überlappende Dreiecke an Reflexpunkt $v$.}
+\end{figure}
+
+Mit dieser Triangulierung können wir nun den Wegzusammenhang zwischen zwei Punkten in $I$ aufzeigen.
+Da $I$ als Vereinigung von anliegenden Dreiecken dargestellt werden kann, und Dreiecke als konvexe Polygone inhärent wegzusammenhängend sind, können wir einen Weg zwischen zwei Punkten in $I$ konstruieren, indem wir die Dreiecke durchqueren, die das Polygon bilden.
+
+\subsubsection{Beschränktheit von $I$
+\label{jordan:subsubsection:beschraenktheit_innen}}
+
+Der Beweis der Beschränktheit von $I$ ist relativ trivial und basiert darauf, dass man für jedes einfache Polygon eine konvexe Hülle finden kann.
+Da $I$ eine Teilmenge dieser konvexen Hülle ist, und wir bereits in \ref{jordan:konvex:beschraenktheit_innen} gezeigt haben, dass die konvexe Hülle beschränkt ist, muss auch $I$ beschränkt sein.
+
+\subsubsection{Nicht-Leerheit von $I$
+\label{jordan:subsubsection:nicht_leerheit_innen}}
+
+Die nicht-Leerheit von $I$ kann aus einem geometrischen Argument abgeleitet werden: Jedes Polygon mit $n \geq 3$ Ecken muss eine nicht-leeres, inneres Gebiet haben.
+Wie schon in \ref{jordan:subsubsection:wegzusammenhang_innen_aussen} gezeigt, kann jedes Polygon mit $n \geq 3$ Ecken in nicht überlappende Dreiecke zerlegt werden.
+Da jedes Dreieck, als ein konvexes Polygon, ein nicht-leeres inneres Gebiet hat, kann das innere Gebiet des Polygons nicht leer sein, da es die Vereinigung der inneren Gebiete der Dreiecke ist.
+
+\subsubsection{$P$ als gemeinsamer Rand von $I$ und $A$
+\label{jordan:subsubsection:gemeinsamer_rand_innen_aussen}}
+
+Der Beweis dafür, dass $P$ der gemeinsame Rand von $I$ und $A$ ist, wird in den gleichen zwei Schritten durchgeführt wie in \ref{jordan:konvex:gemeinsamer_rand} beschrieben.
+Wie bereits erwähnt muss der zweite Schritt aber nicht erneut gezeigt werden, da die verwendete Argumentation auch für einfache Polygone gilt.
+
+Für den ersten Schritt können wir nun eine andere Eigenschaft sämtlicher $p \in P$ verwenden:
+Um jeden dieser Punkte können wir einen beliebig kleinen Kreis zeichnen.
+Da $p$ auf einer Kante liegt, teilt diese Kante den Kreis lokal in zwei Hälften.
+Wenn wir nun je einen Strahl von einem beliebigen Punkt innerhalb beider Hälften in eine beliebige gültige Richtung ziehen, werden sie unterschiedliche Paritäten haben und somit auf unterschiedlichen Seiten des Randes sein.
+Daher muss sich $p$ auf dem Rand von $I$ und $A$ befinden.
+
+\subsection{Der Satz von Jordan für einfache Polygone
+\label{jordan:subsection:satz_von_jordan_einfache_polygone}}
+
+Hiermit haben wir gezeigt, dass sämtliche Voraussetzungen für die Gültigkeit des Satzes von Jordan für den Fall einfacher Polygone erfüllt sind.
+Mit der Strahlenparität haben wir ein effizientes Werkzeug gefunden, welches für polygonale Jordan-Kurven beliebig einsetzbar ist.
