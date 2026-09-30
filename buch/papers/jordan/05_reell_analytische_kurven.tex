@@ -15,7 +15,7 @@ Reell-analytische Kurven erhöhen die Komplexität der Beweisführung des Satzes
 
 \input{papers/jordan/definitionen/05_reell_analytische_kurve.tex}
 
-Mit dem Schritt von einfachen Polygonen zu reell-analytischen Kurven (im Folgenden als $\gamma$ bezeichnet) verlieren wir mehrere Eigenschaften und Werkzeuge, welche wir bisher für die Beweisführung verwendet haben. 
+Mit dem Schritt von einfachen Polygonen zu reell-analytischen Kurven verlieren wir mehrere Eigenschaften und Werkzeuge, welche wir bisher für die Beweisführung verwendet haben. 
 Spezifisch verlieren wir:
 \begin{itemize}
     \item \textbf{Strahlenparität:} Die Zahl der Schnittpunkte eines Strahls mit $\gamma$ ist nicht mehr offensichtlich endlich, da $\gamma$ keine Kanten mehr hat. 
@@ -57,7 +57,8 @@ Dieses Werkzeug ist die tubulare Umgebung.
 
 \input{papers/jordan/lemmata/05_tubulare_umgebung.tex}
 
-Die tubulare Umgebung $T$ kreiert eine Umgebung um $\gamma$, in welcher mit einem neuen Satz an Koordinaten gearbeitet werden kann: Den Fermi-Koordinaten $(t, s)$.
+Die tubulare Umgebung $T$ erzeugt eine Umgebung um $\gamma$, in welcher mit einem neuen Satz an Koordinaten gearbeitet werden kann: Den \emph{Fermi-Koordinaten} $(t, s)$.
+\index{Fermi-Koordinaten}%
 $t$ ist hierbei der Parameter entlang der Kurve $\gamma$, während $s$ die Distanz von $\gamma$ in Richtung des nach aussen gerichteten Einheitsnormalenvektors $n(t)$ ist.
 Das Komplement $T \setminus \gamma$ zerfällt als Konsequenz in zwei zusammenhängende Komponenten entsprechend $s > 0$ und $s < 0$, die als innere und äussere tubulare Umgebung bezeichnet werden.
 Innerhalb dieses Koordinatensystems ist die Kurve $\gamma$ auf die Linie $s = 0$ reduziert, und ein Übertreten der Kurve $\gamma$ entspricht einem Wechsel des Vorzeichens von $s$.
@@ -67,7 +68,7 @@ Innerhalb dieses Koordinatensystems ist die Kurve $\gamma$ auf die Linie $s = 0$
     \includegraphics{papers/jordan/images/tubulare_umgebung.pdf}
     \caption{Die tubulare Umgebung einer reell-analytischen Kurve.}
 \end{figure}
-Das Lemma der tubularen Umgebung kann mithilfe der Determinanten der im Abschnitt \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} eingeführten Jacobi-Matrix bewiesen werden.
+Das Lemma von der tubularen Umgebung kann mithilfe der Determinanten der im Abschnitt \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} eingeführten Jacobi-Matrix bewiesen werden.
 Man berechnet die Determinante der Jacobi-Matrix auf der Kurve $\gamma$ (bei $s = 0$).
 Die Spalten der Jacobi-Matrix enthalten die Ableitungen nach den neuen Koordinaten $(t, s)$.
 Die Ableitung von $t$ entspricht hierbei dem Tangentenvektor $\gamma'(t)$, und die Ableitung von $s$ entspricht dem Einheitsnormalenvektor $n(t)$.
@@ -79,7 +80,7 @@ Nur mit zu grossen $s$ können die Krümmungen der Kurve die Invertierbarkeit de
 \label{jordan:subsubsection:strahlenparitaet_reell_analytische_kurven}}
 
 Für $p \in \mathbb{R}^2 \setminus \gamma$ wählen wir einen Strahl $L$ mit Anfangspunkt $p$, der nicht tangential an $\gamma$ verläuft und durch keinen degenerierten Punkt von $\gamma$ geht.
-Gemäss der endlichen Schnittstruktur ist die Anzahl der Schnittpunkte $N(p,L)$ immer diskret, also ist jede Richtung zulässig. 
+Gemäss der endlichen Schnittstruktur ist die Anzahl der Schnittpunkte $N(p,L)$ immer endlich, also ist jede Richtung zulässig. 
 Da die Schnittstruktur endlich ist, ist die Parität $N(p,L) \mod 2$ wieder wohldefiniert und hängt nicht von der Wahl des Strahls ab. 
 Das Signal dafür, dass ein Strahl die Kurve überschreitet, liefert nun das Vorzeichen von Fermi-Parameter $s$ in der tubularen Umgebung von $\gamma$.
 
@@ -92,8 +93,8 @@ Die einzigen Änderungen ergeben sich beim Wegzusammenhang von $I$ und $A$, sowi
 \subsubsection{Wegzusammenhang von $I$ und $A$
 \label{jordan:subsubsection:wegzusammenhang_innen_aussen_tubulare_umgebung}}
 
-Jeder Punkt innerhalb einer Hälfte $T^{\pm}$ der tubularen Umgebung $T$ kann über Fermi-Koordinaten dargestellt werden.
-Dadurch kann auch jeder Punkt $p'$ von einem anderen Punkt $p$ innerhalb der gleichen Hälfte der tubularen Umgebung erreicht werden, indem man erst graduell $s_{p}$ zu $s_{p'}$ verschiebt und anschliessend $t_{p}$ zu $t_{p'}$ verschiebt.
+Jeder Punkt innerhalb einer Hälfte $T^{\pm}$ der tubularen Umgebung $T$ kann über Fermi-Koordi\-naten dargestellt werden.
+Dadurch kann auch jeder Punkt $p'$ von einem anderen Punkt $p$ innerhalb der gleichen Hälfte der tubularen Umgebung erreicht werden, indem man erst $s_{p}$ zu $s_{p'}$ und anschliessend $t_{p}$ zu $t_{p'}$ verschiebt.
 
 \subsubsection{Beschränktheit von $I$
 \label{jordan:subsubsection:beschraenktheit_innen_tubulare_umgebung}}
@@ -122,7 +123,8 @@ Entsprechend werden wir uns nun einem alternativen Ansatz, der uns mit seiner El
 
 \subsection{Nutzung der Umlaufzahl statt der Strahlenparität}
 
-Im Abschnitt \ref{buch:integration:cauchy:subsetion:umlaufzahl} wurde die Umlaufzahl eines Weges um einen Punkt eingeführt. 
+Im Abschnitt \ref{buch:integration:cauchy:subsetion:umlaufzahl} wurde die \emph{Umlaufzahl} eines Weges um einen Punkt eingeführt. 
+\index{Umlaufzahl}%
 Diese Umlaufzahl besitzt Eigenschaften, die es uns erlauben, die Strahlenparität als Argument komplett zu verwerfen. 
 
 \input{papers/jordan/lemmata/05_grundlegende_eigenschaften_umlaufzahl.tex}
@@ -192,7 +194,7 @@ Ein solches transversales Überqueren der Kurve zwingt die Umlaufzahl jedoch üb
 
 Für das Innengebiet $I$ (die Menge aller Punkte mit $n(\gamma, p) \neq 0$) nutzen wir die Brücke zur tubularen Umgebung: 
 Angenommen, es gäbe zwei topologisch getrennte innere Komponenten $I_1$ und $I_2$. 
-Da $\gamma$ eine einfache, geschlossene Jordan-Kurve ist, grenzen alle inneren Bereiche an dieselbe Kurve an. 
+Da $\gamma$ eine einfach geschlossene Kurve ist, grenzen alle inneren Bereiche an dieselbe Kurve an. 
 Über die innere Hälfte der tubularen Umgebung $T^{-}$ existiert ein stetiger, geschlossener „Sicherheitsstreifen“ direkt entlang der Innenseite von $\gamma$. 
 Da man sich innerhalb dieses Streifens frei bewegen kann, ohne $\gamma$ zu kreuzen, verbindet $T^{-}$ alle potenziellen inneren Inseln zu einer einzigen, grossen Wegzusammenhangskomponente.
 
