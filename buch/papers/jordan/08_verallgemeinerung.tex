@@ -18,7 +18,7 @@ Hiermit ändert sich auch die Art und Weise, wie wir über den Satz von Jordan d
 Bisher haben wir den Satz von Jordan über eine Kurve in einem euklidischen Raum analysiert.
 Im Bereich der Topologie arbeitet man jedoch mit allgemeineren Objekten, und spezifisch in unserem Fall werden wir häufiger vom Konzept einer $n$-Sphäre ($S^n$) Nutzen machen.
 
-$S^n$ ist der $\mathbb{R}^n$ mit einem zusätzlichen Punkt $\infty$ am Unendlichen, vergleichbar zur Riemannschen Zahlenkugel $\hat{\mathbb{C}}$, welche die komplexe Ebene um $\infty$ ergänzt.
+$S^n$ ist der $\mathbb{R}^n$ mit einem zusätzlichen Punkt $\infty$ am Unendlichen, vergleichbar zur Riemannschen Zahlenkugel $\hat{\mathbb{C}}$, vorgestellt in \ref{moebius:section:teil6}, welche die komplexe Ebene um $\infty$ ergänzt.
 Ein Vorteil bei der Arbeit mit $S^n$ ist, dass $S^n$ inhärent kompakt ist und somit die Unterscheidung zwischen beschränktem $I$ und unbeschränktem $A$ verschwindet.
 Die Aussagen werden also symmetrischer.
 Im $\mathbb{R}^n$-Raum und in $S^n$ gelten die Ergebnisse aber gleichermassen.
@@ -55,7 +55,7 @@ Man kann das Tuch nun so dehnen, dass die Kurve $\Sigma$ auf den Einheitskreis $
 Dies gilt für sämtliche $\Sigma$, egal wie wild sie auch sein mag.
 
 Während dieser Satz für $n=2$ gilt, ist er für $n>2$ nicht mehr gültig, da es in höheren Dimensionen möglich ist, dass die eingebettete Sphäre $\Sigma$ eine Form annimmt, die nicht homöomorph auf eine Standard-Sphäre ist.
-Trotz dieser Einschränkung bietet der Satz von Schoenflies eine Verallgemeinerung des Satzes von Jordan auf eine höhere Dimension.
+Trotz dieser Einschränkung bietet der Satz von Schoenflies eine Erweiterung des Satzes von Jordan auf eine höhere Dimension.
 
 \subsection{Die Alexander-Dualität
 \label{jordan:subsection:alexander}}
@@ -98,7 +98,8 @@ Trotzdem ist die Betti-Zahl $b_1$ nur 2, da die dritte Schleife durch die beiden
 
 \subsubsection{Homologie und Kohomologie}
 
-Um die Alexander-Dualität nachvollziehen zu können, müssen wir erst die Konzepte der Homologie und Kohomologie verstehen.
+Um die Alexander-Dualität nachvollziehen zu können, müssen wir erst mit den Begriffen der Homologie und Kohomologie vertraut werden.
+Dabei ist zu beachten, dass die nachfolgende Einführung der Veranschaulichung der Konzepte dient und keine vollständige Definition dieser hochabstrakten Konzepte darstellt.
 
 Die Homologie ist ein Werkzeug, welches uns erlaubt, Löcher in beliebigen Dimensionen zu zählen.
 Man zerlegt den Raum in eine endliche Anzahl von einfachen Gebilden, die als Simplizes bezeichnet werden.
@@ -107,7 +108,7 @@ Jede Kette hat einen Rand, der aus Simplizes der nächstniedrigeren Dimension be
 So ist beispielsweise der Rand einer Fläche eine Kette von Kanten, die die Fläche umschliessen.
 Eine Kette ohne Rand heisst Zyklus und wird auch als geschlossene Kette bezeichnet.
 Beispiele hierfür sind Schleifen ohne Enden oder Hüllen ohne offene Stellen.
-Hierbei wird $\mod 2$ gerechnet: Wird eine Kante zwei mal in einem Zyklus verwendet, hebt sie sich auf.
+Hierbei wird $\bmod 2$ gerechnet: Wird eine Kante zwei mal in einem Zyklus verwendet, hebt sie sich auf.
 Legt man zwei benachbarte Dreiecke zusammen, so hebt sich die gemeinsame Kante auf, und es bleibt nur der Rand des neu entstandenen Vierecks.
 Zyklen, welche als Ränder eines höherdimensionalen Gebildes auftreten sind trivial, da sie kein Loch umschliessen.
 Die Homologie ist die Menge aller Zyklen, welche nicht Ränder sind.
@@ -117,7 +118,7 @@ Statt Objekte in den Raum zu legen, definiert man Messvorschriften, welche die O
 Jedem Baustein des Raumes wird ein Wert zugeordnet, und die Summe der Werte über eine Kette ist der Wert der Kette.
 Ein einfach verständliches Beispiel ist eine sogenannte Mautstelle.
 Man stelle sich ein Torus vor, auf welchem eine Linie quer über den Schlauch gezogen wird.
-$\mod 2$ zählt nur, ob die Anzahl gerade oder ungerade ist.
+$\bmod 2$ zählt nur, ob die Anzahl gerade oder ungerade ist.
 Verschiebt man die Schleife, ändert sich die Anzahl der Schnittpunkte, aber die Parität bleibt erhalten.
 Eine neue Kreuzung entsteht immer zusammen mit einer zweiten.
 Eine Schleife, die sich um den Torus windet, kann nicht auf eine Schleife ohne Kreuzung deformiert werden.
@@ -134,27 +135,34 @@ Die Kohomologie ist die Menge aller Kozyklen, welche nicht Koränder sind.
 
 \input{papers/jordan/saetze/08_alexander.tex}
 
-In anderen Worten: Die $i$-te Betti-Zahl des Komplements einer eingebetteten Sphäre in $S^n$ ist gleich der $(n-i-1)$-ten Betti-Zahl der Sphäre selbst.
-Entsprechend besteht eine Dualität zwischen den Löchern in verschiedenen Dimensionen.
+Der Satz ist eine Aussage über die Isomorphie von Gruppen:
+Er verbindet die Homologie des Komplements $S^n \setminus X$ mit der Kohomologie von $X$.
 
-Dieser Satz ist nicht nur Aussagengleich zum Satz von Jordan im spezifischen Fall der stetigen Kurve in einem 2-dimensionalen Raum, sondern er verallgemeinert den Satz von Jordan auf beliebige Dimensionen und beliebige topologische Räume.
+Für einen Raum $Y$, bezeichne
+\[
+    \tilde{b}_k(Y) := \dim_{\mathbb{Q}} \tilde{H}_k(Y; \mathbb{Q})
+\]
+die $k$-te \emph{reduzierte} Betti-Zahl.
+Sie stimmt mit der gewöhnlichen Betti-Zahl $b_k(Y)$ überein, außer für
+$k = 0$: Dort gilt $\tilde{b}_0(Y) = b_0(Y) - 1$.
 
-Der vollständige Beweis der Alexander-Dualität ist sehr komplex und würde den Rahmen dieses Artikels sprengen.
-Zusammenfassend lässt sich jedoch sagen, dass der Beweis auf der Konstruktion von Ketten und Kozyklen basiert, welche die Löcher in den verschiedenen Dimensionen zählen und die Beziehungen zwischen ihnen beschreiben.
-Homologien werden in der Regel mit Hilfe von Kettenkomplexen und exakten Sequenzen untersucht, während Kohomologien oft durch die Verwendung von Kohomologiegruppen und Cup-Produkte analysiert werden.
+Um aus dem Satz eine Aussage über Betti-Zahlen zu gewinnen, ist noch ein
+weiterer, nicht ganz einfacher Schritt nötig.
+Zum einen wählt man als Koeffizienten einen Körper, etwa $\mathbb{Q}$.
+Dann sind beide Seiten Vektorräume, und aus ihrer Isomorphie folgt die Gleichheit ihrer Dimensionen.
+Zum anderen sind die Betti-Zahlen über die Homologie definiert, auf der rechten Seite steht jedoch die Kohomologie.
+Dass Homologie und Kohomologie mit Körperkoeffizienten dieselbe Dimension haben, folgt aus der Dualität zwischen Homologie und Kohomologie, dem sogenannten universellen Koeffiziententheorem.
 
-\subsection{Die Auswirkung der Alexander-Dualität auf das Gebiet der algebraischen Topologie}
+Zusammen ergibt sich:
 
-Was als Ansatz der Verallgemeinerung des (nun nicht mehr so trivialen) Satzes von Jordan begann, hat das Gebiet der algebraischen Topologie stark geprägt.
-Bis Mitte der 1920er Jahre rechnete man primär mit Betti-Zahlen. 
+\input{papers/jordan/korollare/08_alexander_betti.tex}
 
-Emmy Noether setzte sich aber für die Verwendung von Gruppen als alternative zu Betti-Zahlen ein, wobei die Alexander-Dualität sich von einer Gleichheit von Zahlen zu einem Isomorphismus zwischen algebraischen Objekten entwickelte.
-Diese neue Sichtweise führte zu einer tieferen Einsicht in die Struktur von topologischen Räumen und deren Invarianten.
-
-In diesem Artikel wurde die Kohomologie als duales Konzept zur Homologie eingeführt. 
-Doch dieses Resultat war tatsächlich keine Voraussetzung für die initiale Formulierung der Alexander-Dualität, sondern eine Konsequenz daraus.
-Alexander führte die Kohomologie zeitgleich mit und unabhängig von Andrei N. Kolmogorov ein.
-
-Die Alexander-Dualität agierte auch als Prüfung der Kohomologiewahl. Für beliebige kompakte $X \subset S^n$ ist die naheliegende, aus Ketten bestehende Kohomologie nicht immer korrekt.
-Das zeigt beispielsweise der Warschauer Kreis, für welchen die Dualität nur mit der Cech-Kohomologie gilt.
-Die Alexander-Spanier-Kohomologie hat aus diesem Grund ihren Namen erhalten.
+Es besteht also eine Dualität zwischen den ``Löchern'' des Komplements und denen von $X$ in komplementären Dimensionen.
+Der Satz von Jordan ergibt sich daraus als Spezialfall.
+Ist $X$ homöomorph zu $S^{n-1}$, so liefert das Korollar für $i = 0$
+\[
+    \tilde{b}_0(S^n \setminus X) = \tilde{b}_{n-1}(S^{n-1}) = 1.
+\]
+Da die reduzierte nullte Betti-Zahl um eins kleiner ist als die Anzahl der Zusammenhangskomponenten, zerfällt $S^n \setminus X$ in genau zwei Komponenten.
+Für $n = 2$ ist dies gerade die Zerlegungsaussage des Satzes von Jordan.
+Der Satz von Alexander verallgemeinert diese also auf beliebige Dimensionen und auf beliebige kompakte, lokal zusammenziehbare Teilmengen der $S^n$.
