@@ -8,7 +8,7 @@ Für eine stetige komplexe Funktion $f(z)$ und einen Weg $\gamma(t)$
 ist $f(\gamma(t))$ eine stetige Funktion der reellen Variablen $t$.
 Nach allgemeinen Sätzen über das Riemann-Integral können wir also 
 \index{Riemann-Integral}%
-von Real- und Imaginärteil das Integral über das Definitionsgebiet
+von Real- und Imaginärteil das Integral über das Definitionsinterval
 berechnen.
 Die Definition eines Wegintegrals sollte aber möglichst nicht von
 der Parametrisierung des Weges abhängen.
@@ -865,7 +865,7 @@ ein Gebietsintegral der Wirtinger-Ableitung $\partial f/\partial\bar{z}$
 
 \begin{satz}
 \label{buch:integration:wegintegral:satz:dreiecke}
-Ist $f$ ein holomorphe Funktion $\sigma$ die im Gegenuhrzeigersinn
+Ist $f$ ein holomorphe Funktion und $\sigma$ die im Gegenuhrzeigersinn
 orientierte Randkurve eines der Gebiete $G_k$ in der 
 \index{Randkurve}%
 Abbildung~\ref{buch:integration:wegintegral:fig:dreiecke},
@@ -873,7 +873,7 @@ dann ist die Differenz der Wegintegrale über die blauen und
 roten Teile des Randes jeweils
 \begin{equation}
 (-1)^k
-\int_\gamma f(z)\,dz
+\int_\sigma f(z)\,dz
 =
 2i
 (-1)^k
@@ -950,7 +950,7 @@ Abbildung~\ref{buch:integration:wegintegral:fig:beliebig}
 durch die halben Pfeile angedeutet immer zweimal in entgegengesetzter
 Richtung durchlaufen.
 Nach Satz~\ref{buch:integration:wegintegral:satz:wegumkehrung}
-bedeutet dies, dass die die Wegintegrale über
+bedeutet dies, dass die Wegintegrale über
 diese Teilstücke entgegengesetzt sind und sich in der Summe wegheben.
 Es folgt, dass
 \begin{align*}
@@ -1084,7 +1084,7 @@ f(x,\varphi_-(x))
 \int_{\varphi_-(x)}^{\varphi_+(x)}
 \frac{\partial f}{\partial y}(x,y)
 \,dy
-\,dx
+\,dx,
 \\[10pt]
 \displaystyle
 \int_\gamma g\,dy

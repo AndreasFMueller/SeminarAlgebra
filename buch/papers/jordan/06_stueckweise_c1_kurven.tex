@@ -28,7 +28,7 @@ Konkret verlieren wir folgende Bausteine:
 
 \begin{itemize}
     \item \textbf{Hopfscher Umlaufsatz:} Er wurde für reguläre Kurven formuliert und ist auf die Existenz eindeutiger Tangenten bei jedem Punkt der Kurveangewiesen.
-    \item \textbf{Tubulare Umgebung:} An einer Ecke ist der Normalenvektor nicht stetig, und somit ist die Abbildung der tubulären Umgebung nicht mehr wohldefiniert. 
+    \item \textbf{Tubulare Umgebung:} An einer Ecke ist der Normalenvektor nicht stetig, und somit ist die Abbildung der tubularen Umgebung nicht mehr wohldefiniert. 
         An einer Spitze kollabiert sie, weil die Normale ``umklappt''.
 \end{itemize}
 
@@ -37,17 +37,16 @@ Konkret verlieren wir folgende Bausteine:
 Der Umlaufzahl-Beweis lässt sich mit geringem Aufwand auf stückweise $C^1$-Kurven übertragen, da das Integral über die Kurve $\gamma$ in Integrale über die glatten Teilbögen zerlegt werden kann:
 
 \[
-    \oint_{\gamma} f(\zeta) d\zeta = \sum_{k} \int_{\gamma | \left[ t_{k}, t_{k+1} \right]} f(\zeta) d\zeta
+    \oint_{\gamma} f(\zeta) \ d\zeta = \sum_{k} \int_{\gamma | \left[ t_{k}, t_{k+1} \right]} f(\zeta) \ d\zeta,
 \]
-
-wobei auf jedem glatten Teilbogen alles wohldefiniert ist. Punkte, die weder auf $\partial \gamma$ noch auf Ecken oder Spitzen liegen, sind die generischen Punkte. Ecken und Spitzen sind endlich viele spezielle Punkte auf $\gamma$
+wobei auf jedem glatten Teilbogen alles wohldefiniert ist. Punkte, die weder auf $\partial \gamma$ noch auf Ecken oder Spitzen liegen, sind die generischen Punkte. Ecken und Spitzen sind endlich viele spezielle Punkte auf $\gamma$.
 
 \input{papers/jordan/lemmata/06_umlaufzahl_stueckweise_c1_kurven.tex}
 
 \subsection{Modifizierter hopfscher Umlaufsatz: Gauss-Bonnet für stückweise $C^1$-Ränder}
 
 Der hopfsche Umlaufsatz muss angepasst werden, um Ecken und Spitzen zu berücksichtigen.
-Sei $\gamma$ eine einfach geschlossene stückweise $C^1$-Kurve mit endlich vielen Ecken an $t_{1}, \ldots, t_{m}$ und endlich vielen Spitzen an $t_{m+1}, \ldots, t_{m+1}$.
+Sei $\gamma$ eine einfach geschlossene stückweise $C^1$-Kurve mit endlich vielen Ecken bei $t_{1}, \ldots, t_{m}$ und endlich vielen Spitzen bei $t_{m+1}, \ldots, t_{m+n}$.
 An jeder Ecke $t_i$ definiert man den Aussenwinkel $\alpha_i$ als den orientierten Winkel zwischen der einlaufenden und auslaufenden Tangente (mit dem Vorzeichen: positive $\alpha_i$ für eine Linkskurve, negative $\alpha_i$ für eine Rechtskurve).
 An einer Spitze ist der Aussenwinkel $\pm \pi$, die Kurve klappt also um.
 
@@ -56,6 +55,98 @@ An einer Spitze ist der Aussenwinkel $\pm \pi$, die Kurve klappt also um.
 Dies ist der klassische Gauss-Bonnet-Satz für stückweise glatte Ränder in der Ebene. 
 Der Beweis erfolgt durch Approximation der stückweise $C^1$-Kurve durch glatte Kurven, wobei an den Ecken kleine Bögen eingesetzt werden, und Grenzwertbildung. 
 Die Krümmungsintegrale auf den eingesetzten Bögen konvergieren genau gegen die Aussenwinkel.
+
+\subsection{Prüfung der lokalen Eigenschaften an Spitzen}
+
+Wir haben mit dem Einsetzen der kleinen Bögen die lokalen Regularitätsprobleme an den Ecken gelöst.
+Eine Ecke weist nur Singularitäten auf, wenn man $\gamma$ als einen einzigen, durchgehenden Pfad zu parametrisieren versucht.
+Lokal betrachtet bricht die Ecke in zwei Teile, welche jeweils glatt und regulär sind.
+Das ist mit unserer Restriktion des Satzes von Jordan auf stückweise $C^1$-Kurven vereinbar und wir können die ``Abkürzung'' über die kleinen Bögen zum Zweck der Berechnung des Aussenwinkels nehmen.
+
+Spitzen sind hingegen deutlich problematischer: Die Ableitung einer Kurve kollabiert an einer Spitze, wodurch wir als Konsequenz auch den Tangentenvektor und die Krümmung an dieser Stelle verlieren.
+Wir verlieren an diesen Punkten also sämtliche Informationen über die ``Wildheit'' der Kurve.
+Die Kurve könnte sich unendlich oft um sich selbst winden und wir haben keine Möglichkeit, dies zu erkennen.
+Was ganz kritisch ist: Wir können an einer Spitze nicht mehr garantieren, dass die Kurve lokal die Ebene wirklich in zwei Teile zerlegt.
+
+In \ref{buch:analytisch:section:laurentreihen} wurde die Laurent-Reihe als eine Erweiterung von Potenz-Reihen vorgestellt.
+Sie erlaubt es uns, Kurven mit spezifischen Singularitäten zu analysieren.
+Für die Analyse von Spitzen reichen die Laurent-Reihen leider nicht aus, da sie für jeden Parameterwert $x$ einen eindeutigen Wert $y$ liefert und keine gebrochenen Exponenten erlauben.
+Man nehme zum Beispiel die Spitze $y^2 = x^3$, die in der Form 
+\[
+    y = \pm x^{\frac{3}{2}}
+\]
+nicht als Laurent-Reihe dargestellt werden kann.
+
+Wir müssen also die Regularität an Spitzen mit einem neuen Werkzeug wieder herstellen: Die Puiseux-Reihe.
+
+\input{papers/jordan/definitionen/06_puiseux_reihe.tex}
+
+Die Puiseux-Entwicklung verwendet einen Parametrisierungs-Trick, um dieses Problem zu lösen.
+Zuerst wird über ein Newtonpolygon die lokale Form der Kurve in der Nähe der Spitze bestimmt.
+
+\input{papers/jordan/definitionen/06_newtonpolygon.tex}
+
+Die negative Steigung der Kanten des Newtonpolygons liefert dabei den gebrochenen Exponenten des ersten Terms der Puiseux-Reihe.
+Hiermit kennen wir auch den Nenner des ersten gebrochenen Exponenten.
+Mit diesem Nenner können wir eine Parametrisierung einführen, deren Exponenten wieder ganzzahlig sind.
+Ein Beispiel:
+
+Wir betrachten die Spitze $y^{2} = x^{3}$.
+Das gefundene Newtonpolygon impliziert, dass unser führender Term die Form 
+\[
+    y \sim c \cdot x^{\frac{3}{2}}
+\]
+hat.
+Wir führen für die Parametrisierung einen neuen, künstlichen Parameter $t$ ein, sodass
+\[
+    x = t^{n} \implies x = t^{2}
+\]
+Setzen wir dies in die Ursprüngliche Gleichung $y^{2} = x^{3}$ ein, erhalten wir
+\[
+    y^{2} = (t^{2})^{3} = t^{6} \implies y = \pm t^{3}.
+\]
+Wir haben also eine Parametrisierung gefunden, mit welcher die gebrochenen Exponenten wieder ganzzahlig werden!
+Selbstverständlich kann man auch höhere Terme mit diesem Verfahren behandeln, indem man den gefundenen führenden Term in $F(x, y) = 0$ einsetzt, um den ersten Koeffizienten $c$ zu bestimmen.
+Die Gleichung wird anschliessend erweitert, indem man
+\[
+    y = c_{1} \cdot x^{\frac{3}{2}} + y_{neu}
+\]
+substituiert, und die Prozedur wird beliebig oft wiederholt.
+Schlussendlich erhalten wir eine Puiseux-Reihe in der Form
+\[
+    y = c_{1} x^{q_{1}} + c_{2} x^{q_{2}} + c_{3} x^{q_{3}} + \cdots ,
+\]
+wobei $q_{i}$ aufsteigende rationale Zahlen mit einem gemeinsamen Nenner sind.
+In unserem Fall resultiert dies in
+\[
+    y = c_{1} x^{\frac{3}{2}} + c_{2} x^{\frac{5}{2}} + c_{3} x^{\frac{7}{2}} + \cdots .
+\]
+Diese Reihe kann auch kompakt als Vektor geschrieben werden, indem ein Basispunkt $p$ addiert und die Richtungsvektoren $\tau$ für die $t^{2}$-Richtung und $v$ für die senkrechte $t^{3}$-Richtung genutzt werden:
+\[
+    \gamma(t) = p + t^{2} \tau + t^{3} v + o(t^{3}).
+\]
+Die klein-O-Notation und ihre Bedeutung wurde in \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} mit dem Beispiel einer Taylor-Reihe eingeführt.
+
+Um die Trennung in $I$ und $A$ analytisch zu beweisen, betrachten wir die führenden Terme der Puiseux-Parametrisierung lokal in einem Koordinatensystem, das durch den Basispunkt $p$, den Tangentenvektor $\tau$ (als $x$-Achse) und den orthogonalen Vektor $v$ (als $y$-Achse) aufgespannt wird. Nahe der Spitze gilt:
+\[
+    x(t) = t^2, \quad y(t) = t^3 + o(t^3).
+\]
+Da $x(t) = t^2 \ge 0$ für alle $t \in \mathbb{R}$ gilt, existiert die Kurve lokal ausschliesslich in der rechten Halbebene ($x \ge 0$). Für ein fixiertes, hinreichend kleines $x_0 > 0$ liefert die Gleichung $t^2 = x_0$ genau zwei reelle Parameterwerte $t = \pm\sqrt{x_0}$. Setzt man diese in die Gleichung für $y$ ein, spaltet sich die Kurve in zwei eindeutige, stetige Äste auf:
+\[
+    \gamma_{\text{ober}}(x_0) = +x_0^{3/2} + o(x_0^{3/2}) \quad (t > 0),
+\]
+\[
+    \gamma_{\text{unter}}(x_0) = -x_0^{3/2} + o(x_0^{3/2}) \quad (t < 0).
+\]
+Für jeden Punkt $(x_0, y_0)$ in einer kleinen Umgebung der Spitze mit $x_0 > 0$ existieren nun genau drei Bereiche, in denen ein Punkt liegen kann:
+\begin{enumerate}
+    \item Liegt der $y$-Wert strikt zwischen den beiden Ästen, also $-x_0^{3/2} < y_0 < +x_0^{3/2}$, befindet sich der Punkt im trichterförmigen Bereich, der von der Kurve umschlossen wird ($I$). Ein Strahl in negative $x$-Richtung muss die Kurve zwingend kreuzen.
+    \item Gilt $x_0 < 0$ oder liegt der Wert ausserhalb der Parabelarme ($y_0 > +x_0^{3/2}$ oder $y_0 < -x_0^{3/2}$), ist der Punkt topologisch mit dem Rest der Ebene verbunden, ohne die Kurve zu schneiden ($A$).
+    \item Gilt exakt $y_0 = \pm x_0^{3/2}$, liegt der Punkt auf der Kurve selbst.
+\end{enumerate}
+Da die Terme höherer Ordnung durch das $o(t^3)$ kontrolliert werden, können sich die beiden Äste für $x \to 0$ niemals gegenseitig schneiden oder asymptotisch verknäueln. Die Puiseux-Entwicklung garantiert somit analytisch, dass sich die beiden Äste im Ursprung tangential berühren, ohne die fundamentale Sektorentrennung zu verletzen.
+
+Wir haben hiermit auch aus analytischer Sicht zeigen können, dass auch Spitzen lokal $I$ und $A$ trennen, und somit Gauss-Bonnet für Spitzen bedenkenlos angewendet werden kann.
 
 \subsection{Lokale Analyse an Ecken und Spitzen}
 
@@ -67,7 +158,8 @@ In einer kleinen Kreisscheibe $B(p, \delta)$ zerlegt der Bogen $\gamma \cap B(p,
 Die beiden Sektoren gehören zu den beiden Seiten von $\gamma$. Lokal gibt es also weiterhin eine wohldefinierte Innen- und Aussenseite, wenn auch nicht mehr durch eine einheitliche Normale beschrieben.
 
 \subsubsection{Spitzen}
-Sei $p$ eine Spitze mit Tangentenvektoren $\tau^{-}$ und $\tau^{+}$. Eine Puiseux-Entwicklung lokal um $p$ ergibt $\gamma(t) \approx p + \left( t^2 \tau, t^3 v + o(t^3) \right)$ für einen Vektor $v$ senkrecht zu $\tau$.
+Sei $p$ eine Spitze mit Tangentenvektoren $\tau^{-}$ und $\tau^{+}$. 
+Eine Puiseux-Entwicklung lokal um $p$ ergibt $\gamma(t) \approx p + \left( t^2 \tau, t^3 v + o(t^3) \right)$ für einen Vektor $v$ senkrecht zu $\tau$.
 Die Kurve berührt sich in $p$ tangential und trennt die Umgebung in zwei Komponenten: Das ``Innere'' der Spitze, umschlossen von der Kurve, und das ``Äussere''. 
 Der Umlaufzahl-Ansatz umgeht diese lokale Analyse weitgehend, weil das Integral
 \[
@@ -80,6 +172,6 @@ Der Beitrag der Spitze selbst ist Mass 0, und stört entsprechend die Umlaufzahl
 
 Mit diesen Modifikationen des Umlaufzahl-Beweises und des hopfschen Umlaufsatzes gewinnen wir unsere verlorenen Bausteine zurück, und der Beweis des Satzes von Jordan für stückweise $C^1$-Kurven kann analog zum Beweis für reell-analytische Kurven durchgeführt werden.
 
-Die tubuläre Umgebung mag global nicht mehr existieren, aber lokal auf jedem glatten Teilbogen kann sie konstruiert werden. Der Wegzusammenhang von $I$ und $A$ folgt durch Konstruktion lokaler Tuben, die an Ecken und Spitzen überlappend zusammengefügt werden.
+Die tubulare Umgebung mag global nicht mehr existieren, aber sie kann lokal auf jedem glatten Teilbogen kann sie konstruiert werden. Der Wegzusammenhang von $I$ und $A$ folgt durch Konstruktion lokaler Tuben, die an Ecken und Spitzen überlappend zusammengefügt werden.
 
 Die Totaldrehung der Tangente ist jetzt die Summe aus Krümmungsintegral und Aussenwinkeln. Die entscheidende Aussage, dass für eine einfache geschlossene Kurve mit positiver Orientierung die Totaldrehung $2 \pi$ beträgt, bleibt erhalten.

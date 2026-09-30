@@ -81,8 +81,9 @@ also
 a_{n+1}
 &=
 \frac{1}{(n+1)a_0}
-\sum_{l=0}^{n-1} (l+1)a_{n-l}a_{l+1}.
+\sum_{l=0}^{n-1} (l+1)a_{n-l}a_{l+1}
 \end{align*}
+gelten.
 Dies ist eine Rekursionsformel, die den Koeffizienten $a_{n+1}$ aus
 den Koeffizienten $a_0,\dots,a_n$ bestimmt.
 Alle Koeffizienten hängen also vom Wert $a_0$ ab.
@@ -110,6 +111,7 @@ b_1
 &=
 \frac{1}{2b_0}
 &&=
+\phantom{-}
 \frac12
 \\
 n&=1: &&&
@@ -132,6 +134,7 @@ b_2b_1+2b_1b_2+3b_0{\color{darkred}b_3}
 &=
 -\frac{1}{3b_0}(3b_1b_2)
 &&=
+\phantom{-}
 \frac{1}{16}
 \\
 n&=3: &&&
@@ -155,17 +158,20 @@ b_4b_1+2b_3b_2+3b_2b_3+4b_1b_4+5b_0{\color{darkred}b_5}
 &=
 -\frac{1}{5b_0}(5b_1b_4+5b_2b_3)
 &&=
+\phantom{-}
 \frac{7}{256}
 \end{align*}
 Die Lösung hat also die Potenzreihe
 \begin{align}
 \!\sqrt{1+x}
 &=
-\frac12
--\frac{1}{8}x
-+\frac{1}{16}x^2
--\frac{5}{128}x^3
-+\frac{7}{256}x^4
+1
++
+\frac12x
+-\frac{1}{8}x^2
++\frac{1}{16}x^3
+-\frac{5}{128}x^4
++\frac{7}{256}x^5
 -\dots
 \label{buch:differentialgleichungen:potenzreihen:wurzelapprox}
 \end{align}

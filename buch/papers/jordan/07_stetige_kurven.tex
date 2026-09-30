@@ -18,7 +18,7 @@ Stetige Kurven bieten jedoch ein ganz anderes Kaliber an Komplexität: Sie könn
 Beispiele für stetige Kurven beinhalten:
 
 \begin{itemize}
-    \item \textbf{Fraktale Jordan-Kurven:} Die Koch-Schneeflocke, der Rand der Mandelbrot-Menge und das Sierpinski-Dreieck sind klassische Beispiele für stetige Jordan-Kurven und haben eine Hausdorff-Dimension von $>1$. Solche Kurven sind lokal beliebig komplex.
+    \item \textbf{Fraktale Jordan-Kurven:} Die Koch-Schneeflocke und der Rand der Mandelbrot-Menge sind klassische Beispiele für stetige Jordan-Kurven und haben eine Hausdorff-Dimension von $>1$. Solche Kurven sind lokal beliebig komplex.
     \item \textbf{Die Weierstrass-Funktion-basierte Kurve:} Der Graph der Weierstrass-Funktion 
     \[
     f(x) = \sum_{n=0}^{\infty} a^n \cos(b^n \pi x)
@@ -33,13 +33,13 @@ Beispiele für stetige Kurven beinhalten:
     \caption{Koch-Schneeflocke als Beispiel für ein Fraktal, dargestellt mit Iterationstiefe 3.}
 \end{figure}
 
-Mit der Erweiterung von stückweise $C^1$-Jordan-Kurven auf stetige Jordan-Kurven stehen wir also vor einer riesigen Herausforderung: Der Tangentenvektor ist nicht mehr wohldefiniert und da die Kurven nicht differenzierbar sind, können wir keine Kurvenintegrale $\oint_{\gamma}$, wie wir sie bisher verstanden haben, berechnen.
+Mit der Erweiterung von stückweise $C^1$-Jordan-Kurven auf stetige Jordan-Kurven stehen wir also vor einer riesigen Herausforderung: Der Tangentenvektor ist nicht mehr wohldefiniert und da die Kurven nicht differenzierbar sind, können wir keine Kurvenintegrale, wie wir sie bisher verstanden haben, berechnen.
 Diese Verluste sind für unsere bisherige Argumentation fatal, da wir hiermit zahlreiche Werkzeuge verlieren, welche wir ohne ein grundsätzliches Umdenken nicht ersetzen können:
 
 \begin{enumerate}
     \item Da wir weder Tangenten noch Normalen haben, können wir keine tubulare Umgebung mehr definieren.
     \item Mit dem Verlust des Kurvenintegrals $\oint_{\gamma}$ verlieren wir die Definition der Umlaufzahl.
-    \item Als Konsequenz verlieren sowohl den Hopfschen Umlaufsatz als auch den Gauss-Bonnet-Satz.
+    \item Als Konsequenz verlieren sowohl den hopfschen Umlaufsatz als auch den Gauss-Bonnet-Satz.
 \end{enumerate}
 
 Die Werkzeuge der komplexen Algebra stossen hier an ihre Grenzen.
@@ -59,7 +59,7 @@ Die Antwort ist einfach: Polygone sind die einfachsten geometrischen Objekte, di
 
 \input{papers/jordan/saetze/07_polygonale_approximation_jordan_kurven.tex}
 
-Zu beachten ist hierbei, dass mit ungenügender Granularität der Approximation das entstehende Polygon sich selbst schneiden kann, auch wenn die approximierte Kurve eine valide Jordan-Kurve ist.
+Zu beachten ist hierbei, dass mit ungenügender Granularität der Approximation das entstehende Polygon sich selbst schneiden kann, auch wenn die approximierte Kurve eine Jordan-Kurve ist.
 Eine stetige Kurve kann im Kleinen beliebig verwinkelt sein, und dieses Problem verschwindet nicht alleine dadurch, dass man die Punkte dichter wählt.
 Wir benötigen daher zwei Schwellwerte:
 
@@ -91,7 +91,6 @@ Diese Paare bilden dabei eine kompakte Menge, weshalb der Abstand zwischen den P
 \[
   |t - t'| \ge \eta \rightarrow \|\gamma(t) - \gamma(t')\| \ge \varepsilon .
 \]
-
 Abschnitte der Kurve, die im Durchlauf weit auseinanderliegen, kommen sich also in der Ebene nie näher als $\varepsilon$.
 
 \subsubsection{Auschluss von Selbstschnitten unter nicht-benachbarten Kanten}
@@ -104,13 +103,12 @@ Gemäss der Definition von $\varepsilon$ ist das nur möglich, wenn ihre Paramet
 \[
   e_i \cap e_j \neq \emptyset \rightarrow |t_i - t_j| < \eta .
 \]
-
 Wir können also daraus schliessen, dass Schnitte nur zwischen Kanten auftreten, die auf der Kurve nahe beieinander liegen.
 
 \subsubsection{Bereinigen des Polygons von Schleifen}
 
 Im Falle eines Schnitts bildet das Polygon zwischen den betroffenen Kanten eine Schleife.
-Indem wir am Schnittpunkt direkt zur späteren Kante übergehen, können wir die Schleife entfernen und das Polygon wieder zu einer validen Jordan-Kurve machen.
+Indem wir am Schnittpunkt direkt zur späteren Kante übergehen, können wir die Schleife entfernen und das Polygon wieder zu einer Jordan-Kurve machen.
 Da das Polygon nur endlich viele Kanten hat, ist nach endlich vielen Schritten keine Schleife mehr übrig.
 
 Wir müssen jedoch sicherstellen, dass wir die Kurve nicht zu stark verändern und die Nähe zur originalen Kurve $\gamma$ erhalten bleibt.
