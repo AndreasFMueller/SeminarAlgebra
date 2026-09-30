@@ -29,3 +29,5 @@ front.jpg:	front.pdf
 back.pdf:	back.tex buchcover.pdf
 	pdflatex back.tex
 
+publish:	buchcover.pdf
+	bash publish
