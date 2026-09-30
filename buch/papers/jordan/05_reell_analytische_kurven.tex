@@ -11,6 +11,10 @@
 \label{jordan:section:reell_analytische_kurven}}
 \kopfrechts{Der Fall reell-analytischer Kurven}
 
+Reell-analytische Kurven erhöhen die Komplexität der Beweisführung des Satzes von Jordan bereits erheblich.
+
+\input{papers/jordan/definitionen/05_reell_analytische_kurve.tex}
+
 Mit dem Schritt von einfachen Polygonen zu reell-analytischen Kurven (im Folgenden als $\gamma$ bezeichnet) verlieren wir mehrere Eigenschaften und Werkzeuge, welche wir bisher für die Beweisführung verwendet haben. 
 Spezifisch verlieren wir:
 \begin{itemize}
@@ -19,14 +23,14 @@ Spezifisch verlieren wir:
     \item \textbf{Diagonal-Lemma:} Aus dem gleichen Grund ist das Konzept einer Diagonale nicht mehr anwendbar.
 \end{itemize}
 Entsprechend müssen wir uns für eine von zwei Lösungen entscheiden: Entweder wir erweitern das Werkzeug der Strahlenparität, sodass es auf reell-analytische Kurven anwendbar ist, oder wir finden ein neues Werkzeug, das die Strahlenparität ersetzt. 
-Wir werden in diesem Abschnitt beide Ansätze diskutieren dabei herausfinden, dass einer der Ansätze dabei deutlich eleganter ist. 
+Wir werden in diesem Abschnitt beide Ansätze diskutieren und dabei herausfinden, dass einer der Ansätze deutlich eleganter ist. 
 
 Zusätzlich erhalten wir dank der Reell-Analytizität von $\gamma$ eine neue Kiste von analytischen Werkzeugen, die wir für unsere Beweisführung verwenden können:
 
 \subsection{Fortführung des Strahlenparität-Arguments}
 
 Um die Strahlenparität weiter zu entwickeln, betrachten wir die Wirkung von Deformationen auf die Anzahl der Schnittpunkte zwischen einer Kurve und einem Strahl. 
-Hierfür verwenden wir zwei neue, analytische Werkzeuge: Die endliche Schnittstruktur und die Tubulare Umgebung. 
+Hierfür verwenden wir zwei neue, analytische Werkzeuge: Die endliche Schnittstruktur und die tubulare Umgebung. 
 
 \subsubsection{Endliche Schnittstruktur
 \label{jordan:subsubsection:endliche_schnittstruktur}}
@@ -69,7 +73,7 @@ Die Spalten der Jacobi-Matrix enthalten die Ableitungen nach den neuen Koordinat
 Die Ableitung von $t$ entspricht hierbei dem Tangentenvektor $\gamma'(t)$, und die Ableitung von $s$ entspricht dem Einheitsnormalenvektor $n(t)$.
 Diese Vektoren sind per Definition orthogonal, und die Determinante der Jacobi-Matrix ist somit ungleich null.
 Dies bedeuted auch, dass die Jacobi-Matrix in einer Umgebung von $\gamma$ invertierbar ist, und wir somit eine Umgebung um $\gamma$ finden können, in der die Fermi-Koordinaten wohldefiniert sind.
-Nur mit sehr grossen $s$ können die Krümmungen der Kurve die Invertierbarkeit der Jacobi-Matrix wieder zerstören, spezifisch an dem Punkt, an dem sich zwei Normalenstrahlen schneiden.
+Nur mit zu grossen $s$ können die Krümmungen der Kurve die Invertierbarkeit der Jacobi-Matrix wieder zerstören, spezifisch an dem Punkt, an dem sich zwei Normalenstrahlen schneiden.
 
 \subsubsection{Strahlenparität auf reell-analytische Kurven
 \label{jordan:subsubsection:strahlenparitaet_reell_analytische_kurven}}
@@ -79,7 +83,7 @@ Gemäss der endlichen Schnittstruktur ist die Anzahl der Schnittpunkte $N(p,L)$ 
 Da die Schnittstruktur endlich ist, ist die Parität $N(p,L) \mod 2$ wieder wohldefiniert und hängt nicht von der Wahl des Strahls ab. 
 Das Signal dafür, dass ein Strahl die Kurve überschreitet, liefert nun das Vorzeichen von Fermi-Parameter $s$ in der tubularen Umgebung von $\gamma$.
 
-\subsection{Der Satz von Jordan für reell-analytische Kurven (Strahlenparität-Argument)
+\subsection{Strahlenparität-Argument für reell-analytische Kurven
 \label{jordan:subsection:satz_von_jordan_reell_analytische_kurven_strahlenparitaet}}
 
 Wie bereits im Schritt von konvexen Polygonen zu einfachen Polygonen, können wir einige der Beweisstrategien für die Eigenschaften von $I$ und $A$ beibehalten.
@@ -95,17 +99,17 @@ Dadurch kann auch jeder Punkt $p'$ von einem anderen Punkt $p$ innerhalb der gle
 \label{jordan:subsubsection:beschraenktheit_innen_tubulare_umgebung}}
 
 Das Innengebiet $I$ ist die Menge aller Punkte, die man von der inneren Tube $T^{-}$ aus erreichen kann, ohne die Kurve $\gamma$ zu überschreiten. 
-Da die reell-analytische Jordan-Kurve $\gamma$ kompakt (und somit beschränkt) ist, lässt sie sich vollständig in einer hinreichend grossen Kugel im Raum einschliessen. Da kein Pfad aus $T^{-}$ das unbeschränkte Äussere dieser Kugel erreichen kann, ohne die geschlossene Barriere $\gamma$ zu kreuzen, bleibt auch die gesamte Menge $I$ innerhalb dieser Kugel gefangen und ist somit ebenfalls beschränkt.
+Da die reell-analytische Jordan-Kurve $\gamma$ kompakt und somit beschränkt ist, lässt sie sich vollständig in einer hinreichend grossen Kreisscheibe im Raum einschliessen. Da kein Pfad aus $T^{-}$ das unbeschränkte Äussere dieser Kreisscheibe erreichen kann, ohne die geschlossene Barriere $\gamma$ zu kreuzen, bleibt auch die gesamte Menge $I$ innerhalb dieser Kreisscheibe gefangen und ist somit ebenfalls beschränkt.
 
 \subsubsection{Nicht-Leerheit von $I$
 \label{jordan:subsubsection:nicht_leerheit_innen_tubulare_umgebung}}
 
 Da die innere tubulare Umgebung $T^{-}$ für ein genügend kleines $\left|s\right|$ mit $s < 0$ als Normalenraum wohldefiniert und nicht leer ist, und $T^{-} \subset I$, ist $I$ nicht leer.
 
-\subsubsection{Limitationen des Strahlenparität-Arguments
+\subsubsection{Einschränkungen des Strahlenparität-Arguments
 \label{jordan:subsubsection:limitationen_strahlenparitaet}}
 
-Diese Beweisstrategie funktioniert, aber leider ist er auch analytisch aufwendig:
+Diese Beweisstrategie funktioniert, aber leider ist sie auch analytisch aufwendig:
 
 \begin{itemize}
     \item Fallunterscheidung zu Tangentenschnitten
@@ -123,18 +127,22 @@ Diese Umlaufzahl besitzt Eigenschaften, die es uns erlauben, die Strahlenparitä
 
 \input{papers/jordan/lemmata/05_grundlegende_eigenschaften_umlaufzahl.tex}
 
-Die Umlaufzahl $W(\gamma, p)$ ist eine stetige, ganzzahlige Funktion auf dem Komplement $\mathbb{R}^2 \setminus \gamma$. 
+Die Umlaufzahl $n(\gamma, p)$ ist eine stetige, ganzzahlige Funktion auf dem Komplement $\mathbb{R}^2 \setminus \gamma$. 
 Aus diesen Eigenschaften folgt schon fast der Satz von Jordan im analytischen Fall: Die Funktion $z \mapsto n(\gamma, z)$ nimmt auf jeder zusammenhängenden Komponente von $\mathbb{C} \setminus \gamma$ einen konstanten ganzzahligen Wert an. 
 Auf der unbeschränkten Komponente ist dieser Wert $0$. 
 
 Für einen vollständigen Beweis müssen wir jedoch noch zeigen, dass es mindestens eine Komponente gibt, auf der $n(\gamma, z) \neq 0$ gilt und dass es auf jeder beschränkten Komponente den Wert $\pm 1$ gibt.
-Der Hopfsche Umlaufsatz liefert uns genau diese Eigenschaften.
+Der hopfsche Umlaufsatz liefert uns genau diese Eigenschaften.
 
 \input{papers/jordan/saetze/05_hopfscher_umlaufsatz.tex}
 
-Um zu verstehen, was der Hopfsche Umlaufsatz genau aussagt, benötigen wir erst die Definition einer ``Totaldrehung''.
+Um zu verstehen, was der hopfsche Umlaufsatz genau aussagt, benötigen wir erst die Definition einer ``Totaldrehung''.
 
 \input{papers/jordan/definitionen/05_tangentenwindungszahl_totaldrehung.tex}
+
+Sowohl der hopfsche Umlaufsatz als auch die Definition der Totaldrehung setzen die Regularität der zu untersuchenden Kurve voraus.
+
+\input{papers/jordan/definitionen/05_regularitaet.tex}
 
 \begin{figure}
     \centering
@@ -165,7 +173,7 @@ Wir verwenden den hopfschen Umlaufsatz, ohne in diesem Text eine Intuition zur B
     \caption{Konstruktion der Umlaufzahl am Beispiel eines Punkts innerhalb (links) und ausserhalb (rechts) einer Jordan-Kurve.}
 \end{figure}
 
-\subsection{Der Satz von Jordan für reell-analytische Kurven (Umlaufzahl-Argument)
+\subsection{Umlaufzahl-Argument für reell-analytische Kurven
 \label{jordan:subsection:satz_von_jordan_reell_analytische_kurven_umlaufzahl}}
 
 
@@ -175,27 +183,27 @@ Auch hier werden wir häufig Gebrauch von der tubularen Umgebung machen.
 \subsubsection{Wegzusammenhang von $A$
 \label{jordan:subsubsection:wegzusammenhang_aussen_reell_analytisch_umlaufzahl}}
 
-Für das Aussengebiet $A$ (definiert durch die unbeschränkte Komponente mit $W = 0$) folgt der Wegzusammenhang daraus, dass zwei beliebige Punkte ausserhalb einer die Kurve umschliessenden Riesen-Kugel im Unendlichen direkt und kreuzungsfrei miteinander verbunden werden können.
-Ein isoliertes inneres Loch mit $W = 0$ kann nicht existieren, da beim Übergang von einer solchen hypothetischen Komponente in das unbeschränkte Äussere die Kurve $\gamma$ gekreuzt werden müsste. 
+Für das Aussengebiet $A$ (definiert durch die unbeschränkte Komponente mit $n(\gamma, p) = 0$) folgt der Wegzusammenhang daraus, dass zwei beliebige Punkte ausserhalb einer die Kurve umschliessenden Riesen-Kreisscheibe im Unendlichen direkt und kreuzungsfrei miteinander verbunden werden können.
+Ein isoliertes inneres Loch mit $n(\gamma, p) = 0$ kann nicht existieren, da beim Übergang von einer solchen hypothetischen Komponente in das unbeschränkte Äussere die Kurve $\gamma$ gekreuzt werden müsste. 
 Ein solches transversales Überqueren der Kurve zwingt die Umlaufzahl jedoch über ihre mathematische Sprungeigenschaft zu einer Änderung um genau $\pm 1$ -- sie kann also nicht von 0 direkt auf 0 springen.
 
 \subsubsection{Wegzusammenhang von $I$
 \label{jordan:subsubsection:wegzusammenhang_innen_reell_analytisch_umlaufzahl}}
 
-Für das Innengebiet $I$ (die Menge aller Punkte mit $W \neq 0$) nutzen wir die Brücke zur tubularen Umgebung: 
+Für das Innengebiet $I$ (die Menge aller Punkte mit $n(\gamma, p) \neq 0$) nutzen wir die Brücke zur tubularen Umgebung: 
 Angenommen, es gäbe zwei topologisch getrennte innere Komponenten $I_1$ und $I_2$. 
 Da $\gamma$ eine einfache, geschlossene Jordan-Kurve ist, grenzen alle inneren Bereiche an dieselbe Kurve an. 
-Über die innere Hälfte der tubularen Umgebung $T^{-}$ existiert ein stetiger, geschlossener „Sicherheitsschlauch“ direkt entlang der Innenseite von $\gamma$. 
-Da man sich innerhalb dieses Schlauchs frei bewegen kann, ohne $\gamma$ zu kreuzen, verbindet $T^{-}$ alle potenziellen inneren Inseln zu einer einzigen, grossen Wegzusammenhangskomponente.
+Über die innere Hälfte der tubularen Umgebung $T^{-}$ existiert ein stetiger, geschlossener „Sicherheitsstreifen“ direkt entlang der Innenseite von $\gamma$. 
+Da man sich innerhalb dieses Streifens frei bewegen kann, ohne $\gamma$ zu kreuzen, verbindet $T^{-}$ alle potenziellen inneren Inseln zu einer einzigen, grossen Wegzusammenhangskomponente.
 
 \subsubsection{Beschränktheit von $I$
 \label{jordan:subsubsection:beschraenktheit_innen_reell_analytisch_umlaufzahl}}
 
-Das Innengebiet $I$ ist die Menge aller Punkte mit einer Umlaufzahl $W(\gamma, p) \neq 0$. 
-Da die reell-analytische Jordan-Kurve $\gamma$ kompakt (und somit beschränkt) ist, lässt sie sich vollständig in einer hinreichend grossen Kugel im Raum einschliessen. 
-Für alle Punkte weit ausserhalb dieser Kugel gilt im unendlichen Grenzfall per Definition $W = 0$. 
-Da sich die Umlaufzahl nur beim Kreuzen der Barriere $\gamma$ ändern kann, kann kein Punkt mit $W \neq 0$ das unbeschränkte Äussere dieser Kugel erreichen. 
-Das gesamte Gebiet $I$ bleibt somit innerhalb der Kugel gefangen und ist beschränkt.
+Das Innengebiet $I$ ist die Menge aller Punkte mit einer Umlaufzahl $n(\gamma, p) \neq 0$. 
+Da die reell-analytische Jordan-Kurve $\gamma$ kompakt (und somit beschränkt) ist, lässt sie sich vollständig von einer hinreichend grossen Kreisscheibe auf der Ebene umgeben. 
+Für alle Punkte weit ausserhalb dieser Kreisscheibe gilt im unendlichen Grenzfall per Definition $n(\gamma, p) = 0$. 
+Da sich die Umlaufzahl nur beim Kreuzen der Barriere $\gamma$ ändern kann, kann kein Punkt mit $n(\gamma, p) \neq 0$ das unbeschränkte Äussere dieser Kreisscheibe erreichen. 
+Das gesamte Gebiet $I$ bleibt somit innerhalb der Kreisscheibe gefangen und ist beschränkt.
 
 
 \subsubsection{Nicht-Leerheit von $I$
@@ -203,10 +211,12 @@ Das gesamte Gebiet $I$ bleibt somit innerhalb der Kugel gefangen und ist beschr�
 
 Da die innere tubulare Umgebung $T^{-}$ für ein genügend kleines, strikt negatives Normalenintervall $t < 0$ wohldefiniert und geometrisch nicht leer ist, existieren diese inneren Punkte im Raum garantiert. 
 Überquert man die Kurve lokal aus dem Aussengebiet kommend transversal durch die Tube nach innen, springt die Umlaufzahl von $0$ auf $\pm 1$. 
-Da somit Punkte mit $W \neq 0$ innerhalb von $T^{-}$ existieren und per Definition $T^{-} \subset I$ gilt, ist das Innengebiet $I$ nicht leer.
+Da somit Punkte mit $n(\gamma, p) \neq 0$ innerhalb von $T^{-}$ existieren und per Definition $T^{-} \subset I$ gilt, ist das Innengebiet $I$ nicht leer.
 
 \subsubsection{Vorteile des Umlaufzahl-Arguments
 \label{jordan:subsubsection:vorteile_umlaufzahl}}
 
 Der Beweis des Satzes von Jordan für reell-analytische Kurven unter Verwendung der Umlaufzahl ist nicht nur deutlich eleganter als der Ansatz basierend auf der Strahlenparität, sondern er zeigt sich auch deutlich robuster und flexibler.
-So kann man mit nur geringen Modifikationen den Beweis auf Kurven erweitern, welche moderate Singularitäten besitzen.
+Eine Einschränkung des Umlaufzahl-Arguments versteckt sich darin, dass der hopfsche Umlaufsatz nur auf reguläre Kurven anwendbar ist.
+Kurven, die Singularitäten aufweisen, können entsprechend nicht mit diesem Argument behandelt werden.
+Glücklicherweise kann man mit nur geringen Modifikationen den Beweis auf Kurven erweitern, welche moderate Singularitäten besitzen.
