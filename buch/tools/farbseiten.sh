@@ -137,15 +137,17 @@ chapter=julia
 # Kapitel 13 jordan
 chapter=jordan
 2
+3
 4
-5
 6
 8
 11
 13
 14
-15
 16
+19
+20
+23
 #
 # Kapitel 14 qa
 chapter=qa
