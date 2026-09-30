@@ -65,10 +65,9 @@ Das ist mit unserer Restriktion des Satzes von Jordan auf stückweise $C^1$-Kurv
 
 Spitzen sind hingegen deutlich problematischer: Die Ableitung einer Kurve kollabiert an einer Spitze, wodurch wir als Konsequenz auch den Tangentenvektor und die Krümmung an dieser Stelle verlieren.
 Wir verlieren an diesen Punkten also sämtliche Informationen über die ``Wildheit'' der Kurve.
-Die Kurve könnte sich unendlich oft um sich selbst winden und wir haben keine Möglichkeit, dies zu erkennen.
-Was ganz kritisch ist: Wir können an einer Spitze nicht mehr garantieren, dass die Kurve lokal die Ebene wirklich in zwei Teile zerlegt.
+Was dabei ganz kritisch ist: Wir können an einer Spitze nicht mehr garantieren, dass die Kurve lokal die Ebene wirklich in zwei Teile zerlegt.
 
-In \ref{buch:analytisch:section:laurentreihen} wurde die Laurent-Reihe als eine Erweiterung von Potenz-Reihen vorgestellt.
+In \ref{buch:analytisch:section:laurentreihen} wurde die Laurent-Reihe als eine Erweiterung von Potenzreihen vorgestellt.
 Sie erlaubt es uns, Kurven mit spezifischen Singularitäten zu analysieren.
 Für die Analyse von Spitzen reichen die Laurent-Reihen leider nicht aus, da sie für jeden Parameterwert $x$ einen eindeutigen Wert $y$ liefert und keine gebrochenen Exponenten erlauben.
 Man nehme zum Beispiel die Spitze $y^2 = x^3$, die in der Form 
@@ -81,37 +80,9 @@ Wir müssen also die Regularität an Spitzen mit einem neuen Werkzeug wieder her
 
 \input{papers/jordan/definitionen/06_puiseux_reihe.tex}
 
-Die Puiseux-Entwicklung verwendet einen Parametrisierungs-Trick, um dieses Problem zu lösen.
-Zuerst wird über ein Newtonpolygon die lokale Form der Kurve in der Nähe der Spitze bestimmt.
+Bei der Puiseux-Entwicklung kann auch ein Parametrisierungs-Trick verwendet werden, um ganzzahlige Exponenten zu erhalten.
+Details über die Puiseux-Entwicklung und ihre Eigenschaften können in \cite{jordan:fischer1994} erkundet werden.
 
-\input{papers/jordan/definitionen/06_newtonpolygon.tex}
-
-Die negative Steigung der Kanten des Newtonpolygons liefert dabei den gebrochenen Exponenten des ersten Terms der Puiseux-Reihe.
-Hiermit kennen wir auch den Nenner des ersten gebrochenen Exponenten.
-Mit diesem Nenner können wir eine Parametrisierung einführen, deren Exponenten wieder ganzzahlig sind.
-Ein Beispiel:
-
-Wir betrachten die Spitze $y^{2} = x^{3}$.
-Das gefundene Newtonpolygon impliziert, dass unser führender Term die Form 
-\[
-    y \sim c \cdot x^{\frac{3}{2}}
-\]
-hat.
-Wir führen für die Parametrisierung einen neuen, künstlichen Parameter $t$ ein, sodass
-\[
-    x = t^{n} \implies x = t^{2}
-\]
-Setzen wir dies in die Ursprüngliche Gleichung $y^{2} = x^{3}$ ein, erhalten wir
-\[
-    y^{2} = (t^{2})^{3} = t^{6} \implies y = \pm t^{3}.
-\]
-Wir haben also eine Parametrisierung gefunden, mit welcher die gebrochenen Exponenten wieder ganzzahlig werden!
-Selbstverständlich kann man auch höhere Terme mit diesem Verfahren behandeln, indem man den gefundenen führenden Term in $F(x, y) = 0$ einsetzt, um den ersten Koeffizienten $c$ zu bestimmen.
-Die Gleichung wird anschliessend erweitert, indem man
-\[
-    y = c_{1} \cdot x^{\frac{3}{2}} + y_{neu}
-\]
-substituiert, und die Prozedur wird beliebig oft wiederholt.
 Schlussendlich erhalten wir eine Puiseux-Reihe in der Form
 \[
     y = c_{1} x^{q_{1}} + c_{2} x^{q_{2}} + c_{3} x^{q_{3}} + \cdots ,
@@ -121,17 +92,19 @@ In unserem Fall resultiert dies in
 \[
     y = c_{1} x^{\frac{3}{2}} + c_{2} x^{\frac{5}{2}} + c_{3} x^{\frac{7}{2}} + \cdots .
 \]
-Diese Reihe kann auch kompakt als Vektor geschrieben werden, indem ein Basispunkt $p$ addiert und die Richtungsvektoren $\tau$ für die $t^{2}$-Richtung und $v$ für die senkrechte $t^{3}$-Richtung genutzt werden:
+Diese Reihe kann auch kompakt als Vektor geschrieben werden, indem ein Basispunkt $p$ addiert und die Richtungsvektoren $\tau$ für die $t^{2}$-Richtung und $v$ für die senkrechte $t^{3}$-Richtung genutzt werden.
+Nach Anwendung des oben genannten Parametrisierungs-Tricks erhalten wir die Puiseux-Entwicklung in der Vektorform
 \[
     \gamma(t) = p + t^{2} \tau + t^{3} v + o(t^{3}).
 \]
-Die klein-O-Notation und ihre Bedeutung wurde in \ref{buch:holomoprh:holomorph:subsection:komplexedifferenzierbarkeit} mit dem Beispiel einer Taylor-Reihe eingeführt.
 
 Um die Trennung in $I$ und $A$ analytisch zu beweisen, betrachten wir die führenden Terme der Puiseux-Parametrisierung lokal in einem Koordinatensystem, das durch den Basispunkt $p$, den Tangentenvektor $\tau$ (als $x$-Achse) und den orthogonalen Vektor $v$ (als $y$-Achse) aufgespannt wird. Nahe der Spitze gilt:
 \[
     x(t) = t^2, \quad y(t) = t^3 + o(t^3).
 \]
-Da $x(t) = t^2 \ge 0$ für alle $t \in \mathbb{R}$ gilt, existiert die Kurve lokal ausschliesslich in der rechten Halbebene ($x \ge 0$). Für ein fixiertes, hinreichend kleines $x_0 > 0$ liefert die Gleichung $t^2 = x_0$ genau zwei reelle Parameterwerte $t = \pm\sqrt{x_0}$. Setzt man diese in die Gleichung für $y$ ein, spaltet sich die Kurve in zwei eindeutige, stetige Äste auf:
+Da $x(t) = t^2 \ge 0$ für alle $t \in \mathbb{R}$ gilt, existiert die Kurve lokal ausschliesslich in der rechten Halbebene ($x \ge 0$).
+Für ein fixiertes, hinreichend kleines $x_0 > 0$ liefert die Gleichung $t^2 = x_0$ genau zwei reelle Parameterwerte $t = \pm\sqrt{x_0}$.
+Setzt man diese in die Gleichung für $y$ ein, spaltet sich die Kurve in zwei eindeutige, stetige Äste auf:
 \[
     \gamma_{\text{ober}}(x_0) = +x_0^{3/2} + o(x_0^{3/2}) \quad (t > 0),
 \]
@@ -159,9 +132,8 @@ Die beiden Sektoren gehören zu den beiden Seiten von $\gamma$. Lokal gibt es al
 
 \subsubsection{Spitzen}
 Sei $p$ eine Spitze mit Tangentenvektoren $\tau^{-}$ und $\tau^{+}$. 
-Eine Puiseux-Entwicklung lokal um $p$ ergibt $\gamma(t) \approx p + \left( t^2 \tau, t^3 v + o(t^3) \right)$ für einen Vektor $v$ senkrecht zu $\tau$.
 Die Kurve berührt sich in $p$ tangential und trennt die Umgebung in zwei Komponenten: Das ``Innere'' der Spitze, umschlossen von der Kurve, und das ``Äussere''. 
-Der Umlaufzahl-Ansatz umgeht diese lokale Analyse weitgehend, weil das Integral
+Der Umlaufzahl-Ansatz umgeht die lokale Analyse weitgehend, weil das Integral
 \[
     \oint \frac{d \zeta}{\zeta - z}
 \]
