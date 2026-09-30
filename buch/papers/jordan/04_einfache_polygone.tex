@@ -11,7 +11,7 @@
 \label{jordan:section:einfache_polygone}}
 \kopfrechts{Der Fall einfacher Polygone}
 
-Einfache Polygone verwerfen die Einschränkng der Konvexität und erlauben es, dass die Kurve einspringende Ecken aufweist, solange sie sich nicht selbst schneidet. 
+Einfache Polygone verwerfen die Einschränkung der Konvexität und erlauben, dass die Kurve einspringende Ecken aufweist, solange sie sich nicht selbst schneidet. 
 Die Eigenschaft der Konvexität war jedoch in der vorherigen Beweisführung entscheidend, da sie die Definition der konvexen Hülle und die Trennung der Ebene in zwei Gebiete erleichtert hat. 
 
 Wir benötigen daher einen neuen Ansatz, um die bisherigen, durch die Eigenschaften der Konstruktion der behandelten Körper gegebenen, Definitionen für ``Innen'' und ``Aussen'' neu zu formulieren.
@@ -54,6 +54,7 @@ Die Etablierung des Wegzusammenhangs von $I$ und $A$ verlangt ein topologisch su
 \input{papers/jordan/saetze/04_triangulierungssatz_einfache_polygone.tex}
 
 Dieser Triangulierungssatz wurde 1975 von Gary H. Meisters \cite{jordan:meisters1975} präzise bewiesen.
+\index{Meisters, Gary H.}%
 Der Beweis basiert auf folgendem Lemma:
 
 \input{papers/jordan/lemmata/04_existenz_diagonale.tex}
@@ -68,7 +69,7 @@ Die Existenz einer in einem Polygon mit mehr als drei Ecken liegenden Diagonale 
 \end{figure}
 
 Mit dieser Triangulierung können wir nun den Wegzusammenhang zwischen zwei Punkten in $I$ aufzeigen.
-Da $I$ als Vereinigung von anliegenden Dreiecken dargestellt werden kann, und Dreiecke als konvexe Polygone inhärent wegzusammenhängend sind, können wir einen Weg zwischen zwei Punkten in $I$ konstruieren, indem wir die Dreiecke durchqueren, die das Polygon bilden.
+Da $I$ als Vereinigung von anliegenden Dreiecken dargestellt werden kann, und Dreiecke als konvexe Polygone wegzusammenhängend sind, können wir einen Weg zwischen zwei Punkten in $I$ konstruieren, indem wir die Dreiecke durchqueren, die das Polygon bilden.
 
 \subsubsection{Beschränktheit von $I$
 \label{jordan:subsubsection:beschraenktheit_innen}}
@@ -81,7 +82,7 @@ Da $I$ eine Teilmenge dieser konvexen Hülle ist, und wir bereits in \ref{jordan
 
 Die nicht-Leerheit von $I$ kann aus einem geometrischen Argument abgeleitet werden: Jedes Polygon mit $n \geq 3$ Ecken muss eine nicht-leeres, inneres Gebiet haben.
 Wie schon in \ref{jordan:subsubsection:wegzusammenhang_innen_aussen} gezeigt, kann jedes Polygon mit $n \geq 3$ Ecken in nicht überlappende Dreiecke zerlegt werden.
-Da jedes Dreieck, als ein konvexes Polygon, ein nicht-leeres inneres Gebiet hat, kann das innere Gebiet des Polygons nicht leer sein, da es die Vereinigung der inneren Gebiete der Dreiecke ist.
+Da jedes Dreieck als konvexes Polygon ein nicht-leeres inneres Gebiet hat, kann das innere Gebiet des Polygons nicht leer sein, da es die Vereinigung der inneren Gebiete der Dreiecke und der gemeinsamen Kanten ist.
 
 \subsubsection{$P$ als gemeinsamer Rand von $I$ und $A$
 \label{jordan:subsubsection:gemeinsamer_rand_innen_aussen}}
