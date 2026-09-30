@@ -18,6 +18,6 @@ images:
 		);							\
 	done
 
-teilnehmer.tex:	teilnehmer.sh
+teilnehmer.tex:	teilnehmer.sh 
 	bash teilnehmer.sh > teilnehmer.tex
 

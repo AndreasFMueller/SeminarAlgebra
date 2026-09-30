@@ -102,7 +102,7 @@ Nico Vinzens
 # 2018 Klimawandel
 Matthias Baumann
 Oliver Dias
-Jonas Gründler 
+Jonas Gründler
 Sebastian Lenhard
 Silvio Marti
 Michael Müller
@@ -281,7 +281,7 @@ Selina Malacarne
 Stephanie Märklin
 Roman Meyer
 Etienne Schafflützel
-José Schmid
+Manuel Schmid
 Andri Sprecher
 Andrea Studer
 Fabian Suter
@@ -311,7 +311,7 @@ EOF
 	counter = counter + 1
 	linenumber = linenumber + 1
 	if (linenumber > 1) {
-		printf(", ")
+		printf(",\n")
 	}
 	count=$1
 	lastname=$2

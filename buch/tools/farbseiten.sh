@@ -54,7 +54,7 @@ chapter=4
 45
 46
 47
-48
+49
 53
 #
 # Kapitel  5
@@ -66,6 +66,7 @@ chapter=5
 16
 22
 23
+35
 39
 #
 # Kapitel  6
@@ -76,7 +77,7 @@ chapter=6
 # Kapitel  7
 chapter=7
 15
-19
+20
 #
 # Kapitel  8
 chapter=8
@@ -142,12 +143,11 @@ chapter=jordan
 6
 8
 11
-13
 14
-16
-19
-20
-23
+17
+21
+22
+25
 #
 # Kapitel 14 qa
 chapter=qa
