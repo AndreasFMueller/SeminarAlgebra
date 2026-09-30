@@ -29,17 +29,17 @@ Für den Grenzwert wird ausserdem ein Zahlenkörper gebraucht, in dem
 alle Grenzwerte existieren, was in $\mathbb{Q}$ nicht gegeben ist.
 Der einzige Körper, der vollständig wäre, ist $\mathbb{R}$, der aber
 im Computer nicht exakt dargestellt werden kann und daher nicht als
-Basis eines CAS definiert werden kann.
+Basis eines CAS gewählt werden kann.
 
-Als alternativer Ansatz für die Definition der können die einfachsten
-bekannten Rechenregeln der Ableitung verwendet werden.
+Als alternativer Ansatz für die Definition der Ableitung können die
+einfachsten bekannten Rechenregeln der Ableitung verwendet werden.
 Die Ableitung ist zum Beispiel eine lineare Abbildung.
 Dies allein reicht jedoch nicht, weil die Ableitung auch für 
 Potenzen $x^n$ oder für Produkte von Funktionen angewendet werden
 soll.
 Die Linearität kann darüber nichts aussagen.
 Daher braucht es eine zusätzlich Regel für Produkte, die natürlich
-die Produktregel für dei Ableitung wiedergeben soll.
+die Produktregel für die Ableitung wiedergeben soll.
 
 \begin{definition}[Derivation]
 Eine \emph{Derivation} in einem Funktionenkörper $F$ ist eine 
@@ -315,21 +315,19 @@ des abgeleiteten Polynoms fest.
 \index{Abgeleites Polynom}%
 Ist $p(X)\in K[X]$ ein Polynom mit Koeffizienten in einem
 Koeffizientenkörper mit der Darstellung
-\[
+\begin{align*}
 p(X)
-=
-p_0 + p_1X + p_2X^2 + \ldots + p_{n-1}X^{n-1} + p_nX^n,
+&=
+p_0 + p_1X + p_2X^2 + \ldots + p_{n-1}X^{n-1} + p_nX^n
 =
 \sum_{k=0}^n p_k X^k
-\]
-dann heisst
-\[
+\intertext{dann heisst}
 p'(X)
-=
+&=
 p_1 + 2p_2 X + 3p_3 X^2 + \ldots + (n-1)p_{n-1}X^{n-2} + np_n X^{n-1}
 =
 \sum_{k=1}^n kp_k X^{k-1}
-\]
+\end{align*}
 das \emph{abgeleitete Polynom}.
 \end{definition}
 
@@ -417,7 +415,7 @@ D\!\sqrt[n]{f}
 \cdot
 Df.
 \end{align*}
-Dies ist die Kettenregel für die $n$-Wurzel.
+Dies ist die Kettenregel für die $n$-te Wurzel.
 \end{beispiel}
 
 %
@@ -445,7 +443,7 @@ der Konstanten heisst der \emph{Konstantenkörper} in $F$.
 
 Wir müssen uns noch überlegen, dass $C$ wirklich ein Körper ist.
 Dazu müssen wir nachrechnen, dass Summe, Produkt und Quotient
-konstanter Elemente aus $C$ wieder in $C$ liegt.
+konstanter Elemente aus $C$ wieder in $C$ liegen.
 Wir wählen daher $a,b\in C$, d.~h.~$Da=0$ und $Db=0$.
 Dann gilt auch
 \begin{align*}

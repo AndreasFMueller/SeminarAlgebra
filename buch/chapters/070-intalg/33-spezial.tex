@@ -65,7 +65,7 @@ Wir nehmen ausserdem an, dass $F$ und $F(\vartheta)$ den gleichen
 Konstantenkörper haben.
 Dies kann immer erreicht werden, indem man alle für das Integral
 nötigen Konstanten bereits dem Körper $F$ hinzufügt, bevor man beginnt,
-um nichtkonstante Funktionen zu erweitern.
+ihm um nichtkonstante Funktionen zu erweitern.
 
 Wir müssen zeigen, dass $\vartheta$ nur ein Logarithmus sein kann und dass
 $\vartheta$ nur linear in $g$ vorkommen kann.
@@ -128,6 +128,7 @@ D
 $\vartheta$ nicht enthält.
 Wir wollen zeigen, dass diese zur Folge hat, dass gar keine Bruchterme
 vorkommen können.
+
 Die Ableitung eines einzelnen Terms in der Summe ist}
 D
 \frac{a_{ik}(\vartheta)}{b_k(\vartheta)^i}
@@ -178,7 +179,6 @@ a_0(\vartheta) = c_0+c_1\vartheta
 Damit $\vartheta$ in $Dg$ nicht vorkommt, muss der Grad von des Polynoms
 $a_0(\vartheta)$ beim Differenzieren um eins abnehmen, was nur möglich ist,
 wenn der Koeffizient von $\vartheta$ eine Konstante ist, also $c_1\in K$.
-Somit 
 \end{proof}
 
 %
@@ -232,8 +232,8 @@ Es bleibt also nur noch der polynomielle Teil.
 Nach Satz~\ref{buch:intalg:liouville:polynome:satz:exponentiell}
 kann aber der Grad des Polynoms $a_0(\vartheta)$ beim Differenzieren
 nicht abnehen, die Ableitung $Da_0(\vartheta)$ kann daher $\vartheta$
-nicht enhalten, wenn $a_0(\vartheta)$ ein Polynom vom, Grad 0 ist,
-also $g=a_0(\vartheta)=a_{0,0}\in F$.
+nicht enhalten, wenn $a_0(\vartheta)$ ein Polynom vom Grad 0 ist,
+also ist $g=a_0(\vartheta)=a_{0,0}\in F$.
 \end{proof}
 
 %
@@ -320,15 +320,16 @@ f
 \sum_{k=1}^l Da(\vartheta_k)
 =
 Dh
-\qquad\text{mit } h=\frac{1}{l} \sum_{k=1}^l a(\vartheta_k)
+\qquad\text{mit } h=\frac{1}{l} \sum_{k=1}^l a(\vartheta_k).
 \label{buch:intalg:liouville:alg:eqn:symmetrisch}
 \end{align}
 $h$ ist eine symmetrische Funktion in
-$\vartheta_1,\dots,\vartheta_l$, nach dem Hauptsatz über symmetrische
-Funktionen lassen sich die Koeffizienten von $h$ nach dem Fundamentalsatz
-\ref{buch:komplex:fundamental:satz:fundamentalpolynom} über symmetrische
-Polynome durch die elementarsymmetrischen Funktionen von
-$\vartheta_1,\dots,\vartheta_l$ ausdrücken.
+$\vartheta_1,\dots,\vartheta_l$.
+Nach dem Fundamentalsatz
+\ref{buch:komplex:fundamental:satz:fundamentalpolynom}
+über symmetrische Polynome lassen sich die Koeffizienten von $h$ durch
+die elementarsymmetrischen Funktionen von $\vartheta_1,\dots,\vartheta_l$
+ausdrücken.
 Diese sind jedoch Koeffzienten des Minimalpolynoms $m(X)$ von $\vartheta$,
 die alle in $F$ liegen.
 Somit hängt die rechte Seite von
